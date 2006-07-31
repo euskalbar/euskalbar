@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://euskalbar/skin/euskalbar.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
+
+<overlay id="EuskalBar-Overlay"
+   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="euskalbar.js"/>
+  <toolbox id="navigator-toolbox">
+    <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar"
+           context="toolbar-context-menu" toolbarname="Euskalbar"
+           hidden="false" persist="hidden">
+      <toolbarbutton disabled="true" id="euskalbar-button" />
+      <toolbarseparator/>
+      <toolbarbutton id="optionsdialog" label="&euskalbar.options.tooltip;" tooltiptext="&euskalbar.options.tooltip;" oncommand="euskalbarOptions();" />
+      <toolbarseparator/>
+      <toolbarbutton id="euskalbar-language" tooltiptext="es>eu" oncommand="changeEuskalbarLang();" />
+      <textbox id="EuskalBar-search-string" label="Search String" style="margin-left: 10px;"    onkeypress="goEuskalBarOnKey(event)" />
+      <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;"
+               label="EuskalTerm" oncommand="goEuskalBar(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;"
+               label="3000" oncommand="goEuskalBarAsk(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;"
+               label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
+               label="Hiztegi Batua" oncommand="goEuskalBarEuskaltzaindia(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;"
+               label="ItzuL" oncommand="goEuskalBarItzuL(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;"
+               label="Harluxet" oncommand="goEuskalBarHarluxet(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;"
+               label="Mokoroa" oncommand="goEuskalBarMokoroa(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;"
+               label="Opentrad" oncommand="goEuskalBarOpentrad(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+     </toolbar>
+  </toolbox>
+
+<!-- Firefox context menupopup right-click -->
+<popup id="contentAreaContextMenu">    
+<menuseparator/>
+    <menuitem id="EuskalBar-context" label="Euskeratu Opentrad erabiliz" oncommand="goEuskalBarSelection('none', 'none', escape(selectionText()));" >
+       <observes element="cmd_copy" attribute="disabled"/>
+    </menuitem>
+</popup>
+
+</overlay>

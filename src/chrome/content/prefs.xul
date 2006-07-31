@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
+<prefwindow id="euskalbar-prefs-dialog"
+        title="&euskalbar.prefs.title;"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<prefpane id="dictionaries-tab" label="&euskalbar.prefsdictionaries.title;">
+      <!-- Intermediary between GUI and preferences system -->
+<groupbox>
+<caption label="&euskalbar.prefsdictionaries.boxtitle;"/>
+      <preferences>
+        <preference id="prefEuskalterm" 
+        	    name="euskalbar.euskalterm.onkey" 
+                    type="bool"/>
+        <preference id="pref3000" 
+        	    name="euskalbar.3000.onkey" 
+                    type="bool"/>
+        <preference id="prefElhuyar" 
+        	    name="euskalbar.elhuyar.onkey" 
+                    type="bool"/>
+        <preference id="prefBatua" 
+        	    name="euskalbar.batua.onkey" 
+                    type="bool"/>
+        <preference id="prefItzuL" 
+        	    name="euskalbar.itzul.onkey" 
+                    type="bool"/>
+        <preference id="prefHarluxet" 
+        	    name="euskalbar.harluxet.onkey" 
+                    type="bool"/>
+        <preference id="prefMokoroa" 
+        	    name="euskalbar.mokoroa.onkey" 
+                    type="bool"/>
+        <preference id="prefOpentrad" 
+        	    name="euskalbar.opentrad.onkey" 
+                    type="bool"/>
+      </preferences>
+      <label value="&euskalbar.prefsdictionaries.label;"/>
+      <checkbox preference="prefEuskalterm" label="Euskalterm"/>
+      <checkbox preference="pref3000" label="3000"/>
+      <checkbox preference="prefElhuyar" label="Elhuyar"/>
+      <checkbox preference="prefBatua" label="Hiztegi Batua"/>
+      <checkbox preference="prefItzuL" label="ItzuL"/>
+      <checkbox preference="prefHarluxet" label="Harluxet"/>
+      <checkbox preference="prefMokoroa" label="Mokoroa"/>
+      <checkbox preference="prefOpentrad" label="Opentrad"/>
+</groupbox>
+<groupbox>
+<caption label="&euskalbar.reusetabs.title;"/>
+      <preferences>
+        <preference id="prefReusetabs" 
+        	    name="euskalbar.reusetabs.enabled" 
+                    type="bool"/>
+	</preferences>
+      <checkbox preference="prefReusetabs" label="&euskalbar.reusetabs.label;"/>
+</groupbox>
+</prefpane>
+</prefwindow>

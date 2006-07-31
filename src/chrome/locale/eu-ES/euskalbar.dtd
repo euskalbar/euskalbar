@@ -1,0 +1,27 @@
+<!-- Common -->
+<!ENTITY euskalbar.key "E">
+<!ENTITY euskalbar.label "EuskalBar">
+<!ENTITY euskalbar.name "Euskalbar">
+<!ENTITY euskalbar.options.tooltip "Aukerak">
+<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu basea">
+<!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
+<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
+<!ENTITY euskalbar.batua.tooltip "Euskaltzaindiaren hiztegi batua">
+<!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
+<!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
+<!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
+<!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
+
+<!-- About -->
+<!ENTITY euskalbar.about.author "Egileak">
+<!ENTITY euskalbar.about.home.page "Home">
+<!ENTITY euskalbar.about.title "Euskalbar-i buruz">
+
+<!-- Prefs -->
+<!ENTITY euskalbar.prefs.title "Euskalbar aukerak">
+<!ENTITY euskalbar.prefsdictionaries.title "Hiztegiak">
+<!ENTITY euskalbar.prefsdictionaries.label "Enter tekla sakatzean konsultatuko diren hiztegiak">
+<!ENTITY euskalbar.prefsdictionaries.boxtitle "Kontsulta aurreratua">
+<!ENTITY euskalbar.reusetabs.title "Fitxak">
+<!ENTITY euskalbar.reusetabs.label "Berrerabili fitxak">
+
