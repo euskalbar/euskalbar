@@ -21,6 +21,7 @@
 	window.openDialog(dialogURL, "", "chrome,modal,close");
     }
 
+
     // Hiztegia fitxa berri batean ireki
     function openNewtab(taburl){
     	var  theTab = getBrowser().addTab(taburl);
@@ -152,25 +153,29 @@
     }
 
     function goEuskalBarElhuyar_(source, target, term) {
-      if (source=='es') {
+	if (source=='es') {
 	var zein='hizt_el'
 	var url = 'http://www1.euskadi.net/hizt_el/gazt_c.asp?Sarrera='+escape(term);
-      }else{
+      	}else{
 	var url = 'http://www1.euskadi.net/hizt_el/eusk_c.asp?Sarrera='+escape(term);
-      }
+      	}
 
-	 var httpReq = new XMLHttpRequest();
-         httpReq.parent = this;
-         httpReq.open("GET", url);
+	var httpReq = new XMLHttpRequest();
+        httpReq.parent = this;
+        httpReq.open("GET", url);
 
 	httpReq.onload = function(aEvent){
-                try {
+		try {
 			accent = term.substring(term.length-1);
                         var texto = httpReq.responseText;
 
         		if ( texto.match(/ADODB.Recordset/) && (term.indexOf("  ")>0) ) 
 				url = 'http://www1.euskadi.net/hizt_el/ezdago.asp?Hutsa=bai'
-			else if ( texto.match(/ADODB.Recordset/) && ((accent == 'á') || (accent == 'é') || (accent == 'í') || (accent == 'ó') || (accent == 'ú'))  ) {
+			else{
+				goEuskalBarElhuyar(source, target, term);
+			 }
+
+			/*else if ( texto.match(/ADODB.Recordset/) && ((accent == 'á') || (accent == 'é') || (accent == 'í') || (accent == 'ó') || (accent == 'ú'))  ) {
 				// si la palabra es aguda y terminada en vocal (plató, carné)
 				// ElHuyar la trata así --> "plato  2"
 				// La misma palabra sin acento (plato, carne) 
@@ -206,26 +211,27 @@
 			}
 			else{
 				openNewtab(url);	
-			}  
+			}  */
 			
-		     } 
-		catch(err) 
-		    {
+		} 
+		catch(err) {
 			alert('Error');
-		    }
-	       }
-       try {
-                httpReq.setRequestHeader("User-Agent", "Euskalbar");
-                httpReq.overrideMimeType("application/xml");
-                httpReq.send(null);
+		}
+	}
+      	try {
+        	httpReq.setRequestHeader("User-Agent", "Euskalbar");
+        	httpReq.overrideMimeType("application/xml");
+        	httpReq.send(null);
 
-        } catch(err) {
+        }
+	catch(err) {
                 httpReq.abort();
         }
 
     }
+
     function goEuskalBarItzuL(source, target, term) {
-	var url = 'http://search.gmane.org/?query='+escape(term)+'&email=&group=gmane.culture.language.basque.itzul&sort=relevance&DEFAULTOP=and&xFILTERS=Gculture.language.basque.itzul---A'
+	var url = 'http://search.gmane.org/?query='+encodeURI(term)+'&email=&group=gmane.culture.language.basque.itzul&sort=relevance&DEFAULTOP=and&xFILTERS=Gculture.language.basque.itzul---A'
 	var zein='gmane.culture.language.basque.itzul'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
 		reuseOldtab(url, zein);
