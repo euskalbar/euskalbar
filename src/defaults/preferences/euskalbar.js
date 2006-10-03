@@ -37,7 +37,6 @@ pref("euskalbar.batua.onkey", false);
 pref("euskalbar.itzul.onkey", false);
 pref("euskalbar.harluxet.onkey", false);
 pref("euskalbar.mokoroa.onkey", false);
-pref("euskalbar.opentrad.onkey", false);
 
 //reuse tabs pref
 pref("euskalbar.reusetabs.enabled", true);

@@ -1,7 +1,8 @@
-// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
+﻿// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
 // This is Free Software (GPL License)
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
+
 
     var euskalbar_language = 'es';
     var euskalbar_image = 'eseu.gif';
@@ -25,7 +26,7 @@
     // Hiztegia fitxa berri batean ireki
     function openNewtab(taburl){
     	var  theTab = getBrowser().addTab(taburl);
-    	getBrowser().selectedTab = theTab; 
+    	getBrowser().selectedTab = theTab;
     }
 
     // Hiztegia fitxa zaharrean ireki
@@ -42,6 +43,7 @@
         		currentTab.loadURI(taburl);
         		found = true;
       		}
+ 
       	index++;
     	}
   	if (!found) {
@@ -52,35 +54,60 @@
 
     // Enter tekla sakatzean irekitzen diren hiztegiak
     function goEuskalBarOnKey(event){
-  	if(event.keyCode != 13) {
-      		return
-	}else{
-		if(prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
-			goEuskalBar(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.3000.onkey")) {
-			goEuskalBarAsk(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
-			goEuskalBarElhuyar(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.batua.onkey")) {
-			goEuskalBarEuskaltzaindia(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.itzul.onkey")) {
-			goEuskalBarItzuL(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.harluxet.onkey")) {
-			goEuskalBarHarluxet(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
-			goEuskalBarMokoroa(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
-		if(prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
-			goEuskalBarOpentrad(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);
-		}
+	//Interfazak itzultzen duen hizkuntza balioa
+	var lang = document.getElementById('euskalbar-language').value
+	//Interfazak itzultzen duen bilaketa katea
+	var searchStr = document.getElementById('EuskalBar-search-string').value
+	//Enter tekla sakatzen bada...  
+	if(event.keyCode == 13) {
+	  // Shift tekla sakatuta ez badago...
+	  if (event.shiftKey != 1) {
+	    if(prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
+	      goEuskalBar(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.3000.onkey")) {
+	      goEuskalBarAsk(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
+	      goEuskalBarElhuyar(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.batua.onkey")) {
+	      goEuskalBarEuskaltzaindia(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.itzul.onkey")) {
+	      goEuskalBarItzuL(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.harluxet.onkey")) {
+	      goEuskalBarHarluxet(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
+	      goEuskalBarMokoroa(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
+	      goEuskalBarOpentrad(euskalbar_language, lang, searchStr);
+	    }
+	    }
+	  // Shift tekla sakatuta badago...
+	  else{
+	    var txanturl = 'chrome://euskalbar/content/html/euskalbartxant.html';
+	    var zein = 'euskalbartxant' 
+	    if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+		reuseOldtab(txanturl, zein);
+	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
+	        getShift3000(euskalbar_language, lang, searchStr);
+	        getShiftElhuyar(euskalbar_language, lang, searchStr);
+	    }
+	    else{
+		openNewtab(txanturl);
+	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
+	        getShift3000(euskalbar_language, lang, searchStr);
+	        getShiftElhuyar(euskalbar_language, lang, searchStr);
+	    } 
+	  }
 	}
     }
+
+
 
     function changeEuskalbarLang(){
 	if (euskalbar_language=='es'){
@@ -103,24 +130,24 @@
 	if (source=='es') idioma='G';
 		else idioma='E';
       var url='http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak=0&hizkuntza='+source;
-	var zein='euskalterm'
-	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	}       
+      var zein='euskalterm'
+      if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);
+      }      
     }
 
     function goEuskalBarSelection(source, target, term) {
       var url='http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
-	var zein='opentrad'
-	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	} 
+      var zein='opentrad'
+      if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
 
     function goEuskalBarAsk(source, target, term) {
@@ -132,11 +159,11 @@
 	var url='http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe?Diccionario='+source+'&Idioma='+source+'&Txt_'+idioma+'='+escape(term);
 	var zein='cgi-bin_m33'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	}   
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
 
     function goEuskalBarElhuyar(source, target, term) {
@@ -145,11 +172,11 @@
 	var url='http://www.interneteuskadi.org/euskalbar/frames.php?term='+escape(term)+'&source='+source;
 	var zein='interneteuskadi'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	}         	
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
 
     function goEuskalBarElhuyar_(source, target, term) {
@@ -231,25 +258,27 @@
     }
 
     function goEuskalBarItzuL(source, target, term) {
-	var url = 'http://search.gmane.org/?query='+encodeURI(term)+'&email=&group=gmane.culture.language.basque.itzul&sort=relevance&DEFAULTOP=and&xFILTERS=Gculture.language.basque.itzul---A'
+	var url = 'http://search.gmane.org/search.php?group=gmane.culture.language.basque.itzul&query='+encodeURI(term);
 	var zein='gmane.culture.language.basque.itzul'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	} 
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
+
     function goEuskalBarHarluxet(source, target, term) {
 	var url = 'http://www1.euskadi.net/harluxet/emaitza.asp?sarrera='+escape(term);
 	var zein='harluxet'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	} 
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
+
     function goEuskalBarMokoroa(source, target, term) {
 	var zein='mokoroa' 
      if (source=='es') {
@@ -258,33 +287,57 @@
 	var url = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt=&eusk='+escape(term)+'&nork=&kera=&bidali=Bilatu';
       }
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	} 
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
+
      function goEuskalBarEuskaltzaindia(source, target, term) {
 	var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term)
 	var zein='hiztegibatua'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	} 
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
 
     function goEuskalBarOpentrad(source, target, term) {
-	var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php?language=eu&inurl='+escape(window.content.document.location.href)+'&norantza=es-eu'
+	var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php?language=eu&inurl='+escape(window.content.document.location.href)+'&norantza=es-eu';
 	var zein='opentrad'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(url, zein);
-	}
-	else{
-		openNewtab(url);	
-	} 
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
     }
+
+
+    function goEuskalBarOthers(zein) {
+	switch (zein) {
+	case 'SAunamendi':
+		var url = 'http://www.euskomedia.org/euskomedia/SAunamendi?idi=eu&op=1';
+		break;
+	case 'kapsula':
+		var url = 'http://tresnak.kapsula.com/cgi-bin-jo/HTMODFOR?ActionField=getmodel&$BaseNumber=02&$Modelo=01&CmdGetModel=KAPSULA.HTMLMOD.JOMODBIL';
+		break;
+	case 'oeegunea':
+		var url = 'http://www.oeegunea.org/default.cfm?atala=hiztegia';
+		break;
+	}
+
+	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
+    }
+
 
     function selectionText ()
     {

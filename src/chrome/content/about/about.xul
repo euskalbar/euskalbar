@@ -16,7 +16,7 @@
             <vbox>
                 <hbox>
                     <description value="&euskalbar.name;" class="name"/>
-                    <description class="name">1.6</description>
+                    <description class="name">1.7</description>
                 </hbox>
                 <description value="&euskalbar.about.author;" class="title"/>
                 <description>Juanan Pereira, Asier Sarasua Garmendia</description>

@@ -32,9 +32,6 @@
         <preference id="prefMokoroa" 
         	    name="euskalbar.mokoroa.onkey" 
                     type="bool"/>
-        <preference id="prefOpentrad" 
-        	    name="euskalbar.opentrad.onkey" 
-                    type="bool"/>
       </preferences>
       <label value="&euskalbar.prefsdictionaries.label;"/>
       <checkbox preference="prefEuskalterm" label="Euskalterm"/>
@@ -44,7 +41,6 @@
       <checkbox preference="prefItzuL" label="ItzuL"/>
       <checkbox preference="prefHarluxet" label="Harluxet"/>
       <checkbox preference="prefMokoroa" label="Mokoroa"/>
-      <checkbox preference="prefOpentrad" label="Opentrad"/>
 </groupbox>
 <groupbox>
 <caption label="&euskalbar.reusetabs.title;"/>

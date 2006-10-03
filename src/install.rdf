@@ -5,13 +5,13 @@
   <RDF:Description RDF:about="rdf:#$aXs763"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="1.5"
-                   em:maxVersion="1.6" />
+                   em:maxVersion="2.0" />
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="{7859f616-20a5-45dc-bb02-4d3607264a14}"
                    em:name="Euskalbar"
-                   em:version="1.6.1"
+                   em:version="1.7"
                    em:creator="Juanan Pereira, Asier Sarasua Garmendia"
-                   em:description="Euskara-gaztelania hiztegiak"
+                   em:description="Euskara hiztegiak"
                    em:homepageURL="http://www.interneteuskadi.org/euskalbar"
                    em:iconURL="chrome://euskalbar/skin/euskalgnu.gif"
                    em:aboutURL="chrome://euskalbar/content/about/about.xul"

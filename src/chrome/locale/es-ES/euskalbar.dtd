@@ -25,3 +25,41 @@
 <!ENTITY euskalbar.reusetabs.title "PestaÃ±as">
 <!ENTITY euskalbar.reusetabs.label "Reutilizar pestaÃ±as">
 
+<!-- Menu -->
+<!ENTITY euskalbar.menu.main "Diccionarios">
+<!ENTITY euskalbar.menu.general "Generales">
+<!ENTITY euskalbar.menu.euskaltzaindia "Diccionario unificado de Euskaltzaindia (EU)">
+<!ENTITY euskalbar.menu.euskalterm "Banco terminológico Euskalterm (EU-ES)">
+<!ENTITY euskalbar.menu.3000 "Diccionario 3000 (EU-ES)">
+<!ENTITY euskalbar.menu.elhuyar "Diccionario Elhuyar (EU-ES)">
+<!ENTITY euskalbar.menu.morris "Diccionario Morris (EU-EN)">
+<!ENTITY euskalbar.menu.sinonimoak "Sinónimos">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Diccionario de sinónimos">
+<!ENTITY euskalbar.menu.uzeisinonim "Diccionario de sinónimos de UZEI">
+<!ENTITY euskalbar.menu.entziklopediak "Enciclopedias">
+<!ENTITY euskalbar.menu.aunam "Enciclopedia AuÃ±amendi">
+<!ENTITY euskalbar.menu.harluxet "Enciclopedia Harluxet">
+<!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
+<!ENTITY euskalbar.menu.thematics "Temáticos">
+<!ENTITY euskalbar.menu.drugs "Drogas">
+<!ENTITY euskalbar.menu.energy "Energía">
+<!ENTITY euskalbar.menu.management "Gestión empresarial">
+<!ENTITY euskalbar.menu.industry "Industria">
+<!ENTITY euskalbar.menu.computers "Informática">
+<!ENTITY euskalbar.menu.internet "Internet">
+<!ENTITY euskalbar.menu.justice "Justicia">
+<!ENTITY euskalbar.menu.catalogues "Catalogación">
+<!ENTITY euskalbar.menu.journalism "Periodismo">
+<!ENTITY euskalbar.menu.sports "Deportes">
+<!ENTITY euskalbar.menu.parliament "Parlamento">
+<!ENTITY euskalbar.menu.health "Salud">
+<!ENTITY euskalbar.menu.cooking "Cocina">
+<!ENTITY euskalbar.menu.teleco "Telecomunicaciones">
+<!ENTITY euskalbar.menu.science "Ciencia">
+<!ENTITY euskalbar.menu.corpus "Corpus">
+<!ENTITY euskalbar.menu.euskaracorpusa "Euskararen corpusa">
+<!ENTITY euskalbar.menu.mokoroa "Mokoroa">
+<!ENTITY euskalbar.menu.intza "Intza">
+<!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
+<!ENTITY euskalbar.menu.garate "Gotzon Garate">
+<!ENTITY euskalbar.menu.laburzki "Laburzki">
