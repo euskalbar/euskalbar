@@ -41,14 +41,15 @@
 		if (currentTabURI.indexOf(tabzein)!= -1) {
 		// Hiztegia irekita dago
         		currentTab.loadURI(taburl);
+			//Enfokatu fitxa
+			getBrowser().mTabContainer.selectedIndex = index;
         		found = true;
       		}
  
       	index++;
     	}
   	if (!found) {
-    		var  theTab = getBrowser().addTab(taburl);
-    		getBrowser().selectedTab = theTab; 
+    		openNewtab(taburl);
     	}
     }
 
@@ -93,6 +94,7 @@
 	    var zein = 'euskalbartxant' 
 	    if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
 		reuseOldtab(txanturl, zein);
+		//Exekutatu euskalbarshift.js fitxategian dauden skriptak
 	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
 	        getShift3000(euskalbar_language, lang, searchStr);
 	        getShiftElhuyar(euskalbar_language, lang, searchStr);
@@ -102,9 +104,11 @@
 	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
 	        getShift3000(euskalbar_language, lang, searchStr);
 	        getShiftElhuyar(euskalbar_language, lang, searchStr);
-	    } 
-	  }
+	    }
+	  } 
 	}
+	//Testu kutxa berriro enfokatzeko... 
+	document.getElementById('Euskalbar-search-string').focus();
     }
 
 
