@@ -1,4 +1,4 @@
-// Developers: Asier Sarasua Garmendia 2006
+﻿// Developers: Asier Sarasua Garmendia 2006
 // This is Free Software (GPL License)
 // asarasua@vitoria-gasteiz.org
 
@@ -11,19 +11,28 @@ function getShiftEuskalterm(source, target, term){
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
   if (!xmlHttpReq) {
-    alert('Ezin da Euskalterm kargatu');
+    alert('Ezin da Euskalterm kargatu.');
     return false;
   }
   xmlHttpReq.onreadystatechange = function() {
-  if (xmlHttpReq.readyState == 4) {
-    var txtEuskalterm = xmlHttpReq.responseText;
-    txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
-    txtEuskalterm = txtEuskalterm.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
-    txtEuskalterm = txtEuskalterm.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"</font></strong>");
-    txtEuskalterm = txtEuskalterm.replace(/<\/body><\/html>/, " ");
-    txtEuskalterm = txtEuskalterm.replace(/steelblue/g, "black");
-    txtEuskalterm = txtEuskalterm.replace(/Verdana/g, "bitstream vera sans, verdana, arial");
-    getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
+    try {
+      if (xmlHttpReq.readyState == 4) {
+        if (xmlHttpReq.status == 200) {
+          var txtEuskalterm = xmlHttpReq.responseText;
+          txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
+          txtEuskalterm = txtEuskalterm.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
+          txtEuskalterm = txtEuskalterm.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"</font></strong>");
+          txtEuskalterm = txtEuskalterm.replace(/<\/body><\/html>/, " ");
+          txtEuskalterm = txtEuskalterm.replace(/steelblue/g, "black");
+          txtEuskalterm = txtEuskalterm.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
+          getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
+        } else {
+          alert('Arazo bat gertatu da Euskalterm kargatzean.');
+        }
+      }
+    }
+    catch( e ) {
+      alert('Ezin izan da Euskalterm kargatu.');
     }
   }
   xmlHttpReq.open('GET', urlEuskalterm, true);
@@ -42,37 +51,53 @@ function getShiftElhuyar(source, target, term){
   term = term.replace(/ñ/g, "nzz");
   term = term.replace(/ü/g, "u");
   if (source=='es') {
-    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt_c.asp?Sarrera='+escape(term);
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+escape(term);
   }else{
-    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk_c.asp?Sarrera='+escape(term);
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+escape(term);
   }
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
   if (!xmlHttpReq) {
-    alert('Ezin da Elhuyar kargatu');
+    alert('Ezin da Elhuyar kargatu.');
     return false;
   }
   xmlHttpReq.onreadystatechange = function() {
-  if (xmlHttpReq.readyState == 4) {
-    var txtElhuyar = xmlHttpReq.responseText;
-    var txtElhuyartable1array = txtElhuyar.split("<table");
-    txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
-    txtElhuyar = '<table'+txtElhuyar;
-    var txtElhuyartr1array = txtElhuyar.split("<tr");
-    txtElhuyar = txtElhuyartr1array[2].substring(txtElhuyartr1array[2].lenght - 1);
-    txtElhuyar = '<p><tr'+txtElhuyar;
-    txtElhuyar = txtElhuyar.replace(/<\/table>/, " ");
-    txtElhuyar = txtElhuyar.replace(/009999/g, "  ");
-    txtElhuyar = txtElhuyar.replace(/FFFFFF/g, "000000");
-    txtElhuyar = txtElhuyar.replace(/003399/g, "000000");
-    txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
-    txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
-    getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+    try {
+      if (xmlHttpReq.readyState == 4) {
+        if (xmlHttpReq.status == 200) {
+          var txtElhuyar = xmlHttpReq.responseText;
+          var txtElhuyartable1array = txtElhuyar.split("<table");
+          txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
+          txtElhuyar = '<table'+txtElhuyar;
+          var txtElhuyartr1array = txtElhuyar.split("<tr");
+          txtElhuyar = txtElhuyartr1array[2].substring(txtElhuyartr1array[2].lenght - 1);
+          txtElhuyar = '<p><tr'+txtElhuyar;
+          txtElhuyar = txtElhuyar.replace(/<\/table>/, " ");
+          txtElhuyar = txtElhuyar.replace(/009999/g, "  ");
+          txtElhuyar = txtElhuyar.replace(/FFFFFF/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/003399/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
+          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+        } else {
+ 	  if (source=='es') {
+            var txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
+          }else{
+            var txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
+          }
+          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+        }
+      }
+    }
+    catch( e ) {
+      alert('Ezin izan da Elhuyar kargatu.');
     }
   }
   xmlHttpReq.open('GET', urlElhuyar, true);
   xmlHttpReq.send(null);
 }
+
 
 
 // 3000 kargatu
@@ -90,31 +115,38 @@ function getShift3000(source, target, term){
     return false;
   }
   xmlHttpReq.onreadystatechange = function() {
-  if (xmlHttpReq.readyState == 4) {
-    var txt3000 = xmlHttpReq.responseText;
-    var wtable = 3;
-    if(txt3000.match("No se ha encontrado")){
-      wtable = 2;
-      txt3000 = "No se ha encontrado la palabra "+term+".";
+    try {
+      if (xmlHttpReq.readyState == 4) {
+        if (xmlHttpReq.status == 200) {
+          var txt3000 = xmlHttpReq.responseText;
+          var wtable = 3;
+          if(txt3000.match("No se ha encontrado")){
+            wtable = 2;
+            txt3000 = "No se ha encontrado la palabra "+term+".";
+          } else if (txt3000.match("ez da aurkitu")){
+            wtable = 2;
+            txt3000 = term +" hitza ez da aurkitu.";
+          } else {
+            var txt3000table1array = txt3000.split("<TABLE");
+            txt3000 = txt3000table1array[wtable].substring(txt3000table1array[wtable].lenght - 1);
+            var txt3000table2array = txt3000.split("<\/TABLE>");;
+            txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
+            txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
+            txt3000 = txt3000.replace(/FFFFCC/g, " ");
+            txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
+            txt3000 = txt3000.replace(/0000A0/g, "000000");
+            txt3000 = txt3000.replace(/center/g, "left");
+          }
+          getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
+        } else {
+          alert('Arazo bat gertatu da 3000 Hiztegia kargatzean.');
+        }
+      }
     }
-    else if (txt3000.match("ez da aurkitu")){
-      wtable = 2;
-      txt3000 = term +" hitza ez da aurkitu.";
+    catch( e ) {
+      alert('Ezin izan da 3000 Hiztegia kargatu.');
     }
-    else{
-      var txt3000table1array = txt3000.split("<TABLE");
-      txt3000 = txt3000table1array[wtable].substring(txt3000table1array[wtable].lenght - 1);
-      var txt3000table2array = txt3000.split("<\/TABLE>");;
-      txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
-      txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
-      txt3000 = txt3000.replace(/FFFFCC/g, " ");
-      txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
-      txt3000 = txt3000.replace(/0000A0/g, "000000");
-      txt3000 = txt3000.replace(/center/g, "left");
-    }
-    getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
-    }
-    }
-    xmlHttpReq.open('GET', url3000, true);
-    xmlHttpReq.send(null);
+  }
+  xmlHttpReq.open('GET', url3000, true);
+  xmlHttpReq.send(null);
 }
