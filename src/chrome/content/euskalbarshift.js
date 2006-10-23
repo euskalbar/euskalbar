@@ -1,22 +1,41 @@
-﻿// Developers: Asier Sarasua Garmendia 2006
+// Developers: Asier Sarasua Garmendia 2006
 // This is Free Software (GPL License)
 // asarasua@vitoria-gasteiz.org
 
+
 // Euskalterm kargatu
 function getShiftEuskalterm(source, target, term){
-  if (euskalbar_language=='es')
-    idioma='G';
-    else idioma='E';
+  //Lokalizazio paketeak kargatu
+  strRes = document.getElementById('leuskal');
+
+  if (euskalbar_language=='es'){
+    idioma = 'G';
+  }else{
+    idioma = 'E';
+  }
+
   var urlEuskalterm='http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak=0&hizkuntza='+source;
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
   if (!xmlHttpReq) {
-    alert('Ezin da Euskalterm kargatu.');
+    alert(strRes.getString("m1Euskalterm"));
     return false;
   }
+
+  xmlHttpReq.open('GET', urlEuskalterm, true);
+  xmlHttpReq.send(null);
+
+  //Timerra sortu
+  var requestTimer = setTimeout(function() {
+    xmlHttpReq.abort();
+    alert(strRes.getString("m1Euskalterm"));
+  }, 5000);
+
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
+	//Timerra garbitu
+	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
           var txtEuskalterm = xmlHttpReq.responseText;
           txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
@@ -27,43 +46,65 @@ function getShiftEuskalterm(source, target, term){
           txtEuskalterm = txtEuskalterm.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
           getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
         } else {
-          alert('Arazo bat gertatu da Euskalterm kargatzean.');
+          alert(strRes.getString("m1Euskalterm"));
         }
       }
     }
     catch( e ) {
-      alert('Ezin izan da Euskalterm kargatu.');
+      alert(strRes.getString("m1Euskalterm"));
     }
   }
-  xmlHttpReq.open('GET', urlEuskalterm, true);
-  xmlHttpReq.send(null);
 }
 
 
 // Elhuyar kargatu
 function getShiftElhuyar(source, target, term){
-  term = term.replace(/ /g, "_");
-  term = term.replace(/á/g, "a");
-  term = term.replace(/é/g, "e");
-  term = term.replace(/í/g, "i");
-  term = term.replace(/ó/g, "o");
-  term = term.replace(/ú/g, "u");
-  term = term.replace(/ñ/g, "nzz");
-  term = term.replace(/ü/g, "u");
+  //Lokalizazio paketeak kargatu
+  strRes = document.getElementById('leuskal');
+  //Azentu markak, e�eak eta dieresiak aldatu
+  term = encodeURI(term);
+  term = term.replace(/\%20/g, "_");
+  term = term.replace(/\%C3\%A1/g, "a");
+  term = term.replace(/\%C3\%A9/g, "e");
+  term = term.replace(/\%C3\%AD/g, "i");
+  term = term.replace(/\%C3\%B3/g, "o");
+  term = term.replace(/\%C3\%BA/g, "u");
+  term = term.replace(/\%C3\%B1/g, "nzz");
+  term = term.replace(/\%C3\%BC/g, "u");
+  term = term.replace(/\%C3\%81/g, "A");
+  term = term.replace(/\%C3\%89/g, "E");
+  term = term.replace(/\%C3\%8D/g, "I");
+  term = term.replace(/\%C3\%93/g, "O");
+  term = term.replace(/\%C3\%9A/g, "U");
+  term = term.replace(/\%C3\%91/g, "NZZ");
+  term = term.replace(/\%C3\%9C/g, "U");
+
   if (source=='es') {
-    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+escape(term);
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term;
   }else{
-    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+escape(term);
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term;
   }
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
   if (!xmlHttpReq) {
-    alert('Ezin da Elhuyar kargatu.');
+    alert(strRes.getString("m1Elhuyar"));
     return false;
   }
+
+  xmlHttpReq.open('GET', urlElhuyar, true);
+  xmlHttpReq.send(null);
+
+  //Timerra sortu
+  var requestTimer = setTimeout(function() {
+    xmlHttpReq.abort();
+    alert(strRes.getString("m1Elhuyar"));
+  }, 5000);
+
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
+	//Timerra garbitu
+	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
           var txtElhuyar = xmlHttpReq.responseText;
           var txtElhuyartable1array = txtElhuyar.split("<table");
@@ -91,32 +132,46 @@ function getShiftElhuyar(source, target, term){
       }
     }
     catch( e ) {
-      alert('Ezin izan da Elhuyar kargatu.');
+      alert(strRes.getString("m1Elhuyar"));
     }
   }
-  xmlHttpReq.open('GET', urlElhuyar, true);
-  xmlHttpReq.send(null);
 }
 
 
 
 // 3000 kargatu
 function getShift3000(source, target, term){
+  //Lokalizazio paketeak kargatu
+  strRes = document.getElementById('leuskal');
+
   if (source=='es') {
     source='CAS'; idioma='Castellano';
   }else{
     source='EUS'; idioma='Euskera';
   }
+
   var url3000='http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe?Diccionario='+source+'&Idioma='+source+'&Txt_'+idioma+'='+escape(term);
   var xmlHttpReq = new XMLHttpRequest();
   xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
   if (!xmlHttpReq) {
-    alert('Ezin da 3000 kargatu');
+    alert(strRes.getString("m13000"));
     return false;
   }
+
+  xmlHttpReq.open('GET', url3000, true);
+  xmlHttpReq.send(null);
+
+  //Timerra sortu
+  var requestTimer = setTimeout(function() {
+    xmlHttpReq.abort();
+    alert(strRes.getString("m13000"));
+  }, 5000);
+
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
+	//Timerra garbitu
+	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
           var txt3000 = xmlHttpReq.responseText;
           var wtable = 3;
@@ -139,14 +194,12 @@ function getShift3000(source, target, term){
           }
           getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
         } else {
-          alert('Arazo bat gertatu da 3000 Hiztegia kargatzean.');
+          alert(strRes.getString("m13000"));
         }
       }
     }
     catch( e ) {
-      alert('Ezin izan da 3000 Hiztegia kargatu.');
+      alert(strRes.getString("m13000"));
     }
   }
-  xmlHttpReq.open('GET', url3000, true);
-  xmlHttpReq.send(null);
 }

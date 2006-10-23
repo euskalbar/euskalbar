@@ -17,16 +17,6 @@
                    em:aboutURL="chrome://euskalbar/content/about/about.xul"
 		   em:optionsURL="chrome://euskalbar/content/prefs.xul"
 		   em:updateURL="http://www.interneteuskadi.org/euskalbar/update.rdf">
-    <!-- firefox < 1.5 -->
-    <em:file>
-    <Description about="urn:mozilla:extension:file:euskalbar.jar">
-      <em:package>content/</em:package>
-      <em:locale>locale/es-ES/</em:locale>
-      <em:locale>locale/eu-ES/</em:locale>
-      <em:skin>skin/</em:skin>
-    </Description>
-    </em:file>
-    <!-- fin firefox < 1.5 -->
     <em:targetApplication RDF:resource="rdf:#$aXs763"/>
   </RDF:Description>
 </RDF:RDF>

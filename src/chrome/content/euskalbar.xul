@@ -10,6 +10,11 @@
   <script type="application/x-javascript" src="euskalbar.js"/>
   <script type="application/x-javascript" src="euskalbarshift.js"/>
 
+<!-- Create reference to locales for Javascript files -->
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
+  </stringbundleset>
+
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar"
            context="toolbar-context-menu" toolbarname="Euskalbar"
@@ -58,6 +63,11 @@
         	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="reuseOldtab('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');"/>
       	<menuseparator/>
         	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="reuseOldtab('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
+		
+        	<!-- Euskalbar 1.8 bertsiorako: Euskalterm alternatiboa
+		<menuitem label="&euskalbar.menu.euskaltermalt;" oncommand="reuseOldtab('chrome://euskalbar/content/html/euskalbar_esktrm.html', 'esktrm');"/>
+		-->
+
         	<menuitem label="&euskalbar.menu.3000;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
         	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
       	<menuseparator/>
@@ -84,7 +94,6 @@
         	<menuitem label="&euskalbar.menu.management;" oncommand="reuseOldtab('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
         	<menuitem label="&euskalbar.menu.industry;" oncommand="reuseOldtab('http://www.kondia.com/hiztegi/home.htm', 'kondia');"/>
         	<menuitem label="&euskalbar.menu.computers;" oncommand="reuseOldtab('http://drupal.euskalgnu.org/node/83', 'euskalgnu');"/>
-        	<menuitem label="&euskalbar.menu.environment;" oncommand="reuseOldtab('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');"/>
         	<menuitem label="&euskalbar.menu.internet;" oncommand="reuseOldtab('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');"/>
         	<menuitem label="&euskalbar.menu.justice;" oncommand="reuseOldtab('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');"/>
         	<menuitem label="&euskalbar.menu.catalogues;" oncommand="goEuskalBarOthers('kapsula');"/>

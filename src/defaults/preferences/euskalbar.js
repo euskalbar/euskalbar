@@ -41,6 +41,9 @@ pref("euskalbar.mokoroa.onkey", false);
 //reuse tabs pref
 pref("euskalbar.reusetabs.enabled", true);
 
+//toogle dictionaries menu
+pref("euskalbar.dictmenu.show", true);
+
 
 
 

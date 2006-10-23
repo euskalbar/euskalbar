@@ -24,12 +24,15 @@
 <!ENTITY euskalbar.prefsdictionaries.boxtitle "Kontsulta aurreratua">
 <!ENTITY euskalbar.reusetabs.title "Fitxak">
 <!ENTITY euskalbar.reusetabs.label "Berrerabili fitxak">
+<!ENTITY euskalbar.showdictmenu.title "Hiztegien menua">
+<!ENTITY euskalbar.showdictmenu.label "Erakutsi menua">
 
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Hiztegiak">
 <!ENTITY euskalbar.menu.general "Orokorrak">
 <!ENTITY euskalbar.menu.euskaltzaindia "Euskaltzaindiaren hiztegi batua (EU)">
 <!ENTITY euskalbar.menu.euskalterm "Euskalterm banku terminologikoa (EU-ES)">
+<!ENTITY euskalbar.menu.euskaltermalt "Euskalterm banku terminologiko alternatiboa (EU-ES)">
 <!ENTITY euskalbar.menu.3000 "3000 hiztegia (EU-ES)">
 <!ENTITY euskalbar.menu.elhuyar "Elhuyar hiztegia (EU-ES)">
 <!ENTITY euskalbar.menu.morris "Morris hiztegia (EU-EN)">
@@ -46,7 +49,6 @@
 <!ENTITY euskalbar.menu.management "Enpresa kudeaketa">
 <!ENTITY euskalbar.menu.industry "Industria">
 <!ENTITY euskalbar.menu.computers "Informatika">
-<!ENTITY euskalbar.menu.environment "Ingurumena">
 <!ENTITY euskalbar.menu.internet "Internet">
 <!ENTITY euskalbar.menu.justice "Justizia">
 <!ENTITY euskalbar.menu.catalogues "Katalogazioa">
