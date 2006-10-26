@@ -1,4 +1,4 @@
-<!-- Common -->
+﻿<!-- Common -->
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "EuskalBar">
 <!ENTITY euskalbar.name "Euskalbar">
@@ -24,8 +24,6 @@
 <!ENTITY euskalbar.prefsdictionaries.boxtitle "Kontsulta aurreratua">
 <!ENTITY euskalbar.reusetabs.title "Fitxak">
 <!ENTITY euskalbar.reusetabs.label "Berrerabili fitxak">
-<!ENTITY euskalbar.showdictmenu.title "Hiztegien menua">
-<!ENTITY euskalbar.showdictmenu.label "Erakutsi menua">
 
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Hiztegiak">

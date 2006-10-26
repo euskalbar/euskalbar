@@ -2,6 +2,9 @@
 
 <?xml-stylesheet href="chrome://euskalbar/skin/euskalbar.css" type="text/css"?>
 
+<!-- CSS estiloa inportatu hiztegien menua erakutsi/ezkutatzeko-->
+<?xml-stylesheet href="chrome://euskalbar/content/euskalbar.css" type="text/css"?>
+
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
 <overlay id="EuskalBar-Overlay"

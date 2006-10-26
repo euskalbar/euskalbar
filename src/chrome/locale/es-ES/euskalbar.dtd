@@ -24,34 +24,32 @@
 <!ENTITY euskalbar.prefsdictionaries.boxtitle "Consulta avanzada">
 <!ENTITY euskalbar.reusetabs.title "PestaÃ±as">
 <!ENTITY euskalbar.reusetabs.label "Reutilizar pestaÃ±as">
-<!ENTITY euskalbar.showdictmenu.title "Menú de diccionarios">
-<!ENTITY euskalbar.showdictmenu.label "Mostrar menú">
 
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Diccionarios">
 <!ENTITY euskalbar.menu.general "Generales">
 <!ENTITY euskalbar.menu.euskaltzaindia "Diccionario unificado de Euskaltzaindia (EU)">
-<!ENTITY euskalbar.menu.euskalterm "Banco terminológico Euskalterm (EU-ES)">
-<!ENTITY euskalbar.menu.euskaltermalt "Banco terminológico Euskalterm (EU-ES) alternativo">
+<!ENTITY euskalbar.menu.euskalterm "Banco terminolÃ³gico Euskalterm (EU-ES)">
+<!ENTITY euskalbar.menu.euskaltermalt "Banco terminolÃ³gico Euskalterm (EU-ES) alternativo">
 <!ENTITY euskalbar.menu.3000 "Diccionario 3000 (EU-ES)">
 <!ENTITY euskalbar.menu.elhuyar "Diccionario Elhuyar (EU-ES)">
 <!ENTITY euskalbar.menu.morris "Diccionario Morris (EU-EN)">
-<!ENTITY euskalbar.menu.sinonimoak "Sinónimos">
-<!ENTITY euskalbar.menu.sinonimoenhizt "Diccionario de sinónimos">
-<!ENTITY euskalbar.menu.uzeisinonim "Diccionario de sinónimos de UZEI">
+<!ENTITY euskalbar.menu.sinonimoak "SinÃ³nimos">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Diccionario de sinÃ³nimos">
+<!ENTITY euskalbar.menu.uzeisinonim "Diccionario de sinÃ³nimos de UZEI">
 <!ENTITY euskalbar.menu.entziklopediak "Enciclopedias">
 <!ENTITY euskalbar.menu.aunam "Enciclopedia AuÃ±amendi">
 <!ENTITY euskalbar.menu.harluxet "Enciclopedia Harluxet">
 <!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
-<!ENTITY euskalbar.menu.thematics "Temáticos">
+<!ENTITY euskalbar.menu.thematics "TemÃ¡ticos">
 <!ENTITY euskalbar.menu.drugs "Drogas">
-<!ENTITY euskalbar.menu.energy "Energía">
-<!ENTITY euskalbar.menu.management "Gestión empresarial">
+<!ENTITY euskalbar.menu.energy "Energia">
+<!ENTITY euskalbar.menu.management "GestiÃ³n empresarial">
 <!ENTITY euskalbar.menu.industry "Industria">
-<!ENTITY euskalbar.menu.computers "Informática">
+<!ENTITY euskalbar.menu.computers "InformÃ¡tica">
 <!ENTITY euskalbar.menu.internet "Internet">
 <!ENTITY euskalbar.menu.justice "Justicia">
-<!ENTITY euskalbar.menu.catalogues "Catalogación">
+<!ENTITY euskalbar.menu.catalogues "CatalogaciÃ³n">
 <!ENTITY euskalbar.menu.journalism "Periodismo">
 <!ENTITY euskalbar.menu.sports "Deportes">
 <!ENTITY euskalbar.menu.parliament "Parlamento">

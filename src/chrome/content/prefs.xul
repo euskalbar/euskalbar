@@ -52,18 +52,5 @@
 	</preferences>
       <checkbox preference="prefReusetabs" label="&euskalbar.reusetabs.label;"/>
 </groupbox>
-
-<!-- Euskalbar 1.8 bertsiorako: Hiztegien menua erakutsi/ezkutatzeko aukera
-<groupbox>
-<caption label="&euskalbar.showdictmenu.title;"/>
-      <preferences>
-        <preference id="prefShowdictmenu" 
-        	    name="euskalbar.dictmenu.show" 
-                    type="bool"/>
-	</preferences>
-      <checkbox preference="prefShowdictmenu" label="&euskalbar.showdictmenu.label;"  oncommand="showDictsmenu();"/>
-</groupbox>
--->
-
 </prefpane>
 </prefwindow>
