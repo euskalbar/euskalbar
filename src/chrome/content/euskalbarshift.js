@@ -58,6 +58,7 @@ function getShiftEuskalterm(source, target, term){
 }
 
 
+
 // Elhuyar kargatu
 function getShiftElhuyar(source, target, term){
   var txtElhuyar = "Elhuyar";
@@ -92,16 +93,13 @@ function getShiftElhuyar(source, target, term){
     txtElhuyar = strRes.getString("m1Elhuyar");
     return false;
   }
-
   xmlHttpReq.open('GET', urlElhuyar, true);
   xmlHttpReq.send(null);
-
   //Timerra sortu
   var requestTimer = setTimeout(function() {
     xmlHttpReq.abort();
     txtElhuyar = strRes.getString("m1Elhuyar");
   }, 5000);
-
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
@@ -124,12 +122,179 @@ function getShiftElhuyar(source, target, term){
           txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
           getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
         } else {
- 	  if (source=='es') {
+	  //Hitza aurkitzen ez bada, beste funtzio hau exekutatu
+	  getShiftElhuyarAlt1(source, target, term);
+        }
+      }
+    }
+    catch( e ) {
+      txtElhuyar = strRes.getString("m1Elhuyar");
+    }
+  }
+}
+
+// Elhuyar kargatu hitzak sarrera bat baino gehiago duenean (adib: "cola" hitza): lehen sarrera
+function getShiftElhuyarAlt1(source, target, term){
+  var txtElhuyar = "";
+  //Lokalizazio paketeak kargatu
+  strRes = document.getElementById('leuskal');
+  if (source=='es') {
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term+'%20%201';
+  }else{
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term+'%20%201';
+  }
+  var xmlHttpReq = new XMLHttpRequest();
+  xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+  if (!xmlHttpReq) {
+    txtElhuyar = strRes.getString("m1Elhuyar");
+    return false;
+  }
+  xmlHttpReq.open('GET', urlElhuyar, true);
+  xmlHttpReq.send(null);
+  //Timerra sortu
+  var requestTimer = setTimeout(function() {
+    xmlHttpReq.abort();
+    txtElhuyar = strRes.getString("m1Elhuyar");
+  }, 5000);
+  xmlHttpReq.onreadystatechange = function() {
+    try {
+      if (xmlHttpReq.readyState == 4) {
+	//Timerra garbitu
+	clearTimeout(requestTimer);
+        if (xmlHttpReq.status == 200) {
+          txtElhuyar = xmlHttpReq.responseText;
+          var txtElhuyartable1array = txtElhuyar.split("<table");
+          txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
+          txtElhuyar = '<table'+txtElhuyar;
+          var txtElhuyartr1array = txtElhuyar.split("<tr");
+          txtElhuyar = txtElhuyartr1array[2].substring(txtElhuyartr1array[2].lenght - 1);
+          txtElhuyar = '<p><tr'+txtElhuyar;
+          txtElhuyar = txtElhuyar.replace(/<\/table>/, " ");
+          txtElhuyar = txtElhuyar.replace(/009999/g, "  ");
+          txtElhuyar = txtElhuyar.replace(/FFFFFF/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/003399/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
+          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+	  getShiftElhuyarAlt2(source, target, term);
+        }else{
+          if (source=='es') {
             var txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
           }else{
             var txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
           }
-          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+        }
+      }
+    }
+    catch( e ) {
+      txtElhuyar = strRes.getString("m1Elhuyar");
+    }
+  }
+}
+
+
+// Elhuyar kargatu hitzak sarrera bat baino gehiago duenean (adib: "cola" hitza): bigarren sarrera
+function getShiftElhuyarAlt2(source, target, term){
+  var txtElhuyar = "";
+  //Lokalizazio paketeak kargatu
+  strRes = document.getElementById('leuskal');
+  if (source=='es') {
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term+'%20%202';
+  }else{
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term+'%20%202';
+  }
+  var xmlHttpReq = new XMLHttpRequest();
+  xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+  if (!xmlHttpReq) {
+    txtElhuyar = strRes.getString("m1Elhuyar");
+    return false;
+  }
+  xmlHttpReq.open('GET', urlElhuyar, true);
+  xmlHttpReq.send(null);
+  //Timerra sortu
+  var requestTimer = setTimeout(function() {
+    xmlHttpReq.abort();
+    txtElhuyar = strRes.getString("m1Elhuyar");
+  }, 5000);
+  xmlHttpReq.onreadystatechange = function() {
+    try {
+      if (xmlHttpReq.readyState == 4) {
+	//Timerra garbitu
+	clearTimeout(requestTimer);
+        if (xmlHttpReq.status == 200) {
+          txtElhuyar = xmlHttpReq.responseText;
+          var txtElhuyartable1array = txtElhuyar.split("<table");
+          txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
+          txtElhuyar = '<table'+txtElhuyar;
+          var txtElhuyartr1array = txtElhuyar.split("<tr");
+          txtElhuyar = txtElhuyartr1array[2].substring(txtElhuyartr1array[2].lenght - 1);
+          txtElhuyar = '<p><tr'+txtElhuyar;
+          txtElhuyar = txtElhuyar.replace(/<\/table>/, " ");
+          txtElhuyar = txtElhuyar.replace(/009999/g, "  ");
+          txtElhuyar = txtElhuyar.replace(/FFFFFF/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/003399/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
+	  //Lehen sarrerari bigarren sarrera erantsi
+          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+txtElhuyar;
+	  getShiftElhuyarAlt3(source, target, term);
+        }
+      }
+    }
+    catch( e ) {
+      txtElhuyar = strRes.getString("m1Elhuyar");
+    }
+  }
+}
+
+
+//Elhuyar kargatu hitzak sarrera bat baino gehiago duenean (adib: "cola" hitza): hirugarren sarrera
+function getShiftElhuyarAlt3(source, target, term){
+  var txtElhuyar = "";
+  //Lokalizazio paketeak kargatu
+  strRes = document.getElementById('leuskal');
+  if (source=='es') {
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term+'%20%203';
+  }else{
+    var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term+'%20%203';
+  }
+  var xmlHttpReq = new XMLHttpRequest();
+  xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+  if (!xmlHttpReq) {
+    txtElhuyar = strRes.getString("m1Elhuyar");
+    return false;
+  }
+  xmlHttpReq.open('GET', urlElhuyar, true);
+  xmlHttpReq.send(null);
+  //Timerra sortu
+  var requestTimer = setTimeout(function() {
+    xmlHttpReq.abort();
+    txtElhuyar = strRes.getString("m1Elhuyar");
+  }, 5000);
+  xmlHttpReq.onreadystatechange = function() {
+    try {
+      if (xmlHttpReq.readyState == 4) {
+	//Timerra garbitu
+	clearTimeout(requestTimer);
+        if (xmlHttpReq.status == 200) {
+          txtElhuyar = xmlHttpReq.responseText;
+          var txtElhuyartable1array = txtElhuyar.split("<table");
+          txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
+          txtElhuyar = '<table'+txtElhuyar;
+          var txtElhuyartr1array = txtElhuyar.split("<tr");
+          txtElhuyar = txtElhuyartr1array[2].substring(txtElhuyartr1array[2].lenght - 1);
+          txtElhuyar = '<p><tr'+txtElhuyar;
+          txtElhuyar = txtElhuyar.replace(/<\/table>/, " ");
+          txtElhuyar = txtElhuyar.replace(/009999/g, "  ");
+          txtElhuyar = txtElhuyar.replace(/FFFFFF/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/003399/g, "000000");
+          txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
+          txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
+	  //Lehen bi sarrerei hirugarren sarrera erantsi
+          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+txtElhuyar;
         }
       }
     }
