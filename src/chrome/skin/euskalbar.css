@@ -5,7 +5,8 @@ toolbar #euskalbar-language {
 }
 
 toolbar #euskalbar-button {
-  list-style-image: url('chrome://euskalbar/skin/euskalgnu.png'); 
+  list-style-image: url('chrome://euskalbar/skin/euskalbar16.png'); 
   margin-right: 0px;
 }
 
+#Euskalbar-menu [hidden="true"]{ display: none; }

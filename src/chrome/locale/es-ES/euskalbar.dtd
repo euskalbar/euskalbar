@@ -2,6 +2,7 @@
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "EuskalBar">
 <!ENTITY euskalbar.name "Euskalbar">
+<!ENTITY euskalbar.help.tooltip "Ayuda">
 <!ENTITY euskalbar.options.tooltip "Opciones">
 <!ENTITY euskalbar.euskalterm.tooltip "Base de datos Euskalterm">
 <!ENTITY euskalbar.3000.tooltip "Diccionario 3000">
@@ -19,11 +20,11 @@
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Opciones de Euskalbar">
-<!ENTITY euskalbar.prefsdictionaries.title "Diccionarios">
+<!ENTITY euskalbar.prefsdictionaries.tabtitle "Consulta avanzada">
 <!ENTITY euskalbar.prefsdictionaries.label "Seleccione los diccionarios a consultar con la tecla Intro">
-<!ENTITY euskalbar.prefsdictionaries.boxtitle "Consulta avanzada">
-<!ENTITY euskalbar.reusetabs.title "Pestañas">
-<!ENTITY euskalbar.reusetabs.label "Reutilizar pestañas">
+<!ENTITY euskalbar.prefsreusetabs.label "Reutilizar pestañas">
+<!ENTITY euskalbar.prefsuppermenu.tabtitle "Menú de diccionarios">
+<!ENTITY euskalbar.prefsuppermenu.label "Mostrar el menú de diccionarios">
 
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Diccionarios">
@@ -47,6 +48,7 @@
 <!ENTITY euskalbar.menu.management "Gestión empresarial">
 <!ENTITY euskalbar.menu.industry "Industria">
 <!ENTITY euskalbar.menu.computers "Informática">
+<!ENTITY euskalbar.menu.environment "Medio ambiente">
 <!ENTITY euskalbar.menu.internet "Internet">
 <!ENTITY euskalbar.menu.justice "Justicia">
 <!ENTITY euskalbar.menu.catalogues "Catalogación">

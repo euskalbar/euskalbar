@@ -161,6 +161,8 @@ function getShiftElhuyarAlt1(source, target, term){
       if (xmlHttpReq.readyState == 4) {
 	//Timerra garbitu
 	clearTimeout(requestTimer);
+
+
         if (xmlHttpReq.status == 200) {
           txtElhuyar = xmlHttpReq.responseText;
           var txtElhuyartable1array = txtElhuyar.split("<table");
@@ -185,6 +187,14 @@ function getShiftElhuyarAlt1(source, target, term){
             var txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
           }
         }
+      }
+      else{
+          if (source=='es') {
+            var txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
+          }else{
+            var txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
+          }
+        getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
       }
     }
     catch( e ) {

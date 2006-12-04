@@ -9,11 +9,11 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="{7859f616-20a5-45dc-bb02-4d3607264a14}"
                    em:name="Euskalbar"
-                   em:version="1.7"
+                   em:version="1.8"
                    em:creator="Juanan Pereira, Asier Sarasua Garmendia"
                    em:description="Euskara hiztegiak"
                    em:homepageURL="http://www.interneteuskadi.org/euskalbar"
-                   em:iconURL="chrome://euskalbar/skin/euskalgnu.gif"
+                   em:iconURL="chrome://euskalbar/skin/euskalbar32.png"
                    em:aboutURL="chrome://euskalbar/content/about/about.xul"
 		   em:optionsURL="chrome://euskalbar/content/prefs.xul"
 		   em:updateURL="http://www.interneteuskadi.org/euskalbar/update.rdf">

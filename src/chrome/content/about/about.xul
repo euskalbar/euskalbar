@@ -16,14 +16,14 @@
             <vbox>
                 <hbox>
                     <description value="&euskalbar.name;" class="name"/>
-                    <description class="name">1.7</description>
+                    <description class="name">1.8</description>
                 </hbox>
                 <description value="&euskalbar.about.author;" class="title"/>
                 <description>Juanan Pereira, Asier Sarasua Garmendia</description>
             </vbox>
             <spacer flex="1"/>
             <vbox>
-                <image src="chrome://euskalbar/skin/euskalgnu.gif" width="22" height="32"/>
+                <image src="chrome://euskalbar/skin/euskalbar32.png"/>
                 <spacer flex="1"/>
             </vbox>
         </hbox>

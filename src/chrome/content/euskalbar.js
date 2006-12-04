@@ -2,8 +2,6 @@
 // This is Free Software (GPL License)
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
-
-
     var euskalbar_language = 'es';
     var euskalbar_image = 'eseu.gif';
     var euskalbar_tooltip = "es>eu";
@@ -11,6 +9,39 @@
     var prefManager = Components.classes["@mozilla.org/preferences-service;1"]
                                 .getService(Components.interfaces.nsIPrefBranch);
 
+
+    // Laguntza erakusten du
+    function openLaguntza() {
+    //Lokalizazio paketeak kargatu
+    strRes = document.getElementById('leuskal');
+    const hiztegiakbai = strRes.getString("m1hiztegiak");
+      if (hiztegiakbai.match('diccionarios')) {
+	var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
+      }else{
+	var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
+      }
+      reuseOldtab(hurl, "euskalbar");
+    }
+
+
+    //Hiztegien menua erakusten/ezkutatzen du
+    function showhideDicts( ){
+    //Lokalizazio paketeak kargatu
+    strRes = document.getElementById('leuskal');
+    const hiztegiakbai = strRes.getString("m1hiztegiak");
+    const hiztegiakez = strRes.getString("m2hiztegiak");
+    var button = document.getElementById('Euskalbar-menu');
+    var ctlButton = document.getElementById('hideshowmenu');
+      if(!button.getAttribute('hidden')) {
+        button.setAttribute('hidden', true);
+        ctlButton.setAttribute('label', hiztegiakbai);
+      } else  {
+        button.removeAttribute('hidden');
+        ctlButton.setAttribute('label', hiztegiakez);
+      }
+      return;
+    }
+
     // Displays the about dialog
     function euskalbar_about() {
           window.openDialog("chrome://euskalbar/content/about/about.xul", "euskalbar-about-dialog", "centerscreen,chrome,modal,resizable");

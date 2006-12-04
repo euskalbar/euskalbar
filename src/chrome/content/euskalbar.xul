@@ -2,9 +2,6 @@
 
 <?xml-stylesheet href="chrome://euskalbar/skin/euskalbar.css" type="text/css"?>
 
-<!-- CSS estiloa inportatu hiztegien menua erakutsi/ezkutatzeko-->
-<?xml-stylesheet href="chrome://euskalbar/content/euskalbar.css" type="text/css"?>
-
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
 <overlay id="EuskalBar-Overlay"
@@ -22,9 +19,14 @@
     <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar"
            context="toolbar-context-menu" toolbarname="Euskalbar"
            hidden="false" persist="hidden">
-      <toolbarbutton disabled="true" id="euskalbar-button" />
+      <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
       <toolbarseparator/>
-      <toolbarbutton id="optionsdialog" label="&euskalbar.options.tooltip;" tooltiptext="&euskalbar.options.tooltip;" oncommand="euskalbarOptions();" />
+      <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
+        <menupopup id="EuskalBar-aukerak-popup">
+          <menuitem id="hideshowmenu" label="&euskalbar.prefsuppermenu.label;" tooltiptext="&euskalbar.prefsuppermenu.label;" oncommand="showhideDicts();"/>
+          <menuitem id="optionsdialog" label="&euskalbar.prefsdictionaries.tabtitle;" tooltiptext="&euskalbar.prefsdictionaries.tabtitle;" oncommand="euskalbarOptions();"/>
+        </menupopup>
+      </toolbarbutton>
       <toolbarseparator/>
       <toolbarbutton id="euskalbar-language" tooltiptext="es>eu" oncommand="changeEuskalbarLang();" />
       <textbox id="EuskalBar-search-string" label="Search String" style="margin-left: 10px;"    onkeypress="goEuskalBarOnKey(event)" />
@@ -59,7 +61,7 @@
 
 <!-- Firefox main menu dictionaries -->
 <menubar id="main-menubar">
-    <menu id="Euskalbar-menu" label="&euskalbar.menu.main;" insertafter="tools-menu">
+    <menu id="Euskalbar-menu" label="&euskalbar.menu.main;" insertafter="tools-menu" hidden="true" persist="hidden">
       <menupopup id="Euskalbar-popup">
         <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
           <menupopup id="Euskalbar-subpopup1">
@@ -97,6 +99,7 @@
         	<menuitem label="&euskalbar.menu.management;" oncommand="reuseOldtab('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
         	<menuitem label="&euskalbar.menu.industry;" oncommand="reuseOldtab('http://www.kondia.com/hiztegi/home.htm', 'kondia');"/>
         	<menuitem label="&euskalbar.menu.computers;" oncommand="reuseOldtab('http://drupal.euskalgnu.org/node/83', 'euskalgnu');"/>
+        	<menuitem label="&euskalbar.menu.environment;" oncommand="reuseOldtab('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');"/>
         	<menuitem label="&euskalbar.menu.internet;" oncommand="reuseOldtab('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');"/>
         	<menuitem label="&euskalbar.menu.justice;" oncommand="reuseOldtab('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');"/>
         	<menuitem label="&euskalbar.menu.catalogues;" oncommand="goEuskalBarOthers('kapsula');"/>
