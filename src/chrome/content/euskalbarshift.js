@@ -5,10 +5,9 @@
 
 // Euskalterm kargatu
 function getShiftEuskalterm(source, target, term){
-  var txtEuskalterm = "Euskalterm";
+  var txtEuskalterm= "";
   //Lokalizazio paketeak kargatu
   strRes = document.getElementById('leuskal');
-
   if (euskalbar_language=='es'){
     idioma = 'G';
   }else{
@@ -35,9 +34,9 @@ function getShiftEuskalterm(source, target, term){
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
-	//Timerra garbitu
-	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
+	  //Timerra garbitu
+	  clearTimeout(requestTimer);
           txtEuskalterm = xmlHttpReq.responseText;
           txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
           txtEuskalterm = txtEuskalterm.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
@@ -45,7 +44,6 @@ function getShiftEuskalterm(source, target, term){
           txtEuskalterm = txtEuskalterm.replace(/<\/body><\/html>/, " ");
           txtEuskalterm = txtEuskalterm.replace(/steelblue/g, "black");
           txtEuskalterm = txtEuskalterm.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
-          getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
         } else {
         txtEuskalterm = strRes.getString("m1Euskalterm");
         }
@@ -54,6 +52,7 @@ function getShiftEuskalterm(source, target, term){
     catch( e ) {
       txtEuskalterm = strRes.getString("m1Euskalterm");
     }
+    getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
   }
 }
 
@@ -61,9 +60,10 @@ function getShiftEuskalterm(source, target, term){
 
 // Elhuyar kargatu
 function getShiftElhuyar(source, target, term){
-  var txtElhuyar = "Elhuyar";
+  var txtElhuyar= "";
   //Lokalizazio paketeak kargatu
   strRes = document.getElementById('leuskal');
+
   //Azentu markak, eñeak eta dieresiak aldatu
   term = encodeURI(term);
   term = term.replace(/\%20/g, "_");
@@ -95,6 +95,7 @@ function getShiftElhuyar(source, target, term){
   }
   xmlHttpReq.open('GET', urlElhuyar, true);
   xmlHttpReq.send(null);
+
   //Timerra sortu
   var requestTimer = setTimeout(function() {
     xmlHttpReq.abort();
@@ -103,9 +104,9 @@ function getShiftElhuyar(source, target, term){
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
-	//Timerra garbitu
-	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
+	  //Timerra garbitu
+	  clearTimeout(requestTimer);
           txtElhuyar = xmlHttpReq.responseText;
           var txtElhuyartable1array = txtElhuyar.split("<table");
           txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
@@ -120,7 +121,6 @@ function getShiftElhuyar(source, target, term){
           txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
           txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
           txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
-          getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
         } else {
 	  //Hitza aurkitzen ez bada, beste funtzio hau exekutatu
 	  getShiftElhuyarAlt1(source, target, term);
@@ -130,6 +130,7 @@ function getShiftElhuyar(source, target, term){
     catch( e ) {
       txtElhuyar = strRes.getString("m1Elhuyar");
     }
+    getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
   }
 }
 
@@ -159,11 +160,9 @@ function getShiftElhuyarAlt1(source, target, term){
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
-	//Timerra garbitu
-	clearTimeout(requestTimer);
-
-
         if (xmlHttpReq.status == 200) {
+	  //Timerra garbitu
+	  clearTimeout(requestTimer);
           txtElhuyar = xmlHttpReq.responseText;
           var txtElhuyartable1array = txtElhuyar.split("<table");
           txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
@@ -181,20 +180,16 @@ function getShiftElhuyarAlt1(source, target, term){
           getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
 	  getShiftElhuyarAlt2(source, target, term);
         }else{
-          if (source=='es') {
-            var txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
-          }else{
-            var txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
-          }
+
         }
       }
       else{
           if (source=='es') {
-            var txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
+            txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
           }else{
-            var txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
+            txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
           }
-        getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+      getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
       }
     }
     catch( e ) {
@@ -230,9 +225,9 @@ function getShiftElhuyarAlt2(source, target, term){
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
-	//Timerra garbitu
-	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
+	  //Timerra garbitu
+	  clearTimeout(requestTimer);
           txtElhuyar = xmlHttpReq.responseText;
           var txtElhuyartable1array = txtElhuyar.split("<table");
           txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
@@ -286,9 +281,9 @@ function getShiftElhuyarAlt3(source, target, term){
   xmlHttpReq.onreadystatechange = function() {
     try {
       if (xmlHttpReq.readyState == 4) {
-	//Timerra garbitu
-	clearTimeout(requestTimer);
         if (xmlHttpReq.status == 200) {
+	  //Timerra garbitu
+	  clearTimeout(requestTimer);
           txtElhuyar = xmlHttpReq.responseText;
           var txtElhuyartable1array = txtElhuyar.split("<table");
           txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
@@ -318,7 +313,7 @@ function getShiftElhuyarAlt3(source, target, term){
 
 // 3000 kargatu
 function getShift3000(source, target, term){
-  var txt3000 = "3000 Hiztegia";
+  var txt3000 = "";
   //Lokalizazio paketeak kargatu
   strRes = document.getElementById('leuskal');
 
@@ -370,7 +365,6 @@ function getShift3000(source, target, term){
             txt3000 = txt3000.replace(/0000A0/g, "000000");
             txt3000 = txt3000.replace(/center/g, "left");
           }
-          getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
         } else {
            txt3000 = strRes.getString("m13000");
         }
@@ -379,5 +373,6 @@ function getShift3000(source, target, term){
     catch( e ) {
     txt3000 = strRes.getString("m13000");
     }
+   getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
   }
 }

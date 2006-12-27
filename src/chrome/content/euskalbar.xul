@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <?xml-stylesheet href="chrome://euskalbar/skin/euskalbar.css" type="text/css"?>
+<?xml-stylesheet href="chrome://euskalbar/content/euskalgui.css" type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
@@ -9,29 +10,61 @@
 
   <script type="application/x-javascript" src="euskalbar.js"/>
   <script type="application/x-javascript" src="euskalbarshift.js"/>
+  <script type="application/x-javascript" src="euskalbarktrl.js"/>
 
 <!-- Create reference to locales for Javascript files -->
   <stringbundleset id="stringbundleset">
     <stringbundle id="leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
   </stringbundleset>
 
+
+<!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar"
            context="toolbar-context-menu" toolbarname="Euskalbar"
            hidden="false" persist="hidden">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
       <toolbarseparator/>
-      <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
+      <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu" onclick="showhideDicts('etiketa');">
         <menupopup id="EuskalBar-aukerak-popup">
-          <menuitem id="hideshowmenu" label="&euskalbar.prefsuppermenu.label;" tooltiptext="&euskalbar.prefsuppermenu.label;" oncommand="showhideDicts();"/>
+          <menuitem id="hideshowmenu" label=" " tooltiptext="&euskalbar.prefsuppermenu.tooltip;" onclick="showhideDicts('dena');"/>
           <menuitem id="optionsdialog" label="&euskalbar.prefsdictionaries.tabtitle;" tooltiptext="&euskalbar.prefsdictionaries.tabtitle;" oncommand="euskalbarOptions();"/>
         </menupopup>
       </toolbarbutton>
       <toolbarseparator/>
       <toolbarbutton id="euskalbar-language" tooltiptext="es>eu" oncommand="changeEuskalbarLang();" />
       <textbox id="EuskalBar-search-string" label="Search String" style="margin-left: 10px;"    onkeypress="goEuskalBarOnKey(event)" />
-      <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;"
-               label="EuskalTerm" oncommand="goEuskalBar(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;"  type="menu" label="Euskalterm ">
+        <menupopup id="EuskalBar-Euskalterm-popup">
+          <menuitem id="Euskalterm-Dena" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, '0');"/>
+          <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'M');"/>
+          <menuitem id="Euskalterm-Arteak" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'W');"/>
+          <menuitem id="Euskalterm-Biologia" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'C');"/>
+          <menuitem id="Euskalterm-Ekonomia" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'O');"/>
+          <menuitem id="Euskalterm-Eraikuntza" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'I');"/>
+          <menuitem id="Euskalterm-Erlijioa" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'S');"/>
+          <menuitem id="Euskalterm-Filosofia" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'R');"/>
+          <menuitem id="Euskalterm-Garraioa" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'H');"/>
+          <menuitem id="Euskalterm-Geografia" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'Q');"/>
+          <menuitem id="Euskalterm-Geologia" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'D');"/>
+          <menuitem id="Euskalterm-Historia" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'J');"/>
+          <menuitem id="Euskalterm-Hizkuntzalaritza" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'U');"/>
+          <menuitem id="Euskalterm-Industria" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'K');"/>
+          <menuitem id="Euskalterm-Informatika" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'G');"/>
+          <menuitem id="Euskalterm-Kazetaritza" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'V');"/>
+          <menuitem id="Euskalterm-Izenak" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'Y');"/>
+          <menuitem id="Euskalterm-Kimika" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'B');"/>
+          <menuitem id="Euskalterm-Kirola" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'X');"/>
+          <menuitem id="Euskalterm-Laburtzapenak" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'Z');"/>
+          <menuitem id="Euskalterm-Matematika" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'A');"/>
+          <menuitem id="Euskalterm-Medikuntza" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'E');"/>
+          <menuitem id="Euskalterm-Merkataritza" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'L');"/>
+          <menuitem id="Euskalterm-Nekazaritza" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'F');"/>
+          <menuitem id="Euskalterm-Politika" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'P');"/>
+          <menuitem id="Euskalterm-Psikologia" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'T');"/>
+          <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value, 'N');"/>
+        </menupopup>
+      </toolbarbutton>
       <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;"
                label="3000" oncommand="goEuskalBarAsk(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;"
@@ -61,18 +94,13 @@
 
 <!-- Firefox main menu dictionaries -->
 <menubar id="main-menubar">
-    <menu id="Euskalbar-menu" label="&euskalbar.menu.main;" insertafter="tools-menu" hidden="true" persist="hidden">
+    <menu id="Euskalbar-menu" class="Euskalbar-menu" label="&euskalbar.menu.main;" insertafter="tools-menu" persist="hidden">
       <menupopup id="Euskalbar-popup">
         <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
           <menupopup id="Euskalbar-subpopup1">
         	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="reuseOldtab('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');"/>
       	<menuseparator/>
         	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="reuseOldtab('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
-		
-        	<!-- Euskalbar 1.8 bertsiorako: Euskalterm alternatiboa
-		<menuitem label="&euskalbar.menu.euskaltermalt;" oncommand="reuseOldtab('chrome://euskalbar/content/html/euskalbar_esktrm.html', 'esktrm');"/>
-		-->
-
         	<menuitem label="&euskalbar.menu.3000;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
         	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
       	<menuseparator/>

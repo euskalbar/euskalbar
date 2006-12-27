@@ -9,4 +9,4 @@ toolbar #euskalbar-button {
   margin-right: 0px;
 }
 
-#Euskalbar-menu [hidden="true"]{ display: none; }
+#Euskalbar-menu [hidden="true"] {display: none !important;} 

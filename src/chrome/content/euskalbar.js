@@ -14,34 +14,44 @@
     function openLaguntza() {
     //Lokalizazio paketeak kargatu
     strRes = document.getElementById('leuskal');
-    const hiztegiakbai = strRes.getString("m1hiztegiak");
-      if (hiztegiakbai.match('diccionarios')) {
-	var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
-      }else{
+    const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
 	var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
+      }else{
+	var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
       }
-      reuseOldtab(hurl, "euskalbar");
+      reuseOldtab(hurl, "euskalbarhelp");
     }
 
-
     //Hiztegien menua erakusten/ezkutatzen du
-    function showhideDicts( ){
+    function showhideDicts(nondik){
     //Lokalizazio paketeak kargatu
     strRes = document.getElementById('leuskal');
     const hiztegiakbai = strRes.getString("m1hiztegiak");
     const hiztegiakez = strRes.getString("m2hiztegiak");
     var button = document.getElementById('Euskalbar-menu');
     var ctlButton = document.getElementById('hideshowmenu');
-      if(!button.getAttribute('hidden')) {
-        button.setAttribute('hidden', true);
-        ctlButton.setAttribute('label', hiztegiakbai);
-      } else  {
-        button.removeAttribute('hidden');
-        ctlButton.setAttribute('label', hiztegiakez);
+    var prefDicts = prefManager.getBoolPref("euskalbar.showdicts.enabled");
+      if (nondik=="dena"){
+        if(prefDicts){
+          button.setAttribute('hidden', true);
+          ctlButton.setAttribute('label', hiztegiakez);
+          prefManager.setBoolPref("euskalbar.showdicts.enabled", false);
+        } else  {
+          button.removeAttribute('hidden');
+          ctlButton.setAttribute('label', hiztegiakbai);
+          prefManager.setBoolPref("euskalbar.showdicts.enabled", true);
+        }
+      }else if(nondik=="etiketa"){
+        if(prefDicts){
+          ctlButton.setAttribute('label', hiztegiakez);
+        } else  {
+          ctlButton.setAttribute('label', hiztegiakbai);
+        }
       }
-      return;
     }
-
+
+
     // Displays the about dialog
     function euskalbar_about() {
           window.openDialog("chrome://euskalbar/content/about/about.xul", "euskalbar-about-dialog", "centerscreen,chrome,modal,resizable");
@@ -90,10 +100,57 @@
 	var lang = document.getElementById('euskalbar-language').value
 	//Interfazak itzultzen duen bilaketa katea
 	var searchStr = document.getElementById('EuskalBar-search-string').value
+        //Lokalizazio paketeak kargatu
+        strRes = document.getElementById('leuskal');
 	//Enter tekla sakatzen bada...  
 	if(event.keyCode == 13) {
-	  // Shift tekla sakatuta ez badago...
-	  if (event.shiftKey != 1) {
+	  // Shift tekla sakatuta badago...
+	  if (event.shiftKey) {
+            const h1 = strRes.getString("hizk");
+            if (h1.match('euskara')) {
+	      var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizteu.html';
+            }else{
+	      var urlhizt = 'chrome://euskalbar/content/html/euskalbarhiztes.html';
+            }
+	    var zein = 'euskalbarhizt'
+	    if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+		reuseOldtab(urlhizt, zein);
+		//Exekutatu euskalbarshift.js fitxategian dauden skriptak
+	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
+	        getShift3000(euskalbar_language, lang, searchStr);
+	        getShiftElhuyar(euskalbar_language, lang, searchStr);
+	    }
+	    else{
+		openNewtab(urlhizt);
+	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
+	        getShift3000(euskalbar_language, lang, searchStr);
+	        getShiftElhuyar(euskalbar_language, lang, searchStr);
+	    }
+	  }
+	  // Ktrl tekla sakatuta badago...
+          else if  (event.ctrlKey) {
+            const h2 = strRes.getString("hizk");
+            if (h2.match('euskara')) {
+	      var urlsin = 'chrome://euskalbar/content/html/euskalbarsineu.html';
+            }else{
+	      var urlsin = 'chrome://euskalbar/content/html/euskalbarsines.html';
+            }
+	    var zein = 'euskalbarsin'
+	    if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+		reuseOldtab(urlsin, zein);
+		//Exekutatu euskalbarktrl.js fitxategian dauden skriptak
+	        getKtrlSinonimoak(euskalbar_language, lang, searchStr);
+	        getKtrlUZEI(euskalbar_language, lang, searchStr);
+	    }
+	    else{
+		openNewtab(urlsin);
+	        getKtrlSinonimoak(euskalbar_language, lang, searchStr);
+	        getKtrlUZEI(euskalbar_language, lang, searchStr);
+	    }
+
+          }
+	  // Shift tekla eta Ktrl tekla sakatuta ez badaude...
+	  else{
 	    if(prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
 	      goEuskalBar(euskalbar_language, lang, searchStr);
 	    }
@@ -117,24 +174,6 @@
 	    }
 	    if(prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
 	      goEuskalBarOpentrad(euskalbar_language, lang, searchStr);
-	    }
-	    }
-	  // Shift tekla sakatuta badago...
-	  else{
-	    var txanturl = 'chrome://euskalbar/content/html/euskalbartxant.html';
-	    var zein = 'euskalbartxant' 
-	    if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-		reuseOldtab(txanturl, zein);
-		//Exekutatu euskalbarshift.js fitxategian dauden skriptak
-	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
-	        getShift3000(euskalbar_language, lang, searchStr);
-	        getShiftElhuyar(euskalbar_language, lang, searchStr);
-	    }
-	    else{
-		openNewtab(txanturl);
-	        getShiftEuskalterm(euskalbar_language, lang, searchStr);
-	        getShift3000(euskalbar_language, lang, searchStr);
-	        getShiftElhuyar(euskalbar_language, lang, searchStr);
 	    }
 	  } 
 	}
@@ -161,10 +200,15 @@
 
     }
 
-    function goEuskalBar(source, target, term) {
-	if (source=='es') idioma='G';
-		else idioma='E';
-      var url='http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak=0&hizkuntza='+source;
+    //Euskaltermen bilaketak egiteko
+    function goEuskalBarEuskalterm(source, target, term, sub) {
+    strRes = document.getElementById('leuskal');
+    const h = strRes.getString("hizk");
+      if (h.match('euskara')) hiztegiarenhizkuntza='eu';
+        else hiztegiarenhizkuntza='es';
+      if (source=='es') idioma='G';
+	else idioma='E';
+      var url='http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak='+sub+'&hizkuntza='+hiztegiarenhizkuntza;
       var zein='euskalterm'
       if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
 	reuseOldtab(url, zein);
