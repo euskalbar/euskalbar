@@ -152,7 +152,7 @@
 	  // Shift tekla eta Ktrl tekla sakatuta ez badaude...
 	  else{
 	    if(prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
-	      goEuskalBar(euskalbar_language, lang, searchStr);
+	      goEuskalBarEuskalterm(euskalbar_language, lang, searchStr);
 	    }
 	    if(prefManager.getBoolPref("euskalbar.3000.onkey")) {
 	      goEuskalBarAsk(euskalbar_language, lang, searchStr);
