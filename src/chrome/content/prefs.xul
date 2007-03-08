@@ -16,6 +16,8 @@
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
+      <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
+      <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
     </preferences>
@@ -35,6 +37,8 @@
  	    <checkbox preference="prefHarluxet" label="Harluxet"/>
 	    <checkbox preference="prefMokoroa" label="Mokoroa"/>
 	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa"/>
+	    <checkbox preference="prefOpentrad" label="Opentrad"/>
+	    <checkbox preference="prefXUXENweb" label="XUXENweb"/>
 	    <groupbox>
 	      <checkbox preference="prefReusetabs" label="&euskalbar.prefsreusetabs.label;"/>
 	    </groupbox>

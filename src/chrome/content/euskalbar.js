@@ -178,6 +178,9 @@
 	    if(prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
 	      goEuskalBarZTCorpusa(euskalbar_language, lang, searchStr);
 	    }
+	    if(prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
+	      goEuskalBarXUXENweb(euskalbar_language, lang, searchStr);
+	    }
 	    if(prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
 	      goEuskalBarOpentrad(euskalbar_language, lang, searchStr);
 	    }
@@ -224,9 +227,17 @@
       }      
     }
 
-    function goEuskalBarSelection(source, target, term) {
-      var url='http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
-      var zein='opentrad'
+    function goEuskalBarSelection(source, target, term, action) {
+	switch (action) {
+		case 'opentrad' :
+			var url='http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
+      			var zein='opentrad'
+			break;
+		case 'xuxenweb' :
+			var url='http://www.xuxen.com/socketBezero.php?idatzArea='+term; 
+      			var zein='xuxen'
+			break;
+	}
       if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
 	reuseOldtab(url, zein);
       }
@@ -404,6 +415,17 @@
     function goEuskalBarZTCorpusa(source, target, term) {
 	var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py?testu-hitza1='+escape(term);
 	var zein='ztcorpusa'
+	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
+    }
+
+    function goEuskalBarXUXENweb(source, target, term) {
+	var url = 'http://www.xuxen.com/socketBezero.php?idatzArea='+term;
+	var zein='xuxen'
 	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
 	reuseOldtab(url, zein);
       }

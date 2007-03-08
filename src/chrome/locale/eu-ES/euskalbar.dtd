@@ -12,6 +12,7 @@
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren Corpusa">
+<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
 
 <!-- About -->

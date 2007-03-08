@@ -16,10 +16,10 @@
             <vbox>
                 <hbox>
                     <description value="&euskalbar.name;" class="name"/>
-                    <description class="name">1.10</description>
+                    <description class="name">1.11</description>
                 </hbox>
                 <description value="&euskalbar.about.author;" class="title"/>
-                <description>Juanan Pereira, Asier Sarasua Garmendia, Igor Leturia Azkarate</description>
+                <description>Juanan Pereira, Asier Sarasua Garmendia, Igor Leturia Azkarate, Ibon Aizpurua Ugarte</description>
             </vbox>
             <spacer flex="1"/>
             <vbox>

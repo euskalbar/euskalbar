@@ -81,6 +81,9 @@
       <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;"
                label="ZT Corpusa" oncommand="goEuskalBarZTCorpusa(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarseparator/>
+      <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;"
+               label="XUXENweb" oncommand="goEuskalBarXUXENweb(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarseparator/>
       <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;"
                label="Opentrad" oncommand="goEuskalBarOpentrad(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
      </toolbar>
@@ -89,10 +92,16 @@
 <!-- Firefox context menupopup right-click -->
 <popup id="contentAreaContextMenu">    
 <menuseparator/>
-    <menuitem id="EuskalBar-context" label="Euskeratu Opentrad erabiliz" oncommand="goEuskalBarSelection('none', 'none', escape(selectionText()));" >
+    <menuitem id="EuskalBar-context" label="Euskeratu Opentrad erabiliz" oncommand="goEuskalBarSelection('none', 'none', escape(selectionText()), 'opentrad');" >
        <observes element="cmd_copy" attribute="disabled"/>
     </menuitem>
+<menuseparator/>
+    <menuitem id="EuskalBar-context" label="Zuzendu XUXENweb erabiliz" oncommand="goEuskalBarSelection('none', 'none', escape(selectionText()), 'xuxenweb');" >
+       <observes element="cmd_copy" attribute="disabled"/>
+    </menuitem>
+
 </popup>
+
 
 <!-- Firefox main menu dictionaries -->
 <menubar id="main-menubar">
