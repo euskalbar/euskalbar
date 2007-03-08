@@ -11,6 +11,7 @@
 <!ENTITY euskalbar.itzul.tooltip "Archivo de la lista de correo ItzuL">
 <!ENTITY euskalbar.harluxet.tooltip "Diccionario enciclopédico Harluxet">
 <!ENTITY euskalbar.mokoroa.tooltip "Base de datos Mokoroa">
+<!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Ciencia y Tecnología">
 <!ENTITY euskalbar.opentrad.tooltip "Traducción automática Opentrad">
 
 <!-- About -->
@@ -96,3 +97,4 @@
 <!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
+<!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">

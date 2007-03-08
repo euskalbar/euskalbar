@@ -172,6 +172,12 @@
 	    if(prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
 	      goEuskalBarMokoroa(euskalbar_language, lang, searchStr);
 	    }
+	    if(prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
+	      goEuskalBarMokoroa(euskalbar_language, lang, searchStr);
+	    }
+	    if(prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
+	      goEuskalBarZTCorpusa(euskalbar_language, lang, searchStr);
+	    }
 	    if(prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
 	      goEuskalBarOpentrad(euskalbar_language, lang, searchStr);
 	    }
@@ -395,6 +401,16 @@
       }      
     }
 
+    function goEuskalBarZTCorpusa(source, target, term) {
+	var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py?testu-hitza1='+escape(term);
+	var zein='ztcorpusa'
+	if(prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+	reuseOldtab(url, zein);
+      }
+      else{
+	openNewtab(url);	
+      }      
+    }
 
     function goEuskalBarOthers(zein) {
 	switch (zein) {

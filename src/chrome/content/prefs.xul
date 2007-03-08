@@ -15,6 +15,7 @@
       <preference id="prefItzuL" name="euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
+      <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
     </preferences>
@@ -33,6 +34,7 @@
  	    <checkbox preference="prefItzuL" label="ItzuL"/>
  	    <checkbox preference="prefHarluxet" label="Harluxet"/>
 	    <checkbox preference="prefMokoroa" label="Mokoroa"/>
+	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa"/>
 	    <groupbox>
 	      <checkbox preference="prefReusetabs" label="&euskalbar.prefsreusetabs.label;"/>
 	    </groupbox>

@@ -78,6 +78,8 @@
                label="Harluxet" oncommand="goEuskalBarHarluxet(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;"
                label="Mokoroa" oncommand="goEuskalBarMokoroa(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;"
+               label="ZT Corpusa" oncommand="goEuskalBarZTCorpusa(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;"
                label="Opentrad" oncommand="goEuskalBarOpentrad(euskalbar_language, document.getElementById('euskalbar-language').value, document.getElementById('EuskalBar-search-string').value);"/>
@@ -148,6 +150,7 @@
         	<menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="reuseOldtab('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
         	<menuitem label="&euskalbar.menu.garate;" oncommand="reuseOldtab('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');"/>
         	<menuitem label="&euskalbar.menu.laburzki;" oncommand="reuseOldtab('http://www.palazio.org/Laburzki', 'Laburzki');"/>
+        	<menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="reuseOldtab('http://www.ztcorpusa.net', 'ztcorpusa');"/>
           </menupopup>
 	  </menu>
       </menupopup>

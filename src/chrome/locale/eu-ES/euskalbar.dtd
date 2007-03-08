@@ -11,6 +11,7 @@
 <!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
+<!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren Corpusa">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
 
 <!-- About -->
@@ -90,10 +91,11 @@
 <!ENTITY euskalbar.menu.cooking "Sukaldaritza">
 <!ENTITY euskalbar.menu.teleco "Telekomunikazioak">
 <!ENTITY euskalbar.menu.science "Zientzia">
-<!ENTITY euskalbar.menu.corpus "Corpusa">
+<!ENTITY euskalbar.menu.corpus "Corpusak">
 <!ENTITY euskalbar.menu.euskaracorpusa "Euskararen corpusa">
 <!ENTITY euskalbar.menu.mokoroa "Mokoroa">
 <!ENTITY euskalbar.menu.intza "Intza">
 <!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
+<!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
