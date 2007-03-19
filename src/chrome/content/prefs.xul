@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
+
+<prefwindow id="euskalbar-prefs-dialog"
+        title="&euskalbar.prefs.title;"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="startupPrefs();" onunload="shutdownPrefs();">
+<prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
+  <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
+    <preferences>
+      <preference id="prefEuskalterm" name="euskalbar.euskalterm.onkey" type="bool"/>
+      <preference id="pref3000" name="euskalbar.3000.onkey" type="bool"/>
+      <preference id="prefElhuyar" name="euskalbar.elhuyar.onkey" type="bool"/>
+      <preference id="prefMorris" name="euskalbar.morris.onkey" type="bool"/>
+      <preference id="prefBatua" name="euskalbar.batua.onkey" type="bool"/>
+      <preference id="prefItzuL" name="euskalbar.itzul.onkey" type="bool"/>
+      <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
+      <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
+      <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
+      <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
+      <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
+      <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
+      <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
+      <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
+    </preferences>
+
+    <tabbox flex="1">
+      <tabs>
+        <tab label="&euskalbar.prefs.general.tabtitle;"/>
+        <tab label="&euskalbar.prefs.dictionaries.tabtitle;"/>
+      </tabs>
+
+      <tabpanels flex="1">
+
+        <tabpanel id="tab-orokorra">
+      		<vbox flex="1">
+      		<groupbox>
+      			<caption label="&euskalbar.prefs.lang.caption;"/>
+      			<vbox align="left">
+      				<label value="&euskalbar.prefs.lang.label;" />
+      				<menulist id="menuStartupLang" preference="prefStartupLang">
+      					<menupopup>
+                  <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
+                  <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
+                  <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
+                  <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
+      					</menupopup>
+      				</menulist>
+      			</vbox>
+      		</groupbox>
+      		<groupbox>
+      			<caption label="&euskalbar.prefs.tabs.caption;" />
+      			<checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
+      		</groupbox>
+      		</vbox>
+        </tabpanel>
+
+        <tabpanel id="tab-aurreratua">
+          <vbox>
+            <label value="&euskalbar.prefs.dictionaries.label;"/>
+            <grid flex="1">
+              <columns>
+                <column flex="1" />
+                <column flex="1" />
+              </columns>
+            
+              <rows>
+                <row>
+            	    <checkbox preference="prefEuskalterm" label="Euskalterm"/>
+             	    <checkbox preference="prefHarluxet" label="Harluxet"/>
+                </row>
+                <row>
+            	    <checkbox preference="pref3000" label="3000"/>
+            	    <checkbox preference="prefMokoroa" label="Mokoroa"/>
+                </row>
+                <row>
+            	    <checkbox preference="prefElhuyar" label="Elhuyar"/>
+            	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa"/>
+                </row>
+                <row>
+            	    <checkbox preference="prefMorris" label="Morris"/>
+            	    <checkbox preference="prefOpentrad" label="Opentrad"/>
+                </row>
+                <row>
+            	    <checkbox preference="prefBatua" label="Hiztegi Batua"/>
+            	    <checkbox preference="prefXUXENweb" label="XUXENweb"/>
+                </row>
+                <row>
+                  <checkbox preference="prefItzuL" label="ItzuL"/>            	    
+                </row>
+              </rows>
+            </grid>
+    	    </vbox>
+        </tabpanel>
+      </tabpanels>
+    </tabbox>
+</prefpane>
+</prefwindow>

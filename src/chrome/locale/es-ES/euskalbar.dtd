@@ -1,0 +1,112 @@
+﻿<!-- Common -->
+<!ENTITY euskalbar.key "E">
+<!ENTITY euskalbar.label "Euskalbar">
+<!ENTITY euskalbar.name "Euskalbar">
+<!ENTITY euskalbar.help.tooltip "Ayuda">
+<!ENTITY euskalbar.options.tooltip "Opciones ">
+<!ENTITY euskalbar.euskalterm.tooltip "Base de datos Euskalterm">
+<!ENTITY euskalbar.3000.tooltip "Diccionario 3000">
+<!ENTITY euskalbar.elhuyar.tooltip "Diccionario Elhuyar">
+<!ENTITY euskalbar.morris.tooltip "Diccionario Morris">
+<!ENTITY euskalbar.batua.tooltip "Diccionario unificado de Euskaltzaindia">
+<!ENTITY euskalbar.itzul.tooltip "Archivo de la lista de correo ItzuL">
+<!ENTITY euskalbar.harluxet.tooltip "Diccionario enciclopédico Harluxet">
+<!ENTITY euskalbar.mokoroa.tooltip "Base de datos Mokoroa">
+<!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Ciencia y Tecnología">
+<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb corrector ortográfico">
+<!ENTITY euskalbar.opentrad.tooltip "Traducción automática Opentrad">
+
+<!-- About -->
+<!ENTITY euskalbar.about.author "Autores">
+<!ENTITY euskalbar.about.home.page "Home">
+<!ENTITY euskalbar.about.title "Sobre Euskalbar">
+
+<!-- Prefs -->
+<!ENTITY euskalbar.prefs.title "Opciones de Euskalbar">
+<!ENTITY euskalbar.prefs.options.label "Preferencias">
+<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Consulta avanzada">
+<!ENTITY euskalbar.prefs.dictionaries.label "Seleccione los diccionarios a consultar con la tecla Intro">
+<!ENTITY euskalbar.prefs.reusetabs.label "Reutilizar pestañas">
+<!ENTITY euskalbar.prefs.general.tabtitle "General">
+<!ENTITY euskalbar.prefs.uppermenu.tabtitle "Menú de diccionarios">
+<!ENTITY euskalbar.prefs.uppermenu.label "Mostrar el menú de diccionarios">
+<!ENTITY euskalbar.prefs.uppermenu.tooltip "Mostrar/esconder el menú de diccionarios">
+<!ENTITY euskalbar.prefs.lang.caption "Idioma">
+<!ENTITY euskalbar.prefs.lang.label "Al iniciar Euskalbar, elegir el siguiente idioma:">
+<!ENTITY euskalbar.prefs.tabs.caption "Preferencias de las pestañas">
+
+<!-- Euskalterm -->
+<!ENTITY euskalbar.euskalterm.administrazioa.label "Administración">
+<!ENTITY euskalbar.euskalterm.arteak.label "Artes">
+<!ENTITY euskalbar.euskalterm.biologia.label "Biología">
+<!ENTITY euskalbar.euskalterm.ekonomia.label "Economía y empresa">
+<!ENTITY euskalbar.euskalterm.eraikuntza.label "Construcción, urbanismo">
+<!ENTITY euskalbar.euskalterm.erlijioa.label "Religión">
+<!ENTITY euskalbar.euskalterm.filosofia.label "Filosofía">
+<!ENTITY euskalbar.euskalterm.garraioa.label "Transportes, correos, telecomunicaciones">
+<!ENTITY euskalbar.euskalterm.geografia.label "Geografía">
+<!ENTITY euskalbar.euskalterm.geologia.label "Geología">
+<!ENTITY euskalbar.euskalterm.historia.label "Historia, temas militares">
+<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "Lingüistica, literatura">
+<!ENTITY euskalbar.euskalterm.industria.label "Industria">
+<!ENTITY euskalbar.euskalterm.informatika.label "Informática">
+<!ENTITY euskalbar.euskalterm.kazetaritza.label "Ciencias de la información, documentación">
+<!ENTITY euskalbar.euskalterm.izenak.label "Nombres, títulos">
+<!ENTITY euskalbar.euskalterm.kimika.label "Química y física">
+<!ENTITY euskalbar.euskalterm.kirola.label "Deporte, juegos, tiempo libre">
+<!ENTITY euskalbar.euskalterm.laburtzapenak.label "Abreviaciones">
+<!ENTITY euskalbar.euskalterm.matematika.label "Matemática y estadística">
+<!ENTITY euskalbar.euskalterm.medikuntza.label "Medicina">
+<!ENTITY euskalbar.euskalterm.merkataritza.label "Comercio, relaciones laborales">
+<!ENTITY euskalbar.euskalterm.nekazaritza.label "Agricultura, pesca">
+<!ENTITY euskalbar.euskalterm.politika.label "Política, sociología, antropología">
+<!ENTITY euskalbar.euskalterm.psikologia.label "Psicología, pedagogía">
+<!ENTITY euskalbar.euskalterm.zuzenbidea.label "Derecho">
+
+<!--Language-->
+<!ENTITY euskalbar.language.eu_es "eu » es">
+<!ENTITY euskalbar.language.es_eu "es » eu">
+<!ENTITY euskalbar.language.eu_en "eu » en">
+<!ENTITY euskalbar.language.en_eu "en » eu">
+
+<!-- Menu -->
+<!ENTITY euskalbar.menu.main "Diccionarios">
+<!ENTITY euskalbar.menu.general "Generales">
+<!ENTITY euskalbar.menu.euskaltzaindia "Diccionario unificado de Euskaltzaindia (EU)">
+<!ENTITY euskalbar.menu.euskalterm "Banco terminológico Euskalterm (EU-ES)">
+<!ENTITY euskalbar.menu.euskaltermalt "Banco terminológico Euskalterm (EU-ES) alternativo">
+<!ENTITY euskalbar.menu.3000 "Diccionario 3000 (EU-ES)">
+<!ENTITY euskalbar.menu.elhuyar "Diccionario Elhuyar (EU-ES)">
+<!ENTITY euskalbar.menu.morris "Diccionario Morris (EU-EN)">
+<!ENTITY euskalbar.menu.sinonimoak "Sinónimos">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Diccionario de sinónimos de ADOREZ">
+<!ENTITY euskalbar.menu.uzeisinonim "Diccionario de sinónimos de UZEI">
+<!ENTITY euskalbar.menu.entziklopediak "Enciclopedias">
+<!ENTITY euskalbar.menu.aunam "Enciclopedia Auñamendi">
+<!ENTITY euskalbar.menu.harluxet "Enciclopedia Harluxet">
+<!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
+<!ENTITY euskalbar.menu.thematics "Temáticos">
+<!ENTITY euskalbar.menu.drugs "Drogas">
+<!ENTITY euskalbar.menu.energy "Energia">
+<!ENTITY euskalbar.menu.management "Gestión empresarial">
+<!ENTITY euskalbar.menu.industry "Industria">
+<!ENTITY euskalbar.menu.industry2 "Industria (para inmigrantes)">
+<!ENTITY euskalbar.menu.computers "Informática">
+<!ENTITY euskalbar.menu.environment "Medio ambiente">
+<!ENTITY euskalbar.menu.internet "Internet">
+<!ENTITY euskalbar.menu.justice "Justicia">
+<!ENTITY euskalbar.menu.catalogues "Catalogación">
+<!ENTITY euskalbar.menu.journalism "Periodismo">
+<!ENTITY euskalbar.menu.parliament "Parlamento">
+<!ENTITY euskalbar.menu.health "Salud">
+<!ENTITY euskalbar.menu.cooking "Cocina">
+<!ENTITY euskalbar.menu.teleco "Telecomunicaciones">
+<!ENTITY euskalbar.menu.science "Ciencia">
+<!ENTITY euskalbar.menu.corpus "Corpus">
+<!ENTITY euskalbar.menu.euskaracorpusa "Euskararen corpusa">
+<!ENTITY euskalbar.menu.mokoroa "Mokoroa">
+<!ENTITY euskalbar.menu.intza "Intza">
+<!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
+<!ENTITY euskalbar.menu.garate "Gotzon Garate">
+<!ENTITY euskalbar.menu.laburzki "Laburzki">
+<!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">

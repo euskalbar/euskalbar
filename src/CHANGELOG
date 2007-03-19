@@ -1,0 +1,15 @@
+Euskalbar
+
+1.95 bertsioa
+- Ingelesa gehitu da kontsultarako hizkuntza gisa.
+- Hizkuntza hautatzeko botoia aldatu da.
+- Hizkuntza aldatzearekin batera tresna-barrako hiztegiak moldatzen dira.
+- Hobespenen leihoa hedatu eta berrantolatu da: lehenetsitako hizkuntza ezar daiteke.
+- Morris hiztegia (en-eu) kontsulta daiteke.
+- Euskalterm hiztegia ingelesa jatorrizko hizkuntza izanik kontsulta daiteke (en-eu).
+- Hizkuntza gisa ingelesa aukeratuta badago, Shift + Enter teklak sakatzean Euskalterm eta Morris hiztegiak kontsultatuko dira.
+- Euskalterm hiztegian kontsultak egiteko botoia aldatu da. Orain, gainean klik eginda gai guztiak kontsultatuko dira; menutik gai bat aukeratuz gero, gai konkretu horren gaineko kontsultak burutuko dira.
+- Interfazea ingelesera itzuli da.
+- Hiztegien menutik Kirolen hiztegia ezabatu da, dagoeneko ez baita existitzen.
+- Hiztegien menuan `Etorkinentzako Debabarreneko industri ingurunearen hiztegia' gehitu da.
+- Laguntzako ikonoa (16x16) aldatu da intuitiboa izatearren (Tango! proiektutik hartuta)
