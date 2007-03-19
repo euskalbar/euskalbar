@@ -1,6 +1,0 @@
-content	euskalbar jar:chrome/euskalbar.jar!/content/
-locale	euskalbar	es-ES	jar:chrome/euskalbar.jar!/locale/es-ES/
-locale	euskalbar	eu-ES	jar:chrome/euskalbar.jar!/locale/eu-ES/
-skin	euskalbar	classic/1.0	jar:chrome/euskalbar.jar!/skin/
-style	chrome://global/content/customizeToolbar.xul	chrome://euskalbar/skin/euskalbar.css
-overlay	chrome://browser/content/browser.xul	chrome://euskalbar/content/euskalbar.xul
