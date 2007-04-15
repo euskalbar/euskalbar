@@ -1,6 +1,22 @@
-Euskalbar
+// ***********************
+//  Euskalbar - CHANGELOG
+// ***********************
 
-1.95 bertsioa
+2.1 bertsioa
+================
+- Abiaratzean ezarritako hiztegien akats bat zuzendu da (jatorrizko hizkuntza eu zenean).
+- Fitxak atzeko planoan zabaltzeko aukera gehitu da.
+- Aukeratutako testu baten gainean kontsultak egiteko aukera gehitu da Euskalbar osoa eskuin-klik batean eskuragarri izanik. (#8)
+- Eurovoc Thesaurusa kontsulta daiteke. (#7)
+- Open-tran.eu kontsulta daiteke, en-eu norabidean. (#10)
+- Aldaketak hiztegien menuan:
+  + BFAren Hiztegi Terminologikoa gehitu da.
+  + Eurovoc Tesaurusa gehitu da.
+  + Open-tran.eu itzulpen datu-basea gehitu da.
+
+
+1.95 bertsioa (2.0)
+=============
 - Ingelesa gehitu da kontsultarako hizkuntza gisa.
 - Hizkuntza hautatzeko botoia aldatu da.
 - Hizkuntza aldatzearekin batera tresna-barrako hiztegiak moldatzen dira.

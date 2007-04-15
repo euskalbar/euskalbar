@@ -8,11 +8,13 @@
 <!ENTITY euskalbar.3000.tooltip "3000 dictionary">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar dictionary">
 <!ENTITY euskalbar.morris.tooltip "Morris dictionary">
-<!ENTITY euskalbar.batua.tooltip "Euskaltzaindia's batua dictionary">
+<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu translation database">
+<!ENTITY euskalbar.batua.tooltip "Euskaltzaindia Batua dictionary">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL mailing list archive">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet encyclopedic dictionary">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
+<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
 
@@ -27,6 +29,7 @@
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Advanced look up">
 <!ENTITY euskalbar.prefs.dictionaries.label "When Enter key is pressed, look up the following dictionaries:">
 <!ENTITY euskalbar.prefs.reusetabs.label "Reuse tabs">
+<!ENTITY euskalbar.prefs.bgtabs.label "Open new tabs in background">
 <!ENTITY euskalbar.prefs.general.tabtitle "General">
 <!ENTITY euskalbar.prefs.uppermenu.tabtitle "Dictionaries menu">
 <!ENTITY euskalbar.prefs.uppermenu.label "Show dictionaries menu">
@@ -36,6 +39,7 @@
 <!ENTITY euskalbar.prefs.tabs.caption "Tabs Preferences">
 
 <!-- Euskalterm -->
+<!ENTITY euskalbar.euskalterm.dena.label "Any">
 <!ENTITY euskalbar.euskalterm.administrazioa.label "Public Administration">
 <!ENTITY euskalbar.euskalterm.arteak.label "Arts">
 <!ENTITY euskalbar.euskalterm.biologia.label "Biology">
@@ -69,15 +73,25 @@
 <!ENTITY euskalbar.language.eu_en "eu » en">
 <!ENTITY euskalbar.language.en_eu "en » eu">
 
+<!-- Context Menu -->
+<!ENTITY euskalbar.context.opentrad.label "Translate to Basque using Opentrad">
+<!ENTITY euskalbar.context.xuxenweb.label "Correct using XUXENweb">
+<!ENTITY euskalbar.context.sinonimoak.label "Synonyms">
+<!ENTITY euskalbar.context.mokoroa.es.label "In Spanish text">
+<!ENTITY euskalbar.context.mokoroa.eu.label "In Basque text">
+
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Dictionaries">
 <!ENTITY euskalbar.menu.general "General">
-<!ENTITY euskalbar.menu.euskaltzaindia "Euskaltzaindia's batua dictionary (EU)">
+<!ENTITY euskalbar.menu.euskaltzaindia "Euskaltzaindia Batua dictionary (EU)">
+<!ENTITY euskalbar.menu.eurovoc "Eurovoc Thesaurus">
 <!ENTITY euskalbar.menu.euskalterm "Euskalterm terminological bank (EU-ES)">
 <!ENTITY euskalbar.menu.euskaltermalt "Euskalterm alternative terminological bank (EU-ES)">
+<!ENTITY euskalbar.menu.bfa_term "BFA Terminological Dictionary (EU-ES)">
 <!ENTITY euskalbar.menu.3000 "3000 dictionary (EU-ES)">
 <!ENTITY euskalbar.menu.elhuyar "Elhuyar dictionary (EU-ES)">
 <!ENTITY euskalbar.menu.morris "Morris dictionary (EU-EN)">
+<!ENTITY euskalbar.menu.opentran "Open-tran translation database (EN-EU)">
 <!ENTITY euskalbar.menu.sinonimoak "Synonyms">
 <!ENTITY euskalbar.menu.sinonimoenhizt "ADOREZ synonyms dictionary">
 <!ENTITY euskalbar.menu.uzeisinonim "UZEI synonyms dictionary">

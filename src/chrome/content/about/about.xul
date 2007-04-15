@@ -17,14 +17,14 @@
             <vbox>
                 <hbox>
                     <description value="&euskalbar.name;" class="name"/>
-                    <description class="name">1.95</description>
+                    <description class="name">2.1</description>
                 </hbox>
                 <description value="&euskalbar.about.author;" class="title"/>
-                <description>Juanan Pereira</description>
-                <description>Asier Sarasua Garmendia</description>
-                <description>Igor Leturia Azkarate</description>
-                <description>Ibon Aizpurua Ugarte</description>
-                <description>Julen Ruiz Aizpuru</description>
+                <description class="author">Juanan Pereira</description>
+                <description class="author">Asier Sarasua Garmendia</description>
+                <description class="author">Igor Leturia Azkarate</description>
+                <description class="author">Ibon Aizpurua Ugarte</description>
+                <description class="author">Julen Ruiz Aizpuru</description>
             </vbox>
             <spacer flex="1"/>
             <vbox>

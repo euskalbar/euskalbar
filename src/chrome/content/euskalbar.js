@@ -14,7 +14,11 @@
       euskalbar_source = lang[0]+lang[1];
       euskalbar_target = lang[3]+lang[4];
       setEuskalbarLang(euskalbar_source, euskalbar_target);
-      setEuskalbarDictionaries(euskalbar_source);
+      if (euskalbar_source != 'eu') {
+        setEuskalbarDictionaries(euskalbar_source);
+      } else {
+        setEuskalbarDictionaries(euskalbar_target);
+      }
     }
 
 
@@ -94,13 +98,17 @@
     // Hiztegia fitxa berri batean ireki
     function openNewtab(taburl) {
       var theTab = getBrowser().addTab(taburl);
-      getBrowser().selectedTab = theTab;
+      // enfokatu hala eskatu bada
+      if (!prefManager.getBoolPref("euskalbar.bgtabs.enabled")) {
+        getBrowser().selectedTab = theTab;
+      }
     }
 
 
     // Hiztegia fitxa zaharrean ireki
     function reuseOldtab(taburl, tabzein){ 
       // Aztertu fitxa zahar bakoitza
+      var oldTab = getBrowser().selectedTab;
       var found = false;
       var index = 0
       var numTabs = getBrowser().mTabContainer.childNodes.length;
@@ -110,8 +118,10 @@
     	  if (currentTabURI.indexOf(tabzein)!= -1) {
           // Hiztegia irekita dago
           currentTab.loadURI(taburl);
-          // Enfokatu fitxa
-          getBrowser().mTabContainer.selectedIndex = index;
+          // enfokatu hala eskatu bada
+          if (!prefManager.getBoolPref("euskalbar.bgtabs.enabled")) {
+            getBrowser().mTabContainer.selectedIndex = index;
+          }
           found = true;
         }
        	index++;
@@ -188,27 +198,6 @@
             if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
               goEuskalBarElhuyar(euskalbar_source, searchStr);
             }
-            if (prefManager.getBoolPref("euskalbar.batua.onkey")) {
-              goEuskalBarEuskaltzaindia(searchStr);
-            }
-            if (prefManager.getBoolPref("euskalbar.itzul.onkey")) {
-              goEuskalBarItzuL(searchStr);
-            }
-            if (prefManager.getBoolPref("euskalbar.harluxet.onkey")) {
-              goEuskalBarHarluxet(searchStr);
-            }
-            if (prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
-              goEuskalBarMokoroa(searchStr);
-            }
-            if (prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
-              goEuskalBarZTCorpusa(searchStr);
-            }
-            if (prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
-              goEuskalBarXUXENweb(searchStr);
-            }
-            if (prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
-              goEuskalBarOpentrad(euskalbar_source, searchStr);
-            }
           } else {
             // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
             if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
@@ -217,6 +206,37 @@
             if (prefManager.getBoolPref("euskalbar.morris.onkey")) {
               goEuskalBarMorris(euskalbar_source, searchStr);
             }
+            // Open-tran.eu jatorrizko hizkuntza ingelesa denean bakarrik dabil
+            if (euskalbar_source == 'en') {
+              if (prefManager.getBoolPref("euskalbar.opentran.onkey")) {
+                goEuskalBarOpentran(searchStr);
+              }
+            }
+          }
+          // Aukeratutako hizkuntzarekiko menpekotasunik ez dutenak kargatu
+          if (prefManager.getBoolPref("euskalbar.batua.onkey")) {
+            goEuskalBarEuskaltzaindia(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.itzul.onkey")) {
+            goEuskalBarItzuL(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.harluxet.onkey")) {
+            goEuskalBarHarluxet(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
+            goEuskalBarMokoroa(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
+            goEuskalBarZTCorpusa(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.eurovoc.onkey")) {
+            goEuskalBarEurovoc(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
+            goEuskalBarXUXENweb(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
+            goEuskalBarOpentrad(euskalbar_source, searchStr);
           }
         } 
       }
@@ -263,12 +283,14 @@
     // Euskalbarreko hiztegiak moldatzen ditu hizkuntzaren arabera
     function setEuskalbarDictionaries(hizk) {
       var morris = document.getElementById('EuskalBar-Morris');
+      var opentran = document.getElementById('EuskalBar-Opentran');
       var h3000 = document.getElementById('EuskalBar-Ask');
       var elhuyar = document.getElementById('EuskalBar-Elhuyar');
       switch (hizk) {
         case 'es':
           // eu>en eta en>eu hiztegiak ezgaitu
           morris.setAttribute("hidden", true);
+          opentran.setAttribute("hidden", true);
           // eu>es eta es>eu hiztegiak gaitu
           h3000.setAttribute("hidden", false);
           elhuyar.setAttribute("hidden", false);
@@ -276,6 +298,7 @@
         case 'en':
           // eu>en eta en>eu hiztegiak gaitu
           morris.setAttribute("hidden", false);
+          opentran.setAttribute("hidden", false);
           // eu>es eta es>eu hiztegiak ezgaitu
           h3000.setAttribute("hidden", true);
           elhuyar.setAttribute("hidden", true);
@@ -315,8 +338,8 @@
     }
 
 
-    // Aukeratutako testua itzultzen du opentrad erabiliz
-    function goEuskalBarSelection(source, target, term, action) {
+    // Aukeratutako testua itzultzen du opentrad erabiliz edo xuxenweb kontsultatzen du
+    function goEuskalBarSelection(term, action) {
       switch (action) {
         case 'opentrad' :
           var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
@@ -369,6 +392,21 @@
     }
 
 
+    // eu.open-tran.eu itzulpen datu-basean bilaketak
+    function goEuskalBarOpentran(term) {
+      var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
+      var zein = 'opentran'
+      openURL(url, zein);
+    }
+
+
+    // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du    function goEuskalBarEuskaltzaindia(term) {
+      var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
+      var zein = 'hiztegibatua';
+      openURL(url, zein);
+    }
+
+
     // ItzuL posta-zerrendan bilaketak
     function goEuskalBarItzuL(term) {
       var url = 'http://search.gmane.org/search.php?group=gmane.culture.language.basque.itzul&query='+encodeURI(term);
@@ -401,27 +439,33 @@
     }
 
 
-    // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
-    function goEuskalBarEuskaltzaindia(term) {
-      var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
-      var zein = 'hiztegibatua';
+    // ZT Corpusa
+    function goEuskalBarZTCorpusa(term) {
+      var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py?testu-hitza1='+escape(term);
+      var zein = 'ztcorpusa';
       openURL(url, zein);
     }
 
+
+    // Eurovoc Tesaurusa
+    function goEuskalBarEurovoc(term) {
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
+        hizk = 'EU';
+      } else {
+        hizk = 'CA';
+      }
+      var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbareurovoc.html?hizkuntza='+hizk+'&hitza='+escape(term);
+      var zein = 'eurovoc';
+      openURL(url, zein);
+    }
 
     // Opentrad
     function goEuskalBarOpentrad(source, term) {
       var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php?language=eu&inurl='+escape(window.content.document.location.href)+'&norantza=es-eu';
       var zein = 'opentrad';
       openURL(url, zein);    
-    }
-
-
-    // ZT Corpusa
-    function goEuskalBarZTCorpusa(term) {
-      var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py?testu-hitza1='+escape(term);
-      var zein = 'ztcorpusa';
-      openURL(url, zein);
     }
 
 
@@ -446,6 +490,28 @@
           var url = 'http://www.oeegunea.org/default.cfm?atala=hiztegia';
         break;
       }
+      openURL(url, zein);
+    }
+
+
+    // Adorez sinonimoen hiztegia
+    function goEuskalBarAdorez(term) {
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
+        var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=EUS&txtpalabra='+escape(term);
+      } else {
+        var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=CAS&txtpalabra='+escape(term);
+      }
+      var zein = 'adorez';
+      openURL(url, zein);
+    }
+
+
+    // UZEIren sinonimoen hiztegia
+    function goEuskalBarUZEI(term) {
+      var url = 'http://www.uzei.com/estatico/sinonimos.asp?sarrera='+escape(term)+'&eragiketa=bilatu';
+      var zein = 'uzei';
       openURL(url, zein);
     }
 

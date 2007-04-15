@@ -29,6 +29,11 @@
     padding-bottom: 0;
 }
 
+.author {
+  margin: 0px;
+  margin-left: 10px;
+}
+
 .url
 {
     color: #0000ff;

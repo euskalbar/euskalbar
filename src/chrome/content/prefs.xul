@@ -12,14 +12,17 @@
       <preference id="pref3000" name="euskalbar.3000.onkey" type="bool"/>
       <preference id="prefElhuyar" name="euskalbar.elhuyar.onkey" type="bool"/>
       <preference id="prefMorris" name="euskalbar.morris.onkey" type="bool"/>
+      <preference id="prefOpentran" name="euskalbar.opentran.onkey" type="bool"/>
       <preference id="prefBatua" name="euskalbar.batua.onkey" type="bool"/>
       <preference id="prefItzuL" name="euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
+      <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
+      <preference id="prefBGtabs" name="euskalbar.bgtabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
       <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
     </preferences>
@@ -51,6 +54,7 @@
       		<groupbox>
       			<caption label="&euskalbar.prefs.tabs.caption;" />
       			<checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
+      			<checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
       		</groupbox>
       		</vbox>
         </tabpanel>
@@ -66,27 +70,31 @@
             
               <rows>
                 <row>
-            	    <checkbox preference="prefEuskalterm" label="Euskalterm"/>
-             	    <checkbox preference="prefHarluxet" label="Harluxet"/>
+            	    <checkbox preference="prefEuskalterm" label="Euskalterm" />
+             	    <checkbox preference="prefHarluxet" label="Harluxet" />
                 </row>
                 <row>
-            	    <checkbox preference="pref3000" label="3000"/>
-            	    <checkbox preference="prefMokoroa" label="Mokoroa"/>
+            	    <checkbox preference="pref3000" label="3000" />
+            	    <checkbox preference="prefMokoroa" label="Mokoroa" />
                 </row>
                 <row>
-            	    <checkbox preference="prefElhuyar" label="Elhuyar"/>
-            	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa"/>
+            	    <checkbox preference="prefElhuyar" label="Elhuyar" />
+            	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
                 </row>
                 <row>
-            	    <checkbox preference="prefMorris" label="Morris"/>
-            	    <checkbox preference="prefOpentrad" label="Opentrad"/>
+            	    <checkbox preference="prefMorris" label="Morris" />
+            	    <checkbox preference="prefEurovoc" label="Eurovoc" />
                 </row>
                 <row>
-            	    <checkbox preference="prefBatua" label="Hiztegi Batua"/>
-            	    <checkbox preference="prefXUXENweb" label="XUXENweb"/>
+                  <checkbox preference="prefOpentran" label="Open-tran" />
+            	    <checkbox preference="prefOpentrad" label="Opentrad" />
                 </row>
                 <row>
-                  <checkbox preference="prefItzuL" label="ItzuL"/>            	    
+            	    <checkbox preference="prefBatua" label="Hiztegi Batua" />
+            	    <checkbox preference="prefXUXENweb" label="XUXENweb" />
+                </row>
+                <row>
+                  <checkbox preference="prefItzuL" label="ItzuL" />
                 </row>
               </rows>
             </grid>

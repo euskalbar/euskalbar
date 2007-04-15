@@ -34,16 +34,19 @@ pref("euskalbar.euskalterm.onkey", true);
 pref("euskalbar.3000.onkey", false);
 pref("euskalbar.elhuyar.onkey", false);
 pref("euskalbar.morris.onkey", false);
+pref("euskalbar.opentran.onkey", false);
 pref("euskalbar.batua.onkey", false);
 pref("euskalbar.itzul.onkey", false);
 pref("euskalbar.harluxet.onkey", false);
 pref("euskalbar.mokoroa.onkey", false);
 pref("euskalbar.ztcorpusa.onkey", false);
+pref("euskalbar.eurovoc.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
 pref("euskalbar.opentrad.onkey", false);
 
-// reuse tabs pref
+// tabs pref
 pref("euskalbar.reusetabs.enabled", true);
+pref("euskalbar.bgtabs.enabled", false);
 
 // show/hide dictionares menu pref
 pref("euskalbar.showdicts.enabled", false);
