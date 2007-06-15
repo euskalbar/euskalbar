@@ -4,7 +4,10 @@
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 
-
+    // Hobespenak eskuratzeko interfazea
+    const prefManagerShift	= Components.classes["@mozilla.org/preferences-service;1"]
+                                .getService(Components.interfaces.nsIPrefBranch);
+	  
     // Euskalterm kargatu
     function getShiftEuskalterm(source, term) {
       var txtEuskalterm= "";
@@ -28,12 +31,16 @@
 
       xmlHttpReq.open('GET', urlEuskalterm, true);
       xmlHttpReq.send(null);
-
+	  
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
-        xmlHttpReq.abort();
+	    xmlHttpReq.abort();
         txtEuskalterm = strRes.getString("m1Euskalterm");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {
@@ -97,12 +104,16 @@
       }
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
-    
+
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtElhuyar = strRes.getString("m1Elhuyar");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {
@@ -156,11 +167,15 @@
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
 
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtElhuyar = strRes.getString("m1Elhuyar");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {
@@ -219,11 +234,15 @@
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
 
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");	  
+	  tout=tout*1000
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtElhuyar = strRes.getString("m1Elhuyar");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {
@@ -276,11 +295,16 @@
       }
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
+
+ 	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtElhuyar = strRes.getString("m1Elhuyar");
-      }, 5000);
+      }, tout);
       xmlHttpReq.onreadystatechange = function() {
         try {
           if (xmlHttpReq.readyState == 4) {
@@ -335,12 +359,16 @@
     
       xmlHttpReq.open('GET', url3000, true);
       xmlHttpReq.send(null);
-    
+
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txt3000 = strRes.getString("m13000");
-      }, 5000);
+      }, tout);
     
       xmlHttpReq.onreadystatechange = function() {
         try {
@@ -382,7 +410,8 @@
     // Morris hiztegia kargatu
     function getShiftMorris(source, term) {
       var txtMorris = "";
-      //Lokalizazio paketeak kargatu      strRes = document.getElementById('leuskal');
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
 
       if (source == 'en') {
         hizk = 'txtIngles';
@@ -403,16 +432,23 @@
       xmlHttpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
       xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
       xmlHttpReq.send(parametroak);
-      //Timerra sortu      var requestTimer = setTimeout(function() {
+	  
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtMorris = strRes.getString("m1Morris");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {
           div = getBrowser().contentDocument.getElementById('aMorris');
           if (xmlHttpReq.readyState == 4) {
-            // Timerra garbitu            clearTimeout(requestTimer);
+            // Timerra garbitu
+            clearTimeout(requestTimer);
             if (xmlHttpReq.status == 200) {
               txtMorris = xmlHttpReq.responseText;
               if (txtMorris.match("Barkatu, baina sarrera hau ez dago hiztegian")) {
@@ -422,10 +458,10 @@
                 txtMorris = txtMorrisTable1[1].slice(0, txtMorrisTable1[1].lastIndexOf("<table"));
                 txtMorris = txtMorris.replace(/images/g, "http://www1.euskadi.net/morris/images");
                 txtMorris = txtMorris.replace(/datuak/g, "http://www1.euskadi.net/morris/datuak");
-                txtMorris = txtMorris.replace(/font-size: 8pt/g, "font-size: 12pt");
-                txtMorris = txtMorris.replace(/font-size:11ptl/g, "font-size: 12pt");
+                txtMorris = txtMorris.replace(/font-size: 8pt/g, "font-size: 10pt");
+                txtMorris = txtMorris.replace(/font-size:11ptl/g, "font-size: 12pt<br>");
                 txtMorris = txtMorris.replace(/color:green/g, "color: #000000");
-                txtMorris = txtMorris.replace(/font-family:Arial, Helvetica, sans-serif/g, "font-family:bitstream vera sans, verdana, arial");
+                txtMorris = txtMorris.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
                 txtMorris = txtMorris.replace(/width="550"/g, "");
                 txtMorris = txtMorris.replace(/width="150"/g, "");
               }

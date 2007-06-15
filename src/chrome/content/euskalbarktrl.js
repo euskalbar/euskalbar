@@ -3,6 +3,11 @@
 // asarasua@vitoria-gasteiz.org
 
 
+    // Hobespenak eskuratzeko interfazea
+    const prefManagerKtrl	= Components.classes["@mozilla.org/preferences-service;1"]
+                                .getService(Components.interfaces.nsIPrefBranch);
+	  
+
     // Sinonimoen hiztegia kargatu
     function getKtrlSinonimoak(source, term) {
       var txtSinonimoak= "";
@@ -22,11 +27,15 @@
       xmlHttpReq.open('GET', urlSinonimoak, true);
       xmlHttpReq.send(null);
 
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerKtrl.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtSinonimoak = strRes.getString("m1Sinonimoak");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {
@@ -80,11 +89,15 @@
       xmlHttpReq.open('GET', urlUZEI, true);
       xmlHttpReq.send(null);
 
+	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+	  var tout = prefManagerKtrl.getIntPref("euskalbar.query.timeout");
+	  tout=tout*1000
+	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtUZEI = strRes.getString("m1UZEI");
-      }, 5000);
+      }, tout);
 
       xmlHttpReq.onreadystatechange = function() {
         try {

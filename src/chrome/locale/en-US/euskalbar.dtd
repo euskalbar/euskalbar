@@ -27,7 +27,7 @@
 <!ENTITY euskalbar.prefs.title "Euskalbar options">
 <!ENTITY euskalbar.prefs.options.label "Preferences">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Advanced look up">
-<!ENTITY euskalbar.prefs.dictionaries.label "When Enter key is pressed, look up the following dictionaries:">
+<!ENTITY euskalbar.prefs.dictionaries.label "Dictionaries looked up pressing Enter key:">
 <!ENTITY euskalbar.prefs.reusetabs.label "Reuse tabs">
 <!ENTITY euskalbar.prefs.bgtabs.label "Open new tabs in background">
 <!ENTITY euskalbar.prefs.general.tabtitle "General">
@@ -36,7 +36,8 @@
 <!ENTITY euskalbar.prefs.uppermenu.tooltip "Toggle dictionaries menu">
 <!ENTITY euskalbar.prefs.lang.caption "Default language">
 <!ENTITY euskalbar.prefs.lang.label "When Euskalbar starts, set the following language:">
-<!ENTITY euskalbar.prefs.tabs.caption "Tabs Preferences">
+<!ENTITY euskalbar.prefs.tabs.caption "Tab preferences">
+<!ENTITY euskalbar.prefs.timeout.caption "Shift and Ctrl query timeout (s)">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Any">

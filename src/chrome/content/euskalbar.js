@@ -5,7 +5,8 @@
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 
-    // Hobespenak eskuratzeko interfazea    const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
+    // Hobespenak eskuratzeko interfazea
+    const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
                                 .getService(Components.interfaces.nsIPrefBranch);
 
     // Hasieratu hizkuntza lehenetsia bere hiztegiekin
@@ -400,7 +401,8 @@
     }
 
 
-    // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du    function goEuskalBarEuskaltzaindia(term) {
+    // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
+    function goEuskalBarEuskaltzaindia(term) {
       var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
       var zein = 'hiztegibatua';
       openURL(url, zein);
@@ -522,3 +524,17 @@
       var winWrapper = new XPCNativeWrapper(focusedWindow, 'getSelection()');
       return winWrapper.getSelection();
     }
+
+	 // Testu kutxan sartzen den katea zenbakia dela balidatzen du
+	function numField(event){
+	  if (event.which >= 48 && event.which <= 57 ||
+         (event.which==46 && this.input.value.search('\\.')== -1)  ||
+		8 == event.which || 13 == event.which || 0 == event.which)
+	  {
+		return;
+	  }
+	  else{
+		event.preventDefault();
+		return;
+	  }
+	} 

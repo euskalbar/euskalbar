@@ -37,6 +37,7 @@
 <!ENTITY euskalbar.prefs.lang.caption "Idioma">
 <!ENTITY euskalbar.prefs.lang.label "Al iniciar Euskalbar, elegir el siguiente idioma:">
 <!ENTITY euskalbar.prefs.tabs.caption "Preferencias de las pestañas">
+<!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite de las consultas Shift y Ctrl (seg)">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Todos">

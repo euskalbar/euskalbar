@@ -37,6 +37,8 @@
 <!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">
 <!ENTITY euskalbar.prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
 <!ENTITY euskalbar.prefs.tabs.caption "Fitxen hobespenak">
+<!ENTITY euskalbar.prefs.timeout.caption "Shift eta Ktrl kontsulten denbora-muga (seg)">
+
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Gai guztiak">

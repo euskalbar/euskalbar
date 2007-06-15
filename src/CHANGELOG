@@ -2,6 +2,12 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+2.2 bertsioa
+================
+- Aukera berria: Shift eta Ktrl kontsultetarako erabilzten denbora-muga aldatu egin daiteke
+- Morris kontsultaren letra-tipoa aldatu egin da, gainerako kontsulten letra-tipo bera eduki dezan
+
+
 2.1 bertsioa
 ================
 - Abiaratzean ezarritako hiztegien akats bat zuzendu da (jatorrizko hizkuntza eu zenean).

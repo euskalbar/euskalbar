@@ -25,6 +25,7 @@
       <preference id="prefBGtabs" name="euskalbar.bgtabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
       <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
+      <preference id="prefQuerytimeout" name="euskalbar.query.timeout" type="int"/>
     </preferences>
 
     <tabbox flex="1">
@@ -43,10 +44,10 @@
       				<label value="&euskalbar.prefs.lang.label;" />
       				<menulist id="menuStartupLang" preference="prefStartupLang">
       					<menupopup>
-                  <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
-                  <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
-                  <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
-                  <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
+							<menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
+							<menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
+							<menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
+							<menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
       					</menupopup>
       				</menulist>
       			</vbox>
@@ -61,13 +62,13 @@
 
         <tabpanel id="tab-aurreratua">
           <vbox>
-            <label value="&euskalbar.prefs.dictionaries.label;"/>
+			<groupbox>
+            <caption label="&euskalbar.prefs.dictionaries.label;"/>
             <grid flex="1">
               <columns>
                 <column flex="1" />
                 <column flex="1" />
               </columns>
-            
               <rows>
                 <row>
             	    <checkbox preference="prefEuskalterm" label="Euskalterm" />
@@ -98,6 +99,11 @@
                 </row>
               </rows>
             </grid>
+			</groupbox>
+			<groupbox>
+      			<caption label="&euskalbar.prefs.timeout.caption;" />
+      			<textbox preference="prefQuerytimeout" onkeypress="numField(event);" />
+      		</groupbox>
     	    </vbox>
         </tabpanel>
       </tabpanels>

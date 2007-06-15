@@ -53,3 +53,6 @@ pref("euskalbar.showdicts.enabled", false);
 
 // Language selected at startup
 pref("euskalbar.language.startup", "es_eu");
+
+// Query timeout
+pref("euskalbar.query.timeout", 5);
