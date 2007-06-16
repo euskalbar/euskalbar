@@ -38,10 +38,10 @@
       <toolbarseparator/>
       <toolbarbutton id="euskalbar-language" type="menu-button" oncommand="changeEuskalbarLang();">
         <menupopup id="euskalbar-language-popup">
-          <menuitem id="euskalbar-language-eu_es" label="&euskalbar.language.eu_es;" tooltiptext="&euskalbar.language.eu_es;" oncommand="setEuskalbarLang('eu', 'es'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-es_eu" label="&euskalbar.language.es_eu;" tooltiptext="&euskalbar.language.es_eu;" oncommand="setEuskalbarLang('es', 'eu'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-eu_en" label="&euskalbar.language.eu_en;" tooltiptext="&euskalbar.language.eu_en;" oncommand="setEuskalbarLang('eu', 'en'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-en_eu" label="&euskalbar.language.en_eu;" tooltiptext="&euskalbar.language.en_eu;" oncommand="setEuskalbarLang('en', 'eu'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_es" class="menuitem-iconic" image="chrome://euskalbar/skin/eues.png" tooltiptext="&euskalbar.language.eu_es;" oncommand="setEuskalbarLang('eu', 'es'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-es_eu" class="menuitem-iconic" image="chrome://euskalbar/skin/eseu.png" tooltiptext="&euskalbar.language.es_eu;" oncommand="setEuskalbarLang('es', 'eu'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_en" class="menuitem-iconic" image="chrome://euskalbar/skin/euen.png" tooltiptext="&euskalbar.language.eu_en;" oncommand="setEuskalbarLang('eu', 'en'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-en_eu" class="menuitem-iconic" image="chrome://euskalbar/skin/eneu.png" tooltiptext="&euskalbar.language.en_eu;" oncommand="setEuskalbarLang('en', 'eu'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
       <textbox id="EuskalBar-search-string" label="Search String" style="margin-left: 10px;" onkeypress="goEuskalBarOnKey(event)" />
