@@ -4,6 +4,7 @@
 
 2.2 bertsioa
 ================
+- Elhuyarren azpisarrerak kontsultatzean azentu markekin zegoen arazoa konpondu da. (#13)
 - Hizkuntza hautatzeko botoiaren itxura aldatu da.
 - Aukera berria: Shift eta Ktrl kontsultetarako denbora-muga aldatu egin daiteke.
 - Morris kontsultaren letra-tipoa aldatu egin da, gainerako kontsulten letra-tipo bera eduki dezan.
