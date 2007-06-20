@@ -307,6 +307,7 @@
           	<menuitem label="&euskalbar.menu.opentran;" oncommand="reuseOldtab('http://eu.open-tran.eu', 'opentran');" />
           	<menuseparator />
           	<menuitem label="&euskalbar.menu.lagun20;" oncommand="reuseOldtab('http://www.hiztegia.org', 'lagun20');" />
+          	<menuitem label="&euskalbar.menu.goihata;" oncommand="reuseOldtab('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
             </menupopup>
   	      </menu>
       <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">
