@@ -297,14 +297,16 @@
           <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
             <menupopup id="Euskalbar-subpopup1">
           	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="reuseOldtab('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');"/>
-        	<menuseparator/>
+            <menuseparator/>
           	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="reuseOldtab('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
           	<menuitem label="&euskalbar.menu.3000;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
           	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
           	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="reuseOldtab('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
-        	<menuseparator/>
+        	  <menuseparator />
           	<menuitem label="&euskalbar.menu.morris;" oncommand="reuseOldtab('http://www1.euskadi.net/morris/indice_e.htm', 'morris');"/>
-          	<menuitem label="&euskalbar.menu.opentran;" oncommand="reuseOldtab('http://eu.open-tran.eu', 'opentran');"/>
+          	<menuitem label="&euskalbar.menu.opentran;" oncommand="reuseOldtab('http://eu.open-tran.eu', 'opentran');" />
+          	<menuseparator />
+          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="reuseOldtab('http://www.hiztegia.org', 'lagun20');" />
             </menupopup>
   	      </menu>
       <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">
