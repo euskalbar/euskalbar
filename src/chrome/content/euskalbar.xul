@@ -80,7 +80,7 @@
       <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;"
                label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="goEuskalBarMorris(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
-      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-Tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
                label="Hiztegi Batua" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);"/>

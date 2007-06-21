@@ -388,7 +388,7 @@
         hizk = 'txtEuskera';
       }
       var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbarmorris.html?hizkuntza='+hizk+'&hitza='+escape(term);
-      var zein = 'morris'
+      var zein = 'morris';
       openURL(url, zein);
     }
 
@@ -396,7 +396,7 @@
     // eu.open-tran.eu itzulpen datu-basean bilaketak
     function goEuskalBarOpentran(term) {
       var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
-      var zein = 'opentran'
+      var zein = 'open-tran';
       openURL(url, zein);
     }
 
