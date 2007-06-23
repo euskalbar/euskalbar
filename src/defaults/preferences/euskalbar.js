@@ -56,3 +56,7 @@ pref("euskalbar.language.startup", "es_eu");
 
 // Query timeout
 pref("euskalbar.query.timeout", 5);
+
+//Styles
+pref("euskalbar.style.shiftandcontrol", "human");
+

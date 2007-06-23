@@ -1,46 +1,166 @@
 ﻿// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
-//             Julen Ruiz Aizpuru 2007
+//             Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
 // This is Free Software (GPL License)
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 
-    // Hobespenak eskuratzeko interfazea
+    //Hobespenak eskuratzeko interfazea
     const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
                                 .getService(Components.interfaces.nsIPrefBranch);
-
-    // Hasieratu hizkuntza lehenetsia bere hiztegiekin
-    function startEuskalbar() {
-      var lang = prefManager.getCharPref("euskalbar.language.startup");
-      euskalbar_source = lang[0]+lang[1];
-      euskalbar_target = lang[3]+lang[4];
-      setEuskalbarLang(euskalbar_source, euskalbar_target);
-      if (euskalbar_source != 'eu') {
-        setEuskalbarDictionaries(euskalbar_source);
-      } else {
-        setEuskalbarDictionaries(euskalbar_target);
+    //Hurrengo bi lerroek Euskalbarren direktorio nagusiaren URIa eskuratzen dute
+    const id = "euskalbar@interneteuskadi.org";
+    var extNon = Components.classes["@mozilla.org/extensions/manager;1"]
+                    .getService(Components.interfaces.nsIExtensionManager)
+                    .getInstallLocation(id)
+                    .getItemLocation(id);
+					
+    //URLak kudeatzeko funtzioa
+    function manageURLs(fileName){	
+      URLa = extNon.clone();
+      URLa.append("html");
+      URLa.append(fileName);
+      //Hurrengo bi lerroek aurrekoa hartu eta sistema eragileraren independentea den helbide bat sortzen dute
+      var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+						.getService(Components.interfaces.nsIIOService);
+      var xmlFilePath = ioService.newFileURI(URLa).spec;
+      return xmlFilePath;
+	}
+	
+    //Euskalbar hasieratzen du
+    //Euskalbar deskargatzen du
+    //Hobespenen observerra sortzen eta deusezten du(honetan oinarritua -> http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
+    var euskalbar = {
+      prefs: null,
+	
+      // Funtzio honek Euskalbar hasieratzen du
+      startup: function()
+      {
+	// Register to receive notifications of preference changes	
+	this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
+			.getService(Components.interfaces.nsIPrefService)
+			.getBranch("euskalbar.");
+	this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
+        //Hasieratu observerra
+	this.prefs.addObserver("", this, false);
+	//Hasieratu hizkuntza hautatzeko botoia
+        var lang = prefManager.getCharPref("euskalbar.language.startup");
+        euskalbar_source = lang[0]+lang[1];
+        euskalbar_target = lang[3]+lang[4];
+        setEuskalbarLang(euskalbar_source, euskalbar_target);
+        if (euskalbar_source != 'eu') {
+          setEuskalbarDictionaries(euskalbar_source);
+        } else {
+          setEuskalbarDictionaries(euskalbar_target);
+        }
+        //Hasieratu hiztegien menuen etiketa
+        strRes = document.getElementById('leuskal');
+        const hiztegiakbai = strRes.getString("m1hiztegiak");
+        const hiztegiakez = strRes.getString("m2hiztegiak");
+        var ctlButton = document.getElementById('hideshowmenu');
+        var button = document.getElementById('Euskalbar-menu');
+        var prefDicts = prefManager.getBoolPref("euskalbar.showdicts.enabled");
+        if (prefDicts) {
+          button.setAttribute('hidden', false);
+          ctlButton.setAttribute('label', hiztegiakez);
+        } else {
+          button.setAttribute('hidden', true);
+          ctlButton.setAttribute('label', hiztegiakbai);
+        }
+      },
+      // Euskalbar deskargatu: observerra ezabatu	
+      shutdown: function()
+      {
+	this.prefs.removeObserver("", this);
+      },
+      // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da	
+      observe: function(subject, topic, data)
+      {
+	if (topic != "nsPref:changed")
+      {
+	return;
+      }
+	switch(data)
+	{
+	case "style.shiftandcontrol":
+	  callChangeStyle();
+	  break;
+	}
       }
     }
 
 
+    //Estiloa aldatzeko funtzioari deitzen dio
+    function callChangeStyle(){
+      var prefStyle = prefManager.getCharPref("euskalbar.style.shiftandcontrol");
+      var htmlArray = new Array();
+      htmlArray[0] = "euskalbarhelpen.html";
+      htmlArray[1] = "euskalbarhelpes.html";
+      htmlArray[2] = "euskalbarhelpeu.html";
+      htmlArray[3] = "euskalbarhizt2en.html";
+      htmlArray[4] = "euskalbarhizt2es.html";
+      htmlArray[5] = "euskalbarhizt2eu.html";
+      htmlArray[6] = "euskalbarhizten.html";
+      htmlArray[7] = "euskalbarhiztes.html";
+      htmlArray[8] = "euskalbarhizteu.html";
+      htmlArray[9] = "euskalbarsinen.html";
+      htmlArray[10] = "euskalbarsinen.html";
+      htmlArray[11] = "euskalbarsineu.html";
+      for (f in htmlArray){
+        changeStyle(prefStyle, htmlArray[f]);
+      }
+    }
+
+    //Estiloa aldatzen du: HTML fitxategietan estiloaren katea aldatzen du
+    function changeStyle(estiloa, f){
+      URLa = extNon.clone();
+      URLa.append("html");
+      URLa.append(f);
+      //Fitxategiak ireki eta irakurri
+      var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                        .createInstance(Components.interfaces.nsIFileInputStream);
+      var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"]
+                        .createInstance(Components.interfaces.nsIScriptableInputStream);
+
+      fstream.init(URLa, -1, 0, 0);
+      sstream.init(fstream);
+      var fileContents = sstream.read(fstream.available());
+      sstream.close();
+      fstream.close();
+
+      //Fitxategiaren estiloaren katea aldatu
+      fileContents = fileContents.replace(/human/,estiloa);
+      fileContents = fileContents.replace(/oliba/,estiloa);
+      fileContents = fileContents.replace(/urgarden/,estiloa);
+
+      //Fitxategia idatzi
+      var outputStream = Components.classes['@mozilla.org/network/file-output-stream;1']
+						.createInstance(Components.interfaces.nsIFileOutputStream);
+      outputStream.init(URLa,0x02 | 0x08 | 0x20, 0664, 0);
+      outputStream.write(fileContents, fileContents.length);
+      outputStream.flush();
+      outputStream.close();
+    }
+
+
     // Laguntza erakusten du
-    function openLaguntza() {    
+    function openLaguntza() {
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
+	    var hurl = manageURLs('euskalbarhelpeu.html');
       } else if (h.match('english')) {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
+        var hurl = manageURLs('euskalbarhelpen.html');
       } else {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
+        var hurl = manageURLs('euskalbarhelpes.html');
       }
       reuseOldtab(hurl, "euskalbarhelp");
     }
 
 
     //Hiztegien menua erakusten/ezkutatzen du
-    function showhideDicts(nondik) {
+    function showhideDicts() {
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       const hiztegiakbai = strRes.getString("m1hiztegiak");
@@ -48,25 +168,16 @@
       var button = document.getElementById('Euskalbar-menu');
       var ctlButton = document.getElementById('hideshowmenu');
       var prefDicts = prefManager.getBoolPref("euskalbar.showdicts.enabled");
-      if (nondik == "dena"){
-        if (prefDicts) {
-          button.setAttribute('hidden', true);
-          ctlButton.setAttribute('label', hiztegiakez);
-          prefManager.setBoolPref("euskalbar.showdicts.enabled", false);
-        } else  {
-          button.removeAttribute('hidden');
-          ctlButton.setAttribute('label', hiztegiakbai);
-          prefManager.setBoolPref("euskalbar.showdicts.enabled", true);
-        }
-      } else if (nondik == "etiketa") {
-        if (prefDicts) {
-          ctlButton.setAttribute('label', hiztegiakez);
-        } else {
-          ctlButton.setAttribute('label', hiztegiakbai);
-        }
+      if (prefDicts) {
+        button.setAttribute('hidden', true);
+        ctlButton.setAttribute('label', hiztegiakbai);
+        prefManager.setBoolPref("euskalbar.showdicts.enabled", false);
+      } else  {
+        button.removeAttribute('hidden');
+        ctlButton.setAttribute('label', hiztegiakez);
+        prefManager.setBoolPref("euskalbar.showdicts.enabled", true);
       }
     }
-
 
     // Displays the about dialog
     function euskalbar_about() {
@@ -111,7 +222,7 @@
       // Aztertu fitxa zahar bakoitza
       var oldTab = getBrowser().selectedTab;
       var found = false;
-      var index = 0
+      var index = 0;
       var numTabs = getBrowser().mTabContainer.childNodes.length;
       while (index < numTabs && !found) {
         var currentTab = getBrowser().getBrowserAtIndex(index);
@@ -147,11 +258,11 @@
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizteu.html';
+              var urlhizt = manageURLs('euskalbarhizteu.html');
             } else if (h.match('english')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizten.html';
+              var urlhizt = manageURLs('euskalbarhizten.html');
             } else {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhiztes.html';
+              var urlhizt = manageURLs('euskalbarhiztes.html');
             }
             var zein = 'euskalbarhizt';
             openURL(urlhizt, zein);
@@ -162,11 +273,11 @@
           } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2eu.html';
+              var urlhizt = manageURLs('euskalbarhizt2eu.html');
             } else if (h.match('english')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2en.html';
+              var urlhizt = manageURLs('euskalbarhizt2en.html');
             } else {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2es.html';
+              var urlhizt = manageURLs('euskalbarhizt2es.html');
             }
             var zein = 'euskalbarhizt';
             openURL(urlhizt, zein);
@@ -176,11 +287,11 @@
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
           if (h.match('euskara')) {
-            var urlsin = 'chrome://euskalbar/content/html/euskalbarsineu.html';
+            var urlsin = manageURLs('euskalbarsineu.html');
           } else if (h.match('english')) {
-            var urlsin = 'chrome://euskalbar/content/html/euskalbarsinen.html';
+            var urlsin = manageURLs('euskalbarsinen.html');
           } else {
-            var urlsin = 'chrome://euskalbar/content/html/euskalbarsines.html';
+            var urlsin = manageURLs('euskalbarsines.html');
           }
           var zein = 'euskalbarsin';
           openURL(urlsin, zein);
@@ -388,7 +499,7 @@
         hizk = 'txtEuskera';
       }
       var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbarmorris.html?hizkuntza='+hizk+'&hitza='+escape(term);
-      var zein = 'morris';
+      var zein = 'morris'
       openURL(url, zein);
     }
 
@@ -396,7 +507,7 @@
     // eu.open-tran.eu itzulpen datu-basean bilaketak
     function goEuskalBarOpentran(term) {
       var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
-      var zein = 'open-tran';
+      var zein = 'opentran'
       openURL(url, zein);
     }
 

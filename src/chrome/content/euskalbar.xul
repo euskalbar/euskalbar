@@ -13,7 +13,8 @@
 
   <!-- Nabigatzailea kargatzean hasieratze funtzioari deitu -->
   <script type="application/x-javascript">
-    window.addEventListener("load", startEuskalbar, false);
+    window.addEventListener("load",  function(e) { euskalbar.startup(); }, false);
+    window.addEventListener("unload", function(e) { euskalbar.shutdown(); }, false);
   </script>
 
   <!-- Create reference to locales for Javascript files -->
@@ -29,9 +30,9 @@
            hidden="false" persist="hidden">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
       <toolbarseparator/>
-      <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu" onclick="showhideDicts('etiketa');">
+      <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
         <menupopup id="EuskalBar-aukerak-popup">
-          <menuitem id="hideshowmenu" label=" " tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" onclick="showhideDicts('dena');"/>
+          <menuitem id="hideshowmenu" label=" " tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" onclick="showhideDicts();"/>
           <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbarOptions();"/>
         </menupopup>
       </toolbarbutton>
@@ -80,7 +81,7 @@
       <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;"
                label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="goEuskalBarMorris(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
-      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-Tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
                label="Hiztegi Batua" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);"/>
@@ -297,17 +298,14 @@
           <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
             <menupopup id="Euskalbar-subpopup1">
           	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="reuseOldtab('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');"/>
-            <menuseparator/>
+        	<menuseparator/>
           	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="reuseOldtab('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
           	<menuitem label="&euskalbar.menu.3000;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
           	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
           	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="reuseOldtab('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
-        	  <menuseparator />
+        	<menuseparator/>
           	<menuitem label="&euskalbar.menu.morris;" oncommand="reuseOldtab('http://www1.euskadi.net/morris/indice_e.htm', 'morris');"/>
-          	<menuitem label="&euskalbar.menu.opentran;" oncommand="reuseOldtab('http://eu.open-tran.eu', 'opentran');" />
-          	<menuseparator />
-          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="reuseOldtab('http://www.hiztegia.org', 'lagun20');" />
-          	<menuitem label="&euskalbar.menu.goihata;" oncommand="reuseOldtab('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
+          	<menuitem label="&euskalbar.menu.opentran;" oncommand="reuseOldtab('http://eu.open-tran.eu', 'opentran');"/>
             </menupopup>
   	      </menu>
       <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">

@@ -4,7 +4,7 @@
 
 <prefwindow id="euskalbar-prefs-dialog"
         title="&euskalbar.prefs.title;"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="startupPrefs();" onunload="shutdownPrefs();">
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
   <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
     <preferences>
@@ -26,43 +26,44 @@
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
       <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
       <preference id="prefQuerytimeout" name="euskalbar.query.timeout" type="int"/>
+      <preference id="prefSkin" name="euskalbar.style.shiftandcontrol" type="string"/>
     </preferences>
 
     <tabbox flex="1">
       <tabs>
         <tab label="&euskalbar.prefs.general.tabtitle;"/>
         <tab label="&euskalbar.prefs.dictionaries.tabtitle;"/>
+        <tab label="&euskalbar.prefs.interface.tabtitle;"/>
       </tabs>
 
       <tabpanels flex="1">
-
         <tabpanel id="tab-orokorra">
-      		<vbox flex="1">
-      		<groupbox>
-      			<caption label="&euskalbar.prefs.lang.caption;"/>
-      			<vbox align="left">
-      				<label value="&euskalbar.prefs.lang.label;" />
-      				<menulist id="menuStartupLang" preference="prefStartupLang">
-      					<menupopup>
-							<menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
-							<menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
-							<menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
-							<menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
-      					</menupopup>
-      				</menulist>
-      			</vbox>
-      		</groupbox>
-      		<groupbox>
-      			<caption label="&euskalbar.prefs.tabs.caption;" />
-      			<checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
-      			<checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
-      		</groupbox>
-      		</vbox>
+      	  <vbox flex="1">
+      	    <groupbox>
+      	    <caption label="&euskalbar.prefs.lang.caption;"/>
+      	      <vbox align="left">
+      	      <label value="&euskalbar.prefs.lang.label;" />
+      		<menulist id="menuStartupLang" preference="prefStartupLang">
+      		  <menupopup>
+		    <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
+		    <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
+		    <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
+		    <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
+      		  </menupopup>
+      		</menulist>
+      	      </vbox>
+      	    </groupbox>
+      	    <groupbox>
+      	    <caption label="&euskalbar.prefs.tabs.caption;" />
+      	      <checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
+      	      <checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
+      	    </groupbox>
+      	  </vbox>
         </tabpanel>
 
         <tabpanel id="tab-aurreratua">
           <vbox>
-			<groupbox>
+	    <groupbox>
             <caption label="&euskalbar.prefs.dictionaries.label;"/>
             <grid flex="1">
               <columns>
@@ -99,13 +100,32 @@
                 </row>
               </rows>
             </grid>
-			</groupbox>
-			<groupbox>
-      			<caption label="&euskalbar.prefs.timeout.caption;" />
-      			<textbox preference="prefQuerytimeout" onkeypress="numField(event);" />
-      		</groupbox>
-    	    </vbox>
+	    </groupbox>
+	    <groupbox>
+      	      <caption label="&euskalbar.prefs.timeout.caption;" />
+      	      <textbox preference="prefQuerytimeout" onkeypress="numField(event);" />
+      	    </groupbox>
+    	  </vbox>
         </tabpanel>
+
+        <tabpanel id="tab-itxura">
+      	  <vbox>
+      	    <groupbox>
+      		<caption label="&euskalbar.prefs.skin.caption;"/>
+      		<vbox align="left">
+      		  <label value="&euskalbar.prefs.skin.label;" />
+      		  <menulist id="menuStartupSkin" preference="prefSkin">
+      		    <menupopup>
+			<menuitem id = "human-skin" label="Human" value="human"/>
+			<menuitem id = "oliba-skin" label="Oliba" value="oliba"/>
+			<menuitem id = "urgarden-skin" label="Urgarden" value="urgarden"/>
+      		    </menupopup>
+      		  </menulist>
+      		</vbox>
+      	    </groupbox>
+      	  </vbox>
+        </tabpanel>
+
       </tabpanels>
     </tabbox>
 </prefpane>

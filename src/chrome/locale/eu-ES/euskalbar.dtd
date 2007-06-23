@@ -2,126 +2,130 @@
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
-<!ENTITY euskalbar.help.tooltip "Laguntza">
-<!ENTITY euskalbar.options.tooltip "Aukerak ">
-<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu basea">
-<!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
-<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
-<!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
-<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">
-<!ENTITY euskalbar.batua.tooltip "Euskaltzaindiaren hiztegi batua">
-<!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
-<!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
-<!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
-<!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren Corpusa">
-<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurusa">
-<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
-<!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
+<!ENTITY euskalbar.help.tooltip "Help">
+<!ENTITY euskalbar.options.tooltip "Options ">
+<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm database">
+<!ENTITY euskalbar.3000.tooltip "3000 dictionary">
+<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar dictionary">
+<!ENTITY euskalbar.morris.tooltip "Morris dictionary">
+<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu translation database">
+<!ENTITY euskalbar.batua.tooltip "Euskaltzaindia Batua dictionary">
+<!ENTITY euskalbar.itzul.tooltip "ItzuL mailing list archive">
+<!ENTITY euskalbar.harluxet.tooltip "Harluxet encyclopedic dictionary">
+<!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">
+<!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
+<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
+<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
+<!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
 
 <!-- About -->
-<!ENTITY euskalbar.about.author "Egileak">
+<!ENTITY euskalbar.about.author "Authors">
 <!ENTITY euskalbar.about.home.page "Home">
-<!ENTITY euskalbar.about.title "Euskalbar-i buruz">
+<!ENTITY euskalbar.about.title "About Euskalbar">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Euskalbar aukerak">
-<!ENTITY euskalbar.prefs.options.label "Hobespenak">
-<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Kontsulta aurreratua">
-<!ENTITY euskalbar.prefs.dictionaries.label "Enter tekla sakatzean konsultatuko diren hiztegiak">
-<!ENTITY euskalbar.prefs.reusetabs.label "Berrerabili fitxak">
-<!ENTITY euskalbar.prefs.bgtabs.label "Fitxak atzeko planoan ireki">
-<!ENTITY euskalbar.prefs.general.tabtitle "Orokorra">
-<!ENTITY euskalbar.prefs.uppermenu.tabtitle "Hiztegien menua">
-<!ENTITY euskalbar.prefs.uppermenu.label "Erakutsi hiztegien menua">
-<!ENTITY euskalbar.prefs.uppermenu.tooltip "Erakutsi/ezkutatu hiztegien menua">
-<!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">
-<!ENTITY euskalbar.prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
-<!ENTITY euskalbar.prefs.tabs.caption "Fitxen hobespenak">
-<!ENTITY euskalbar.prefs.timeout.caption "Shift eta Ktrl kontsulten denbora-muga (seg)">
+<!ENTITY euskalbar.prefs.title "Euskalbar options">
+<!ENTITY euskalbar.prefs.options.label "Preferences">
+<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Advanced look up">
+<!ENTITY euskalbar.prefs.dictionaries.label "Dictionaries looked up pressing Enter key:">
+<!ENTITY euskalbar.prefs.reusetabs.label "Reuse tabs">
+<!ENTITY euskalbar.prefs.bgtabs.label "Open new tabs in background">
+<!ENTITY euskalbar.prefs.general.tabtitle "General">
+<!ENTITY euskalbar.prefs.uppermenu.tabtitle "Dictionaries menu">
+<!ENTITY euskalbar.prefs.interface.tabtitle "Appearance">
+<!ENTITY euskalbar.prefs.uppermenu.label "Show dictionaries menu">
+<!ENTITY euskalbar.prefs.uppermenu.tooltip "Toggle dictionaries menu">
+<!ENTITY euskalbar.prefs.lang.caption "Default language">
+<!ENTITY euskalbar.prefs.lang.label "When Euskalbar starts, set the following language:">
+<!ENTITY euskalbar.prefs.tabs.caption "Tab preferences">
+<!ENTITY euskalbar.prefs.timeout.caption "Shift and Ctrl query timeout (s)">
+<!ENTITY euskalbar.prefs.skin.caption "Skins">
+<!ENTITY euskalbar.prefs.skin.label "Choose a skin for Euskalbar">
 
 
 <!-- Euskalterm -->
-<!ENTITY euskalbar.euskalterm.dena.label "Gai guztiak">
-<!ENTITY euskalbar.euskalterm.administrazioa.label "Administrazioa">
-<!ENTITY euskalbar.euskalterm.arteak.label "Arteak">
-<!ENTITY euskalbar.euskalterm.biologia.label "Biologia">
-<!ENTITY euskalbar.euskalterm.ekonomia.label "Ekonomia eta enpresa">
-<!ENTITY euskalbar.euskalterm.eraikuntza.label "Eraikuntza, hirigintza">
-<!ENTITY euskalbar.euskalterm.erlijioa.label "Erlijioa">
-<!ENTITY euskalbar.euskalterm.filosofia.label "Filosofia">
-<!ENTITY euskalbar.euskalterm.garraioa.label "Garraioa, posta, telekomunikazioak">
-<!ENTITY euskalbar.euskalterm.geografia.label "Geografia">
-<!ENTITY euskalbar.euskalterm.geologia.label "Geologia">
-<!ENTITY euskalbar.euskalterm.historia.label "Historia, gai militarrak">
-<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "Hizkuntzalaritza, literatura">
-<!ENTITY euskalbar.euskalterm.industria.label "Industria">
-<!ENTITY euskalbar.euskalterm.informatika.label "Informatika">
-<!ENTITY euskalbar.euskalterm.kazetaritza.label "Informazio-zientziak, dokumentazioa">
-<!ENTITY euskalbar.euskalterm.izenak.label "Izenak, tituluak">
-<!ENTITY euskalbar.euskalterm.kimika.label "Kimika eta fisika">
-<!ENTITY euskalbar.euskalterm.kirola.label "Kirola, jokoak, aisia">
-<!ENTITY euskalbar.euskalterm.laburtzapenak.label "Laburtzapenak">
-<!ENTITY euskalbar.euskalterm.matematika.label "Matematika eta estatistika">
-<!ENTITY euskalbar.euskalterm.medikuntza.label "Medikuntza">
-<!ENTITY euskalbar.euskalterm.merkataritza.label "Merkataritza, lan-harremanak">
-<!ENTITY euskalbar.euskalterm.nekazaritza.label "Nekazaritza, arrantza">
-<!ENTITY euskalbar.euskalterm.politika.label "Politika, soziologia, antropologia">
-<!ENTITY euskalbar.euskalterm.psikologia.label "Psikologia, pedagogia">
-<!ENTITY euskalbar.euskalterm.zuzenbidea.label "Zuzenbidea">
+<!ENTITY euskalbar.euskalterm.dena.label "Any">
+<!ENTITY euskalbar.euskalterm.administrazioa.label "Public Administration">
+<!ENTITY euskalbar.euskalterm.arteak.label "Arts">
+<!ENTITY euskalbar.euskalterm.biologia.label "Biology">
+<!ENTITY euskalbar.euskalterm.ekonomia.label "Economics and Business">
+<!ENTITY euskalbar.euskalterm.eraikuntza.label "Construction, Urban Development">
+<!ENTITY euskalbar.euskalterm.erlijioa.label "Religion">
+<!ENTITY euskalbar.euskalterm.filosofia.label "Philosophy">
+<!ENTITY euskalbar.euskalterm.garraioa.label "Transport, Mail, Telecommunications">
+<!ENTITY euskalbar.euskalterm.geografia.label "Geography">
+<!ENTITY euskalbar.euskalterm.geologia.label "Geology">
+<!ENTITY euskalbar.euskalterm.historia.label "History, Military">
+<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "Linguistics, Literature">
+<!ENTITY euskalbar.euskalterm.industria.la<!ENTITY euskalbar.language.eu_es "EU ► ES">
+<!ENTITY euskalbar.language.es_eu "ES ► EU">
+<!ENTITY euskalbar.language.eu_en "EU ► EN">
+<!ENTITY euskalbar.language.en_eu "EN ► EU">bel "Industry">
+<!ENTITY euskalbar.euskalterm.informatika.label "Computing">
+<!ENTITY euskalbar.euskalterm.kazetaritza.label "Information Science, Documentation">
+<!ENTITY euskalbar.euskalterm.izenak.label "Names, Titles">
+<!ENTITY euskalbar.euskalterm.kimika.label "Chemistry and Physics">
+<!ENTITY euskalbar.euskalterm.kirola.label "Sports, Games, Leisure">
+<!ENTITY euskalbar.euskalterm.laburtzapenak.label "Abbreviations">
+<!ENTITY euskalbar.euskalterm.matematika.label "Mathematics and Statisctis">
+<!ENTITY euskalbar.euskalterm.medikuntza.label "Medicine">
+<!ENTITY euskalbar.euskalterm.merkataritza.label "Commercial Activity, Labour relations">
+<!ENTITY euskalbar.euskalterm.nekazaritza.label "Agriculture, Fishing">
+<!ENTITY euskalbar.euskalterm.politika.label "Politics and Sociology">
+<!ENTITY euskalbar.euskalterm.psikologia.label "Psychology, Pedagogy">
+<!ENTITY euskalbar.euskalterm.zuzenbidea.label "Law">
 
 <!--Language-->
-<!ENTITY euskalbar.language.eu_es "eu » es">
-<!ENTITY euskalbar.language.es_eu "es » eu">
-<!ENTITY euskalbar.language.eu_en "eu » en">
-<!ENTITY euskalbar.language.en_eu "en » eu">
+<!ENTITY euskalbar.language.eu_es "EU > ES">
+<!ENTITY euskalbar.language.es_eu "ES > EU">
+<!ENTITY euskalbar.language.eu_en "EU > EN">
+<!ENTITY euskalbar.language.en_eu "EN > EU">
 
 <!-- Context Menu -->
-<!ENTITY euskalbar.context.opentrad.label "Euskaratu Opentrad erabiliz">
-<!ENTITY euskalbar.context.xuxenweb.label "Zuzendu XUXENweb erabiliz">
-<!ENTITY euskalbar.context.sinonimoak.label "Sinonimoak">
-<!ENTITY euskalbar.context.mokoroa.es.label "Gaztelaniazko testuan">
-<!ENTITY euskalbar.context.mokoroa.eu.label "Euskarazko testuan">
+<!ENTITY euskalbar.context.opentrad.label "Translate to Basque using Opentrad">
+<!ENTITY euskalbar.context.xuxenweb.label "Correct using XUXENweb">
+<!ENTITY euskalbar.context.sinonimoak.label "Synonyms">
+<!ENTITY euskalbar.context.mokoroa.es.label "In Spanish text">
+<!ENTITY euskalbar.context.mokoroa.eu.label "In Basque text">
 
 <!-- Menu -->
-<!ENTITY euskalbar.menu.main "Hiztegiak">
-<!ENTITY euskalbar.menu.general "Orokorrak">
-<!ENTITY euskalbar.menu.euskaltzaindia "Euskaltzaindiaren hiztegi batua (EU)">
-<!ENTITY euskalbar.menu.eurovoc "Eurovoc Thesaurusa">
-<!ENTITY euskalbar.menu.euskalterm "Euskalterm banku terminologikoa (EU-ES)">
-<!ENTITY euskalbar.menu.euskaltermalt "Euskalterm banku terminologiko alternatiboa (EU-ES)">
-<!ENTITY euskalbar.menu.bfa_term "BFA Hiztegi Terminologikoa (EU-ES)">
-<!ENTITY euskalbar.menu.3000 "3000 hiztegia (EU-ES)">
-<!ENTITY euskalbar.menu.elhuyar "Elhuyar hiztegia (EU-ES)">
-<!ENTITY euskalbar.menu.morris "Morris hiztegia (EU-EN)">
-<!ENTITY euskalbar.menu.opentran "Open-tran itzulpen datu-basea (EN-EU)">
-<!ENTITY euskalbar.menu.lagun20 "Poloniera - Euskara hiztegia (PL-EU)">
-<!ENTITY euskalbar.menu.goihata "Japoniera - Euskara hiztegia (JP-EU)">
-<!ENTITY euskalbar.menu.sinonimoak "Sinonimoak">
-<!ENTITY euskalbar.menu.sinonimoenhizt "ADOREZen sinonimoen hiztegia">
-<!ENTITY euskalbar.menu.uzeisinonim "UZEIren sinonimoen hiztegia">
-<!ENTITY euskalbar.menu.entziklopediak "Entziklopediak">
-<!ENTITY euskalbar.menu.aunam "Auñamendi entziklopedia">
-<!ENTITY euskalbar.menu.harluxet "Harluxet entziklopedia">
+<!ENTITY euskalbar.menu.main "Dictionaries">
+<!ENTITY euskalbar.menu.general "General">
+<!ENTITY euskalbar.menu.euskaltzaindia "Euskaltzaindia Batua dictionary (EU)">
+<!ENTITY euskalbar.menu.eurovoc "Eurovoc Thesaurus">
+<!ENTITY euskalbar.menu.euskalterm "Euskalterm terminological bank (EU-ES)">
+<!ENTITY euskalbar.menu.euskaltermalt "Euskalterm alternative terminological bank (EU-ES)">
+<!ENTITY euskalbar.menu.bfa_term "BFA Terminological Dictionary (EU-ES)">
+<!ENTITY euskalbar.menu.3000 "3000 dictionary (EU-ES)">
+<!ENTITY euskalbar.menu.elhuyar "Elhuyar dictionary (EU-ES)">
+<!ENTITY euskalbar.menu.morris "Morris dictionary (EU-EN)">
+<!ENTITY euskalbar.menu.opentran "Open-tran translation database (EN-EU)">
+<!ENTITY euskalbar.menu.sinonimoak "Synonyms">
+<!ENTITY euskalbar.menu.sinonimoenhizt "ADOREZ synonyms dictionary">
+<!ENTITY euskalbar.menu.uzeisinonim "UZEI synonyms dictionary">
+<!ENTITY euskalbar.menu.entziklopediak "Encyclopedias">
+<!ENTITY euskalbar.menu.aunam "Auñamendi encyclopedia">
+<!ENTITY euskalbar.menu.harluxet "Harluxet encyclopedia">
 <!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
-<!ENTITY euskalbar.menu.thematics "Gaikakoak">
-<!ENTITY euskalbar.menu.drugs "Drogak">
-<!ENTITY euskalbar.menu.energy "Energia">
-<!ENTITY euskalbar.menu.management "Enpresa kudeaketa">
-<!ENTITY euskalbar.menu.industry "Industria">
-<!ENTITY euskalbar.menu.industry2 "Industria (etorkinentzat)">
-<!ENTITY euskalbar.menu.computers "Informatika">
-<!ENTITY euskalbar.menu.environment "Ingurumena">
+<!ENTITY euskalbar.menu.thematics "By Subject">
+<!ENTITY euskalbar.menu.drugs "Drugs">
+<!ENTITY euskalbar.menu.energy "Energy">
+<!ENTITY euskalbar.menu.management "Business management">
+<!ENTITY euskalbar.menu.industry "Industry">
+<!ENTITY euskalbar.menu.industry2 "Industry (for immigrants)">
+<!ENTITY euskalbar.menu.computers "Computing">
+<!ENTITY euskalbar.menu.environment "Environment">
 <!ENTITY euskalbar.menu.internet "Internet">
-<!ENTITY euskalbar.menu.justice "Justizia">
-<!ENTITY euskalbar.menu.catalogues "Katalogazioa">
-<!ENTITY euskalbar.menu.journalism "Kazetaritza">
-<!ENTITY euskalbar.menu.parliament "Parlamentua">
-<!ENTITY euskalbar.menu.health "Osasuna">
-<!ENTITY euskalbar.menu.cooking "Sukaldaritza">
-<!ENTITY euskalbar.menu.teleco "Telekomunikazioak">
-<!ENTITY euskalbar.menu.science "Zientzia">
-<!ENTITY euskalbar.menu.corpus "Corpusak">
-<!ENTITY euskalbar.menu.euskaracorpusa "Euskararen corpusa">
+<!ENTITY euskalbar.menu.justice "Justice">
+<!ENTITY euskalbar.menu.catalogues "Cataloguing">
+<!ENTITY euskalbar.menu.journalism "Journalism">
+<!ENTITY euskalbar.menu.parliament "Parliament">
+<!ENTITY euskalbar.menu.health "Health">
+<!ENTITY euskalbar.menu.cooking "Cooking">
+<!ENTITY euskalbar.menu.teleco "Telecommunications">
+<!ENTITY euskalbar.menu.science "Science">
+<!ENTITY euskalbar.menu.corpus "Corpus">
+<!ENTITY euskalbar.menu.euskaracorpusa "Basque corpus">
 <!ENTITY euskalbar.menu.mokoroa "Mokoroa">
 <!ENTITY euskalbar.menu.intza "Intza">
 <!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
