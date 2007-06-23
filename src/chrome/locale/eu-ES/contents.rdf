@@ -4,15 +4,15 @@
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 
     <RDF:Seq about="urn:mozilla:locale:root">
-        <RDF:li resource="urn:mozilla:locale:en-US"/>
+        <RDF:li resource="urn:mozilla:locale:eu-ES"/>
     </RDF:Seq>
-    <RDF:Description about="urn:mozilla:locale:en-US"
-                     chrome:author="Julen Ruiz Aizpuru"
-                     chrome:displayName="English"
-                     chrome:name="en-US">
+    <RDF:Description about="urn:mozilla:locale:eu-ES"
+                     chrome:author="Asier Sarasua Garmendia"
+                     chrome:displayName="Euskara"
+                     chrome:name="eu-ES">
         <chrome:packages>
-            <RDF:Seq about="urn:mozilla:locale:en-US:packages">
-                <RDF:li resource="urn:mozilla:locale:en-US:euskalbar"/>
+            <RDF:Seq about="urn:mozilla:locale:eu-ES:packages">
+                <RDF:li resource="urn:mozilla:locale:eu-ES:euskalbar"/>
             </RDF:Seq>
         </chrome:packages>
     </RDF:Description>
