@@ -67,6 +67,8 @@
           button.setAttribute('hidden', true);
           ctlButton.setAttribute('label', hiztegiakbai);
         }
+      //Azalak aldatzeko funtzioari deitu (#17 buga konpontzeko, beste bide bat asmatu beharko litzateke)
+      callChangeStyle();
       },
       // Euskalbar deskargatu: observerra ezabatu	
       shutdown: function()
