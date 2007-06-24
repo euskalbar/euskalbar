@@ -17,7 +17,6 @@
   table#nagusia { border-style: solid;
     border-color: rgb(59, 151, 255);
     border-width: 1px;
-    -moz-border-radius: 14px;
     background-color: rgb(231, 241, 255);
     width: 90%;
     margin-left: 5%;
@@ -26,7 +25,7 @@
   th { border-style: solid;
     border-color: rgb(59, 151, 255);
     border-width: 1px;
-    -moz-border-radius: 20px;
+    -moz-border-radius: 8px;
     background-color: rgb(59, 151, 255);
     font-size: 11pt;
     }
@@ -39,7 +38,6 @@
   td#nagusia { border-style: solid;
     border-color: rgb(160, 195, 255);
     border-width: 1px;
-    -moz-border-radius: 14px;
     width: 33%;
     vertical-align: top;
     }
@@ -47,7 +45,7 @@
   h1 { border-style: solid;
     border-color: rgb(0, 10, 100);
     background-color: rgb(0, 10, 100);
-    -moz-border-radius: 14px;
+    -moz-border-radius: 10px;
     color: rgb(255, 255, 255);
     border-width: 1px;
     font-size: 12pt;
