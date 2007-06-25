@@ -297,63 +297,63 @@
         <menupopup id="Euskalbar-popup">
           <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
             <menupopup id="Euskalbar-subpopup1">
-          	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="reuseOldtab('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');"/>
+          	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="openURL('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');"/>
         	<menuseparator/>
-          	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="reuseOldtab('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
-          	<menuitem label="&euskalbar.menu.3000;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
-          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
-          	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="reuseOldtab('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
+          	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="openURL('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
+          	<menuitem label="&euskalbar.menu.3000;" oncommand="openURL('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
+          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="openURL('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
+          	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="openURL('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
         	<menuseparator/>
-          	<menuitem label="&euskalbar.menu.morris;" oncommand="reuseOldtab('http://www1.euskadi.net/morris/indice_e.htm', 'morris');"/>
-          	<menuitem label="&euskalbar.menu.opentran;" oncommand="reuseOldtab('http://eu.open-tran.eu', 'opentran');"/>
+          	<menuitem label="&euskalbar.menu.morris;" oncommand="openURL('http://www1.euskadi.net/morris/indice_e.htm', 'morris');"/>
+          	<menuitem label="&euskalbar.menu.opentran;" oncommand="openURL('http://eu.open-tran.eu', 'open-tran');"/>
           	<menuseparator />
-          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="reuseOldtab('http://www.hiztegia.org', 'lagun20');" />
-          	<menuitem label="&euskalbar.menu.goihata;" oncommand="reuseOldtab('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
+          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="openURL('http://www.hiztegia.org', 'lagun20');" />
+          	<menuitem label="&euskalbar.menu.goihata;" oncommand="openURL('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
             </menupopup>
   	      </menu>
       <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">
             <menupopup id="Euskalbar-subpopup2">
-          	<menuitem label="&euskalbar.menu.sinonimoenhizt;" oncommand="reuseOldtab('http://www1.euskadi.net/hizt_sinon/indice_e.htm', 'hizt_sinon');"/>
-          	<menuitem label="&euskalbar.menu.uzeisinonim;" oncommand="reuseOldtab('http://www.uzei.com/estatico/sinonimos.asp', 'uzei.com/estatico');"/>
-          	<menuitem label="&euskalbar.menu.eurovoc;" oncommand="reuseOldtab('http://www.bizkaia.net/kultura/eurovoc/index.asp', 'eurovoc');" />
+          	<menuitem label="&euskalbar.menu.sinonimoenhizt;" oncommand="openURL('http://www1.euskadi.net/hizt_sinon/indice_e.htm', 'hizt_sinon');"/>
+          	<menuitem label="&euskalbar.menu.uzeisinonim;" oncommand="openURL('http://www.uzei.com/estatico/sinonimos.asp', 'uzei.com/estatico');"/>
+          	<menuitem label="&euskalbar.menu.eurovoc;" oncommand="openURL('http://www.bizkaia.net/kultura/eurovoc/index.asp', 'eurovoc');" />
             </menupopup>
   	  </menu>
       <menu id="Euskalbar-entzik" label="&euskalbar.menu.entziklopediak;">
             <menupopup id="Euskalbar-subpopup3">
           	<menuitem label="&euskalbar.menu.aunam;" oncommand="goEuskalBarOthers('SAunamendi');"/>
-          	<menuitem label="&euskalbar.menu.harluxet;" oncommand="reuseOldtab('http://www1.euskadi.net/harluxet', 'harluxet');"/>
-          	<menuitem label="&euskalbar.menu.wikipedia;" oncommand="reuseOldtab('http://eu.wikipedia.org', 'wikipedia');"/>
+          	<menuitem label="&euskalbar.menu.harluxet;" oncommand="openURL('http://www1.euskadi.net/harluxet', 'harluxet');"/>
+          	<menuitem label="&euskalbar.menu.wikipedia;" oncommand="openURL('http://eu.wikipedia.org', 'wikipedia');"/>
             </menupopup>
   	  </menu>
       <menu id="Euskalbar-thematics" label="&euskalbar.menu.thematics;">
             <menupopup id="Euskalbar-subpopup4">
-          	<menuitem label="&euskalbar.menu.drugs;" oncommand="reuseOldtab('http://www.drogomedia.com/euskera/diccionari.htm', 'drogomedia');"/>
-          	<menuitem label="&euskalbar.menu.energy;" oncommand="reuseOldtab('http://www.eve.es/energia/index.html', 'energia');"/>
-          	<menuitem label="&euskalbar.menu.management;" oncommand="reuseOldtab('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
-          	<menuitem label="&euskalbar.menu.industry;" oncommand="reuseOldtab('http://www.kondia.com/hiztegi/home.htm', 'kondia');"/>
-          	<menuitem label="&euskalbar.menu.industry2;" oncommand="reuseOldtab('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
-          	<menuitem label="&euskalbar.menu.computers;" oncommand="reuseOldtab('http://drupal.euskalgnu.org/node/83', 'euskalgnu');"/>
-          	<menuitem label="&euskalbar.menu.environment;" oncommand="reuseOldtab('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');"/>
-          	<menuitem label="&euskalbar.menu.internet;" oncommand="reuseOldtab('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');"/>
-          	<menuitem label="&euskalbar.menu.justice;" oncommand="reuseOldtab('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');"/>
+          	<menuitem label="&euskalbar.menu.drugs;" oncommand="openURL('http://www.drogomedia.com/euskera/diccionari.htm', 'drogomedia');"/>
+          	<menuitem label="&euskalbar.menu.energy;" oncommand="openURL('http://www.eve.es/energia/index.html', 'energia');"/>
+          	<menuitem label="&euskalbar.menu.management;" oncommand="openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
+          	<menuitem label="&euskalbar.menu.industry;" oncommand="openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');"/>
+          	<menuitem label="&euskalbar.menu.industry2;" oncommand="openURL('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
+          	<menuitem label="&euskalbar.menu.computers;" oncommand="openURL('http://drupal.euskalgnu.org/node/83', 'euskalgnu');"/>
+          	<menuitem label="&euskalbar.menu.environment;" oncommand="openURL('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');"/>
+          	<menuitem label="&euskalbar.menu.internet;" oncommand="openURL('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');"/>
+          	<menuitem label="&euskalbar.menu.justice;" oncommand="openURL('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');"/>
           	<menuitem label="&euskalbar.menu.catalogues;" oncommand="goEuskalBarOthers('kapsula');"/>
-          	<menuitem label="&euskalbar.menu.journalism;" oncommand="reuseOldtab('http://www.palazio.org/kazetaterm', 'kazetaterm');"/>
-          	<menuitem label="&euskalbar.menu.parliament;" oncommand="reuseOldtab('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');"/>
+          	<menuitem label="&euskalbar.menu.journalism;" oncommand="openURL('http://www.palazio.org/kazetaterm', 'kazetaterm');"/>
+          	<menuitem label="&euskalbar.menu.parliament;" oncommand="openURL('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');"/>
           	<menuitem label="&euskalbar.menu.health;" oncommand="goEuskalBarOthers('oeegunea');"/>
-          	<menuitem label="&euskalbar.menu.cooking;" oncommand="reuseOldtab('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
-          	<menuitem label="&euskalbar.menu.teleco;" oncommand="reuseOldtab('http://www.telekomunikaziohiztegia.org', 'telekomunikaziohiztegia');"/>
-          	<menuitem label="&euskalbar.menu.science;" oncommand="reuseOldtab('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');"/>
+          	<menuitem label="&euskalbar.menu.cooking;" oncommand="openURL('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
+          	<menuitem label="&euskalbar.menu.teleco;" oncommand="openURL('http://www.telekomunikaziohiztegia.org', 'telekomunikaziohiztegia');"/>
+          	<menuitem label="&euskalbar.menu.science;" oncommand="openURL('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');"/>
             </menupopup>
   	  </menu>
       <menu id="Euskalbar-corpusa" label="&euskalbar.menu.corpus;">
             <menupopup id="Euskalbar-subpopup5">
-            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="reuseOldtab('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
-            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="reuseOldtab('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');"/>
-            <menuitem label="&euskalbar.menu.intza;" oncommand="reuseOldtab('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');"/>
-            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="reuseOldtab('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
-            <menuitem label="&euskalbar.menu.garate;" oncommand="reuseOldtab('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');"/>
-            <menuitem label="&euskalbar.menu.laburzki;" oncommand="reuseOldtab('http://www.palazio.org/Laburzki', 'Laburzki');"/>
-            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="reuseOldtab('http://www.ztcorpusa.net','ztcorpusa');"/>
+            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
+            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');"/>
+            <menuitem label="&euskalbar.menu.intza;" oncommand="openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');"/>
+            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
+            <menuitem label="&euskalbar.menu.garate;" oncommand="openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');"/>
+            <menuitem label="&euskalbar.menu.laburzki;" oncommand="openURL('http://www.palazio.org/Laburzki', 'Laburzki');"/>
+            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="openURL('http://www.ztcorpusa.net','ztcorpusa');"/>
             </menupopup>
   	  </menu>
         </menupopup>
