@@ -54,7 +54,10 @@
             waits for 5 seconds to have a response. If there is no response, the 
             connection is closed.<p>This timeout use to be enough, but sometimes 
             the servers where the dictionaries are hosted need more time to send 
-            the response.</li>
+            the response.<br><br>Warning: if the query timeout is too short, 
+            Euskalbar could receive a partial response. For instance, if you 
+            query Euskalterm with a 2 second timeout, you will get part of the 
+            whole response.</li>
 			<li><h3>Skins</h3>Allows to change the skin for Euskalbar interfaces.</li>
 		  </ul>
 		</li>
