@@ -10,6 +10,7 @@
   <script type="application/x-javascript" src="euskalbar.js"/>
   <script type="application/x-javascript" src="euskalbarshift.js"/>
   <script type="application/x-javascript" src="euskalbarktrl.js"/>
+  <script type="application/x-javascript" src="euskalbarstats.js"/>
 
   <!-- Nabigatzailea kargatzean hasieratze funtzioari deitu -->
   <script type="application/x-javascript">
@@ -34,6 +35,8 @@
         <menupopup id="EuskalBar-aukerak-popup">
           <menuitem id="hideshowmenu" label=" " tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" onclick="showhideDicts();"/>
           <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbarOptions();"/>
+          <menuseparator/>
+	  <menuitem id="showstatistics" label="Estatistikak" tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" onclick="showLocalstats();"/>
         </menupopup>
       </toolbarbutton>
       <toolbarseparator/>

@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
+
+<window id="euskalbar-stats-dialog" title="&euskalbar.stats.main;"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="setBalioak();">
+
+<script>
+function setBalioak()
+{
+  var statsText = window.arguments[0];
+  statsArray = statsText.split(",");
+  var tree = document.getElementById("zuhaitza");
+  var colstats = tree.columns.getNamedColumn("stats-count");
+  for (f in statsArray){
+  tree.view.setCellText(f,colstats,statsArray[f]);
+  }
+}
+</script>
+
+<tree id="zuhaitza" height="350px" hidecolumnpicker="true">
+  <treecols>
+    <treecol width="280px" id="stats-dicts" label="&euskalbar.menu.main;"/>
+    <treecol width="100px" id="stats-count" label="&euskalbar.stats.count;"/>
+  </treecols>
+  <treechildren>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.euskalterm.tooltip;"/>
+	<treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.3000.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.elhuyar.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.morris.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.opentran.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.batua.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.menu.uzeisinonim;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.menu.sinonimoenhizt;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.itzul.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.harluxet.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.mokoroa.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.ztcorpusa.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.eurovoc.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.xuxenweb.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.opentrad.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.stats.hizteues;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.stats.sineues;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.stats.hizteuen;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+  </treechildren>
+</tree>
+</window>

@@ -186,14 +186,33 @@
       window.openDialog("chrome://euskalbar/content/about/about.xul", "euskalbar-about-dialog","centerscreen,chrome,modal,resizable");
     }
 
-
     // Aukeren koadroa erakusten du
     function euskalbarOptions() {
       var dialogURL = "chrome://euskalbar/content/prefs.xul";
       window.openDialog(dialogURL, "", "chrome,modal,close");
     }
 
+    // Estatistika lokalak erakusten ditu
+    function showLocalstats() {
+      URLstats = extNon.clone();
+      URLstats.append("html");
+      URLstats.append("stats.txt");
+      //Estatistiken fitxategia ireki eta irakurri
+      var statfs = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                        .createInstance(Components.interfaces.nsIFileInputStream);
+      var statss = Components.classes["@mozilla.org/scriptableinputstream;1"]
+                        .createInstance(Components.interfaces.nsIScriptableInputStream);
 
+      statfs.init(URLstats, -1, 0, 0);
+      statss.init(statfs);
+      var statsText = statss.read(statfs.available());
+      statss.close();
+      statfs.close();
+      //Leihoa ireki eta estatistiken fitxategia pasatu argumentu gisa
+      var dialogURL = "chrome://euskalbar/content/stats.xul";
+      window.openDialog(dialogURL, "statsDlg", "chrome,modal,left=100px,top=140px", statsText);
+    }
+	
     // *************************************
     //  Euskalbarren barneko funtzioak
     // *************************************
@@ -272,6 +291,8 @@
             getShiftEuskalterm(euskalbar_source, searchStr);
             getShift3000(euskalbar_source, searchStr);
             getShiftElhuyar(euskalbar_source, searchStr);
+	    //Estatistika lokalak idatzi
+	    writeStats(15);
           } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
@@ -286,6 +307,8 @@
             // eu-en eta en-eu kasutarako euskalterm eta morris kontsultatu
             getShiftEuskalterm(euskalbar_source, searchStr);
             getShiftMorris(euskalbar_source, searchStr);
+	    //Estatistika lokalak idatzi
+	    writeStats(17);
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
           if (h.match('euskara')) {
@@ -300,6 +323,8 @@
           //Exekutatu euskalbarktrl.js fitxategian dauden skriptak
           getKtrlSinonimoak(euskalbar_source, searchStr);
           getKtrlUZEI(euskalbar_source, searchStr);
+	  //Estatistika lokalak idatzi
+	  writeStats(16);
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -449,6 +474,8 @@
       var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak='+sub+'&hizkuntza='+hiztegiarenhizkuntza;
       var zein = 'euskalterm';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(0);
     }
 
 
@@ -458,10 +485,14 @@
         case 'opentrad' :
           var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
           var zein = 'opentrad';
+	  //Estatistika lokalak idatzi
+	  writeStats(14);
         break;
         case 'xuxenweb' :
           var url = 'http://www.xuxen.com/socketBezero.php?idatzArea='+term; 
           var zein = 'xuxen';
+	  //Estatistika lokalak idatzi
+	  writeStats(13);
         break;
       }
       openURL(url, zein);
@@ -480,6 +511,8 @@
       var url = 'http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe?Diccionario='+source+'&Idioma='+source+'&Txt_'+idioma+'='+escape(term);
       var zein = 'cgi-bin_m33';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(1);
     }
 
 
@@ -490,6 +523,8 @@
       var url = 'http://www.interneteuskadi.org/euskalbar/frames.php?term='+escape(term)+'&source='+source;
       var zein = 'interneteuskadi';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(2);
     }
 
 
@@ -503,6 +538,8 @@
       var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbarmorris.html?hizkuntza='+hizk+'&hitza='+escape(term);
       var zein = 'morris'
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(3);
     }
 
 
@@ -511,6 +548,8 @@
       var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
       var zein = 'open-tran';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(4);
     }
 
 
@@ -519,6 +558,8 @@
       var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
       var zein = 'hiztegibatua';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(5);
     }
 
 
@@ -526,11 +567,9 @@
     function goEuskalBarItzuL(term) {
       var url = 'http://search.gmane.org/search.php?group=gmane.culture.language.basque.itzul&query='+encodeURI(term);
       var zein = 'gmane.culture.language.basque.itzul';
-      if (prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-        reuseOldtab(url, zein);
-      } else {
-        openNewtab(url);	
-      }      
+      openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(8);
     }
 
 
@@ -538,7 +577,9 @@
     function goEuskalBarHarluxet(term) {
       var url = 'http://www1.euskadi.net/harluxet/emaitza.asp?sarrera='+escape(term);
       var zein = 'harluxet';
-      openURL(url, zein);   
+      openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(9);
     }
 
 
@@ -551,6 +592,8 @@
         var url = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt=&eusk='+escape(term)+'&nork=&kera=&bidali=Bilatu';
       }
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(10);
     }
 
 
@@ -559,6 +602,8 @@
       var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py?testu-hitza1='+escape(term);
       var zein = 'ztcorpusa';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(11);
     }
 
 
@@ -574,13 +619,17 @@
       var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbareurovoc.html?hizkuntza='+hizk+'&hitza='+escape(term);
       var zein = 'eurovoc';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(12);
     }
 
     // Opentrad
     function goEuskalBarOpentrad(source, term) {
       var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php?language=eu&inurl='+escape(window.content.document.location.href)+'&norantza=es-eu';
       var zein = 'opentrad';
-      openURL(url, zein);    
+      openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(14);
     }
 
 
@@ -589,6 +638,8 @@
       var url = 'http://www.xuxen.com/socketBezero.php?idatzArea='+term;
       var zein = 'xuxen';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(13);
     }
 
 
@@ -620,6 +671,8 @@
       }
       var zein = 'adorez';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(7);
     }
 
 
@@ -628,6 +681,8 @@
       var url = 'http://www.uzei.com/estatico/sinonimos.asp?sarrera='+escape(term)+'&eragiketa=bilatu';
       var zein = 'uzei';
       openURL(url, zein);
+      //Estatistika lokalak idatzi
+      writeStats(6);
     }
 
 

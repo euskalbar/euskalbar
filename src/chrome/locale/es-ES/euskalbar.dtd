@@ -25,7 +25,7 @@
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Opciones de Euskalbar">
-<!ENTITY euskalbar.prefs.options.label "Preferencias">
+<!ENTITY euskalbar.prefs.options.label "Preferencias...">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Consulta avanzada">
 <!ENTITY euskalbar.prefs.dictionaries.label "Seleccione los diccionarios a consultar con la tecla Intro">
 <!ENTITY euskalbar.prefs.reusetabs.label "Reutilizar pestañas">
@@ -38,7 +38,7 @@
 <!ENTITY euskalbar.prefs.lang.caption "Idioma">
 <!ENTITY euskalbar.prefs.lang.label "Al iniciar Euskalbar, elegir el siguiente idioma:">
 <!ENTITY euskalbar.prefs.tabs.caption "Preferencias de las pestañas">
-<!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite de las consultas Shift y Ctrl (seg)">
+<!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite de las consultas combinadas (seg)">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar">
 
@@ -130,3 +130,10 @@
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+
+<!-- Statistics -->
+<!ENTITY euskalbar.stats.main "Estadísticas de Euskalbar">
+<!ENTITY euskalbar.stats.count "Nº de consultas">
+<!ENTITY euskalbar.stats.hizteues "Combinado (Euskalterm, 3000, Elhuyar)">
+<!ENTITY euskalbar.stats.sineues "Combinado (ADOREZ, UZEI)">
+<!ENTITY euskalbar.stats.hizteuen "Combinado (Euskalterm, Morris)">

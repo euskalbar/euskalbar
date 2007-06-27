@@ -9,7 +9,7 @@
     const prefManagerShift	= Components.classes["@mozilla.org/preferences-service;1"]
                                 .getService(Components.interfaces.nsIPrefBranch);
 	
-	
+
     // Euskalterm kargatu
     function getShiftEuskalterm(source, term) {
       var txtEuskalterm= "";

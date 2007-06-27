@@ -25,7 +25,7 @@
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Euskalbar aukerak">
-<!ENTITY euskalbar.prefs.options.label "Hobespenak">
+<!ENTITY euskalbar.prefs.options.label "Hobespenak...">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Kontsulta aurreratua">
 <!ENTITY euskalbar.prefs.dictionaries.label "Enter tekla sakatzean konsultatuko diren hiztegiak">
 <!ENTITY euskalbar.prefs.reusetabs.label "Berrerabili fitxak">
@@ -38,7 +38,7 @@
 <!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">
 <!ENTITY euskalbar.prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
 <!ENTITY euskalbar.prefs.tabs.caption "Fitxen hobespenak">
-<!ENTITY euskalbar.prefs.timeout.caption "Shift eta Ktrl kontsulten denbora-muga (seg)">
+<!ENTITY euskalbar.prefs.timeout.caption "Kontsulta konbinatuen denbora-muga (seg)">
 <!ENTITY euskalbar.prefs.skin.caption "Azalak">
 <!ENTITY euskalbar.prefs.skin.label "Hautatu azal bat Euskalbarrentzako">
 
@@ -131,3 +131,11 @@
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+
+<!-- Statistics -->
+<!ENTITY euskalbar.stats.main "Euskalbarren estatistikak">
+<!ENTITY euskalbar.stats.count "Kontsulta kop.">
+<!ENTITY euskalbar.stats.hizteues "Konbinatua (Euskalterm, 3000, Elhuyar)">
+<!ENTITY euskalbar.stats.sineues "Konbinatua (ADOREZ, UZEI)">
+<!ENTITY euskalbar.stats.hizteuen "Konbinatua (Euskalterm, Morris)">
+
