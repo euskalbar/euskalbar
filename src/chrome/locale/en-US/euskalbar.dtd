@@ -133,6 +133,7 @@
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
 
 <!-- Statistics -->
+<!ENTITY euskalbar.stats.menu "Statistics">
 <!ENTITY euskalbar.stats.main "Euskalbar statistics">
 <!ENTITY euskalbar.stats.count "Query count">
 <!ENTITY euskalbar.stats.hizteues "Combined (Euskalterm, 3000, Elhuyar)">

@@ -36,7 +36,7 @@
           <menuitem id="hideshowmenu" label=" " tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" onclick="showhideDicts();"/>
           <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbarOptions();"/>
           <menuseparator/>
-	  <menuitem id="showstatistics" label="Estatistikak" tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" onclick="showLocalstats();"/>
+	  <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" onclick="showLocalstats();"/>
         </menupopup>
       </toolbarbutton>
       <toolbarseparator/>
