@@ -8,13 +8,14 @@
     //Hobespenak eskuratzeko interfazea
     const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
                                 .getService(Components.interfaces.nsIPrefBranch);
+
     //Hurrengo bi lerroek Euskalbarren direktorio nagusiaren URIa eskuratzen dute
     const id = "euskalbar@interneteuskadi.org";
     var extNon = Components.classes["@mozilla.org/extensions/manager;1"]
                     .getService(Components.interfaces.nsIExtensionManager)
                     .getInstallLocation(id)
                     .getItemLocation(id);
-					
+
     //URLak kudeatzeko funtzioa
     function manageURLs(fileName){	
       URLa = extNon.clone();
@@ -22,28 +23,29 @@
       URLa.append(fileName);
       //Hurrengo bi lerroek aurrekoa hartu eta sistema eragileraren independentea den helbide bat sortzen dute
       var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-						.getService(Components.interfaces.nsIIOService);
+			                .getService(Components.interfaces.nsIIOService);
       var xmlFilePath = ioService.newFileURI(URLa).spec;
       return xmlFilePath;
-	}
-	
+    }
+
     //Euskalbar hasieratzen du
     //Euskalbar deskargatzen du
-    //Hobespenen observerra sortzen eta deusezten du(honetan oinarritua -> http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
+    //Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
+    // http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
     var euskalbar = {
       prefs: null,
-	
+
       // Funtzio honek Euskalbar hasieratzen du
-      startup: function()
-      {
-	// Register to receive notifications of preference changes	
-	this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
-			.getService(Components.interfaces.nsIPrefService)
-			.getBranch("euskalbar.");
-	this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
+      startup: function() {
+        // Register to receive notifications of preference changes	
+        this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                    .getService(Components.interfaces.nsIPrefService)
+                    .getBranch("euskalbar.");
+        this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
         //Hasieratu observerra
-	this.prefs.addObserver("", this, false);
-	//Hasieratu hizkuntza hautatzeko botoia
+        this.prefs.addObserver("", this, false);
+  
+        //Hasieratu hizkuntza hautatzeko botoia
         var lang = prefManager.getCharPref("euskalbar.language.startup");
         euskalbar_source = lang[0]+lang[1];
         euskalbar_target = lang[3]+lang[4];
@@ -67,28 +69,29 @@
           button.setAttribute('hidden', true);
           ctlButton.setAttribute('label', hiztegiakbai);
         }
-      //Azalak aldatzeko funtzioari deitu (#17 buga konpontzeko, beste bide bat asmatu beharko litzateke)
-      callChangeStyle();
+  
+        //Azalak aldatzeko funtzioari deitu (#17 buga konpontzeko, beste bide bat asmatu beharko litzateke)
+        callChangeStyle();
       },
+
       // Euskalbar deskargatu: observerra ezabatu	
-      shutdown: function()
-      {
-	this.prefs.removeObserver("", this);
+      shutdown: function() {
+        this.prefs.removeObserver("", this);
       },
+
       // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da	
-      observe: function(subject, topic, data)
-      {
-	if (topic != "nsPref:changed")
-      {
-	return;
+      observe: function(subject, topic, data) {
+        if (topic != "nsPref:changed") {
+          return;
+        }
+
+        switch(data) {
+        case "style.shiftandcontrol":
+          callChangeStyle();
+        break;
+        }
       }
-	switch(data)
-	{
-	case "style.shiftandcontrol":
-	  callChangeStyle();
-	  break;
-	}
-      }
+
     }
 
 
@@ -112,6 +115,7 @@
         changeStyle(prefStyle, htmlArray[f]);
       }
     }
+
 
     //Estiloa aldatzen du: HTML fitxategietan estiloaren katea aldatzen du
     function changeStyle(estiloa, f){
@@ -137,7 +141,7 @@
 
       //Fitxategia idatzi
       var outputStream = Components.classes['@mozilla.org/network/file-output-stream;1']
-						.createInstance(Components.interfaces.nsIFileOutputStream);
+                        .createInstance(Components.interfaces.nsIFileOutputStream);
       outputStream.init(URLa,0x02 | 0x08 | 0x20, 0664, 0);
       outputStream.write(fileContents, fileContents.length);
       outputStream.flush();
@@ -192,6 +196,7 @@
       window.openDialog(dialogURL, "", "chrome,modal,close");
     }
 
+
     // Estatistika lokalak erakusten ditu
     function showLocalstats() {
       URLstats = extNon.clone();
@@ -199,9 +204,9 @@
       URLstats.append("stats.txt");
       //Estatistiken fitxategia ireki eta irakurri
       var statfs = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                        .createInstance(Components.interfaces.nsIFileInputStream);
+                   .createInstance(Components.interfaces.nsIFileInputStream);
       var statss = Components.classes["@mozilla.org/scriptableinputstream;1"]
-                        .createInstance(Components.interfaces.nsIScriptableInputStream);
+                   .createInstance(Components.interfaces.nsIScriptableInputStream);
 
       statfs.init(URLstats, -1, 0, 0);
       statss.init(statfs);
@@ -212,7 +217,8 @@
       var dialogURL = "chrome://euskalbar/content/stats.xul";
       window.openDialog(dialogURL, "statsDlg", "chrome,modal,left=100px,top=140px", statsText);
     }
-	
+
+
     // *************************************
     //  Euskalbarren barneko funtzioak
     // *************************************
@@ -291,8 +297,8 @@
             getShiftEuskalterm(euskalbar_source, searchStr);
             getShift3000(euskalbar_source, searchStr);
             getShiftElhuyar(euskalbar_source, searchStr);
-	    //Estatistika lokalak idatzi
-	    writeStats(15);
+            //Estatistika lokalak idatzi
+            writeStats(15);
           } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
@@ -307,8 +313,8 @@
             // eu-en eta en-eu kasutarako euskalterm eta morris kontsultatu
             getShiftEuskalterm(euskalbar_source, searchStr);
             getShiftMorris(euskalbar_source, searchStr);
-	    //Estatistika lokalak idatzi
-	    writeStats(17);
+            //Estatistika lokalak idatzi
+            writeStats(17);
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
           if (h.match('euskara')) {
@@ -323,8 +329,8 @@
           //Exekutatu euskalbarktrl.js fitxategian dauden skriptak
           getKtrlSinonimoak(euskalbar_source, searchStr);
           getKtrlUZEI(euskalbar_source, searchStr);
-	  //Estatistika lokalak idatzi
-	  writeStats(16);
+          //Estatistika lokalak idatzi
+          writeStats(16);
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -485,14 +491,14 @@
         case 'opentrad' :
           var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
           var zein = 'opentrad';
-	  //Estatistika lokalak idatzi
-	  writeStats(14);
+          //Estatistika lokalak idatzi
+          writeStats(14);
         break;
         case 'xuxenweb' :
           var url = 'http://www.xuxen.com/socketBezero.php?idatzArea='+term; 
           var zein = 'xuxen';
-	  //Estatistika lokalak idatzi
-	  writeStats(13);
+          //Estatistika lokalak idatzi
+          writeStats(13);
         break;
       }
       openURL(url, zein);
@@ -693,16 +699,15 @@
       return winWrapper.getSelection();
     }
 
-	 // Testu kutxan sartzen den katea zenbakia dela balidatzen du
-	function numField(event){
-	  if (event.which >= 48 && event.which <= 57 ||
-         (event.which==46 && this.input.value.search('\\.')== -1)  ||
-		8 == event.which || 13 == event.which || 0 == event.which)
-	  {
-		return;
-	  }
-	  else{
-		event.preventDefault();
-		return;
-	  }
-	} 
+
+    // Testu kutxan sartzen den katea zenbakia dela balidatzen du
+    function numField(event){
+      if (event.which >= 48 && event.which <= 57 ||
+          (event.which==46 && this.input.value.search('\\.')== -1)  ||
+          8 == event.which || 13 == event.which || 0 == event.which) {
+        return;
+      } else {
+        event.preventDefault();
+        return;
+      }
+    }
