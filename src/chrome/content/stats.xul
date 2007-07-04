@@ -4,22 +4,15 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
-<window id="euskalbar-stats-dialog" title="&euskalbar.stats.main;"
+<dialog id="euskalbar-stats-dialog" title="&euskalbar.stats.main;"
         xmlns:html="http://www.w3.org/1999/xhtml"
-        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" onload="setBalioak();">
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        buttons="accept, extra1"
+        buttonlabelextra1="&euskalbar.stats.clearbutton;"
+        onload="setBalioak();"
+        ondialogextra1="writeStats(-1);">
 
-<script>
-function setBalioak()
-{
-  var statsText = window.arguments[0];
-  statsArray = statsText.split(",");
-  var tree = document.getElementById("zuhaitza");
-  var colstats = tree.columns.getNamedColumn("stats-count");
-  for (f in statsArray){
-  tree.view.setCellText(f,colstats,statsArray[f]);
-  }
-}
-</script>
+<script type="application/x-javascript" src="euskalbarstats.js"/>
 
 <tree id="zuhaitza" height="350px" hidecolumnpicker="true">
   <treecols>
@@ -137,4 +130,4 @@ function setBalioak()
     </treeitem>
   </treechildren>
 </tree>
-</window>
+</dialog>
