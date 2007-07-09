@@ -10,6 +10,8 @@
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">
 <!ENTITY euskalbar.batua.tooltip "Euskaltzaindiaren hiztegi batua">
+<!ENTITY euskalbar.adorez.tooltip "Adorez sin.">
+<!ENTITY euskalbar.uzei.tooltip "UZEI sin.">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">

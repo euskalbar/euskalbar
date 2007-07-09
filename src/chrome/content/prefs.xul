@@ -14,6 +14,8 @@
       <preference id="prefMorris" name="euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="euskalbar.opentran.onkey" type="bool"/>
       <preference id="prefBatua" name="euskalbar.batua.onkey" type="bool"/>
+      <preference id="prefAdorez" name="euskalbar.adorez.onkey" type="bool"/>
+      <preference id="prefUZEI" name="euskalbar.uzei.onkey" type="bool"/>
       <preference id="prefItzuL" name="euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
@@ -33,7 +35,6 @@
       <tabs>
         <tab label="&euskalbar.prefs.general.tabtitle;"/>
         <tab label="&euskalbar.prefs.dictionaries.tabtitle;"/>
-        <tab label="&euskalbar.prefs.interface.tabtitle;"/>
       </tabs>
 
       <tabpanels flex="1">
@@ -58,58 +59,6 @@
       	      <checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
       	      <checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
       	    </groupbox>
-      	  </vbox>
-        </tabpanel>
-
-        <tabpanel id="tab-aurreratua">
-          <vbox>
-	    <groupbox>
-            <caption label="&euskalbar.prefs.dictionaries.label;"/>
-            <grid flex="1">
-              <columns>
-                <column flex="1" />
-                <column flex="1" />
-              </columns>
-              <rows>
-                <row>
-            	    <checkbox preference="prefEuskalterm" label="Euskalterm" />
-             	    <checkbox preference="prefHarluxet" label="Harluxet" />
-                </row>
-                <row>
-            	    <checkbox preference="pref3000" label="3000" />
-            	    <checkbox preference="prefMokoroa" label="Mokoroa" />
-                </row>
-                <row>
-            	    <checkbox preference="prefElhuyar" label="Elhuyar" />
-            	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
-                </row>
-                <row>
-            	    <checkbox preference="prefMorris" label="Morris" />
-            	    <checkbox preference="prefEurovoc" label="Eurovoc" />
-                </row>
-                <row>
-                  <checkbox preference="prefOpentran" label="Open-tran" />
-            	    <checkbox preference="prefOpentrad" label="Opentrad" />
-                </row>
-                <row>
-            	    <checkbox preference="prefBatua" label="Hiztegi Batua" />
-            	    <checkbox preference="prefXUXENweb" label="XUXENweb" />
-                </row>
-                <row>
-                  <checkbox preference="prefItzuL" label="ItzuL" />
-                </row>
-              </rows>
-            </grid>
-	    </groupbox>
-	    <groupbox>
-      	      <caption label="&euskalbar.prefs.timeout.caption;" />
-      	      <textbox preference="prefQuerytimeout" onkeypress="numField(event);" />
-      	    </groupbox>
-    	  </vbox>
-        </tabpanel>
-
-        <tabpanel id="tab-itxura">
-      	  <vbox>
       	    <groupbox>
       		<caption label="&euskalbar.prefs.skin.caption;"/>
       		<vbox align="left">
@@ -126,6 +75,56 @@
       	  </vbox>
         </tabpanel>
 
+        <tabpanel id="tab-aurreratua">
+          <vbox>
+	    <groupbox>
+            <caption label="&euskalbar.prefs.dictionaries.label;"/>
+            <grid flex="1">
+              <columns>
+                <column flex="1" />
+                <column flex="1" />
+              </columns>
+              <rows>
+                <row>
+            	    <checkbox preference="prefEuskalterm" label="Euskalterm" />
+                    <checkbox preference="prefItzuL" label="ItzuL" />
+                </row>
+                <row>
+            	    <checkbox preference="pref3000" label="3000" />
+             	    <checkbox preference="prefHarluxet" label="Harluxet" />
+                </row>
+                <row>
+            	    <checkbox preference="prefElhuyar" label="Elhuyar" />
+            	    <checkbox preference="prefMokoroa" label="Mokoroa" />
+                </row>
+                <row>
+            	    <checkbox preference="prefMorris" label="Morris" />
+            	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
+                </row>
+                <row>
+                    <checkbox preference="prefOpentran" label="Open-tran" />
+            	    <checkbox preference="prefEurovoc" label="Eurovoc" />
+                </row>
+                <row>
+            	    <checkbox preference="prefBatua" label="Hiztegi Batua" />
+            	    <checkbox preference="prefOpentrad" label="Opentrad" />
+                </row>
+                <row>
+            	    <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
+            	    <checkbox preference="prefXUXENweb" label="XUXENweb" />
+                </row>
+                <row>
+            	    <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+                </row>
+              </rows>
+            </grid>
+	    </groupbox>
+	    <groupbox>
+      	      <caption label="&euskalbar.prefs.timeout.caption;" />
+      	      <textbox preference="prefQuerytimeout" onkeypress="numField(event);" />
+      	    </groupbox>
+    	  </vbox>
+        </tabpanel>
       </tabpanels>
     </tabbox>
 </prefpane>

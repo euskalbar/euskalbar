@@ -10,6 +10,8 @@
 <!ENTITY euskalbar.morris.tooltip "Morris dictionary">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu translation database">
 <!ENTITY euskalbar.batua.tooltip "Euskaltzaindia Batua dictionary">
+<!ENTITY euskalbar.adorez.tooltip "Adorez syn.">
+<!ENTITY euskalbar.uzei.tooltip "UZEI syn.">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL mailing list archive">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet encyclopedic dictionary">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">

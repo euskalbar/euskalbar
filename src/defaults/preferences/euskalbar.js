@@ -36,6 +36,8 @@ pref("euskalbar.elhuyar.onkey", false);
 pref("euskalbar.morris.onkey", false);
 pref("euskalbar.opentran.onkey", false);
 pref("euskalbar.batua.onkey", false);
+pref("euskalbar.adorez.onkey", false);
+pref("euskalbar.uzei.onkey", false);
 pref("euskalbar.itzul.onkey", false);
 pref("euskalbar.harluxet.onkey", false);
 pref("euskalbar.mokoroa.onkey", false);

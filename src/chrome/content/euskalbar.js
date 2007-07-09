@@ -74,6 +74,8 @@
         callChangeStyle();
         //Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua (oharra: persist="checked") ez dabil
 	document.getElementById('Euskalbar-hs-batua').setAttribute ("checked",!document.getElementById('EuskalBar-Euskaltzaindia').hidden);
+	document.getElementById('Euskalbar-hs-adorez').setAttribute ("checked",!document.getElementById('EuskalBar-Adorez').hidden);
+	document.getElementById('Euskalbar-hs-uzei').setAttribute ("checked",!document.getElementById('EuskalBar-UZEI').hidden);
 	document.getElementById('Euskalbar-hs-itzul').setAttribute ("checked",!document.getElementById('EuskalBar-ItzuL').hidden);
 	document.getElementById('Euskalbar-hs-harluxet').setAttribute ("checked",!document.getElementById('EuskalBar-Harluxet').hidden);
 	document.getElementById('Euskalbar-hs-mokoroa').setAttribute ("checked",!document.getElementById('EuskalBar-Mokoroa').hidden);
@@ -370,6 +372,12 @@
           // Aukeratutako hizkuntzarekiko menpekotasunik ez dutenak kargatu
           if (prefManager.getBoolPref("euskalbar.batua.onkey")) {
             goEuskalBarEuskaltzaindia(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.adorez.onkey")) {
+            goEuskalBarAdorez(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.uzei.onkey")) {
+            goEuskalBarUZEI(searchStr);
           }
           if (prefManager.getBoolPref("euskalbar.itzul.onkey")) {
             goEuskalBarItzuL(searchStr);

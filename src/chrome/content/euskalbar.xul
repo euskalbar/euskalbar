@@ -87,6 +87,10 @@
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
                label="Hiztegi Batua" hidden="false" persist="hidden" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;"
+               label="&euskalbar.adorez.tooltip;" hidden="false" persist="hidden" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;"
+               label="&euskalbar.uzei.tooltip;" hidden="false" persist="hidden" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;"
                label="ItzuL" hidden="false" persist="hidden" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;"
@@ -108,7 +112,9 @@
   <!-- Hide/show buttons context menupopup right-click -->
   <window id="main-window">
     <menupopup id="Euskalbar-hsButtons">
-      <menuitem id="Euskalbar-hs-batua" type="checkbox" label="Hiztegi Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').hidden = !this.hasAttribute('checked');" checked="true" persist="checked"/>
+      <menuitem id="Euskalbar-hs-batua" type="checkbox" checked="true" label="Hiztegi Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').hidden = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-adorez" type="checkbox" checked="true" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').hidden = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-uzei" type="checkbox" checked="true" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-itzul" type="checkbox" checked="true" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-harluxet" type="checkbox" checked="true" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" checked="true" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').hidden = !this.hasAttribute('checked');"/>
