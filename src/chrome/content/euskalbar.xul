@@ -88,9 +88,9 @@
       <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
                label="Hiztegi Batua" hidden="false" persist="hidden" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;"
-               label="&euskalbar.adorez.tooltip;" hidden="false" persist="hidden" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);"/>
+               label="&euskalbar.adorez.tooltip;" hidden="true" persist="hidden" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;"
-               label="&euskalbar.uzei.tooltip;" hidden="false" persist="hidden" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);"/>
+               label="&euskalbar.uzei.tooltip;" hidden="true" persist="hidden" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;"
                label="ItzuL" hidden="false" persist="hidden" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;"
@@ -98,7 +98,7 @@
       <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;"
                label="Mokoroa" hidden="false" persist="hidden" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;"
-               label="Intza" hidden="false" persist="hidden" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
+               label="Intza" hidden="true" persist="hidden" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;"
                label="ZT Corpusa" hidden="false" persist="hidden" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;"
