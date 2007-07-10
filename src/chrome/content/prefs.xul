@@ -19,6 +19,7 @@
       <preference id="prefItzuL" name="euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
+      <preference id="prefIntza" name="euskalbar.intza.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
@@ -99,22 +100,23 @@
                 </row>
                 <row>
             	    <checkbox preference="prefMorris" label="Morris" />
-            	    <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
+            	    <checkbox preference="prefIntza" label="Intza" />
                 </row>
                 <row>
                     <checkbox preference="prefOpentran" label="Open-tran" />
-            	    <checkbox preference="prefEurovoc" label="Eurovoc" />
+                    <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
                 </row>
                 <row>
             	    <checkbox preference="prefBatua" label="Hiztegi Batua" />
-            	    <checkbox preference="prefOpentrad" label="Opentrad" />
+            	    <checkbox preference="prefEurovoc" label="Eurovoc" />
                 </row>
                 <row>
             	    <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
-            	    <checkbox preference="prefXUXENweb" label="XUXENweb" />
+            	    <checkbox preference="prefOpentrad" label="Opentrad" />
                 </row>
                 <row>
             	    <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+            	    <checkbox preference="prefXUXENweb" label="XUXENweb" />
                 </row>
               </rows>
             </grid>

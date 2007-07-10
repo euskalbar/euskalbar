@@ -97,6 +97,8 @@
                label="Harluxet" hidden="false" persist="hidden" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;"
                label="Mokoroa" hidden="false" persist="hidden" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;"
+               label="Intza" hidden="false" persist="hidden" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;"
                label="ZT Corpusa" hidden="false" persist="hidden" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;"
@@ -118,6 +120,7 @@
       <menuitem id="Euskalbar-hs-itzul" type="checkbox" checked="true" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-harluxet" type="checkbox" checked="true" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" checked="true" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').hidden = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-intza" type="checkbox" checked="true" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').hidden = !this.hasAttribute('checked');"/> 
       <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" checked="true" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" checked="true" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').hidden = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" checked="true" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').hidden = !this.hasAttribute('checked');"/>

@@ -79,6 +79,7 @@
 	document.getElementById('Euskalbar-hs-itzul').setAttribute ("checked",!document.getElementById('EuskalBar-ItzuL').hidden);
 	document.getElementById('Euskalbar-hs-harluxet').setAttribute ("checked",!document.getElementById('EuskalBar-Harluxet').hidden);
 	document.getElementById('Euskalbar-hs-mokoroa').setAttribute ("checked",!document.getElementById('EuskalBar-Mokoroa').hidden);
+	document.getElementById('Euskalbar-hs-intza').setAttribute ("checked",!document.getElementById('EuskalBar-Intza').hidden);
 	document.getElementById('Euskalbar-hs-ztcorpusa').setAttribute ("checked",!document.getElementById('EuskalBar-ZTCorpusa').hidden);
 	document.getElementById('Euskalbar-hs-eurovoc').setAttribute ("checked",!document.getElementById('EuskalBar-Eurovoc').hidden);
 	document.getElementById('Euskalbar-hs-xuxenweb').setAttribute ("checked",!document.getElementById('EuskalBar-XUXENweb').hidden);
@@ -309,7 +310,7 @@
             getShift3000(euskalbar_source, searchStr);
             getShiftElhuyar(euskalbar_source, searchStr);
             //Estatistika lokalak idatzi
-            writeStats(15);
+            writeStats(16);
           } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
@@ -325,7 +326,7 @@
             getShiftEuskalterm(euskalbar_source, searchStr);
             getShiftMorris(euskalbar_source, searchStr);
             //Estatistika lokalak idatzi
-            writeStats(17);
+            writeStats(18);
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
           if (h.match('euskara')) {
@@ -341,7 +342,7 @@
           getKtrlSinonimoak(euskalbar_source, searchStr);
           getKtrlUZEI(euskalbar_source, searchStr);
           //Estatistika lokalak idatzi
-          writeStats(16);
+          writeStats(17);
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -386,7 +387,10 @@
             goEuskalBarHarluxet(searchStr);
           }
           if (prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
-            goEuskalBarMokoroa(searchStr);
+            goEuskalBarMokoroa(euskalbar_source, searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.intza.onkey")) {
+            goEuskalBarIntza(euskalbar_source, searchStr);
           }
           if (prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
             goEuskalBarZTCorpusa(searchStr);
@@ -619,6 +623,18 @@
       writeStats(10);
     }
 
+    // Intzaren bilaketak
+    function goEuskalBarIntza(source, term) {
+      var zein = 'intza'; 
+      if (source == 'es') {
+        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1='+escape(term)+'&eremu3=1&eremu1=eeki';
+      } else {
+        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1='+escape(term)+'&eremu3=1';
+      }
+      openURL(url, zein);
+      //Estatistika lokalak idatzi, hau aldatu egin behar da
+      writeStats(11);
+    }
 
     // ZT Corpusa
     function goEuskalBarZTCorpusa(term) {
@@ -626,7 +642,7 @@
       var zein = 'ztcorpusa';
       openURL(url, zein);
       //Estatistika lokalak idatzi
-      writeStats(11);
+      writeStats(12);
     }
 
 
@@ -643,7 +659,7 @@
       var zein = 'eurovoc';
       openURL(url, zein);
       //Estatistika lokalak idatzi
-      writeStats(12);
+      writeStats(13);
     }
 
     // Opentrad
@@ -652,7 +668,7 @@
       var zein = 'opentrad';
       openURL(url, zein);
       //Estatistika lokalak idatzi
-      writeStats(14);
+      writeStats(15);
     }
 
 
@@ -662,7 +678,7 @@
       var zein = 'xuxen';
       openURL(url, zein);
       //Estatistika lokalak idatzi
-      writeStats(13);
+      writeStats(14);
     }
 
 

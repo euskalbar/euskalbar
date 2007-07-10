@@ -15,6 +15,7 @@
 <!ENTITY euskalbar.itzul.tooltip "Archivo de la lista de correo ItzuL">
 <!ENTITY euskalbar.harluxet.tooltip "Diccionario enciclopédico Harluxet">
 <!ENTITY euskalbar.mokoroa.tooltip "Base de datos Mokoroa">
+<!ENTITY euskalbar.intza.tooltip "Locuciones del proyecto Intza">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Ciencia y Tecnología">
 <!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb corrector ortográfico">

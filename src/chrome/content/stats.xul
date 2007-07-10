@@ -14,7 +14,7 @@
 
 <script type="application/x-javascript" src="euskalbarstats.js"/>
 
-<tree id="zuhaitza" height="350px" hidecolumnpicker="true">
+<tree id="zuhaitza" height="365px" hidecolumnpicker="true">
   <treecols>
     <treecol width="280px" id="stats-dicts" label="&euskalbar.menu.main;"/>
     <treecol width="100px" id="stats-count" label="&euskalbar.stats.count;"/>
@@ -83,6 +83,12 @@
     <treeitem>
       <treerow>
         <treecell label="&euskalbar.mokoroa.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.intza.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>
