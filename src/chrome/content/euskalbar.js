@@ -227,7 +227,7 @@
       statfs.close();
       //Leihoa ireki eta estatistiken fitxategia pasatu argumentu gisa
       var dialogURL = "chrome://euskalbar/content/stats.xul";
-      window.openDialog(dialogURL, "statsDlg", "chrome,modal,left=100px,top=140px", statsText);
+      window.openDialog(dialogURL, "statsDlg", "chrome", statsText);
     }
 
 

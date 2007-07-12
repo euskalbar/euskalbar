@@ -10,14 +10,15 @@
         buttons="accept, extra1"
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
         onload="setBalioak();"
-        ondialogextra1="writeStats(-1);">
+        ondialogextra1="writeStats(-1);"
+        width="420px" height="430px">
 
 <script type="application/x-javascript" src="euskalbarstats.js"/>
 
-<tree id="zuhaitza" height="365px" hidecolumnpicker="true">
+<tree flex="4" id="zuhaitza" height="365px" hidecolumnpicker="true">
   <treecols>
-    <treecol width="280px" id="stats-dicts" label="&euskalbar.menu.main;"/>
-    <treecol width="100px" id="stats-count" label="&euskalbar.stats.count;"/>
+    <treecol flex="3" width="280px" id="stats-dicts" label="&euskalbar.menu.main;"/>
+    <treecol flex="1" id="stats-count" label="&euskalbar.stats.count;"/>
   </treecols>
   <treechildren>
     <treeitem>

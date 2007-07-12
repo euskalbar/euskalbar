@@ -50,4 +50,5 @@ function setBalioak() {
   for (f in statsArray){
     tree.view.setCellText(f,colstats,statsArray[f]);
   }
+  window.sizeToContent();
 }
