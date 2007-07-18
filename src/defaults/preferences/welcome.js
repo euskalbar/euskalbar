@@ -28,4 +28,4 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-pref("extensions.euskalbar@interneteuskadi.org.firstrun", true);
+pref("extensions.euskalbar@interneteuskadi.org.welcome", true);
