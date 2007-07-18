@@ -25,6 +25,13 @@
 <!ENTITY euskalbar.about.author "Autores">
 <!ENTITY euskalbar.about.home.page "Home">
 <!ENTITY euskalbar.about.title "Sobre Euskalbar">
+<!ENTITY euskalbar.about.whatsnewtitle "Notas de la versión">
+<!ENTITY euskalbar.about.whatsnew1 "Las principales novedades de esta versión de Euskalbar son las siguientes:">
+<!ENTITY euskalbar.about.whatsnew2 "- Nuevos diccionarios en la barra">
+<!ENTITY euskalbar.about.whatsnew3 "- Posibilidad de mostrar y esconder los diccionarios">
+<!ENTITY euskalbar.about.whatsnew4 "- Posibilidad de usar skins">
+<!ENTITY euskalbar.about.whatsnew5 "- Estadísticas locales">
+<!ENTITY euskalbar.about.whatsnew6 "El listado completo de cambios se puede consultar en la siguiente dirección:">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Opciones de Euskalbar">

@@ -25,6 +25,13 @@
 <!ENTITY euskalbar.about.author "Authors">
 <!ENTITY euskalbar.about.home.page "Home">
 <!ENTITY euskalbar.about.title "About Euskalbar">
+<!ENTITY euskalbar.about.whatsnewtitle "What's new">
+<!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
+<!ENTITY euskalbar.about.whatsnew2 "- New dictionaries in the toolbar">
+<!ENTITY euskalbar.about.whatsnew3 "- Option to hide an show the dictionaries">
+<!ENTITY euskalbar.about.whatsnew4 "- Option to use skins">
+<!ENTITY euskalbar.about.whatsnew5 "- Local statistics">
+<!ENTITY euskalbar.about.whatsnew6 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Euskalbar options">

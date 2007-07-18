@@ -8,10 +8,10 @@
 <dialog buttons="accept"
         id="euskalbar-about-dialog"
         title="&euskalbar.about.title;"
+        xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
     <script type="application/x-javascript" src="chrome://euskalbar/content/about/about.js"/>
-
     <vbox id="euskalbar-about-details">
         <hbox>
             <vbox>
@@ -19,6 +19,14 @@
                     <description value="&euskalbar.name;" class="name"/>
                     <description class="name">2.2garapena</description>
                 </hbox>
+                <description value="&euskalbar.about.whatsnewtitle;" class="title"/>
+                <description class="author">&euskalbar.about.whatsnew1;</description>
+                <description class="author">&euskalbar.about.whatsnew2;</description>
+                <description class="author">&euskalbar.about.whatsnew3;</description>
+                <description class="author">&euskalbar.about.whatsnew4;</description>
+                <description class="author">&euskalbar.about.whatsnew5;</description>
+                <description class="author">&euskalbar.about.whatsnew6;</description>
+                <description onclick="euskalbar_visitHomePage('http://euskalbar.googlecode.com/svn/trunk/CHANGELOG',true)" class="url"> http://euskalbar.googlecode.com/svn/trunk/CHANGELOG</description>
                 <description value="&euskalbar.about.author;" class="title"/>
                 <description class="author">Juanan Pereira</description>
                 <description class="author">Asier Sarasua Garmendia</description>

@@ -5,16 +5,16 @@
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 
-    //Hobespenak eskuratzeko interfazea
+    //Hobespenak atzitzeko interfazea
     const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
                                 .getService(Components.interfaces.nsIPrefBranch);
 
-    //Hurrengo bi lerroek Euskalbarren direktorio nagusiaren URIa eskuratzen dute
-    const id = "euskalbar@interneteuskadi.org";
+    //Hurrengo bi lerroek Euskalbarren direktorio nagusiaren URIa atzitzen dute
+    const guid = "euskalbar@interneteuskadi.org";
     var extNon = Components.classes["@mozilla.org/extensions/manager;1"]
                     .getService(Components.interfaces.nsIExtensionManager)
-                    .getInstallLocation(id)
-                    .getItemLocation(id);
+                    .getInstallLocation(guid)
+                    .getItemLocation(guid);
 
     //URLak kudeatzeko funtzioa
     function manageURLs(fileName){	
@@ -72,7 +72,8 @@
   
         //Azalak aldatzeko funtzioari deitu (#17 buga konpontzeko, beste bide bat asmatu beharko litzateke)
         callChangeStyle();
-        //Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua (oharra: persist="checked") ez dabil
+
+        //Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua (oharra: persist="checked" ez dabil)
         document.getElementById('Euskalbar-hs-batua').setAttribute ("checked",!document.getElementById('EuskalBar-Euskaltzaindia').hidden);
         document.getElementById('Euskalbar-hs-adorez').setAttribute ("checked",!document.getElementById('EuskalBar-Adorez').hidden);
         document.getElementById('Euskalbar-hs-uzei').setAttribute ("checked",!document.getElementById('EuskalBar-UZEI').hidden);
@@ -84,6 +85,20 @@
         document.getElementById('Euskalbar-hs-eurovoc').setAttribute ("checked",!document.getElementById('EuskalBar-Eurovoc').hidden);
         document.getElementById('Euskalbar-hs-xuxenweb').setAttribute ("checked",!document.getElementById('EuskalBar-XUXENweb').hidden);
         document.getElementById('Euskalbar-hs-opentrad').setAttribute ("checked",!document.getElementById('EuskalBar-Opentrad').hidden);
+
+        //Ongietorri leihoa erakutsi (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
+        if (navigator.preference('extensions.' + guid +'.welcome')) {
+          var file = Components.classes["@mozilla.org/extensions/manager;1"]
+                    .getService(Components.interfaces.nsIExtensionManager)
+                    .getInstallLocation(guid)
+                    .getItemLocation(guid);
+          file.append("defaults");
+          file.append("preferences");
+          file.append("welcome.js"); // firstrun.js default preferences
+          file.remove(false);
+          var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
+          var t=setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",3000);
+        }
       },
 
       // Euskalbar deskargatu: observerra ezabatu	
@@ -227,7 +242,7 @@
       statfs.close();
       //Leihoa ireki eta estatistiken fitxategia pasatu argumentu gisa
       var dialogURL = "chrome://euskalbar/content/stats.xul";
-      window.openDialog(dialogURL, "statsDlg", "chrome", statsText);
+      window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable", statsText);
     }
 
 

@@ -24,7 +24,14 @@
 <!-- About -->
 <!ENTITY euskalbar.about.author "Egileak">
 <!ENTITY euskalbar.about.home.page "Home">
-<!ENTITY euskalbar.about.title "Euskalbar-i buruz">
+<!ENTITY euskalbar.about.title "Euskalbarri buruz">
+<!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
+<!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
+<!ENTITY euskalbar.about.whatsnew2 "- Hiztegi berriak barran">
+<!ENTITY euskalbar.about.whatsnew3 "- Hiztegiak erakutsi eta ezkutatzeko aukera">
+<!ENTITY euskalbar.about.whatsnew4 "- Azal ezberdinak erabiltzeko aukera">
+<!ENTITY euskalbar.about.whatsnew5 "- Estatistika lokalak">
+<!ENTITY euskalbar.about.whatsnew6 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Euskalbar aukerak">
