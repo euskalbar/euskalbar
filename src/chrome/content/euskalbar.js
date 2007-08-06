@@ -16,19 +16,6 @@
                     .getInstallLocation(guid)
                     .getItemLocation(guid);
 
-
-    // URLak kudeatzeko funtzioa
-    function manageURLs(fileName){	
-      URLa = extNon.clone();
-      URLa.append("html");
-      URLa.append(fileName);
-      //Hurrengo bi lerroek aurrekoa hartu eta sistema eragileraren independentea den helbide bat sortzen dute
-      var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-			                .getService(Components.interfaces.nsIIOService);
-      var xmlFilePath = ioService.newFileURI(URLa).spec;
-      return xmlFilePath;
-    }
-
     // Euskalbar hasieratzen du
     // Euskalbar deskargatzen du
     // Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
@@ -72,7 +59,6 @@
         }
   
         // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
-        // (#17 buga egiaztatu)
         getBrowser().addEventListener("DOMContentLoaded", changeStyle, true);
 
         // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
@@ -110,7 +96,8 @@
       },
 
       // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da
-      // (#21 oharra: hau dagoeneko beharrezkoa da?)	
+      // (hau dagoeneko ez da beharrezkoa baina badaezpada ere utzi egingo dugu
+      // etorkizunean erabili nahi bada-edo)	
       observe: function(subject, topic, data) {
         if (topic != "nsPref:changed") {
           return;
