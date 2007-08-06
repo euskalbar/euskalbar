@@ -16,7 +16,8 @@
                     .getInstallLocation(guid)
                     .getItemLocation(guid);
 
-    //URLak kudeatzeko funtzioa
+
+    // URLak kudeatzeko funtzioa
     function manageURLs(fileName){	
       URLa = extNon.clone();
       URLa.append("html");
@@ -28,9 +29,9 @@
       return xmlFilePath;
     }
 
-    //Euskalbar hasieratzen du
-    //Euskalbar deskargatzen du
-    //Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
+    // Euskalbar hasieratzen du
+    // Euskalbar deskargatzen du
+    // Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
     // http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
     var euskalbar = {
       prefs: null,
@@ -70,10 +71,12 @@
           ctlButton.setAttribute('label', hiztegiakbai);
         }
   
-        //Azalak aldatzeko funtzioari deitu (#17 buga konpontzeko, beste bide bat asmatu beharko litzateke)
-        callChangeStyle();
+        // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
+        // (#17 buga egiaztatu)
+        getBrowser().addEventListener("DOMContentLoaded", changeStyle, true);
 
-        //Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua (oharra: persist="checked" ez dabil)
+        // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
+        // (oharra: persist="checked" ez dabil)
         document.getElementById('Euskalbar-hs-batua').setAttribute ("checked",!document.getElementById('EuskalBar-Euskaltzaindia').hidden);
         document.getElementById('Euskalbar-hs-adorez').setAttribute ("checked",!document.getElementById('EuskalBar-Adorez').hidden);
         document.getElementById('Euskalbar-hs-uzei').setAttribute ("checked",!document.getElementById('EuskalBar-UZEI').hidden);
@@ -86,7 +89,7 @@
         document.getElementById('Euskalbar-hs-xuxenweb').setAttribute ("checked",!document.getElementById('EuskalBar-XUXENweb').hidden);
         document.getElementById('Euskalbar-hs-opentrad').setAttribute ("checked",!document.getElementById('EuskalBar-Opentrad').hidden);
 
-        //Ongietorri leihoa erakutsi (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
+        // Ongietorri leihoa erakutsi (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
         if (navigator.preference('extensions.' + guid +'.welcome')) {
           var file = Components.classes["@mozilla.org/extensions/manager;1"]
                     .getService(Components.interfaces.nsIExtensionManager)
@@ -106,95 +109,54 @@
         this.prefs.removeObserver("", this);
       },
 
-      // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da	
+      // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da
+      // (#21 oharra: hau dagoeneko beharrezkoa da?)	
       observe: function(subject, topic, data) {
         if (topic != "nsPref:changed") {
           return;
         }
 
-        switch(data) {
-        case "style.shiftandcontrol":
-          callChangeStyle();
+      /*switch(data) {
+          case "style.shiftandcontrol":
+            callChangeStyle();
         break;
-        }
+        }*/
       }
 
-    }
-
-
-    //Estiloa aldatzeko funtzioari deitzen dio
-    function callChangeStyle() {
-      var prefStyle = prefManager.getCharPref("euskalbar.style.shiftandcontrol");
-      var htmlArray = new Array();
-      htmlArray[0] = "euskalbarhelpen.html";
-      htmlArray[1] = "euskalbarhelpes.html";
-      htmlArray[2] = "euskalbarhelpeu.html";
-      htmlArray[3] = "euskalbarhizt2en.html";
-      htmlArray[4] = "euskalbarhizt2es.html";
-      htmlArray[5] = "euskalbarhizt2eu.html";
-      htmlArray[6] = "euskalbarhizten.html";
-      htmlArray[7] = "euskalbarhiztes.html";
-      htmlArray[8] = "euskalbarhizteu.html";
-      htmlArray[9] = "euskalbarsinen.html";
-      htmlArray[10] = "euskalbarsinen.html";
-      htmlArray[11] = "euskalbarsineu.html";
-      for (f in htmlArray){
-        changeStyle(prefStyle, htmlArray[f]);
-      }
     }
 
 
     //Estiloa aldatzen du: HTML fitxategietan estiloaren katea aldatzen du
-    function changeStyle(estiloa, f) {
-      URLa = extNon.clone();
-      URLa.append("html");
-      URLa.append(f);
-      //Fitxategiak ireki eta irakurri
-      var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                        .createInstance(Components.interfaces.nsIFileInputStream);
-      var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-                        .createInstance(Components.interfaces.nsIScriptableInputStream);
-
-      fstream.init(URLa, -1, 0, 0);
-      sstream.init(fstream);
-      var fileContents = sstream.read(fstream.available());
-      sstream.close();
-      fstream.close();
-
-      //Fitxategiaren estiloaren katea aldatu
-      fileContents = fileContents.replace(/human/,estiloa);
-      fileContents = fileContents.replace(/oliba/,estiloa);
-      fileContents = fileContents.replace(/urgarden/,estiloa);
-
-      //Fitxategia idatzi
-      var outputStream = Components.classes['@mozilla.org/network/file-output-stream;1']
-                        .createInstance(Components.interfaces.nsIFileOutputStream);
-      outputStream.init(URLa,0x02 | 0x08 | 0x20, 0664, 0);
-      outputStream.write(fileContents, fileContents.length);
-      outputStream.flush();
-      outputStream.close();
+    function changeStyle(event) {
+      var prefStyle = prefManager.getCharPref("euskalbar.style.shiftandcontrol");
+      var URL = event.target.location.href;
+      if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
+        var link = event.target.getElementsByTagName("link")[0];
+        link.setAttribute("href", "skins/"+prefStyle+".css");
+      }
     }
 
 
     // Laguntza erakusten du
     function openLaguntza() {
-      //Lokalizazio paketeak kargatu
+      // Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
-	    var hurl = manageURLs('euskalbarhelpeu.html');
+        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
       } else if (h.match('english')) {
-        var hurl = manageURLs('euskalbarhelpen.html');
+        
+        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
       } else {
-        var hurl = manageURLs('euskalbarhelpes.html');
+        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
       }
       reuseOldtab(hurl, "euskalbarhelp");
     }
 
 
-    //Hiztegien menua erakusten/ezkutatzen du
+    // Hiztegien menua erakusten/ezkutatzen du
     function showhideDicts() {
-      //Lokalizazio paketeak kargatu
+      // Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       const hiztegiakbai = strRes.getString("m1hiztegiak");
       const hiztegiakez = strRes.getString("m2hiztegiak");
@@ -229,7 +191,7 @@
       URLstats = extNon.clone();
       URLstats.append("html");
       URLstats.append("stats.txt");
-      //Estatistiken fitxategia ireki eta irakurri
+      // Estatistiken fitxategia ireki eta irakurri
       var statfs = Components.classes["@mozilla.org/network/file-input-stream;1"]
                    .createInstance(Components.interfaces.nsIFileInputStream);
       var statss = Components.classes["@mozilla.org/scriptableinputstream;1"]
@@ -240,7 +202,7 @@
       var statsText = statss.read(statfs.available());
       statss.close();
       statfs.close();
-      //Leihoa ireki eta estatistiken fitxategia pasatu argumentu gisa
+      // Leihoa ireki eta estatistiken fitxategia pasatu argumentu gisa
       var dialogURL = "chrome://euskalbar/content/stats.xul";
       window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable", statsText);
     }
@@ -312,11 +274,11 @@
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
-              var urlhizt = manageURLs('euskalbarhizteu.html');
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizteu.html';
             } else if (h.match('english')) {
-              var urlhizt = manageURLs('euskalbarhizten.html');
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizten.html';
             } else {
-              var urlhizt = manageURLs('euskalbarhiztes.html');
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhiztes.html';
             }
             var zein = 'euskalbarhizt';
             openURL(urlhizt, zein);
@@ -329,11 +291,11 @@
           } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
-              var urlhizt = manageURLs('euskalbarhizt2eu.html');
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2eu.html';
             } else if (h.match('english')) {
-              var urlhizt = manageURLs('euskalbarhizt2en.html');
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2en.html';
             } else {
-              var urlhizt = manageURLs('euskalbarhizt2es.html');
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2es.html';
             }
             var zein = 'euskalbarhizt';
             openURL(urlhizt, zein);
@@ -345,11 +307,11 @@
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
           if (h.match('euskara')) {
-            var urlsin = manageURLs('euskalbarsineu.html');
+            var urlsin = 'chrome://euskalbar/content/html/euskalbarsineu.html';
           } else if (h.match('english')) {
-            var urlsin = manageURLs('euskalbarsinen.html');
+            var urlsin = 'chrome://euskalbar/content/html/euskalbarsinen.html';
           } else {
-            var urlsin = manageURLs('euskalbarsines.html');
+            var urlsin = 'chrome://euskalbar/content/html/euskalbarsines.html';
           }
           var zein = 'euskalbarsin';
           openURL(urlsin, zein);
@@ -421,8 +383,8 @@
           }
         } 
       }
-      // Testu kutxa berriro enfokatzeko... 
-      document.getElementById('Euskalbar-search-string').focus();
+      // Testu kutxa berriro enfokatzeko... -> Erroreak errore kontsolan 
+      // document.getElementById('Euskalbar-search-string').focus();
     }
 
 
