@@ -83,7 +83,7 @@
                     .getItemLocation(guid);
           file.append("defaults");
           file.append("preferences");
-          file.append("welcome.js"); // firstrun.js default preferences
+          file.append("welcome.js");
           file.remove(false);
           var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
           var t=setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",3000);
@@ -176,7 +176,6 @@
     // Estatistika lokalak erakusten ditu
     function showLocalstats() {
       URLstats = extNon.clone();
-      URLstats.append("html");
       URLstats.append("stats.txt");
       // Estatistiken fitxategia ireki eta irakurri
       var statfs = Components.classes["@mozilla.org/network/file-input-stream;1"]

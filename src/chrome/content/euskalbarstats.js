@@ -9,8 +9,8 @@ var extNonStats = Components.classes["@mozilla.org/extensions/manager;1"]
                     .getInstallLocation(idStats)
                     .getItemLocation(idStats);
 
-/*Estatistiken fitxategia idazten du*/function writeStats(dict) {  var URLStats = extNonStats.clone();  URLStats.append("html");
-  URLStats.append("stats.txt");    /*Estatistiken fitxategia ireki eta irakurri*/  var statfis = Components.classes["@mozilla.org/network/file-input-stream;1"]                        .createInstance(Components.interfaces.nsIFileInputStream);  var statsis = Components.classes["@mozilla.org/scriptableinputstream;1"]                        .createInstance(Components.interfaces.nsIScriptableInputStream);  statfis.init(URLStats, -1, 0, 0);  statsis.init(statfis);  var txtStats = statsis.read(statfis.available());  statsis.close();  statfis.close();
+/*Estatistiken fitxategia idazten du*/function writeStats(dict) {  var URLStats = extNonStats.clone();
+  URLStats.append("stats.txt");  /*Estatistiken fitxategia ireki eta irakurri*/  var statfis = Components.classes["@mozilla.org/network/file-input-stream;1"]                        .createInstance(Components.interfaces.nsIFileInputStream);  var statsis = Components.classes["@mozilla.org/scriptableinputstream;1"]                        .createInstance(Components.interfaces.nsIScriptableInputStream);  statfis.init(URLStats, -1, 0, 0);  statsis.init(statfis);  var txtStats = statsis.read(statfis.available());  statsis.close();  statfis.close();
   statsArray = txtStats.split(",");
   if(dict == -1){
     /*Estatistikak garbitu*/
