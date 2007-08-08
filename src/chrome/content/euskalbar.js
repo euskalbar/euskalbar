@@ -62,7 +62,7 @@
         getBrowser().addEventListener("DOMContentLoaded", changeStyle, true);
 
         // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
-        // (oharra: persist="checked" ez dabil)
+        // (oharra: persist="checked" ez dabil) -> orain bai??
         document.getElementById('Euskalbar-hs-batua').setAttribute ("checked",!document.getElementById('EuskalBar-Euskaltzaindia').hidden);
         document.getElementById('Euskalbar-hs-adorez').setAttribute ("checked",!document.getElementById('EuskalBar-Adorez').hidden);
         document.getElementById('Euskalbar-hs-uzei').setAttribute ("checked",!document.getElementById('EuskalBar-UZEI').hidden);
@@ -86,7 +86,7 @@
           file.append("welcome.js");
           file.remove(false);
           var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
-          var t=setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",3000);
+          var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",3000);
         }
       },
 
@@ -113,7 +113,7 @@
     }
 
 
-    //Estiloa aldatzen du: HTML fitxategietan estiloaren katea aldatzen du
+    // Estiloa aldatzen du: HTML fitxategietan estiloaren katea aldatzen du
     function changeStyle(event) {
       var prefStyle = prefManager.getCharPref("euskalbar.style.shiftandcontrol");
       var URL = event.target.location.href;
