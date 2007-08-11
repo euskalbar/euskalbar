@@ -27,17 +27,18 @@
 <!ENTITY euskalbar.about.title "Sobre Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Notas de la versión">
 <!ENTITY euskalbar.about.whatsnew1 "Las principales novedades de esta versión de Euskalbar son las siguientes:">
-<!ENTITY euskalbar.about.whatsnew2 "- Nuevos diccionarios en la barra">
-<!ENTITY euskalbar.about.whatsnew3 "- Posibilidad de mostrar y esconder los diccionarios">
-<!ENTITY euskalbar.about.whatsnew4 "- Posibilidad de usar skins">
-<!ENTITY euskalbar.about.whatsnew5 "- Estadísticas locales">
-<!ENTITY euskalbar.about.whatsnew6 "El listado completo de cambios se puede consultar en la siguiente dirección:">
+<!ENTITY euskalbar.about.whatsnew2 "Nuevos diccionarios en la barra">
+<!ENTITY euskalbar.about.whatsnew3 "Más diccionarios en las consultas combinadas">
+<!ENTITY euskalbar.about.whatsnew4 "Posibilidad de mostrar y esconder los botones de la barra">
+<!ENTITY euskalbar.about.whatsnew5 "Posibilidad de usar skins">
+<!ENTITY euskalbar.about.whatsnew6 "Estadísticas locales">
+<!ENTITY euskalbar.about.whatsnew7 "El listado completo de cambios se puede consultar en la siguiente dirección (en euskera):">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Preferencias de Euskalbar">
 <!ENTITY euskalbar.prefs.options.label "Preferencias...">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Consulta avanzada">
-<!ENTITY euskalbar.prefs.dictionaries.label "Seleccione los diccionarios a consultar con la tecla Intro">
+<!ENTITY euskalbar.prefs.dictionaries.label "Consulta simultánea (Intro)">
 <!ENTITY euskalbar.prefs.reusetabs.label "Reutilizar pestañas">
 <!ENTITY euskalbar.prefs.bgtabs.label "Abrir nuevas pestañas en el fondo">
 <!ENTITY euskalbar.prefs.general.tabtitle "General">
@@ -51,7 +52,7 @@
 <!ENTITY euskalbar.prefs.combined.caption "Consulta combinada">
 <!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite (seg)">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
-<!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar">
+<!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar:">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Todos">

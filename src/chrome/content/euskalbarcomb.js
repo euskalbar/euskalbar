@@ -566,7 +566,7 @@
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = prefManagerKtrl.getIntPref("euskalbar.query.timeout");
+      var tout = prefManager.getIntPref("euskalbar.query.timeout");
       tout=tout*1000
 	  
       //Timerra sortu

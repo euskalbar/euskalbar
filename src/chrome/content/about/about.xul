@@ -21,11 +21,12 @@
                 </hbox>
                 <description value="&euskalbar.about.whatsnewtitle;" class="title"/>
                 <description class="author">&euskalbar.about.whatsnew1;</description>
-                <description class="author">&euskalbar.about.whatsnew2;</description>
-                <description class="author">&euskalbar.about.whatsnew3;</description>
-                <description class="author">&euskalbar.about.whatsnew4;</description>
-                <description class="author">&euskalbar.about.whatsnew5;</description>
-                <description class="author">&euskalbar.about.whatsnew6;</description>
+                <description class="author"><html:ul><html:li>&euskalbar.about.whatsnew2;</html:li>
+                <html:li>&euskalbar.about.whatsnew3;</html:li>
+                <html:li>&euskalbar.about.whatsnew4;</html:li>
+                <html:li>&euskalbar.about.whatsnew5;</html:li>
+                <html:li>&euskalbar.about.whatsnew6;</html:li></html:ul></description>
+                <description class="author">&euskalbar.about.whatsnew7;</description>
                 <description onclick="euskalbar_visitHomePage('http://euskalbar.googlecode.com/svn/trunk/CHANGELOG',true)" class="url"> http://euskalbar.googlecode.com/svn/trunk/CHANGELOG</description>
                 <description value="&euskalbar.about.author;" class="title"/>
                 <description class="author">Juanan Pereira</description>

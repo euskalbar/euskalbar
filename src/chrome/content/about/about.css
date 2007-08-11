@@ -19,7 +19,7 @@
 .name
 {
     font-weight: bold;
-    font-size: x-large;
+    font-size: large;
 }
 
 .title
@@ -29,9 +29,14 @@
     padding-bottom: 0;
 }
 
+.news {
+    margin: 0px;
+    margin-left: 10px;
+}
+
 .author {
-  margin: 0px;
-  margin-left: 10px;
+    margin: 0px;
+    margin-left: 10px;
 }
 
 .url
@@ -39,6 +44,7 @@
     color: #0000ff;
     cursor: pointer;
     text-decoration: underline;
+    margin-left: 10px;
 }
 .url:hover
 {

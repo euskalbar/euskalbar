@@ -27,17 +27,18 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "- New dictionaries in the toolbar">
-<!ENTITY euskalbar.about.whatsnew3 "- Option to hide an show the dictionaries">
-<!ENTITY euskalbar.about.whatsnew4 "- Option to use skins">
-<!ENTITY euskalbar.about.whatsnew5 "- Local statistics">
+<!ENTITY euskalbar.about.whatsnew2 "New dictionaries in the toolbar">
+<!ENTITY euskalbar.about.whatsnew3 "More dictionaries in the combined queries">
+<!ENTITY euskalbar.about.whatsnew4 "Option to hide an show the toolbar buttons">
+<!ENTITY euskalbar.about.whatsnew5 "Option to use skins">
+<!ENTITY euskalbar.about.whatsnew6 "Local statistics">
 <!ENTITY euskalbar.about.whatsnew6 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Euskalbar preferences">
 <!ENTITY euskalbar.prefs.options.label "Preferences...">
-<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Advanced look up">
-<!ENTITY euskalbar.prefs.dictionaries.label "Dictionaries looked up pressing Enter key:">
+<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Advanced query">
+<!ENTITY euskalbar.prefs.dictionaries.label "Simultaneous query (Enter)">
 <!ENTITY euskalbar.prefs.reusetabs.label "Reuse tabs">
 <!ENTITY euskalbar.prefs.bgtabs.label "Open new tabs in background">
 <!ENTITY euskalbar.prefs.general.tabtitle "General">
@@ -51,7 +52,7 @@
 <!ENTITY euskalbar.prefs.combined.caption "Combined query">
 <!ENTITY euskalbar.prefs.timeout.caption "Query timeout (s)">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
-<!ENTITY euskalbar.prefs.skin.label "Choose a skin for Euskalbar">
+<!ENTITY euskalbar.prefs.skin.label "Choose a skin for Euskalbar:">
 
 
 <!-- Euskalterm -->
