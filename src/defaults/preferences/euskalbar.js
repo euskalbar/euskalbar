@@ -29,7 +29,7 @@
  * ***** END LICENSE BLOCK ***** */
 
  
-// dictionaries prefs
+// Dictionaries prefs
 pref("euskalbar.euskalterm.onkey", true);
 pref("euskalbar.3000.onkey", false);
 pref("euskalbar.elhuyar.onkey", false);
@@ -47,11 +47,15 @@ pref("euskalbar.eurovoc.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
 pref("euskalbar.opentrad.onkey", false);
 
-// tabs pref
+pref("euskalbar.es.onshift", "Euskalterm,Elhuyar,3000");
+pref("euskalbar.es.onctrl", "Adorez,UZEI");
+pref("euskalbar.en.onshift", "Euskalterm,Morris");
+
+// Tabs pref
 pref("euskalbar.reusetabs.enabled", true);
 pref("euskalbar.bgtabs.enabled", false);
 
-// show/hide dictionares menu pref
+// Show/hide dictionares menu pref
 pref("euskalbar.showdicts.enabled", false);
 
 // Language selected at startup
@@ -60,6 +64,6 @@ pref("euskalbar.language.startup", "es_eu");
 // Query timeout
 pref("euskalbar.query.timeout", 5);
 
-//Styles
+// Styles
 pref("euskalbar.style.shiftandcontrol", "human");
 

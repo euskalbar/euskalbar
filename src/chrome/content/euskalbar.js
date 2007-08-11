@@ -59,7 +59,7 @@
         }
   
         // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
-        getBrowser().addEventListener("DOMContentLoaded", changeStyle, true);
+        getBrowser().addEventListener("DOMContentLoaded", initHTML, true);
 
         // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
         // (oharra: persist="checked" ez dabil) -> orain bai??
@@ -113,14 +113,45 @@
     }
 
 
-    // Estiloa aldatzen du: HTML fitxategietan estiloaren katea aldatzen du
-    function changeStyle(event) {
+    //HTML fitxategiak hasieratzen ditu
+    function initHTML(event) {
+      //HTML fitxategietan estiloaren katea aldatzen du
       var prefStyle = prefManager.getCharPref("euskalbar.style.shiftandcontrol");
       var URL = event.target.location.href;
       if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
         var link = event.target.getElementsByTagName("link")[0];
         link.setAttribute("href", "skins/"+prefStyle+".css");
       }
+      //Erakutsiko ez diren hiztegien zutabeak ezkutatzen ditu
+      if(URL.indexOf("euskalbarshift") != -1){ //Shift erabiltzen bada...
+        if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) { //eu-es eta es-eu itzulpenetarako
+          var esshiftpref = prefManager.getCharPref("euskalbar.es.onshift").split(",");
+          for (h in esshiftpref){
+            event.target.getElementById("b"+esshiftpref[h]).style.display = "";
+            event.target.getElementById("a"+esshiftpref[h]).parentNode.style.display = "";
+          }
+        } else { //eu-en eta en-eu itzulpenetarako
+          var enshiftpref = prefManager.getCharPref("euskalbar.en.onshift").split(",");
+          for (h in enshiftpref){
+            event.target.getElementById("b"+enshiftpref[h]).style.display = "";
+            event.target.getElementById("a"+enshiftpref[h]).parentNode.style.display = "";
+          }
+        }
+      }else if(URL.indexOf("euskalbarktrl") != -1){ //Ktrl erabiltzen bada...
+        if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) { //eu-es eta es-eu itzulpenetarako
+          var esctrlpref = prefManager.getCharPref("euskalbar.es.onctrl").split(",");
+          for (h in esctrlpref){
+            event.target.getElementById("b"+esctrlpref[h]).style.display = "";
+            event.target.getElementById("a"+esctrlpref[h]).parentNode.style.display = "";
+          }
+        } else { //eu-en eta en-eu itzulpenetarako
+          var enctrlpref = prefManager.getCharPref("euskalbar.en.onctrl").split(",");
+          for (h in enctrlpref){
+            event.target.getElementById("b"+enctrlpref[h]).style.display = "";
+            event.target.getElementById("a"+enctrlpref[h]).parentNode.style.display = "";
+          }
+        }
+      } 
     }
 
 
@@ -131,8 +162,7 @@
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
-      } else if (h.match('english')) {
-        
+      } else if (h.match('english')) {  
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
       } else {
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
@@ -260,52 +290,157 @@
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizteu.html';
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteseu.html';
             } else if (h.match('english')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizten.html';
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftesen.html';
             } else {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhiztes.html';
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteses.html';
             }
-            var zein = 'euskalbarhizt';
+            var zein = 'euskalbarshiftes';
             openURL(urlhizt, zein);
-            // eu-es eta es-eu kasutarako euskalterm, h3000 eta elhuyar kontsultatu
-            getShiftEuskalterm(euskalbar_source, searchStr);
-            getShift3000(euskalbar_source, searchStr);
-            getShiftElhuyar(euskalbar_source, searchStr);
-            //Estatistika lokalak idatzi
-            writeStats(16);
+            // eu-es eta es-eu kasuetarako Shift hiztegiak kontsultatu
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Euskalterm") != -1){
+              getShiftEuskalterm(euskalbar_source, searchStr);
+              writeStats(0);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Elhuyar") != -1){
+              getShiftElhuyar(euskalbar_source, searchStr);
+              writeStats(2);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("3000") != -1){
+              getShift3000(euskalbar_source, searchStr);
+              writeStats(1);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Batua") != -1){
+              getShiftEuskaltzaindia(euskalbar_source, searchStr);
+              writeStats(5);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Adorez") != -1){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("UZEI") != -1){
+              getKtrlUZEI(euskalbar_source, searchStr);
+              writeStats(6);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Mokoroa") != -1){
+              getMokoroa(euskalbar_source, searchStr);
+              writeStats(10);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Intza") != -1){
+              getIntza(euskalbar_source, searchStr);
+              writeStats(11);
+            }
           } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2eu.html';
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteneu.html';
             } else if (h.match('english')) {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2en.html';
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftenen.html';
             } else {
-              var urlhizt = 'chrome://euskalbar/content/html/euskalbarhizt2es.html';
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftenes.html';
             }
-            var zein = 'euskalbarhizt';
+            var zein = 'euskalbarshiften';
             openURL(urlhizt, zein);
-            // eu-en eta en-eu kasutarako euskalterm eta morris kontsultatu
-            getShiftEuskalterm(euskalbar_source, searchStr);
-            getShiftMorris(euskalbar_source, searchStr);
-            //Estatistika lokalak idatzi
-            writeStats(18);
+            // eu-en eta en-eu kasuetarako Shift hiztegiak kontsultatu
+            if (prefManager.getCharPref("euskalbar.en.onshift").indexOf("Euskalterm") != -1){
+              getShiftEuskalterm(euskalbar_source, searchStr);
+              writeStats(0);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onshift").indexOf("Morris") != -1){
+              getShiftMorris(euskalbar_source, searchStr);
+              writeStats(3);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onshift").indexOf("Batua") != -1){
+              getShiftEuskaltzaindia(euskalbar_source, searchStr);
+              writeStats(5);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onshift").indexOf("Adorez") != -1){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onshift").indexOf("UZEI") != -1){
+              getKtrlUZEI(euskalbar_source, searchStr);
+              writeStats(6);
+            }
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
-          if (h.match('euskara')) {
-            var urlsin = 'chrome://euskalbar/content/html/euskalbarsineu.html';
-          } else if (h.match('english')) {
-            var urlsin = 'chrome://euskalbar/content/html/euskalbarsinen.html';
-          } else {
-            var urlsin = 'chrome://euskalbar/content/html/euskalbarsines.html';
+          if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
+            if (h.match('euskara')) {
+              var urlsin = 'chrome://euskalbar/content/html/euskalbarktrleseu.html';
+            } else if (h.match('english')) {
+              var urlsin = 'chrome://euskalbar/content/html/euskalbarktrlesen.html';
+            } else {
+              var urlsin = 'chrome://euskalbar/content/html/euskalbarktrleses.html';
+            }
+            var zein = 'euskalbarktrles';
+            openURL(urlsin, zein);
+            // eu-es eta es-eu kasuetarako Ktrl hiztegiak kontsultatu
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Euskalterm") != -1){
+              getShiftEuskalterm(euskalbar_source, searchStr);
+              writeStats(0);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Elhuyar") != -1){
+              getShiftElhuyar(euskalbar_source, searchStr);
+              writeStats(2);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("3000") != -1){
+              getShift3000(euskalbar_source, searchStr);
+              writeStats(1);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Batua") != -1){
+              getShiftEuskaltzaindia(euskalbar_source, searchStr);
+              writeStats(5);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Adorez") != -1){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("UZEI") != -1){
+              getKtrlUZEI(euskalbar_source, searchStr);
+              writeStats(6);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Mokoroa") != -1){
+              getMokoroa(euskalbar_source, searchStr);
+              writeStats(10);
+            }
+            if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Intza") != -1){
+              getIntza(euskalbar_source, searchStr);
+              writeStats(11);
+            }
+          }else {
+            // Interfazearen hizkuntza
+            if (h.match('euskara')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrleneu.html';
+            } else if (h.match('english')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlenen.html';
+            } else {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlenes.html';
+            }
+            var zein = 'euskalbarktrlen';
+            openURL(urlhizt, zein);
+            // eu-en eta en-eu kasuetarako Ktrl hiztegiak kontsultatu
+            if (prefManager.getCharPref("euskalbar.en.onctrl").indexOf("Euskalterm") != -1){
+              getShiftEuskalterm(euskalbar_source, searchStr);
+              writeStats(0);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onctrl").indexOf("Morris") != -1){
+              getShiftMorris(euskalbar_source, searchStr);
+              writeStats(3);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onctrl").indexOf("Batua") != -1){
+              getShiftEuskaltzaindia(euskalbar_source, searchStr);
+              writeStats(5);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onctrl").indexOf("Adorez") != -1){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
+            }
+            if (prefManager.getCharPref("euskalbar.en.onctrl").indexOf("UZEI") != -1){
+              getKtrlUZEI(euskalbar_source, searchStr);
+              writeStats(6);
+            }
           }
-          var zein = 'euskalbarsin';
-          openURL(urlsin, zein);
-          //Exekutatu euskalbarktrl.js fitxategian dauden skriptak
-          getKtrlSinonimoak(euskalbar_source, searchStr);
-          getKtrlUZEI(euskalbar_source, searchStr);
-          //Estatistika lokalak idatzi
-          writeStats(17);
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -404,7 +539,7 @@
       euskalbar_source = source;
       euskalbar_target = target;
       euskalbar_image = source+target+'.png';
-      euskalbar_tooltip = source+' » '+target;
+      euskalbar_tooltip = source+' > '+target;
       setEuskalbarImage();
     }
 
@@ -563,7 +698,7 @@
     }
 
 
-    // Harluxet  hiztegi entziklopedikoa
+    // Harluxet hiztegi entziklopedikoa
     function goEuskalBarHarluxet(term) {
       var url = 'http://www1.euskadi.net/harluxet/emaitza.asp?sarrera='+escape(term);
       var zein = 'harluxet';

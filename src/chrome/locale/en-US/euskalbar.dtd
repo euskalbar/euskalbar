@@ -34,7 +34,7 @@
 <!ENTITY euskalbar.about.whatsnew6 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Euskalbar options">
+<!ENTITY euskalbar.prefs.title "Euskalbar preferences">
 <!ENTITY euskalbar.prefs.options.label "Preferences...">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Advanced look up">
 <!ENTITY euskalbar.prefs.dictionaries.label "Dictionaries looked up pressing Enter key:">
@@ -48,7 +48,8 @@
 <!ENTITY euskalbar.prefs.lang.caption "Default language">
 <!ENTITY euskalbar.prefs.lang.label "When Euskalbar starts, set the following language:">
 <!ENTITY euskalbar.prefs.tabs.caption "Tab preferences">
-<!ENTITY euskalbar.prefs.timeout.caption "Combined query timeout (s)">
+<!ENTITY euskalbar.prefs.combined.caption "Combined query">
+<!ENTITY euskalbar.prefs.timeout.caption "Query timeout (s)">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Choose a skin for Euskalbar">
 
@@ -110,7 +111,7 @@
 <!ENTITY euskalbar.menu.lagun20 "Polish - Basque dictionary (PL-EU)">
 <!ENTITY euskalbar.menu.goihata "Japanese - Basque dictionary (JP-EU)">
 <!ENTITY euskalbar.menu.sinonimoak "Synonyms">
-<!ENTITY euskalbar.menu.sinonimoenhizt "ADOREZ synonyms dictionary">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Adorez synonyms dictionary">
 <!ENTITY euskalbar.menu.uzeisinonim "UZEI synonyms dictionary">
 <!ENTITY euskalbar.menu.entziklopediak "Encyclopedias">
 <!ENTITY euskalbar.menu.aunam "Auñamendi encyclopedia">
@@ -146,7 +147,4 @@
 <!ENTITY euskalbar.stats.menu "Statistics">
 <!ENTITY euskalbar.stats.main "Euskalbar statistics">
 <!ENTITY euskalbar.stats.count "Query count">
-<!ENTITY euskalbar.stats.hizteues "Combined (Euskalterm, 3000, Elhuyar)">
-<!ENTITY euskalbar.stats.sineues "Combined (ADOREZ, UZEI)">
-<!ENTITY euskalbar.stats.hizteuen "Combined (Euskalterm, Morris)">
 <!ENTITY euskalbar.stats.clearbutton "Clear statistics">

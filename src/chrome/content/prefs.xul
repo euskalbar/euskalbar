@@ -24,6 +24,10 @@
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
+      <preference id="prefShiftes" name="euskalbar.es.onshift" type="string"/>
+      <preference id="prefCtrles" name="euskalbar.es.onctrl" type="string"/>
+      <preference id="prefShiften" name="euskalbar.en.onshift" type="string"/>
+      <preference id="prefCtrlen" name="euskalbar.en.onctrl" type="string"/>
       <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
       <preference id="prefBGtabs" name="euskalbar.bgtabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
@@ -77,7 +81,7 @@
         </tabpanel>
 
         <tabpanel id="tab-aurreratua">
-          <vbox>
+          <vbox flex="1">
 	    <groupbox>
             <caption label="&euskalbar.prefs.dictionaries.label;"/>
             <grid flex="1">
@@ -122,8 +126,27 @@
             </grid>
 	    </groupbox>
 	    <groupbox>
-      	      <caption label="&euskalbar.prefs.timeout.caption;" />
-      	      <textbox preference="prefQuerytimeout" onkeypress="numField(event);" />
+      	      <caption label="&euskalbar.prefs.combined.caption;" />
+              <hbox align="center">
+                <label style="width:5em" value="ES (Shift)"/>
+      	        <textbox flex="1" preference="prefShiftes"/>
+              </hbox>
+              <hbox align="center">
+                <label style="width:5em" value="ES (Ktrl)"/>
+      	        <textbox flex="1" preference="prefCtrles"/>
+              </hbox>
+              <hbox align="center">
+                <label style="width:5em" value="EN (Shift)"/>
+      	        <textbox flex="1" preference="prefShiften"/>
+              </hbox>
+              <hbox align="center">
+                <label style="width:5em" value="EN (Ktrl)"/>
+      	        <textbox flex="1" preference="prefCtrlen"/>
+              </hbox>
+              <hbox align="center">
+                <label style="width:5em" value="&euskalbar.prefs.timeout.caption;"/>
+      	        <textbox flex="1" preference="prefQuerytimeout" onkeypress="numField(event);" />
+              </hbox>
       	    </groupbox>
     	  </vbox>
         </tabpanel>

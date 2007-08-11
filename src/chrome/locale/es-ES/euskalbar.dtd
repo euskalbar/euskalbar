@@ -34,7 +34,7 @@
 <!ENTITY euskalbar.about.whatsnew6 "El listado completo de cambios se puede consultar en la siguiente dirección:">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Opciones de Euskalbar">
+<!ENTITY euskalbar.prefs.title "Preferencias de Euskalbar">
 <!ENTITY euskalbar.prefs.options.label "Preferencias...">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Consulta avanzada">
 <!ENTITY euskalbar.prefs.dictionaries.label "Seleccione los diccionarios a consultar con la tecla Intro">
@@ -48,7 +48,8 @@
 <!ENTITY euskalbar.prefs.lang.caption "Idioma">
 <!ENTITY euskalbar.prefs.lang.label "Al iniciar Euskalbar, elegir el siguiente idioma:">
 <!ENTITY euskalbar.prefs.tabs.caption "Preferencias de las pestañas">
-<!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite de las consultas combinadas (seg)">
+<!ENTITY euskalbar.prefs.combined.caption "Consulta combinada">
+<!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite (seg)">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar">
 
@@ -109,7 +110,7 @@
 <!ENTITY euskalbar.menu.lagun20 "Diccionario Polaco - Vasco (EU-PL)">
 <!ENTITY euskalbar.menu.goihata "Diccionario Japonés - Vasco (JP-EU)">
 <!ENTITY euskalbar.menu.sinonimoak "Sinónimos">
-<!ENTITY euskalbar.menu.sinonimoenhizt "Diccionario de sinónimos de ADOREZ">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Diccionario de sinónimos Adorez">
 <!ENTITY euskalbar.menu.uzeisinonim "Diccionario de sinónimos de UZEI">
 <!ENTITY euskalbar.menu.entziklopediak "Enciclopedias">
 <!ENTITY euskalbar.menu.aunam "Enciclopedia Auñamendi">
@@ -145,7 +146,4 @@
 <!ENTITY euskalbar.stats.menu "Estadísticas">
 <!ENTITY euskalbar.stats.main "Estadísticas de Euskalbar">
 <!ENTITY euskalbar.stats.count "Nº de consultas">
-<!ENTITY euskalbar.stats.hizteues "Combinado (Euskalterm, 3000, Elhuyar)">
-<!ENTITY euskalbar.stats.sineues "Combinado (ADOREZ, UZEI)">
-<!ENTITY euskalbar.stats.hizteuen "Combinado (Euskalterm, Morris)">
 <!ENTITY euskalbar.stats.clearbutton "Borrar estadísticas">

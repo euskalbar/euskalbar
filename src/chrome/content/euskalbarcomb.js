@@ -34,9 +34,9 @@
       xmlHttpReq.open('GET', urlEuskalterm, true);
       xmlHttpReq.send(null);
 	  
-	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -48,8 +48,8 @@
         try {
           if (xmlHttpReq.readyState == 4) {
             if (xmlHttpReq.status == 200) {
-          	  //Timerra garbitu
-          	  clearTimeout(requestTimer);
+              //Timerra garbitu
+              clearTimeout(requestTimer);
               txtEuskalterm = xmlHttpReq.responseText;
               txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
               txtEuskalterm = txtEuskalterm.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
@@ -68,8 +68,8 @@
       }
     }
 
-	//Elhuyarren katea manipulatzen duen funtzioa
-	function manipulateElhuyar(txtElhuyar){
+    //Elhuyarren katea manipulatzen duen funtzioa
+    function manipulateElhuyar(txtElhuyar){
       var txtElhuyartable1array = txtElhuyar.split("<table");
       txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
       txtElhuyar = '<table'+txtElhuyar;
@@ -83,25 +83,25 @@
       txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
       txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
       txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
-	  //azentuen arazoa konpontzeko azpisarreretan
-	  var txtElhuyar2array = txtElhuyar.split("href");
-	  var finalElhuyar = txtElhuyar2array[0];
-	  for (i in txtElhuyar2array){
-		if (i>0){
-		  var txtElhuyar3array = txtElhuyar2array[i].split("target");
-		  //funtzio honek azentuen arazoa konpontzen du azpisarreretan, hurrengo datorren funtzioa da
-		  var subElhuyar = correctAccents(txtElhuyar3array[0]);
-		  finalElhuyar = finalElhuyar+"href"+subElhuyar+"target"+txtElhuyar3array[1];
-		}
-	  }
-	  return finalElhuyar;
-	}
+      //azentuen arazoa konpontzeko azpisarreretan
+      var txtElhuyar2array = txtElhuyar.split("href");
+      var finalElhuyar = txtElhuyar2array[0];
+      for (i in txtElhuyar2array){
+        if (i>0){
+          var txtElhuyar3array = txtElhuyar2array[i].split("target");
+          //funtzio honek azentuen arazoa konpontzen du azpisarreretan, hurrengo datorren funtzioa da
+          var subElhuyar = correctAccents(txtElhuyar3array[0]);
+          finalElhuyar = finalElhuyar+"href"+subElhuyar+"target"+txtElhuyar3array[1];
+        }
+      }
+      return finalElhuyar;
+    }
 	
-	function correctAccents(katea){
+    function correctAccents(katea){
       katea = katea.replace(/\u00E1/g, "%E1");
       katea = katea.replace(/\u00E9/g, "%E9");
       katea = katea.replace(/\u00ED/g, "%ED");
-	  katea = katea.replace(/\u00F3/g, "%F3");
+      katea = katea.replace(/\u00F3/g, "%F3");
       katea = katea.replace(/\u00FA/g, "%FA");
       katea = katea.replace(/\u00F1/g, "%F1"); //ñ letra
       katea = katea.replace(/\u00FC/g, "%FC"); //dieresia
@@ -112,8 +112,8 @@
       katea = katea.replace(/\u00DA/g, "%DA");
       katea = katea.replace(/\u00D1/g, "%D1"); //ñ letra maiuskula
       katea = katea.replace(/\u00DC/g, "%DC"); //dieresi maiuskula
-	  return katea;
-	}
+      return katea;
+    }
 	
     // Elhuyar kargatu
     function getShiftElhuyar(source, term){
@@ -153,9 +153,9 @@
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
 
-	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -167,14 +167,14 @@
         try {
           if (xmlHttpReq.readyState == 4) {
             if (xmlHttpReq.status == 200) {
-          	  //Timerra garbitu
-          	  clearTimeout(requestTimer);
+              //Timerra garbitu
+              clearTimeout(requestTimer);
               txtElhuyar = xmlHttpReq.responseText;
-			  //Elhuyarren katea manipulatzen duen funtzioari deitu
-			  txtElhuyar = manipulateElhuyar(txtElhuyar);
+              //Elhuyarren katea manipulatzen duen funtzioari deitu
+              txtElhuyar = manipulateElhuyar(txtElhuyar);
             } else {
-          	  //Hitza aurkitzen ez bada, beste funtzio hau exekutatu
-          	  getShiftElhuyarAlt1(source, term);
+              //Hitza aurkitzen ez bada, beste funtzio hau exekutatu
+              getShiftElhuyarAlt1(source, term);
             }
           }
         } catch(e) {
@@ -204,9 +204,9 @@
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
 
-	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -260,9 +260,9 @@
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
 
-	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");	  
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -311,9 +311,9 @@
       xmlHttpReq.open('GET', urlElhuyar, true);
       xmlHttpReq.send(null);
 
- 	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -364,9 +364,9 @@
       xmlHttpReq.open('GET', url3000, true);
       xmlHttpReq.send(null);
 
-	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -438,9 +438,9 @@
       xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
       xmlHttpReq.send(parametroak);
 	  
-	  //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-	  var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
-	  tout=tout*1000
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
 
       //Timerra sortu
       var requestTimer = setTimeout(function() {
@@ -480,4 +480,291 @@
         getBrowser().contentDocument.getElementById('aMorris').innerHTML = txtMorris;
       }
     
+    }
+
+
+    // Adorez sinonimoen hiztegia kargatu
+    function getKtrlAdorez(source, term) {
+      var txtSinonimoak= "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      if (source == 'eu') {
+        var urlSinonimoak = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=EUS&txtpalabra='+escape(term);
+      } else {
+        var urlSinonimoak = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=CAS&txtpalabra='+escape(term);
+      }
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtSinonimoak = strRes.getString("m1Sinonimoak");
+        return false;
+      }
+      xmlHttpReq.open('GET', urlSinonimoak, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtSinonimoak = strRes.getString("m1Sinonimoak");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+          	//Timerra garbitu
+          	clearTimeout(requestTimer);
+            if (xmlHttpReq.status == 200) {
+              txtSinonimoak = xmlHttpReq.responseText;
+              if (txtSinonimoak.match("No se ha encontrado")) {
+                txtSinonimoak = "No se ha encontrado la palabra "+term+".";
+              } else if (txtSinonimoak.match("ez da aurkitu")){
+                txtSinonimoak = term +" hitza ez da aurkitu.";
+              } else {
+                txtSinonimoaktable1array = txtSinonimoak.split("<TABLE");
+                txtSinonimoak = txtSinonimoaktable1array[6].substring(txtSinonimoaktable1array[1].lenght - 1);
+                txtSinonimoak = '<table'+txtSinonimoak;
+                txtSinonimoak = txtSinonimoak.replace(/RIGHT/g, "LEFT");
+                txtSinonimoak = txtSinonimoak.replace(/CA0000/g, "000000");
+                txtSinonimoak = txtSinonimoak.replace(/<B>/g, " ");
+                txtSinonimoak = txtSinonimoak.replace(/<\/B>/g, " ");
+                txtSinonimoak = txtSinonimoak.replace(/EAEBFB/g, "");
+                txtSinonimoak = txtSinonimoak.replace(/<I>/g, " ");
+                txtSinonimoak = txtSinonimoak.replace(/<\/I>/g, " ");
+                txtSinonimoak = txtSinonimoak.replace(/<CLASS=\'2\'>/g, " ");
+                txtSinonimoak = txtSinonimoak.replace(/WIDTH=\'268\'/, " ");
+                txtSinonimoak = '<font face="bitstream vera sans, verdana, arial" size="3"><B>'+term+'</B></font><BR><BR><font face="bitstream vera sans, verdana, arial">'+txtSinonimoak+'</font>';
+              }
+            } else {
+              txtSinonimoak = strRes.getString("m1Sinonimoak");
+            }
+          }
+        } catch(e) {
+          txtSinonimoak = strRes.getString("m1Sinonimoak");
+        }
+        getBrowser().contentDocument.getElementById('aAdorez').innerHTML = txtSinonimoak;
+      }
+    }
+
+
+    //UZEIren sinonimoen hiztegia kargatu
+    function getKtrlUZEI(source, term){
+      var txtUZEI= "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      var urlUZEI = 'http://www.uzei.com/estatico/sinonimos.asp?sarrera='+escape(term)+'&eragiketa=bilatu';
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtUZEI = strRes.getString("m1UZEI");
+        return false;
+      }
+      xmlHttpReq.open('GET', urlUZEI, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerKtrl.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtUZEI = strRes.getString("m1UZEI");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            //Timerra garbitu
+            clearTimeout(requestTimer);
+            if (xmlHttpReq.status == 200) {
+              txtUZEI =xmlHttpReq.responseText;
+              txtUZEItable1array = txtUZEI.split("<TABLE");
+              txtUZEI = txtUZEItable1array[2].substring(txtUZEItable1array[1].lenght - 1);
+              txtUZEI = '<table'+txtUZEI;
+              txtUZEItable2array = txtUZEI.split("</table");
+              txtUZEI = txtUZEItable2array[0].substring(txtUZEItable2array[1].lenght - 1);
+              txtUZEI = txtUZEI+'</table>';
+              txtUZEI = txtUZEI.replace(/sinonimos.asp/g, "http://www.uzei.com/estatico/sinonimos.asp");
+              txtUZEI = '<font face="bitstream vera sans, verdana, arial" size="3"><B>'+term+'</B></font><font face="bitstream vera sans, verdana, arial">'+txtUZEI+'</font>';
+            } else {
+              txtUZEI = strRes.getString("m1UZEI");
+            }
+          }
+        } catch(e) {
+          txtUZEI = strRes.getString("m1UZEI");
+        }
+        getBrowser().contentDocument.getElementById('aUZEI').innerHTML = txtUZEI;
+      }
+    }
+
+
+    // Hiztegi Batua kargatu
+    function getShiftEuskaltzaindia(source, term) {
+      var txtEuskaltzaindia= "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      if (euskalbar_source == 'es') {
+        idioma = 'G';
+      } else if (euskalbar_source == 'en') {
+        idioma = 'I';
+      } else {
+        idioma = 'E';
+      }
+
+      var urlEuskaltzaindia = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtEuskaltzaindia = strRes.getString("m1Batua");
+        return false;
+      }
+
+      xmlHttpReq.open('GET', urlEuskaltzaindia, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+	xmlHttpReq.abort();
+        txtEuskaltzaindia = strRes.getString("m1Batua");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              txtEuskaltzaindia = xmlHttpReq.responseText;
+              var txtEuskaltzaindiaTable1 = txtEuskaltzaindia.split("burua3\"");
+              txtEuskaltzaindia = txtEuskaltzaindiaTable1[1].slice(0, txtEuskaltzaindiaTable1[1].lastIndexOf("#9A8C07"));
+              txtEuskaltzaindia = "<td "+txtEuskaltzaindia;
+              txtEuskaltzaindia = txtEuskaltzaindia.replace(/bilatu.asp/g, "http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp");
+            } else {
+              txtEuskaltzaindia = strRes.getString("m1Batua");
+            }
+          }
+        } catch(e) {
+          txtEuskaltzaindia = strRes.getString("m1Batua");
+        }
+        getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
+      }
+    }
+
+
+
+    // Mokoroa kargatu
+    function getMokoroa(source, term) {
+      var txtMokoroa = "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      if (source == 'es') {
+        var urlMokoroa = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt='+escape(term)+'&eusk=&nork=&kera=&bidali=Bilatu';
+      } else {
+        var urlMokoroa = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt=&eusk='+escape(term)+'&nork=&kera=&bidali=Bilatu';
+      }
+
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtMokoroa = strRes.getString("m1Mokoroa");
+        return false;
+      }
+
+      xmlHttpReq.open('GET', urlMokoroa, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+	xmlHttpReq.abort();
+        txtMokoroa = strRes.getString("m1Mokoroa");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              txtMokoroa = xmlHttpReq.responseText;
+              var txtMokoroa2 = txtMokoroa.split("<h2>")[2];
+              txtMokoroa = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"</font></strong>"+"<h2>"+txtMokoroa2;
+              var txtMokoroa3 = txtMokoroa.split("<\/div>")[0];
+              txtMokoroa = txtMokoroa3.replace(/<p>/g, "<p><br>");
+            } else {
+              txtMokoroa = strRes.getString("m1Mokoroa");
+            }
+          }
+        } catch(e) {
+          txtMokoroa = strRes.getString("m1Mokoroa");
+        }
+        getBrowser().contentDocument.getElementById('aMokoroa').innerHTML = txtMokoroa;
+      }
+    }
+
+
+    // Intza kargatu
+    function getIntza(source, term) {
+      var txtIntza = "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      if (source == 'es') {
+        var urlIntza = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1='+escape(term)+'&eremu3=1&eremu1=eeki';
+      } else {
+        var urlIntza = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1='+escape(term)+'&eremu3=1';
+      }
+
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtIntza = strRes.getString("m1Intza");
+        return false;
+      }
+
+      xmlHttpReq.open('GET', urlIntza, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+	xmlHttpReq.abort();
+        txtIntza = strRes.getString("m1Intza");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              txtIntza = xmlHttpReq.responseText;
+              var txtIntza2 = txtIntza.split("Bilaketaren emaitza")[2];
+              txtIntza = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"</font></strong>"+txtIntza2;
+              var txtIntza3 = txtIntza.split("<form")[0];
+              txtIntza = txtIntza3.replace(/<font size=5>/g, "<font size=\"3\">");
+              txtIntza = txtIntza.replace(/\/cgi-bin/g, "http:\/\/intza.armiarma.com\/cgi-bin");
+              txtIntza = txtIntza.replace(/\/intza\/kon/g, "http:\/\/intza.armiarma.com\/intza\/kon");
+            } else {
+              txtIntza = strRes.getString("m1Intza");
+            }
+          }
+        } catch(e) {
+          txtIntza = strRes.getString("m1Intza");
+        }
+        getBrowser().contentDocument.getElementById('aIntza').innerHTML = txtIntza;
+      }
     }

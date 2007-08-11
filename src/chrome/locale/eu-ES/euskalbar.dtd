@@ -34,7 +34,7 @@
 <!ENTITY euskalbar.about.whatsnew6 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Euskalbar aukerak">
+<!ENTITY euskalbar.prefs.title "Euskalbarren hobespenak">
 <!ENTITY euskalbar.prefs.options.label "Hobespenak...">
 <!ENTITY euskalbar.prefs.dictionaries.tabtitle "Kontsulta aurreratua">
 <!ENTITY euskalbar.prefs.dictionaries.label "Enter tekla sakatzean konsultatuko diren hiztegiak">
@@ -48,7 +48,8 @@
 <!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">
 <!ENTITY euskalbar.prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
 <!ENTITY euskalbar.prefs.tabs.caption "Fitxen hobespenak">
-<!ENTITY euskalbar.prefs.timeout.caption "Kontsulta konbinatuen denbora-muga (seg)">
+<!ENTITY euskalbar.prefs.combined.caption "Kontsulta konbinatua">
+<!ENTITY euskalbar.prefs.timeout.caption "Denbora-muga (seg)">
 <!ENTITY euskalbar.prefs.skin.caption "Azalak">
 <!ENTITY euskalbar.prefs.skin.label "Hautatu azal bat Euskalbarrentzako">
 
@@ -110,7 +111,7 @@
 <!ENTITY euskalbar.menu.lagun20 "Poloniera - Euskara hiztegia (PL-EU)">
 <!ENTITY euskalbar.menu.goihata "Japoniera - Euskara hiztegia (JP-EU)">
 <!ENTITY euskalbar.menu.sinonimoak "Sinonimoak">
-<!ENTITY euskalbar.menu.sinonimoenhizt "ADOREZen sinonimoen hiztegia">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Adorez sinonimoen hiztegia">
 <!ENTITY euskalbar.menu.uzeisinonim "UZEIren sinonimoen hiztegia">
 <!ENTITY euskalbar.menu.entziklopediak "Entziklopediak">
 <!ENTITY euskalbar.menu.aunam "Auñamendi entziklopedia">
@@ -146,8 +147,5 @@
 <!ENTITY euskalbar.stats.menu "Estatistikak">
 <!ENTITY euskalbar.stats.main "Euskalbarren estatistikak">
 <!ENTITY euskalbar.stats.count "Kontsulta kop.">
-<!ENTITY euskalbar.stats.hizteues "Konbinatua (Euskalterm, 3000, Elhuyar)">
-<!ENTITY euskalbar.stats.sineues "Konbinatua (ADOREZ, UZEI)">
-<!ENTITY euskalbar.stats.hizteuen "Konbinatua (Euskalterm, Morris)">
 <!ENTITY euskalbar.stats.clearbutton "Garbitu estatistikak">
 
