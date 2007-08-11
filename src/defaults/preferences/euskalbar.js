@@ -50,6 +50,7 @@ pref("euskalbar.opentrad.onkey", false);
 pref("euskalbar.es.onshift", "Euskalterm,Elhuyar,3000");
 pref("euskalbar.es.onctrl", "Adorez,UZEI");
 pref("euskalbar.en.onshift", "Euskalterm,Morris");
+pref("euskalbar.en.onctrl", "Adorez,UZEI");
 
 // Tabs pref
 pref("euskalbar.reusetabs.enabled", true);
