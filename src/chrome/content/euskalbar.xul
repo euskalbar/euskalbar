@@ -354,7 +354,7 @@
   	  </menu>
       <menu id="Euskalbar-thematics" label="&euskalbar.menu.thematics;">
             <menupopup id="Euskalbar-subpopup4">
-          	<menuitem label="&euskalbar.menu.drugs;" oncommand="openURL('http://www.drogomedia.com/euskera/diccionari.htm', 'drogomedia');"/>
+          	<menuitem label="&euskalbar.menu.drugs;" oncommand="openURL('http://www.drogomedia.com/eus/diccionario.php', 'drogomedia');"/>
           	<menuitem label="&euskalbar.menu.energy;" oncommand="openURL('http://www.eve.es/energia/index.html', 'energia');"/>
           	<menuitem label="&euskalbar.menu.management;" oncommand="openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
           	<menuitem label="&euskalbar.menu.industry;" oncommand="openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');"/>
