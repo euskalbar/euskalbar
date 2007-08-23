@@ -4,6 +4,7 @@
 
 2.2 bertsioa
 ================
+- POST metodoa darabilten hiztegien atzipena hobetu da. (#32)
 - Kontsulta konbinatuetan hiztegi gehiago kontsulta daitezke. (#25)
 - Ongi etorri leihoa sortu da. (#29)
 - Intza proiektuko lokuzioak kontsultatzeko botoia gehitu zaio barrari.

@@ -229,19 +229,69 @@
     // *************************************
 
 
-    // Emandako URLa zabaltzen du hobespenaren arabera
-    function openURL(url, zein) {
+    /**
+     * Emandako URLa zabaltzen du hobespenaren arabera
+     * @param url
+     *        Zabaldu beharreko URLa
+     * @param zein
+     *        URLaren baitan dagoen kate identifikagarri bat
+     *        (fitxak URI bitartez berrerabiltzeko)
+     * @param method
+     *        HTTP eskaeran daturen bat igorri behar bada,
+     *        zein metodo erabiliko den datuak pasatzeko (GET, POST)
+     * @param params
+     *        Parametroen array bat, elementu bakoitza
+     *        izena/balioa bikote bat izanik (QueryParameter-ek sortuta)
+     * Inspirazioa: /browser/components/search/nsSearchService.js
+     *              EngineURL.prototype.getSubmission() metodoa
+     */
+    function openURL(url, zein, method, params) {
+      var postData = null; // POSTen kasuan bakarrik aldatuko da
+      var dataString = ""; // parametroak jasotzeko stringa
+      if (params != null) { // momentuko soluzioa...
+        for (var i = 0; i < params.length; ++i) {
+          var param = params[i];
+    
+          dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
+        }
+      }
+      if (method == 'GET') {
+        if (url.indexOf("?") == -1 && dataString)
+          url += "?";
+        url += dataString;
+      } else if (method == "POST") {
+        var stringStream = Cc["@mozilla.org/io/string-input-stream;1"]
+                           .createInstance(Components.interfaces.nsIStringInputStream);
+        // Mozilla bug #318193
+        if ("data" in stringStream) // Gecko 1.9 or newer
+          stringStream.data = dataString;
+        else // 1.8 or older
+          stringStream.setData(dataString, dataString.length);
+
+        var postData = Cc["@mozilla.org/network/mime-input-stream;1"]
+                       .createInstance(Components.interfaces.nsIMIMEInputStream);
+        postData.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        postData.addContentLength = true;
+        postData.setData(stringStream);
+      }
       if (prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
-        reuseOldtab(url, zein);
+        reuseOldtab(url, zein, postData);
       } else {
-        openNewtab(url);
+        openNewtab(url, postData);
       }
     }
 
 
+    // izena/balioa pareak adierazteko objektua
+    function QueryParameter(aName, aValue) {
+      this.name = aName;
+      this.value = aValue;
+    }
+
+
     // Hiztegia fitxa berri batean ireki
-    function openNewtab(taburl) {
-      var theTab = getBrowser().addTab(taburl);
+    function openNewtab(taburl, aPostData) {
+      var theTab = getBrowser().addTab(taburl, null, null, aPostData);
       // enfokatu hala eskatu bada
       if (!prefManager.getBoolPref("euskalbar.bgtabs.enabled")) {
         getBrowser().selectedTab = theTab;
@@ -250,7 +300,7 @@
 
 
     // Hiztegia fitxa zaharrean ireki
-    function reuseOldtab(taburl, tabzein){ 
+    function reuseOldtab(taburl, tabzein, aPostData){ 
       // Aztertu fitxa zahar bakoitza
       var oldTab = getBrowser().selectedTab;
       var found = false;
@@ -261,7 +311,7 @@
         var currentTabURI = currentTab.currentURI.spec;
     	  if (currentTabURI.indexOf(tabzein)!= -1) {
           // Hiztegia irekita dago
-          currentTab.loadURI(taburl);
+          currentTab.webNavigation.loadURI(taburl, null, null, aPostData, null);
           // enfokatu hala eskatu bada
           if (!prefManager.getBoolPref("euskalbar.bgtabs.enabled")) {
             getBrowser().mTabContainer.selectedIndex = index;
@@ -271,7 +321,7 @@
        	index++;
       }
       if (!found) {
-        openNewtab(taburl);
+        openNewtab(taburl, aPostData);
       }
     }
 
@@ -297,7 +347,7 @@
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteses.html';
             }
             var zein = 'euskalbarshiftes';
-            openURL(urlhizt, zein);
+            openURL(urlhizt, zein, null, null);
             // eu-es eta es-eu kasuetarako Shift hiztegiak kontsultatu
             if (prefManager.getCharPref("euskalbar.es.onshift").indexOf("Euskalterm") != -1){
               getShiftEuskalterm(euskalbar_source, searchStr);
@@ -341,7 +391,7 @@
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftenes.html';
             }
             var zein = 'euskalbarshiften';
-            openURL(urlhizt, zein);
+            openURL(urlhizt, zein, null, null);
             // eu-en eta en-eu kasuetarako Shift hiztegiak kontsultatu
             if (prefManager.getCharPref("euskalbar.en.onshift").indexOf("Euskalterm") != -1){
               getShiftEuskalterm(euskalbar_source, searchStr);
@@ -374,7 +424,7 @@
               var urlsin = 'chrome://euskalbar/content/html/euskalbarktrleses.html';
             }
             var zein = 'euskalbarktrles';
-            openURL(urlsin, zein);
+            openURL(urlsin, zein, null, null);
             // eu-es eta es-eu kasuetarako Ktrl hiztegiak kontsultatu
             if (prefManager.getCharPref("euskalbar.es.onctrl").indexOf("Euskalterm") != -1){
               getShiftEuskalterm(euskalbar_source, searchStr);
@@ -418,7 +468,7 @@
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlenes.html';
             }
             var zein = 'euskalbarktrlen';
-            openURL(urlhizt, zein);
+            openURL(urlhizt, zein, null, null);
             // eu-en eta en-eu kasuetarako Ktrl hiztegiak kontsultatu
             if (prefManager.getCharPref("euskalbar.en.onctrl").indexOf("Euskalterm") != -1){
               getShiftEuskalterm(euskalbar_source, searchStr);
@@ -596,9 +646,14 @@
       } else {
         idioma = 'E';
       }
-      var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak='+sub+'&hizkuntza='+hiztegiarenhizkuntza;
+      var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe';
+      var params = [];
+      params.push(new QueryParameter('hizkun1', idioma));
+      params.push(new QueryParameter('hitz1', escape(term)));
+      params.push(new QueryParameter('gaiak', sub));
+      params.push(new QueryParameter('hizkuntza', hiztegiarenhizkuntza));
       var zein = 'euskalterm';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(0);
     }
@@ -606,26 +661,30 @@
 
     // Aukeratutako testua itzultzen du opentrad erabiliz edo xuxenweb kontsultatzen du
     function goEuskalBarSelection(term, action) {
+      var params = [];
       switch (action) {
         case 'opentrad' :
-          var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php?testukutxa='+escape(term); 
+          var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php';
+          params.push(new QueryParameter('testukutxa', escape(term))); 
           var zein = 'opentrad';
           //Estatistika lokalak idatzi
           writeStats(14);
         break;
         case 'xuxenweb' :
-          var url = 'http://www.xuxen.com/socketBezero.php?idatzArea='+term; 
+          var url = 'http://www.xuxen.com/socketBezero.php';
+          params.push(new QueryParameter('idatzArea', term)); 
           var zein = 'xuxen';
           //Estatistika lokalak idatzi
           writeStats(13);
         break;
       }
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
     }
 
 
     // Bilaketak 3000 hiztegian
     function goEuskalBarAsk(source, term) {
+      var params = [];
       if (source == 'es') {
         source = 'CAS';
         idioma = 'Castellano';
@@ -633,9 +692,12 @@
         source = 'EUS';
         idioma = 'Euskera';
       }
-      var url = 'http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe?Diccionario='+source+'&Idioma='+source+'&Txt_'+idioma+'='+escape(term);
+      var url = 'http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe';
+      params.push(new QueryParameter('Diccionario', source));
+      params.push(new QueryParameter('Idioma', source))
+      params.push(new QueryParameter('Txt_'+idioma, escape(term)));
       var zein = 'cgi-bin_m33';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(1);
     }
@@ -643,11 +705,14 @@
 
     // Elhuyar hiztegiko bilaketak
     function goEuskalBarElhuyar(source, term) {
+      var params = [];
       // Hitzen arteko zuriuneen ordez beheko barrak idazten ditu, Elhuyarrentzako
       term = term.replace(/ /g, "_");
-      var url = 'http://www.interneteuskadi.org/euskalbar/frames.php?term='+escape(term)+'&source='+source;
+      var url = 'http://www.interneteuskadi.org/euskalbar/frames.php';
+      params.push(new QueryParameter('term', escape(term)));
+      params.push(new QueryParameter('source', source));
       var zein = 'interneteuskadi';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(2);
     }
@@ -656,13 +721,15 @@
     // Morrisen bilaketak egiteko
     function goEuskalBarMorris(source, term) {
       if (source == 'en') {
-        hizk = 'txtIngles';
+        var hizk = 'txtIngles';
       } else {
-        hizk = 'txtEuskera';
+        var hizk = 'txtEuskera';
       }
-      var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbarmorris.html?hizkuntza='+hizk+'&hitza='+escape(term);
-      var zein = 'morris'
-      openURL(url, zein);
+      var url = 'http://www1.euskadi.net/morris/resultado.asp';
+      var params = [];
+      params.push(new QueryParameter(hizk, escape(term)));
+      var zein = 'morris';
+      openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       writeStats(3);
     }
@@ -672,7 +739,7 @@
     function goEuskalBarOpentran(term) {
       var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
       var zein = 'open-tran';
-      openURL(url, zein);
+      openURL(url, zein, null, null);
       //Estatistika lokalak idatzi
       writeStats(4);
     }
@@ -680,9 +747,11 @@
 
     // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
     function goEuskalBarEuskaltzaindia(term) {
-      var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
+      var params = [];
+      var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp';
+      params.push(new QueryParameter('sarrera', escape(term)));
       var zein = 'hiztegibatua';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(5);
     }
@@ -690,9 +759,12 @@
 
     // ItzuL posta-zerrendan bilaketak
     function goEuskalBarItzuL(term) {
-      var url = 'http://search.gmane.org/search.php?group=gmane.culture.language.basque.itzul&query='+encodeURI(term);
+      var params = [];
+      var url = 'http://search.gmane.org/search.php';
+      params.push(new QueryParameter('group', 'gmane.culture.language.basque.itzul'));
+      params.push(new QueryParameter('query', encodeURI(term)));
       var zein = 'gmane.culture.language.basque.itzul';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(8);
     }
@@ -700,9 +772,11 @@
 
     // Harluxet hiztegi entziklopedikoa
     function goEuskalBarHarluxet(term) {
-      var url = 'http://www1.euskadi.net/harluxet/emaitza.asp?sarrera='+escape(term);
+      var params = [];
+      var url = 'http://www1.euskadi.net/harluxet/emaitza.asp';
+      params.push(new QueryParameter('sarrera', escape(term)));
       var zein = 'harluxet';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(9);
     }
@@ -710,35 +784,47 @@
 
     // Mokoroan bilaketak
     function goEuskalBarMokoroa(source, term) {
-      var zein = 'mokoroa'; 
+      var params = [];
+      var zein = 'mokoroa';
+      var url = 'http://www.hiru.com/hiztegiak/mokoroa/';
       if (source == 'es') {
-        var url = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt='+escape(term)+'&eusk=&nork=&kera=&bidali=Bilatu';
+        params.push(new QueryParameter('gazt', escape(term)));
+        params.push(new QueryParameter('bidali', 'Bilatu'));
       } else {
-        var url = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt=&eusk='+escape(term)+'&nork=&kera=&bidali=Bilatu';
+        params.push(new QueryParameter('eusk', escape(term)));
+        params.push(new QueryParameter('bidali', 'Bilatu'));
       }
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(10);
     }
 
     // Intzaren bilaketak
     function goEuskalBarIntza(source, term) {
-      var zein = 'intza'; 
+      var params = [];
+      var zein = 'intza';
+      var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl'; 
       if (source == 'es') {
-        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1='+escape(term)+'&eremu3=1&eremu1=eeki';
+        params.push(new QueryParameter('hitza1', escape(term)));
+        params.push(new QueryParameter('eremu3', '1'));
+        params.push(new QueryParameter('eremu1', 'eeki'));
       } else {
-        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1='+escape(term)+'&eremu3=1';
+        params.push(new QueryParameter('eremu1', 'giltzarriak'));
+        params.push(new QueryParameter('hitza1', escape(term)));
+        params.push(new QueryParameter('eremu3','1'));
       }
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi, hau aldatu egin behar da
       writeStats(11);
     }
 
     // ZT Corpusa
     function goEuskalBarZTCorpusa(term) {
-      var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py?testu-hitza1='+escape(term);
+      var params = [];
+      var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
+      params.push(new QueryParameter('testu-hitza1', escape(term)));
       var zein = 'ztcorpusa';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(12);
     }
@@ -746,6 +832,7 @@
 
     // Eurovoc Tesaurusa
     function goEuskalBarEurovoc(term) {
+      var params = [];
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
@@ -753,18 +840,25 @@
       } else {
         hizk = 'CA';
       }
-      var url = 'chrome://euskalbar/content/html/hiztegiak/goeuskalbareurovoc.html?hizkuntza='+hizk+'&hitza='+escape(term);
+      var url = 'http://www.bizkaia.net/kultura/eurovoc/busqueda.asp';
+      params.push(new QueryParameter('txtBuscar', 'S'));
+      params.push(new QueryParameter('query', term));
+      params.push(new QueryParameter('idioma', hizk));
       var zein = 'eurovoc';
-      openURL(url, zein);
+      openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       writeStats(13);
     }
 
     // Opentrad
     function goEuskalBarOpentrad(source, term) {
-      var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php?language=eu&inurl='+escape(window.content.document.location.href)+'&norantza=es-eu';
+      var params = [];
+      var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php';
+      params.push(new QueryParameter('language', 'eu'));
+      params.push(new QueryParameter('inurl', escape(window.content.document.location.href)));
+      params.push(new QueryParameter('norantza', 'es-eu'));
       var zein = 'opentrad';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(15);
     }
@@ -772,9 +866,11 @@
 
     // XUXENweb
     function goEuskalBarXUXENweb(term) {
-      var url = 'http://www.xuxen.com/socketBezero.php?idatzArea='+term;
+      var params = [];
+      var url = 'http://www.xuxen.com/socketBezero.php';
+      params.push(new QueryParameter('idatzArea', term));
       var zein = 'xuxen';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(14);
     }
@@ -793,21 +889,27 @@
           var url = 'http://www.oeegunea.org/default.cfm?atala=hiztegia';
         break;
       }
-      openURL(url, zein);
+      openURL(url, zein, null, null);
     }
 
 
     // Adorez sinonimoen hiztegia
     function goEuskalBarAdorez(term) {
+      var params = [];
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
+      var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
       if (h.match('euskara')) {
-        var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=EUS&txtpalabra='+escape(term);
+        params.push(new QueryParameter('Palabra', 'Introducida'));
+        params.push(new QueryParameter('Idioma', 'EUS'));
+        params.push(new QueryParameter('txtpalabra', escape(term)));
       } else {
-        var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=CAS&txtpalabra='+escape(term);
+        params.push(new QueryParameter('Palabra', 'Introducida'));
+        params.push(new QueryParameter('Idioma', 'CAS'));
+        params.push(new QueryParameter('txtpalabra', escape(term)));
       }
       var zein = 'adorez';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(7);
     }
@@ -815,9 +917,12 @@
 
     // UZEIren sinonimoen hiztegia
     function goEuskalBarUZEI(term) {
-      var url = 'http://www.uzei.com/estatico/sinonimos.asp?sarrera='+escape(term)+'&eragiketa=bilatu';
+      var params = [];
+      var url = 'http://www.uzei.com/estatico/sinonimos.asp';
+      params.push(new QueryParameter('sarrera', escape(term)));
+      params.push(new QueryParameter('eragiketa', 'bilatu'));
       var zein = 'uzei';
-      openURL(url, zein);
+      openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(6);
     }
