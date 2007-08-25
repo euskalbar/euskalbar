@@ -85,10 +85,10 @@
 <!ENTITY euskalbar.euskalterm.zuzenbidea.label "Law">
 
 <!--Language-->
-<!ENTITY euskalbar.language.eu_es "EU ► ES">
-<!ENTITY euskalbar.language.es_eu "ES ► EU">
-<!ENTITY euskalbar.language.eu_en "EU ► EN">
-<!ENTITY euskalbar.language.en_eu "EN ► EU">
+<!ENTITY euskalbar.language.eu_es "EU ‣ ES">
+<!ENTITY euskalbar.language.es_eu "ES ‣ EU">
+<!ENTITY euskalbar.language.eu_en "EU ‣ EN">
+<!ENTITY euskalbar.language.en_eu "EN ‣ EU">
 
 <!-- Context Menu -->
 <!ENTITY euskalbar.context.opentrad.label "Translate to Basque using Opentrad">
