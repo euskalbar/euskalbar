@@ -8,6 +8,7 @@
 <overlay id="EuskalBar-Overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
   <script type="application/x-javascript" src="euskalbar.js"/>
+  <script type="application/x-javascript" src="euskalbardicts.js"/>
   <script type="application/x-javascript" src="euskalbarcomb.js"/>
   <script type="application/x-javascript" src="euskalbarstats.js"/>
 

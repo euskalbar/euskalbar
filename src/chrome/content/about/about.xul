@@ -27,7 +27,7 @@
                 <html:li>&euskalbar.about.whatsnew5;</html:li>
                 <html:li>&euskalbar.about.whatsnew6;</html:li></html:ul></description>
                 <description class="author">&euskalbar.about.whatsnew7;</description>
-                <description onclick="euskalbar_visitHomePage('http://euskalbar.googlecode.com/svn/trunk/CHANGELOG',true)" class="url"> http://euskalbar.googlecode.com/svn/trunk/CHANGELOG</description>
+                <description onclick="euskalbar_visitHomePage('http://euskalbar.googlecode.com/svn/trunk/ChangeLog',true)" class="url"> http://euskalbar.googlecode.com/svn/trunk/ChangeLog</description>
                 <description value="&euskalbar.about.author;" class="title"/>
                 <description class="author">Juanan Pereira</description>
                 <description class="author">Asier Sarasua Garmendia</description>

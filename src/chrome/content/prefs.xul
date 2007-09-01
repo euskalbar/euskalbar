@@ -24,16 +24,43 @@
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
-      <preference id="prefShiftes" name="euskalbar.es.onshift" type="string"/>
-      <preference id="prefCtrles" name="euskalbar.es.onctrl" type="string"/>
-      <preference id="prefShiften" name="euskalbar.en.onshift" type="string"/>
-      <preference id="prefCtrlen" name="euskalbar.en.onctrl" type="string"/>
+
+      <preference id="prefEuskaltermShiftES" name="euskalbar.euskalterm.onkey1.es" type="bool"/>
+      <preference id="pref3000ShiftES" name="euskalbar.3000.onkey1.es" type="bool"/>
+      <preference id="prefElhuyarShiftES" name="euskalbar.elhuyar.onkey1.es" type="bool"/>
+      <preference id="prefBatuaShiftES" name="euskalbar.batua.onkey1.es" type="bool"/>
+      <preference id="prefAdorezShiftES" name="euskalbar.adorez.onkey1.es" type="bool"/>
+      <preference id="prefUZEIShiftES" name="euskalbar.uzei.onkey1.es" type="bool"/>
+      <preference id="prefMokoroaShiftES" name="euskalbar.mokoroa.onkey1.es" type="bool"/>
+      <preference id="prefIntzaShiftES" name="euskalbar.intza.onkey1.es" type="bool"/>
+
+      <preference id="prefEuskaltermShiftEN" name="euskalbar.euskalterm.onkey1.en" type="bool"/>
+      <preference id="prefMorrisShiftEN" name="euskalbar.morris.onkey1.en" type="bool"/>
+      <preference id="prefBatuaShiftEN" name="euskalbar.batua.onkey1.en" type="bool"/>
+      <preference id="prefAdorezShiftEN" name="euskalbar.adorez.onkey1.en" type="bool"/>
+      <preference id="prefUZEIShiftEN" name="euskalbar.uzei.onkey1.en" type="bool"/>
+
+      <preference id="prefEuskaltermCtrlES" name="euskalbar.euskalterm.onkey2.es" type="bool"/>
+      <preference id="pref3000CtrlES" name="euskalbar.3000.onkey2.es" type="bool"/>
+      <preference id="prefElhuyarCtrlES" name="euskalbar.elhuyar.onkey2.es" type="bool"/>
+      <preference id="prefBatuaCtrlES" name="euskalbar.batua.onkey2.es" type="bool"/>
+      <preference id="prefAdorezCtrlES" name="euskalbar.adorez.onkey2.es" type="bool"/>
+      <preference id="prefUZEICtrlES" name="euskalbar.uzei.onkey2.es" type="bool"/>
+      <preference id="prefMokoroaCtrlES" name="euskalbar.mokoroa.onkey2.es" type="bool"/>
+      <preference id="prefIntzaCtrlES" name="euskalbar.intza.onkey2.es" type="bool"/>
+
+      <preference id="prefEuskaltermCtrlEN" name="euskalbar.euskalterm.onkey2.en" type="bool"/>
+      <preference id="prefMorrisCtrlEN" name="euskalbar.morris.onkey2.en" type="bool"/>
+      <preference id="prefBatuaCtrlEN" name="euskalbar.batua.onkey2.en" type="bool"/>
+      <preference id="prefAdorezCtrlEN" name="euskalbar.adorez.onkey2.en" type="bool"/>
+      <preference id="prefUZEICtrlEN" name="euskalbar.uzei.onkey2.en" type="bool"/>
+
       <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
       <preference id="prefBGtabs" name="euskalbar.bgtabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
       <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
       <preference id="prefQuerytimeout" name="euskalbar.query.timeout" type="int"/>
-      <preference id="prefSkin" name="euskalbar.style.shiftandcontrol" type="string"/>
+      <preference id="prefSkin" name="euskalbar.style.combinedquery" type="string"/>
     </preferences>
 
     <tabbox flex="1">
@@ -82,69 +109,141 @@
 
         <tabpanel id="tab-aurreratua">
           <vbox flex="1">
-	    <groupbox>
-            <caption label="&euskalbar.prefs.dictionaries.label;"/>
-            <grid flex="1">
-              <columns>
-                <column flex="1" />
-                <column flex="1" />
-              </columns>
-              <rows>
-                <row>
-            	    <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                    <checkbox preference="prefItzuL" label="ItzuL" />
-                </row>
-                <row>
-            	    <checkbox preference="pref3000" label="3000" />
-             	    <checkbox preference="prefHarluxet" label="Harluxet" />
-                </row>
-                <row>
-            	    <checkbox preference="prefElhuyar" label="Elhuyar" />
-            	    <checkbox preference="prefMokoroa" label="Mokoroa" />
-                </row>
-                <row>
-            	    <checkbox preference="prefMorris" label="Morris" />
-            	    <checkbox preference="prefIntza" label="Intza" />
-                </row>
-                <row>
-                    <checkbox preference="prefOpentran" label="Open-tran" />
-                    <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
-                </row>
-                <row>
-            	    <checkbox preference="prefBatua" label="Hiztegi Batua" />
-            	    <checkbox preference="prefEurovoc" label="Eurovoc" />
-                </row>
-                <row>
-            	    <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
-            	    <checkbox preference="prefOpentrad" label="Opentrad" />
-                </row>
-                <row>
-            	    <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
-            	    <checkbox preference="prefXUXENweb" label="XUXENweb" />
-                </row>
-              </rows>
-            </grid>
-	    </groupbox>
+              <tabbox  flex="1">
+                <tabs >
+                   <tab style="height:2em" label="Enter"/>
+                   <tab style="height:2em" label="Enter+Shift"/>
+                   <tab style="height:2em" label="Enter+Ktrl"/>
+                </tabs>
+                <tabpanels flex="1" >
+                  <grid flex="1">
+                    <columns>
+                      <column flex="1" />
+                      <column flex="1" />
+                    </columns>
+                    <rows>
+                    <row>
+                      <checkbox preference="prefEuskalterm" label="Euskalterm" />
+                      <checkbox preference="prefItzuL" label="ItzuL" />
+                    </row>
+                    <row>
+                      <checkbox preference="pref3000" label="3000" />
+                      <checkbox preference="prefHarluxet" label="Harluxet" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefElhuyar" label="Elhuyar" />
+                      <checkbox preference="prefMokoroa" label="Mokoroa" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefMorris" label="Morris" />
+                      <checkbox preference="prefIntza" label="Intza" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefOpentran" label="Open-tran" />
+                      <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefBatua" label="Hiztegi Batua" />
+                      <checkbox preference="prefEurovoc" label="Eurovoc" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
+                      <checkbox preference="prefOpentrad" label="Opentrad" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+                      <checkbox preference="prefXUXENweb" label="XUXENweb" />
+                    </row>
+                    </rows>
+                  </grid> 
+                  <grid flex="1">
+                    <columns>
+                      <column flex="1" />
+                      <column flex="1" />
+                    </columns>
+                    <rows>
+                    <row>
+      	              <label value="EU‣ES / ES‣EU" />
+      	              <label value="EU‣EN / EN‣EU" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefEuskaltermShiftES" label="Euskalterm" oncommand=""/>
+                      <checkbox preference="prefEuskaltermShiftEN" label="Euskalterm" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefElhuyarShiftES" label="Elhuyar" />
+                      <checkbox preference="prefMorrisShiftEN" label="Morris" />
+                    </row>
+                    <row>
+                      <checkbox preference="pref3000ShiftES" label="3000" />
+                      <checkbox preference="prefBatuaShiftEN" label="Batua" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefBatuaShiftES" label="Batua" />
+                      <checkbox preference="prefAdorezShiftEN" label="Adorez" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefAdorezShiftES" label="Adorez" />
+                      <checkbox preference="prefUZEIShiftEN" label="UZEI" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefUZEIShiftES" label="UZEI" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefMokoroaShiftES" label="Mokoroa" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefIntzaShiftES" label="Intza" />
+                    </row>
+                    </rows>
+                  </grid>
+                  <grid flex="1">
+                    <columns>
+                      <column flex="1" />
+                      <column flex="1" />
+                    </columns>
+                    <rows>
+                    <row>
+                      <label value="EU‣ES / ES‣EU" />
+                      <label value="EU‣EN / EN‣EU" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefEuskaltermCtrlES" label="Euskalterm" oncommand=""/>
+                      <checkbox preference="prefEuskaltermCtrlEN" label="Euskalterm" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefElhuyarCtrlES" label="Elhuyar" />
+                      <checkbox preference="prefMorrisCtrlEN" label="Morris" />
+                    </row>
+                    <row>
+                      <checkbox preference="pref3000CtrlES" label="3000" />
+                      <checkbox preference="prefBatuaCtrlEN" label="Batua" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefBatuaCtrlES" label="Batua" />
+                      <checkbox preference="prefAdorezCtrlEN" label="Adorez" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefAdorezCtrlES" label="Adorez" />
+                      <checkbox preference="prefUZEICtrlEN" label="UZEI" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefUZEICtrlES" label="UZEI" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefMokoroaCtrlES" label="Mokoroa" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefIntzaCtrlES" label="Intza" />
+                    </row>
+                    </rows>
+                  </grid>
+                </tabpanels>
+              </tabbox>
 	    <groupbox>
       	      <caption label="&euskalbar.prefs.combined.caption;" />
               <hbox align="center">
-                <label style="width:5em" value="ES (Shift)"/>
-      	        <textbox flex="1" preference="prefShiftes"/>
-              </hbox>
-              <hbox align="center">
-                <label style="width:5em" value="ES (Ktrl)"/>
-      	        <textbox flex="1" preference="prefCtrles"/>
-              </hbox>
-              <hbox align="center">
-                <label style="width:5em" value="EN (Shift)"/>
-      	        <textbox flex="1" preference="prefShiften"/>
-              </hbox>
-              <hbox align="center">
-                <label style="width:5em" value="EN (Ktrl)"/>
-      	        <textbox flex="1" preference="prefCtrlen"/>
-              </hbox>
-              <hbox align="center">
-                <label style="width:5em" value="&euskalbar.prefs.timeout.caption;"/>
+                <label value="&euskalbar.prefs.timeout.caption;"/>
       	        <textbox flex="1" preference="prefQuerytimeout" onkeypress="numField(event);" />
               </hbox>
       	    </groupbox>
@@ -154,3 +253,5 @@
     </tabbox>
 </prefpane>
 </prefwindow>
+
+

@@ -12,7 +12,7 @@
 
     // Euskalterm kargatu
     function getShiftEuskalterm(source, term) {
-      var txtEuskalterm= "";
+      var txtEuskalterm = strRes.getString("m1Euskalterm");;
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       if (euskalbar_source == 'es') {
@@ -394,6 +394,8 @@
                 var txt3000table2array = txt3000.split("<\/TABLE>");;
                 txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
                 txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
+                txt3000 = txt3000.replace(/<blockquote>/g, "");
+                txt3000 = txt3000.replace(/<\/blockquote>/g, "");
                 txt3000 = txt3000.replace(/FFFFCC/g, " ");
                 txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
                 txt3000 = txt3000.replace(/0000A0/g, "000000");

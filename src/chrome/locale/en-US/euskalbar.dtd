@@ -32,7 +32,7 @@
 <!ENTITY euskalbar.about.whatsnew4 "Option to hide an show the toolbar buttons">
 <!ENTITY euskalbar.about.whatsnew5 "Option to use skins">
 <!ENTITY euskalbar.about.whatsnew6 "Local statistics">
-<!ENTITY euskalbar.about.whatsnew6 "The complete changelog can be seen here (in Basque):">
+<!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Euskalbar preferences">
