@@ -538,6 +538,7 @@
                 txtSinonimoak = txtSinonimoak.replace(/<\/I>/g, " ");
                 txtSinonimoak = txtSinonimoak.replace(/<CLASS=\'2\'>/g, " ");
                 txtSinonimoak = txtSinonimoak.replace(/WIDTH=\'268\'/, " ");
+                txtSinonimoak = txtSinonimoak.replace(/table/, "td");
                 txtSinonimoak = '<font face="bitstream vera sans, verdana, arial" size="3"><B>'+term+'</B></font><BR><BR><font face="bitstream vera sans, verdana, arial">'+txtSinonimoak+'</font>';
               }
             } else {

@@ -360,12 +360,10 @@
           	<menuitem label="&euskalbar.menu.management;" oncommand="openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
           	<menuitem label="&euskalbar.menu.industry;" oncommand="openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');"/>
           	<menuitem label="&euskalbar.menu.industry2;" oncommand="openURL('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
-          	<menuitem label="&euskalbar.menu.computers;" oncommand="openURL('http://drupal.euskalgnu.org/node/83', 'euskalgnu');"/>
           	<menuitem label="&euskalbar.menu.environment;" oncommand="openURL('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');"/>
           	<menuitem label="&euskalbar.menu.internet;" oncommand="openURL('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');"/>
           	<menuitem label="&euskalbar.menu.justice;" oncommand="openURL('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');"/>
           	<menuitem label="&euskalbar.menu.catalogues;" oncommand="goEuskalBarOthers('kapsula');"/>
-          	<menuitem label="&euskalbar.menu.journalism;" oncommand="openURL('http://www.palazio.org/kazetaterm', 'kazetaterm');"/>
           	<menuitem label="&euskalbar.menu.parliament;" oncommand="openURL('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');"/>
           	<menuitem label="&euskalbar.menu.health;" oncommand="goEuskalBarOthers('oeegunea');"/>
           	<menuitem label="&euskalbar.menu.cooking;" oncommand="openURL('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
@@ -380,7 +378,6 @@
             <menuitem label="&euskalbar.menu.intza;" oncommand="openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');"/>
             <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
             <menuitem label="&euskalbar.menu.garate;" oncommand="openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');"/>
-            <menuitem label="&euskalbar.menu.laburzki;" oncommand="openURL('http://www.palazio.org/Laburzki', 'Laburzki');"/>
             <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="openURL('http://www.ztcorpusa.net','ztcorpusa');"/>
             </menupopup>
   	  </menu>

@@ -112,8 +112,8 @@
               <tabbox  flex="1">
                 <tabs >
                    <tab style="height:2em" label="Enter"/>
-                   <tab style="height:2em" label="Enter+Shift"/>
-                   <tab style="height:2em" label="Enter+Ktrl"/>
+                   <tab style="height:2em" label="Shift+Enter"/>
+                   <tab style="height:2em" label="Ktrl+Enter"/>
                 </tabs>
                 <tabpanels flex="1" >
                   <grid flex="1">

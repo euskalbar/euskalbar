@@ -6,6 +6,7 @@
 ================
 - POST metodoa darabilten hiztegien atzipena hobetu da. (#32)
 - Kontsulta konbinatuetan hiztegi gehiago kontsulta daitezke. (#25)
+- Kontsulta konbinatuetan hiztegien jatorrizko webguneetara joateko esteka erantsi da. (#35)
 - Ongi etorri leihoa sortu da. (#29)
 - Intza proiektuko lokuzioak kontsultatzeko botoia gehitu zaio barrari.
 - Sinonimoen hiztegiak gehitu zaizkio barrari.
@@ -24,6 +25,8 @@
   + Poloniera - Euskara hiztegia gehitu da.
   + Japoniera - Euskara hiztegia gehitu da.
   + Drogen hiztegiaren helbidea aldatu da. (#33)
+  + Kazetaritza hiztegia eta Laburzki ezabatu dira.
+  + Informatika hiztegia ezabatu da.
 
 
 2.1 bertsioa
