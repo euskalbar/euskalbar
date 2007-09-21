@@ -90,13 +90,17 @@
     // Elhuyar hiztegiko bilaketak
     function goEuskalBarElhuyar(source, term) {
       var params = [];
+      (source == 'es') ? source = 'gazt' : source = 'eusk';
       // Hitzen arteko zuriuneen ordez beheko barrak idazten ditu, Elhuyarrentzako
-      term = term.replace(/ /g, "_");
-      var url = 'http://www.interneteuskadi.org/euskalbar/frames.php';
-      params.push(new QueryParameter('term', escape(term)));
-      params.push(new QueryParameter('source', source));
-      var zein = 'interneteuskadi';
-      openURL(url, zein, 'GET', params);
+      term = term.replace(/ /g, "%20");
+      var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/index.asp';
+      params.push(new QueryParameter('aplik_hizkuntza_ezkutua', null));
+      params.push(new QueryParameter('optHizkuntza', source));
+      params.push(new QueryParameter('txtHitza', term));
+      params.push(new QueryParameter('bot_bilatu', '%3E'));
+      params.push(new QueryParameter('edozer', 'ehunekoa'));
+      var zein = 'hizt_el';
+      openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       writeStats(2);
     }

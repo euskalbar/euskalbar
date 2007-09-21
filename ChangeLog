@@ -2,8 +2,9 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
-2.2 bertsioa
+2.3 bertsioa
 ================
+- Elhuyar hiztegia tarteko orrialderik erabili gabe kontsulta daiteke. (#36)
 - POST metodoa darabilten hiztegien atzipena hobetu da. (#32)
 - Kontsulta konbinatuetan hiztegi gehiago kontsulta daitezke. (#25)
 - Kontsulta konbinatuetan hiztegien jatorrizko webguneetara joateko esteka erantsi da. (#35)
@@ -27,6 +28,11 @@
   + Drogen hiztegiaren helbidea aldatu da. (#33)
   + Kazetaritza hiztegia eta Laburzki ezabatu dira.
   + Informatika hiztegia ezabatu da.
+
+
+2.2 bertsioa
+================
+- ElHuyar-reko hiztegi berrian bilaketak egiteko eguneraketa
 
 
 2.1 bertsioa
