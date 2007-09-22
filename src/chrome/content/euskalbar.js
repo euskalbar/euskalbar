@@ -86,7 +86,7 @@
           file.append("welcome.js");
           file.remove(false);
           var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
-          var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",3000);
+          var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
         }
       },
 

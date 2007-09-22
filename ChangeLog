@@ -2,7 +2,7 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
-2.3 bertsioa
+3.0 bertsioa
 ================
 - Elhuyar hiztegia tarteko orrialderik erabili gabe kontsulta daiteke. (#36)
 - POST metodoa darabilten hiztegien atzipena hobetu da. (#32)
