@@ -329,7 +329,7 @@
         	<menuseparator/>
           	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="openURL('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');"/>
           	<menuitem label="&euskalbar.menu.3000;" oncommand="openURL('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');"/>
-          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="openURL('http://www1.euskadi.net/hizt_el/indice_e.htm', 'hizt_el');"/>
+          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="openURL('http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/index.asp', 'hizt_el');"/>
           	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="openURL('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
         	<menuseparator/>
           	<menuitem label="&euskalbar.menu.morris;" oncommand="openURL('http://www1.euskadi.net/morris/indice_e.htm', 'morris');"/>

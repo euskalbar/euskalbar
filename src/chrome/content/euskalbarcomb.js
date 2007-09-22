@@ -70,49 +70,15 @@
 
     //Elhuyarren katea manipulatzen duen funtzioa
     function manipulateElhuyar(txtElhuyar){
-      var txtElhuyartable1array = txtElhuyar.split("<table");
-      txtElhuyar = txtElhuyartable1array[1].substring(txtElhuyartable1array[1].lenght - 1);
-      txtElhuyar = '<table'+txtElhuyar;
-      var txtElhuyartr1array = txtElhuyar.split("<tr");
-      txtElhuyar = txtElhuyartr1array[2].substring(txtElhuyartr1array[2].lenght - 1);
-      txtElhuyar = '<p><tr'+txtElhuyar;
-      txtElhuyar = txtElhuyar.replace(/<\/table>/, " ");
-      txtElhuyar = txtElhuyar.replace(/009999/g, "  ");
-      txtElhuyar = txtElhuyar.replace(/FFFFFF/g, "000000");
-      txtElhuyar = txtElhuyar.replace(/003399/g, "000000");
-      txtElhuyar = txtElhuyar.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
-      txtElhuyar = txtElhuyar.replace(/Times New Roman, Times, serif/g, "bitstream vera sans, verdana, arial");
-      txtElhuyar = txtElhuyar.replace(/azpisarrera/g, "http://www1.euskadi.net/hizt_el/azpisarrera");
-      //azentuen arazoa konpontzeko azpisarreretan
-      var txtElhuyar2array = txtElhuyar.split("href");
-      var finalElhuyar = txtElhuyar2array[0];
-      for (i in txtElhuyar2array){
-        if (i>0){
-          var txtElhuyar3array = txtElhuyar2array[i].split("target");
-          //funtzio honek azentuen arazoa konpontzen du azpisarreretan, hurrengo datorren funtzioa da
-          var subElhuyar = correctAccents(txtElhuyar3array[0]);
-          finalElhuyar = finalElhuyar+"href"+subElhuyar+"target"+txtElhuyar3array[1];
-        }
-      }
-      return finalElhuyar;
-    }
-	
-    function correctAccents(katea){
-      katea = katea.replace(/\u00E1/g, "%E1");
-      katea = katea.replace(/\u00E9/g, "%E9");
-      katea = katea.replace(/\u00ED/g, "%ED");
-      katea = katea.replace(/\u00F3/g, "%F3");
-      katea = katea.replace(/\u00FA/g, "%FA");
-      katea = katea.replace(/\u00F1/g, "%F1"); //Ò letra
-      katea = katea.replace(/\u00FC/g, "%FC"); //dieresia
-      katea = katea.replace(/\u00C1/g, "%C1");
-      katea = katea.replace(/\u00C9/g, "%C9");
-      katea = katea.replace(/\u00CD/g, "%CD");
-      katea = katea.replace(/\u00D3/g, "%D3");
-      katea = katea.replace(/\u00DA/g, "%DA");
-      katea = katea.replace(/\u00D1/g, "%D1"); //Ò letra maiuskula
-      katea = katea.replace(/\u00DC/g, "%DC"); //dieresi maiuskula
-      return katea;
+      var txtElhuyar1 = txtElhuyar.split("Emaitza:")[1];
+      txtElhuyar = txtElhuyar1.split("<!")[0];
+      txtElhuyar = txtElhuyar.replace(/<h1>/, "<font face=\"bitstream vera sans, verdana, arial\" size=\"3\"><B>");
+      txtElhuyar = txtElhuyar.replace(/<\/h1>/, "<\/B><\/font>");
+      txtElhuyar = txtElhuyar.replace(/\"#\" onClick=\"bistaratutestuinguruak\(\'/g,"http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/emaitza.asp?");
+      txtElhuyar = txtElhuyar.replace(/\'\)\;\"/g,"");
+      txtElhuyar = txtElhuyar.replace(/\'\)\"/g,"");
+      txtElhuyar = txtElhuyar.replace(/amp\;/g,'');
+      return txtElhuyar;
     }
 	
     // Elhuyar kargatu
@@ -121,36 +87,30 @@
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
     
-      //Azentu markak, eÒeak eta dieresiak aldatu
-      term = encodeURI(term);
+      //Azentu markak, e√±eak eta dieresiak aldatu
+      term = escape(term); //honekin e√±eak eta dieresiak konpontzen dira
       term = term.replace(/\%20/g, "_");
-      term = term.replace(/\%C3\%A1/g, "a");
-      term = term.replace(/\%C3\%A9/g, "e");
-      term = term.replace(/\%C3\%AD/g, "i");
-      term = term.replace(/\%C3\%B3/g, "o");
-      term = term.replace(/\%C3\%BA/g, "u");
-      term = term.replace(/\%C3\%B1/g, "nzz");
-      term = term.replace(/\%C3\%BC/g, "u");
-      term = term.replace(/\%C3\%81/g, "A");
-      term = term.replace(/\%C3\%89/g, "E");
-      term = term.replace(/\%C3\%8D/g, "I");
-      term = term.replace(/\%C3\%93/g, "O");
-      term = term.replace(/\%C3\%9A/g, "U");
-      term = term.replace(/\%C3\%91/g, "NZZ");
-      term = term.replace(/\%C3\%9C/g, "U");
-    
-      if (source == 'es') {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term;
-      } else {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term;
-      }
+      term = term.replace(/\%E1/g, "a");
+      term = term.replace(/\%E9/g, "e");
+      term = term.replace(/\%ED/g, "i");
+      term = term.replace(/\%F3/g, "o");
+      term = term.replace(/\%FA/g, "u");
+      term = term.replace(/\%C1/g, "A");
+      term = term.replace(/\%C9/g, "E");
+      term = term.replace(/\%CD/g, "I");
+      term = term.replace(/\%D3/g, "O");
+      term = term.replace(/\%DA/g, "U");
+
+      (source == 'es') ? source = 'G' : source = 'E';
+      var urlElhuyar =  'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/emaitza.asp?sarrera='+term+'&mota=sarrera&term_hizkuntza='+source;
+
       var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
         txtElhuyar = strRes.getString("m1Elhuyar");
         return false;
       }
       xmlHttpReq.open('GET', urlElhuyar, true);
+      xmlHttpReq.setRequestHeader('Content-Type', 'charset=ISO-8859-1');
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
@@ -190,18 +150,14 @@
       var txtElhuyar = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (source == 'es') {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term+'%20%201';
-      } else {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term+'%20%201';
-      }
+      var urlElhuyar =  'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/emaitza.asp?sarrera='+term+'++1&mota=sarrera&term_hizkuntza='+source;
       var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
         txtElhuyar = strRes.getString("m1Elhuyar");
         return false;
       }
       xmlHttpReq.open('GET', urlElhuyar, true);
+      xmlHttpReq.setRequestHeader('Content-Type', 'charset=ISO-8859-1');
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
@@ -218,13 +174,13 @@
         try {
           if (xmlHttpReq.readyState == 4) {
             if (xmlHttpReq.status == 200) {
-          	  //Timerra garbitu
-          	  clearTimeout(requestTimer);
+              //Timerra garbitu
+              clearTimeout(requestTimer);
               txtElhuyar = xmlHttpReq.responseText;
-			  //Elhuyarren katea manipulatzen duen funtzioari deitu
-			  txtElhuyar = manipulateElhuyar(txtElhuyar);
+              //Elhuyarren katea manipulatzen duen funtzioari deitu
+              txtElhuyar = manipulateElhuyar(txtElhuyar);
               getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
-    	  getShiftElhuyarAlt2(source, term);
+              getShiftElhuyarAlt2(source, term);
             }
           } else {
             if (source=='es') {
@@ -246,11 +202,7 @@
       var txtElhuyar = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (source == 'es') {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term+'%20%202';
-      } else {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term+'%20%202';
-      }
+      var urlElhuyar =  'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/emaitza.asp?sarrera='+term+'++2&mota=sarrera&term_hizkuntza='+source;
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
@@ -297,11 +249,7 @@
       var txtElhuyar = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (source == 'es') {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/gazt.asp?Sarrera='+term+'%20%203';
-      } else {
-        var urlElhuyar = 'http://www1.euskadi.net/hizt_el/eusk.asp?Sarrera='+term+'%20%203';
-      }
+      var urlElhuyar =  'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/emaitza.asp?sarrera='+term+'++3&mota=sarrera&term_hizkuntza='+source;
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
