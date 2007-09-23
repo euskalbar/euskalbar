@@ -89,7 +89,7 @@
       term = term.replace(/\%D3/g, "O");
       term = term.replace(/\%DA/g, "U");
 
-      (source == 'es') ? source = 'G' : source = 'E';
+      (source == 'es') ? source = 'gazt' : source = 'eusk';
 
       var urlElhuyar =  'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/index.asp';
       var params = 'aplik_hizkuntza_ezkutua=null&optHizkuntza='+source+'&txtHitza='+term+'&bot_bilatu=%3E&edozer=ehunekoa';
@@ -124,6 +124,15 @@
               var arrayElhuyar = txtElhuyar1.split("value=\"");
               arrayElhuyar.shift();
               getBrowser().contentDocument.getElementById('aElhuyar').innerHTML ="";
+              // Hitza existitzen ez bada...
+              if (txtElhuyar1.indexOf("hutsa") != -1){
+                if (source=='es') {
+                  txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
+                } else {
+                  txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
+                }
+                getBrowser().contentDocument.getElementById('aElhuyar').innerHTML=txtElhuyar;
+              }
               for (i in arrayElhuyar){
                 var params = arrayElhuyar[i].split("\"")[0];
                 params = params.replace(/amp\;/g, "");
@@ -175,12 +184,6 @@
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+txtElhuyar;
             }
-          } else {
-            if (source=='es') {
-              txtElhuyar = 'No se ha encontrado la palabra '+term+'.';
-            } else {
-              txtElhuyar = 'Ez da aurkitu '+term+' hitza.';
-            }
           }
         } catch(e) {
           txtElhuyar = strRes.getString("m1Elhuyar");
@@ -199,6 +202,7 @@
       txtElhuyar = txtElhuyar.replace(/\'\)\;\"/g,"");
       txtElhuyar = txtElhuyar.replace(/\'\)\"/g,"");
       txtElhuyar = txtElhuyar.replace(/amp\;/g,'');
+      txtElhuyar = txtElhuyar + "<hr size='1'>";
       return txtElhuyar;
     }
 
