@@ -255,18 +255,18 @@
                 wtable = 2;
                 txt3000 = term +" hitza ez da aurkitu.";
               } else {
-                var txt3000table1array = txt3000.split("<TABLE");
-                txt3000 = txt3000table1array[wtable].substring(txt3000table1array[wtable].lenght - 1);
-                var txt3000table2array = txt3000.split("<\/TABLE>");;
-                txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
-                txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
-                txt3000 = txt3000.replace(/<blockquote>/g, "");
-                txt3000 = txt3000.replace(/<\/blockquote>/g, "");
-                txt3000 = txt3000.replace(/FFFFCC/g, " ");
-                txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
-                txt3000 = txt3000.replace(/0000A0/g, "000000");
-                txt3000 = txt3000.replace(/center/g, "left");
-		txt3000 = txt3000.replace(/\/cgi-bin_m33/g, "http://www1.euskadi.net/cgi-bin_m33");
+                //3000ren katea manipulatzen duen funtzioa
+                txt3000 = manipulate3000(wtable, txt3000);
+                getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
+                //azpisarrerak badauzka...
+                if (txt3000.indexOf("cgi-bin_m33") != -1){
+                  array3000 = txt3000.split("Href=\'");
+                  array3000.shift();
+                  for (i in array3000){
+                    var url3000 = array3000[i].split("\'>")[0];
+                    getsubShift3000(url3000);
+                  }
+                }
               }
             } else {
                txt3000 = strRes.getString("m13000");
@@ -277,6 +277,66 @@
         }
         getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
       }
+    }
+
+    // 3000ren sarrerak eta azpisarrerak kargatu
+    function getsubShift3000(url3000){
+      var txt3000="";
+      strRes = document.getElementById('leuskal');
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txt3000 = strRes.getString("m13000");
+        return false;
+      }
+      xmlHttpReq.open('GET', url3000, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txt3000 = strRes.getString("m13000");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              txt3000 = xmlHttpReq.responseText;
+              //Elhuyarren katea manipulatzen duen funtzioari deitu
+              txt3000 = manipulate3000(3, txt3000);
+              //Emaitza HTMLan kargatu
+              getBrowser().contentDocument.getElementById('a3000').innerHTML = getBrowser().contentDocument.getElementById('a3000').innerHTML+txt3000;
+            }
+          }
+        } catch(e) {
+          txt3000 = strRes.getString("m13000");
+        }
+      }
+    }
+
+    //3000ren katea manipulatzen duen funtzioa
+    function manipulate3000(wtable, txt3000){
+      var txt3000table1array = txt3000.split("<TABLE");
+      txt3000 = txt3000table1array[wtable].substring(txt3000table1array[wtable].lenght - 1);
+      var txt3000table2array = txt3000.split("<\/TABLE>");;
+      txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
+      txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
+      txt3000 = txt3000.replace(/<blockquote>/g, "");
+      txt3000 = txt3000.replace(/<\/blockquote>/g, "");
+      txt3000 = txt3000.replace(/FFFFCC/g, " ");
+      txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
+      txt3000 = txt3000.replace(/0000A0/g, "000000");
+      txt3000 = txt3000.replace(/center/g, "left");
+      txt3000 = txt3000.replace(/\/cgi-bin_m33/g, "http://www1.euskadi.net/cgi-bin_m33");
+      txt3000 = txt3000 + "<hr size='1'>";
+      return txt3000;
     }
 
 
