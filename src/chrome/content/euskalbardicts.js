@@ -296,7 +296,7 @@
         params.push(new QueryParameter('Idioma', 'CAS'));
         params.push(new QueryParameter('txtpalabra', escape(term)));
       }
-      var zein = 'adorez';
+      var zein = 'cgi-bin_m32';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(7);
