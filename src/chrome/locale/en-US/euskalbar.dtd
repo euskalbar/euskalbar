@@ -49,8 +49,9 @@
 <!ENTITY euskalbar.prefs.lang.caption "Default language">
 <!ENTITY euskalbar.prefs.lang.label "When Euskalbar starts, set the following language:">
 <!ENTITY euskalbar.prefs.tabs.caption "Tab preferences">
-<!ENTITY euskalbar.prefs.combined.caption "Combined query">
+<!ENTITY euskalbar.prefs.combined.caption "Combined query options">
 <!ENTITY euskalbar.prefs.timeout.caption "Query timeout (s)">
+<!ENTITY euskalbar.prefs.subqueries.caption "Perform subqueries">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Choose a skin for Euskalbar:">
 

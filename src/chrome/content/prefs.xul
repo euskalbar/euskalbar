@@ -60,6 +60,7 @@
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
       <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
       <preference id="prefQuerytimeout" name="euskalbar.query.timeout" type="int"/>
+      <preference id="prefQuerysubqueries" name="euskalbar.query.subqueries" type="bool"/>
       <preference id="prefSkin" name="euskalbar.style.combinedquery" type="string"/>
     </preferences>
 
@@ -242,10 +243,15 @@
               </tabbox>
 	    <groupbox>
       	      <caption label="&euskalbar.prefs.combined.caption;" />
-              <hbox align="center">
-                <label value="&euskalbar.prefs.timeout.caption;"/>
-      	        <textbox flex="1" preference="prefQuerytimeout" onkeypress="numField(event);" />
-              </hbox>
+              <vbox flex="1">
+                <hbox align="center">
+                  <label value="&euskalbar.prefs.timeout.caption;"/>
+      	          <textbox flex="1" preference="prefQuerytimeout" onkeypress="numField(event);" />
+                </hbox>
+                <hbox>
+                  <checkbox preference="prefQuerysubqueries" label="&euskalbar.prefs.subqueries.caption;" />
+                </hbox>
+              </vbox>
       	    </groupbox>
     	  </vbox>
         </tabpanel>

@@ -136,7 +136,13 @@
               for (i in arrayElhuyar){
                 var params = arrayElhuyar[i].split("\"")[0];
                 params = params.replace(/amp\;/g, "");
-                getsubShiftElhuyar(params);
+                if (params.indexOf("azpisarrera") == -1){
+                  getsubShiftElhuyar(params);
+                }else{
+                  if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
+                    getsubShiftElhuyar(params);
+                  }
+                }
               }
             } else {
               txtElhuyar = strRes.getString("m1Elhuyar");
@@ -260,11 +266,13 @@
                 getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
                 //azpisarrerak badauzka...
                 if (txt3000.indexOf("cgi-bin_m33") != -1){
-                  array3000 = txt3000.split("Href=\'");
-                  array3000.shift();
-                  for (i in array3000){
-                    var url3000 = array3000[i].split("\'>")[0];
-                    getsubShift3000(url3000);
+                  if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
+                    array3000 = txt3000.split("Href=\'");
+                    array3000.shift();
+                    for (i in array3000){
+                      var url3000 = array3000[i].split("\'>")[0];
+                      getsubShift3000(url3000);
+                    }
                   }
                 }
               }

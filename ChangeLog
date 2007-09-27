@@ -4,6 +4,7 @@
 
 3.0 bertsioa
 ================
+- Kontsulta konbinatuetan azpisarreren kontsulta gaitzeko edo ezgaitzeko hobespena sortu da. (#41)
 - Kontsulta konbinatuetan Elhuyarren eta 3000ren azpisarrerak ere kontsultatzen dira. (#26)
 - Elhuyar hiztegia tarteko orrialderik erabili gabe kontsulta daiteke. (#36)
 - POST metodoa darabilten hiztegien atzipena hobetu da. (#32)

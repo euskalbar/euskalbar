@@ -55,7 +55,7 @@ function writeStats(dict) {
   }
 }
 
-/*Estatistikak leihoan erakusten ditu*/
+//Estatistikak leihoan erakusten ditu
 function setBalioak() {
   var statsText = window.arguments[0];
   statsArray = statsText.split(",");
@@ -70,26 +70,26 @@ function setBalioak() {
 
 /*/Estatistiken fitxategia idazten du
 function writeStats(dict) {
-  var URLStats = extNonStats.clone();
-  URLStats.append("stats.rdf");  //Estatistiken fitxategia ireki eta irakurri
-  var statfis = Components.classes["@mozilla.org/network/file-input-stream;1"]                        .createInstance(Components.interfaces.nsIFileInputStream);  var statsis = Components.classes["@mozilla.org/scriptableinputstream;1"]                        .createInstance(Components.interfaces.nsIScriptableInputStream);  statfis.init(URLStats, -1, 0, 0);  statsis.init(statfis);  var txtStats = statsis.read(statfis.available());  statsis.close();  statfis.close();
+  var RDF = Components.classes['@mozilla.org/rdf/rdf-service;1'].getService();
+  RDF = RDF.QueryInterface(Components.interfaces.nsIRDFService);
 
-  statsArray = txtStats.split("stats:localstat=\"");
-  var txtStats0 = statsArray.shift();
+  var dsource;
+  var statstree=document.getElementById("zuhaitza");
+  var sources=statstree.database.GetDataSources();
 
-  if(dict == -1){
-    //Estatistikak garbitu
-    for (n in statsArray){
-      statsArray[n] = 0+"\"\/>"+statsArray[n].split("\"\/>")[1];
-    }
+  if (sources.hasMoreElements()){
+    dsource=sources.getNext();
   }
-  txtStats = txtStats0+"stats:localstat=\""+statsArray.join("stats:localstat=\"");
+  dsource=dsource.QueryInterface(Components.interfaces.nsIRDFDataSource);
 
-  //Fitxategia idatzi
-  var statout = Components.classes['@mozilla.org/network/file-output-stream;1']
-						.createInstance(Components.interfaces.nsIFileOutputStream);
-  statout.init(URLStats,0x02 | 0x08 | 0x20, 0664, 0);
-  statout.write(txtStats, txtStats.length);
-  statout.flush();
-  statout.close();
+  var rstats = RDF.GetResource('http://www.euskalbar.org/stats');
+  var reuskalterm = RDF.GetResource('http://www.euskalbar.org/stats/euskalterm');
+
+var target = ds.GetTarget(rstats, reuskalterm, true);
+target = target.QueryInterface(Components.interfaces.nsIRDFLiteral);
+// expect 'tres cool'
+alert('target is ' + target.Value + '!');
+
 }*/
+
+

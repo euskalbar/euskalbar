@@ -38,7 +38,7 @@ pref("euskalbar.morris.onkey1.en", true);
 pref("euskalbar.batua.onkey1.en", false);
 pref("euskalbar.adorez.onkey1.en", false);
 pref("euskalbar.uzei.onkey1.en", false);
-//Enter+Key1
+//Enter+Key2
 pref("euskalbar.euskalterm.onkey2.es", false);
 pref("euskalbar.3000.onkey2.es", false);
 pref("euskalbar.elhuyar.onkey2.es", false);
@@ -52,6 +52,10 @@ pref("euskalbar.morris.onkey2.en", false);
 pref("euskalbar.batua.onkey2.en", false);
 pref("euskalbar.adorez.onkey2.en", true);
 pref("euskalbar.uzei.onkey2.en", true);
+// Query timeout
+pref("euskalbar.query.timeout", 5);
+//Azpisarrerak
+pref("euskalbar.query.subqueries", true);
 
 // Tabs pref
 pref("euskalbar.reusetabs.enabled", true);
@@ -62,9 +66,6 @@ pref("euskalbar.showdicts.enabled", false);
 
 // Language selected at startup
 pref("euskalbar.language.startup", "es_eu");
-
-// Query timeout
-pref("euskalbar.query.timeout", 5);
 
 // Styles
 pref("euskalbar.style.combinedquery", "human");

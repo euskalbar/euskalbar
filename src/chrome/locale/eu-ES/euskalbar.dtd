@@ -49,8 +49,9 @@
 <!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">
 <!ENTITY euskalbar.prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
 <!ENTITY euskalbar.prefs.tabs.caption "Fitxen hobespenak">
-<!ENTITY euskalbar.prefs.combined.caption "Kontsulta konbinatua">
+<!ENTITY euskalbar.prefs.combined.caption "Kontsulta konbinatuen aukerak">
 <!ENTITY euskalbar.prefs.timeout.caption "Denbora-muga (seg)">
+<!ENTITY euskalbar.prefs.subqueries.caption "Azpisarrerak kontsultatu">
 <!ENTITY euskalbar.prefs.skin.caption "Azalak">
 <!ENTITY euskalbar.prefs.skin.label "Aukeratu azal bat Euskalbarrentzako:">
 
