@@ -11,11 +11,11 @@
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
         onload="setBalioak();"
         ondialogextra1="writeStats(-1);"
-        width="420px" height="380px">
+        width="420px" height="400px">
 
 <script type="application/x-javascript" src="euskalbarstats.js"/>
 
-<tree flex="4" id="zuhaitza" height="320px" hidecolumnpicker="true">
+<tree flex="4" id="zuhaitza" hidecolumnpicker="true">
   <treecols>
     <treecol flex="3" id="stats-dicts" label="&euskalbar.menu.main;"/>
     <treecol flex="1" id="stats-count" label="&euskalbar.stats.count;"/>
@@ -90,6 +90,12 @@
     <treeitem>
       <treerow>
         <treecell label="&euskalbar.intza.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.corpeus.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>

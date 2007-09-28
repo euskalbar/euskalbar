@@ -17,6 +17,7 @@
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">
 <!ENTITY euskalbar.intza.tooltip "Intza idioms project">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
+<!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet as a Basque Corpus">
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
@@ -143,6 +144,7 @@
 <!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
+<!ENTITY euskalbar.menu.corpeus "CorpEus">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
 
 <!-- Statistics -->

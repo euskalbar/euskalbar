@@ -20,6 +20,7 @@
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefIntza" name="euskalbar.intza.onkey" type="bool"/>
+      <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
@@ -125,19 +126,19 @@
                     <rows>
                     <row>
                       <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                      <checkbox preference="prefItzuL" label="ItzuL" />
-                    </row>
-                    <row>
-                      <checkbox preference="pref3000" label="3000" />
                       <checkbox preference="prefHarluxet" label="Harluxet" />
                     </row>
                     <row>
-                      <checkbox preference="prefElhuyar" label="Elhuyar" />
+                      <checkbox preference="pref3000" label="3000" />
                       <checkbox preference="prefMokoroa" label="Mokoroa" />
                     </row>
                     <row>
-                      <checkbox preference="prefMorris" label="Morris" />
+                      <checkbox preference="prefElhuyar" label="Elhuyar" />
                       <checkbox preference="prefIntza" label="Intza" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefMorris" label="Morris" />
+                      <checkbox preference="prefCorpEus" label="CorpEus" />
                     </row>
                     <row>
                       <checkbox preference="prefOpentran" label="Open-tran" />
@@ -154,6 +155,9 @@
                     <row>
                       <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
                       <checkbox preference="prefXUXENweb" label="XUXENweb" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefItzuL" label="ItzuL" />
                     </row>
                     </rows>
                   </grid> 

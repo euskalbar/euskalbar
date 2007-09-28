@@ -70,6 +70,7 @@
         document.getElementById('Euskalbar-hs-harluxet').setAttribute ("checked",!document.getElementById('EuskalBar-Harluxet').hidden);
         document.getElementById('Euskalbar-hs-mokoroa').setAttribute ("checked",!document.getElementById('EuskalBar-Mokoroa').hidden);
         document.getElementById('Euskalbar-hs-intza').setAttribute ("checked",!document.getElementById('EuskalBar-Intza').hidden);
+        document.getElementById('Euskalbar-hs-corpeus').setAttribute ("checked",!document.getElementById('EuskalBar-CorpEus').hidden);
         document.getElementById('Euskalbar-hs-ztcorpusa').setAttribute ("checked",!document.getElementById('EuskalBar-ZTCorpusa').hidden);
         document.getElementById('Euskalbar-hs-eurovoc').setAttribute ("checked",!document.getElementById('EuskalBar-Eurovoc').hidden);
         document.getElementById('Euskalbar-hs-xuxenweb').setAttribute ("checked",!document.getElementById('EuskalBar-XUXENweb').hidden);
@@ -603,6 +604,9 @@
           }
           if (prefManager.getBoolPref("euskalbar.intza.onkey")) {
             goEuskalBarIntza(euskalbar_source, searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.corpeus.onkey")) {
+            goEuskalBarCorpEus(searchStr);
           }
           if (prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
             goEuskalBarZTCorpusa(searchStr);

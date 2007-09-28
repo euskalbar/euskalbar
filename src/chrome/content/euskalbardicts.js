@@ -206,6 +206,21 @@
       writeStats(11);
     }
 
+    // CorpEus
+    function goEuskalBarCorpEus(term) {
+      var params = [];
+      var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
+      params.push(new QueryParameter('mota', 'arrunta'));
+      params.push(new QueryParameter('bilagaiid', ' '));
+      params.push(new QueryParameter('formalema', 'lema'));
+      params.push(new QueryParameter('testu-hitza', escape(term)));
+      params.push(new QueryParameter('analisia', ''));
+      var zein = 'corpeus';
+      openURL(url, zein, 'POST', params);
+      //Estatistika lokalak idatzi
+      writeStats(12);
+    }
+
     // ZT Corpusa
     function goEuskalBarZTCorpusa(term) {
       var params = [];
@@ -214,7 +229,7 @@
       var zein = 'ztcorpusa';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(12);
+      writeStats(13);
     }
 
 
@@ -235,20 +250,7 @@
       var zein = 'eurovoc';
       openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(13);
-    }
-
-    // Opentrad
-    function goEuskalBarOpentrad(source, term) {
-      var params = [];
-      var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php';
-      params.push(new QueryParameter('language', 'eu'));
-      params.push(new QueryParameter('inurl', escape(window.content.document.location.href)));
-      params.push(new QueryParameter('norantza', 'es-eu'));
-      var zein = 'opentrad';
-      openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      writeStats(15);
+      writeStats(14);
     }
 
 
@@ -260,9 +262,22 @@
       var zein = 'xuxen';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(14);
+      writeStats(15);
     }
 
+
+    // Opentrad
+    function goEuskalBarOpentrad(source, term) {
+      var params = [];
+      var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php';
+      params.push(new QueryParameter('language', 'eu'));
+      params.push(new QueryParameter('inurl', escape(window.content.document.location.href)));
+      params.push(new QueryParameter('norantza', 'es-eu'));
+      var zein = 'opentrad';
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
+      writeStats(16);
+    }
 
     // Zenbait hiztegi atzitzen ditu
     function goEuskalBarOthers(zein) {

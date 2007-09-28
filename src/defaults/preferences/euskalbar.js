@@ -20,6 +20,7 @@ pref("euskalbar.itzul.onkey", false);
 pref("euskalbar.harluxet.onkey", false);
 pref("euskalbar.mokoroa.onkey", false);
 pref("euskalbar.intza.onkey", false);
+pref("euskalbar.corpeus.onkey", false);
 pref("euskalbar.ztcorpusa.onkey", false);
 pref("euskalbar.eurovoc.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
