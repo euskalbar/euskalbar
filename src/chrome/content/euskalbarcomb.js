@@ -136,7 +136,7 @@
               for (i in arrayElhuyar){
                 var params = arrayElhuyar[i].split("\"")[0];
                 params = params.replace(/amp\;/g, "");
-                if (params.indexOf("azpisarrera") == -1){
+                if (params.indexOf("azpisarrera") == -1||txtElhuyar.indexOf("mota=sarrera") == -1){
                   getsubShiftElhuyar(params);
                 }else{
                   if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
