@@ -63,18 +63,18 @@
 
         // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
         // (oharra: persist="checked" ez dabil) -> orain bai?? -> oraindik ez
-        document.getElementById('Euskalbar-hs-batua').setAttribute ("checked",!document.getElementById('EuskalBar-Euskaltzaindia').hidden);
-        document.getElementById('Euskalbar-hs-adorez').setAttribute ("checked",!document.getElementById('EuskalBar-Adorez').hidden);
-        document.getElementById('Euskalbar-hs-uzei').setAttribute ("checked",!document.getElementById('EuskalBar-UZEI').hidden);
-        document.getElementById('Euskalbar-hs-itzul').setAttribute ("checked",!document.getElementById('EuskalBar-ItzuL').hidden);
-        document.getElementById('Euskalbar-hs-harluxet').setAttribute ("checked",!document.getElementById('EuskalBar-Harluxet').hidden);
-        document.getElementById('Euskalbar-hs-mokoroa').setAttribute ("checked",!document.getElementById('EuskalBar-Mokoroa').hidden);
-        document.getElementById('Euskalbar-hs-intza').setAttribute ("checked",!document.getElementById('EuskalBar-Intza').hidden);
-        document.getElementById('Euskalbar-hs-corpeus').setAttribute ("checked",!document.getElementById('EuskalBar-CorpEus').hidden);
-        document.getElementById('Euskalbar-hs-ztcorpusa').setAttribute ("checked",!document.getElementById('EuskalBar-ZTCorpusa').hidden);
-        document.getElementById('Euskalbar-hs-eurovoc').setAttribute ("checked",!document.getElementById('EuskalBar-Eurovoc').hidden);
-        document.getElementById('Euskalbar-hs-xuxenweb').setAttribute ("checked",!document.getElementById('EuskalBar-XUXENweb').hidden);
-        document.getElementById('Euskalbar-hs-opentrad').setAttribute ("checked",!document.getElementById('EuskalBar-Opentrad').hidden);
+        document.getElementById('Euskalbar-hs-batua').setAttribute("checked",!document.getElementById('EuskalBar-Euskaltzaindia').collapsed);
+        document.getElementById('Euskalbar-hs-adorez').setAttribute("checked",!document.getElementById('EuskalBar-Adorez').collapsed);
+        document.getElementById('Euskalbar-hs-uzei').setAttribute("checked",!document.getElementById('EuskalBar-UZEI').collapsed);
+        document.getElementById('Euskalbar-hs-itzul').setAttribute("checked",!document.getElementById('EuskalBar-ItzuL').collapsed);
+        document.getElementById('Euskalbar-hs-harluxet').setAttribute("checked",!document.getElementById('EuskalBar-Harluxet').collapsed);
+        document.getElementById('Euskalbar-hs-mokoroa').setAttribute("checked",!document.getElementById('EuskalBar-Mokoroa').collapsed);
+        document.getElementById('Euskalbar-hs-intza').setAttribute("checked",!document.getElementById('EuskalBar-Intza').collapsed);
+        document.getElementById('Euskalbar-hs-corpeus').setAttribute("checked",!document.getElementById('EuskalBar-CorpEus').collapsed);
+        document.getElementById('Euskalbar-hs-ztcorpusa').setAttribute("checked",!document.getElementById('EuskalBar-ZTCorpusa').collapsed);
+        document.getElementById('Euskalbar-hs-eurovoc').setAttribute("checked",!document.getElementById('EuskalBar-Eurovoc').collapsed);
+        document.getElementById('Euskalbar-hs-xuxenweb').setAttribute("checked",!document.getElementById('EuskalBar-XUXENweb').collapsed);
+        document.getElementById('Euskalbar-hs-opentrad').setAttribute("checked",!document.getElementById('EuskalBar-Opentrad').collapsed);
 
         // Ongietorri leihoa erakutsi (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
         if (navigator.preference('extensions.' + guid +'.welcome')) {

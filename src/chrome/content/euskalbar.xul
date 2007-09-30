@@ -31,7 +31,7 @@
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons"
-           hidden="false" persist="hidden" ondragover="nsDragAndDrop.dragOver(event, toolbarObserver);" ondragdrop="nsDragAndDrop.drop(event, toolbarObserver);">
+               hidden="false" persist="hidden" ondragover="nsDragAndDrop.dragOver(event, toolbarObserver);" ondragdrop="nsDragAndDrop.drop(event, toolbarObserver);">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
@@ -90,29 +90,29 @@
       <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
-               label="Hiztegi Batua" ordinal="1" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="Hiztegi Batua" ordinal="1" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;"
-               label="&euskalbar.adorez.tooltip;" ordinal="2" hidden="true" persist="hidden ordinal" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="&euskalbar.adorez.tooltip;" ordinal="2" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;"
-               label="&euskalbar.uzei.tooltip;" ordinal="3" hidden="true" persist="hidden ordinal" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="&euskalbar.uzei.tooltip;" ordinal="3" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;"
-               label="ItzuL" ordinal="4" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="ItzuL" ordinal="4" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;"
-               label="Harluxet" ordinal="5" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="Harluxet" ordinal="5" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;"
-               label="Mokoroa" ordinal="6" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="Mokoroa" ordinal="6" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;"
-               label="Intza" ordinal="7" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="Intza" ordinal="7" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;"
-               label="CorpEus" ordinal="8" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="CorpEus" ordinal="8" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;"
-               label="ZT Corpusa" ordinal="9" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="ZT Corpusa" ordinal="9" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;"
-               label="Eurovoc" ordinal="10" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="Eurovoc" ordinal="10" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;"
-               label="XUXENweb" ordinal="11" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="XUXENweb" ordinal="11" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
       <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;"
-               label="Opentrad" ordinal="12" hidden="false" persist="hidden ordinal" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+               label="Opentrad" ordinal="12" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
      </toolbar>
   </toolbox>
 
@@ -120,18 +120,18 @@
   <!-- Hide/show buttons context menupopup right-click -->
   <window id="main-window">
     <menupopup id="Euskalbar-hsButtons">
-      <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Hiztegi Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').hidden = !this.hasAttribute('checked');"/> 
-      <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').hidden = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Opentrad" oncommand="document.getElementById('EuskalBar-Opentrad').hidden = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Hiztegi Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/> 
+      <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Opentrad" oncommand="document.getElementById('EuskalBar-Opentrad').collapsed = !this.hasAttribute('checked');"/>
     </menupopup>
   </window>
 
