@@ -210,11 +210,15 @@
     function goEuskalBarCorpEus(term) {
       var params = [];
       var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
-      params.push(new QueryParameter('mota', 'arrunta'));
+      //params.push(new QueryParameter('mota', 'arrunta'));
       params.push(new QueryParameter('bilagaiid', ' '));
       params.push(new QueryParameter('formalema', 'lema'));
-      params.push(new QueryParameter('testu-hitza', escape(term)));
-      params.push(new QueryParameter('analisia', ''));
+      if (term.indexOf(' ') != -1) {
+        params.push(new QueryParameter('testu-hitza', escape('"'+term+'"')));
+      } else {
+        params.push(new QueryParameter('testu-hitza', escape(term)));
+      };
+      //params.push(new QueryParameter('analisia', ''));
       var zein = 'corpeus';
       openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
