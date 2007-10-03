@@ -123,6 +123,12 @@
         <treecell label=""/>
       </treerow>
     </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.bergara.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
   </treechildren>
 </tree>
 </dialog>

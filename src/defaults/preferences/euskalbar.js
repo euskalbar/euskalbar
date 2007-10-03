@@ -25,6 +25,7 @@ pref("euskalbar.ztcorpusa.onkey", false);
 pref("euskalbar.eurovoc.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
 pref("euskalbar.opentrad.onkey", false);
+pref("euskalbar.bergara.onkey", false);
 //Enter+Key1
 pref("euskalbar.euskalterm.onkey1.es", true);
 pref("euskalbar.3000.onkey1.es", true);

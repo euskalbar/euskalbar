@@ -21,6 +21,7 @@
 <!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb corrector ortográfico">
 <!ENTITY euskalbar.opentrad.tooltip "Traducción automática Opentrad">
+<!ENTITY euskalbar.bergara.tooltip "Diccionario de la zona de Bergara">
 
 <!-- About -->
 <!ENTITY euskalbar.about.author "Autores">

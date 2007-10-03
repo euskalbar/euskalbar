@@ -99,6 +99,7 @@
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;" label="Opentrad" collapsed="false" persist="collapsed" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="true" persist="collapsed" oncommand="goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
       </hbox>
      </toolbar>
   </toolbox>
@@ -119,6 +120,7 @@
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Opentrad" oncommand="document.getElementById('EuskalBar-Opentrad').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
     </menupopup>
   </window>
 

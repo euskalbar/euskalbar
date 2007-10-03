@@ -21,6 +21,7 @@
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
+<!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
 
 <!-- About -->
 <!ENTITY euskalbar.about.author "Authors">

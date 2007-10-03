@@ -335,6 +335,17 @@
     }
 
 
+    // Bergara aldeko hiztegia
+    function goEuskalBarBergara(term) {
+      var params = [];
+      var url = 'http://www.netkam.com/i/bergara/hiztegia/bilatu';
+      params.push(new QueryParameter('berbaki', escape(term)));
+      var zein = 'netkam';
+      openURL(url, zein, 'POST', params);
+      writeStats(17);
+    }
+
+
     // Aukeratutako testua itzultzen du
     function selectionText () {
       var focusedWindow = document.commandDispatcher.focusedWindow;

@@ -25,6 +25,7 @@
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
+      <preference id="prefBergara" name="euskalbar.bergara.onkey" type="bool"/>
 
       <preference id="prefEuskaltermShiftES" name="euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="pref3000ShiftES" name="euskalbar.3000.onkey1.es" type="bool"/>
@@ -80,10 +81,10 @@
       	      <label value="&euskalbar.prefs.lang.label;" />
       		<menulist id="menuStartupLang" preference="prefStartupLang">
       		  <menupopup>
-		    <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
-		    <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
-		    <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
-		    <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
+              <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
+              <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
+              <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
+              <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
       		  </menupopup>
       		</menulist>
       	      </vbox>
@@ -158,6 +159,7 @@
                     </row>
                     <row>
                       <checkbox preference="prefItzuL" label="ItzuL" />
+                      <checkbox preference="prefBergara" label="Bergara" />
                     </row>
                     </rows>
                   </grid> 

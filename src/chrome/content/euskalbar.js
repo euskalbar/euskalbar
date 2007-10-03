@@ -516,7 +516,7 @@
               getIntza(euskalbar_source, searchStr);
               writeStats(11);
             }
-          }else {
+          } else {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrleneu.html';
@@ -612,6 +612,9 @@
           }
           if (prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
             goEuskalBarOpentrad(euskalbar_source, searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.bergara.onkey")) {
+            goEuskalBarBergara(searchStr);
           }
         } 
       }

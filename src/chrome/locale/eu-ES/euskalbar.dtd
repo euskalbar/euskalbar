@@ -21,6 +21,7 @@
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurusa">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
+<!ENTITY euskalbar.bergara.tooltip "Bergaraldeko hiztegia">
 
 <!-- About -->
 <!ENTITY euskalbar.about.author "Egileak">
