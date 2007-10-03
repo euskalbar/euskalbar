@@ -298,6 +298,7 @@
               <menuitem id="Euskalbar-Mokoroa-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="goEuskalBarMokoroa('eu', escape(selectionText()));" />
             </menupopup>
           </menu>
+          <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
           <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="goEuskalBarEurovoc(escape(selectionText()));" />
           <menuseparator/>
