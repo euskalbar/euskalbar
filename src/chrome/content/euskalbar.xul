@@ -11,10 +11,10 @@
   <script type="application/x-javascript" src="euskalbardicts.js"/>
   <script type="application/x-javascript" src="euskalbarcomb.js"/>
   <script type="application/x-javascript" src="euskalbarstats.js"/>
-
+  <!-- Hau oraingoz kanpoan... ea hurrengo bertsioan !
   <script type="application/x-javascript" src="chrome://global/content/nsTransferable.js"/>
   <script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
-  <script type="application/x-javascript" src="euskalbardragdrop.js"/>
+  <script type="application/x-javascript" src="euskalbardragdrop.js"/> -->
 
   <!-- Nabigatzailea kargatzean hasieratze funtzioari deitu -->
   <script type="application/x-javascript">
@@ -30,8 +30,7 @@
 
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
-    <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons"
-               hidden="false" persist="hidden" ondragover="nsDragAndDrop.dragOver(event, toolbarObserver);" ondragdrop="nsDragAndDrop.drop(event, toolbarObserver);">
+    <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" hidden="false" persist="hidden">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
@@ -82,37 +81,25 @@
           <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'N'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
-      <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;"
-               label="3000" oncommand="goEuskalBarAsk(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
-      <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;"
-               label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
-      <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="goEuskalBarMorris(euskalbar_source, document.getElementById('EuskalBar-search-string').value);"/>
-      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);"/>
+      <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" oncommand="goEuskalBarAsk(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="goEuskalBarMorris(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
       <toolbarseparator/>
-      <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;"
-               label="Hiztegi Batua" ordinal="1" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;"
-               label="&euskalbar.adorez.tooltip;" ordinal="2" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;"
-               label="&euskalbar.uzei.tooltip;" ordinal="3" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;"
-               label="ItzuL" ordinal="4" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;"
-               label="Harluxet" ordinal="5" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;"
-               label="Mokoroa" ordinal="6" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;"
-               label="Intza" ordinal="7" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;"
-               label="CorpEus" ordinal="8" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;"
-               label="ZT Corpusa" ordinal="9" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;"
-               label="Eurovoc" ordinal="10" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;"
-               label="XUXENweb" ordinal="11" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
-      <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;"
-               label="Opentrad" ordinal="12" collapsed="false" persist="collapsed ordinal" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" ondraggesture="nsDragAndDrop.startDrag(event, buttonObserver);" />
+      <hbox id="Euskalbar-dicts-general">
+        <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Hiztegi Batua" collapsed="false" persist="collapsed" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;" label="&euskalbar.adorez.tooltip;" collapsed="true" persist="collapsed" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;" label="&euskalbar.uzei.tooltip;" collapsed="true" persist="collapsed" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;" label="Opentrad" collapsed="false" persist="collapsed" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      </hbox>
      </toolbar>
   </toolbox>
 
