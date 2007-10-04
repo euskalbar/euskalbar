@@ -102,6 +102,7 @@
 
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Dictionaries">
+
 <!ENTITY euskalbar.menu.general "General">
 <!ENTITY euskalbar.menu.euskaltzaindia "Euskaltzaindia Batua dictionary (EU)">
 <!ENTITY euskalbar.menu.eurovoc "Eurovoc Thesaurus">
@@ -114,13 +115,16 @@
 <!ENTITY euskalbar.menu.opentran "Open-tran translation database (EN-EU)">
 <!ENTITY euskalbar.menu.lagun20 "Polish - Basque dictionary (PL-EU)">
 <!ENTITY euskalbar.menu.goihata "Japanese - Basque dictionary (JP-EU)">
+
 <!ENTITY euskalbar.menu.sinonimoak "Synonyms">
 <!ENTITY euskalbar.menu.sinonimoenhizt "Adorez synonyms dictionary">
 <!ENTITY euskalbar.menu.uzeisinonim "UZEI synonyms dictionary">
+
 <!ENTITY euskalbar.menu.entziklopediak "Encyclopedias">
 <!ENTITY euskalbar.menu.aunam "Auñamendi encyclopedia">
 <!ENTITY euskalbar.menu.harluxet "Harluxet encyclopedia">
 <!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
+
 <!ENTITY euskalbar.menu.thematics "By Subject">
 <!ENTITY euskalbar.menu.drugs "Drugs">
 <!ENTITY euskalbar.menu.energy "Energy">
@@ -138,6 +142,7 @@
 <!ENTITY euskalbar.menu.cooking "Cooking">
 <!ENTITY euskalbar.menu.teleco "Telecommunications">
 <!ENTITY euskalbar.menu.science "Science">
+
 <!ENTITY euskalbar.menu.corpus "Corpus">
 <!ENTITY euskalbar.menu.euskaracorpusa "Basque corpus">
 <!ENTITY euskalbar.menu.mokoroa "Mokoroa">
@@ -147,6 +152,10 @@
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.corpeus "CorpEus">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+
+<!ENTITY euskalbar.menu.towns "Towns">
+<!ENTITY euskalbar.menu.bergara "Bergara zone dictionary">
+<!ENTITY euskalbar.menu.eibar "Eibarko euskeria">
 
 <!-- Statistics -->
 <!ENTITY euskalbar.stats.menu "Statistics">
