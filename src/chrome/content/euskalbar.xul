@@ -243,6 +243,7 @@
                 </menupopup>
               </menu>
     		      <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="goEuskalBarMorris('eu', escape(selectionText()));" />
+      		    <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="goEuskalBarOpentran(escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
@@ -303,6 +304,7 @@
           <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
           <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="goEuskalBarEurovoc(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="goEuskalBarBergara(escape(selectionText()));" />
           <menuseparator/>
           <menuitem id="Euskalbar-Opentrad-context" label="&euskalbar.context.opentrad.label;" oncommand="goEuskalBarSelection(escape(selectionText()), 'opentrad');" />
           <menuseparator/>
