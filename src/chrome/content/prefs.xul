@@ -20,6 +20,7 @@
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefIntza" name="euskalbar.intza.onkey" type="bool"/>
+      <preference id="prefEreduzko" name="euskalbar.ereduzko.onkey" type="bool"/>
       <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
@@ -127,15 +128,15 @@
                     <rows>
                     <row>
                       <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                      <checkbox preference="prefHarluxet" label="Harluxet" />
-                    </row>
-                    <row>
-                      <checkbox preference="pref3000" label="3000" />
                       <checkbox preference="prefMokoroa" label="Mokoroa" />
                     </row>
                     <row>
-                      <checkbox preference="prefElhuyar" label="Elhuyar" />
+                      <checkbox preference="pref3000" label="3000" />
                       <checkbox preference="prefIntza" label="Intza" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefElhuyar" label="Elhuyar" />
+                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
                     </row>
                     <row>
                       <checkbox preference="prefMorris" label="Morris" />
@@ -160,6 +161,9 @@
                     <row>
                       <checkbox preference="prefItzuL" label="ItzuL" />
                       <checkbox preference="prefBergara" label="Bergara" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefHarluxet" label="Harluxet" />
                     </row>
                     </rows>
                   </grid> 

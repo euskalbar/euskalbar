@@ -11,7 +11,7 @@
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
         onload="setBalioak();"
         ondialogextra1="writeStats(-1);"
-        width="420px" height="400px">
+        width="420px" height="460px">
 
 <script type="application/x-javascript" src="euskalbarstats.js"/>
 
@@ -90,6 +90,12 @@
     <treeitem>
       <treerow>
         <treecell label="&euskalbar.intza.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.ereduzko.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>

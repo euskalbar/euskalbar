@@ -598,6 +598,9 @@
           if (prefManager.getBoolPref("euskalbar.intza.onkey")) {
             goEuskalBarIntza(euskalbar_source, searchStr);
           }
+          if (prefManager.getBoolPref("euskalbar.ereduzko.onkey")) {
+            goEuskalBarEreduzko(searchStr);
+          }
           if (prefManager.getBoolPref("euskalbar.corpeus.onkey")) {
             goEuskalBarCorpEus(searchStr);
           }

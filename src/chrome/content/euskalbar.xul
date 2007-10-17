@@ -94,6 +94,7 @@
         <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="true" persist="collapsed" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
@@ -114,13 +115,14 @@
       <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/> 
+      <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="Ereduzko prosa" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Opentrad" oncommand="document.getElementById('EuskalBar-Opentrad').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-bergara" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
     </menupopup>
   </window>
 
@@ -301,6 +303,13 @@
               <menuitem id="Euskalbar-Mokoroa-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="goEuskalBarMokoroa('eu', escape(selectionText()));" />
             </menupopup>
           </menu>
+          <menu id="Euskalbar-Intza-context" label="Intza">
+            <menupopup>
+              <menuitem id="Euskalbar-Intza-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="goEuskalBarIntza('es', escape(selectionText()));" />
+              <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="goEuskalBarIntza('eu', escape(selectionText()));" />
+            </menupopup>
+          </menu>
+          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="goEuskalBarEreduzko(escape(selectionText()));" />
           <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
           <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="goEuskalBarEurovoc(escape(selectionText()));" />

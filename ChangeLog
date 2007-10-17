@@ -2,6 +2,11 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.1 bertsioa
+================
+- Ereduzko prosa gaur proiektuko corpusa gehitu zaio barrari. (#54)
+
+
 3.0 bertsioa
 ================
 - Bergara aldeko hiztegia kontsultagai dago. (#37) (#53)
@@ -27,8 +32,8 @@
 - Morris kontsultaren letra-tipoa aldatu egin da, gainerako kontsulten letra-tipo bera eduki dezan.
 - Hiztegien menuko hiztegiek fitxen hobespenak errespetatzen dituzte zabaltzean. (#16)
 - Aldaketak hiztegien menuan:
-	+ Eibarko euskeria gehitu da.
-	+ Bergara aldeko hiztegia gehitu da.
+  + Eibarko euskeria gehitu da.
+  + Bergara aldeko hiztegia gehitu da.
   + Poloniera - Euskara hiztegia gehitu da.
   + Japoniera - Euskara hiztegia gehitu da.
   + Drogen hiztegiaren helbidea aldatu da. (#33)

@@ -16,6 +16,7 @@
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet encyclopedic dictionary">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">
 <!ENTITY euskalbar.intza.tooltip "Intza idioms project">
+<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet as a Basque Corpus">
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
@@ -29,11 +30,11 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "New dictionaries in the toolbar">
-<!ENTITY euskalbar.about.whatsnew3 "More dictionaries in the combined queries">
-<!ENTITY euskalbar.about.whatsnew4 "Option to hide an show the toolbar buttons">
-<!ENTITY euskalbar.about.whatsnew5 "Option to use skins">
-<!ENTITY euskalbar.about.whatsnew6 "Local statistics">
+<!ENTITY euskalbar.about.whatsnew2 "1">
+<!ENTITY euskalbar.about.whatsnew3 "2">
+<!ENTITY euskalbar.about.whatsnew4 "3">
+<!ENTITY euskalbar.about.whatsnew5 "4">
+<!ENTITY euskalbar.about.whatsnew6 "5">
 <!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->

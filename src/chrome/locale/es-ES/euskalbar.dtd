@@ -16,6 +16,7 @@
 <!ENTITY euskalbar.harluxet.tooltip "Diccionario enciclopédico Harluxet">
 <!ENTITY euskalbar.mokoroa.tooltip "Base de datos Mokoroa">
 <!ENTITY euskalbar.intza.tooltip "Locuciones del proyecto Intza">
+<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Ciencia y Tecnología">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet como corpus del euskera">
 <!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
@@ -29,11 +30,11 @@
 <!ENTITY euskalbar.about.title "Sobre Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Notas de la versión">
 <!ENTITY euskalbar.about.whatsnew1 "Las principales novedades de esta versión de Euskalbar son las siguientes:">
-<!ENTITY euskalbar.about.whatsnew2 "Nuevos diccionarios en la barra">
-<!ENTITY euskalbar.about.whatsnew3 "Más diccionarios en las consultas combinadas">
-<!ENTITY euskalbar.about.whatsnew4 "Posibilidad de mostrar y esconder los botones de la barra">
-<!ENTITY euskalbar.about.whatsnew5 "Posibilidad de usar skins">
-<!ENTITY euskalbar.about.whatsnew6 "Estadísticas locales">
+<!ENTITY euskalbar.about.whatsnew2 "1">
+<!ENTITY euskalbar.about.whatsnew3 "2">
+<!ENTITY euskalbar.about.whatsnew4 "3">
+<!ENTITY euskalbar.about.whatsnew5 "4">
+<!ENTITY euskalbar.about.whatsnew6 "5">
 <!ENTITY euskalbar.about.whatsnew7 "El listado completo de cambios se puede consultar en la siguiente dirección (en euskera):">
 
 <!-- Prefs -->

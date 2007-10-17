@@ -206,6 +206,22 @@
       writeStats(11);
     }
 
+    // Ereduzko Prosa
+    function goEuskalBarEreduzko(term) {
+      var params = [];
+      var zein = 'ereduzkoa';
+      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu.pl'; 
+        params.push(new QueryParameter('oso', '1'));
+        params.push(new QueryParameter('check0', '1'));
+        params.push(new QueryParameter('non', 'bietan'));
+        params.push(new QueryParameter('check1', '1'));
+        params.push(new QueryParameter('mota1', 'hitza'));
+        params.push(new QueryParameter('hitza1',escape(term)));
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi, hau aldatu egin behar da
+      writeStats(12);
+    }
+
     // CorpEus
     function goEuskalBarCorpEus(term) {
       var params = [];
@@ -222,7 +238,7 @@
       var zein = 'corpeus';
       openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(12);
+      writeStats(13);
     }
 
     // ZT Corpusa
@@ -233,7 +249,7 @@
       var zein = 'ztcorpusa';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(13);
+      writeStats(14);
     }
 
 
@@ -254,7 +270,7 @@
       var zein = 'eurovoc';
       openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(14);
+      writeStats(15);
     }
 
 
@@ -266,7 +282,7 @@
       var zein = 'xuxen';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(15);
+      writeStats(16);
     }
 
 
@@ -280,7 +296,7 @@
       var zein = 'opentrad';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(16);
+      writeStats(17);
     }
 
     // Zenbait hiztegi atzitzen ditu
@@ -342,7 +358,7 @@
       params.push(new QueryParameter('berbaki', escape(term)));
       var zein = 'netkam';
       openURL(url, zein, 'POST', params);
-      writeStats(17);
+      writeStats(18);
     }
 
 
