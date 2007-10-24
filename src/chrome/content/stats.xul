@@ -95,13 +95,19 @@
     </treeitem>
     <treeitem>
       <treerow>
-        <treecell label="&euskalbar.ereduzko.tooltip;"/>
+        <treecell label="&euskalbar.eurovoc.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>
     <treeitem>
       <treerow>
-        <treecell label="&euskalbar.corpeus.tooltip;"/>
+        <treecell label="&euskalbar.bergara.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.ereduzko.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>
@@ -113,13 +119,7 @@
     </treeitem>
     <treeitem>
       <treerow>
-        <treecell label="&euskalbar.eurovoc.tooltip;"/>
-        <treecell label=""/>
-      </treerow>
-    </treeitem>
-    <treeitem>
-      <treerow>
-        <treecell label="&euskalbar.xuxenweb.tooltip;"/>
+        <treecell label="&euskalbar.corpeus.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>
@@ -131,7 +131,13 @@
     </treeitem>
     <treeitem>
       <treerow>
-        <treecell label="&euskalbar.bergara.tooltip;"/>
+        <treecell label="&euskalbar.xuxenweb.tooltip;"/>
+        <treecell label=""/>
+      </treerow>
+    </treeitem>
+    <treeitem>
+      <treerow>
+        <treecell label="&euskalbar.elebila.tooltip;"/>
         <treecell label=""/>
       </treerow>
     </treeitem>

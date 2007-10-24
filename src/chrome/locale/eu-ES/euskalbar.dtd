@@ -23,6 +23,7 @@
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
 <!ENTITY euskalbar.bergara.tooltip "Bergaraldeko hiztegia">
+<!ENTITY euskalbar.elebila.tooltip "Elebila euskarazko bilatzailea">
 
 <!-- About -->
 <!ENTITY euskalbar.about.author "Egileak">
@@ -30,11 +31,11 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "1">
-<!ENTITY euskalbar.about.whatsnew3 "2">
-<!ENTITY euskalbar.about.whatsnew4 "3">
-<!ENTITY euskalbar.about.whatsnew5 "4">
-<!ENTITY euskalbar.about.whatsnew6 "5">
+<!ENTITY euskalbar.about.whatsnew2 "Elebila euskarazko bilatzailea gehitu zaio barrari. (#56)">
+<!ENTITY euskalbar.about.whatsnew3 "CorpEus eta ZT Corpusak azentu eta besterekin zituzten arazoak konpondu dira. (#55)">
+<!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur proiektuko corpusa gehitu zaio barrari. (#54)">
+<!ENTITY euskalbar.about.whatsnew5 "-">
+<!ENTITY euskalbar.about.whatsnew6 "-">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
 <!-- Prefs -->
@@ -156,6 +157,9 @@
 <!ENTITY euskalbar.menu.towns "Herriak">
 <!ENTITY euskalbar.menu.bergara "Bergara aldeko hiztegia">
 <!ENTITY euskalbar.menu.eibar "Eibarko euskeria">
+
+<!ENTITY euskalbar.menu.search "Bilatzaileak">
+<!ENTITY euskalbar.menu.elebila "Elebila euskarazko bilatzailea">
 
 <!-- Statistics -->
 <!ENTITY euskalbar.stats.menu "Estatistikak">

@@ -16,13 +16,14 @@
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet encyclopedic dictionary">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">
 <!ENTITY euskalbar.intza.tooltip "Intza idioms project">
+<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
+<!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet as a Basque Corpus">
-<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
-<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
-<!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
+<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
+<!ENTITY euskalbar.elebila.tooltip "Elebila web search engine">
 
 <!-- About -->
 <!ENTITY euskalbar.about.author "Authors">
@@ -30,11 +31,11 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "1">
-<!ENTITY euskalbar.about.whatsnew3 "2">
-<!ENTITY euskalbar.about.whatsnew4 "3">
-<!ENTITY euskalbar.about.whatsnew5 "4">
-<!ENTITY euskalbar.about.whatsnew6 "5">
+<!ENTITY euskalbar.about.whatsnew2 "Elebila, the Basque web search engine has been added. (#56)">
+<!ENTITY euskalbar.about.whatsnew3 "The problems CorpEus and ZT Corpusa had with accents and others have been fixed. (#55)">
+<!ENTITY euskalbar.about.whatsnew4 "The Ereduzko prosa gaur corpus has been added. (#54)">
+<!ENTITY euskalbar.about.whatsnew5 "-">
+<!ENTITY euskalbar.about.whatsnew6 "-">
 <!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->
@@ -157,6 +158,9 @@
 <!ENTITY euskalbar.menu.towns "Towns">
 <!ENTITY euskalbar.menu.bergara "Bergara zone dictionary">
 <!ENTITY euskalbar.menu.eibar "Eibarko euskeria">
+
+<!ENTITY euskalbar.menu.search "Web search engines">
+<!ENTITY euskalbar.menu.elebila "Elebila">
 
 <!-- Statistics -->
 <!ENTITY euskalbar.stats.menu "Statistics">

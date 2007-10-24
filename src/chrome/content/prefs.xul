@@ -20,13 +20,14 @@
       <preference id="prefHarluxet" name="euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefIntza" name="euskalbar.intza.onkey" type="bool"/>
-      <preference id="prefEreduzko" name="euskalbar.ereduzko.onkey" type="bool"/>
-      <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
-      <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
+      <preference id="prefBergara" name="euskalbar.bergara.onkey" type="bool"/>
+      <preference id="prefEreduzko" name="euskalbar.ereduzko.onkey" type="bool"/>
+      <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
+      <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
-      <preference id="prefBergara" name="euskalbar.bergara.onkey" type="bool"/>
+      <preference id="prefElebila" name="euskalbar.elebila.onkey" type="bool"/>
 
       <preference id="prefEuskaltermShiftES" name="euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="pref3000ShiftES" name="euskalbar.3000.onkey1.es" type="bool"/>
@@ -136,34 +137,35 @@
                     </row>
                     <row>
                       <checkbox preference="prefElhuyar" label="Elhuyar" />
-                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefMorris" label="Morris" />
-                      <checkbox preference="prefCorpEus" label="CorpEus" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefOpentran" label="Open-tran" />
-                      <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefBatua" label="Hiztegi Batua" />
                       <checkbox preference="prefEurovoc" label="Eurovoc" />
                     </row>
                     <row>
-                      <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
-                      <checkbox preference="prefOpentrad" label="Opentrad" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
-                      <checkbox preference="prefXUXENweb" label="XUXENweb" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefItzuL" label="ItzuL" />
+                      <checkbox preference="prefMorris" label="Morris" />
                       <checkbox preference="prefBergara" label="Bergara" />
                     </row>
                     <row>
+                      <checkbox preference="prefOpentran" label="Open-tran" />
+                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefBatua" label="Hiztegi Batua" />
+                      <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
+                      <checkbox preference="prefCorpEus" label="CorpEus" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+                      <checkbox preference="prefOpentrad" label="Opentrad" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefItzuL" label="ItzuL" />
+                      <checkbox preference="prefXUXENweb" label="XUXENweb" />
+                    </row>
+                    <row>
                       <checkbox preference="prefHarluxet" label="Harluxet" />
+                      <checkbox preference="prefElebila" label="Elebila" />
                     </row>
                     </rows>
                   </grid> 

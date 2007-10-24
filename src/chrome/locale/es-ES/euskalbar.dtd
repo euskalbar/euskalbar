@@ -23,6 +23,7 @@
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb corrector ortográfico">
 <!ENTITY euskalbar.opentrad.tooltip "Traducción automática Opentrad">
 <!ENTITY euskalbar.bergara.tooltip "Diccionario de la zona de Bergara">
+<!ENTITY euskalbar.elebila.tooltip "Elebila, buscador web de euskera">
 
 <!-- About -->
 <!ENTITY euskalbar.about.author "Autores">
@@ -30,11 +31,11 @@
 <!ENTITY euskalbar.about.title "Sobre Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Notas de la versión">
 <!ENTITY euskalbar.about.whatsnew1 "Las principales novedades de esta versión de Euskalbar son las siguientes:">
-<!ENTITY euskalbar.about.whatsnew2 "1">
-<!ENTITY euskalbar.about.whatsnew3 "2">
-<!ENTITY euskalbar.about.whatsnew4 "3">
-<!ENTITY euskalbar.about.whatsnew5 "4">
-<!ENTITY euskalbar.about.whatsnew6 "5">
+<!ENTITY euskalbar.about.whatsnew2 "Se ha añadido el buscador vasco Elebila. (#56)">
+<!ENTITY euskalbar.about.whatsnew3 "Los problemas de CorpEus y ZT con las tildes y otros se han arreglado. (#55)">
+<!ENTITY euskalbar.about.whatsnew4 "Se ha añadido el corpus Ereduzko prosa gaur. (#54)">
+<!ENTITY euskalbar.about.whatsnew5 "-">
+<!ENTITY euskalbar.about.whatsnew6 "-">
 <!ENTITY euskalbar.about.whatsnew7 "El listado completo de cambios se puede consultar en la siguiente dirección (en euskera):">
 
 <!-- Prefs -->
@@ -156,6 +157,9 @@
 <!ENTITY euskalbar.menu.towns "Pueblos">
 <!ENTITY euskalbar.menu.bergara "Diccionario de la zona de Bergara">
 <!ENTITY euskalbar.menu.eibar "Eibarko euskeria">
+
+<!ENTITY euskalbar.menu.search "Motores de búsqueda">
+<!ENTITY euskalbar.menu.elebila "Buscador web Elebila">
 
 <!-- Statistics -->
 <!ENTITY euskalbar.stats.menu "Estadísticas">

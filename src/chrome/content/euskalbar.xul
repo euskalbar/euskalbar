@@ -94,13 +94,14 @@
         <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="true" persist="collapsed" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="true" persist="collapsed" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;" label="Opentrad" collapsed="true" persist="collapsed" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="true" persist="collapsed" oncommand="goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Opentrad" tooltiptext="&euskalbar.opentrad.tooltip;" label="Opentrad" collapsed="true" persist="collapsed" oncommand="goEuskalBarOpentrad(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="true" persist="collapsed" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="true" persist="collapsed" oncommand="goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
       </hbox>
      </toolbar>
   </toolbox>
@@ -116,13 +117,14 @@
       <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="Ereduzko prosa" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Opentrad" oncommand="document.getElementById('EuskalBar-Opentrad').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-bergara" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="Ereduzko prosa" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-opentrad" type="checkbox" persist="checked" label="Opentrad" oncommand="document.getElementById('EuskalBar-Opentrad').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-elebila" type="checkbox" persist="checked" label="Elebila" oncommand="document.getElementById('EuskalBar-Elebila').collapsed = !this.hasAttribute('checked');"/>
     </menupopup>
   </window>
 
@@ -309,15 +311,17 @@
               <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="goEuskalBarIntza('eu', escape(selectionText()));" />
             </menupopup>
           </menu>
-          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="goEuskalBarEreduzko(escape(selectionText()));" />
-          <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
-          <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="goEuskalBarEurovoc(escape(selectionText()));" />
           <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="goEuskalBarBergara(escape(selectionText()));" />
+          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="goEuskalBarEreduzko(escape(selectionText()));" />
+          <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
+          <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
           <menuseparator/>
           <menuitem id="Euskalbar-Opentrad-context" label="&euskalbar.context.opentrad.label;" oncommand="goEuskalBarSelection(escape(selectionText()), 'opentrad');" />
           <menuseparator/>
           <menuitem id="Euskalbar-XUXENweb-context" label="&euskalbar.context.xuxenweb.label;" oncommand="goEuskalBarSelection(escape(selectionText()), 'xuxenweb');" />
+          <menuseparator/>
+          <menuitem id="Euskalbar-Elebila-context" label="Elebila" oncommand="goEuskalBarSelection(escape(selectionText()), 'elebila');" />
         </menupopup>
       </menu>
   </popup>
@@ -375,21 +379,26 @@
             <menuitem label="&euskalbar.menu.science;" oncommand="openURL('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');" />
             </menupopup>
           </menu>
-          <menu id="Euskalbar-corpusa" label="&euskalbar.menu.corpus;">
-            <menupopup id="Euskalbar-subpopup5">
-            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
-            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');" />
-            <menuitem label="&euskalbar.menu.intza;" oncommand="openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');" />
-            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
-            <menuitem label="&euskalbar.menu.garate;" oncommand="openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');" />
-            <menuitem label="&euskalbar.menu.corpeus;" oncommand="openURL('http://www.corpeus.org','corpeus');" />
-            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="openURL('http://www.ztcorpusa.net','ztcorpusa');" />
-            </menupopup>
-          </menu>
           <menu id="Euskalbar-towns" label="&euskalbar.menu.towns;">
             <menupopup id="Euskalbar-subpopup6">
             <menuitem label="&euskalbar.menu.bergara;" oncommand="openURL('http://www.netkam.com/i/bergara/hiztegia/arakatu', 'netkam');" />
             <menuitem label="&euskalbar.menu.eibar;" oncommand="openURL('http://www.eibarko-euskara.com', 'eibarko-euskara');" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-corpusa" label="&euskalbar.menu.corpus;">
+            <menupopup id="Euskalbar-subpopup5">
+            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');" />
+            <menuitem label="&euskalbar.menu.intza;" oncommand="openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');" />
+            <menuitem label="&euskalbar.menu.garate;" oncommand="openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');" />
+            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
+            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
+            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="openURL('http://www.ztcorpusa.net','ztcorpusa');" />
+            <menuitem label="&euskalbar.menu.corpeus;" oncommand="openURL('http://www.corpeus.org','corpeus');" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-search" label="&euskalbar.menu.search;">
+            <menupopup id="Euskalbar-subpopup7">
+            <menuitem label="&euskalbar.menu.elebila;" oncommand="openURL('http://www.elebila.eu', 'elebila');"/>
             </menupopup>
           </menu>
         </menupopup>

@@ -411,25 +411,25 @@
               getShiftEuskalterm(euskalbar_source, searchStr);
               writeStats(0);
             }
-            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.es")){
-              getShiftElhuyar(euskalbar_source, searchStr);
-              writeStats(2);
-            }
             if (prefManager.getBoolPref("euskalbar.3000.onkey1.es")){
               getShift3000(euskalbar_source, searchStr);
               writeStats(1);
+            }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.es")){
+              getShiftElhuyar(euskalbar_source, searchStr);
+              writeStats(2);
             }
             if (prefManager.getBoolPref("euskalbar.batua.onkey1.es")){
               getShiftEuskaltzaindia(euskalbar_source, searchStr);
               writeStats(5);
             }
-            if (prefManager.getBoolPref("euskalbar.adorez.onkey1.es")){
-              getKtrlAdorez(euskalbar_source, searchStr);
-              writeStats(7);
-            }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey1.es")){
               getKtrlUZEI(euskalbar_source, searchStr);
               writeStats(6);
+            }
+            if (prefManager.getBoolPref("euskalbar.adorez.onkey1.es")){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
             }
             if (prefManager.getBoolPref("euskalbar.mokoroa.onkey1.es")){
               getMokoroa(euskalbar_source, searchStr);
@@ -463,13 +463,13 @@
               getShiftEuskaltzaindia(euskalbar_source, searchStr);
               writeStats(5);
             }
-            if (prefManager.getBoolPref("euskalbar.adorez.onkey1.en")){
-              getKtrlAdorez(euskalbar_source, searchStr);
-              writeStats(7);
-            }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey1.en")){
               getKtrlUZEI(euskalbar_source, searchStr);
               writeStats(6);
+            }
+            if (prefManager.getBoolPref("euskalbar.adorez.onkey1.en")){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
             }
           }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
@@ -488,25 +488,25 @@
               getShiftEuskalterm(euskalbar_source, searchStr);
               writeStats(0);
             }
-            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.es")){
-              getShiftElhuyar(euskalbar_source, searchStr);
-              writeStats(2);
-            }
             if (prefManager.getBoolPref("euskalbar.3000.onkey2.es")){
               getShift3000(euskalbar_source, searchStr);
               writeStats(1);
+            }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.es")){
+              getShiftElhuyar(euskalbar_source, searchStr);
+              writeStats(2);
             }
             if (prefManager.getBoolPref("euskalbar.batua.onkey2.es")){
               getShiftEuskaltzaindia(euskalbar_source, searchStr);
               writeStats(5);
             }
-            if (prefManager.getBoolPref("euskalbar.adorez.onkey2.es")){
-              getKtrlAdorez(euskalbar_source, searchStr);
-              writeStats(7);
-            }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey2.es")){
               getKtrlUZEI(euskalbar_source, searchStr);
               writeStats(6);
+            }
+            if (prefManager.getBoolPref("euskalbar.adorez.onkey2.es")){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
             }
             if (prefManager.getBoolPref("euskalbar.mokoroa.onkey2.es")){
               getMokoroa(euskalbar_source, searchStr);
@@ -540,13 +540,13 @@
               getShiftEuskaltzaindia(euskalbar_source, searchStr);
               writeStats(5);
             }
-            if (prefManager.getBoolPref("euskalbar.adorez.onkey2.en")){
-              getKtrlAdorez(euskalbar_source, searchStr);
-              writeStats(7);
-            }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey2.en")){
               getKtrlUZEI(euskalbar_source, searchStr);
               writeStats(6);
+            }
+            if (prefManager.getBoolPref("euskalbar.adorez.onkey2.en")){
+              getKtrlAdorez(euskalbar_source, searchStr);
+              writeStats(7);
             }
           }
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
@@ -598,26 +598,29 @@
           if (prefManager.getBoolPref("euskalbar.intza.onkey")) {
             goEuskalBarIntza(euskalbar_source, searchStr);
           }
+          if (prefManager.getBoolPref("euskalbar.eurovoc.onkey")) {
+            goEuskalBarEurovoc(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.bergara.onkey")) {
+            goEuskalBarBergara(searchStr);
+          }
           if (prefManager.getBoolPref("euskalbar.ereduzko.onkey")) {
             goEuskalBarEreduzko(searchStr);
-          }
-          if (prefManager.getBoolPref("euskalbar.corpeus.onkey")) {
-            goEuskalBarCorpEus(searchStr);
           }
           if (prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
             goEuskalBarZTCorpusa(searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.eurovoc.onkey")) {
-            goEuskalBarEurovoc(searchStr);
-          }
-          if (prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
-            goEuskalBarXUXENweb(searchStr);
+          if (prefManager.getBoolPref("euskalbar.corpeus.onkey")) {
+            goEuskalBarCorpEus(searchStr);
           }
           if (prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
             goEuskalBarOpentrad(euskalbar_source, searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.bergara.onkey")) {
-            goEuskalBarBergara(searchStr);
+          if (prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
+            goEuskalBarXUXENweb(searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.elebila.onkey")) {
+            goEuskalBarElebila(searchStr);
           }
         } 
       }

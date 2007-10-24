@@ -43,29 +43,6 @@
     }
 
 
-    // Aukeratutako testua itzultzen du opentrad erabiliz edo xuxenweb kontsultatzen du
-    function goEuskalBarSelection(term, action) {
-      var params = [];
-      switch (action) {
-        case 'opentrad' :
-          var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php';
-          params.push(new QueryParameter('testukutxa', escape(term))); 
-          var zein = 'opentrad';
-          //Estatistika lokalak idatzi
-          writeStats(14);
-        break;
-        case 'xuxenweb' :
-          var url = 'http://www.xuxen.com/socketBezero.php';
-          params.push(new QueryParameter('idatzArea', term)); 
-          var zein = 'xuxen';
-          //Estatistika lokalak idatzi
-          writeStats(13);
-        break;
-      }
-      openURL(url, zein, 'GET', params);
-    }
-
-
     // Bilaketak 3000 hiztegian
     function goEuskalBarAsk(source, term) {
       var params = [];
@@ -145,6 +122,41 @@
     }
 
 
+    // UZEIren sinonimoen hiztegia
+    function goEuskalBarUZEI(term) {
+      var params = [];
+      var url = 'http://www.uzei.com/estatico/sinonimos.asp';
+      params.push(new QueryParameter('sarrera', escape(term)));
+      params.push(new QueryParameter('eragiketa', 'bilatu'));
+      var zein = 'uzei';
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
+      writeStats(6);
+    }
+
+
+    // Adorez sinonimoen hiztegia
+    function goEuskalBarAdorez(term) {
+      var params = [];
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
+      if (h.match('euskara')) {
+        params.push(new QueryParameter('Palabra', 'Introducida'));
+        params.push(new QueryParameter('Idioma', 'EUS'));
+        params.push(new QueryParameter('txtpalabra', escape(term)));
+      } else {
+        params.push(new QueryParameter('Palabra', 'Introducida'));
+        params.push(new QueryParameter('Idioma', 'CAS'));
+        params.push(new QueryParameter('txtpalabra', escape(term)));
+      }
+      var zein = 'cgi-bin_m32';
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
+      writeStats(7);
+    }
+
+
     // ItzuL posta-zerrendan bilaketak
     function goEuskalBarItzuL(term) {
       var params = [];
@@ -206,53 +218,6 @@
       writeStats(11);
     }
 
-    // Ereduzko Prosa
-    function goEuskalBarEreduzko(term) {
-      var params = [];
-      var zein = 'ereduzkoa';
-      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu.pl'; 
-        params.push(new QueryParameter('oso', '1'));
-        params.push(new QueryParameter('check0', '1'));
-        params.push(new QueryParameter('non', 'bietan'));
-        params.push(new QueryParameter('check1', '1'));
-        params.push(new QueryParameter('mota1', 'hitza'));
-        params.push(new QueryParameter('hitza1',escape(term)));
-      openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi, hau aldatu egin behar da
-      writeStats(12);
-    }
-
-    // CorpEus
-    function goEuskalBarCorpEus(term) {
-      var params = [];
-      var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
-      //params.push(new QueryParameter('mota', 'arrunta'));
-      params.push(new QueryParameter('bilagaiid', ' '));
-      params.push(new QueryParameter('formalema', 'lema'));
-      if (term.indexOf(' ') != -1) {
-        params.push(new QueryParameter('testu-hitza', escape('"'+term+'"')));
-      } else {
-        params.push(new QueryParameter('testu-hitza', escape(term)));
-      };
-      //params.push(new QueryParameter('analisia', ''));
-      var zein = 'corpeus';
-      openURL(url, zein, 'POST', params);
-      //Estatistika lokalak idatzi
-      writeStats(13);
-    }
-
-    // ZT Corpusa
-    function goEuskalBarZTCorpusa(term) {
-      var params = [];
-      var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
-      params.push(new QueryParameter('testu-hitza1', escape(term)));
-      var zein = 'ztcorpusa';
-      openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      writeStats(14);
-    }
-
-
     // Eurovoc Tesaurusa
     function goEuskalBarEurovoc(term) {
       var params = [];
@@ -270,19 +235,86 @@
       var zein = 'eurovoc';
       openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
+      writeStats(12);
+    }
+
+
+    // Bergara aldeko hiztegia
+    function goEuskalBarBergara(term) {
+      var params = [];
+      var url = 'http://www.netkam.com/i/bergara/hiztegia/bilatu';
+      params.push(new QueryParameter('berbaki', escape(term)));
+      var zein = 'netkam';
+      openURL(url, zein, 'POST', params);
+      writeStats(13);
+    }
+
+
+    // Ereduzko Prosa
+    function goEuskalBarEreduzko(term) {
+      var params = [];
+      var zein = 'ereduzkoa';
+      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu.pl'; 
+        params.push(new QueryParameter('oso', '1'));
+        params.push(new QueryParameter('check0', '1'));
+        params.push(new QueryParameter('non', 'bietan'));
+        params.push(new QueryParameter('check1', '1'));
+        params.push(new QueryParameter('mota1', 'hitza'));
+        params.push(new QueryParameter('hitza1',escape(term)));
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi, hau aldatu egin behar da
+      writeStats(14);
+    }
+
+    // ZT Corpusa
+    function goEuskalBarZTCorpusa(term) {
+      var params = [];
+      var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
+      params.push(new QueryParameter('testu-hitza1', escape(term)));
+      var zein = 'ztcorpusa';
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
       writeStats(15);
     }
 
 
-    // XUXENweb
-    function goEuskalBarXUXENweb(term) {
+    // CorpEus
+    function goEuskalBarCorpEus(term) {
       var params = [];
-      var url = 'http://www.xuxen.com/socketBezero.php';
-      params.push(new QueryParameter('idatzArea', term));
-      var zein = 'xuxen';
-      openURL(url, zein, 'GET', params);
+      var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
+      params.push(new QueryParameter('bilagaiid', ' '));
+      params.push(new QueryParameter('formalema', 'lema'));
+      if (term.indexOf(' ') != -1) {
+        params.push(new QueryParameter('testu-hitza', escape('"'+term+'"')));
+      } else {
+        params.push(new QueryParameter('testu-hitza', escape(term)));
+      };
+      var zein = 'corpeus';
+      openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       writeStats(16);
+    }
+
+    // Aukeratutako testua itzultzen du opentrad erabiliz edo xuxenweb kontsultatzen du
+    function goEuskalBarSelection(term, action) {
+      var params = [];
+      switch (action) {
+        case 'opentrad' :
+          var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php';
+          params.push(new QueryParameter('testukutxa', escape(term))); 
+          var zein = 'opentrad';
+          //Estatistika lokalak idatzi
+          writeStats(17);
+        break;
+        case 'xuxenweb' :
+          var url = 'http://www.xuxen.com/socketBezero.php';
+          params.push(new QueryParameter('idatzArea', term)); 
+          var zein = 'xuxen';
+          //Estatistika lokalak idatzi
+          writeStats(18);
+        break;
+      }
+      openURL(url, zein, 'GET', params);
     }
 
 
@@ -299,6 +331,33 @@
       writeStats(17);
     }
 
+    // XUXENweb
+    function goEuskalBarXUXENweb(term) {
+      var params = [];
+      var url = 'http://www.xuxen.com/socketBezero.php';
+      params.push(new QueryParameter('idatzArea', term));
+      var zein = 'xuxen';
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
+      writeStats(18);
+    }
+
+
+    // Elebila
+    function goEuskalBarElebila(term) {
+      var params = [];
+      var url = 'http://www.elebila.eu/search/';
+      if (term.indexOf(' ') != -1) {
+        params.push(new QueryParameter('bilatu', escape('"'+term+'"')));
+      } else {
+        params.push(new QueryParameter('bilatu', escape(term)));
+      };
+      var zein = 'elebila';
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
+      writeStats(19);
+    }
+
     // Zenbait hiztegi atzitzen ditu
     function goEuskalBarOthers(zein) {
       switch (zein) {
@@ -313,52 +372,6 @@
         break;
       }
       openURL(url, zein, null, null);
-    }
-
-
-    // Adorez sinonimoen hiztegia
-    function goEuskalBarAdorez(term) {
-      var params = [];
-      strRes = document.getElementById('leuskal');
-      const h = strRes.getString("hizk");
-      var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
-      if (h.match('euskara')) {
-        params.push(new QueryParameter('Palabra', 'Introducida'));
-        params.push(new QueryParameter('Idioma', 'EUS'));
-        params.push(new QueryParameter('txtpalabra', escape(term)));
-      } else {
-        params.push(new QueryParameter('Palabra', 'Introducida'));
-        params.push(new QueryParameter('Idioma', 'CAS'));
-        params.push(new QueryParameter('txtpalabra', escape(term)));
-      }
-      var zein = 'cgi-bin_m32';
-      openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      writeStats(7);
-    }
-
-
-    // UZEIren sinonimoen hiztegia
-    function goEuskalBarUZEI(term) {
-      var params = [];
-      var url = 'http://www.uzei.com/estatico/sinonimos.asp';
-      params.push(new QueryParameter('sarrera', escape(term)));
-      params.push(new QueryParameter('eragiketa', 'bilatu'));
-      var zein = 'uzei';
-      openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      writeStats(6);
-    }
-
-
-    // Bergara aldeko hiztegia
-    function goEuskalBarBergara(term) {
-      var params = [];
-      var url = 'http://www.netkam.com/i/bergara/hiztegia/bilatu';
-      params.push(new QueryParameter('berbaki', escape(term)));
-      var zein = 'netkam';
-      openURL(url, zein, 'POST', params);
-      writeStats(18);
     }
 
 
