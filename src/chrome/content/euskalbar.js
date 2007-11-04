@@ -263,22 +263,8 @@
 
     // Estatistika lokalak erakusten ditu
     function showLocalstats() {
-      URLstats = extNon.clone();
-      URLstats.append("stats.txt");
-      // Estatistiken fitxategia ireki eta irakurri
-      var statfs = Components.classes["@mozilla.org/network/file-input-stream;1"]
-                   .createInstance(Components.interfaces.nsIFileInputStream);
-      var statss = Components.classes["@mozilla.org/scriptableinputstream;1"]
-                   .createInstance(Components.interfaces.nsIScriptableInputStream);
-
-      statfs.init(URLstats, -1, 0, 0);
-      statss.init(statfs);
-      var statsText = statss.read(statfs.available());
-      statss.close();
-      statfs.close();
-      // Leihoa ireki eta estatistiken fitxategia pasatu argumentu gisa
       var dialogURL = "chrome://euskalbar/content/stats.xul";
-      window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable", statsText);
+      window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable");
     }
 
 
@@ -659,7 +645,7 @@
       euskalbar_source = source;
       euskalbar_target = target;
       euskalbar_image = source+target+'.png';
-      euskalbar_tooltip = source+' > '+target;
+      euskalbar_tooltip = source.toUpperCase()+' ‣ '+target.toUpperCase();
       setEuskalbarImage();
     }
 
