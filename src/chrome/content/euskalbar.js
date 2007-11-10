@@ -84,7 +84,7 @@
         }
       },
 
-      // Euskalbar deskargatu: observerra ezabatu	
+      // Euskalbar deskargatu: observerra ezabatu
       shutdown: function() {
         this.prefs.removeObserver("", this);
       },
@@ -114,7 +114,7 @@
       var URL = event.target.location.href;
       if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
         var link = event.target.getElementsByTagName("link")[0];
-        link.setAttribute("href", "skins/"+prefStyle+".css");
+        link.setAttribute("href", prefStyle);
       }
 
       //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
@@ -249,7 +249,7 @@
       }
     }
 
-    // Displays the about dialog
+    // Honi buruz koadroa erakusten du
     function euskalbar_about() {
       window.openDialog("chrome://euskalbar/content/about/about.xul", "euskalbar-about-dialog","centerscreen,chrome,modal,resizable");
     }
@@ -265,6 +265,32 @@
     function showLocalstats() {
       var dialogURL = "chrome://euskalbar/content/stats.xul";
       window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable");
+    }
+
+    //Azal pertsonalizatuetarako script-ak (hau eta hurrengoa)
+    function setUserSkinDisabled() {
+      var chkSkins = document.getElementById("chkUserSkinEnable");
+      document.getElementById("txtUserSkinPath").disabled = !chkSkins.checked;
+      document.getElementById("btnUserSkinPath").disabled = !chkSkins.checked;
+      document.getElementById("menuStartupSkin").disabled = chkSkins.checked;
+      if (!chkSkins.checked){
+        prefManager.setCharPref("euskalbar.style.combinedquery", document.getElementById("menuStartupSkin").selectedItem.value);
+      }
+    }
+
+    function browseSkin() {
+      var fpicker = Components.classes["@mozilla.org/filepicker;1"]
+					.createInstance(Components.interfaces.nsIFilePicker);
+
+      fpicker.init(window, "CSS", fpicker.modeOpen);
+      fpicker.appendFilter("CSS (*.css)", "*.css");
+      fpicker.appendFilters(fpicker.filterAll);
+
+      var showResult = fpicker.show();
+      if(showResult == fpicker.returnOK) {
+        document.getElementById("txtUserSkinPath").value = fpicker.file.path;
+        prefManager.setCharPref("euskalbar.style.combinedquery", "file://"+fpicker.file.path);
+      }
     }
 
 

@@ -1,4 +1,5 @@
-﻿<!-- Common -->
+<!-- Common -->
+<!ENTITY euskalbar.browse "Arakatu...">
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
@@ -34,7 +35,7 @@
 <!ENTITY euskalbar.about.whatsnew2 "Elebila euskarazko bilatzailea gehitu zaio barrari. (#56)">
 <!ENTITY euskalbar.about.whatsnew3 "CorpEus eta ZT Corpusak azentu eta besterekin zituzten arazoak konpondu dira. (#55)">
 <!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur proiektuko corpusa gehitu zaio barrari. (#54)">
-<!ENTITY euskalbar.about.whatsnew5 "-">
+<!ENTITY euskalbar.about.whatsnew5 "Azal pertsonalizatuak erabiltzeko aukera">
 <!ENTITY euskalbar.about.whatsnew6 "-">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
@@ -58,6 +59,7 @@
 <!ENTITY euskalbar.prefs.subqueries.caption "Azpisarrerak kontsultatu">
 <!ENTITY euskalbar.prefs.skin.caption "Azalak">
 <!ENTITY euskalbar.prefs.skin.label "Aukeratu azal bat Euskalbarrentzako:">
+<!ENTITY euskalbar.prefs.skin.custom "Erabili azal pertsonalizatua">
 
 
 <!-- Euskalterm -->

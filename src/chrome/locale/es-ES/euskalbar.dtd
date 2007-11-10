@@ -1,4 +1,5 @@
-﻿<!-- Common -->
+<!-- Common -->
+<!ENTITY euskalbar.browse "Ir...">
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
@@ -34,7 +35,7 @@
 <!ENTITY euskalbar.about.whatsnew2 "Se ha añadido el buscador vasco Elebila. (#56)">
 <!ENTITY euskalbar.about.whatsnew3 "Los problemas de CorpEus y ZT con las tildes y otros se han arreglado. (#55)">
 <!ENTITY euskalbar.about.whatsnew4 "Se ha añadido el corpus Ereduzko prosa gaur. (#54)">
-<!ENTITY euskalbar.about.whatsnew5 "-">
+<!ENTITY euskalbar.about.whatsnew5 "Opción de usar skins personalizados">
 <!ENTITY euskalbar.about.whatsnew6 "-">
 <!ENTITY euskalbar.about.whatsnew7 "El listado completo de cambios se puede consultar en la siguiente dirección (en euskera):">
 
@@ -58,6 +59,7 @@
 <!ENTITY euskalbar.prefs.subqueries.caption "Consultar subentradas">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar:">
+<!ENTITY euskalbar.prefs.skin.custom "Usar skin personalizado">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Todos">

@@ -4,7 +4,8 @@
 
 <prefwindow id="euskalbar-prefs-dialog"
         title="&euskalbar.prefs.title;"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onload="setUserSkinDisabled()">
 <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
   <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
     <preferences>
@@ -97,17 +98,24 @@
       	      <checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
       	    </groupbox>
       	    <groupbox>
-      		<caption label="&euskalbar.prefs.skin.caption;"/>
-      		<vbox align="left">
-      		  <label value="&euskalbar.prefs.skin.label;" />
-      		  <menulist id="menuStartupSkin" preference="prefSkin">
-      		    <menupopup>
-			<menuitem id = "human-skin" label="Human" value="human"/>
-			<menuitem id = "oliba-skin" label="Oliba" value="oliba"/>
-			<menuitem id = "urgarden-skin" label="Urgarden" value="urgarden"/>
-      		    </menupopup>
-      		  </menulist>
-      		</vbox>
+              <caption label="&euskalbar.prefs.skin.caption;"/>
+      	      <hbox align="baseline">
+      	        <label value="&euskalbar.prefs.skin.label;" />
+      	        <menulist id="menuStartupSkin" preference="prefSkin">
+      	          <menupopup>
+                    <menuitem id = "human-skin" label="Human" value="skins/human.css"/>
+                    <menuitem id = "oliba-skin" label="Oliba" value="skins/oliba.css"/>
+                    <menuitem id = "urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>
+                  </menupopup>
+   		</menulist>
+              </hbox>
+              <vbox>
+                <checkbox id="chkUserSkinEnable" label="&euskalbar.prefs.skin.custom;" persist="checked" oncommand="setUserSkinDisabled()"/>
+                <hbox>
+                  <textbox id="txtUserSkinPath" flex="1" width="20" preference="prefSkin" onchange="setUserSkin('this.value')"/>
+                  <button id="btnUserSkinPath" oncommand="browseSkin()" label="&euskalbar.browse;"/>
+                </hbox>
+              </vbox>
       	    </groupbox>
       	  </vbox>
         </tabpanel>
