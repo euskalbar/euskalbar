@@ -20,6 +20,7 @@
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
 <!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
+<!ENTITY euskalbar.klasikoak.tooltip "Basque classic writers">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet as a Basque Corpus">
 <!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
@@ -152,6 +153,7 @@
 <!ENTITY euskalbar.menu.mokoroa "Mokoroa">
 <!ENTITY euskalbar.menu.intza "Intza">
 <!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
+<!ENTITY euskalbar.menu.klasikoak "Klasikoen gordailua">
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.corpeus "CorpEus">

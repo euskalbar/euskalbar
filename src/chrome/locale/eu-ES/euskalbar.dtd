@@ -17,6 +17,7 @@
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
 <!ENTITY euskalbar.intza.tooltip "Intza proiektuaren lokuzioak">
+<!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren Corpusa">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet euskarazko corpus gisa">
@@ -151,6 +152,7 @@
 <!ENTITY euskalbar.menu.mokoroa "Mokoroa">
 <!ENTITY euskalbar.menu.intza "Intza">
 <!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa">
+<!ENTITY euskalbar.menu.klasikoak "Klasikoen gordailua">
 <!ENTITY euskalbar.menu.garate "Gotzon Garate">
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.corpeus "CorpEus">

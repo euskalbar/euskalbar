@@ -7,25 +7,25 @@
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/euskalterm">
       <stats:name>&euskalbar.euskalterm.tooltip;</stats:name>
-      <stats:localstat>18</stats:localstat>
+      <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/3000">
       <stats:name>&euskalbar.3000.tooltip;</stats:name>
-      <stats:localstat>22</stats:localstat>
+      <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/elhuyar">
       <stats:name>&euskalbar.elhuyar.tooltip;</stats:name>
-      <stats:localstat>17</stats:localstat>
+      <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/morris">
       <stats:name>&euskalbar.morris.tooltip;</stats:name>
-      <stats:localstat>1</stats:localstat>
+      <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
@@ -37,7 +37,7 @@
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/batua">
       <stats:name>&euskalbar.batua.tooltip;</stats:name>
-      <stats:localstat>3</stats:localstat>
+      <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
@@ -91,6 +91,12 @@
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/ereduzko">
       <stats:name>&euskalbar.ereduzko.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/klasikoak">
+      <stats:name>&euskalbar.klasikoak.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>

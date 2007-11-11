@@ -255,15 +255,33 @@
       var params = [];
       var zein = 'ereduzkoa';
       var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu.pl'; 
-        params.push(new QueryParameter('oso', '1'));
-        params.push(new QueryParameter('check0', '1'));
-        params.push(new QueryParameter('non', 'bietan'));
-        params.push(new QueryParameter('check1', '1'));
-        params.push(new QueryParameter('mota1', 'hitza'));
-        params.push(new QueryParameter('hitza1',escape(term)));
+      params.push(new QueryParameter('oso', '1'));
+      params.push(new QueryParameter('check0', '1'));
+      params.push(new QueryParameter('non', 'bietan'));
+      params.push(new QueryParameter('check1', '1'));
+      params.push(new QueryParameter('mota1', 'hitza'));
+      params.push(new QueryParameter('hitza1',escape(term)));
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi, hau aldatu egin behar da
       writeStats(14);
+    }
+
+    // Klasikoen gordailua
+    function goEuskalBarKlasikoak(term) {
+      var params = [];
+      var zein = 'klasikoak';
+      var url = 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl'; 
+      params.push(new QueryParameter('check1', '1'));
+      params.push(new QueryParameter('hitza1', escape(term)));
+      params.push(new QueryParameter('mota1', 'hasi'));
+      params.push(new QueryParameter('alda', '1'));
+      params.push(new QueryParameter('idazlea', ''));
+      params.push(new QueryParameter('generoa', '0'));
+      params.push(new QueryParameter('garaia', '0'));
+      params.push(new QueryParameter('euskalkia', '0'));
+      openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi, hau aldatu egin behar da
+      writeStats(15);
     }
 
     // ZT Corpusa
@@ -274,7 +292,7 @@
       var zein = 'ztcorpusa';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(15);
+      writeStats(16);
     }
 
 
@@ -292,7 +310,7 @@
       var zein = 'corpeus';
       openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(16);
+      writeStats(17);
     }
 
     // Aukeratutako testua itzultzen du opentrad erabiliz edo xuxenweb kontsultatzen du
@@ -304,14 +322,14 @@
           params.push(new QueryParameter('testukutxa', escape(term))); 
           var zein = 'opentrad';
           //Estatistika lokalak idatzi
-          writeStats(17);
+          writeStats(18);
         break;
         case 'xuxenweb' :
           var url = 'http://www.xuxen.com/socketBezero.php';
           params.push(new QueryParameter('idatzArea', term)); 
           var zein = 'xuxen';
           //Estatistika lokalak idatzi
-          writeStats(18);
+          writeStats(19);
         break;
       }
       openURL(url, zein, 'GET', params);
@@ -328,7 +346,7 @@
       var zein = 'opentrad';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(17);
+      writeStats(18);
     }
 
     // XUXENweb
@@ -339,7 +357,7 @@
       var zein = 'xuxen';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(18);
+      writeStats(19);
     }
 
 
@@ -355,7 +373,7 @@
       var zein = 'elebila';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(19);
+      writeStats(20);
     }
 
     // Zenbait hiztegi atzitzen ditu

@@ -65,7 +65,7 @@ function writeStats(dict) {
     //Leihoko lerro guztietan zero zenbakia idatzi (estatistikak garbitu)
     var tree = document.getElementById("zuhaitza");
     var colstats = tree.columns.getNamedColumn("stats-count");
-    for (f=0;f<20;f++){
+    for (f=0;f<21;f++){
       tree.view.setCellText(f,colstats,0);
     }
   }

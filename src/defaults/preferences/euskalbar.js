@@ -23,6 +23,7 @@ pref("euskalbar.intza.onkey", false);
 pref("euskalbar.eurovoc.onkey", false);
 pref("euskalbar.bergara.onkey", false);
 pref("euskalbar.ereduzko.onkey", false);
+pref("euskalbar.klasikoak.onkey", false);
 pref("euskalbar.ztcorpusa.onkey", false);
 pref("euskalbar.corpeus.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
