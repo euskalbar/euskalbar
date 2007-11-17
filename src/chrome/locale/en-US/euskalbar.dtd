@@ -35,8 +35,8 @@
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
 <!ENTITY euskalbar.about.whatsnew2 "Elebila, the Basque web search engine has been added. (#56)">
 <!ENTITY euskalbar.about.whatsnew3 "The problems CorpEus and ZT Corpusa had with accents and others have been fixed. (#55)">
-<!ENTITY euskalbar.about.whatsnew4 "The Ereduzko prosa gaur corpus has been added. (#54)">
-<!ENTITY euskalbar.about.whatsnew5 "Customized skins">
+<!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur and Klasikoen gordailua have been added. (#54)">
+<!ENTITY euskalbar.about.whatsnew5 "The option to use customized skins has been added. (#57)">
 <!ENTITY euskalbar.about.whatsnew6 "-">
 <!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">
 

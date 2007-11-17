@@ -366,9 +366,9 @@
       var params = [];
       var url = 'http://www.elebila.eu/search/';
       if (term.indexOf(' ') != -1) {
-        params.push(new QueryParameter('bilatu', escape('"'+term+'"')));
+        params.push(new QueryParameter('bilatu', encodeURI('"'+term+'"')));
       } else {
-        params.push(new QueryParameter('bilatu', escape(term)));
+        params.push(new QueryParameter('bilatu', encodeURI(term)));
       };
       var zein = 'elebila';
       openURL(url, zein, 'GET', params);

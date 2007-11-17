@@ -127,7 +127,7 @@
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/elebila">
       <stats:name>&euskalbar.elebila.tooltip;</stats:name>
-      <stats:localstat>0</stats:localstat>
+      <stats:localstat>1</stats:localstat>
       </rdf:Description>
     </rdf:li>
   </rdf:Bag>
