@@ -43,20 +43,6 @@
         } else {
           setEuskalbarDictionaries(euskalbar_target);
         }
-        //Hasieratu hiztegien menuen etiketa
-        strRes = document.getElementById('leuskal');
-        const hiztegiakbai = strRes.getString("m1hiztegiak");
-        const hiztegiakez = strRes.getString("m2hiztegiak");
-        var ctlButton = document.getElementById('hideshowmenu');
-        var button = document.getElementById('Euskalbar-menu');
-        var prefDicts = prefManager.getBoolPref("euskalbar.showdicts.enabled");
-        if (prefDicts) {
-          button.setAttribute('hidden', false);
-          ctlButton.setAttribute('label', hiztegiakez);
-        } else {
-          button.setAttribute('hidden', true);
-          ctlButton.setAttribute('label', hiztegiakbai);
-        }
   
         // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
         getBrowser().addEventListener("DOMContentLoaded", initHTML, true);
@@ -90,18 +76,17 @@
       },
 
       // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da
-      // (hau dagoeneko ez da beharrezkoa baina badaezpada ere utzi egingo dugu
-      // etorkizunean erabili nahi bada-edo)	
       observe: function(subject, topic, data) {
         if (topic != "nsPref:changed") {
           return;
         }
 
-      /*switch(data) {
-          case "style.combinedquery":
-            callChangeStyle();
-        break;
-        }*/
+        switch(data) {
+          //Hiztegien menua erakutsi/ezkutatu
+          case "showdicts.enabled":
+            showhideDicts();
+          break;
+        }
       }
 
     }
@@ -231,21 +216,11 @@
 
     // Hiztegien menua erakusten/ezkutatzen du
     function showhideDicts() {
-      // Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
-      const hiztegiakbai = strRes.getString("m1hiztegiak");
-      const hiztegiakez = strRes.getString("m2hiztegiak");
       var button = document.getElementById('Euskalbar-menu');
-      var ctlButton = document.getElementById('hideshowmenu');
-      var prefDicts = prefManager.getBoolPref("euskalbar.showdicts.enabled");
-      if (prefDicts) {
+      if (!prefManager.getBoolPref("euskalbar.showdicts.enabled")) {
         button.setAttribute('hidden', true);
-        ctlButton.setAttribute('label', hiztegiakbai);
-        prefManager.setBoolPref("euskalbar.showdicts.enabled", false);
       } else  {
         button.removeAttribute('hidden');
-        ctlButton.setAttribute('label', hiztegiakez);
-        prefManager.setBoolPref("euskalbar.showdicts.enabled", true);
       }
     }
 

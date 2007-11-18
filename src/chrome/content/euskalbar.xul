@@ -35,7 +35,6 @@
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
         <menupopup id="EuskalBar-aukerak-popup">
-          <menuitem id="hideshowmenu" label=" " tooltiptext="&euskalbar.prefs.uppermenu.tooltip;" oncommand="showhideDicts();"/>
           <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbarOptions();"/>
           <menuseparator/>
           <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" oncommand="showLocalstats();" />
@@ -316,6 +315,7 @@
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="goEuskalBarEurovoc(escape(selectionText()));" />
           <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="goEuskalBarBergara(escape(selectionText()));" />
           <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="goEuskalBarEreduzko(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="goEuskalBarKlasikoak(escape(selectionText()));"/>
           <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
           <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
           <menuseparator/>

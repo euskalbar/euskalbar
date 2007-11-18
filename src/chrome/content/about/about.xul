@@ -42,7 +42,7 @@
             </vbox>
         </hbox>
         <description value="&euskalbar.about.home.page;" class="title"/>
-        <description onclick="euskalbar_visitHomePage('http://www.interneteuskadi.org/euskalbar',true)" class="url">http://www.interneteuskadi.org/euskalbar</description>
+        <description onclick="euskalbar_visitHomePage('http://www.euskalbar.eu',true)" class="url">http://www.euskalbar.eu</description>
     </vbox>
     <separator class="groove" id="euskalbar-about-separator"/>
 </dialog>

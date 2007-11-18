@@ -118,6 +118,10 @@
                 </hbox>
               </vbox>
       	    </groupbox>
+      	    <groupbox>
+      	    <caption label="&euskalbar.prefs.dicts.caption;" />
+      	      <checkbox preference="prefShowhidedicts" label="&euskalbar.prefs.dicts.label;" />
+      	    </groupbox>
       	  </vbox>
         </tabpanel>
 

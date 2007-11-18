@@ -61,6 +61,8 @@
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Choose a skin for Euskalbar:">
 <!ENTITY euskalbar.prefs.skin.custom "Use a custom skin">
+<!ENTITY euskalbar.prefs.dicts.caption "Dictionaries menu">
+<!ENTITY euskalbar.prefs.dicts.label "Show dictionaries menu">
 
 
 <!-- Euskalterm -->
