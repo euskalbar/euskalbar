@@ -12,7 +12,7 @@
 
     // Euskalterm kargatu
     function getShiftEuskalterm(source, term) {
-      var txtEuskalterm = strRes.getString("m1Euskalterm");;
+      var txtEuskalterm = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       if (euskalbar_source == 'es') {
@@ -37,14 +37,14 @@
 
       xmlHttpReq.open('GET', urlEuskalterm, true);
       xmlHttpReq.send(null);
-	  
+
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
       tout=tout*1000
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
-	    xmlHttpReq.abort();
+        xmlHttpReq.abort();
         txtEuskalterm = strRes.getString("m1Euskalterm");
       }, tout);
 
@@ -584,10 +584,20 @@
               //Timerra garbitu
               clearTimeout(requestTimer);
               txtEuskaltzaindia = xmlHttpReq.responseText;
-              var txtEuskaltzaindiaTable1 = txtEuskaltzaindia.split("burua3\"");
-              txtEuskaltzaindia = txtEuskaltzaindiaTable1[1].slice(0, txtEuskaltzaindiaTable1[1].lastIndexOf("#9A8C07"));
-              txtEuskaltzaindia = "<td "+txtEuskaltzaindia;
-              txtEuskaltzaindia = txtEuskaltzaindia.replace(/bilatu.asp/g, "http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp");
+              txtEuskaltzaindia = manipulateEuskaltzaindia(txtEuskaltzaindia);
+              txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"<font></strong>"+txtEuskaltzaindia;
+              getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
+              //azpisarrerak badauzka...
+              if (txtEuskaltzaindia.indexOf("bilatu.asp") != -1){
+                if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
+                  arrayEuskaltzaindia = txtEuskaltzaindia.split("bilatu.asp");
+                  arrayEuskaltzaindia.shift();
+                  for (i in arrayEuskaltzaindia){
+                    var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("\">")[0];
+                    getsubShiftEuskaltzaindia(urlEuskaltzaindia);
+                  }
+                }
+              }
             } else {
               txtEuskaltzaindia = strRes.getString("m1Batua");
             }
@@ -599,6 +609,59 @@
       }
     }
 
+    // Batuaren sarrerak eta azpisarrerak kargatu
+    function getsubShiftEuskaltzaindia(urlEuskaltzaindia){
+      urlEuskaltzaindia="http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp"+urlEuskaltzaindia;
+      var txtEuskaltzaindia="";
+      strRes = document.getElementById('leuskal');
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtEuskaltzaindia = strRes.getString("m1Batua");
+        return false;
+      }
+      xmlHttpReq.open('GET', urlEuskaltzaindia, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtEuskaltzaindia = strRes.getString("m1Batua");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              txtEuskaltzaindia = xmlHttpReq.responseText;
+              //Batuaren katea manipulatzen duen funtzioari deitu
+              txtEuskaltzaindia = manipulateEuskaltzaindia(txtEuskaltzaindia);
+              txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+urlEuskaltzaindia.split("=")[1]+"<font></strong>"+txtEuskaltzaindia;
+              //Emaitza HTMLan kargatu
+              getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML+txtEuskaltzaindia;
+            }
+          }
+        } catch(e) {
+          txtEuskaltzaindia = strRes.getString("m1Batua");
+        }
+      }
+    }
+
+    //Batuaren katea manipulatzen duen funtzioa
+    function manipulateEuskaltzaindia(txtEuskaltzaindia){
+      var txtEuskaltzaindiaTable1 = txtEuskaltzaindia.split("burua3\"");
+      txtEuskaltzaindia = txtEuskaltzaindiaTable1[1].slice(0, txtEuskaltzaindiaTable1[1].lastIndexOf("<td height=\"1\" bgcolor=\"#9A8C07"));
+      txtEuskaltzaindia = "<td "+txtEuskaltzaindia;
+      txtEuskaltzaindia = txtEuskaltzaindia.replace(/bilatu.asp/g, "http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp");
+      txtEuskaltzaindia = txtEuskaltzaindia + "<br><hr size='1'>";
+      return txtEuskaltzaindia;
+    }
 
 
     // Mokoroa kargatu
