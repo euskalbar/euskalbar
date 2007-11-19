@@ -30,6 +30,10 @@
       } else {
         idioma = 'E';
       }
+      //Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan egin ditzala bilaketak
+      if (term.charAt(term.length - 1) != "*"){
+        term = term+"*";
+      }
       var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe';
       var params = [];
       params.push(new QueryParameter('hizkun1', idioma));

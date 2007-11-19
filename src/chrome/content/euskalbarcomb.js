@@ -22,6 +22,10 @@
       } else {
         idioma = 'E';
       }
+      //Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan egin ditzala bilaketak
+      if (term.charAt(term.length - 1) != "*"){
+        term = term+"*";
+      }
 
       var urlEuskalterm = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='+idioma+'&hitz1='+escape(term)+'&gaiak=0&hizkuntza='+source;
       var xmlHttpReq = new XMLHttpRequest();
@@ -53,7 +57,7 @@
               txtEuskalterm = xmlHttpReq.responseText;
               txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
               txtEuskalterm = txtEuskalterm.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
-              txtEuskalterm = txtEuskalterm.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"<font></strong>");
+              txtEuskalterm = txtEuskalterm.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term.replace(/\*/, "")+"<font></strong>");
               txtEuskalterm = txtEuskalterm.replace(/<\/body><\/html>/, " ");
               txtEuskalterm = txtEuskalterm.replace(/steelblue/g, "black");
               txtEuskalterm = txtEuskalterm.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
