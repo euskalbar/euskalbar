@@ -128,8 +128,19 @@
 
     // UZEIren sinonimoen hiztegia
     function goEuskalBarUZEI(term) {
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      // interfazearen hizkuntza zehaztu
+      if (h.match('euskara')) {
+        hiztegiarenhizkuntza = '14';
+      } else if (h.match('english')) {
+        hiztegiarenhizkuntza = '1347';
+      } else {
+        hiztegiarenhizkuntza = '1';
+      }
       var params = [];
       var url = 'http://www.uzei.com/estatico/sinonimos.asp';
+      params.push(new QueryParameter('sesion', hiztegiarenhizkuntza));
       params.push(new QueryParameter('sarrera', escape(term)));
       params.push(new QueryParameter('eragiketa', 'bilatu'));
       var zein = 'uzei';
