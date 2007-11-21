@@ -1,12 +1,16 @@
-/*  skin/toolbar-button.css  */
-
-toolbar #euskalbar-language {
-  list-style-image: url('chrome://euskalbar/skin/eseu.png');
-}
+/*  skin/toolbar-button.css*/  
 
 toolbar #euskalbar-button {
   list-style-image: url('chrome://euskalbar/skin/euskalbar16.png'); 
   margin-right: 0px;
+}
+
+toolbar #euskalbar-language {
+  margin-top: 2px;
+}
+
+toolbar #EuskalBar-Search {
+  margin-top: 2px;
 }
 
 #Euskalbar-menu [hidden="true"] {display: none !important;} 

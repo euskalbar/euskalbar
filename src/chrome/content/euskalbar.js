@@ -327,7 +327,7 @@
     }
 
 
-    // izena/balioa pareak adierazteko objektua
+    // Izena/balioa pareak adierazteko objektua
     function QueryParameter(aName, aValue) {
       this.name = aName;
       this.value = aValue;
@@ -619,14 +619,6 @@
     }
 
 
-    // Euskalbarren hizkuntzaren irudia eguneratzen du
-    function setEuskalbarImage() {
-      var button = document.getElementById("euskalbar-language");
-      button.setAttribute("image", "chrome://euskalbar/skin/"+euskalbar_image);
-      button.setAttribute("tooltiptext", euskalbar_tooltip);
-    }
-
-
     // Euskalbarren hizkuntza txandakatzen du (toggle modukoa)
     function changeEuskalbarLang() {
       if (euskalbar_target == 'es') {
@@ -643,16 +635,14 @@
       }
     }
 
-
     // Euskalbarren hizkuntza berria zehazten du
     function setEuskalbarLang(source, target) {
+      var button = document.getElementById("euskalbar-language");
+      button.setAttribute("label", source.toUpperCase()+" ‣ "+target.toUpperCase());
       euskalbar_source = source;
       euskalbar_target = target;
-      euskalbar_image = source+target+'.png';
-      euskalbar_tooltip = source.toUpperCase()+' ‣ '+target.toUpperCase();
-      setEuskalbarImage();
+      euskalbar_tooltip = source.toUpperCase()+" ‣ "+target.toUpperCase();
     }
-
 
     // Euskalbarreko hiztegiak moldatzen ditu hizkuntzaren arabera
     function setEuskalbarDictionaries(hizk) {

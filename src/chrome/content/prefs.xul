@@ -85,10 +85,10 @@
       	      <label value="&euskalbar.prefs.lang.label;" />
       		<menulist id="menuStartupLang" preference="prefStartupLang">
       		  <menupopup>
-              <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
-              <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
-              <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
-              <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
+                    <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
+                    <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
+                    <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
+                    <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
       		  </menupopup>
       		</menulist>
       	      </vbox>
