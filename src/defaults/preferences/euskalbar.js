@@ -62,12 +62,13 @@ pref("euskalbar.query.timeout", 5);
 //Azpisarrerak
 pref("euskalbar.query.subqueries", true);
 
-// Tabs pref
+// Tabs prefs
 pref("euskalbar.reusetabs.enabled", true);
 pref("euskalbar.bgtabs.enabled", false);
 
-// Show/hide dictionares menu pref
+// GUI prefs
 pref("euskalbar.showdicts.enabled", false);
+pref("euskalbar.showcontextmenu.enabled", true);
 
 // Language selected at startup
 pref("euskalbar.language.startup", "es_eu");

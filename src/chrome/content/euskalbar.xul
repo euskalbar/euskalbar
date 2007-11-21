@@ -36,7 +36,6 @@
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
         <menupopup id="EuskalBar-aukerak-popup">
           <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbarOptions();"/>
-          <menuseparator/>
           <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" oncommand="showLocalstats();" />
         </menupopup>
       </toolbarbutton>
@@ -132,7 +131,7 @@
 
   <!-- Firefox context menupopup right-click -->
   <popup id="contentAreaContextMenu">    
-    <menuseparator/>
+    <menuseparator id="Euskalbar-context-menuseparator"/>
     	<menu id="Euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
         <observes element="cmd_copy" attribute="disabled" />
     		<menupopup>

@@ -86,6 +86,9 @@
           case "showdicts.enabled":
             showhideDicts();
           break;
+          case "showcontextmenu.enabled":
+            showContextmenu();
+          break;
         }
       }
 
@@ -220,6 +223,19 @@
       if (!prefManager.getBoolPref("euskalbar.showdicts.enabled")) {
         button.setAttribute('hidden', true);
       } else  {
+        button.removeAttribute('hidden');
+      }
+    }
+
+    // Testuinguru-menua erakusten/ezkutatzen du
+    function showContextmenu() {
+      var sep = document.getElementById('Euskalbar-context-menuseparator');
+      var button = document.getElementById('Euskalbar-context-menu');
+      if (!prefManager.getBoolPref("euskalbar.showcontextmenu.enabled")) {
+        sep.setAttribute('hidden', true);
+        button.setAttribute('hidden', true);
+      } else  {
+        sep.removeAttribute('hidden');
         button.removeAttribute('hidden');
       }
     }

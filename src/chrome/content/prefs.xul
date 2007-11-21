@@ -64,6 +64,7 @@
       <preference id="prefReusetabs" name="euskalbar.reusetabs.enabled" type="bool"/>
       <preference id="prefBGtabs" name="euskalbar.bgtabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="euskalbar.showdicts.enabled" type="bool"/>
+      <preference id="prefShowcontextmenu" name="euskalbar.showcontextmenu.enabled" type="bool"/>
       <preference id="prefStartupLang" name="euskalbar.language.startup" type="string"/>
       <preference id="prefQuerytimeout" name="euskalbar.query.timeout" type="int"/>
       <preference id="prefQuerysubqueries" name="euskalbar.query.subqueries" type="bool"/>
@@ -119,8 +120,9 @@
               </vbox>
       	    </groupbox>
       	    <groupbox>
-      	    <caption label="&euskalbar.prefs.dicts.caption;" />
+      	    <caption label="&euskalbar.prefs.gui.caption;" />
       	      <checkbox preference="prefShowhidedicts" label="&euskalbar.prefs.dicts.label;" />
+      	      <checkbox preference="prefShowcontextmenu" label="&euskalbar.prefs.context.label;" />
       	    </groupbox>
       	  </vbox>
         </tabpanel>

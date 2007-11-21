@@ -61,8 +61,9 @@
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar:">
 <!ENTITY euskalbar.prefs.skin.custom "Usar skin personalizado">
-<!ENTITY euskalbar.prefs.dicts.caption "Menú de diccionarios">
+<!ENTITY euskalbar.prefs.gui.caption "Interfaz">
 <!ENTITY euskalbar.prefs.dicts.label "Mostrar el menú de diccionarios">
+<!ENTITY euskalbar.prefs.context.label "Mostrar el menú contextual">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Todos">

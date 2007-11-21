@@ -61,9 +61,9 @@
 <!ENTITY euskalbar.prefs.skin.caption "Azalak">
 <!ENTITY euskalbar.prefs.skin.label "Aukeratu azal bat Euskalbarrentzako:">
 <!ENTITY euskalbar.prefs.skin.custom "Erabili azal pertsonalizatua">
-<!ENTITY euskalbar.prefs.dicts.caption "Hiztegien menua">
+<!ENTITY euskalbar.prefs.gui.caption "Interfazea">
 <!ENTITY euskalbar.prefs.dicts.label "Erakutsi hiztegien menua">
-
+<!ENTITY euskalbar.prefs.context.label "Erakutsi testuinguru-menua">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Gai guztiak">
