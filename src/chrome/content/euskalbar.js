@@ -94,7 +94,6 @@
 
     }
 
-
     //HTML fitxategiak hasieratzen ditu
     function initHTML(event) {
       //HTML fitxategietan estiloaren katea aldatzen du
@@ -282,6 +281,12 @@
         document.getElementById("txtUserSkinPath").value = fpicker.file.path;
         prefManager.setCharPref("euskalbar.style.combinedquery", "file://"+fpicker.file.path);
       }
+    }
+
+    // Laster-teklen aginduak exekutatzen ditu
+    function teklakEuskalbar(prefer) {
+      var balioa = !prefManager.getBoolPref(prefer);
+      prefManager.setBoolPref(prefer, balioa);
     }
 
 

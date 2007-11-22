@@ -27,6 +27,11 @@
     <stringbundle id="leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
   </stringbundleset>
 
+  <!-- Laster-teklak sortzen ditu -->  
+  <keyset>
+    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('euskalbar.showdicts.enabled');"/>
+    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="teklakEuskalbar('euskalbar.showcontextmenu.enabled');"/>
+  </keyset>
 
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
