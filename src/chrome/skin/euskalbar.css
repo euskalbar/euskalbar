@@ -6,11 +6,11 @@ toolbar #euskalbar-button {
 }
 
 toolbar #euskalbar-language {
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 toolbar #EuskalBar-Search {
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 #Euskalbar-menu [hidden="true"] {display: none !important;} 

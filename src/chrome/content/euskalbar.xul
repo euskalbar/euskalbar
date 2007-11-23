@@ -29,8 +29,10 @@
 
   <!-- Laster-teklak sortzen ditu -->  
   <keyset>
-    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('euskalbar.showdicts.enabled');"/>
-    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="teklakEuskalbar('euskalbar.showcontextmenu.enabled');"/>
+    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('showdicts');"/>
+    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="teklakEuskalbar('showcontextmenu');"/>
+    <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="e" oncommand="teklakEuskalbar('showeuskalbar');"/>
+    <key id="Euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="teklakEuskalbar('focustextbox');"/>
   </keyset>
 
   <!-- Firefox Euskalbar toolbar -->
@@ -53,7 +55,7 @@
           <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="setEuskalbarLang('en', 'eu'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
-      <textbox id="EuskalBar-search-string" label="Search String" style="margin-left: 10px;" onkeypress="goEuskalBarOnKey(event)" />
+      <textbox id="EuskalBar-search-string" hidden="false" style="margin-left: 10px;" onkeypress="goEuskalBarOnKey(event)" />
       <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
         <menupopup id="EuskalBar-Euskalterm-popup">
           <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>

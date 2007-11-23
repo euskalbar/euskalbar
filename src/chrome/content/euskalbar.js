@@ -285,8 +285,23 @@
 
     // Laster-teklen aginduak exekutatzen ditu
     function teklakEuskalbar(prefer) {
-      var balioa = !prefManager.getBoolPref(prefer);
-      prefManager.setBoolPref(prefer, balioa);
+      switch (prefer){
+      case "showdicts":
+        prefManager.setBoolPref("euskalbar."+prefer+".enabled", !prefManager.getBoolPref("euskalbar."+prefer+".enabled"));
+        break;
+      case "showcontextmenu":
+        prefManager.setBoolPref("euskalbar."+prefer+".enabled", !prefManager.getBoolPref("euskalbar."+prefer+".enabled"));
+        break;
+      case "showeuskalbar":
+        var el = document.getElementById("EuskalBar-Toolbar");
+        el.hidden = !el.hasAttribute("hidden"); 
+        break;
+      case "focustextbox":
+        var el = document.getElementById("EuskalBar-search-string");
+        el.focus();
+        el.select();
+        break;
+      }
     }
 
 
@@ -635,8 +650,9 @@
           }
         } 
       }
-      // Testu kutxa berriro enfokatzeko... -> Erroreak errore kontsolan 
-      // document.getElementById('Euskalbar-search-string').focus();
+      //Testu kutxa enfokatzen du
+      var el = document.getElementById("EuskalBar-search-string");
+      el.focus();
     }
 
 
