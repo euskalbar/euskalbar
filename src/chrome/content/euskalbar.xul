@@ -29,10 +29,11 @@
 
   <!-- Laster-teklak sortzen ditu -->  
   <keyset>
-    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('showdicts');"/>
-    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="teklakEuskalbar('showcontextmenu');"/>
     <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="e" oncommand="teklakEuskalbar('showeuskalbar');"/>
     <key id="Euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="teklakEuskalbar('focustextbox');"/>
+    <key id="Euskalbar-toggledicts" modifiers="control alt" key="z" oncommand="teklakEuskalbar('toggledicts');"/>
+    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('showdicts');"/>
+    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="teklakEuskalbar('showcontextmenu');"/>
   </keyset>
 
   <!-- Firefox Euskalbar toolbar -->

@@ -301,6 +301,9 @@
         el.focus();
         el.select();
         break;
+      case "toggledicts":
+        changeEuskalbarLang();
+        break;
       }
     }
 

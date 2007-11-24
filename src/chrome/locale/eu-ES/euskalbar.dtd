@@ -33,11 +33,11 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "Elebila euskarazko bilatzailea gehitu zaio barrari. (#56)">
-<!ENTITY euskalbar.about.whatsnew3 "CorpEus eta ZT Corpusak azentu eta besterekin zituzten arazoak konpondu dira. (#55)">
-<!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur proiektuko corpusa eta Klasikoen gordailua gehitu zaizkio barrari. (#54)">
-<!ENTITY euskalbar.about.whatsnew5 "Azal pertsonalizatuak erabiltzeko aukera sortu da. (#57)">
-<!ENTITY euskalbar.about.whatsnew6 "-">
+<!ENTITY euskalbar.about.whatsnew2 "Webgune berria sortu da">
+<!ENTITY euskalbar.about.whatsnew3 "Elebila euskarazko bilatzailea gehitu zaio barrari">
+<!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur proiektuko corpusa eta Klasikoen gordailua gehitu zaizkio barrari">
+<!ENTITY euskalbar.about.whatsnew5 "Azal pertsonalizatuak erabiltzeko aukera sortu da">
+<!ENTITY euskalbar.about.whatsnew6 "Laster-teklak sortu dira">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
 <!-- Prefs -->
