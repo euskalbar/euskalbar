@@ -65,6 +65,12 @@
       </rdf:Description>
     </rdf:li>
     <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/wikipedia">
+      <stats:name>&euskalbar.wikipedia.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/mokoroa">
       <stats:name>&euskalbar.mokoroa.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>

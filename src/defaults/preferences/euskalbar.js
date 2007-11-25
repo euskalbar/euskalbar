@@ -18,6 +18,7 @@ pref("euskalbar.adorez.onkey", false);
 pref("euskalbar.uzei.onkey", false);
 pref("euskalbar.itzul.onkey", false);
 pref("euskalbar.harluxet.onkey", false);
+pref("euskalbar.wikipedia.onkey", false);
 pref("euskalbar.mokoroa.onkey", false);
 pref("euskalbar.intza.onkey", false);
 pref("euskalbar.eurovoc.onkey", false);

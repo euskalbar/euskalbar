@@ -618,6 +618,9 @@
           if (prefManager.getBoolPref("euskalbar.harluxet.onkey")) {
             goEuskalBarHarluxet(searchStr);
           }
+          if (prefManager.getBoolPref("euskalbar.wikipedia.onkey")) {
+            goEuskalBarWikipedia(searchStr);
+          }
           if (prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
             goEuskalBarMokoroa(euskalbar_source, searchStr);
           }

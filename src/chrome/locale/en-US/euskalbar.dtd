@@ -16,6 +16,7 @@
 <!ENTITY euskalbar.itzul.tooltip "ItzuL mailing list archive">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet encyclopedic dictionary">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa database">
+<!ENTITY euskalbar.wikipedia.tooltip "Basque wikipedia">
 <!ENTITY euskalbar.intza.tooltip "Intza idioms project">
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
 <!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
@@ -34,8 +35,8 @@
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
 <!ENTITY euskalbar.about.whatsnew2 "Creation of a new website">
-<!ENTITY euskalbar.about.whatsnew3 "Elebila, the Basque web search engine has been added">
-<!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur and Klasikoen gordailua have been added">
+<!ENTITY euskalbar.about.whatsnew3 "Elebila, the Basque web search engine and Basque Wikipedia have been added">
+<!ENTITY euskalbar.about.whatsnew4 "Ereduzko Prosa Gaur and Klasikoen Gordailua have been added">
 <!ENTITY euskalbar.about.whatsnew5 "The option to use customized skins has been added">
 <!ENTITY euskalbar.about.whatsnew6 "Shortcuts have been created">
 <!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">

@@ -98,6 +98,7 @@
         <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;" label="&euskalbar.uzei.tooltip;" collapsed="true" persist="collapsed" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="true" persist="collapsed" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Wikipedia" tooltiptext="&euskalbar.wikipedia.tooltip;" label="Wikipedia" collapsed="false" persist="collapsed" oncommand="goEuskalBarWikipedia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="true" persist="collapsed" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
@@ -122,6 +123,7 @@
       <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-wikipedia" type="checkbox" persist="checked" label="Wikipedia" oncommand="document.getElementById('EuskalBar-Wikipedia').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
@@ -307,6 +309,7 @@
           <menuitem id="Euskalbar-Euskaltzaindia-context" label="Hiztegi Batua" oncommand="goEuskalBarEuskaltzaindia(escape(selectionText()));" />
           <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="goEuskalBarItzuL(escape(selectionText()));" />
           <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="goEuskalBarHarluxet(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Wikipedia-context" label="Wikipedia" oncommand="goEuskalBarWikipedia(escape(selectionText()));" />
           <menu id="Euskalbar-Mokoroa-context" label="Mokoroa">
             <menupopup>
               <menuitem id="Euskalbar-Mokoroa-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="goEuskalBarMokoroa('es', escape(selectionText()));" />

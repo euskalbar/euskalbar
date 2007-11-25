@@ -15,6 +15,7 @@
 <!ENTITY euskalbar.uzei.tooltip "UZEI sin.">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
+<!ENTITY euskalbar.wikipedia.tooltip "Euskal wikipedia">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
 <!ENTITY euskalbar.intza.tooltip "Intza proiektuaren lokuzioak">
 <!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua">
@@ -34,8 +35,8 @@
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
 <!ENTITY euskalbar.about.whatsnew2 "Webgune berria sortu da">
-<!ENTITY euskalbar.about.whatsnew3 "Elebila euskarazko bilatzailea gehitu zaio barrari">
-<!ENTITY euskalbar.about.whatsnew4 "Ereduzko prosa gaur proiektuko corpusa eta Klasikoen gordailua gehitu zaizkio barrari">
+<!ENTITY euskalbar.about.whatsnew3 "Elebila euskarazko bilatzailea eta euskal Wikipedia gehitu zaizkio barrari">
+<!ENTITY euskalbar.about.whatsnew4 "Ereduzko Prosa Gaur proiektuko corpusa eta Klasikoen Gordailua gehitu zaizkio barrari">
 <!ENTITY euskalbar.about.whatsnew5 "Azal pertsonalizatuak erabiltzeko aukera sortu da">
 <!ENTITY euskalbar.about.whatsnew6 "Laster-teklak sortu dira">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
