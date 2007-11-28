@@ -253,30 +253,25 @@
       xmlHttpReq.onreadystatechange = function() {
         try {
           if (xmlHttpReq.readyState == 4) {
-    	//Timerra garbitu
-    	clearTimeout(requestTimer);
+           //Timerra garbitu
+           clearTimeout(requestTimer);
             if (xmlHttpReq.status == 200) {
               txt3000 = xmlHttpReq.responseText;
               var wtable = 3;
-              if (txt3000.match("No se ha encontrado")) {
+              if (txt3000.match("No se ha encontrado") || txt3000.match("ez da aurkitu")) {
                 wtable = 2;
-                txt3000 = "No se ha encontrado la palabra "+term+".";
-              } else if (txt3000.match("ez da aurkitu")) {
-                wtable = 2;
-                txt3000 = term +" hitza ez da aurkitu.";
-              } else {
-                //3000ren katea manipulatzen duen funtzioa
-                txt3000 = manipulate3000(wtable, txt3000);
-                getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
-                //azpisarrerak badauzka...
-                if (txt3000.indexOf("cgi-bin_m33") != -1){
-                  if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
-                    array3000 = txt3000.split("Href=\'");
-                    array3000.shift();
-                    for (i in array3000){
-                      var url3000 = array3000[i].split("\'>")[0];
-                      getsubShift3000(url3000);
-                    }
+              }
+              //3000ren katea manipulatzen duen funtzioa
+              txt3000 = manipulate3000(wtable, txt3000);
+              getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
+              //azpisarrerak badauzka...
+              if (txt3000.indexOf("cgi-bin_m33") != -1){
+                if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
+                  array3000 = txt3000.split("Href=\'");
+                  array3000.shift();
+                  for (i in array3000){
+                    var url3000 = array3000[i].split("\'>")[0];
+                    getsubShift3000(url3000);
                   }
                 }
               }
@@ -335,20 +330,40 @@
 
     //3000ren katea manipulatzen duen funtzioa
     function manipulate3000(wtable, txt3000){
-      var txt3000table1array = txt3000.split("<TABLE");
-      txt3000 = txt3000table1array[wtable].substring(txt3000table1array[wtable].lenght - 1);
-      var txt3000table2array = txt3000.split("<\/TABLE>");;
-      txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
-      txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
-      txt3000 = txt3000.replace(/<blockquote>/g, "");
-      txt3000 = txt3000.replace(/<\/blockquote>/g, "");
-      txt3000 = txt3000.replace(/FFFFCC/g, " ");
-      txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
-      txt3000 = txt3000.replace(/0000A0/g, "000000");
-      txt3000 = txt3000.replace(/center/g, "left");
-      txt3000 = txt3000.replace(/\/cgi-bin_m33/g, "http://www1.euskadi.net/cgi-bin_m33");
-      txt3000 = txt3000 + "<hr size='1'>";
-      return txt3000;
+      switch(wtable){
+        case 3:
+          var txt3000table1array = txt3000.split("<TABLE");
+          txt3000 = txt3000table1array[wtable].substring(txt3000table1array[wtable].lenght - 1);
+          var txt3000table2array = txt3000.split("<\/TABLE>");
+          txt3000 = txt3000table2array[0].substring(txt3000table2array[0].lenght - 1);
+          txt3000 = '<TABLE'+txt3000+'<\/TABLE>';
+          txt3000 = txt3000.replace(/<blockquote>/g, "");
+          txt3000 = txt3000.replace(/<\/blockquote>/g, "");
+          txt3000 = txt3000.replace(/FFFFCC/g, " ");
+          txt3000 = txt3000.replace(/font-size: 20pt/, "font-size: 12pt");
+          txt3000 = txt3000.replace(/0000A0/g, "000000");
+          txt3000 = txt3000.replace(/center/g, "left");
+          txt3000 = txt3000.replace(/\/cgi-bin_m33/g, "http://www1.euskadi.net/cgi-bin_m33");
+          txt3000 = txt3000 + "<hr size='1'>";
+          return txt3000;
+        break;
+        case 2:
+          var txt3000b = txt3000.split("<IMG")[3];
+          txt3000 = "<IMG"+txt3000b;
+          var txt3000b = txt3000.split("<P")[1]
+          var txt3000c = txt3000.split("<P")[2];
+          txt3000 = "<P"+txt3000b+"<P"+txt3000c;
+          txt3000 = txt3000.replace(/SIZE=\'3\'/g, "");
+          txt3000 = txt3000.replace(/<TD/g, "<P");
+          txt3000 = txt3000.replace(/<\/TD>/g, "<\/P>");
+          txt3000 = txt3000.replace(/<TR/g, "<B");
+          txt3000 = txt3000.replace(/<\/TR>/g, "<\/B>");
+          txt3000 = txt3000.replace(/<SELECT/g, "<SELECT ALIGN=\'CENTER\'");
+          txt3000 = txt3000.replace(/<P>/g, "<P ALIGN=\'CENTER\'>");
+          txt3000 = txt3000.replace(/\/cgi-bin_m33/g, "http://www1.euskadi.net/cgi-bin_m33");
+          return txt3000;
+        break;
+      }
     }
 
 

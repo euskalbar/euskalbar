@@ -55,8 +55,13 @@
           hsMenu[i].setAttribute('checked',!dicts[i].collapsed);
         }
 
-        // Ongietorri leihoa erakutsi (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
+
+        //Estatistiken fitxategia sortzen du (lehendik existitzen ez bada)
+        createEuskalbarStatsFile();
+
+        // Euskalbar abian jartzen den lehen aldia bada...
         if (navigator.preference('extensions.' + guid +'.welcome')) {
+          // Ongietorri leihoa erakusten du (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
           var file = Components.classes["@mozilla.org/extensions/manager;1"]
                     .getService(Components.interfaces.nsIExtensionManager)
                     .getInstallLocation(guid)

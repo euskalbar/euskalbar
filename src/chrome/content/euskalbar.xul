@@ -29,7 +29,7 @@
 
   <!-- Laster-teklak sortzen ditu -->  
   <keyset>
-    <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="e" oncommand="teklakEuskalbar('showeuskalbar');"/>
+    <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="a" oncommand="teklakEuskalbar('showeuskalbar');"/>
     <key id="Euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="teklakEuskalbar('focustextbox');"/>
     <key id="Euskalbar-toggledicts" modifiers="control alt" key="z" oncommand="teklakEuskalbar('toggledicts');"/>
     <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('showdicts');"/>
