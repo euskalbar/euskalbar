@@ -72,7 +72,7 @@
       <preference id="prefSkin" name="euskalbar.style.combinedquery" type="string"/>
     </preferences>
 
-    <tabbox flex="1" selectedIndex="1">
+    <tabbox id="main-tabbox" flex="1">
       <tabs>
         <tab label="&euskalbar.prefs.general.tabtitle;"/>
         <tab label="&euskalbar.prefs.dictionaries.tabtitle;"/>
@@ -130,7 +130,7 @@
 
         <tabpanel id="tab-aurreratua">
           <vbox flex="1">
-              <tabbox flex="1" selectedIndex="0">
+              <tabbox id="sec-tabbox" flex="1">
                 <tabs >
                    <tab style="height:2em" label="Enter"/>
                    <tab style="height:2em" label="Shift+Enter"/>

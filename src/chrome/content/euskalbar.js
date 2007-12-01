@@ -55,7 +55,6 @@
           hsMenu[i].setAttribute('checked',!dicts[i].collapsed);
         }
 
-
         //Estatistiken fitxategia sortzen du (lehendik existitzen ez bada)
         createEuskalbarStatsFile();
 
@@ -72,6 +71,8 @@
           file.remove(false);
           var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
           var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
+          //Euskalbarren webgunea erakusten du
+          var u = setTimeout("getBrowser().selectedTab = getBrowser().addTab('http://www.euskalbar.eu');",2000);
         }
       },
 
@@ -299,7 +300,8 @@
         break;
       case "showeuskalbar":
         var el = document.getElementById("EuskalBar-Toolbar");
-        el.hidden = !el.hasAttribute("hidden"); 
+        var state = el.collapsed;
+        el.collapsed = !state;
         break;
       case "focustextbox":
         var el = document.getElementById("EuskalBar-search-string");
