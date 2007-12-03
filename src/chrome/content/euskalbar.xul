@@ -38,7 +38,7 @@
 
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
-    <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" hidden="false" persist="hidden collapsed">
+    <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">

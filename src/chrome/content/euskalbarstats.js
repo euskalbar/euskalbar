@@ -69,6 +69,10 @@ function writeStats(dict) {
     for (i in statsArray){
       txtStatsNew = txtStatsNew+"<stats:localstat>0</stats:localstat>"+statsArray[i].split("<\/stats:localstat>")[1];
     }
+    //RDF fitxategia birkargatu
+    var tree = document.getElementById("zuhaitza");
+    tree.setAttribute("datasources", "");
+    setDS();
   }else{
     var elArray = statsArray[dict].split("<\/stats:localstat>");
     var element = (elArray[0]*1+1)+"</stats:localstat>"+elArray[1];
@@ -83,16 +87,4 @@ function writeStats(dict) {
   statout.write(txtStatsNew, txtStatsNew.length);
   statout.flush();
   statout.close();
-
-  if(dict == -1){
-   //Leihoko lerro guztietan zero zenbakia idatzi (estatistikak garbitu)
-    var tree = document.getElementById("zuhaitza");
-    var colstats = tree.columns.getNamedColumn("stats-count");
-    for (f=0;f<22;f++){
-      tree.view.setCellText(f,colstats,"");
-    }
-    //RDF fitxategia birkargatu
-    tree.setAttribute("datasources", "");
-    setDS();
-  }
 }

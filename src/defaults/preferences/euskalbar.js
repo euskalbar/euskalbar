@@ -75,5 +75,5 @@ pref("euskalbar.showcontextmenu.enabled", true);
 pref("euskalbar.language.startup", "es_eu");
 
 // Styles
-pref("euskalbar.style.combinedquery", "human");
+pref("euskalbar.style.combinedquery", "skins/human.css");
 

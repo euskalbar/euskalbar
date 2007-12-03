@@ -60,6 +60,8 @@
 
         // Euskalbar abian jartzen den lehen aldia bada...
         if (navigator.preference('extensions.' + guid +'.welcome')) {
+          //Azalen hobespena aldatzen du
+          navigator.preference ('euskalbar.style.combinedquery', 'skins/human.css');
           // Ongietorri leihoa erakusten du (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
           var file = Components.classes["@mozilla.org/extensions/manager;1"]
                     .getService(Components.interfaces.nsIExtensionManager)
