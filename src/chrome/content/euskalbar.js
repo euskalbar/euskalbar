@@ -1,4 +1,4 @@
-﻿// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
+// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
 //             Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
 // This is Free Software (GPL License)
 // juanan@diariolinux.com
@@ -32,31 +32,6 @@
         this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
         //Hasieratu observerra
         this.prefs.addObserver("", this, false);
-  
-        //Hasieratu hizkuntza hautatzeko botoia
-        var lang = prefManager.getCharPref("euskalbar.language.startup");
-        euskalbar_source = lang[0]+lang[1];
-        euskalbar_target = lang[3]+lang[4];
-        setEuskalbarLang(euskalbar_source, euskalbar_target);
-        if (euskalbar_source != 'eu') {
-          setEuskalbarDictionaries(euskalbar_source);
-        } else {
-          setEuskalbarDictionaries(euskalbar_target);
-        }
-  
-        // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
-        getBrowser().addEventListener("DOMContentLoaded", initHTML, true);
-
-        // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
-        // (oharra: persist="checked" ez dabil)
-        var dicts = document.getElementById('Euskalbar-dicts-general').childNodes;
-        var hsMenu = document.getElementById('Euskalbar-hsButtons').childNodes;
-        for (i=0; i < dicts.length; i++) {
-          hsMenu[i].setAttribute('checked',!dicts[i].collapsed);
-        }
-
-        //Estatistiken fitxategia sortzen du (lehendik existitzen ez bada)
-        createEuskalbarStatsFile();
 
         // Euskalbar abian jartzen den lehen aldia bada...
         if (navigator.preference('extensions.' + guid +'.welcome')) {
@@ -75,12 +50,52 @@
           var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
           //Euskalbarren webgunea erakusten du
           var u = setTimeout("getBrowser().selectedTab = getBrowser().addTab('http://www.euskalbar.eu');",2000);
+
+          //Hasieratu barrako hiztegiak (ezkutatu hasieran erakutsi behar ez direnak)
+          var dicts = document.getElementById('Euskalbar-dicts-general').childNodes;
+          dicts[1].setAttribute('collapsed', true);
+          dicts[2].setAttribute('collapsed', true);
+          dicts[3].setAttribute('collapsed', true);
+          dicts[8].setAttribute('collapsed', true);
+          dicts[9].setAttribute('collapsed', true);
+          dicts[14].setAttribute('collapsed', true);
+          dicts[15].setAttribute('collapsed', true);
+          dicts[16].setAttribute('collapsed', true);
         }
+		
+        //Hasieratu hizkuntza hautatzeko botoia
+        var lang = prefManager.getCharPref("euskalbar.language.startup");
+        euskalbar_source = lang[0]+lang[1];
+        euskalbar_target = lang[3]+lang[4];
+        setEuskalbarLang(euskalbar_source, euskalbar_target);
+        if (euskalbar_source != 'eu') {
+          setEuskalbarDictionaries(euskalbar_source);
+        } else {
+          setEuskalbarDictionaries(euskalbar_target);
+        }
+  
+        // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
+        getBrowser().addEventListener("DOMContentLoaded", initHTML, true);
+
+        // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
+        // (oharra: persist="checked" ez dabil)
+        var dicts = document.getElementById('Euskalbar-dicts-general').childNodes;
+        var hsMenu = document.getElementById('Euskalbar-hsButtons').childNodes;
+        for (i=0; i < hsMenu.length; i++) {
+          hsMenu[i].setAttribute('checked',!dicts[i].collapsed);
+        }
+
+        //Estatistiken fitxategia sortzen du (lehendik existitzen ez bada)
+        createEuskalbarStatsFile();
+
       },
 
       // Euskalbar deskargatu: observerra ezabatu
       shutdown: function() {
         this.prefs.removeObserver("", this);
+
+document.persist("EuskalBar-Toolbar", "currentset"); 
+
       },
 
       // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da
