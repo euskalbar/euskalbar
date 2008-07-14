@@ -28,7 +28,6 @@
       <preference id="prefKlasikoak" name="euskalbar.klasikoak.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
-      <preference id="prefOpentrad" name="euskalbar.opentrad.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefElebila" name="euskalbar.elebila.onkey" type="bool"/>
 
@@ -41,7 +40,14 @@
       <preference id="prefMokoroaShiftES" name="euskalbar.mokoroa.onkey1.es" type="bool"/>
       <preference id="prefIntzaShiftES" name="euskalbar.intza.onkey1.es" type="bool"/>
 
+      <preference id="prefEuskaltermShiftFR" name="euskalbar.euskalterm.onkey1.fr" type="bool"/>
+      <preference id="prefElhuyarShiftFR" name="euskalbar.elhuyar.onkey1.fr" type="bool"/>
+      <preference id="prefBatuaShiftFR" name="euskalbar.batua.onkey1.fr" type="bool"/>
+      <preference id="prefAdorezShiftFR" name="euskalbar.adorez.onkey1.fr" type="bool"/>
+      <preference id="prefUZEIShiftFR" name="euskalbar.uzei.onkey1.fr" type="bool"/>
+
       <preference id="prefEuskaltermShiftEN" name="euskalbar.euskalterm.onkey1.en" type="bool"/>
+      <preference id="prefElhuyarShiftEN" name="euskalbar.elhuyar.onkey1.en" type="bool"/>
       <preference id="prefMorrisShiftEN" name="euskalbar.morris.onkey1.en" type="bool"/>
       <preference id="prefBatuaShiftEN" name="euskalbar.batua.onkey1.en" type="bool"/>
       <preference id="prefAdorezShiftEN" name="euskalbar.adorez.onkey1.en" type="bool"/>
@@ -56,7 +62,14 @@
       <preference id="prefMokoroaCtrlES" name="euskalbar.mokoroa.onkey2.es" type="bool"/>
       <preference id="prefIntzaCtrlES" name="euskalbar.intza.onkey2.es" type="bool"/>
 
+      <preference id="prefEuskaltermCtrlFR" name="euskalbar.euskalterm.onkey2.fr" type="bool"/>
+      <preference id="prefElhuyarCtrlFR" name="euskalbar.elhuyar.onkey2.fr" type="bool"/>
+      <preference id="prefBatuaCtrlFR" name="euskalbar.batua.onkey2.fr" type="bool"/>
+      <preference id="prefAdorezCtrlFR" name="euskalbar.adorez.onkey2.fr" type="bool"/>
+      <preference id="prefUZEICtrlFR" name="euskalbar.uzei.onkey2.fr" type="bool"/>
+
       <preference id="prefEuskaltermCtrlEN" name="euskalbar.euskalterm.onkey2.en" type="bool"/>
+      <preference id="prefElhuyarCtrlEN" name="euskalbar.elhuyar.onkey2.en" type="bool"/>
       <preference id="prefMorrisCtrlEN" name="euskalbar.morris.onkey2.en" type="bool"/>
       <preference id="prefBatuaCtrlEN" name="euskalbar.batua.onkey2.en" type="bool"/>
       <preference id="prefAdorezCtrlEN" name="euskalbar.adorez.onkey2.en" type="bool"/>
@@ -89,8 +102,11 @@
       		  <menupopup>
                     <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
                     <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
+                    <menuitem label="&euskalbar.language.eu_fr;" value="eu_fr"/>
+                    <menuitem label="&euskalbar.language.fr_eu;" value="fr_eu"/>
                     <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
                     <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
+                    <menuitem label="&euskalbar.language.la_eu;" value="la_eu"/>
       		  </menupopup>
       		</menulist>
       	      </vbox>
@@ -149,11 +165,11 @@
                       <checkbox preference="prefMokoroa" label="Mokoroa" />
                     </row>
                     <row>
-                      <checkbox preference="pref3000" label="3000" />
+                      <checkbox preference="prefElhuyar" label="Elhuyar" />
                       <checkbox preference="prefIntza" label="Intza" />
                     </row>
                     <row>
-                      <checkbox preference="prefElhuyar" label="Elhuyar" />
+                      <checkbox preference="pref3000" label="3000" />
                       <checkbox preference="prefEurovoc" label="Eurovoc" />
                     </row>
                     <row>
@@ -178,15 +194,14 @@
                     </row>
                     <row>
                       <checkbox preference="prefItzuL" label="ItzuL" />
-                      <checkbox preference="prefOpentrad" label="Opentrad" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefHarluxet" label="Harluxet" />
                       <checkbox preference="prefXUXENweb" label="XUXENweb" />
                     </row>
                     <row>
-                      <checkbox preference="prefWikipedia" label="Wikipedia" />
+                      <checkbox preference="prefHarluxet" label="Harluxet" />
                       <checkbox preference="prefElebila" label="Elebila" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefWikipedia" label="Wikipedia" />
                     </row>
                     </rows>
                   </grid> 
@@ -196,34 +211,43 @@
                     <columns>
                       <column flex="1" />
                       <column flex="1" />
+                      <column flex="1" />
                     </columns>
                     <rows>
                     <row>
       	              <label value="EU‣ES / ES‣EU" />
+      	              <label value="EU‣FR / FR‣EU" />
       	              <label value="EU‣EN / EN‣EU" />
                     </row>
                     <row>
-                      <checkbox preference="prefEuskaltermShiftES" label="Euskalterm" oncommand=""/>
+                      <checkbox preference="prefEuskaltermShiftES" label="Euskalterm" />
+                      <checkbox preference="prefEuskaltermShiftFR" label="Euskalterm" />
                       <checkbox preference="prefEuskaltermShiftEN" label="Euskalterm" />
                     </row>
                     <row>
                       <checkbox preference="prefElhuyarShiftES" label="Elhuyar" />
-                      <checkbox preference="prefMorrisShiftEN" label="Morris" />
+                      <checkbox preference="prefElhuyarShiftFR" label="Elhuyar" />
+                      <checkbox preference="prefElhuyarShiftEN" label="Elhuyar" />
                     </row>
                     <row>
                       <checkbox preference="pref3000ShiftES" label="3000" />
-                      <checkbox preference="prefBatuaShiftEN" label="Batua" />
+      	              <label value="" />
+                      <checkbox preference="prefMorrisShiftEN" label="Morris" />
                     </row>
                     <row>
                       <checkbox preference="prefBatuaShiftES" label="Batua" />
-                      <checkbox preference="prefAdorezShiftEN" label="Adorez" />
+                      <checkbox preference="prefBatuaShiftFR" label="Batua" />
+                      <checkbox preference="prefBatuaShiftEN" label="Batua" />
                     </row>
                     <row>
                       <checkbox preference="prefAdorezShiftES" label="Adorez" />
-                      <checkbox preference="prefUZEIShiftEN" label="UZEI" />
+                      <checkbox preference="prefAdorezShiftFR" label="Adorez" />
+                      <checkbox preference="prefAdorezShiftEN" label="Adorez" />
                     </row>
                     <row>
                       <checkbox preference="prefUZEIShiftES" label="UZEI" />
+                      <checkbox preference="prefUZEIShiftFR" label="UZEI" />
+                      <checkbox preference="prefUZEIShiftEN" label="UZEI" />
                     </row>
                     <row>
                       <checkbox preference="prefMokoroaShiftES" label="Mokoroa" />
@@ -239,34 +263,43 @@
                     <columns>
                       <column flex="1" />
                       <column flex="1" />
+                      <column flex="1" />
                     </columns>
                     <rows>
                     <row>
-                      <label value="EU‣ES / ES‣EU" />
-                      <label value="EU‣EN / EN‣EU" />
+      	              <label value="EU‣ES / ES‣EU" />
+      	              <label value="EU‣FR / FR‣EU" />
+      	              <label value="EU‣EN / EN‣EU" />
                     </row>
                     <row>
-                      <checkbox preference="prefEuskaltermCtrlES" label="Euskalterm" oncommand=""/>
+                      <checkbox preference="prefEuskaltermCtrlES" label="Euskalterm" />
+                      <checkbox preference="prefEuskaltermCtrlFR" label="Euskalterm" />
                       <checkbox preference="prefEuskaltermCtrlEN" label="Euskalterm" />
                     </row>
                     <row>
                       <checkbox preference="prefElhuyarCtrlES" label="Elhuyar" />
-                      <checkbox preference="prefMorrisCtrlEN" label="Morris" />
+                      <checkbox preference="prefElhuyarCtrlFR" label="Elhuyar" />
+                      <checkbox preference="prefElhuyarCtrlEN" label="Elhuyar" />
                     </row>
                     <row>
                       <checkbox preference="pref3000CtrlES" label="3000" />
-                      <checkbox preference="prefBatuaCtrlEN" label="Batua" />
+      	              <label value="" />
+                      <checkbox preference="prefMorrisCtrlEN" label="Morris" />
                     </row>
                     <row>
                       <checkbox preference="prefBatuaCtrlES" label="Batua" />
-                      <checkbox preference="prefAdorezCtrlEN" label="Adorez" />
+                      <checkbox preference="prefBatuaCtrlFR" label="Batua" />
+                      <checkbox preference="prefBatuaCtrlEN" label="Batua" />
                     </row>
                     <row>
                       <checkbox preference="prefAdorezCtrlES" label="Adorez" />
-                      <checkbox preference="prefUZEICtrlEN" label="UZEI" />
+                      <checkbox preference="prefAdorezCtrlFR" label="Adorez" />
+                      <checkbox preference="prefAdorezCtrlEN" label="Adorez" />
                     </row>
                     <row>
                       <checkbox preference="prefUZEICtrlES" label="UZEI" />
+                      <checkbox preference="prefUZEICtrlFR" label="UZEI" />
+                      <checkbox preference="prefUZEICtrlEN" label="UZEI" />
                     </row>
                     <row>
                       <checkbox preference="prefMokoroaCtrlES" label="Mokoroa" />

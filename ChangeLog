@@ -2,6 +2,14 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.2 bertsioa
+================
+- Elhuyar Hiztegia helbide berrian kontsultatzen da.
+- Elhuyar En-Eu hiztegia kontsultatzeko aukera gehitu da.
+- Frantsesezko hiztegien aukerak gehitu dira (Euskalterm, Elhuyar).
+- Euskalterm latinez kontsultatzeko aukera gehitu da. (#68)
+- Interfazea frantsesera ere itzuli da.
+
 3.1 bertsioa
 ================
 - Azal pertsonalizatuak erabiltzeko aukera gehitu da. (#57)

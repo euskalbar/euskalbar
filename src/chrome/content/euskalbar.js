@@ -154,9 +154,28 @@ document.persist("EuskalBar-Toolbar", "currentset");
           if (prefManager.getBoolPref("euskalbar.intza.onkey1.es")){
             showHTMLColumns("Intza", event);
           }
+        } else if ((euskalbar_source == 'fr') || (euskalbar_target == 'fr')) { //eu-fr eta fr-eu itzulpenetarako
+          if (prefManager.getBoolPref("euskalbar.euskalterm.onkey1.fr")){
+            showHTMLColumns("Euskalterm", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.fr")){
+            showHTMLColumns("Elhuyar", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.batua.onkey1.fr")){
+            showHTMLColumns("Batua", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.adorez.onkey1.fr")){
+            showHTMLColumns("Adorez", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.uzei.onkey1.fr")){
+            showHTMLColumns("UZEI", event);
+          }
         } else { //eu-en eta en-eu itzulpenetarako
           if (prefManager.getBoolPref("euskalbar.euskalterm.onkey1.en")){
             showHTMLColumns("Euskalterm", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.en")){
+            showHTMLColumns("Elhuyar", event);
           }
           if (prefManager.getBoolPref("euskalbar.morris.onkey1.en")){
             showHTMLColumns("Morris", event);
@@ -197,9 +216,28 @@ document.persist("EuskalBar-Toolbar", "currentset");
           if (prefManager.getBoolPref("euskalbar.intza.onkey2.es")){
             showHTMLColumns("Intza", event);
           }
+        } else if ((euskalbar_source == 'fr') || (euskalbar_target == 'fr')) { //eu-fr eta fr-eu itzulpenetarako
+          if (prefManager.getBoolPref("euskalbar.euskalterm.onkey2.fr")){
+            showHTMLColumns("Euskalterm", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.fr")){
+            showHTMLColumns("Elhuyar", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.batua.onkey2.fr")){
+            showHTMLColumns("Batua", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.adorez.onkey2.fr")){
+            showHTMLColumns("Adorez", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.uzei.onkey2.fr")){
+            showHTMLColumns("UZEI", event);
+          }
         } else { //eu-en eta en-eu itzulpenetarako
           if (prefManager.getBoolPref("euskalbar.euskalterm.onkey2.en")){
             showHTMLColumns("Euskalterm", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.en")){
+            showHTMLColumns("Elhuyar", event);
           }
           if (prefManager.getBoolPref("euskalbar.morris.onkey2.en")){
             showHTMLColumns("Morris", event);
@@ -232,6 +270,8 @@ document.persist("EuskalBar-Toolbar", "currentset");
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
       } else if (h.match('english')) {  
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
+      } else if (h.match('français')) {  
+        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpfr.html';
       } else {
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
       }
@@ -451,6 +491,8 @@ document.persist("EuskalBar-Toolbar", "currentset");
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteseu.html';
             } else if (h.match('english')) {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftesen.html';
+            } else if (h.match('français')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftesfr.html';
             } else {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteses.html';
             }
@@ -461,12 +503,12 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftEuskalterm(euskalbar_source, searchStr);
               writeStats(0);
             }
-            if (prefManager.getBoolPref("euskalbar.3000.onkey1.es")){
-              getShift3000(euskalbar_source, searchStr);
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.es")){
+              getShiftElhuyar(euskalbar_source, euskalbar_target, searchStr);
               writeStats(1);
             }
-            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.es")){
-              getShiftElhuyar(euskalbar_source, searchStr);
+            if (prefManager.getBoolPref("euskalbar.3000.onkey1.es")){
+              getShift3000(euskalbar_source, searchStr);
               writeStats(2);
             }
             if (prefManager.getBoolPref("euskalbar.batua.onkey1.es")){
@@ -474,27 +516,63 @@ document.persist("EuskalBar-Toolbar", "currentset");
               writeStats(5);
             }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey1.es")){
-              getKtrlUZEI(euskalbar_source, searchStr);
+              getShiftUZEI(euskalbar_source, searchStr);
               writeStats(6);
             }
             if (prefManager.getBoolPref("euskalbar.adorez.onkey1.es")){
-              getKtrlAdorez(euskalbar_source, searchStr);
+              getShiftAdorez(euskalbar_source, searchStr);
               writeStats(7);
             }
             if (prefManager.getBoolPref("euskalbar.mokoroa.onkey1.es")){
-              getMokoroa(euskalbar_source, searchStr);
-              writeStats(10);
-            }
-            if (prefManager.getBoolPref("euskalbar.intza.onkey1.es")){
-              getIntza(euskalbar_source, searchStr);
+              getShiftMokoroa(euskalbar_source, searchStr);
               writeStats(11);
             }
-          } else {
+            if (prefManager.getBoolPref("euskalbar.intza.onkey1.es")){
+              getShiftIntza(euskalbar_source, searchStr);
+              writeStats(12);
+            }
+          } else if ((euskalbar_source == 'fr') || (euskalbar_target == 'fr')) {
+            // Interfazearen hizkuntza
+            if (h.match('euskara')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftfreu.html';
+            } else if (h.match('english')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftfren.html';
+            } else if (h.match('français')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftfrfr.html';
+            } else {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftfres.html';
+            }
+            var zein = 'euskalbarshiftfr';
+            openURL(urlhizt, zein, null, null);
+            // eu-fr eta fr-eu kasuetarako Shift hiztegiak kontsultatu
+            if (prefManager.getBoolPref("euskalbar.euskalterm.onkey1.fr")){
+              getShiftEuskalterm(euskalbar_source, searchStr);
+              writeStats(0);
+            }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.fr")){
+              getShiftElhuyar(euskalbar_source, euskalbar_target, searchStr);
+              writeStats(1);
+            }
+            if (prefManager.getBoolPref("euskalbar.batua.onkey1.fr")){
+              getShiftEuskaltzaindia(euskalbar_source, searchStr);
+              writeStats(5);
+            }
+            if (prefManager.getBoolPref("euskalbar.uzei.onkey1.fr")){
+              getShiftUZEI(euskalbar_source, searchStr);
+              writeStats(6);
+            }
+            if (prefManager.getBoolPref("euskalbar.adorez.onkey1.fr")){
+              getShiftAdorez(euskalbar_source, searchStr);
+              writeStats(7);
+            }
+          } else if ((euskalbar_source == 'en') || (euskalbar_target == 'en')) {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshifteneu.html';
             } else if (h.match('english')) {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftenen.html';
+            } else if (h.match('français')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftenfr.html';
             } else {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarshiftenes.html';
             }
@@ -505,6 +583,10 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftEuskalterm(euskalbar_source, searchStr);
               writeStats(0);
             }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.en")){
+              getShiftElhuyar(euskalbar_source, euskalbar_target, searchStr);
+              writeStats(1);
+            }
             if (prefManager.getBoolPref("euskalbar.morris.onkey1.en")){
               getShiftMorris(euskalbar_source, searchStr);
               writeStats(3);
@@ -514,20 +596,24 @@ document.persist("EuskalBar-Toolbar", "currentset");
               writeStats(5);
             }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey1.en")){
-              getKtrlUZEI(euskalbar_source, searchStr);
+              getShiftUZEI(euskalbar_source, searchStr);
               writeStats(6);
             }
             if (prefManager.getBoolPref("euskalbar.adorez.onkey1.en")){
-              getKtrlAdorez(euskalbar_source, searchStr);
+              getShiftAdorez(euskalbar_source, searchStr);
               writeStats(7);
             }
-          }
+          } else {
+	    goEuskalBarEuskalterm(euskalbar_source, searchStr, "");
+	  }
         } else if (event.ctrlKey) { // Ktrl tekla sakatuta badago...
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             if (h.match('euskara')) {
               var urlsin = 'chrome://euskalbar/content/html/euskalbarktrleseu.html';
             } else if (h.match('english')) {
               var urlsin = 'chrome://euskalbar/content/html/euskalbarktrlesen.html';
+            } else if (h.match('français')) {
+              var urlsin = 'chrome://euskalbar/content/html/euskalbarktrlesfr.html';
             } else {
               var urlsin = 'chrome://euskalbar/content/html/euskalbarktrleses.html';
             }
@@ -538,12 +624,12 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftEuskalterm(euskalbar_source, searchStr);
               writeStats(0);
             }
-            if (prefManager.getBoolPref("euskalbar.3000.onkey2.es")){
-              getShift3000(euskalbar_source, searchStr);
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.es")){
+              getShiftElhuyar(euskalbar_source, euskalbar_target, searchStr);
               writeStats(1);
             }
-            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.es")){
-              getShiftElhuyar(euskalbar_source, searchStr);
+            if (prefManager.getBoolPref("euskalbar.3000.onkey2.es")){
+              getShift3000(euskalbar_source, searchStr);
               writeStats(2);
             }
             if (prefManager.getBoolPref("euskalbar.batua.onkey2.es")){
@@ -551,26 +637,62 @@ document.persist("EuskalBar-Toolbar", "currentset");
               writeStats(5);
             }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey2.es")){
-              getKtrlUZEI(euskalbar_source, searchStr);
+              getShiftUZEI(euskalbar_source, searchStr);
               writeStats(6);
             }
             if (prefManager.getBoolPref("euskalbar.adorez.onkey2.es")){
-              getKtrlAdorez(euskalbar_source, searchStr);
+              getShiftAdorez(euskalbar_source, searchStr);
               writeStats(7);
             }
             if (prefManager.getBoolPref("euskalbar.mokoroa.onkey2.es")){
-              getMokoroa(euskalbar_source, searchStr);
-              writeStats(10);
-            }
-            if (prefManager.getBoolPref("euskalbar.intza.onkey2.es")){
-              getIntza(euskalbar_source, searchStr);
+              getShiftMokoroa(euskalbar_source, searchStr);
               writeStats(11);
             }
-          } else {
+            if (prefManager.getBoolPref("euskalbar.intza.onkey2.es")){
+              getShiftIntza(euskalbar_source, searchStr);
+              writeStats(12);
+            }
+          } else if ((euskalbar_source == 'fr') || (euskalbar_target == 'fr')) {
+            // Interfazearen hizkuntza
+            if (h.match('euskara')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlfreu.html';
+            } else if (h.match('english')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlfren.html';
+            } else if (h.match('français')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlfren.html';
+            } else {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlfres.html';
+            }
+            var zein = 'euskalbarktrlfr';
+            openURL(urlhizt, zein, null, null);
+            // eu-fr eta fr-eu kasuetarako Ktrl hiztegiak kontsultatu
+            if (prefManager.getBoolPref("euskalbar.euskalterm.onkey2.fr")){
+              getShiftEuskalterm(euskalbar_source, searchStr);
+              writeStats(0);
+            }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.fr")){
+              getShiftElhuyar(euskalbar_source, euskalbar_target, searchStr);
+              writeStats(1);
+            }
+            if (prefManager.getBoolPref("euskalbar.batua.onkey2.fr")){
+              getShiftEuskaltzaindia(euskalbar_source, searchStr);
+              writeStats(5);
+            }
+            if (prefManager.getBoolPref("euskalbar.uzei.onkey2.fr")){
+              getShiftUZEI(euskalbar_source, searchStr);
+              writeStats(6);
+            }
+            if (prefManager.getBoolPref("euskalbar.adorez.onkey2.fr")){
+              getShiftAdorez(euskalbar_source, searchStr);
+              writeStats(7);
+            }
+          } else if ((euskalbar_source == 'en') || (euskalbar_target == 'en')) {
             // Interfazearen hizkuntza
             if (h.match('euskara')) {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrleneu.html';
             } else if (h.match('english')) {
+              var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlenen.html';
+            } else if (h.match('français')) {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlenen.html';
             } else {
               var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrlenes.html';
@@ -582,6 +704,10 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftEuskalterm(euskalbar_source, searchStr);
               writeStats(0);
             }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.en")){
+              getShiftElhuyar(euskalbar_source, euskalbar_target, searchStr);
+              writeStats(1);
+            }
             if (prefManager.getBoolPref("euskalbar.morris.onkey2.en")){
               getShiftMorris(euskalbar_source, searchStr);
               writeStats(3);
@@ -591,13 +717,15 @@ document.persist("EuskalBar-Toolbar", "currentset");
               writeStats(5);
             }
             if (prefManager.getBoolPref("euskalbar.uzei.onkey2.en")){
-              getKtrlUZEI(euskalbar_source, searchStr);
+              getShiftUZEI(euskalbar_source, searchStr);
               writeStats(6);
             }
             if (prefManager.getBoolPref("euskalbar.adorez.onkey2.en")){
-              getKtrlAdorez(euskalbar_source, searchStr);
+              getShiftAdorez(euskalbar_source, searchStr);
               writeStats(7);
             }
+          } else {
+	    goEuskalBarEuskalterm(euskalbar_source, searchStr, "");
           }
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
@@ -609,12 +737,23 @@ document.persist("EuskalBar-Toolbar", "currentset");
               goEuskalBarAsk(euskalbar_source, searchStr);
             }
             if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
-              goEuskalBarElhuyar(euskalbar_source, searchStr);
+              goEuskalBarElhuyar(euskalbar_source,euskalbar_target,searchStr);
+            }
+          } else if ((euskalbar_source == 'fr') || (euskalbar_target == 'fr')) {
+            // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
+            if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
+              goEuskalBarEuskalterm(euskalbar_source, searchStr, '0');
+            }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
+              goEuskalBarElhuyar(euskalbar_source,euskalbar_target,searchStr);
             }
           } else {
             // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
             if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
               goEuskalBarEuskalterm(euskalbar_source, searchStr, '0');
+            }
+            if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
+              goEuskalBarElhuyar(euskalbar_source,euskalbar_target,searchStr);
             }
             if (prefManager.getBoolPref("euskalbar.morris.onkey")) {
               goEuskalBarMorris(euskalbar_source, searchStr);
@@ -669,9 +808,6 @@ document.persist("EuskalBar-Toolbar", "currentset");
           if (prefManager.getBoolPref("euskalbar.corpeus.onkey")) {
             goEuskalBarCorpEus(searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.opentrad.onkey")) {
-            goEuskalBarOpentrad(euskalbar_source, searchStr);
-          }
           if (prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
             goEuskalBarXUXENweb(searchStr);
           }
@@ -692,12 +828,16 @@ document.persist("EuskalBar-Toolbar", "currentset");
         setEuskalbarLang('es', 'eu');
       } else if (euskalbar_target == 'en') {
         setEuskalbarLang('en', 'eu');
+      } else if (euskalbar_target == 'fr') {
+        setEuskalbarLang('fr', 'eu');
       } else if (euskalbar_target == 'eu') {
         // eu: aztertu iturburu hizkuntza
         if (euskalbar_source == 'es') {
           setEuskalbarLang('eu', 'es');
         } else if (euskalbar_source == 'en') {
           setEuskalbarLang('eu', 'en');
+        } else if (euskalbar_source == 'fr') {
+          setEuskalbarLang('eu', 'fr');
         }
       }
     }
@@ -719,20 +859,28 @@ document.persist("EuskalBar-Toolbar", "currentset");
       var elhuyar = document.getElementById('EuskalBar-Elhuyar');
       switch (hizk) {
         case 'es':
-          // eu>en eta en>eu hiztegiak ezgaitu
+          elhuyar.setAttribute("hidden", false);
           morris.setAttribute("hidden", true);
           opentran.setAttribute("hidden", true);
-          // eu>es eta es>eu hiztegiak gaitu
           h3000.setAttribute("hidden", false);
+        break;
+        case 'fr':
           elhuyar.setAttribute("hidden", false);
+          morris.setAttribute("hidden", true);
+          opentran.setAttribute("hidden", true);
+          h3000.setAttribute("hidden", true);
         break;
         case 'en':
-          // eu>en eta en>eu hiztegiak gaitu
+          elhuyar.setAttribute("hidden", false);
           morris.setAttribute("hidden", false);
           opentran.setAttribute("hidden", false);
-          // eu>es eta es>eu hiztegiak ezgaitu
           h3000.setAttribute("hidden", true);
+        break;
+        case 'la':
           elhuyar.setAttribute("hidden", true);
+          morris.setAttribute("hidden", true);
+          opentran.setAttribute("hidden", true);
+          h3000.setAttribute("hidden", true);
         break;
       }
     }

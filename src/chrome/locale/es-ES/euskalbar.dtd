@@ -23,8 +23,7 @@
 <!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Ciencia y Tecnología">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet como corpus del euskera">
 <!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
-<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb corrector ortográfico">
-<!ENTITY euskalbar.opentrad.tooltip "Traducción automática Opentrad">
+<!ENTITY euskalbar.xuxenweb.tooltip "Corrector ortográfico XUXENweb">
 <!ENTITY euskalbar.bergara.tooltip "Diccionario de la zona de Bergara">
 <!ENTITY euskalbar.elebila.tooltip "Elebila, buscador web de euskera">
 
@@ -34,11 +33,11 @@
 <!ENTITY euskalbar.about.title "Sobre Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Notas de la versión">
 <!ENTITY euskalbar.about.whatsnew1 "Las principales novedades de esta versión de Euskalbar son las siguientes:">
-<!ENTITY euskalbar.about.whatsnew2 "Se ha creado un nuevo sitio web">
-<!ENTITY euskalbar.about.whatsnew3 "Se han añadido el buscador vasco Elebila y la Wikipedia en euskera">
-<!ENTITY euskalbar.about.whatsnew4 "Se han añadido los corpus Ereduzko Prosa Gaur y Klasikoen Gordailua">
-<!ENTITY euskalbar.about.whatsnew5 "Se ha añadido la opción de usar skins personalizados">
-<!ENTITY euskalbar.about.whatsnew6 "Se han creado atajos de teclado">
+<!ENTITY euskalbar.about.whatsnew2 "El diccionario Elhuyar se consulta en su nueva dirrección">
+<!ENTITY euskalbar.about.whatsnew3 "Se ha añadido el diccionario Elhuyar En-Eu">
+<!ENTITY euskalbar.about.whatsnew4 "Se han añadido diccionarios en francés (Euskalterm, Elhuyar)">
+<!ENTITY euskalbar.about.whatsnew5 "Euskalterm ahora se puede consultar en latín">
+<!ENTITY euskalbar.about.whatsnew6 "La interfaz se ha traducido al francés">
 <!ENTITY euskalbar.about.whatsnew7 "El listado completo de cambios se puede consultar en la siguiente dirección (en euskera):">
 
 <!-- Prefs -->
@@ -96,13 +95,15 @@
 <!ENTITY euskalbar.euskalterm.zuzenbidea.label "Derecho">
 
 <!--Language-->
-<!ENTITY euskalbar.language.eu_es "EU ‣ ES">
-<!ENTITY euskalbar.language.es_eu "ES ‣ EU">
-<!ENTITY euskalbar.language.eu_en "EU ‣ EN">
-<!ENTITY euskalbar.language.en_eu "EN ‣ EU">
+<!ENTITY euskalbar.language.eu_es "Euskera ‣ Castellano">
+<!ENTITY euskalbar.language.es_eu "Castellano ‣ Euskera">
+<!ENTITY euskalbar.language.eu_en "Euskera ‣ Inglés">
+<!ENTITY euskalbar.language.en_eu "Inglés ‣ Euskera">
+<!ENTITY euskalbar.language.eu_fr "Euskera ‣ Francés">
+<!ENTITY euskalbar.language.fr_eu "Francés ‣ Euskera">
+<!ENTITY euskalbar.language.la_eu "Latín ‣ Euskera">
 
 <!-- Context Menu -->
-<!ENTITY euskalbar.context.opentrad.label "Traducir al Euskera con Opentrad">
 <!ENTITY euskalbar.context.xuxenweb.label "Corregir con XUXENweb">
 <!ENTITY euskalbar.context.sinonimoak.label "Sinonimos">
 <!ENTITY euskalbar.context.mokoroa.es.label "En el texto en Castellano">

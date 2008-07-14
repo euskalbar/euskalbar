@@ -24,7 +24,6 @@
 <!ENTITY euskalbar.klasikoak.tooltip "Basque classic writers">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet as a Basque Corpus">
-<!ENTITY euskalbar.opentrad.tooltip "Opentrad automatic translation">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
 <!ENTITY euskalbar.elebila.tooltip "Elebila web search engine">
 
@@ -34,11 +33,11 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "Creation of a new website">
-<!ENTITY euskalbar.about.whatsnew3 "Elebila, the Basque web search engine and Basque Wikipedia have been added">
-<!ENTITY euskalbar.about.whatsnew4 "Ereduzko Prosa Gaur and Klasikoen Gordailua have been added">
-<!ENTITY euskalbar.about.whatsnew5 "The option to use customized skins has been added">
-<!ENTITY euskalbar.about.whatsnew6 "Shortcuts have been created">
+<!ENTITY euskalbar.about.whatsnew2 "Elhuyar Hiztegia is now queried in its new location">
+<!ENTITY euskalbar.about.whatsnew3 "The Elhuyar En-Eu dictionary has been added">
+<!ENTITY euskalbar.about.whatsnew4 "French dictionaries have been added (Euskalterm, Elhuyar)">
+<!ENTITY euskalbar.about.whatsnew5 "Euskalterm can now be queried in latin">
+<!ENTITY euskalbar.about.whatsnew6 "The interface has been translated to French">
 <!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">
 
 <!-- Prefs -->
@@ -96,13 +95,15 @@
 <!ENTITY euskalbar.euskalterm.zuzenbidea.label "Law">
 
 <!--Language-->
-<!ENTITY euskalbar.language.eu_es "EU ‣ ES">
-<!ENTITY euskalbar.language.es_eu "ES ‣ EU">
-<!ENTITY euskalbar.language.eu_en "EU ‣ EN">
-<!ENTITY euskalbar.language.en_eu "EN ‣ EU">
+<!ENTITY euskalbar.language.eu_es "Basque ‣ Spanish">
+<!ENTITY euskalbar.language.es_eu "Spanish ‣ Basque">
+<!ENTITY euskalbar.language.eu_en "Basque ‣ English">
+<!ENTITY euskalbar.language.en_eu "English ‣ Basque">
+<!ENTITY euskalbar.language.eu_fr "Basque ‣ French">
+<!ENTITY euskalbar.language.fr_eu "French ‣ Basque">
+<!ENTITY euskalbar.language.la_eu "Latin ‣ Basque">
 
 <!-- Context Menu -->
-<!ENTITY euskalbar.context.opentrad.label "Translate to Basque using Opentrad">
 <!ENTITY euskalbar.context.xuxenweb.label "Correct using XUXENweb">
 <!ENTITY euskalbar.context.sinonimoak.label "Synonyms">
 <!ENTITY euskalbar.context.mokoroa.es.label "In Spanish text">

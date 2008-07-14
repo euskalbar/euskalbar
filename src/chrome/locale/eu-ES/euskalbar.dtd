@@ -24,7 +24,6 @@
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet euskarazko corpus gisa">
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurusa">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
-<!ENTITY euskalbar.opentrad.tooltip "Opentrad itzulpen automatikoa">
 <!ENTITY euskalbar.bergara.tooltip "Bergaraldeko hiztegia">
 <!ENTITY euskalbar.elebila.tooltip "Elebila euskarazko bilatzailea">
 
@@ -34,11 +33,11 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "Webgune berria sortu da">
-<!ENTITY euskalbar.about.whatsnew3 "Elebila euskarazko bilatzailea eta euskal Wikipedia gehitu zaizkio barrari">
-<!ENTITY euskalbar.about.whatsnew4 "Ereduzko Prosa Gaur proiektuko corpusa eta Klasikoen Gordailua gehitu zaizkio barrari">
-<!ENTITY euskalbar.about.whatsnew5 "Azal pertsonalizatuak erabiltzeko aukera sortu da">
-<!ENTITY euskalbar.about.whatsnew6 "Laster-teklak sortu dira">
+<!ENTITY euskalbar.about.whatsnew2 "Elhuyar Hiztegia helbide berrian kontsultatzen da">
+<!ENTITY euskalbar.about.whatsnew3 "Elhuyar En-Eu hiztegia kontsultatzeko aukera gehitu da">
+<!ENTITY euskalbar.about.whatsnew4 "Frantsesezko hiztegien aukerak gehitu dira (Euskalterm, Elhuyar)">
+<!ENTITY euskalbar.about.whatsnew5 "Euskalterm latinez kontsultatzeko aukera gehitu da">
+<!ENTITY euskalbar.about.whatsnew6 "Interfazea frantsesera ere itzuli da">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
 <!-- Prefs -->
@@ -96,13 +95,15 @@
 <!ENTITY euskalbar.euskalterm.zuzenbidea.label "Zuzenbidea">
 
 <!--Language-->
-<!ENTITY euskalbar.language.eu_es "EU ‣ ES">
-<!ENTITY euskalbar.language.es_eu "ES ‣ EU">
-<!ENTITY euskalbar.language.eu_en "EU ‣ EN">
-<!ENTITY euskalbar.language.en_eu "EN ‣ EU">
+<!ENTITY euskalbar.language.eu_es "Euskara ‣ Gaztelania">
+<!ENTITY euskalbar.language.es_eu "Gaztelania ‣ Euskara">
+<!ENTITY euskalbar.language.eu_en "Euskara ‣ Ingelesa">
+<!ENTITY euskalbar.language.en_eu "Ingelesa ‣ Euskara">
+<!ENTITY euskalbar.language.eu_fr "Euskara ‣ Frantsesa">
+<!ENTITY euskalbar.language.fr_eu "Frantsesa ‣ Euskara">
+<!ENTITY euskalbar.language.la_eu "Latina ‣ Euskara">
 
 <!-- Context Menu -->
-<!ENTITY euskalbar.context.opentrad.label "Euskaratu Opentrad erabiliz">
 <!ENTITY euskalbar.context.xuxenweb.label "Zuzendu XUXENweb erabiliz">
 <!ENTITY euskalbar.context.sinonimoak.label "Sinonimoak">
 <!ENTITY euskalbar.context.mokoroa.es.label "Gaztelaniazko testuan">

@@ -1,9 +1,11 @@
 ﻿// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
 //             Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
+//             Igor Leturia Azkarate 2008
 // This is Free Software (GPL License)
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
+// ileturia@gmail.com
 
     // *************************************
     //  Hiztegien bilaketak
@@ -19,6 +21,8 @@
         hiztegiarenhizkuntza = 'eu';
       } else if (h.match('english')) {
         hiztegiarenhizkuntza = 'en';
+      } else if (h.match('français')) {
+        hiztegiarenhizkuntza = 'fr';
       } else {
         hiztegiarenhizkuntza = 'es';
       }
@@ -27,11 +31,15 @@
         idioma = 'G';
       } else if (source == 'en') {
         idioma = 'I';
+      } else if (source == 'fr') {
+        idioma = 'F';
+      } else if (source == 'la') {
+        idioma = 'L';
       } else {
         idioma = 'E';
       }
       //Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan egin ditzala bilaketak
-      if (term.charAt(term.length - 1) != "*"){
+      if (escape(term).charAt(escape(term).length - 1) != "*"){
         term = term+"*";
       }
       var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe';
@@ -44,6 +52,73 @@
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(0);
+    }
+
+
+    // Elhuyar hiztegiko bilaketak
+    function goEuskalBarElhuyar(source,dest,term) {
+      // interfazearen hizkuntza zehaztu
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
+        hiztegiarenhizkuntza = 'eu';
+      } else if (h.match('english')) {
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
+        hiztegiarenhizkuntza = 'en';
+      } else if (h.match('français')) {
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
+        hiztegiarenhizkuntza = 'fr';
+      } else {
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-Diccionario';
+        hiztegiarenhizkuntza = 'es';
+      }
+      switch (source) {
+        case 'es':
+          var source2 = 'gazt';
+        break;
+        case 'fr':
+          var source2 = 'fran';
+        break;
+        case 'en':
+          var source2 = 'ing';
+        break;
+        case 'eu':
+          var source2 = 'eusk';
+        break;
+      }
+      switch (dest) {
+        case 'es':
+          var chkHizkuntza = 'chkHizkuntzaG';
+          var dest2 = 'gazt';
+        break;
+        case 'fr':
+          var chkHizkuntza = 'chkHizkuntzaF';
+          var dest2 = 'fran';
+        break;
+        case 'en':
+          var chkHizkuntza = 'chkHizkuntzaI';
+          var dest2 = 'ing';
+        break;
+        case 'eu':
+          var chkHizkuntza = '';
+          var dest2 = '';
+        break;
+      }
+      var zein = 'hizt_el';
+      //Azentu markak, eñeak eta dieresiak aldatu
+      term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
+      var params = [];
+      params.push(new QueryParameter('txtHitza', term));
+      params.push(new QueryParameter('edozer', 'ehunekoa'));
+      params.push(new QueryParameter('nondik', source2));
+      if (chkHizkuntza!='') {
+	      params.push(new QueryParameter(chkHizkuntza, dest2));
+      }
+      params.push(new QueryParameter('bot_kon', '%3E'));
+      openURL(urlElhuyar, zein, 'POST', params);
+      //Estatistika lokalak idatzi
+      writeStats(1);
     }
 
 
@@ -63,25 +138,6 @@
       params.push(new QueryParameter('Txt_'+idioma, escape(term)));
       var zein = 'cgi-bin_m33';
       openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      writeStats(1);
-    }
-
-
-    // Elhuyar hiztegiko bilaketak
-    function goEuskalBarElhuyar(source, term) {
-      var params = [];
-      (source == 'es') ? source = 'gazt' : source = 'eusk';
-      // Hitzen arteko zuriuneen ordez beheko barrak idazten ditu, Elhuyarrentzako
-      term = term.replace(/ /g, "%20");
-      var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/index.asp';
-      params.push(new QueryParameter('aplik_hizkuntza_ezkutua', null));
-      params.push(new QueryParameter('optHizkuntza', source));
-      params.push(new QueryParameter('txtHitza', term));
-      params.push(new QueryParameter('bot_bilatu', '%3E'));
-      params.push(new QueryParameter('edozer', 'ehunekoa'));
-      var zein = 'hizt_el';
-      openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       writeStats(2);
     }
@@ -135,6 +191,8 @@
         hiztegiarenhizkuntza = '14';
       } else if (h.match('english')) {
         hiztegiarenhizkuntza = '1347';
+      } else if (h.match('français')) {
+        hiztegiarenhizkuntza = '1348';
       } else {
         hiztegiarenhizkuntza = '1';
       }
@@ -340,42 +398,6 @@
       writeStats(18);
     }
 
-    // Aukeratutako testua itzultzen du opentrad erabiliz edo xuxenweb kontsultatzen du
-    function goEuskalBarSelection(term, action) {
-      var params = [];
-      switch (action) {
-        case 'opentrad' :
-          var url = 'http://www.interneteuskadi.org/euskalbar/opentrad.php';
-          params.push(new QueryParameter('testukutxa', escape(term))); 
-          var zein = 'opentrad';
-          //Estatistika lokalak idatzi
-          writeStats(19);
-        break;
-        case 'xuxenweb' :
-          var url = 'http://www.xuxen.com/socketBezero.php';
-          params.push(new QueryParameter('idatzArea', term)); 
-          var zein = 'xuxen';
-          //Estatistika lokalak idatzi
-          writeStats(20);
-        break;
-      }
-      openURL(url, zein, 'GET', params);
-    }
-
-
-    // Opentrad
-    function goEuskalBarOpentrad(source, term) {
-      var params = [];
-      var url = 'http://www.opentrad.org/demo/libs/nabigatzailea.php';
-      params.push(new QueryParameter('language', 'eu'));
-      params.push(new QueryParameter('inurl', escape(window.content.document.location.href)));
-      params.push(new QueryParameter('norantza', 'es-eu'));
-      var zein = 'opentrad';
-      openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      writeStats(19);
-    }
-
     // XUXENweb
     function goEuskalBarXUXENweb(term) {
       var params = [];
@@ -384,7 +406,7 @@
       var zein = 'xuxen';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(20);
+      writeStats(19);
     }
 
 
@@ -400,7 +422,7 @@
       var zein = 'elebila';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(21);
+      writeStats(20);
     }
 
     // Zenbait hiztegi atzitzen ditu

@@ -11,14 +11,14 @@
       </rdf:Description>
     </rdf:li>
     <rdf:li>
-      <rdf:Description about="http://www.euskalbar.eu/stats/3000">
-      <stats:name>&euskalbar.3000.tooltip;</stats:name>
+      <rdf:Description about="http://www.euskalbar.eu/stats/elhuyar">
+      <stats:name>&euskalbar.elhuyar.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
-      <rdf:Description about="http://www.euskalbar.eu/stats/elhuyar">
-      <stats:name>&euskalbar.elhuyar.tooltip;</stats:name>
+      <rdf:Description about="http://www.euskalbar.eu/stats/3000">
+      <stats:name>&euskalbar.3000.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
@@ -115,12 +115,6 @@
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/corpeus">
       <stats:name>&euskalbar.corpeus.tooltip;</stats:name>
-      <stats:localstat>0</stats:localstat>
-      </rdf:Description>
-    </rdf:li>
-    <rdf:li>
-      <rdf:Description about="http://www.euskalbar.eu/stats/opentrad">
-      <stats:name>&euskalbar.opentrad.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
