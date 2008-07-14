@@ -1,0 +1,177 @@
+﻿<!-- Common -->
+<!ENTITY euskalbar.browse "Parcourir...">
+<!ENTITY euskalbar.key "E">
+<!ENTITY euskalbar.label "Euskalbar">
+<!ENTITY euskalbar.name "Euskalbar">
+<!ENTITY euskalbar.help.tooltip "Aide">
+<!ENTITY euskalbar.options.tooltip "Options ">
+<!ENTITY euskalbar.euskalterm.tooltip "Base de données Euskalterm">
+<!ENTITY euskalbar.3000.tooltip "Dictionnaire 3000">
+<!ENTITY euskalbar.elhuyar.tooltip "Dictionnaire Elhuyar">
+<!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">
+<!ENTITY euskalbar.opentran.tooltip "Base de données de traductions Open-tran.eu">
+<!ENTITY euskalbar.batua.tooltip "Dictionnaire Unifié d'Euskaltzaindia">
+<!ENTITY euskalbar.adorez.tooltip "Dictionnaire des synonymes Adorez">
+<!ENTITY euskalbar.uzei.tooltip "Dictionnaire des synonymes UZEI">
+<!ENTITY euskalbar.itzul.tooltip "Archive de la liste de diffusion ItzuL">
+<!ENTITY euskalbar.harluxet.tooltip "Dictionnaire encyclopédique Harluxet">
+<!ENTITY euskalbar.wikipedia.tooltip "Wikipedia en Basque">
+<!ENTITY euskalbar.mokoroa.tooltip "Base de données de Mokoroa">
+<!ENTITY euskalbar.intza.tooltip "Locutions du projet Intza">
+<!ENTITY euskalbar.klasikoak.tooltip "Trésors du Basque">
+<!ENTITY euskalbar.ereduzko.tooltip "Prose de référence aujourd'hui">
+<!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Science et de Technologie">
+<!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet comme corpus du Basque">
+<!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
+<!ENTITY euskalbar.xuxenweb.tooltip "Vérification ortographique XUXENweb">
+<!ENTITY euskalbar.bergara.tooltip "Dictionnaire de Bergara">
+<!ENTITY euskalbar.elebila.tooltip "Chercheur en Basque Elebila">
+
+<!-- About -->
+<!ENTITY euskalbar.about.author "Auteurs">
+<!ENTITY euskalbar.about.home.page "Home">
+<!ENTITY euskalbar.about.title "Sur Euskalbar">
+<!ENTITY euskalbar.about.whatsnewtitle "Sur cette version">
+<!ENTITY euskalbar.about.whatsnew1 "Les principales noveautés de cette version sont les suivants:">
+<!ENTITY euskalbar.about.whatsnew2 "Le dictionnaire Elhuyar est consulté à sa nouvelle direction">
+<!ENTITY euskalbar.about.whatsnew3 "Le dictionnaire Elhuyar En-Eu a été ajouté">
+<!ENTITY euskalbar.about.whatsnew4 "Les dictionnaires françaises ont été ajoutés (Euskalterm, Elhuyar)">
+<!ENTITY euskalbar.about.whatsnew5 "Euskalterm peut être consulté en latin">
+<!ENTITY euskalbar.about.whatsnew6 "L'interface a été traduit au français">
+<!ENTITY euskalbar.about.whatsnew7 "La liste complète de noveautés, dans la direction suivante:">
+
+<!-- Prefs -->
+<!ENTITY euskalbar.prefs.title "Configuration d'Euskalbar">
+<!ENTITY euskalbar.prefs.options.label "Configuration...">
+<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Requête avancée">
+<!ENTITY euskalbar.prefs.dictionaries.label "Requête simultanée (Enter)">
+<!ENTITY euskalbar.prefs.reusetabs.label "Réutiliser onglets">
+<!ENTITY euskalbar.prefs.bgtabs.label "Ouvrir onglets en arrière-plan">
+<!ENTITY euskalbar.prefs.general.tabtitle "Général">
+<!ENTITY euskalbar.prefs.uppermenu.tabtitle "Menu des dictionnaires">
+<!ENTITY euskalbar.prefs.interface.tabtitle "Apparence">
+<!ENTITY euskalbar.prefs.uppermenu.label "Montrer menu des dictionnaires">
+<!ENTITY euskalbar.prefs.uppermenu.tooltip "Montrer/cacher menu des dictionnaires">
+<!ENTITY euskalbar.prefs.lang.caption "Langue par défaut">
+<!ENTITY euskalbar.prefs.lang.label "Langue par défaut au lancement d'Euskalbar:">
+<!ENTITY euskalbar.prefs.tabs.caption "Configuration d'onglets">
+<!ENTITY euskalbar.prefs.combined.caption "Options de requêtes combinées">
+<!ENTITY euskalbar.prefs.timeout.caption "Limite de temps (sec)">
+<!ENTITY euskalbar.prefs.subqueries.caption "Voir sous-requêtes">
+<!ENTITY euskalbar.prefs.skin.caption "Thèmes">
+<!ENTITY euskalbar.prefs.skin.label "Choisir un thème pour Euskalbar:">
+<!ENTITY euskalbar.prefs.skin.custom "Utiliser un thème personnalisé">
+<!ENTITY euskalbar.prefs.gui.caption "Interface">
+<!ENTITY euskalbar.prefs.dicts.label "Montrer menu des dictionnaires">
+<!ENTITY euskalbar.prefs.context.label "Montrer menu contextuel">
+
+<!-- Euskalterm -->
+<!ENTITY euskalbar.euskalterm.dena.label "Tous les sujets">
+<!ENTITY euskalbar.euskalterm.administrazioa.label "Administration">
+<!ENTITY euskalbar.euskalterm.arteak.label "Arts">
+<!ENTITY euskalbar.euskalterm.biologia.label "Biologie">
+<!ENTITY euskalbar.euskalterm.ekonomia.label "Economie et entreprise">
+<!ENTITY euskalbar.euskalterm.eraikuntza.label "Construction, urbanisme">
+<!ENTITY euskalbar.euskalterm.erlijioa.label "Religion">
+<!ENTITY euskalbar.euskalterm.filosofia.label "Philosophie">
+<!ENTITY euskalbar.euskalterm.garraioa.label "Transport, courrier, télécommunications">
+<!ENTITY euskalbar.euskalterm.geografia.label "Géographie">
+<!ENTITY euskalbar.euskalterm.geologia.label "Géologie">
+<!ENTITY euskalbar.euskalterm.historia.label "Histoire, références militaires">
+<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "Linguistique, littérature">
+<!ENTITY euskalbar.euskalterm.industria.label "Industrie">
+<!ENTITY euskalbar.euskalterm.informatika.label "Informatique">
+<!ENTITY euskalbar.euskalterm.kazetaritza.label "Sciences de l'information, documentation">
+<!ENTITY euskalbar.euskalterm.izenak.label "Noms, titres">
+<!ENTITY euskalbar.euskalterm.kimika.label "Chimie et physique">
+<!ENTITY euskalbar.euskalterm.kirola.label "Sports, jeux, loisirs">
+<!ENTITY euskalbar.euskalterm.laburtzapenak.label "Abréviations">
+<!ENTITY euskalbar.euskalterm.matematika.label "Mathématique et statistique">
+<!ENTITY euskalbar.euskalterm.medikuntza.label "Médecine">
+<!ENTITY euskalbar.euskalterm.merkataritza.label "Activités commerciales, relations de travail">
+<!ENTITY euskalbar.euskalterm.nekazaritza.label "Agriculture, pêche">
+<!ENTITY euskalbar.euskalterm.politika.label "Politique, sociologie, antropologie">
+<!ENTITY euskalbar.euskalterm.psikologia.label "Psychologie, pédagogie">
+<!ENTITY euskalbar.euskalterm.zuzenbidea.label "Droit">
+
+<!--Language-->
+<!ENTITY euskalbar.language.eu_es "Basque ‣ Espagnol">
+<!ENTITY euskalbar.language.es_eu "Espagnol ‣ Basque">
+<!ENTITY euskalbar.language.eu_en "Basque ‣ Anglais">
+<!ENTITY euskalbar.language.en_eu "Anglais ‣ Basque">
+<!ENTITY euskalbar.language.eu_fr "Basque ‣ Français">
+<!ENTITY euskalbar.language.fr_eu "Français ‣ Basque">
+<!ENTITY euskalbar.language.la_eu "Latin ‣ Basque">
+
+<!-- Context Menu -->
+<!ENTITY euskalbar.context.xuxenweb.label "Corriger avec XUXENweb">
+<!ENTITY euskalbar.context.sinonimoak.label "Synonymes">
+<!ENTITY euskalbar.context.mokoroa.es.label "Dans le texte en espagnol">
+<!ENTITY euskalbar.context.mokoroa.eu.label "Dans le texte en basque">
+
+<!-- Menu -->
+<!ENTITY euskalbar.menu.main "Dictionnaires">
+
+<!ENTITY euskalbar.menu.general "Générales">
+<!ENTITY euskalbar.menu.euskaltzaindia "Dictionnaire Unifié d'Euskaltzaindia (EU)">
+<!ENTITY euskalbar.menu.eurovoc "Thesaurus Eurovoc">
+<!ENTITY euskalbar.menu.euskalterm "Base de données terminologique Euskalterm (EU-ES)">
+<!ENTITY euskalbar.menu.euskaltermalt "Base de données terminologique alternative Euskalterm (EU-ES)">
+<!ENTITY euskalbar.menu.bfa_term "Dictionnaire terminologique BFA (EU-ES)">
+<!ENTITY euskalbar.menu.3000 "Dictionnaire 3000 (EU-ES)">
+<!ENTITY euskalbar.menu.elhuyar "Dictionnaire Elhuyar (EU-ES)">
+<!ENTITY euskalbar.menu.morris "Dictionnaire Morris (EU-EN)">
+<!ENTITY euskalbar.menu.opentran "Base de données de traductions Opentran (EN-EU)">
+<!ENTITY euskalbar.menu.lagun20 "Dictionnaire Polonais - Basque (PL-EU)">
+<!ENTITY euskalbar.menu.goihata "Dictionnaire Japonais - Basque (JP-EU)">
+
+<!ENTITY euskalbar.menu.sinonimoak "Synonymes">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Dictionnaire des synonymes Adorez">
+<!ENTITY euskalbar.menu.uzeisinonim "Dictionnaire des synonymes UZEI">
+<!ENTITY euskalbar.menu.entziklopediak "Encyclopédies">
+<!ENTITY euskalbar.menu.aunam "Encyclopédie Auñamendi">
+<!ENTITY euskalbar.menu.harluxet "Encyclopédie Harluxet">
+<!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
+
+<!ENTITY euskalbar.menu.thematics "Sujets">
+<!ENTITY euskalbar.menu.drugs "Drogues">
+<!ENTITY euskalbar.menu.energy "Energie">
+<!ENTITY euskalbar.menu.management "Gestion d'entreprise">
+<!ENTITY euskalbar.menu.industry "Industrie">
+<!ENTITY euskalbar.menu.industry2 "Industrie (pour immigrants)">
+<!ENTITY euskalbar.menu.computers "Informatique">
+<!ENTITY euskalbar.menu.environment "Environnement">
+<!ENTITY euskalbar.menu.internet "Internet">
+<!ENTITY euskalbar.menu.justice "Justice">
+<!ENTITY euskalbar.menu.catalogues "Catalogues">
+<!ENTITY euskalbar.menu.journalism "Journalisme">
+<!ENTITY euskalbar.menu.parliament "Parlement">
+<!ENTITY euskalbar.menu.health "Santé">
+<!ENTITY euskalbar.menu.cooking "Cuisine">
+<!ENTITY euskalbar.menu.teleco "Télécommunication">
+<!ENTITY euskalbar.menu.science "Science">
+
+<!ENTITY euskalbar.menu.corpus "Corpus">
+<!ENTITY euskalbar.menu.euskaracorpusa "Corpus du Basque">
+<!ENTITY euskalbar.menu.mokoroa "Mokoroa">
+<!ENTITY euskalbar.menu.intza "Intza">
+<!ENTITY euskalbar.menu.ereduzkoa "Prose de référence">
+<!ENTITY euskalbar.menu.klasikoak "Trésors du Basque">
+<!ENTITY euskalbar.menu.garate "Gotzon Garate">
+<!ENTITY euskalbar.menu.laburzki "Laburzki">
+<!ENTITY euskalbar.menu.corpeus "CorpEus">
+<!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+
+<!ENTITY euskalbar.menu.towns "Locales">
+<!ENTITY euskalbar.menu.bergara "Bergara">
+<!ENTITY euskalbar.menu.eibar "Eibar">
+
+<!ENTITY euskalbar.menu.search "Moteurs de recherche">
+<!ENTITY euskalbar.menu.elebila "Elebila chercheur en Basque">
+
+<!-- Statistics -->
+<!ENTITY euskalbar.stats.menu "Statistiques">
+<!ENTITY euskalbar.stats.main "Statistiques d'Euskalbar">
+<!ENTITY euskalbar.stats.count "Nombre de requêtes">
+<!ENTITY euskalbar.stats.clearbutton "Effacer statistiques">
+
