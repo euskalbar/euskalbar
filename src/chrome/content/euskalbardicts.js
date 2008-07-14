@@ -105,7 +105,7 @@
           var dest2 = '';
         break;
       }
-      var zein = 'hizt_el';
+      var zein = 'elhuyar.org';
       //Azentu markak, eñeak eta dieresiak aldatu
       term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
       var params = [];
