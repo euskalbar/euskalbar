@@ -14,6 +14,10 @@
 
     // Euskaltermen bilaketak egiteko
     function goEuskalBarEuskalterm(source, term, sub) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       // interfazearen hizkuntza zehaztu
@@ -57,6 +61,10 @@
 
     // Elhuyar hiztegiko bilaketak
     function goEuskalBarElhuyar(source,dest,term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       // interfazearen hizkuntza zehaztu
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
@@ -124,6 +132,10 @@
 
     // Bilaketak 3000 hiztegian
     function goEuskalBarAsk(source, term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       if (source == 'es') {
         source = 'CAS';
@@ -145,6 +157,10 @@
 
     // Morrisen bilaketak egiteko
     function goEuskalBarMorris(source, term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       if (source == 'en') {
         var hizk = 'txtIngles';
       } else {
@@ -162,6 +178,10 @@
 
     // eu.open-tran.eu itzulpen datu-basean bilaketak
     function goEuskalBarOpentran(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
       var zein = 'open-tran';
       openURL(url, zein, null, null);
@@ -172,6 +192,10 @@
 
     // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
     function goEuskalBarEuskaltzaindia(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp';
       params.push(new QueryParameter('sarrera', escape(term)));
@@ -184,6 +208,10 @@
 
     // UZEIren sinonimoen hiztegia
     function goEuskalBarUZEI(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       // interfazearen hizkuntza zehaztu
@@ -210,6 +238,10 @@
 
     // Adorez sinonimoen hiztegia
     function goEuskalBarAdorez(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
@@ -232,6 +264,10 @@
 
     // ItzuL posta-zerrendan bilaketak
     function goEuskalBarItzuL(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://search.gmane.org/search.php';
       params.push(new QueryParameter('group', 'gmane.culture.language.basque.itzul'));
@@ -245,6 +281,10 @@
 
     // Harluxet hiztegi entziklopedikoa
     function goEuskalBarHarluxet(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www1.euskadi.net/harluxet/emaitza.asp';
       params.push(new QueryParameter('sarrera', escape(term)));
@@ -257,6 +297,10 @@
 
     // eu.wikipedia.org
     function goEuskalBarWikipedia(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://eu.wikipedia.org/wiki/Aparteko:Search';
       params.push(new QueryParameter('search', escape(term)));
@@ -269,6 +313,10 @@
 
     // Mokoroan bilaketak
     function goEuskalBarMokoroa(source, term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var zein = 'mokoroa';
       var url = 'http://www.hiru.com/hiztegiak/mokoroa/';
@@ -286,6 +334,10 @@
 
     // Intzaren bilaketak
     function goEuskalBarIntza(source, term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var zein = 'intza';
       var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl'; 
@@ -305,6 +357,10 @@
 
     // Eurovoc Tesaurusa
     function goEuskalBarEurovoc(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
@@ -326,6 +382,10 @@
 
     // Bergara aldeko hiztegia
     function goEuskalBarBergara(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www.netkam.com/i/bergara/hiztegia/bilatu';
       params.push(new QueryParameter('berbaki', escape(term)));
@@ -337,6 +397,10 @@
 
     // Ereduzko Prosa
     function goEuskalBarEreduzko(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var zein = 'ereduzkoa';
       var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu.pl'; 
@@ -353,6 +417,10 @@
 
     // Klasikoen gordailua
     function goEuskalBarKlasikoak(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var zein = 'klasikoak';
       var url = 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl'; 
@@ -371,6 +439,10 @@
 
     // ZT Corpusa
     function goEuskalBarZTCorpusa(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
       params.push(new QueryParameter('testu-hitza1', escape(term)));
@@ -383,6 +455,10 @@
 
     // CorpEus
     function goEuskalBarCorpEus(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
       params.push(new QueryParameter('bilagaiid', ' '));
@@ -400,6 +476,10 @@
 
     // XUXENweb
     function goEuskalBarXUXENweb(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www.xuxen.com/socketBezero.php';
       params.push(new QueryParameter('idatzArea', term));
@@ -412,6 +492,10 @@
 
     // Elebila
     function goEuskalBarElebila(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
       var params = [];
       var url = 'http://www.elebila.eu/search/';
       if (term.indexOf(' ') != -1) {

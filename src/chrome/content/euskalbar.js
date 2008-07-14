@@ -473,6 +473,17 @@ document.persist("EuskalBar-Toolbar", "currentset");
       }
     }
 
+    // Kutxa hutsik badago, mezu bat bidali
+    function alertEmptyBox(katea) {
+      //Kateari aurreko eta atzeko zuriuneak kendu
+      katea  = katea.replace(/^\s+|\s+$/g,"");
+      if(katea ==""){
+        // Lokalizazio paketeak kargatu
+        strRes = document.getElementById('leuskal');
+        alert(strRes.getString("kutxahutsa"));
+        return true;
+      }
+    }
 
     // Enter tekla sakatzean irekitzen diren hiztegiak
     function goEuskalBarOnKey(event) {
@@ -483,6 +494,9 @@ document.persist("EuskalBar-Toolbar", "currentset");
       const h = strRes.getString("hizk");
       // Enter tekla sakatzen bada...  
       if (event.keyCode == 13) {
+        if (alertEmptyBox(searchStr)){
+          return;
+        }
         if (event.shiftKey) { // Shift tekla sakatuta badago...
           // Exekutatu euskalbarshift.js fitxategian dauden skriptak          
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
@@ -728,6 +742,10 @@ document.persist("EuskalBar-Toolbar", "currentset");
 	    goEuskalBarEuskalterm(euskalbar_source, searchStr, "");
           }
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
+          // Begiratu kutxa hutsik dagoen 
+          if (alertEmptyBox(searchStr)){
+            return;
+          }
           if ((euskalbar_source == 'es') || (euskalbar_target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
             if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {

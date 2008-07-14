@@ -9,6 +9,7 @@
 - Frantsesezko hiztegien aukerak gehitu dira (Euskalterm, Elhuyar).
 - Euskalterm latinez kontsultatzeko aukera gehitu da. (#68)
 - Interfazea frantsesera ere itzuli da.
+- Testu-koadroa hutsik dagoenean, mezu bat agertzen da testua sartu behar dela esanez. (#71)
 
 3.1 bertsioa
 ================
