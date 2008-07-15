@@ -48,8 +48,6 @@
           file.remove(false);
           var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
           var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
-          //Euskalbarren webgunea erakusten du
-          var u = setTimeout("getBrowser().selectedTab = getBrowser().addTab('http://www.euskalbar.eu');",2000);
 
           //Hasieratu barrako hiztegiak (ezkutatu hasieran erakutsi behar ez direnak)
           var dicts = document.getElementById('Euskalbar-dicts-general').childNodes;
