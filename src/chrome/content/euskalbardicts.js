@@ -78,7 +78,7 @@
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
         hiztegiarenhizkuntza = 'fr';
       } else {
-        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-Diccionario';
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
         hiztegiarenhizkuntza = 'es';
       }
       switch (source) {

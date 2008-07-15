@@ -83,21 +83,25 @@
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
+	var elhuyarerroremezua='Ez dago horrelako sarrerarik';
         var erroremezua = 'Ez da aurkitu '+term+' hitza.';
 	var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
 	var azpisarreraktestua='Azpisarrerak';
       } else if (h.match('english')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
+	var elhuyarerroremezua='No match found';
         var erroremezua = 'Word '+term+' not found.';
 	var erroremezua2 = 'Word not found, choose from list';
 	var azpisarreraktestua='Azpisarrerak';
       } else if (h.match('français')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
+	var elhuyarerroremezua='Aucun r&eacute;sultat pour votre entr&eacute;e';
         var erroremezua = 'Pas de résultats pour le mot '+term+'.';
 	var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
 	var azpisarreraktestua='Azpisarrerak';
       } else {
-        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-Diccionario';
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
+	var elhuyarerroremezua='No se han encontrado resultados para la b&uacute;squeda';
         var erroremezua = 'No se ha encontrado la palabra '+term+'.';
 	var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
 	var azpisarreraktestua='Azpisarrerak';
@@ -172,7 +176,7 @@
               txtElhuyar = xmlHttpReq.responseText;
               getBrowser().contentDocument.getElementById('aElhuyar').innerHTML ="";
               // Hitza existitzen ez bada...
-              if (txtElhuyar.indexOf("Ez dago horrelako sarrerarik") != -1){
+              if (txtElhuyar.indexOf(elhuyarerroremezua) != -1){
                 txtElhuyar = erroremezua;
                 getBrowser().contentDocument.getElementById('aElhuyar').innerHTML=txtElhuyar;
               }
@@ -226,7 +230,7 @@
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
 	var azpisarreraktestua='Azpisarrerak';
       } else {
-        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-Diccionario';
+        var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
 	var azpisarreraktestua='Azpisarrerak';
       }
       urlElhuyar =urlElhuyar+"?"+params;
@@ -290,14 +294,18 @@
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EU\/Hiztegi-kontsulta';
+	var txtsplit='Emaitza:';
       } else if (h.match('english')) {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EN\/Dictionary-search';
+	var txtsplit='Result:';
       } else if (h.match('français')) {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/FR\/Dictionnaire-recherche';
+	var txtsplit='R&eacute;sultat:';
       } else {
-        var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/ES\/Consulta-Diccionario';
+        var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/ES\/Consulta-de-diccionarios';
+	var txtsplit='Resultado:';
       }
-      var txtElhuyar1 = txtElhuyar.split("Emaitza:")[1];
+      var txtElhuyar1 = txtElhuyar.split(txtsplit)[1];
       if (txtElhuyar1.indexOf("<!-- _______  end")==-1) {
         txtElhuyar = txtElhuyar1.split("<!-- end")[0];
       } else {
