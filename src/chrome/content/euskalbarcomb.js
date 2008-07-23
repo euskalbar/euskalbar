@@ -73,8 +73,53 @@
       getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
       }
     }
+/**
+*
+*  Javascript trim, ltrim, rtrim
+*  http://www.webtoolkit.info/
+*
+*
+**/
 
-	
+function trim(str, chars) {
+    return ltrim(rtrim(str, chars), chars);
+}
+
+function ltrim(str, chars) {
+    chars = chars || "\\s";
+    return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
+}
+
+function rtrim(str, chars) {
+    chars = chars || "\\s";
+    return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
+}
+    function normalizatuetaminuskularatu(katea){
+	    kateberria=katea.toLowerCase();
+	    kateberria=kateberria.trim();
+	    kateberria=kateberria.replace(/á/,"a");
+	    kateberria=kateberria.replace(/à/,"a");
+	    kateberria=kateberria.replace(/ä/,"a");
+	    kateberria=kateberria.replace(/â/,"a");
+	    kateberria=kateberria.replace(/é/,"e");
+	    kateberria=kateberria.replace(/è/,"e");
+	    kateberria=kateberria.replace(/ë/,"e");
+	    kateberria=kateberria.replace(/ê/,"e");
+	    kateberria=kateberria.replace(/í/,"i");
+	    kateberria=kateberria.replace(/ì/,"i");
+	    kateberria=kateberria.replace(/ï/,"i");
+	    kateberria=kateberria.replace(/î/,"i");
+	    kateberria=kateberria.replace(/ó/,"o");
+	    kateberria=kateberria.replace(/ò/,"o");
+	    kateberria=kateberria.replace(/ö/,"o");
+	    kateberria=kateberria.replace(/ô/,"o");
+	    kateberria=kateberria.replace(/ú/,"u");
+	    kateberria=kateberria.replace(/ù/,"u");
+	    kateberria=kateberria.replace(/ü/,"u");
+	    kateberria=kateberria.replace(/û/,"u");
+	    return kateberria;
+    };
+
     // Elhuyarren markoa kargatu
     function getShiftElhuyar(source, dest, term){
       var txtElhuyar= "";
@@ -188,15 +233,17 @@
                 for (i in arrayElhuyar){
                   var estekakohitza = arrayElhuyar[i].split(">")[1];
                   estekakohitza = estekakohitza.split("<")[0];
+		  estekakohitza2=normalizatuetaminuskularatu(estekakohitza);
+		  jatorrizkoa2=normalizatuetaminuskularatu(jatorrizkoa);
                   var params = arrayElhuyar[i].split("\"")[0];
                   params = params.replace(/amp\;/g, "");
-                  if (params.indexOf("mota=sarrera")!=-1 && (estekakohitza.toLowerCase()==jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='1 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='2 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='3 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='4 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='5 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='6 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='7 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='8 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='9 '+jatorrizkoa.toLowerCase() || estekakohitza.toLowerCase()=='10 '+jatorrizkoa.toLowerCase())) {
+                  if (estekakohitza2==jatorrizkoa2 || estekakohitza2=='1 '+jatorrizkoa2 || estekakohitza2=='2 '+jatorrizkoa2 || estekakohitza2=='3 '+jatorrizkoa2 || estekakohitza2=='4 '+jatorrizkoa2 || estekakohitza2=='5 '+jatorrizkoa2 || estekakohitza2=='6 '+jatorrizkoa2 || estekakohitza2=='7 '+jatorrizkoa2 || estekakohitza2=='8 '+jatorrizkoa2 || estekakohitza2=='9 '+jatorrizkoa2 || estekakohitza2=='10 '+jatorrizkoa2) {
 		    badago=1;
                     getsubShiftElhuyar(params,1);
                   }
 		}
 		if (badago==0) {
-                  getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+'<p><strong><font face="bitstream vera sans, verdana, arial" size="3">'+term+'<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">'+erroremezua2+'</font></p><p></p>';
+                  getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+'<p><strong><font face="bitstream vera sans, verdana, arial" size="3">'+decodeURI(term)+'<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">'+erroremezua2+'</font></p><p></p>';
                   for (i in arrayElhuyar){
                     var estekakohitza = arrayElhuyar[i].split(">")[1];
                     estekakohitza = estekakohitza.split("<")[0];
