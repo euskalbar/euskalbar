@@ -95,8 +95,9 @@ function rtrim(str, chars) {
     return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
 }
     function normalizatuetaminuskularatu(katea){
+
 	    kateberria=katea.toLowerCase();
-	    kateberria=kateberria.trim();
+//	    kateberria=kateberria.trim(); Hau ez dabil Linuxen
 	    kateberria=kateberria.replace(/á/,"a");
 	    kateberria=kateberria.replace(/à/,"a");
 	    kateberria=kateberria.replace(/ä/,"a");
