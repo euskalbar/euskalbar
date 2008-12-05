@@ -83,8 +83,15 @@ function writeStats(dict) {
   //Fitxategia idatzi
   var statout = Components.classes['@mozilla.org/network/file-output-stream;1']
 						.createInstance(Components.interfaces.nsIFileOutputStream);
-  statout.init(URLStatsW,0x02 | 0x08 | 0x20, 0664, 0);
-  statout.write(txtStatsNew, txtStatsNew.length);
-  statout.flush();
-  statout.close();
+  /*Erroreak kudeatzeko egitura: erabiltzailearen profilean dagoen stats.rdf fitxategian estatistikak
+  ezin badira idatzi (normalean fitxategia irakurtzeko soilik delako),
+  try catch erabiliz ez da Euskalbar blokeatzen*/
+  try {
+    statout.init(URLStatsW,0x04 | 0x08 | 0x20, 0664, 0);
+    statout.write(txtStatsNew, txtStatsNew.length);
+    statout.flush();
+    statout.close();
+  } catch (e) {
+
+  }
 }
