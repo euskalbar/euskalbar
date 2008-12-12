@@ -33,11 +33,11 @@
 <!ENTITY euskalbar.about.title "Sur Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Sur cette version">
 <!ENTITY euskalbar.about.whatsnew1 "Les principales noveautés de cette version sont les suivants:">
-<!ENTITY euskalbar.about.whatsnew2 "Le dictionnaire Elhuyar est consulté à sa nouvelle direction">
-<!ENTITY euskalbar.about.whatsnew3 "Le dictionnaire Elhuyar En-Eu a été ajouté">
-<!ENTITY euskalbar.about.whatsnew4 "Les dictionnaires françaises ont été ajoutés (Euskalterm, Elhuyar)">
-<!ENTITY euskalbar.about.whatsnew5 "Euskalterm peut être consulté en latin">
-<!ENTITY euskalbar.about.whatsnew6 "L'interface a été traduit au français">
+<<!ENTITY euskalbar.about.whatsnew2 "Update for Firefox 3.1">
+<!ENTITY euskalbar.about.whatsnew3 "Open-tran has been incorporated to the combined query">
+<!ENTITY euskalbar.about.whatsnew4 "">
+<!ENTITY euskalbar.about.whatsnew5 "">
+<!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "La liste complète de noveautés, dans la direction suivante:">
 
 <!-- Prefs -->

@@ -33,11 +33,11 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "Elhuyar Hiztegia helbide berrian kontsultatzen da">
-<!ENTITY euskalbar.about.whatsnew3 "Elhuyar En-Eu hiztegia kontsultatzeko aukera gehitu da">
-<!ENTITY euskalbar.about.whatsnew4 "Frantsesezko hiztegien aukerak gehitu dira (Euskalterm, Elhuyar)">
-<!ENTITY euskalbar.about.whatsnew5 "Euskalterm latinez kontsultatzeko aukera gehitu da">
-<!ENTITY euskalbar.about.whatsnew6 "Interfazea frantsesera ere itzuli da">
+<!ENTITY euskalbar.about.whatsnew2 "Firefox 3.1 bertsiora egokitu da">
+<!ENTITY euskalbar.about.whatsnew3 "Open-tran bilaketa konbinatuetan integratu da">
+<!ENTITY euskalbar.about.whatsnew4 "">
+<!ENTITY euskalbar.about.whatsnew5 "">
+<!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
 
 <!-- Prefs -->
