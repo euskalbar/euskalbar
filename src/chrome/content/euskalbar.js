@@ -179,6 +179,9 @@ document.persist("EuskalBar-Toolbar", "currentset");
           if (prefManager.getBoolPref("euskalbar.morris.onkey1.en")){
             showHTMLColumns("Morris", event);
           }
+          if (prefManager.getBoolPref("euskalbar.opentran.onkey1.en")){
+            showHTMLColumns("Opentran", event);
+          }
           if (prefManager.getBoolPref("euskalbar.batua.onkey1.en")){
             showHTMLColumns("Batua", event);
           }
@@ -240,6 +243,9 @@ document.persist("EuskalBar-Toolbar", "currentset");
           }
           if (prefManager.getBoolPref("euskalbar.morris.onkey2.en")){
             showHTMLColumns("Morris", event);
+          }
+          if (prefManager.getBoolPref("euskalbar.opentran.onkey1.en")){
+            showHTMLColumns("Opentran", event);
           }
           if (prefManager.getBoolPref("euskalbar.batua.onkey2.en")){
             showHTMLColumns("Batua", event);
@@ -604,6 +610,10 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftMorris(euskalbar_source, searchStr);
               writeStats(3);
             }
+            if (prefManager.getBoolPref("euskalbar.opentran.onkey1.en")){
+              getShiftOpentran(euskalbar_source, searchStr);
+              writeStats(4);
+            }
             if (prefManager.getBoolPref("euskalbar.batua.onkey1.en")){
               getShiftEuskaltzaindia(euskalbar_source, searchStr);
               writeStats(5);
@@ -724,6 +734,10 @@ document.persist("EuskalBar-Toolbar", "currentset");
             if (prefManager.getBoolPref("euskalbar.morris.onkey2.en")){
               getShiftMorris(euskalbar_source, searchStr);
               writeStats(3);
+            }
+            if (prefManager.getBoolPref("euskalbar.opentran.onkey2.en")){
+              getShiftOpentran(euskalbar_source, searchStr);
+              writeStats(4);
             }
             if (prefManager.getBoolPref("euskalbar.batua.onkey2.en")){
               getShiftEuskaltzaindia(euskalbar_source, searchStr);

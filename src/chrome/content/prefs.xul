@@ -49,6 +49,7 @@
       <preference id="prefEuskaltermShiftEN" name="euskalbar.euskalterm.onkey1.en" type="bool"/>
       <preference id="prefElhuyarShiftEN" name="euskalbar.elhuyar.onkey1.en" type="bool"/>
       <preference id="prefMorrisShiftEN" name="euskalbar.morris.onkey1.en" type="bool"/>
+      <preference id="prefOpentranShiftEN" name="euskalbar.opentran.onkey1.en" type="bool"/>
       <preference id="prefBatuaShiftEN" name="euskalbar.batua.onkey1.en" type="bool"/>
       <preference id="prefAdorezShiftEN" name="euskalbar.adorez.onkey1.en" type="bool"/>
       <preference id="prefUZEIShiftEN" name="euskalbar.uzei.onkey1.en" type="bool"/>
@@ -71,6 +72,7 @@
       <preference id="prefEuskaltermCtrlEN" name="euskalbar.euskalterm.onkey2.en" type="bool"/>
       <preference id="prefElhuyarCtrlEN" name="euskalbar.elhuyar.onkey2.en" type="bool"/>
       <preference id="prefMorrisCtrlEN" name="euskalbar.morris.onkey2.en" type="bool"/>
+      <preference id="prefOpentranCtrlEN" name="euskalbar.opentran.onkey2.en" type="bool"/>
       <preference id="prefBatuaCtrlEN" name="euskalbar.batua.onkey2.en" type="bool"/>
       <preference id="prefAdorezCtrlEN" name="euskalbar.adorez.onkey2.en" type="bool"/>
       <preference id="prefUZEICtrlEN" name="euskalbar.uzei.onkey2.en" type="bool"/>
@@ -235,6 +237,11 @@
                       <checkbox preference="prefMorrisShiftEN" label="Morris" />
                     </row>
                     <row>
+      	              <label value="" />
+      	              <label value="" />
+                      <checkbox preference="prefOpentranShiftEN" label="Open-tran" />
+                    </row>
+                    <row>
                       <checkbox preference="prefBatuaShiftES" label="Batua" />
                       <checkbox preference="prefBatuaShiftFR" label="Batua" />
                       <checkbox preference="prefBatuaShiftEN" label="Batua" />
@@ -285,6 +292,11 @@
                       <checkbox preference="pref3000CtrlES" label="3000" />
       	              <label value="" />
                       <checkbox preference="prefMorrisCtrlEN" label="Morris" />
+                    </row>
+                    <row>
+      	              <label value="" />
+      	              <label value="" />
+                      <checkbox preference="prefOpentranCtrlEN" label="Open-tran" />
                     </row>
                     <row>
                       <checkbox preference="prefBatuaCtrlES" label="Batua" />

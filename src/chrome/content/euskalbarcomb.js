@@ -950,3 +950,58 @@ function rtrim(str, chars) {
         getBrowser().contentDocument.getElementById('aIntza').innerHTML = txtIntza;
       }
     }
+
+
+    // Open-tran kargatu
+    function getShiftOpentran(source, term) {
+      var txtOpentran = "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      var urlOpentran = 'http://eu.open-tran.eu/suggest/'+escape(term);
+
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtOpentran = strRes.getString("m1Opentran");
+        return false;
+      }
+
+      xmlHttpReq.open('GET', urlOpentran, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+	xmlHttpReq.abort();
+        txtOpentran = strRes.getString("m1Opentran");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              txtOpentran = xmlHttpReq.responseText;
+              var txtOpentran1 = txtOpentran.split("<h1>")[1];
+              var txtOpentran2 = txtOpentran.split("<h1>")[2];
+              txtOpentran = "<h1>"+txtOpentran1+"<h1>"+txtOpentran2;
+              var txtOpentran3 = txtOpentran.split("<div id=\"bottom\">")[0];
+              txtOpentran3 = txtOpentran3.replace(/\/images\//g,"http://eu.open-tran.eu/images/");
+              txtOpentran3 = txtOpentran3.replace(/<a href=\"javascript\:\;\"  onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<b>");
+              txtOpentran3 = txtOpentran3.replace(/<a href=\"javascript\:\;\" class=\"fuzzy\" onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<i>fuzzy</i> <b>");
+              txtOpentran3 = txtOpentran3.replace(/\)<\/a>/g,")</b>");
+            } else {
+              txtOpentran = strRes.getString("m1Opentran");
+            }
+          }
+        } catch(e) {
+          txtOpentran = strRes.getString("m1Opentran");
+        }
+        getBrowser().contentDocument.getElementById('aOpentran').innerHTML = txtOpentran3;
+      }
+    }
+
