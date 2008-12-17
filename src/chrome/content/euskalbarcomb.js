@@ -734,7 +734,7 @@ function rtrim(str, chars) {
         idioma = 'E';
       }
 
-      var urlEuskaltzaindia = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp?sarrera='+escape(term);
+      var urlEuskaltzaindia = 'http://www.euskaltzaindia.net/hiztegibatua/index.php?option=com_hiztegianbilatu&amp;Itemid=189&amp;lang=eu&amp;view=frontpage&amp;bila=bai&amp;sarrera='+escape(term);
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
@@ -742,7 +742,7 @@ function rtrim(str, chars) {
         return false;
       }
 
-      xmlHttpReq.open('GET', urlEuskaltzaindia, true);
+      xmlHttpReq.open('POST', urlEuskaltzaindia, true);
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
@@ -766,12 +766,13 @@ function rtrim(str, chars) {
               txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"<font></strong>"+txtEuskaltzaindia;
               getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
               //azpisarrerak badauzka...
-              if (txtEuskaltzaindia.indexOf("bilatu.asp") != -1){
+              if (txtEuskaltzaindia.indexOf("index.php") != -1){
                 if (prefManagerShift.getBoolPref("euskalbar.query.subqueries")){
-                  arrayEuskaltzaindia = txtEuskaltzaindia.split("bilatu.asp");
+                  arrayEuskaltzaindia = txtEuskaltzaindia.split("index.php");
                   arrayEuskaltzaindia.shift();
                   for (i in arrayEuskaltzaindia){
-                    var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("\">")[0];
+                    var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("frontpage")[0];
+                    urlEuskaltzaindia = urlEuskaltzaindia+"frontpage";
                     getsubShiftEuskaltzaindia(urlEuskaltzaindia);
                   }
                 }
@@ -789,7 +790,7 @@ function rtrim(str, chars) {
 
     // Batuaren sarrerak eta azpisarrerak kargatu
     function getsubShiftEuskaltzaindia(urlEuskaltzaindia){
-      urlEuskaltzaindia="http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp"+urlEuskaltzaindia;
+      urlEuskaltzaindia="http://www.euskaltzaindia.net/hiztegibatua/index.php"+urlEuskaltzaindia;
       var txtEuskaltzaindia="";
       strRes = document.getElementById('leuskal');
       var xmlHttpReq = new XMLHttpRequest();
@@ -798,7 +799,7 @@ function rtrim(str, chars) {
         txtEuskaltzaindia = strRes.getString("m1Batua");
         return false;
       }
-      xmlHttpReq.open('GET', urlEuskaltzaindia, true);
+      xmlHttpReq.open('POST', urlEuskaltzaindia, true);
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
@@ -820,9 +821,8 @@ function rtrim(str, chars) {
               txtEuskaltzaindia = xmlHttpReq.responseText;
               //Batuaren katea manipulatzen duen funtzioari deitu
               txtEuskaltzaindia = manipulateEuskaltzaindia(txtEuskaltzaindia);
-              txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+urlEuskaltzaindia.split("=")[1]+"<font></strong>"+txtEuskaltzaindia;
               //Emaitza HTMLan kargatu
-              getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML+txtEuskaltzaindia;
+              getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML+"<hr>"+txtEuskaltzaindia;
             }
           }
         } catch(e) {
@@ -833,11 +833,12 @@ function rtrim(str, chars) {
 
     //Batuaren katea manipulatzen duen funtzioa
     function manipulateEuskaltzaindia(txtEuskaltzaindia){
-      var txtEuskaltzaindiaTable1 = txtEuskaltzaindia.split("burua3\"");
-      txtEuskaltzaindia = txtEuskaltzaindiaTable1[1].slice(0, txtEuskaltzaindiaTable1[1].lastIndexOf("<td height=\"1\" bgcolor=\"#9A8C07"));
-      txtEuskaltzaindia = "<td "+txtEuskaltzaindia;
-      txtEuskaltzaindia = txtEuskaltzaindia.replace(/bilatu.asp/g, "http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp");
-      txtEuskaltzaindia = txtEuskaltzaindia + "<br><hr size='1'>";
+      var txtEuskaltzaindia = txtEuskaltzaindia.split("contentheading")[1];
+      txtEuskaltzaindia = "<div class=\"contentheading"+txtEuskaltzaindia;
+      txtEuskaltzaindia = txtEuskaltzaindia.split("<p><b>Oharra")[0];
+      txtEuskaltzaindia = txtEuskaltzaindia.replace(/Hiztegi Batua/, "<br>");
+      txtEuskaltzaindia = txtEuskaltzaindia.replace(/\/index.php/g, "http://www.euskaltzaindia.net/hiztegibatua/index.php");
+      txtEuskaltzaindia = "<font size=\"2pt\">"+txtEuskaltzaindia+"<\/font>";
       return txtEuskaltzaindia;
     }
 

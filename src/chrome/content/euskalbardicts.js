@@ -197,10 +197,11 @@
         return;
       }
       var params = [];
-      var url = 'http://www.euskaltzaindia.net/hiztegibatua/bilatu.asp';
+      var url = 'http://www.euskaltzaindia.net/hiztegibatua/index.php?option=com_hiztegianbilatu&amp;Itemid=189&amp;lang=eu&amp;view=frontpage';
       params.push(new QueryParameter('sarrera', escape(term)));
+      params.push(new QueryParameter('bila', "bai"));
       var zein = 'hiztegibatua';
-      openURL(url, zein, 'GET', params);
+      openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       writeStats(5);
     }

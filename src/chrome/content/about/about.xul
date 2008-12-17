@@ -17,7 +17,7 @@
             <vbox>
                 <hbox>
                     <description value="&euskalbar.name;" class="name"/>
-                    <description class="name">3.2</description>
+                    <description class="name">3.3</description>
                 </hbox>
                 <description value="&euskalbar.about.whatsnewtitle;" class="title"/>
                 <description class="author">&euskalbar.about.whatsnew1;</description>
