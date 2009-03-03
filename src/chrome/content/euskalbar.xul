@@ -52,11 +52,16 @@
         <menupopup id="euskalbar-language-popup">
           <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="setEuskalbarLang('eu', 'es'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
           <menuitem id="euskalbar-language-es_eu" label="ES ‣ EU" tooltiptext="&euskalbar.language.es_eu;" oncommand="setEuskalbarLang('es', 'eu'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuseparator/>
           <menuitem id="euskalbar-language-eu_fr" label="EU ‣ FR" tooltiptext="&euskalbar.language.eu_fr;" oncommand="setEuskalbarLang('eu', 'fr'); setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
           <menuitem id="euskalbar-language-fr_eu" label="FR ‣ EU" tooltiptext="&euskalbar.language.fr_eu;" oncommand="setEuskalbarLang('fr', 'eu'); setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
+          <menuseparator/>
           <menuitem id="euskalbar-language-eu_en" label="EU ‣ EN" tooltiptext="&euskalbar.language.eu_en;" oncommand="setEuskalbarLang('eu', 'en'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
           <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="setEuskalbarLang('en', 'eu'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuseparator/>
           <menuitem id="euskalbar-language-la_eu" label="LA ‣ EU" tooltiptext="&euskalbar.language.la_eu;" oncommand="setEuskalbarLang('la', 'eu'); setEuskalbarDictionaries('la'); event.stopPropagation();"/>
+          <menuseparator/>
+          <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JA" tooltiptext="&euskalbar.language.eu_jp;" oncommand="setEuskalbarLang('eu', 'jp'); setEuskalbarDictionaries('jp'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
       <textbox id="EuskalBar-search-string" hidden="false" style="margin-left: 10px;" onkeypress="goEuskalBarOnKey(event)" />
@@ -91,6 +96,7 @@
         </menupopup>
       </toolbarbutton>
       <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_source,euskalbar_target,document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" oncommand="goEuskalBarGoihata(euskalbar_source,euskalbar_target,document.getElementById('EuskalBar-search-string').value);" />
       <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" oncommand="goEuskalBarAsk(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
       <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="goEuskalBarMorris(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
       <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
@@ -373,6 +379,11 @@
       		    <menuitem id="Euskalbar-Elhuyar-en_eu-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('en', 'eu', escape(selectionText()));" />
       		    <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="goEuskalBarMorris('en', escape(selectionText()));" />
       		    <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="goEuskalBarOpentran(escape(selectionText()));" />
+    		    </menupopup>
+    		  </menu>
+    		  <menu id="Euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
+    		    <menupopup>
+    		      <menuitem id="Euskalbar-Goihata-eu_jp-context" label="Goihata" oncommand="goEuskalBarGoihata('eu', 'jp', escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
           <menuseparator/>

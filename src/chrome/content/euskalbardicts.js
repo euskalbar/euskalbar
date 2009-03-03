@@ -1,11 +1,13 @@
 ﻿// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
 //             Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
 //             Igor Leturia Azkarate 2008
+//             Chetan Thapliyal 2009
 // This is Free Software (GPL License)
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 // ileturia@gmail.com
+// chetan.thapliyal@discreteguidepost.in
 
     // *************************************
     //  Hiztegien bilaketak
@@ -189,6 +191,27 @@
       writeStats(4);
     }
 
+    // Goihata hiztegiko bilaketak
+    function goEuskalBarGoihata(source,dest,term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (alertEmptyBox(term)){
+        return;
+      }
+      
+      var urlGoihata = 'http://www.goihata.com/eu/japoniera-hiztegia/?tx_ghdictionary_pi1[cmd]=2';
+      
+      var zein = 'goihata.com';
+      //Azentu markak, eñeak eta dieresiak aldatu
+      term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
+      var params = [];
+      params.push(new QueryParameter('tx_ghdictionary_pi1[q]', term));
+      params.push(new QueryParameter('tx_ghdictionary_pi1[l]', 'basque'));
+      params.push(new QueryParameter('tx_ghdictionary_pi1[t]', 1));
+      openURL(urlGoihata, zein, 'POST', params);
+      
+      // Update search stats; 21 = Index of Goihata in stats file
+      writeStats(21);
+    }
 
     // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
     function goEuskalBarEuskaltzaindia(term) {
@@ -404,13 +427,13 @@
       }
       var params = [];
       var zein = 'ereduzkoa';
-      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu.pl'; 
-      params.push(new QueryParameter('oso', '1'));
-      params.push(new QueryParameter('check0', '1'));
-      params.push(new QueryParameter('non', 'bietan'));
-      params.push(new QueryParameter('check1', '1'));
-      params.push(new QueryParameter('mota1', 'hitza'));
-      params.push(new QueryParameter('hitza1',escape(term)));
+      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu09.pl'; 
+      params.push(new QueryParameter('o', '1'));
+      params.push(new QueryParameter('h', '1'));
+      params.push(new QueryParameter('n', 'bietan'));
+      params.push(new QueryParameter('k1', '1'));
+      params.push(new QueryParameter('m1', 'hitza'));
+      params.push(new QueryParameter('h1',escape(term)));
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi, hau aldatu egin behar da
       writeStats(15);

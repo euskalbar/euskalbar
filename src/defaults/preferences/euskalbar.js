@@ -1,13 +1,20 @@
-﻿// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
-//             Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
+﻿// Developers:  Juanan Pereira, Asier Sarasua Garmendia 2006
+//              Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
+// Modified by: Chetan Thapliyal 2009
+//
 // This is Free Software (GPL License)
+//
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
+// chetan.thapliyal@discreteguidepost.in
 
- 
-// Dictionaries prefs
-// Enter
+/***************************** 
+   Dictionaries preferences
+ *****************************/
+
+// Dictionaries searched on pressing "Enter" key
+pref("euskalbar.goihata.onkey", true);
 pref("euskalbar.euskalterm.onkey", true);
 pref("euskalbar.3000.onkey", false);
 pref("euskalbar.elhuyar.onkey", false);
@@ -29,7 +36,8 @@ pref("euskalbar.ztcorpusa.onkey", false);
 pref("euskalbar.corpeus.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
 pref("euskalbar.elebila.onkey", false);
-//Enter+Key1
+
+// Dictionaries searched on pressing "Enter" + Shift key
 pref("euskalbar.euskalterm.onkey1.es", true);
 pref("euskalbar.3000.onkey1.es", true);
 pref("euskalbar.elhuyar.onkey1.es", true);
@@ -50,7 +58,8 @@ pref("euskalbar.opentran.onkey1.en", true);
 pref("euskalbar.batua.onkey1.en", false);
 pref("euskalbar.adorez.onkey1.en", false);
 pref("euskalbar.uzei.onkey1.en", false);
-//Enter+Key2
+
+// Dictionaries searched on pressing "Enter" + Ctrl key
 pref("euskalbar.euskalterm.onkey2.es", false);
 pref("euskalbar.3000.onkey2.es", false);
 pref("euskalbar.elhuyar.onkey2.es", false);
@@ -71,8 +80,10 @@ pref("euskalbar.opentran.onkey2.en", false);
 pref("euskalbar.batua.onkey2.en", true);
 pref("euskalbar.adorez.onkey2.en", true);
 pref("euskalbar.uzei.onkey2.en", true);
+
 // Query timeout
 pref("euskalbar.query.timeout", 5);
+
 //Azpisarrerak
 pref("euskalbar.query.subqueries", true);
 

@@ -11,6 +11,7 @@
     <preferences>
       <preference id="prefEuskalterm" name="euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="pref3000" name="euskalbar.3000.onkey" type="bool"/>
+      <preference id="prefGoihata" name="euskalbar.goihata.onkey" type="bool"/>
       <preference id="prefElhuyar" name="euskalbar.elhuyar.onkey" type="bool"/>
       <preference id="prefMorris" name="euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="euskalbar.opentran.onkey" type="bool"/>
@@ -32,6 +33,7 @@
       <preference id="prefElebila" name="euskalbar.elebila.onkey" type="bool"/>
 
       <preference id="prefEuskaltermShiftES" name="euskalbar.euskalterm.onkey1.es" type="bool"/>
+      <preference id="prefGoihataShiftES" name="euskalbar.Goihata.onkey1.es" type="bool"/>
       <preference id="pref3000ShiftES" name="euskalbar.3000.onkey1.es" type="bool"/>
       <preference id="prefElhuyarShiftES" name="euskalbar.elhuyar.onkey1.es" type="bool"/>
       <preference id="prefBatuaShiftES" name="euskalbar.batua.onkey1.es" type="bool"/>
@@ -55,6 +57,7 @@
       <preference id="prefUZEIShiftEN" name="euskalbar.uzei.onkey1.en" type="bool"/>
 
       <preference id="prefEuskaltermCtrlES" name="euskalbar.euskalterm.onkey2.es" type="bool"/>
+      <preference id="prefGoihataCtrlES" name="euskalbar.goihata.onkey2.es" type="bool"/>
       <preference id="pref3000CtrlES" name="euskalbar.3000.onkey2.es" type="bool"/>
       <preference id="prefElhuyarCtrlES" name="euskalbar.elhuyar.onkey2.es" type="bool"/>
       <preference id="prefBatuaCtrlES" name="euskalbar.batua.onkey2.es" type="bool"/>
@@ -109,6 +112,7 @@
                     <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
                     <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
                     <menuitem label="&euskalbar.language.la_eu;" value="la_eu"/>
+                    <menuitem label="&euskalbar.language.eu_jp;" value="eu_jp"/>
       		  </menupopup>
       		</menulist>
       	      </vbox>
@@ -204,11 +208,12 @@
                     </row>
                     <row>
                       <checkbox preference="prefWikipedia" label="Wikipedia" />
+                      <checkbox preference="prefGoihata" label="Goihata" />
                     </row>
                     </rows>
                   </grid> 
-</tabpanel>
-<tabpanel id="tab-shiftenter">
+                </tabpanel>
+                <tabpanel id="tab-shiftenter">
                   <grid flex="1">
                     <columns>
                       <column flex="1" />
@@ -264,8 +269,8 @@
                     </row>
                     </rows>
                   </grid>
-</tabpanel>
-<tabpanel id="tab-ctrlenter">
+                </tabpanel>
+                <tabpanel id="tab-ctrlenter">
                   <grid flex="1">
                     <columns>
                       <column flex="1" />
@@ -321,7 +326,7 @@
                     </row>
                     </rows>
                   </grid>
-</tabpanel>
+                  </tabpanel>
                 </tabpanels>
               </tabbox>
 	    <groupbox>
@@ -342,5 +347,4 @@
     </tabbox>
 </prefpane>
 </prefwindow>
-
 

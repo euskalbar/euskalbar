@@ -1,9 +1,13 @@
-// Developers: Juanan Pereira, Asier Sarasua Garmendia 2006
-//             Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
+// Developers:  Juanan Pereira, Asier Sarasua Garmendia 2006
+//              Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
+// Modified by: Chetan Thapliyal 2009
+//
 // This is Free Software (GPL License)
+//
 // juanan@diariolinux.com
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
+// chetan.thapliyal@discreteguidepost.in
 
     //Hobespenak atzitzeko interfazea
     const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
@@ -83,10 +87,6 @@
         for (i=0; i < hsMenu.length; i++) {
           hsMenu[i].setAttribute('checked',!dicts[i].collapsed);
         }
-
-        //Estatistiken fitxategia sortzen du (lehendik existitzen ez bada)
-        createEuskalbarStatsFile();
-
       },
 
       // Euskalbar deskargatu: observerra ezabatu
@@ -277,6 +277,8 @@ document.persist("EuskalBar-Toolbar", "currentset");
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
       } else if (h.match('français')) {  
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpfr.html';
+      } else if (h.match('japanese')) {  
+        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpja.html';
       } else {
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
       }
@@ -492,12 +494,12 @@ document.persist("EuskalBar-Toolbar", "currentset");
 
     // Enter tekla sakatzean irekitzen diren hiztegiak
     function goEuskalBarOnKey(event) {
-      // Interfazeak itzultzen duen bilaketa katea
+      // Get search string entered by user
       var searchStr = document.getElementById('EuskalBar-search-string').value;
       // Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
-      // Enter tekla sakatzen bada...  
+      // If user pressed Enter key  
       if (event.keyCode == 13) {
         if (alertEmptyBox(searchStr)){
           return;
@@ -626,6 +628,11 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftAdorez(euskalbar_source, searchStr);
               writeStats(7);
             }
+          } else if ( (euskalbar_source == 'eu') && (euskalbar_target == 'jp') ) {
+            // Go to Goihata dictionary if translating from Basque to Japanese
+            if ( prefManager.getBoolPref("euskalbar.goihata.onkey") ) {
+              goEuskalBarGoihata( euskalbar_source, euskalbar_target, searchStr );
+            }
           } else {
 	    goEuskalBarEuskalterm(euskalbar_source, searchStr, "");
 	  }
@@ -751,9 +758,14 @@ document.persist("EuskalBar-Toolbar", "currentset");
               getShiftAdorez(euskalbar_source, searchStr);
               writeStats(7);
             }
+          } else if ( (euskalbar_source == 'eu') && (euskalbar_target == 'jp') ) {
+            // Go to Goihata dictionary if translating from Basque to Japanese
+            if ( prefManager.getBoolPref("euskalbar.goihata.onkey") ) {
+              goEuskalBarGoihata( euskalbar_source, euskalbar_target, searchStr );
+            }
           } else {
 	    goEuskalBarEuskalterm(euskalbar_source, searchStr, "");
-          }
+	  }
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           // Begiratu kutxa hutsik dagoen 
           if (alertEmptyBox(searchStr)){
@@ -777,6 +789,11 @@ document.persist("EuskalBar-Toolbar", "currentset");
             }
             if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
               goEuskalBarElhuyar(euskalbar_source,euskalbar_target,searchStr);
+            }
+          } else if ( (euskalbar_source == 'eu') && (euskalbar_target == 'jp') ) {
+            // Go to Goihata dictionary if translating from Basque to Japanese
+            if ( prefManager.getBoolPref("euskalbar.goihata.onkey") ) {
+              goEuskalBarGoihata( euskalbar_source, euskalbar_target, searchStr );
             }
           } else {
             // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -884,31 +901,50 @@ document.persist("EuskalBar-Toolbar", "currentset");
 
     // Euskalbarreko hiztegiak moldatzen ditu hizkuntzaren arabera
     function setEuskalbarDictionaries(hizk) {
+      var euskalterm = document.getElementById('EuskalBar-Search');
       var morris = document.getElementById('EuskalBar-Morris');
       var opentran = document.getElementById('EuskalBar-Opentran');
       var h3000 = document.getElementById('EuskalBar-Ask');
       var elhuyar = document.getElementById('EuskalBar-Elhuyar');
+      var goihata = document.getElementById('EuskalBar-Goihata');
+      
       switch (hizk) {
         case 'es':
+          euskalterm.setAttribute("hidden", false);
           elhuyar.setAttribute("hidden", false);
+          goihata.setAttribute("hidden", true);
           morris.setAttribute("hidden", true);
           opentran.setAttribute("hidden", true);
           h3000.setAttribute("hidden", false);
         break;
         case 'fr':
+          euskalterm.setAttribute("hidden", false);
           elhuyar.setAttribute("hidden", false);
+          goihata.setAttribute("hidden", true);
           morris.setAttribute("hidden", true);
           opentran.setAttribute("hidden", true);
           h3000.setAttribute("hidden", true);
         break;
         case 'en':
+          euskalterm.setAttribute("hidden", false);
           elhuyar.setAttribute("hidden", false);
+          goihata.setAttribute("hidden", true);
           morris.setAttribute("hidden", false);
           opentran.setAttribute("hidden", false);
           h3000.setAttribute("hidden", true);
         break;
         case 'la':
+          euskalterm.setAttribute("hidden", false);
           elhuyar.setAttribute("hidden", true);
+          goihata.setAttribute("hidden", true);
+          morris.setAttribute("hidden", true);
+          opentran.setAttribute("hidden", true);
+          h3000.setAttribute("hidden", true);
+        break;
+        case 'jp':
+          euskalterm.setAttribute("hidden", true);
+          elhuyar.setAttribute("hidden", true);
+          goihata.setAttribute("hidden", false);
           morris.setAttribute("hidden", true);
           opentran.setAttribute("hidden", true);
           h3000.setAttribute("hidden", true);

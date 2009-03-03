@@ -2,6 +2,11 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.4 bertsioa
+================
+- Goihata euskara-japoniera hiztegia gehitu da. (#82)
+- Ereduzko Prosa Gaur bere webgune berrian kontsultatzen da. (#81)
+
 3.3 bertsioa
 ================
 - Open-tran bilaketa konbinatuetan integratu da. (#67)
