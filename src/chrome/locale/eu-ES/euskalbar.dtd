@@ -7,6 +7,7 @@
 <!ENTITY euskalbar.options.tooltip "Aukerak ">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu basea">
 <!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
+<!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">
@@ -33,8 +34,8 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "Firefox 3.1 bertsiora egokitu da">
-<!ENTITY euskalbar.about.whatsnew3 "Open-tran bilaketa konbinatuetan integratu da">
+<!ENTITY euskalbar.about.whatsnew2 "Goihata euskara-japoniera hiztegia gehitu da">
+<!ENTITY euskalbar.about.whatsnew3 "Ereduzko Prosa Gaur bere webgune berrian kontsultatzen da">
 <!ENTITY euskalbar.about.whatsnew4 "">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
@@ -102,6 +103,7 @@
 <!ENTITY euskalbar.language.eu_fr "Euskara ‣ Frantsesa">
 <!ENTITY euskalbar.language.fr_eu "Frantsesa ‣ Euskara">
 <!ENTITY euskalbar.language.la_eu "Latina ‣ Euskara">
+<!ENTITY euskalbar.language.eu_jp "Euskara ‣ Japanese">
 
 <!-- Context Menu -->
 <!ENTITY euskalbar.context.xuxenweb.label "Zuzendu XUXENweb erabiliz">
@@ -119,11 +121,11 @@
 <!ENTITY euskalbar.menu.euskaltermalt "Euskalterm banku terminologiko alternatiboa (EU-ES)">
 <!ENTITY euskalbar.menu.bfa_term "BFA Hiztegi Terminologikoa (EU-ES)">
 <!ENTITY euskalbar.menu.3000 "3000 hiztegia (EU-ES)">
+<!ENTITY euskalbar.menu.goihata "Goihata hiztegia Japoniera-Euskara (EU-JP)">
 <!ENTITY euskalbar.menu.elhuyar "Elhuyar hiztegia (EU-ES)">
 <!ENTITY euskalbar.menu.morris "Morris hiztegia (EU-EN)">
 <!ENTITY euskalbar.menu.opentran "Open-tran itzulpen datu-basea (EN-EU)">
-<!ENTITY euskalbar.menu.lagun20 "Poloniera - Euskara hiztegia (PL-EU)">
-<!ENTITY euskalbar.menu.goihata "Japoniera - Euskara hiztegia (JP-EU)">
+<!ENTITY euskalbar.menu.lagun20 "Poloniera - Euskara hiztegia (PL-EU)">
 
 <!ENTITY euskalbar.menu.sinonimoak "Sinonimoak">
 <!ENTITY euskalbar.menu.sinonimoenhizt "Adorez sinonimoen hiztegia">

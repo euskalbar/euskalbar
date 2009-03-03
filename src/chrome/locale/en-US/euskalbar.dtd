@@ -7,6 +7,7 @@
 <!ENTITY euskalbar.options.tooltip "Options ">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm database">
 <!ENTITY euskalbar.3000.tooltip "3000 dictionary">
+<!ENTITY euskalbar.goihata.tooltip "Goihata dictionary">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar dictionary">
 <!ENTITY euskalbar.morris.tooltip "Morris dictionary">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu translation database">
@@ -33,8 +34,8 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "Update for Firefox 3.1">
-<!ENTITY euskalbar.about.whatsnew3 "Open-tran has been incorporated to the combined query">
+<!ENTITY euskalbar.about.whatsnew2 "Added Goihata Basque-Japanese dictionary">
+<!ENTITY euskalbar.about.whatsnew3 "Ereduzko Prosa Gaur uses a new website">
 <!ENTITY euskalbar.about.whatsnew4 "">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
@@ -102,6 +103,7 @@
 <!ENTITY euskalbar.language.eu_fr "Basque ‣ French">
 <!ENTITY euskalbar.language.fr_eu "French ‣ Basque">
 <!ENTITY euskalbar.language.la_eu "Latin ‣ Basque">
+<!ENTITY euskalbar.language.eu_jp "Basque ‣ Japanese">
 
 <!-- Context Menu -->
 <!ENTITY euskalbar.context.xuxenweb.label "Correct using XUXENweb">
@@ -119,11 +121,11 @@
 <!ENTITY euskalbar.menu.euskaltermalt "Euskalterm alternative terminological bank (EU-ES)">
 <!ENTITY euskalbar.menu.bfa_term "BFA Terminological Dictionary (EU-ES)">
 <!ENTITY euskalbar.menu.3000 "3000 dictionary (EU-ES)">
+<!ENTITY euskalbar.menu.goihata "Goihata dictionary (EU-JP)">
 <!ENTITY euskalbar.menu.elhuyar "Elhuyar dictionary (EU-ES)">
 <!ENTITY euskalbar.menu.morris "Morris dictionary (EU-EN)">
 <!ENTITY euskalbar.menu.opentran "Open-tran translation database (EN-EU)">
 <!ENTITY euskalbar.menu.lagun20 "Polish - Basque dictionary (PL-EU)">
-<!ENTITY euskalbar.menu.goihata "Japanese - Basque dictionary (JP-EU)">
 
 <!ENTITY euskalbar.menu.sinonimoak "Synonyms">
 <!ENTITY euskalbar.menu.sinonimoenhizt "Adorez synonyms dictionary">
