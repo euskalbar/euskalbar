@@ -23,9 +23,9 @@
                 <description class="author">&euskalbar.about.whatsnew1;</description>
                 <description class="author"><html:ul><html:li>&euskalbar.about.whatsnew2;</html:li>
                 <html:li>&euskalbar.about.whatsnew3;</html:li>
+                <html:li>&euskalbar.about.whatsnew4;</html:li>
                 <html:br></html:br>
                 <!--
-                <html:li>&euskalbar.about.whatsnew4;</html:li>
                 <html:li>&euskalbar.about.whatsnew5;</html:li>
                 <html:li>&euskalbar.about.whatsnew6;</html:li>
                 -->
