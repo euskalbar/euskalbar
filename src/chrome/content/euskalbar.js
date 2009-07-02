@@ -53,6 +53,9 @@
           var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
           var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
 
+          //Estatistiken fitxategia sortu
+          createEuskalbarStatsFile();
+
           /*OHARRA: AZPIKO KODEAK AKATS BAT ERAGITEN DU, EUSKALBAR INSTALATZEAN KODE HAU EXEKUTATZEN DA ETA BARRAKO BOTOIAK BLOKEATZEN DIRA*/ 
           /*Hasieratu barrako hiztegiak (ezkutatu hasieran erakutsi behar ez direnak)
           var dicts = document.getElementById('Euskalbar-dicts-general').childNodes;
@@ -65,7 +68,7 @@
           dicts[15].setAttribute('collapsed', true);
           dicts[16].setAttribute('collapsed', true);*/
         }
-		
+
         //Hasieratu hizkuntza hautatzeko botoia
         var lang = prefManager.getCharPref("euskalbar.language.startup");
         euskalbar_source = lang[0]+lang[1];
@@ -92,8 +95,7 @@
       // Euskalbar deskargatu: observerra ezabatu
       shutdown: function() {
         this.prefs.removeObserver("", this);
-
-document.persist("EuskalBar-Toolbar", "currentset"); 
+        document.persist("EuskalBar-Toolbar", "currentset"); 
 
       },
 

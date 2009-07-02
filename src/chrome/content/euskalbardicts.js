@@ -293,10 +293,11 @@
         return;
       }
       var params = [];
-      var url = 'http://search.gmane.org/search.php';
-      params.push(new QueryParameter('group', 'gmane.culture.language.basque.itzul'));
-      params.push(new QueryParameter('query', encodeURI(term)));
-      var zein = 'gmane.culture.language.basque.itzul';
+      var url = 'http://www.google.es/search';
+      params.push(new QueryParameter('hl', 'eu'));
+      params.push(new QueryParameter('btnG', 'Google+Bilaketa'));
+      params.push(new QueryParameter('q', encodeURI(term)+" site:http://postaria.com/pipermail/itzul/"));
+      var zein = 'postaria.com';
       openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       writeStats(8);
