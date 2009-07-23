@@ -5,7 +5,7 @@
 <prefwindow id="euskalbar-prefs-dialog"
         title="&euskalbar.prefs.title;"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-        onload="setUserSkinDisabled()">
+        onload="euskalbar.setUserSkinDisabled()">
 <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
   <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
     <preferences>
@@ -135,10 +135,10 @@
    		</menulist>
               </hbox>
               <vbox>
-                <checkbox id="chkUserSkinEnable" label="&euskalbar.prefs.skin.custom;" persist="checked" oncommand="setUserSkinDisabled()"/>
+                <checkbox id="chkUserSkinEnable" label="&euskalbar.prefs.skin.custom;" persist="checked" oncommand="euskalbar.setUserSkinDisabled()"/>
                 <hbox>
-                  <textbox id="txtUserSkinPath" flex="1" width="20" preference="prefSkin" onchange="setUserSkin('this.value')"/>
-                  <button id="btnUserSkinPath" oncommand="browseSkin()" label="&euskalbar.browse;"/>
+                  <textbox id="txtUserSkinPath" flex="1" width="20" preference="prefSkin" onchange="euskalbar.setUserSkin('this.value')"/>
+                  <button id="btnUserSkinPath" oncommand="euskalbar.browseSkin()" label="&euskalbar.browse;"/>
                 </hbox>
               </vbox>
       	    </groupbox>

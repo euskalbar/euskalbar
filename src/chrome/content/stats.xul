@@ -9,8 +9,8 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         buttons="accept, extra1"
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
-        onload="setDS();"
-        ondialogextra1="writeStats(-1);">
+        onload="euskalbarstats.setDS();"
+        ondialogextra1="euskalbarstats.writeStats(-1);">
 
 <script type="application/x-javascript" src="euskalbarstats.js"/>
 

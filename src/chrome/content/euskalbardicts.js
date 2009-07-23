@@ -13,11 +13,12 @@
     //  Hiztegien bilaketak
     // *************************************
 
+var euskalbardicts = {
 
     // Euskaltermen bilaketak egiteko
-    function goEuskalBarEuskalterm(source, term, sub) {
+    goEuskalBarEuskalterm: function(source, term, sub) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       strRes = document.getElementById('leuskal');
@@ -50,21 +51,21 @@
       }
       var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe';
       var params = [];
-      params.push(new QueryParameter('hizkun1', idioma));
-      params.push(new QueryParameter('hitz1', escape(term)));
-      params.push(new QueryParameter('gaiak', sub));
-      params.push(new QueryParameter('hizkuntza', hiztegiarenhizkuntza));
+      params.push(new euskalbar.QueryParameter('hizkun1', idioma));
+      params.push(new euskalbar.QueryParameter('hitz1', escape(term)));
+      params.push(new euskalbar.QueryParameter('gaiak', sub));
+      params.push(new euskalbar.QueryParameter('hizkuntza', hiztegiarenhizkuntza));
       var zein = 'euskalterm';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(0);
-    }
+      euskalbarstats.writeStats(0);
+    },
 
 
     // Elhuyar hiztegiko bilaketak
-    function goEuskalBarElhuyar(source,dest,term) {
+    goEuskalBarElhuyar: function(source,dest,term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       // interfazearen hizkuntza zehaztu
@@ -119,23 +120,23 @@
       //Azentu markak, eñeak eta dieresiak aldatu
       term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
       var params = [];
-      params.push(new QueryParameter('txtHitza', term));
-      params.push(new QueryParameter('edozer', 'ehunekoa'));
-      params.push(new QueryParameter('nondik', source2));
+      params.push(new euskalbar.QueryParameter('txtHitza', term));
+      params.push(new euskalbar.QueryParameter('edozer', 'ehunekoa'));
+      params.push(new euskalbar.QueryParameter('nondik', source2));
       if (chkHizkuntza!='') {
-	      params.push(new QueryParameter(chkHizkuntza, dest2));
+	      params.push(new euskalbar.QueryParameter(chkHizkuntza, dest2));
       }
-      params.push(new QueryParameter('bot_kon', '%3E'));
-      openURL(urlElhuyar, zein, 'POST', params);
+      params.push(new euskalbar.QueryParameter('bot_kon', '%3E'));
+      euskalbar.openURL(urlElhuyar, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(1);
-    }
+      euskalbarstats.writeStats(1);
+    },
 
 
     // Bilaketak 3000 hiztegian
-    function goEuskalBarAsk(source, term) {
+    goEuskalBarAsk: function(source, term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
@@ -147,20 +148,20 @@
         idioma = 'Euskera';
       }
       var url = 'http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe';
-      params.push(new QueryParameter('Diccionario', source));
-      params.push(new QueryParameter('Idioma', source))
-      params.push(new QueryParameter('Txt_'+idioma, escape(term)));
+      params.push(new euskalbar.QueryParameter('Diccionario', source));
+      params.push(new euskalbar.QueryParameter('Idioma', source))
+      params.push(new euskalbar.QueryParameter('Txt_'+idioma, escape(term)));
       var zein = 'cgi-bin_m33';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(2);
-    }
+      euskalbarstats.writeStats(2);
+    },
 
 
     // Morrisen bilaketak egiteko
-    function goEuskalBarMorris(source, term) {
+    goEuskalBarMorris: function(source, term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       if (source == 'en') {
@@ -170,31 +171,32 @@
       }
       var url = 'http://www1.euskadi.net/morris/resultado.asp';
       var params = [];
-      params.push(new QueryParameter(hizk, escape(term)));
+      params.push(new euskalbar.QueryParameter(hizk, escape(term)));
       var zein = 'morris';
-      openURL(url, zein, 'POST', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(3);
-    }
+      euskalbarstats.writeStats(3);
+    },
 
 
     // eu.open-tran.eu itzulpen datu-basean bilaketak
-    function goEuskalBarOpentran(term) {
+    goEuskalBarOpentran: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var url = 'http://eu.open-tran.eu/suggest/'+escape(term);
       var zein = 'open-tran';
-      openURL(url, zein, null, null);
+      euskalbar.openURL(url, zein, null, null);
       //Estatistika lokalak idatzi
-      writeStats(4);
-    }
+      euskalbarstats.writeStats(4);
+    },
+
 
     // Goihata hiztegiko bilaketak
-    function goEuskalBarGoihata(source,dest,term) {
+    goEuskalBarGoihata: function(source,dest,term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       
@@ -204,36 +206,37 @@
       //Azentu markak, eñeak eta dieresiak aldatu
       term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
       var params = [];
-      params.push(new QueryParameter('tx_ghdictionary_pi1[q]', term));
-      params.push(new QueryParameter('tx_ghdictionary_pi1[l]', 'basque'));
-      params.push(new QueryParameter('tx_ghdictionary_pi1[t]', 1));
-      openURL(urlGoihata, zein, 'POST', params);
+      params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[q]', term));
+      params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[l]', 'basque'));
+      params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[t]', 1));
+      euskalbar.openURL(urlGoihata, zein, 'POST', params);
       
       // Update search stats; 21 = Index of Goihata in stats file
-      writeStats(21);
-    }
+      euskalbarstats.writeStats(21);
+    },
+
 
     // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
-    function goEuskalBarEuskaltzaindia(term) {
+    goEuskalBarEuskaltzaindia: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.euskaltzaindia.net/hiztegibatua/index.php?option=com_hiztegianbilatu&amp;Itemid=189&amp;lang=eu&amp;view=frontpage';
-      params.push(new QueryParameter('sarrera', escape(term)));
-      params.push(new QueryParameter('bila', "bai"));
+      params.push(new euskalbar.QueryParameter('sarrera', escape(term)));
+      params.push(new euskalbar.QueryParameter('bila', "bai"));
       var zein = 'hiztegibatua';
-      openURL(url, zein, 'POST', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(5);
-    }
+      euskalbarstats.writeStats(5);
+    },
 
 
     // UZEIren sinonimoen hiztegia
-    function goEuskalBarUZEI(term) {
+    goEuskalBarUZEI: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       strRes = document.getElementById('leuskal');
@@ -250,20 +253,20 @@
       }
       var params = [];
       var url = 'http://www.uzei.com/estatico/sinonimos.asp';
-      params.push(new QueryParameter('sesion', hiztegiarenhizkuntza));
-      params.push(new QueryParameter('sarrera', escape(term)));
-      params.push(new QueryParameter('eragiketa', 'bilatu'));
+      params.push(new euskalbar.QueryParameter('sesion', hiztegiarenhizkuntza));
+      params.push(new euskalbar.QueryParameter('sarrera', escape(term)));
+      params.push(new euskalbar.QueryParameter('eragiketa', 'bilatu'));
       var zein = 'uzei';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(6);
-    }
+      euskalbarstats.writeStats(6);
+    },
 
 
     // Adorez sinonimoen hiztegia
-    function goEuskalBarAdorez(term) {
+    goEuskalBarAdorez: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
@@ -271,119 +274,121 @@
       const h = strRes.getString("hizk");
       var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
       if (h.match('euskara')) {
-        params.push(new QueryParameter('Palabra', 'Introducida'));
-        params.push(new QueryParameter('Idioma', 'EUS'));
-        params.push(new QueryParameter('txtpalabra', escape(term)));
+        params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
+        params.push(new euskalbar.QueryParameter('Idioma', 'EUS'));
+        params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
       } else {
-        params.push(new QueryParameter('Palabra', 'Introducida'));
-        params.push(new QueryParameter('Idioma', 'CAS'));
-        params.push(new QueryParameter('txtpalabra', escape(term)));
+        params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
+        params.push(new euskalbar.QueryParameter('Idioma', 'CAS'));
+        params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
       }
       var zein = 'cgi-bin_m32';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(7);
-    }
+      euskalbarstats.writeStats(7);
+    },
 
 
     // ItzuL posta-zerrendan bilaketak
-    function goEuskalBarItzuL(term) {
+    goEuskalBarItzuL: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.google.es/search';
-      params.push(new QueryParameter('hl', 'eu'));
-      params.push(new QueryParameter('btnG', 'Google+Bilaketa'));
-      params.push(new QueryParameter('q', encodeURI(term)+" site:http://postaria.com/pipermail/itzul/"));
+      params.push(new euskalbar.QueryParameter('hl', 'eu'));
+      params.push(new euskalbar.QueryParameter('btnG', 'Google+Bilaketa'));
+      params.push(new euskalbar.QueryParameter('q', encodeURI(term)+" site:http://postaria.com/pipermail/itzul/"));
       var zein = 'postaria.com';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(8);
-    }
+      euskalbarstats.writeStats(8);
+    },
 
 
     // Harluxet hiztegi entziklopedikoa
-    function goEuskalBarHarluxet(term) {
+    goEuskalBarHarluxet: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www1.euskadi.net/harluxet/emaitza.asp';
-      params.push(new QueryParameter('sarrera', escape(term)));
+      params.push(new euskalbar.QueryParameter('sarrera', escape(term)));
       var zein = 'harluxet';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(9);
-    }
+      euskalbarstats.writeStats(9);
+    },
 
 
     // eu.wikipedia.org
-    function goEuskalBarWikipedia(term) {
+    goEuskalBarWikipedia: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://eu.wikipedia.org/wiki/Aparteko:Search';
-      params.push(new QueryParameter('search', escape(term)));
+      params.push(new euskalbar.QueryParameter('search', escape(term)));
       var zein = 'eu.wikipedia.org';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(10);
-    }
+      euskalbarstats.writeStats(10);
+    },
 
 
     // Mokoroan bilaketak
-    function goEuskalBarMokoroa(source, term) {
+    goEuskalBarMokoroa: function(source, term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'mokoroa';
       var url = 'http://www.hiru.com/hiztegiak/mokoroa/';
       if (source == 'es') {
-        params.push(new QueryParameter('gazt', escape(term)));
-        params.push(new QueryParameter('bidali', 'Bilatu'));
+        params.push(new euskalbar.QueryParameter('gazt', escape(term)));
+        params.push(new euskalbar.QueryParameter('bidali', 'Bilatu'));
       } else {
-        params.push(new QueryParameter('eusk', escape(term)));
-        params.push(new QueryParameter('bidali', 'Bilatu'));
+        params.push(new euskalbar.QueryParameter('eusk', escape(term)));
+        params.push(new euskalbar.QueryParameter('bidali', 'Bilatu'));
       }
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(11);
-    }
+      euskalbarstats.writeStats(11);
+    },
+
 
     // Intzaren bilaketak
-    function goEuskalBarIntza(source, term) {
+    goEuskalBarIntza: function(source, term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'intza';
       var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl'; 
       if (source == 'es') {
-        params.push(new QueryParameter('hitza1', escape(term)));
-        params.push(new QueryParameter('eremu3', '1'));
-        params.push(new QueryParameter('eremu1', 'eeki'));
+        params.push(new euskalbar.QueryParameter('hitza1', escape(term)));
+        params.push(new euskalbar.QueryParameter('eremu3', '1'));
+        params.push(new euskalbar.QueryParameter('eremu1', 'eeki'));
       } else {
-        params.push(new QueryParameter('eremu1', 'giltzarriak'));
-        params.push(new QueryParameter('hitza1', escape(term)));
-        params.push(new QueryParameter('eremu3','1'));
+        params.push(new euskalbar.QueryParameter('eremu1', 'giltzarriak'));
+        params.push(new euskalbar.QueryParameter('hitza1', escape(term)));
+        params.push(new euskalbar.QueryParameter('eremu3','1'));
       }
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      writeStats(12);
-    }
+      euskalbarstats.writeStats(12);
+    },
+
 
     // Eurovoc Tesaurusa
-    function goEuskalBarEurovoc(term) {
+    goEuskalBarEurovoc: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
@@ -395,147 +400,151 @@
         hizk = 'CA';
       }
       var url = 'http://www.bizkaia.net/kultura/eurovoc/busqueda.asp';
-      params.push(new QueryParameter('txtBuscar', 'S'));
-      params.push(new QueryParameter('query', term));
-      params.push(new QueryParameter('idioma', hizk));
+      params.push(new euskalbar.QueryParameter('txtBuscar', 'S'));
+      params.push(new euskalbar.QueryParameter('query', term));
+      params.push(new euskalbar.QueryParameter('idioma', hizk));
       var zein = 'eurovoc';
-      openURL(url, zein, 'POST', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(13);
-    }
+      euskalbarstats.writeStats(13);
+    },
 
 
     // Bergara aldeko hiztegia
-    function goEuskalBarBergara(term) {
+    goEuskalBarBergara: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.netkam.com/i/bergara/hiztegia/bilatu';
-      params.push(new QueryParameter('berbaki', escape(term)));
+      params.push(new euskalbar.QueryParameter('berbaki', escape(term)));
       var zein = 'netkam';
-      openURL(url, zein, 'POST', params);
-      writeStats(14);
-    }
+      euskalbar.openURL(url, zein, 'POST', params);
+      euskalbarstats.writeStats(14);
+    },
 
 
     // Ereduzko Prosa
-    function goEuskalBarEreduzko(term) {
+    goEuskalBarEreduzko: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'ereduzkoa';
       var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu09.pl'; 
-      params.push(new QueryParameter('o', '1'));
-      params.push(new QueryParameter('h', '1'));
-      params.push(new QueryParameter('n', 'bietan'));
-      params.push(new QueryParameter('k1', '1'));
-      params.push(new QueryParameter('m1', 'hitza'));
-      params.push(new QueryParameter('h1',escape(term)));
-      openURL(url, zein, 'GET', params);
+      params.push(new euskalbar.QueryParameter('o', '1'));
+      params.push(new euskalbar.QueryParameter('h', '1'));
+      params.push(new euskalbar.QueryParameter('n', 'bietan'));
+      params.push(new euskalbar.QueryParameter('k1', '1'));
+      params.push(new euskalbar.QueryParameter('m1', 'hitza'));
+      params.push(new euskalbar.QueryParameter('h1',escape(term)));
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      writeStats(15);
-    }
+      euskalbarstats.writeStats(15);
+    },
+
 
     // Klasikoen gordailua
-    function goEuskalBarKlasikoak(term) {
+    goEuskalBarKlasikoak: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'klasikoak';
       var url = 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl'; 
-      params.push(new QueryParameter('check1', '1'));
-      params.push(new QueryParameter('hitza1', escape(term)));
-      params.push(new QueryParameter('mota1', 'hasi'));
-      params.push(new QueryParameter('alda', '1'));
-      params.push(new QueryParameter('idazlea', ''));
-      params.push(new QueryParameter('generoa', '0'));
-      params.push(new QueryParameter('garaia', '0'));
-      params.push(new QueryParameter('euskalkia', '0'));
-      openURL(url, zein, 'GET', params);
+      params.push(new euskalbar.QueryParameter('check1', '1'));
+      params.push(new euskalbar.QueryParameter('hitza1', escape(term)));
+      params.push(new euskalbar.QueryParameter('mota1', 'hasi'));
+      params.push(new euskalbar.QueryParameter('alda', '1'));
+      params.push(new euskalbar.QueryParameter('idazlea', ''));
+      params.push(new euskalbar.QueryParameter('generoa', '0'));
+      params.push(new euskalbar.QueryParameter('garaia', '0'));
+      params.push(new euskalbar.QueryParameter('euskalkia', '0'));
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      writeStats(16);
-    }
+      euskalbarstats.writeStats(16);
+    },
+
 
     // ZT Corpusa
-    function goEuskalBarZTCorpusa(term) {
+    goEuskalBarZTCorpusa: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
-      params.push(new QueryParameter('testu-hitza1', escape(term)));
+      params.push(new euskalbar.QueryParameter('testu-hitza1', escape(term)));
       var zein = 'ztcorpusa';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(17);
-    }
+      euskalbarstats.writeStats(17);
+    },
 
 
     // CorpEus
-    function goEuskalBarCorpEus(term) {
+    goEuskalBarCorpEus: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
-      params.push(new QueryParameter('bilagaiid', ' '));
-      params.push(new QueryParameter('formalema', 'lema'));
+      params.push(new euskalbar.QueryParameter('bilagaiid', ' '));
+      params.push(new euskalbar.QueryParameter('formalema', 'lema'));
       if (term.indexOf(' ') != -1) {
-        params.push(new QueryParameter('testu-hitza', escape('"'+term+'"')));
+        params.push(new euskalbar.QueryParameter('testu-hitza', escape('"'+term+'"')));
       } else {
-        params.push(new QueryParameter('testu-hitza', escape(term)));
+        params.push(new euskalbar.QueryParameter('testu-hitza', escape(term)));
       };
       var zein = 'corpeus';
-      openURL(url, zein, 'POST', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
-      writeStats(18);
-    }
+      euskalbarstats.writeStats(18);
+    },
+
 
     // XUXENweb
-    function goEuskalBarXUXENweb(term) {
+    goEuskalBarXUXENweb: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.xuxen.com/socketBezero.php';
-      params.push(new QueryParameter('idatzArea', term));
+      params.push(new euskalbar.QueryParameter('idatzArea', term));
       var zein = 'xuxen';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(19);
-    }
+      euskalbarstats.writeStats(19);
+    },
 
 
     // Elebila
-    function goEuskalBarElebila(term) {
+    goEuskalBarElebila: function(term) {
       // Begiratu kutxa hutsik dagoen 
-      if (alertEmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var url = 'http://www.elebila.eu/search/';
       if (term.indexOf(' ') != -1) {
-        params.push(new QueryParameter('bilatu', encodeURI('"'+term+'"')));
+        params.push(new euskalbar.QueryParameter('bilatu', encodeURI('"'+term+'"')));
       } else {
-        params.push(new QueryParameter('bilatu', encodeURI(term)));
+        params.push(new euskalbar.QueryParameter('bilatu', encodeURI(term)));
       };
       var zein = 'elebila';
-      openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
-      writeStats(20);
-    }
+      euskalbarstats.writeStats(20);
+    },
+
 
     // Zenbait hiztegi atzitzen ditu
-    function goEuskalBarOthers(zein) {
+    goEuskalBarOthers: function(zein) {
       switch (zein) {
         case 'SAunamendi':
           var url = 'http://www.euskomedia.org/euskomedia/SAunamendi?idi=eu&op=1';
@@ -547,20 +556,20 @@
           var url = 'http://www.oeegunea.org/default.cfm?atala=hiztegia';
         break;
       }
-      openURL(url, zein, null, null);
-    }
+      euskalbar.openURL(url, zein, null, null);
+    },
 
 
     // Aukeratutako testua itzultzen du
-    function selectionText () {
+    selectionText: function() {
       var focusedWindow = document.commandDispatcher.focusedWindow;
       var winWrapper = new XPCNativeWrapper(focusedWindow, 'getSelection()');
       return winWrapper.getSelection();
-    }
+    },
 
 
     // Testu kutxan sartzen den katea zenbakia dela balidatzen du
-    function numField(event){
+    numField: function(event) {
       if (event.which >= 48 && event.which <= 57 ||
           (event.which==46 && this.input.value.search('\\.')== -1)  ||
           8 == event.which || 13 == event.which || 0 == event.which) {
@@ -569,4 +578,6 @@
         event.preventDefault();
         return;
       }
-    }
+    },
+
+}

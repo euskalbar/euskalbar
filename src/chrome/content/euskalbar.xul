@@ -29,95 +29,95 @@
 
   <!-- Laster-teklak sortzen ditu -->  
   <keyset>
-    <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="a" oncommand="teklakEuskalbar('showeuskalbar');"/>
-    <key id="Euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="teklakEuskalbar('focustextbox');"/>
-    <key id="Euskalbar-toggledicts" modifiers="control alt" key="z" oncommand="teklakEuskalbar('toggledicts');"/>
-    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="teklakEuskalbar('showdicts');"/>
-    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="teklakEuskalbar('showcontextmenu');"/>
+    <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="a" oncommand="euskalbar.teklakEuskalbar('showeuskalbar');"/>
+    <key id="Euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="euskalbar.teklakEuskalbar('focustextbox');"/>
+    <key id="Euskalbar-toggledicts" modifiers="control alt" key="z" oncommand="euskalbar.teklakEuskalbar('toggledicts');"/>
+    <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="euskalbar.teklakEuskalbar('showdicts');"/>
+    <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="euskalbar.teklakEuskalbar('showcontextmenu');"/>
   </keyset>
 
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
-      <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="openLaguntza();"/>
+      <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="euskalbar.openLaguntza();"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
         <menupopup id="EuskalBar-aukerak-popup">
-          <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbarOptions();"/>
-          <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" oncommand="showLocalstats();" />
+          <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbar.euskalbarOptions();"/>
+          <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" oncommand="euskalbar.showLocalstats();" />
         </menupopup>
       </toolbarbutton>
       <toolbarseparator />
-      <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="changeEuskalbarLang();">
+      <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.changeEuskalbarLang();">
         <menupopup id="euskalbar-language-popup">
-          <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="setEuskalbarLang('eu', 'es'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-es_eu" label="ES ‣ EU" tooltiptext="&euskalbar.language.es_eu;" oncommand="setEuskalbarLang('es', 'eu'); setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="euskalbar.setEuskalbarLang('eu', 'es'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-es_eu" label="ES ‣ EU" tooltiptext="&euskalbar.language.es_eu;" oncommand="euskalbar.setEuskalbarLang('es', 'eu'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-eu_fr" label="EU ‣ FR" tooltiptext="&euskalbar.language.eu_fr;" oncommand="setEuskalbarLang('eu', 'fr'); setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-fr_eu" label="FR ‣ EU" tooltiptext="&euskalbar.language.fr_eu;" oncommand="setEuskalbarLang('fr', 'eu'); setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_fr" label="EU ‣ FR" tooltiptext="&euskalbar.language.eu_fr;" oncommand="euskalbar.setEuskalbarLang('eu', 'fr'); euskalbar.setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-fr_eu" label="FR ‣ EU" tooltiptext="&euskalbar.language.fr_eu;" oncommand="euskalbar.setEuskalbarLang('fr', 'eu'); euskalbar.setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-eu_en" label="EU ‣ EN" tooltiptext="&euskalbar.language.eu_en;" oncommand="setEuskalbarLang('eu', 'en'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="setEuskalbarLang('en', 'eu'); setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_en" label="EU ‣ EN" tooltiptext="&euskalbar.language.eu_en;" oncommand="euskalbar.setEuskalbarLang('eu', 'en'); euskalbar.setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="euskalbar.setEuskalbarLang('en', 'eu'); euskalbar.setEuskalbarDictionaries('en'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-la_eu" label="LA ‣ EU" tooltiptext="&euskalbar.language.la_eu;" oncommand="setEuskalbarLang('la', 'eu'); setEuskalbarDictionaries('la'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-la_eu" label="LA ‣ EU" tooltiptext="&euskalbar.language.la_eu;" oncommand="euskalbar.setEuskalbarLang('la', 'eu'); euskalbar.setEuskalbarDictionaries('la'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JA" tooltiptext="&euskalbar.language.eu_jp;" oncommand="setEuskalbarLang('eu', 'jp'); setEuskalbarDictionaries('jp'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JA" tooltiptext="&euskalbar.language.eu_jp;" oncommand="euskalbar.setEuskalbarLang('eu', 'jp'); euskalbar.setEuskalbarDictionaries('jp'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
-      <textbox id="EuskalBar-search-string" hidden="false" style="margin-left: 10px;" onkeypress="goEuskalBarOnKey(event)" />
-      <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
+      <textbox id="EuskalBar-search-string" hidden="false" style="margin-left: 10px;" onkeypress="euskalbar.goEuskalBarOnKey(event)" />
+      <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
         <menupopup id="EuskalBar-Euskalterm-popup">
-          <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Arteak" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'W'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Biologia" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'C'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Ekonomia" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'O'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Eraikuntza" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'I'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Erlijioa" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'S'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Filosofia" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'R'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Garraioa" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'H'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Geografia" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Q'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Geologia" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'D'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Historia" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'J'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Hizkuntzalaritza" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'U'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Industria" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'K'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Informatika" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'G'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Kazetaritza" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'V'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Izenak" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Y'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Kimika" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'B'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Kirola" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'X'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Laburtzapenak" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Z'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Matematika" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'A'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Medikuntza" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'E'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Merkataritza" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'L'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Nekazaritza" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'F'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Politika" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'P'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Psikologia" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'T'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm(euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'N'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Arteak" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'W'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Biologia" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'C'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Ekonomia" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'O'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Eraikuntza" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'I'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Erlijioa" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'S'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Filosofia" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'R'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Garraioa" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'H'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Geografia" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Q'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Geologia" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'D'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Historia" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'J'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Hizkuntzalaritza" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'U'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Industria" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'K'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Informatika" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'G'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Kazetaritza" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'V'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Izenak" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Y'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Kimika" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'B'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Kirola" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'X'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Laburtzapenak" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Z'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Matematika" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'A'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Medikuntza" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'E'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Merkataritza" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'L'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Nekazaritza" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'F'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Politika" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'P'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Psikologia" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'T'); event.stopPropagation();"/>
+          <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'N'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
-      <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" oncommand="goEuskalBarElhuyar(euskalbar_source,euskalbar_target,document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" oncommand="goEuskalBarGoihata(euskalbar_source,euskalbar_target,document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" oncommand="goEuskalBarAsk(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="goEuskalBarMorris(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" oncommand="euskalbardicts.goEuskalBarGoihata(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" oncommand="euskalbardicts.goEuskalBarAsk(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
       <toolbarseparator/>
       <hbox id="Euskalbar-dicts-general">
-        <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Hiztegi Batua" collapsed="false" persist="collapsed" oncommand="goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;" label="&euskalbar.uzei.tooltip;" collapsed="false" persist="collapsed" oncommand="goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Wikipedia" tooltiptext="&euskalbar.wikipedia.tooltip;" label="Wikipedia" collapsed="false" persist="collapsed" oncommand="goEuskalBarWikipedia(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="goEuskalBarMokoroa(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="goEuskalBarIntza(euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="false" persist="collapsed" oncommand="goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Klasikoak" tooltiptext="&euskalbar.klasikoak.tooltip;" label="Klasikoak" collapsed="false" persist="collapsed" oncommand="goEuskalBarKlasikoak(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Hiztegi Batua" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;" label="&euskalbar.uzei.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Wikipedia" tooltiptext="&euskalbar.wikipedia.tooltip;" label="Wikipedia" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarWikipedia(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarMokoroa(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarIntza(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Klasikoak" tooltiptext="&euskalbar.klasikoak.tooltip;" label="Klasikoak" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarKlasikoak(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
       </hbox>
      </toolbar>
   </toolbox>
@@ -156,38 +156,38 @@
     		    <menupopup>
     		      <menu id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm">
                 <menupopup>
-                  <menuitem id="Euskalbar-Euskalterm-Dena-eu_es-context" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), '0');" />
+                  <menuitem id="Euskalbar-Euskalterm-Dena-eu_es-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), '0');" />
                   <menuseparator/>
-                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-eu_es-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'M');" />
-                  <menuitem id="Euskalbar-Euskalterm-Arteak-eu_es-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'W');" />
-                  <menuitem id="Euskalbar-Euskalterm-Biologia-eu_es-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'C');" />
-                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-eu_es-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'O');" />
-                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-eu_es-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'I');" />
-                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-eu_es-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'S');" />
-                  <menuitem id="Euskalbar-Euskalterm-Filosofia-eu_es-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'R');" />
-                  <menuitem id="Euskalbar-Euskalterm-Garraioa-eu_es-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'H');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geografia-eu_es-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Q');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geologia-eu_es-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'D');" />
-                  <menuitem id="Euskalbar-Euskalterm-Historia-eu_es-context" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'J');" />
-                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-eu_es-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'U');" />
-                  <menuitem id="Euskalbar-Euskalterm-Industria-eu_es-context" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'K');" />
-                  <menuitem id="Euskalbar-Euskalterm-Informatika-eu_es-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'G');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-eu_es-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'V');" />
-                  <menuitem id="Euskalbar-Euskalterm-Izenak-eu_es-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Y');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kimika-eu_es-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'B');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kirola-eu_es-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'X');" />
-                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-eu_es-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Z');" />
-                  <menuitem id="Euskalbar-Euskalterm-Matematika-eu_es-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'A');" />
-                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-eu_es-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'E');" />
-                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-eu_es-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'L');" />
-                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-eu_es-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'F');" />
-                  <menuitem id="Euskalbar-Euskalterm-Politika-eu_es-context" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'P');" />
-                  <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_es-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'T');" />
-                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_es-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'N');" />
+                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-eu_es-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'M');" />
+                  <menuitem id="Euskalbar-Euskalterm-Arteak-eu_es-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'W');" />
+                  <menuitem id="Euskalbar-Euskalterm-Biologia-eu_es-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'C');" />
+                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-eu_es-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'O');" />
+                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-eu_es-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'I');" />
+                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-eu_es-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'S');" />
+                  <menuitem id="Euskalbar-Euskalterm-Filosofia-eu_es-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'R');" />
+                  <menuitem id="Euskalbar-Euskalterm-Garraioa-eu_es-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'H');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geografia-eu_es-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Q');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geologia-eu_es-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'D');" />
+                  <menuitem id="Euskalbar-Euskalterm-Historia-eu_es-context" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'J');" />
+                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-eu_es-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'U');" />
+                  <menuitem id="Euskalbar-Euskalterm-Industria-eu_es-context" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'K');" />
+                  <menuitem id="Euskalbar-Euskalterm-Informatika-eu_es-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'G');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-eu_es-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'V');" />
+                  <menuitem id="Euskalbar-Euskalterm-Izenak-eu_es-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Y');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kimika-eu_es-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'B');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kirola-eu_es-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'X');" />
+                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-eu_es-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Z');" />
+                  <menuitem id="Euskalbar-Euskalterm-Matematika-eu_es-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'A');" />
+                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-eu_es-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'E');" />
+                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-eu_es-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'L');" />
+                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-eu_es-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'F');" />
+                  <menuitem id="Euskalbar-Euskalterm-Politika-eu_es-context" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'P');" />
+                  <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_es-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'T');" />
+                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_es-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'N');" />
                 </menupopup>
               </menu>
-    		      <menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="goEuskalBarAsk('eu', escape(selectionText()));" />
-    		      <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('eu','es',escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="euskalbardicts.goEuskalBarAsk('eu', escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu','es',escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
@@ -195,231 +195,231 @@
     		      <menu id="Euskalbar-Euskalterm-es_eu-context" label="Euskalterm">
                 <menupopup>
                   <!-- escape() kendu da tildeak ongi tratatzeko, bestela ez baitabil -> Konponbide hau ez dabil-->
-                  <menuitem id="Euskalbar-Euskalterm-Dena-es_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), '0');" />
+                  <menuitem id="Euskalbar-Euskalterm-Dena-es_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), '0');" />
                   <menuseparator/>
-                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-es_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'M');" />
-                  <menuitem id="Euskalbar-Euskalterm-Arteak-es_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm('es', selectionText(), 'W');" />
-                  <menuitem id="Euskalbar-Euskalterm-Biologia-es_eu-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'C');" />
-                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-es_eu-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'O');" />
-                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-es_eu-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'I');" />
-                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-es_eu-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'S');" />
-                  <menuitem id="Euskalbar-Euskalterm-Filosofia-es_eu-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'R');" />
-                  <menuitem id="Euskalbar-Euskalterm-Garraioa-es_eu-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'H');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geografia-es_eu-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'Q');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geologia-es_eu-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'D');" />
-                  <menuitem id="Euskalbar-Euskalterm-Historia-es_eu-context" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'J');" />
-                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-es_eu-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'U');" />
-                  <menuitem id="Euskalbar-Euskalterm-Industria-es_eu-context" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'K');" />
-                  <menuitem id="Euskalbar-Euskalterm-Informatika-es_eu-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'G');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-es_eu-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'V');" />
-                  <menuitem id="Euskalbar-Euskalterm-Izenak-es_eu-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'Y');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kimika-es_eu-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'B');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kirola-es_eu-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'X');" />
-                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-es_eu-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'Z');" />
-                  <menuitem id="Euskalbar-Euskalterm-Matematika-es_eu-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'A');" />
-                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-es_eu-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'E');" />
-                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-es_eu-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'L');" />
-                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-es_eu-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'F');" />
-                  <menuitem id="Euskalbar-Euskalterm-Politika-es_eu-context" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm('es', selectionText(), 'P');" />
-                  <menuitem id="Euskalbar-Euskalterm-Psikologia-es_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'T');" />
-                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-es_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm('es', escape(selectionText()), 'N');" />
+                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-es_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'M');" />
+                  <menuitem id="Euskalbar-Euskalterm-Arteak-es_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', selectionText(), 'W');" />
+                  <menuitem id="Euskalbar-Euskalterm-Biologia-es_eu-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'C');" />
+                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-es_eu-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'O');" />
+                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-es_eu-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'I');" />
+                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-es_eu-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'S');" />
+                  <menuitem id="Euskalbar-Euskalterm-Filosofia-es_eu-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'R');" />
+                  <menuitem id="Euskalbar-Euskalterm-Garraioa-es_eu-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'H');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geografia-es_eu-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'Q');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geologia-es_eu-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'D');" />
+                  <menuitem id="Euskalbar-Euskalterm-Historia-es_eu-context" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'J');" />
+                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-es_eu-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'U');" />
+                  <menuitem id="Euskalbar-Euskalterm-Industria-es_eu-context" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'K');" />
+                  <menuitem id="Euskalbar-Euskalterm-Informatika-es_eu-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'G');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-es_eu-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'V');" />
+                  <menuitem id="Euskalbar-Euskalterm-Izenak-es_eu-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'Y');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kimika-es_eu-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'B');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kirola-es_eu-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'X');" />
+                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-es_eu-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'Z');" />
+                  <menuitem id="Euskalbar-Euskalterm-Matematika-es_eu-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'A');" />
+                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-es_eu-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'E');" />
+                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-es_eu-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'L');" />
+                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-es_eu-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'F');" />
+                  <menuitem id="Euskalbar-Euskalterm-Politika-es_eu-context" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', selectionText(), 'P');" />
+                  <menuitem id="Euskalbar-Euskalterm-Psikologia-es_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'T');" />
+                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-es_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(selectionText()), 'N');" />
                 </menupopup>
               </menu>
-              <menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="goEuskalBarAsk('es', escape(selectionText()));" />
-    	      <menuitem id="Euskalbar-Elhuyar-es_eu-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('es','eu', escape(selectionText()));" />
+              <menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="euskalbardicts.goEuskalBarAsk('es', escape(selectionText()));" />
+    	      <menuitem id="Euskalbar-Elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('es','eu', escape(selectionText()));" />
     	    </menupopup>
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
    	    <menupopup>
    	      <menu id="Euskalbar-Euskalterm-eu_fr-context" label="Euskalterm">
                 <menupopup>
-                  <menuitem id="Euskalbar-Euskalterm-Dena-eu_fr-context" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), '0');" />
+                  <menuitem id="Euskalbar-Euskalterm-Dena-eu_fr-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), '0');" />
                   <menuseparator/>
-                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-eu_fr-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'M');" />
-                  <menuitem id="Euskalbar-Euskalterm-Arteak-eu_fr-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'W');" />
-                  <menuitem id="Euskalbar-Euskalterm-Biologia-eu_fr-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'C');" />
-                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-eu_fr-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'O');" />
-                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-eu_fr-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'I');" />
-                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-eu_fr-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'S');" />
-                  <menuitem id="Euskalbar-Euskalterm-Filosofia-eu_fr-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'R');" />
-                  <menuitem id="Euskalbar-Euskalterm-Garraioa-eu_fr-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'H');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geografia-eu_fr-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Q');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geologia-eu_fr-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'D');" />
-                  <menuitem id="Euskalbar-Euskalterm-Historia-eu_fr-context" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'J');" />
-                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-eu_fr-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'U');" />
-                  <menuitem id="Euskalbar-Euskalterm-Industria-eu_fr-context" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'K');" />
-                  <menuitem id="Euskalbar-Euskalterm-Informatika-eu_fr-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'G');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-eu_fr-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'V');" />
-                  <menuitem id="Euskalbar-Euskalterm-Izenak-eu_fr-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Y');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kimika-eu_fr-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'B');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kirola-eu_fr-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'X');" />
-                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-eu_fr-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Z');" />
-                  <menuitem id="Euskalbar-Euskalterm-Matematika-eu_fr-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'A');" />
-                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-eu_fr-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'E');" />
-                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-eu_fr-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'L');" />
-                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-eu_fr-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'F');" />
-                  <menuitem id="Euskalbar-Euskalterm-Politika-eu_fr-context" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'P');" />
-                  <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_fr-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'T');" />
-                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_fr-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'N');" />
+                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-eu_fr-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'M');" />
+                  <menuitem id="Euskalbar-Euskalterm-Arteak-eu_fr-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'W');" />
+                  <menuitem id="Euskalbar-Euskalterm-Biologia-eu_fr-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'C');" />
+                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-eu_fr-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'O');" />
+                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-eu_fr-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'I');" />
+                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-eu_fr-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'S');" />
+                  <menuitem id="Euskalbar-Euskalterm-Filosofia-eu_fr-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'R');" />
+                  <menuitem id="Euskalbar-Euskalterm-Garraioa-eu_fr-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'H');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geografia-eu_fr-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Q');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geologia-eu_fr-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'D');" />
+                  <menuitem id="Euskalbar-Euskalterm-Historia-eu_fr-context" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'J');" />
+                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-eu_fr-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'U');" />
+                  <menuitem id="Euskalbar-Euskalterm-Industria-eu_fr-context" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'K');" />
+                  <menuitem id="Euskalbar-Euskalterm-Informatika-eu_fr-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'G');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-eu_fr-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'V');" />
+                  <menuitem id="Euskalbar-Euskalterm-Izenak-eu_fr-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Y');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kimika-eu_fr-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'B');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kirola-eu_fr-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'X');" />
+                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-eu_fr-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Z');" />
+                  <menuitem id="Euskalbar-Euskalterm-Matematika-eu_fr-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'A');" />
+                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-eu_fr-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'E');" />
+                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-eu_fr-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'L');" />
+                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-eu_fr-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'F');" />
+                  <menuitem id="Euskalbar-Euskalterm-Politika-eu_fr-context" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'P');" />
+                  <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_fr-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'T');" />
+                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_fr-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'N');" />
                 </menupopup>
               </menu>
-    		      <menuitem id="Euskalbar-Elhuyar-eu_fr-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('eu', 'fr', escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-Elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu', 'fr', escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
     		    <menupopup>
     		      <menu id="Euskalbar-Euskalterm-fr_eu-context" label="Euskalterm">
                 <menupopup>
-                  <menuitem id="Euskalbar-Euskalterm-Dena-fr_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), '0');" />
+                  <menuitem id="Euskalbar-Euskalterm-Dena-fr_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), '0');" />
                   <menuseparator/>
-                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-fr_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'M');" />
-                  <menuitem id="Euskalbar-Euskalterm-Arteak-fr_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm('fr', selectionText(), 'W');" />
-                  <menuitem id="Euskalbar-Euskalterm-Biologia-fr_eu-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'C');" />
-                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-fr_eu-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'O');" />
-                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-fr_eu-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'I');" />
-                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-fr_eu-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'S');" />
-                  <menuitem id="Euskalbar-Euskalterm-Filosofia-fr_eu-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'R');" />
-                  <menuitem id="Euskalbar-Euskalterm-Garraioa-fr_eu-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'H');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geografia-fr_eu-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'Q');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geologia-fr_eu-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'D');" />
-                  <menuitem id="Euskalbar-Euskalterm-Historia-fr_eu-context" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'J');" />
-                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-fr_eu-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'U');" />
-                  <menuitem id="Euskalbar-Euskalterm-Industria-fr_eu-context" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'K');" />
-                  <menuitem id="Euskalbar-Euskalterm-Informatika-fr_eu-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'G');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-fr_eu-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'V');" />
-                  <menuitem id="Euskalbar-Euskalterm-Izenak-fr_eu-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'Y');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kimika-fr_eu-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'B');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kirola-fr_eu-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'X');" />
-                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-fr_eu-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'Z');" />
-                  <menuitem id="Euskalbar-Euskalterm-Matematika-fr_eu-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'A');" />
-                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-fr_eu-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'E');" />
-                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-fr_eu-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'L');" />
-                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-fr_eu-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'F');" />
-                  <menuitem id="Euskalbar-Euskalterm-Politika-fr_eu-context" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'P');" />
-                  <menuitem id="Euskalbar-Euskalterm-Psikologia-fr_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'T');" />
-                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-fr_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm('fr', escape(selectionText()), 'N');" />
+                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-fr_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'M');" />
+                  <menuitem id="Euskalbar-Euskalterm-Arteak-fr_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', selectionText(), 'W');" />
+                  <menuitem id="Euskalbar-Euskalterm-Biologia-fr_eu-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'C');" />
+                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-fr_eu-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'O');" />
+                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-fr_eu-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'I');" />
+                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-fr_eu-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'S');" />
+                  <menuitem id="Euskalbar-Euskalterm-Filosofia-fr_eu-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'R');" />
+                  <menuitem id="Euskalbar-Euskalterm-Garraioa-fr_eu-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'H');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geografia-fr_eu-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'Q');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geologia-fr_eu-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'D');" />
+                  <menuitem id="Euskalbar-Euskalterm-Historia-fr_eu-context" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'J');" />
+                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-fr_eu-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'U');" />
+                  <menuitem id="Euskalbar-Euskalterm-Industria-fr_eu-context" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'K');" />
+                  <menuitem id="Euskalbar-Euskalterm-Informatika-fr_eu-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'G');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-fr_eu-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'V');" />
+                  <menuitem id="Euskalbar-Euskalterm-Izenak-fr_eu-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'Y');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kimika-fr_eu-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'B');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kirola-fr_eu-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'X');" />
+                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-fr_eu-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'Z');" />
+                  <menuitem id="Euskalbar-Euskalterm-Matematika-fr_eu-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'A');" />
+                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-fr_eu-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'E');" />
+                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-fr_eu-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'L');" />
+                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-fr_eu-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'F');" />
+                  <menuitem id="Euskalbar-Euskalterm-Politika-fr_eu-context" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'P');" />
+                  <menuitem id="Euskalbar-Euskalterm-Psikologia-fr_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'T');" />
+                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-fr_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('fr', escape(selectionText()), 'N');" />
                 </menupopup>
               </menu>
-      		    <menuitem id="Euskalbar-Elhuyar-fr_eu-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('fr', 'eu', selectionText());" />
+      		    <menuitem id="Euskalbar-Elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('fr', 'eu', selectionText());" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
     		    <menupopup>
     		      <menu id="Euskalbar-Euskalterm-eu_en-context" label="Euskalterm">
                 <menupopup>
-                  <menuitem id="Euskalbar-Euskalterm-Dena-eu_en-context" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), '0');" />
+                  <menuitem id="Euskalbar-Euskalterm-Dena-eu_en-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), '0');" />
                   <menuseparator/>
-                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-eu_en-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'M');" />
-                  <menuitem id="Euskalbar-Euskalterm-Arteak-eu_en-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'W');" />
-                  <menuitem id="Euskalbar-Euskalterm-Biologia-eu_en-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'C');" />
-                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-eu_en-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'O');" />
-                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-eu_en-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'I');" />
-                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-eu_en-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'S');" />
-                  <menuitem id="Euskalbar-Euskalterm-Filosofia-eu_en-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'R');" />
-                  <menuitem id="Euskalbar-Euskalterm-Garraioa-eu_en-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'H');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geografia-eu_en-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Q');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geologia-eu_en-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'D');" />
-                  <menuitem id="Euskalbar-Euskalterm-Historia-eu_en-context" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'J');" />
-                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-eu_en-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'U');" />
-                  <menuitem id="Euskalbar-Euskalterm-Industria-eu_en-context" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'K');" />
-                  <menuitem id="Euskalbar-Euskalterm-Informatika-eu_en-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'G');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-eu_en-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'V');" />
-                  <menuitem id="Euskalbar-Euskalterm-Izenak-eu_en-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Y');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kimika-eu_en-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'B');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kirola-eu_en-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'X');" />
-                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-eu_en-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'Z');" />
-                  <menuitem id="Euskalbar-Euskalterm-Matematika-eu_en-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'A');" />
-                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-eu_en-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'E');" />
-                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-eu_en-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'L');" />
-                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-eu_en-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'F');" />
-                  <menuitem id="Euskalbar-Euskalterm-Politika-eu_en-context" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'P');" />
-                  <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_en-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'T');" />
-                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_en-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm('eu', escape(selectionText()), 'N');" />
+                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-eu_en-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'M');" />
+                  <menuitem id="Euskalbar-Euskalterm-Arteak-eu_en-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'W');" />
+                  <menuitem id="Euskalbar-Euskalterm-Biologia-eu_en-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'C');" />
+                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-eu_en-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'O');" />
+                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-eu_en-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'I');" />
+                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-eu_en-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'S');" />
+                  <menuitem id="Euskalbar-Euskalterm-Filosofia-eu_en-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'R');" />
+                  <menuitem id="Euskalbar-Euskalterm-Garraioa-eu_en-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'H');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geografia-eu_en-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Q');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geologia-eu_en-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'D');" />
+                  <menuitem id="Euskalbar-Euskalterm-Historia-eu_en-context" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'J');" />
+                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-eu_en-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'U');" />
+                  <menuitem id="Euskalbar-Euskalterm-Industria-eu_en-context" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'K');" />
+                  <menuitem id="Euskalbar-Euskalterm-Informatika-eu_en-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'G');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-eu_en-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'V');" />
+                  <menuitem id="Euskalbar-Euskalterm-Izenak-eu_en-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Y');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kimika-eu_en-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'B');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kirola-eu_en-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'X');" />
+                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-eu_en-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'Z');" />
+                  <menuitem id="Euskalbar-Euskalterm-Matematika-eu_en-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'A');" />
+                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-eu_en-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'E');" />
+                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-eu_en-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'L');" />
+                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-eu_en-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'F');" />
+                  <menuitem id="Euskalbar-Euskalterm-Politika-eu_en-context" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'P');" />
+                  <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_en-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'T');" />
+                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_en-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(selectionText()), 'N');" />
                 </menupopup>
               </menu>
-    		      <menuitem id="Euskalbar-Elhuyar-eu_en-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('eu', 'en', escape(selectionText()));" />
-    		      <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="goEuskalBarMorris('eu', escape(selectionText()));" />
-      		    <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="goEuskalBarOpentran(escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-Elhuyar-eu_en-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu', 'en', escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris('eu', escape(selectionText()));" />
+      		    <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
     		    <menupopup>
     		      <menu id="Euskalbar-Euskalterm-en_eu-context" label="Euskalterm">
                 <menupopup>
-                  <menuitem id="Euskalbar-Euskalterm-Dena-en_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), '0');" />
+                  <menuitem id="Euskalbar-Euskalterm-Dena-en_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), '0');" />
                   <menuseparator/>
-                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-en_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'M');" />
-                  <menuitem id="Euskalbar-Euskalterm-Arteak-en_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'W');" />
-                  <menuitem id="Euskalbar-Euskalterm-Biologia-en_eu-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'C');" />
-                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-en_eu-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'O');" />
-                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-en_eu-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'I');" />
-                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-en_eu-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'S');" />
-                  <menuitem id="Euskalbar-Euskalterm-Filosofia-en_eu-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'R');" />
-                  <menuitem id="Euskalbar-Euskalterm-Garraioa-en_eu-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'H');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geografia-en_eu-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'Q');" />
-                  <menuitem id="Euskalbar-Euskalterm-Geologia-en_eu-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'D');" />
-                  <menuitem id="Euskalbar-Euskalterm-Historia-en_eu-context" label="&euskalbar.euskalterm.historia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'J');" />
-                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-en_eu-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'U');" />
-                  <menuitem id="Euskalbar-Euskalterm-Industria-en_eu-context" label="&euskalbar.euskalterm.industria.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'K');" />
-                  <menuitem id="Euskalbar-Euskalterm-Informatika-en_eu-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'G');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-en_eu-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'V');" />
-                  <menuitem id="Euskalbar-Euskalterm-Izenak-en_eu-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'Y');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kimika-en_eu-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'B');" />
-                  <menuitem id="Euskalbar-Euskalterm-Kirola-en_eu-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'X');" />
-                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-en_eu-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'Z');" />
-                  <menuitem id="Euskalbar-Euskalterm-Matematika-en_eu-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'A');" />
-                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-en_eu-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'E');" />
-                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-en_eu-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'L');" />
-                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-en_eu-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'F');" />
-                  <menuitem id="Euskalbar-Euskalterm-Politika-en_eu-context" label="&euskalbar.euskalterm.politika.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'P');" />
-                  <menuitem id="Euskalbar-Euskalterm-Psikologia-en_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'T');" />
-                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-en_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="goEuskalBarEuskalterm('en', escape(selectionText()), 'N');" />
+                  <menuitem id="Euskalbar-Euskalterm-Administrazioa-en_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'M');" />
+                  <menuitem id="Euskalbar-Euskalterm-Arteak-en_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'W');" />
+                  <menuitem id="Euskalbar-Euskalterm-Biologia-en_eu-context" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'C');" />
+                  <menuitem id="Euskalbar-Euskalterm-Ekonomia-en_eu-context" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'O');" />
+                  <menuitem id="Euskalbar-Euskalterm-Eraikuntza-en_eu-context" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'I');" />
+                  <menuitem id="Euskalbar-Euskalterm-Erlijioa-en_eu-context" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'S');" />
+                  <menuitem id="Euskalbar-Euskalterm-Filosofia-en_eu-context" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'R');" />
+                  <menuitem id="Euskalbar-Euskalterm-Garraioa-en_eu-context" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'H');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geografia-en_eu-context" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'Q');" />
+                  <menuitem id="Euskalbar-Euskalterm-Geologia-en_eu-context" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'D');" />
+                  <menuitem id="Euskalbar-Euskalterm-Historia-en_eu-context" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'J');" />
+                  <menuitem id="Euskalbar-Euskalterm-Hizkuntzalaritza-en_eu-context" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'U');" />
+                  <menuitem id="Euskalbar-Euskalterm-Industria-en_eu-context" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'K');" />
+                  <menuitem id="Euskalbar-Euskalterm-Informatika-en_eu-context" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'G');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kazetaritza-en_eu-context" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'V');" />
+                  <menuitem id="Euskalbar-Euskalterm-Izenak-en_eu-context" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'Y');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kimika-en_eu-context" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'B');" />
+                  <menuitem id="Euskalbar-Euskalterm-Kirola-en_eu-context" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'X');" />
+                  <menuitem id="Euskalbar-Euskalterm-Laburtzapenak-en_eu-context" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'Z');" />
+                  <menuitem id="Euskalbar-Euskalterm-Matematika-en_eu-context" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'A');" />
+                  <menuitem id="Euskalbar-Euskalterm-Medikuntza-en_eu-context" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'E');" />
+                  <menuitem id="Euskalbar-Euskalterm-Merkataritza-en_eu-context" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'L');" />
+                  <menuitem id="Euskalbar-Euskalterm-Nekazaritza-en_eu-context" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'F');" />
+                  <menuitem id="Euskalbar-Euskalterm-Politika-en_eu-context" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'P');" />
+                  <menuitem id="Euskalbar-Euskalterm-Psikologia-en_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'T');" />
+                  <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-en_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('en', escape(selectionText()), 'N');" />
                 </menupopup>
               </menu>
-      		    <menuitem id="Euskalbar-Elhuyar-en_eu-context" label="Elhuyar" oncommand="goEuskalBarElhuyar('en', 'eu', escape(selectionText()));" />
-      		    <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="goEuskalBarMorris('en', escape(selectionText()));" />
-      		    <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="goEuskalBarOpentran(escape(selectionText()));" />
+      		    <menuitem id="Euskalbar-Elhuyar-en_eu-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('en', 'eu', escape(selectionText()));" />
+      		    <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris('en', escape(selectionText()));" />
+      		    <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
     		    <menupopup>
-    		      <menuitem id="Euskalbar-Goihata-eu_jp-context" label="Goihata" oncommand="goEuskalBarGoihata('eu', 'jp', escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-Goihata-eu_jp-context" label="Goihata" oncommand="euskalbardicts.goEuskalBarGoihata('eu', 'jp', escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
           <menuseparator/>
     		  <menu id="Euskalbar-sinonimoak-context" label="&euskalbar.context.sinonimoak.label;">
     		    <menupopup>
-    		      <menuitem id="Euskalbar-Adorez-sinonimoak-context" label="Adorez" oncommand="goEuskalBarAdorez(escape(selectionText()));" />
-    		      <menuitem id="Euskalbar-UZEI-sinonimoak-context" label="UZEI" oncommand="goEuskalBarUZEI(escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-Adorez-sinonimoak-context" label="Adorez" oncommand="euskalbardicts.goEuskalBarAdorez(escape(selectionText()));" />
+    		      <menuitem id="Euskalbar-UZEI-sinonimoak-context" label="UZEI" oncommand="euskalbardicts.goEuskalBarUZEI(escape(selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menuseparator/>
-          <menuitem id="Euskalbar-Euskaltzaindia-context" label="Hiztegi Batua" oncommand="goEuskalBarEuskaltzaindia(escape(selectionText()));" />
-          <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="goEuskalBarItzuL(escape(selectionText()));" />
-          <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="goEuskalBarHarluxet(escape(selectionText()));" />
-          <menuitem id="Euskalbar-Wikipedia-context" label="Wikipedia" oncommand="goEuskalBarWikipedia(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Euskaltzaindia-context" label="Hiztegi Batua" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(escape(selectionText()));" />
+          <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="euskalbardicts.goEuskalBarItzuL(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="euskalbardicts.goEuskalBarHarluxet(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Wikipedia-context" label="Wikipedia" oncommand="euskalbardicts.goEuskalBarWikipedia(escape(selectionText()));" />
           <menu id="Euskalbar-Mokoroa-context" label="Mokoroa">
             <menupopup>
-              <menuitem id="Euskalbar-Mokoroa-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="goEuskalBarMokoroa('es', escape(selectionText()));" />
-              <menuitem id="Euskalbar-Mokoroa-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="goEuskalBarMokoroa('eu', escape(selectionText()));" />
+              <menuitem id="Euskalbar-Mokoroa-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbardicts.goEuskalBarMokoroa('es', escape(selectionText()));" />
+              <menuitem id="Euskalbar-Mokoroa-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbardicts.goEuskalBarMokoroa('eu', escape(selectionText()));" />
             </menupopup>
           </menu>
           <menu id="Euskalbar-Intza-context" label="Intza">
             <menupopup>
-              <menuitem id="Euskalbar-Intza-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="goEuskalBarIntza('es', escape(selectionText()));" />
-              <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="goEuskalBarIntza('eu', escape(selectionText()));" />
+              <menuitem id="Euskalbar-Intza-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbardicts.goEuskalBarIntza('es', escape(selectionText()));" />
+              <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbardicts.goEuskalBarIntza('eu', escape(selectionText()));" />
             </menupopup>
           </menu>
-          <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="goEuskalBarEurovoc(escape(selectionText()));" />
-          <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="goEuskalBarBergara(escape(selectionText()));" />
-          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="goEuskalBarEreduzko(escape(selectionText()));" />
-          <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="goEuskalBarKlasikoak(escape(selectionText()));"/>
-          <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="goEuskalBarZTCorpusa(escape(selectionText()));" />
-          <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="goEuskalBarCorpEus(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbardicts.goEuskalBarEurovoc(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="euskalbardicts.goEuskalBarBergara(escape(selectionText()));" />
+          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="euskalbardicts.goEuskalBarEreduzko(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="euskalbardicts.goEuskalBarKlasikoak(escape(selectionText()));"/>
+          <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="euskalbardicts.goEuskalBarZTCorpusa(escape(selectionText()));" />
+          <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="euskalbardicts.goEuskalBarCorpEus(escape(selectionText()));" />
           <menuseparator/>
-          <menuitem id="Euskalbar-XUXENweb-context" label="&euskalbar.context.xuxenweb.label;" oncommand="goEuskalBarXUXENweb(escape(selectionText()));" />
+          <menuitem id="Euskalbar-XUXENweb-context" label="&euskalbar.context.xuxenweb.label;" oncommand="euskalbardicts.goEuskalBarXUXENweb(escape(selectionText()));" />
           <menuseparator/>
-          <menuitem id="Euskalbar-Elebila-context" label="Elebila" oncommand="goEuskalBarElebila(escape(selectionText()));" />
+          <menuitem id="Euskalbar-Elebila-context" label="Elebila" oncommand="euskalbardicts.goEuskalBarElebila(escape(selectionText()));" />
         </menupopup>
       </menu>
   </popup>
@@ -431,73 +431,73 @@
         <menupopup id="Euskalbar-popup">
           <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
             <menupopup id="Euskalbar-subpopup1">
-          	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="openURL('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');" />
+          	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="euskalbar.openURL('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');" />
         	<menuseparator/>
-          	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="openURL('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');" />
-          	<menuitem label="&euskalbar.menu.3000;" oncommand="openURL('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');" />
-          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="openURL('http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/index.asp', 'hizt_el');"/>
-          	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="openURL('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
+          	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="euskalbar.openURL('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');" />
+          	<menuitem label="&euskalbar.menu.3000;" oncommand="euskalbar.openURL('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');" />
+          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="euskalbar.openURL('http://www.euskara.euskadi.net/r59-15172x/eu/hizt_el/index.asp', 'hizt_el');"/>
+          	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="euskalbar.openURL('http://bfaapp.bizkaia.net/apps/danok/HiztegiTerminologikoa/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
         	<menuseparator/>
-          	<menuitem label="&euskalbar.menu.morris;" oncommand="openURL('http://www1.euskadi.net/morris/indice_e.htm', 'morris');" />
-          	<menuitem label="&euskalbar.menu.opentran;" oncommand="openURL('http://eu.open-tran.eu', 'open-tran');" />
+          	<menuitem label="&euskalbar.menu.morris;" oncommand="euskalbar.openURL('http://www1.euskadi.net/morris/indice_e.htm', 'morris');" />
+          	<menuitem label="&euskalbar.menu.opentran;" oncommand="euskalbar.openURL('http://eu.open-tran.eu', 'open-tran');" />
           	<menuseparator />
-          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="openURL('http://www.hiztegia.org', 'lagun20');" />
-          	<menuitem label="&euskalbar.menu.goihata;" oncommand="openURL('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
+          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="euskalbar.openURL('http://www.hiztegia.org', 'lagun20');" />
+          	<menuitem label="&euskalbar.menu.goihata;" oncommand="euskalbar.openURL('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
             </menupopup>
   	      </menu>
           <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">
             <menupopup id="Euskalbar-subpopup2">
-            <menuitem label="&euskalbar.menu.sinonimoenhizt;" oncommand="openURL('http://www1.euskadi.net/hizt_sinon/indice_e.htm', 'hizt_sinon');" />
-            <menuitem label="&euskalbar.menu.uzeisinonim;" oncommand="openURL('http://www.uzei.com/estatico/sinonimos.asp', 'uzei.com/estatico');" />
-            <menuitem label="&euskalbar.menu.eurovoc;" oncommand="openURL('http://www.bizkaia.net/kultura/eurovoc/index.asp', 'eurovoc');" />
+            <menuitem label="&euskalbar.menu.sinonimoenhizt;" oncommand="euskalbar.openURL('http://www1.euskadi.net/hizt_sinon/indice_e.htm', 'hizt_sinon');" />
+            <menuitem label="&euskalbar.menu.uzeisinonim;" oncommand="euskalbar.openURL('http://www.uzei.com/estatico/sinonimos.asp', 'uzei.com/estatico');" />
+            <menuitem label="&euskalbar.menu.eurovoc;" oncommand="euskalbar.openURL('http://www.bizkaia.net/kultura/eurovoc/index.asp', 'eurovoc');" />
             </menupopup>
           </menu>
           <menu id="Euskalbar-entzik" label="&euskalbar.menu.entziklopediak;">
             <menupopup id="Euskalbar-subpopup3">
-            <menuitem label="&euskalbar.menu.aunam;" oncommand="goEuskalBarOthers('SAunamendi');"/>
-            <menuitem label="&euskalbar.menu.harluxet;" oncommand="openURL('http://www1.euskadi.net/harluxet', 'harluxet');" />
-            <menuitem label="&euskalbar.menu.wikipedia;" oncommand="openURL('http://eu.wikipedia.org', 'wikipedia');" />
+            <menuitem label="&euskalbar.menu.aunam;" oncommand="euskalbardicts.goEuskalBarOthers('SAunamendi');"/>
+            <menuitem label="&euskalbar.menu.harluxet;" oncommand="euskalbar.openURL('http://www1.euskadi.net/harluxet', 'harluxet');" />
+            <menuitem label="&euskalbar.menu.wikipedia;" oncommand="euskalbar.openURL('http://eu.wikipedia.org', 'wikipedia');" />
             </menupopup>
           </menu>
           <menu id="Euskalbar-thematics" label="&euskalbar.menu.thematics;">
             <menupopup id="Euskalbar-subpopup4">
-            <menuitem label="&euskalbar.menu.drugs;" oncommand="openURL('http://www.drogomedia.com/eus/diccionario.php', 'drogomedia');" />
-            <menuitem label="&euskalbar.menu.energy;" oncommand="openURL('http://www.eve.es/energia/index.html', 'energia');" />
-            <menuitem label="&euskalbar.menu.management;" oncommand="openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
-            <menuitem label="&euskalbar.menu.industry;" oncommand="openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');" />
-            <menuitem label="&euskalbar.menu.industry2;" oncommand="openURL('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
-            <menuitem label="&euskalbar.menu.environment;" oncommand="openURL('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');" />
-            <menuitem label="&euskalbar.menu.internet;" oncommand="openURL('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');" />
-            <menuitem label="&euskalbar.menu.justice;" oncommand="openURL('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');" />
-            <menuitem label="&euskalbar.menu.catalogues;" oncommand="goEuskalBarOthers('kapsula');" />
-            <menuitem label="&euskalbar.menu.parliament;" oncommand="openURL('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');" />
-            <menuitem label="&euskalbar.menu.health;" oncommand="goEuskalBarOthers('oeegunea');" />
-            <menuitem label="&euskalbar.menu.cooking;" oncommand="openURL('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
-            <menuitem label="&euskalbar.menu.teleco;" oncommand="openURL('http://www.telekomunikaziohiztegia.org', 'telekomunikaziohiztegia');" />
-            <menuitem label="&euskalbar.menu.science;" oncommand="openURL('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');" />
+            <menuitem label="&euskalbar.menu.drugs;" oncommand="euskalbar.openURL('http://www.drogomedia.com/eus/diccionario.php', 'drogomedia');" />
+            <menuitem label="&euskalbar.menu.energy;" oncommand="euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia');" />
+            <menuitem label="&euskalbar.menu.management;" oncommand="euskalbar.openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
+            <menuitem label="&euskalbar.menu.industry;" oncommand="euskalbar.openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');" />
+            <menuitem label="&euskalbar.menu.industry2;" oncommand="euskalbar.openURL('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
+            <menuitem label="&euskalbar.menu.environment;" oncommand="euskalbar.openURL('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');" />
+            <menuitem label="&euskalbar.menu.internet;" oncommand="euskalbar.openURL('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');" />
+            <menuitem label="&euskalbar.menu.justice;" oncommand="euskalbar.openURL('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');" />
+            <menuitem label="&euskalbar.menu.catalogues;" oncommand="euskalbardicts.goEuskalBarOthers('kapsula');" />
+            <menuitem label="&euskalbar.menu.parliament;" oncommand="euskalbar.openURL('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');" />
+            <menuitem label="&euskalbar.menu.health;" oncommand="euskalbardicts.goEuskalBarOthers('oeegunea');" />
+            <menuitem label="&euskalbar.menu.cooking;" oncommand="euskalbar.openURL('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
+            <menuitem label="&euskalbar.menu.teleco;" oncommand="euskalbar.openURL('http://www.telekomunikaziohiztegia.org', 'telekomunikaziohiztegia');" />
+            <menuitem label="&euskalbar.menu.science;" oncommand="euskalbar.openURL('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');" />
             </menupopup>
           </menu>
           <menu id="Euskalbar-towns" label="&euskalbar.menu.towns;">
             <menupopup id="Euskalbar-subpopup6">
-            <menuitem label="&euskalbar.menu.bergara;" oncommand="openURL('http://www.netkam.com/i/bergara/hiztegia/arakatu', 'netkam');" />
-            <menuitem label="&euskalbar.menu.eibar;" oncommand="openURL('http://www.eibarko-euskara.com', 'eibarko-euskara');" />
+            <menuitem label="&euskalbar.menu.bergara;" oncommand="euskalbar.openURL('http://www.netkam.com/i/bergara/hiztegia/arakatu', 'netkam');" />
+            <menuitem label="&euskalbar.menu.eibar;" oncommand="euskalbar.openURL('http://www.eibarko-euskara.com', 'eibarko-euskara');" />
             </menupopup>
           </menu>
           <menu id="Euskalbar-corpusa" label="&euskalbar.menu.corpus;">
             <menupopup id="Euskalbar-subpopup5">
-            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');" />
-            <menuitem label="&euskalbar.menu.intza;" oncommand="openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');" />
-            <menuitem label="&euskalbar.menu.garate;" oncommand="openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');" />
-            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
-            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
-            <menuitem label="&euskalbar.menu.klasikoak;" oncommand="openURL('http://klasikoak.armiarma.com/corpus.htm', 'klasikoak');"/>
-            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="openURL('http://www.ztcorpusa.net','ztcorpusa');" />
-            <menuitem label="&euskalbar.menu.corpeus;" oncommand="openURL('http://www.corpeus.org','corpeus');" />
+            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="euskalbar.openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');" />
+            <menuitem label="&euskalbar.menu.intza;" oncommand="euskalbar.openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');" />
+            <menuitem label="&euskalbar.menu.garate;" oncommand="euskalbar.openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');" />
+            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="euskalbar.openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
+            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="euskalbar.openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
+            <menuitem label="&euskalbar.menu.klasikoak;" oncommand="euskalbar.openURL('http://klasikoak.armiarma.com/corpus.htm', 'klasikoak');"/>
+            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="euskalbar.openURL('http://www.ztcorpusa.net','ztcorpusa');" />
+            <menuitem label="&euskalbar.menu.corpeus;" oncommand="euskalbar.openURL('http://www.corpeus.org','corpeus');" />
             </menupopup>
           </menu>
           <menu id="Euskalbar-search" label="&euskalbar.menu.search;">
             <menupopup id="Euskalbar-subpopup7">
-            <menuitem label="&euskalbar.menu.elebila;" oncommand="openURL('http://www.elebila.eu', 'elebila');"/>
+            <menuitem label="&euskalbar.menu.elebila;" oncommand="euskalbar.openURL('http://www.elebila.eu', 'elebila');"/>
             </menupopup>
           </menu>
         </menupopup>

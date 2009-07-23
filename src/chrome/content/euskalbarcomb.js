@@ -5,21 +5,22 @@
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 
-    // Hobespenak eskuratzeko interfazea
-    const prefManagerShift	= Components.classes["@mozilla.org/preferences-service;1"]
-                                .getService(Components.interfaces.nsIPrefBranch);
-	
+// Hobespenak eskuratzeko interfazea
+const prefManagerShift	= Components.classes["@mozilla.org/preferences-service;1"]
+                                    .getService(Components.interfaces.nsIPrefBranch);
+
+var euskalbarcomb = {
 
     // Euskalterm kargatu
-    function getShiftEuskalterm(source, term) {
+    getShiftEuskalterm: function(source, term) {
       var txtEuskalterm = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (euskalbar_source == 'es') {
+      if (euskalbar.euskalbar_source == 'es') {
         idioma = 'G';
-      } else if (euskalbar_source == 'en') {
+      } else if (euskalbar.euskalbar_source == 'en') {
         idioma = 'I';
-      } else if (euskalbar_source == 'fr') {
+      } else if (euskalbar.euskalbar_source == 'fr') {
         idioma = 'F';
       } else {
         idioma = 'E';
@@ -72,85 +73,38 @@
         }
       getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
       }
-    }
-/**
-*
-*  Javascript trim, ltrim, rtrim
-*  http://www.webtoolkit.info/
-*
-*
-**/
-
-function trim(str, chars) {
-    return ltrim(rtrim(str, chars), chars);
-}
-
-function ltrim(str, chars) {
-    chars = chars || "\\s";
-    return str.replace(new RegExp("^[" + chars + "]+", "g"), "");
-}
-
-function rtrim(str, chars) {
-    chars = chars || "\\s";
-    return str.replace(new RegExp("[" + chars + "]+$", "g"), "");
-}
-    function normalizatuetaminuskularatu(katea){
-
-	    kateberria=katea.toLowerCase();
-//	    kateberria=kateberria.trim(); Hau ez dabil Linuxen
-	    kateberria=kateberria.replace(/á/,"a");
-	    kateberria=kateberria.replace(/à/,"a");
-	    kateberria=kateberria.replace(/ä/,"a");
-	    kateberria=kateberria.replace(/â/,"a");
-	    kateberria=kateberria.replace(/é/,"e");
-	    kateberria=kateberria.replace(/è/,"e");
-	    kateberria=kateberria.replace(/ë/,"e");
-	    kateberria=kateberria.replace(/ê/,"e");
-	    kateberria=kateberria.replace(/í/,"i");
-	    kateberria=kateberria.replace(/ì/,"i");
-	    kateberria=kateberria.replace(/ï/,"i");
-	    kateberria=kateberria.replace(/î/,"i");
-	    kateberria=kateberria.replace(/ó/,"o");
-	    kateberria=kateberria.replace(/ò/,"o");
-	    kateberria=kateberria.replace(/ö/,"o");
-	    kateberria=kateberria.replace(/ô/,"o");
-	    kateberria=kateberria.replace(/ú/,"u");
-	    kateberria=kateberria.replace(/ù/,"u");
-	    kateberria=kateberria.replace(/ü/,"u");
-	    kateberria=kateberria.replace(/û/,"u");
-	    return kateberria;
-    };
+    },
 
     // Elhuyarren markoa kargatu
-    function getShiftElhuyar(source, dest, term){
+    getShiftElhuyar: function(source, dest, term) {
       var txtElhuyar= "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-	var elhuyarerroremezua='Ez dago horrelako sarrerarik';
+        var elhuyarerroremezua='Ez dago horrelako sarrerarik';
         var erroremezua = 'Ez da aurkitu '+term+' hitza.';
-	var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
-	var azpisarreraktestua='Azpisarrerak';
+        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+        var azpisarreraktestua='Azpisarrerak';
       } else if (h.match('english')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-	var elhuyarerroremezua='No match found';
+        var elhuyarerroremezua='No match found';
         var erroremezua = 'Word '+term+' not found.';
-	var erroremezua2 = 'Word not found, choose from list';
-	var azpisarreraktestua='Azpisarrerak';
+        var erroremezua2 = 'Word not found, choose from list';
+        var azpisarreraktestua='Azpisarrerak';
       } else if (h.match('français')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-	var elhuyarerroremezua='Aucun r&eacute;sultat pour votre entr&eacute;e';
+        var elhuyarerroremezua='Aucun r&eacute;sultat pour votre entr&eacute;e';
         var erroremezua = 'Pas de résultats pour le mot '+term+'.';
-	var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
-	var azpisarreraktestua='Azpisarrerak';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+        var azpisarreraktestua='Azpisarrerak';
       } else {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-	var elhuyarerroremezua='No se han encontrado resultados para la b&uacute;squeda';
+        var elhuyarerroremezua='No se han encontrado resultados para la b&uacute;squeda';
         var erroremezua = 'No se ha encontrado la palabra '+term+'.';
-	var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
-	var azpisarreraktestua='Azpisarrerak';
+        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+        var azpisarreraktestua='Azpisarrerak';
       }
 
       //Azentu markak, eñeak eta dieresiak aldatu
@@ -230,17 +184,17 @@ function rtrim(str, chars) {
                 var txtElhuyar1 = txtElhuyar.split("div id=\"zerrenda\"")[1];
                 var arrayElhuyar = txtElhuyar1.split("a href=\"?");
                 arrayElhuyar.shift();
-		badago=0;
+                badago=0;
                 for (i in arrayElhuyar){
                   var estekakohitza = arrayElhuyar[i].split(">")[1];
                   estekakohitza = estekakohitza.split("<")[0];
-		  estekakohitza2=normalizatuetaminuskularatu(estekakohitza);
-		  jatorrizkoa2=normalizatuetaminuskularatu(jatorrizkoa);
+                  estekakohitza2 = this.normalizatuetaminuskularatu(estekakohitza);
+                  jatorrizkoa2 = this.normalizatuetaminuskularatu(jatorrizkoa);
                   var params = arrayElhuyar[i].split("\"")[0];
                   params = params.replace(/amp\;/g, "");
                   if (estekakohitza2==jatorrizkoa2 || estekakohitza2=='1 '+jatorrizkoa2 || estekakohitza2=='2 '+jatorrizkoa2 || estekakohitza2=='3 '+jatorrizkoa2 || estekakohitza2=='4 '+jatorrizkoa2 || estekakohitza2=='5 '+jatorrizkoa2 || estekakohitza2=='6 '+jatorrizkoa2 || estekakohitza2=='7 '+jatorrizkoa2 || estekakohitza2=='8 '+jatorrizkoa2 || estekakohitza2=='9 '+jatorrizkoa2 || estekakohitza2=='10 '+jatorrizkoa2) {
 		    badago=1;
-                    getsubShiftElhuyar(params,1);
+                    this.getsubShiftElhuyar(params,1);
                   }
 		}
 		if (badago==0) {
@@ -262,24 +216,24 @@ function rtrim(str, chars) {
           txtElhuyar = strRes.getString("m1Elhuyar");
         }
       }
-    }
+    },
 
     // Elhuyarren sarrerak eta azpisarrerak kargatu
-    function getsubShiftElhuyar(params,azpi){
+    getsubShiftElhuyar: function(params,azpi) {
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-	var azpisarreraktestua='Azpisarrerak';
+        var azpisarreraktestua='Azpisarrerak';
       } else if (h.match('english')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-	var azpisarreraktestua='Azpisarrerak';
+        var azpisarreraktestua='Azpisarrerak';
       } else if (h.match('français')) {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-	var azpisarreraktestua='Azpisarrerak';
+        var azpisarreraktestua='Azpisarrerak';
       } else {
         var urlElhuyar =  'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-	var azpisarreraktestua='Azpisarrerak';
+        var azpisarreraktestua='Azpisarrerak';
       }
       urlElhuyar =urlElhuyar+"?"+params;
 
@@ -310,7 +264,7 @@ function rtrim(str, chars) {
               clearTimeout(requestTimer);
               txtElhuyar = xmlHttpReq.responseText;
               //Elhuyarren katea manipulatzen duen funtzioari deitu
-              txtElhuyar1 = manipulateElhuyar(txtElhuyar);
+              txtElhuyar1 = this.manipulateElhuyar(txtElhuyar);
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+txtElhuyar1;
 	      if (azpi==1) {
@@ -322,7 +276,7 @@ function rtrim(str, chars) {
                     var params = arrayElhuyar[i].split("\"")[0];
                     params = params.replace(/amp\;/g, "");
 		    if (params.indexOf("mota=azpisarrera")!=-1) {
-	              getsubShiftElhuyar(params,0);
+	              this.getsubShiftElhuyar(params,0);
 		    }
   		  }
 		}
@@ -333,25 +287,25 @@ function rtrim(str, chars) {
           txtElhuyar = strRes.getString("m1Elhuyar");
         }
       }
-    }
+    },
 
 
     //Elhuyarren katea manipulatzen duen funtzioa
-    function manipulateElhuyar(txtElhuyar){
+    manipulateElhuyar: function(txtElhuyar) {
       strRes = document.getElementById('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EU\/Hiztegi-kontsulta';
-	var txtsplit='Emaitza:';
+        var txtsplit='Emaitza:';
       } else if (h.match('english')) {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EN\/Dictionary-search';
-	var txtsplit='Result:';
+        var txtsplit='Result:';
       } else if (h.match('français')) {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/FR\/Dictionnaire-recherche';
-	var txtsplit='R&eacute;sultat:';
+        var txtsplit='R&eacute;sultat:';
       } else {
         var urlElhuyar =  'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/ES\/Consulta-de-diccionarios';
-	var txtsplit='Resultado:';
+        var txtsplit='Resultado:';
       }
       var txtElhuyar1 = txtElhuyar.split(txtsplit)[1];
       if (txtElhuyar1.indexOf("<!-- _______  end")==-1) {
@@ -377,11 +331,11 @@ function rtrim(str, chars) {
       txtElhuyar = txtElhuyar.replace(/amp\;/g,'');
       txtElhuyar = txtElhuyar + "<hr size='1'>";
       return txtElhuyar;
-    }
+    },
 
 
     // 3000 kargatu
-    function getShift3000(source, term){
+    getShift3000: function(source, term) {
       var txt3000 = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -425,7 +379,7 @@ function rtrim(str, chars) {
                 wtable = 2;
               }
               //3000ren katea manipulatzen duen funtzioa
-              txt3000 = manipulate3000(wtable, txt3000);
+              txt3000 = this.manipulate3000(wtable, txt3000);
               getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
               //azpisarrerak badauzka...
               if (txt3000.indexOf("cgi-bin_m33") != -1){
@@ -434,7 +388,7 @@ function rtrim(str, chars) {
                   array3000.shift();
                   for (i in array3000){
                     var url3000 = array3000[i].split("\'>")[0];
-                    getsubShift3000(url3000);
+                    this.getsubShift3000(url3000);
                   }
                 }
               }
@@ -447,10 +401,10 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
       }
-    }
+    },
 
     // 3000ren sarrerak eta azpisarrerak kargatu
-    function getsubShift3000(url3000){
+    getsubShift3000: function(url3000) {
       var txt3000="";
       strRes = document.getElementById('leuskal');
       var xmlHttpReq = new XMLHttpRequest();
@@ -480,7 +434,7 @@ function rtrim(str, chars) {
               clearTimeout(requestTimer);
               txt3000 = xmlHttpReq.responseText;
               //Elhuyarren katea manipulatzen duen funtzioari deitu
-              txt3000 = manipulate3000(3, txt3000);
+              txt3000 = this.manipulate3000(3, txt3000);
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('a3000').innerHTML = getBrowser().contentDocument.getElementById('a3000').innerHTML+txt3000;
             }
@@ -489,10 +443,10 @@ function rtrim(str, chars) {
           txt3000 = strRes.getString("m13000");
         }
       }
-    }
+    },
 
     //3000ren katea manipulatzen duen funtzioa
-    function manipulate3000(wtable, txt3000){
+    manipulate3000: function(wtable, txt3000) {
       switch(wtable){
         case 3:
           var txt3000table1array = txt3000.split("<TABLE");
@@ -527,11 +481,11 @@ function rtrim(str, chars) {
           return txt3000;
         break;
       }
-    }
+    },
 
 
     // Morris hiztegia kargatu
-    function getShiftMorris(source, term) {
+    getShiftMorris: function(source, term) {
       var txtMorris = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -598,11 +552,11 @@ function rtrim(str, chars) {
         getBrowser().contentDocument.getElementById('aMorris').innerHTML = txtMorris;
       }
     
-    }
+    },
 
 
     // Adorez sinonimoen hiztegia kargatu
-    function getShiftAdorez(source, term) {
+    getShiftAdorez: function(source, term) {
       var txtSinonimoak= "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -666,11 +620,11 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('aAdorez').innerHTML = txtSinonimoak;
       }
-    }
+    },
 
 
     //UZEIren sinonimoen hiztegia kargatu
-    function getShiftUZEI(source, term){
+    getShiftUZEI: function(source, term) {
       var txtUZEI= "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -718,17 +672,17 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('aUZEI').innerHTML = txtUZEI;
       }
-    }
+    },
 
 
     // Hiztegi Batua kargatu
-    function getShiftEuskaltzaindia(source, term) {
+    getShiftEuskaltzaindia: function(source, term) {
       var txtEuskaltzaindia= "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (euskalbar_source == 'es') {
+      if (euskalbar.euskalbar_source == 'es') {
         idioma = 'G';
-      } else if (euskalbar_source == 'en') {
+      } else if (euskalbar.euskalbar_source == 'en') {
         idioma = 'I';
       } else {
         idioma = 'E';
@@ -751,7 +705,7 @@ function rtrim(str, chars) {
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
-	xmlHttpReq.abort();
+        xmlHttpReq.abort();
         txtEuskaltzaindia = strRes.getString("m1Batua");
       }, tout);
 
@@ -762,7 +716,7 @@ function rtrim(str, chars) {
               //Timerra garbitu
               clearTimeout(requestTimer);
               txtEuskaltzaindia = xmlHttpReq.responseText;
-              txtEuskaltzaindia = manipulateEuskaltzaindia(txtEuskaltzaindia);
+              txtEuskaltzaindia = this.manipulateEuskaltzaindia(txtEuskaltzaindia);
               txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"<font></strong>"+txtEuskaltzaindia;
               getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
               //azpisarrerak badauzka...
@@ -773,7 +727,7 @@ function rtrim(str, chars) {
                   for (i in arrayEuskaltzaindia){
                     var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("frontpage")[0];
                     urlEuskaltzaindia = urlEuskaltzaindia+"frontpage";
-                    getsubShiftEuskaltzaindia(urlEuskaltzaindia);
+                    this.getsubShiftEuskaltzaindia(urlEuskaltzaindia);
                   }
                 }
               }
@@ -786,10 +740,10 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
       }
-    }
+    },
 
     // Batuaren sarrerak eta azpisarrerak kargatu
-    function getsubShiftEuskaltzaindia(urlEuskaltzaindia){
+    getsubShiftEuskaltzaindia: function(urlEuskaltzaindia) {
       urlEuskaltzaindia="http://www.euskaltzaindia.net/hiztegibatua/index.php"+urlEuskaltzaindia;
       var txtEuskaltzaindia="";
       strRes = document.getElementById('leuskal');
@@ -820,7 +774,7 @@ function rtrim(str, chars) {
               clearTimeout(requestTimer);
               txtEuskaltzaindia = xmlHttpReq.responseText;
               //Batuaren katea manipulatzen duen funtzioari deitu
-              txtEuskaltzaindia = manipulateEuskaltzaindia(txtEuskaltzaindia);
+              txtEuskaltzaindia = this.manipulateEuskaltzaindia(txtEuskaltzaindia);
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML+"<hr>"+txtEuskaltzaindia;
             }
@@ -829,10 +783,10 @@ function rtrim(str, chars) {
           txtEuskaltzaindia = strRes.getString("m1Batua");
         }
       }
-    }
+    },
 
     //Batuaren katea manipulatzen duen funtzioa
-    function manipulateEuskaltzaindia(txtEuskaltzaindia){
+    manipulateEuskaltzaindia: function(txtEuskaltzaindia) {
       var txtEuskaltzaindia = txtEuskaltzaindia.split("contentheading")[1];
       txtEuskaltzaindia = "<div class=\"contentheading"+txtEuskaltzaindia;
       txtEuskaltzaindia = txtEuskaltzaindia.split("<p><b>Oharra")[0];
@@ -840,11 +794,11 @@ function rtrim(str, chars) {
       txtEuskaltzaindia = txtEuskaltzaindia.replace(/\/index.php/g, "http://www.euskaltzaindia.net/hiztegibatua/index.php");
       txtEuskaltzaindia = "<font size=\"2pt\">"+txtEuskaltzaindia+"<\/font>";
       return txtEuskaltzaindia;
-    }
+    },
 
 
     // Mokoroa kargatu
-    function getShiftMokoroa(source, term) {
+    getShiftMokoroa: function(source, term) {
       var txtMokoroa = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -870,7 +824,7 @@ function rtrim(str, chars) {
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
-	xmlHttpReq.abort();
+        xmlHttpReq.abort();
         txtMokoroa = strRes.getString("m1Mokoroa");
       }, tout);
 
@@ -894,11 +848,11 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('aMokoroa').innerHTML = txtMokoroa;
       }
-    }
+    },
 
 
     // Intza kargatu
-    function getShiftIntza(source, term) {
+    getShiftIntza: function(source, term) {
       var txtIntza = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -924,7 +878,7 @@ function rtrim(str, chars) {
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
-	xmlHttpReq.abort();
+        xmlHttpReq.abort();
         txtIntza = strRes.getString("m1Intza");
       }, tout);
 
@@ -950,11 +904,11 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('aIntza').innerHTML = txtIntza;
       }
-    }
+    },
 
 
     // Open-tran kargatu
-    function getShiftOpentran(source, term) {
+    getShiftOpentran: function(source, term) {
       var txtOpentran = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
@@ -976,7 +930,7 @@ function rtrim(str, chars) {
 	  
       //Timerra sortu
       var requestTimer = setTimeout(function() {
-	xmlHttpReq.abort();
+        xmlHttpReq.abort();
         txtOpentran = strRes.getString("m1Opentran");
       }, tout);
 
@@ -1004,5 +958,33 @@ function rtrim(str, chars) {
         }
         getBrowser().contentDocument.getElementById('aOpentran').innerHTML = txtOpentran3;
       }
-    }
+    },
 
+    normalizatuetaminuskularatu: function(katea) {
+        kateberria=katea.toLowerCase();
+    //	kateberria=kateberria.trim(); Hau ez dabil Linuxen
+        kateberria=kateberria.replace(/á/,"a");
+        kateberria=kateberria.replace(/à/,"a");
+        kateberria=kateberria.replace(/ä/,"a");
+        kateberria=kateberria.replace(/â/,"a");
+        kateberria=kateberria.replace(/é/,"e");
+        kateberria=kateberria.replace(/è/,"e");
+        kateberria=kateberria.replace(/ë/,"e");
+        kateberria=kateberria.replace(/ê/,"e");
+        kateberria=kateberria.replace(/í/,"i");
+        kateberria=kateberria.replace(/ì/,"i");
+        kateberria=kateberria.replace(/ï/,"i");
+        kateberria=kateberria.replace(/î/,"i");
+        kateberria=kateberria.replace(/ó/,"o");
+        kateberria=kateberria.replace(/ò/,"o");
+        kateberria=kateberria.replace(/ö/,"o");
+        kateberria=kateberria.replace(/ô/,"o");
+        kateberria=kateberria.replace(/ú/,"u");
+        kateberria=kateberria.replace(/ù/,"u");
+        kateberria=kateberria.replace(/ü/,"u");
+        kateberria=kateberria.replace(/û/,"u");
+
+        return kateberria;
+    },
+
+}
