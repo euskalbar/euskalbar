@@ -417,7 +417,7 @@ var euskalbardicts = {
         return;
       }
       var params = [];
-      var url = 'http://www.netkam.com/i/bergara/hiztegia/bilatu';
+      var url = 'http://www.bergarakoeuskara.net/hiztegia/bilatu';
       params.push(new euskalbar.QueryParameter('berbaki', escape(term)));
       var zein = 'netkam';
       euskalbar.openURL(url, zein, 'POST', params);
