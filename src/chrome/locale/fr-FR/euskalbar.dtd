@@ -34,9 +34,9 @@
 <!ENTITY euskalbar.about.title "Sur Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Sur cette version">
 <!ENTITY euskalbar.about.whatsnew1 "Les principales noveautés de cette version sont les suivants:">
-<!ENTITY euskalbar.about.whatsnew2 "Added Goihata Basque-Japanese dictionary">
-<!ENTITY euskalbar.about.whatsnew3 "Ereduzko Prosa Gaur uses a new website">
-<!ENTITY euskalbar.about.whatsnew4 "Added Japanese localization">
+<!ENTITY euskalbar.about.whatsnew2 "Changed queries on Itzul maililng list to not use Gmane">
+<!ENTITY euskalbar.about.whatsnew3 "Bergarako Hiztegia uses a new website">
+<!ENTITY euskalbar.about.whatsnew4 "">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "La liste complète de noveautés, dans la direction suivante:">

@@ -137,7 +137,7 @@ var euskalbar = {
   
     //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
     if (URL.indexOf("euskalbarshift") != -1){ //Shift erabiltzen bada...
-      if ((this.euskalbar_source == 'es') || (this.euskalbar_target == 'es')) { //eu-es eta es-eu itzulpenetarako
+      if ((euskalbar.euskalbar_source == 'es') || (euskalbar.euskalbar_target == 'es')) { //eu-es eta es-eu itzulpenetarako
         if (prefManager.getBoolPref("euskalbar.euskalterm.onkey1.es")){
           euskalbar.showHTMLColumns("Euskalterm", event);
         }
@@ -162,7 +162,7 @@ var euskalbar = {
         if (prefManager.getBoolPref("euskalbar.intza.onkey1.es")){
           euskalbar.showHTMLColumns("Intza", event);
         }
-      } else if ((this.euskalbar_source == 'fr') || (this.euskalbar_target == 'fr')) { //eu-fr eta fr-eu itzulpenetarako
+      } else if ((euskalbar.euskalbar_source == 'fr') || (euskalbar.euskalbar_target == 'fr')) { //eu-fr eta fr-eu itzulpenetarako
         if (prefManager.getBoolPref("euskalbar.euskalterm.onkey1.fr")){
           euskalbar.showHTMLColumns("Euskalterm", event);
         }
@@ -202,7 +202,7 @@ var euskalbar = {
         }
       }
     } else if(URL.indexOf("euskalbarktrl") != -1){ //Ktrl erabiltzen bada...
-      if ((this.euskalbar_source == 'es') || (this.euskalbar_target == 'es')) { //eu-es eta es-eu itzulpenetarako
+      if ((euskalbar.euskalbar_source == 'es') || (euskalbar.euskalbar_target == 'es')) { //eu-es eta es-eu itzulpenetarako
         if (prefManager.getBoolPref("euskalbar.euskalterm.onkey2.es")){
           euskalbar.showHTMLColumns("Euskalterm", event);
         }
@@ -227,7 +227,7 @@ var euskalbar = {
         if (prefManager.getBoolPref("euskalbar.intza.onkey2.es")){
           euskalbar.showHTMLColumns("Intza", event);
         }
-      } else if ((this.euskalbar_source == 'fr') || (this.euskalbar_target == 'fr')) { //eu-fr eta fr-eu itzulpenetarako
+      } else if ((euskalbar.euskalbar_source == 'fr') || (euskalbar.euskalbar_target == 'fr')) { //eu-fr eta fr-eu itzulpenetarako
         if (prefManager.getBoolPref("euskalbar.euskalterm.onkey2.fr")){
           euskalbar.showHTMLColumns("Euskalterm", event);
         }

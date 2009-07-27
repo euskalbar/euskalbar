@@ -2,6 +2,11 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.5 bertsioa
+================
+- ItzuL posta-zerrendako mezuak Google bilatzailearen bidez kontsultatzen dira. (#85)
+- Bergarako hiztegia webgune berrian kontsultatzen da. (#85)
+
 3.4 bertsioa
 ================
 - Goihata euskara-japoniera hiztegia gehitu da. (#82)
