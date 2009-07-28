@@ -334,7 +334,7 @@
               <vbox flex="1">
                 <hbox align="center">
                   <label value="&euskalbar.prefs.timeout.caption;"/>
-      	          <textbox flex="1" preference="prefQuerytimeout" onkeypress="numField(event);" />
+      	          <textbox type="number" width="50px" preference="prefQuerytimeout" onkeypress="numField(event);" />
                 </hbox>
                 <hbox>
                   <checkbox preference="prefQuerysubqueries" label="&euskalbar.prefs.subqueries.caption;" />
