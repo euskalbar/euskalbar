@@ -188,13 +188,13 @@ var euskalbarcomb = {
                 for (i in arrayElhuyar){
                   var estekakohitza = arrayElhuyar[i].split(">")[1];
                   estekakohitza = estekakohitza.split("<")[0];
-                  estekakohitza2 = this.normalizatuetaminuskularatu(estekakohitza);
-                  jatorrizkoa2 = this.normalizatuetaminuskularatu(jatorrizkoa);
+                  estekakohitza2 = euskalbarcomb.normalizatuetaminuskularatu(estekakohitza);
+                  jatorrizkoa2 = euskalbarcomb.normalizatuetaminuskularatu(jatorrizkoa);
                   var params = arrayElhuyar[i].split("\"")[0];
                   params = params.replace(/amp\;/g, "");
                   if (estekakohitza2==jatorrizkoa2 || estekakohitza2=='1 '+jatorrizkoa2 || estekakohitza2=='2 '+jatorrizkoa2 || estekakohitza2=='3 '+jatorrizkoa2 || estekakohitza2=='4 '+jatorrizkoa2 || estekakohitza2=='5 '+jatorrizkoa2 || estekakohitza2=='6 '+jatorrizkoa2 || estekakohitza2=='7 '+jatorrizkoa2 || estekakohitza2=='8 '+jatorrizkoa2 || estekakohitza2=='9 '+jatorrizkoa2 || estekakohitza2=='10 '+jatorrizkoa2) {
 		    badago=1;
-                    this.getsubShiftElhuyar(params,1);
+                    euskalbarcomb.getsubShiftElhuyar(params,1);
                   }
 		}
 		if (badago==0) {
@@ -264,7 +264,7 @@ var euskalbarcomb = {
               clearTimeout(requestTimer);
               txtElhuyar = xmlHttpReq.responseText;
               //Elhuyarren katea manipulatzen duen funtzioari deitu
-              txtElhuyar1 = this.manipulateElhuyar(txtElhuyar);
+              txtElhuyar1 = euskalbarcomb.manipulateElhuyar(txtElhuyar);
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML+txtElhuyar1;
 	      if (azpi==1) {
@@ -276,7 +276,7 @@ var euskalbarcomb = {
                     var params = arrayElhuyar[i].split("\"")[0];
                     params = params.replace(/amp\;/g, "");
 		    if (params.indexOf("mota=azpisarrera")!=-1) {
-	              this.getsubShiftElhuyar(params,0);
+	              euskalbarcomb.getsubShiftElhuyar(params,0);
 		    }
   		  }
 		}
@@ -379,7 +379,7 @@ var euskalbarcomb = {
                 wtable = 2;
               }
               //3000ren katea manipulatzen duen funtzioa
-              txt3000 = this.manipulate3000(wtable, txt3000);
+              txt3000 = euskalbarcomb.manipulate3000(wtable, txt3000);
               getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
               //azpisarrerak badauzka...
               if (txt3000.indexOf("cgi-bin_m33") != -1){
@@ -388,7 +388,7 @@ var euskalbarcomb = {
                   array3000.shift();
                   for (i in array3000){
                     var url3000 = array3000[i].split("\'>")[0];
-                    this.getsubShift3000(url3000);
+                    euskalbarcomb.getsubShift3000(url3000);
                   }
                 }
               }
@@ -434,7 +434,7 @@ var euskalbarcomb = {
               clearTimeout(requestTimer);
               txt3000 = xmlHttpReq.responseText;
               //Elhuyarren katea manipulatzen duen funtzioari deitu
-              txt3000 = this.manipulate3000(3, txt3000);
+              txt3000 = euskalbarcomb.manipulate3000(3, txt3000);
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('a3000').innerHTML = getBrowser().contentDocument.getElementById('a3000').innerHTML+txt3000;
             }
