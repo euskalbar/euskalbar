@@ -8,6 +8,7 @@
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu basea">
 <!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
+<!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">

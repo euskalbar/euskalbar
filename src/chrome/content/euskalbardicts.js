@@ -543,6 +543,31 @@ var euskalbardicts = {
     },
 
 
+    // Bilaketak Labayru hiztegian
+    goEuskalBarLabayru: function(source, term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (euskalbar.alertEmptyBox(term)){
+        return;
+      }
+      var params = [];
+      if (source == 'es') {
+        source = 'CAS';
+        idioma = 'Castellano';
+        var url = 'http://zerbitzuak.labayru.org/diccionario/CargaPalabra.asp'
+      } else {
+        source = 'EUS';
+        idioma = 'Euskera';
+        var url = 'http://zerbitzuak.labayru.org/diccionario/CargaPalabraeu.asp'
+      }
+
+      params.push(new euskalbar.QueryParameter('resul', escape(term)));
+      var zein = 'labayru';
+      euskalbar.openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi .  Labayru dict = 22
+      euskalbarstats.writeStats(22);
+    },
+
+
     // Zenbait hiztegi atzitzen ditu
     goEuskalBarOthers: function(zein) {
       switch (zein) {

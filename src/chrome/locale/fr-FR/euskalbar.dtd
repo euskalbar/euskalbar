@@ -7,6 +7,7 @@
 <!ENTITY euskalbar.options.tooltip "Options ">
 <!ENTITY euskalbar.euskalterm.tooltip "Base de données Euskalterm">
 <!ENTITY euskalbar.3000.tooltip "Dictionnaire 3000">
+<!ENTITY euskalbar.labayru.tooltip "Dictionnaire Labayru">
 <!ENTITY euskalbar.goihata.tooltip "Dictionnaire Goihata">
 <!ENTITY euskalbar.elhuyar.tooltip "Dictionnaire Elhuyar">
 <!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">

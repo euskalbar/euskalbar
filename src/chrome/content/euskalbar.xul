@@ -118,6 +118,7 @@
         <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
       </hbox>
      </toolbar>
   </toolbox>
@@ -142,6 +143,7 @@
       <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-elebila" type="checkbox" persist="checked" label="Elebila" oncommand="document.getElementById('EuskalBar-Elebila').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-labayru" type="checkbox" persist="checked" label="Labayru" oncommand="document.getElementById('EuskalBar-Labayru').collapsed = !this.hasAttribute('checked');"/>
     </menupopup>
   </window>
 

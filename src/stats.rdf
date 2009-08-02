@@ -136,5 +136,11 @@
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/labayru">
+      <stats:name>&euskalbar.labayru.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
   </rdf:Bag>
 </rdf:RDF>
