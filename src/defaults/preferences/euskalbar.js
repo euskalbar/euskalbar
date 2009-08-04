@@ -14,10 +14,10 @@
  *****************************/
 
 // Dictionaries searched on pressing "Enter" key
-pref("euskalbar.goihata.onkey", true);
-pref("euskalbar.euskalterm.onkey", true);
+pref("euskalbar.euskalterm.onkey", false);
 pref("euskalbar.3000.onkey", false);
-pref("euskalbar.elhuyar.onkey", false);
+pref("euskalbar.elhuyar.onkey", true);
+pref("euskalbar.labayru.onkey", false);
 pref("euskalbar.morris.onkey", false);
 pref("euskalbar.opentran.onkey", false);
 pref("euskalbar.batua.onkey", false);
@@ -36,6 +36,7 @@ pref("euskalbar.ztcorpusa.onkey", false);
 pref("euskalbar.corpeus.onkey", false);
 pref("euskalbar.xuxenweb.onkey", false);
 pref("euskalbar.elebila.onkey", false);
+pref("euskalbar.goihata.onkey", false);
 
 // Dictionaries searched on pressing "Enter" + Shift key
 pref("euskalbar.euskalterm.onkey1.es", true);

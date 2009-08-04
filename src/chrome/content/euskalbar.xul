@@ -38,7 +38,7 @@
 
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
-    <toolbar id="EuskalBar-Toolbar" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
+    <toolbar id="EuskalBar-Toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="euskalbar.openLaguntza();"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
@@ -65,6 +65,8 @@
         </menupopup>
       </toolbarbutton>
       <textbox id="EuskalBar-search-string" hidden="false" style="margin-left: 10px;" onkeypress="euskalbar.goEuskalBarOnKey(event)" />
+      <!--splitter id="EuskalBar-search-splitter" resizeafter="grow" persist="width">
+      </splitter-->
       <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
         <menupopup id="EuskalBar-Euskalterm-popup">
           <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>
@@ -110,6 +112,7 @@
         <toolbarbutton id="EuskalBar-Wikipedia" tooltiptext="&euskalbar.wikipedia.tooltip;" label="Wikipedia" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarWikipedia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarMokoroa(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarIntza(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+      <toolbarbutton id="EuskalBar-Labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
@@ -118,7 +121,6 @@
         <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
       </hbox>
      </toolbar>
   </toolbox>
@@ -135,6 +137,7 @@
       <menuitem id="Euskalbar-hs-wikipedia" type="checkbox" persist="checked" label="Wikipedia" oncommand="document.getElementById('EuskalBar-Wikipedia').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-labayru" type="checkbox" persist="checked" label="Labayru" oncommand="document.getElementById('EuskalBar-Labayru').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-bergara" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="Ereduzko prosa" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
@@ -143,7 +146,6 @@
       <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-elebila" type="checkbox" persist="checked" label="Elebila" oncommand="document.getElementById('EuskalBar-Elebila').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-labayru" type="checkbox" persist="checked" label="Labayru" oncommand="document.getElementById('EuskalBar-Labayru').collapsed = !this.hasAttribute('checked');"/>
     </menupopup>
   </window>
 
@@ -410,6 +412,12 @@
             <menupopup>
               <menuitem id="Euskalbar-Intza-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbardicts.goEuskalBarIntza('es', escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbardicts.goEuskalBarIntza('eu', escape(euskalbardicts.selectionText()));" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-Labayru-context" label="Labayru">
+            <menupopup>
+              <menuitem id="Euskalbar-Labayru-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbardicts.goEuskalBarLabayru('es', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Labayru-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbardicts.goEuskalBarLabayru('eu', escape(euskalbardicts.selectionText()));" />
             </menupopup>
           </menu>
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbardicts.goEuskalBarEurovoc(escape(euskalbardicts.selectionText()));" />

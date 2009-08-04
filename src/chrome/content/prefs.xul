@@ -11,7 +11,6 @@
     <preferences>
       <preference id="prefEuskalterm" name="euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="pref3000" name="euskalbar.3000.onkey" type="bool"/>
-      <preference id="prefGoihata" name="euskalbar.goihata.onkey" type="bool"/>
       <preference id="prefElhuyar" name="euskalbar.elhuyar.onkey" type="bool"/>
       <preference id="prefMorris" name="euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="euskalbar.opentran.onkey" type="bool"/>
@@ -23,6 +22,7 @@
       <preference id="prefWikipedia" name="euskalbar.wikipedia.onkey" type="bool"/>
       <preference id="prefMokoroa" name="euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefIntza" name="euskalbar.intza.onkey" type="bool"/>
+      <preference id="prefLabayru" name="euskalbar.labayru.onkey" type="bool"/>
       <preference id="prefEurovoc" name="euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefBergara" name="euskalbar.bergara.onkey" type="bool"/>
       <preference id="prefEreduzko" name="euskalbar.ereduzko.onkey" type="bool"/>
@@ -31,6 +31,7 @@
       <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefElebila" name="euskalbar.elebila.onkey" type="bool"/>
+      <preference id="prefGoihata" name="euskalbar.goihata.onkey" type="bool"/>
 
       <preference id="prefEuskaltermShiftES" name="euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="prefGoihataShiftES" name="euskalbar.Goihata.onkey1.es" type="bool"/>
@@ -168,11 +169,11 @@
                     <rows>
                     <row>
                       <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                      <checkbox preference="prefMokoroa" label="Mokoroa" />
+                      <checkbox preference="prefIntza" label="Intza" />
                     </row>
                     <row>
                       <checkbox preference="prefElhuyar" label="Elhuyar" />
-                      <checkbox preference="prefIntza" label="Intza" />
+                      <checkbox preference="prefLabayru" label="Labayru" />
                     </row>
                     <row>
                       <checkbox preference="pref3000" label="3000" />
@@ -209,6 +210,9 @@
                     <row>
                       <checkbox preference="prefWikipedia" label="Wikipedia" />
                       <checkbox preference="prefGoihata" label="Goihata" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefMokoroa" label="Mokoroa" />
                     </row>
                     </rows>
                   </grid> 

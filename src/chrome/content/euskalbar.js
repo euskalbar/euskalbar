@@ -875,6 +875,9 @@ var euskalbar = {
         if (prefManager.getBoolPref("euskalbar.elebila.onkey")) {
           euskalbardicts.goEuskalBarElebila(searchStr);
         }
+        if (prefManager.getBoolPref("euskalbar.labayru.onkey")) {
+          euskalbardicts.goEuskalBarLabayru(this.euskalbar_source, searchStr);
+        }
       } 
     }
     //Testu kutxa enfokatzen du
