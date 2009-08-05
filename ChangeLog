@@ -8,6 +8,8 @@
 - Bergarako hiztegia webgune berrian kontsultatzen da. (#85)
 - Denbora-mugararen hobespenerako zenbaki motako testu-kutxa erabiltzen da. (#63)
 - Labayru Hiztegia gehitu da. (#83)
+- Euskalbarren kode guztia JavaScript objektuetan bildu da, neurri batean
+izen-eremuekin egon daitezkeen arazoak ekiditeko.
 
 3.4 bertsioa
 ================
