@@ -578,7 +578,7 @@ var euskalbardicts = {
           var url = 'http://tresnak.kapsula.com/cgi-bin-jo/HTMODFOR?ActionField=getmodel&$BaseNumber=02&$Modelo=01&CmdGetModel=KAPSULA.HTMLMOD.JOMODBIL';
         break;
         case 'oeegunea':
-          var url = 'http://www.oeegunea.org/default.cfm?atala=hiztegia';
+          var url = 'http://www.oeegunea.org/hiztegia';
         break;
       }
       euskalbar.openURL(url, zein, null, null);

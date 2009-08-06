@@ -10,6 +10,9 @@
 - Labayru Hiztegia gehitu da. (#83)
 - Euskalbarren kode guztia JavaScript objektuetan bildu da, neurri batean
 izen-eremuekin egon daitezkeen arazoak ekiditeko.
+- Aldaketak hiztegien menuan:
+  + Bizkaiko Foru Aldundiaren hiztegi terminologikoaren URLa konpondu da.
+  + Osasun hiztegiaren URLa konpondu da.
 
 3.4 bertsioa
 ================
