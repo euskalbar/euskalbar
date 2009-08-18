@@ -555,6 +555,75 @@ var euskalbarcomb = {
     },
 
 
+    // Labayru hiztegia kargatu
+    getShiftLabayru: function(source, term) {
+      var txtLabayru = "";
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+
+      if (source == 'es') {
+        hizk = '';
+      } else {
+        hizk = 'EU';
+      }
+      // POST bidez pasatzeko parametroak
+      var parametroak = 'txtPalabra='+term+'&opc=1';
+      var urlLabayru = 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabras'+hizk+'.asp';
+      var xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      if (!xmlHttpReq) {
+        txtLabayru = strRes.getString("m1Labayru");
+        return false;
+      }
+      xmlHttpReq.open('POST', urlLabayru, true);
+      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun 
+      xmlHttpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
+      xmlHttpReq.send(parametroak);
+	  
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = prefManagerShift.getIntPref("euskalbar.query.timeout");
+      tout=tout*1000
+
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtLabayru = strRes.getString("m1Labayru");
+      }, tout);
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          div = getBrowser().contentDocument.getElementById('aLabayru');
+          if (xmlHttpReq.readyState == 4) {
+            // Timerra garbitu
+            clearTimeout(requestTimer);
+            if (xmlHttpReq.status == 200) {
+              txtLabayru = xmlHttpReq.responseText;
+              if (txtLabayru.match("No hay resultados") || txtLabayru.match("Ez dago holakorik")) {
+                txtLabayru = "Ez da aurkitu "+term+" hitza.";
+              } else {
+                var txtLab1 = txtLabayru.split("HiztegiaPalabra");
+                txtLabayru = txtLab1[1].slice(2+term.length, txtLab1[1].indexOf("<form"));
+                txtLabayru = "<p><b>"+term+"</b></p>"+txtLabayru;
+		txtLabayru = txtLabayru.replace(/<td>/g, "<p>");
+		txtLabayru = txtLabayru.replace(/<\/td>/g, "<\/p>");
+		txtLabayru = txtLabayru.replace(/<tr>/g, "");
+		txtLabayru = txtLabayru.replace(/<\/tr>/g, "");
+		txtLabayru = txtLabayru.replace(/<\/td>/g, "<\/p>");
+                txtLabayru = txtLabayru.replace(/CargaPalabra/g,"http://zerbitzuak.labayru.org/diccionario/CargaPalabra");
+              }
+            } else {
+              txtLabayru = strRes.getString("m1Labayru");
+            }
+          }
+        } catch(e) {
+          txtLabayru = strRes.getString("m1Labayru");
+        }
+        getBrowser().contentDocument.getElementById('aLabayru').innerHTML = txtLabayru;
+      }
+    },
+
+
     // Adorez sinonimoen hiztegia kargatu
     getShiftAdorez: function(source, term) {
       var txtSinonimoak= "";

@@ -147,6 +147,9 @@ var euskalbar = {
         if (prefManager.getBoolPref("euskalbar.elhuyar.onkey1.es")){
           euskalbar.showHTMLColumns("Elhuyar", event);
         }
+        if (prefManager.getBoolPref("euskalbar.labayru.onkey1.es")){
+          euskalbar.showHTMLColumns("Labayru", event);
+        }
         if (prefManager.getBoolPref("euskalbar.batua.onkey1.es")){
           euskalbar.showHTMLColumns("Batua", event);
         }
@@ -211,6 +214,9 @@ var euskalbar = {
         }
         if (prefManager.getBoolPref("euskalbar.elhuyar.onkey2.es")){
           euskalbar.showHTMLColumns("Elhuyar", event);
+        }
+        if (prefManager.getBoolPref("euskalbar.labayru.onkey2.es")){
+          euskalbar.showHTMLColumns("Labayru", event);
         }
         if (prefManager.getBoolPref("euskalbar.batua.onkey2.es")){
           euskalbar.showHTMLColumns("Batua", event);
@@ -518,7 +524,7 @@ var euskalbar = {
         return;
       }
       if (event.shiftKey) { // Shift tekla sakatuta badago...
-        // Exekutatu euskalbarshift.js fitxategian dauden skriptak          
+        // Exekutatu euskalbarcomb.js fitxategian dauden skriptak          
         if ((this.euskalbar_source == 'es') || (this.euskalbar_target == 'es')) {
           // Interfazearen hizkuntza
           if (h.match('euskara')) {
@@ -544,6 +550,10 @@ var euskalbar = {
           if (prefManager.getBoolPref("euskalbar.3000.onkey1.es")){
             euskalbarcomb.getShift3000(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(2);
+          }
+          if (prefManager.getBoolPref("euskalbar.labayru.onkey1.es")){
+            euskalbarcomb.getShiftLabayru(this.euskalbar_source, searchStr);
+            euskalbarstats.writeStats(22);
           }
           if (prefManager.getBoolPref("euskalbar.batua.onkey1.es")){
             euskalbarcomb.getShiftEuskaltzaindia(this.euskalbar_source, searchStr);
@@ -674,6 +684,10 @@ var euskalbar = {
           if (prefManager.getBoolPref("euskalbar.3000.onkey2.es")){
             euskalbarcomb.getShift3000(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(2);
+          }
+          if (prefManager.getBoolPref("euskalbar.labayru.onkey2.es")){
+            euskalbarcomb.getShiftLabayru(this.euskalbar_source, searchStr);
+            euskalbarstats.writeStats(22);
           }
           if (prefManager.getBoolPref("euskalbar.batua.onkey2.es")){
             euskalbarcomb.getShiftEuskaltzaindia(this.euskalbar_source, searchStr);
@@ -923,6 +937,7 @@ var euskalbar = {
     var morris = document.getElementById('EuskalBar-Morris');
     var opentran = document.getElementById('EuskalBar-Opentran');
     var h3000 = document.getElementById('EuskalBar-Ask');
+    var labayru = document.getElementById('EuskalBar-Labayru');
     var elhuyar = document.getElementById('EuskalBar-Elhuyar');
     var goihata = document.getElementById('EuskalBar-Goihata');
     
@@ -934,6 +949,7 @@ var euskalbar = {
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", false);
+        labayru.setAttribute("hidden", false);
       break;
       case 'fr':
         euskalterm.setAttribute("hidden", false);
@@ -942,6 +958,7 @@ var euskalbar = {
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
+        labayru.setAttribute("hidden", true);
       break;
       case 'en':
         euskalterm.setAttribute("hidden", false);
@@ -950,6 +967,7 @@ var euskalbar = {
         morris.setAttribute("hidden", false);
         opentran.setAttribute("hidden", false);
         h3000.setAttribute("hidden", true);
+        labayru.setAttribute("hidden", true);
       break;
       case 'la':
         euskalterm.setAttribute("hidden", false);
@@ -958,6 +976,7 @@ var euskalbar = {
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
+        labayru.setAttribute("hidden", true);
       break;
       case 'jp':
         euskalterm.setAttribute("hidden", true);
@@ -966,6 +985,7 @@ var euskalbar = {
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
+        labayru.setAttribute("hidden", true);
       break;
     }
   },
