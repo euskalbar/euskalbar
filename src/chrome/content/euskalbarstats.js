@@ -21,18 +21,19 @@ var euskalbarstats = {
     //Euskalbarren direktorioa sortzen du erabiltzailearen profilean eta horren barruan stats.rdf fitxategia (existitzen ez bada)
     createEuskalbarStatsFile: function(){
         var dir1 = Components.classes["@mozilla.org/file/directory_service;1"].
-            getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
+                   getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
         dir1.append("euskalbar");
         if (!dir1.exists()) {
             dir1.create(0x01, 0755);
         }
         dir2 = dir1.clone();
         dir2.append("stats.rdf");
-        if (!dir2.exists()) {
-            var URLStatsFile = extNonStats.clone();
-            URLStatsFile.append("stats.rdf");
-            URLStatsFile.copyTo(dir1, "stats.rdf");
+        if (dir2.exists()) {
+            dir2.remove(false);
         }
+        var URLStatsFile = extNonStats.clone();
+        URLStatsFile.append("stats.rdf");
+        URLStatsFile.copyTo(dir1, "stats.rdf");
     },
 
     //Funtzio honek stats.rdf fitxategiaren URLa pasatzen dio stats.xul fitxategian sortu den zuhaitzari
