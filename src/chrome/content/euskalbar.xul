@@ -152,12 +152,12 @@
   <!-- Firefox context menupopup right-click -->
   <popup id="contentAreaContextMenu">    
     <menuseparator id="Euskalbar-context-menuseparator"/>
-    	<menu id="Euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
-        <observes element="cmd_copy" attribute="disabled" />
-    		<menupopup>
-    		  <menu id="Euskalbar-eu_es-context" label="&euskalbar.language.eu_es;">
-    		    <menupopup>
-    		      <menu id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm">
+      <menu id="Euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
+      <observes element="cmd_copy" attribute="disabled" />
+    	<menupopup>
+    	  <menu id="Euskalbar-eu_es-context" label="&euskalbar.language.eu_es;">
+    	    <menupopup>
+    	      <menu id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm">
                 <menupopup>
                   <menuitem id="Euskalbar-Euskalterm-Dena-eu_es-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(euskalbardicts.selectionText()), '0');" />
                   <menuseparator/>
@@ -189,13 +189,14 @@
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_es-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('eu', escape(euskalbardicts.selectionText()), 'N');" />
                 </menupopup>
               </menu>
-    		      <menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="euskalbardicts.goEuskalBarAsk('eu', escape(euskalbardicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu','es',escape(euskalbardicts.selectionText()));" />
-    		    </menupopup>
-    		  </menu>
-    		  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
-    		    <menupopup>
-    		      <menu id="Euskalbar-Euskalterm-es_eu-context" label="Euskalterm">
+              <menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="euskalbardicts.goEuskalBarAsk('eu', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu','es',escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Labayru-eu-context" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru('eu', escape(euskalbardicts.selectionText()));" />
+    	    </menupopup>
+    	  </menu>
+    	  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
+    	    <menupopup>
+    	      <menu id="Euskalbar-Euskalterm-es_eu-context" label="Euskalterm">
                 <menupopup>
                   <!-- escape() kendu da tildeak ongi tratatzeko, bestela ez baitabil -> Konponbide hau ez dabil-->
                   <menuitem id="Euskalbar-Euskalterm-Dena-es_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm('es', escape(euskalbardicts.selectionText()), '0');" />
@@ -230,6 +231,7 @@
               </menu>
               <menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="euskalbardicts.goEuskalBarAsk('es', escape(euskalbardicts.selectionText()));" />
     	      <menuitem id="Euskalbar-Elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('es','eu', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Labayru-es-context" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru('es', escape(euskalbardicts.selectionText()));" />
     	    </menupopup>
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
@@ -411,12 +413,6 @@
             <menupopup>
               <menuitem id="Euskalbar-Intza-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbardicts.goEuskalBarIntza('es', escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbardicts.goEuskalBarIntza('eu', escape(euskalbardicts.selectionText()));" />
-            </menupopup>
-          </menu>
-          <menu id="Euskalbar-Labayru-context" label="Labayru">
-            <menupopup>
-              <menuitem id="Euskalbar-Labayru-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbardicts.goEuskalBarLabayru('es', escape(euskalbardicts.selectionText()));" />
-              <menuitem id="Euskalbar-Labayru-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbardicts.goEuskalBarLabayru('eu', escape(euskalbardicts.selectionText()));" />
             </menupopup>
           </menu>
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbardicts.goEuskalBarEurovoc(escape(euskalbardicts.selectionText()));" />
