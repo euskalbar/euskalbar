@@ -142,5 +142,11 @@
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/oeh">
+      <stats:name>&euskalbar.oeh.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
   </rdf:Bag>
 </rdf:RDF>

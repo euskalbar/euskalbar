@@ -106,6 +106,7 @@
       <toolbarseparator/>
       <hbox id="Euskalbar-dicts-general">
         <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Hiztegi Batua" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-OEH" tooltiptext="&euskalbar.oeh.tooltip;" label="OEH" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarOEH(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;" label="&euskalbar.uzei.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
@@ -130,6 +131,7 @@
   <window id="main-window">
     <menupopup id="Euskalbar-hsButtons">
       <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Hiztegi Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-oeh" type="checkbox" persist="checked" label="OEH" oncommand="document.getElementById('EuskalBar-OEH').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').collapsed = !this.hasAttribute('checked');"/>
@@ -400,6 +402,7 @@
     		  </menu>
     		  <menuseparator/>
           <menuitem id="Euskalbar-Euskaltzaindia-context" label="Hiztegi Batua" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(escape(euskalbardicts.selectionText()));" />
+          <menuitem id="Euskalbar-OEH-context" label="OEH" oncommand="euskalbardicts.goEuskalBarOEH(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="euskalbardicts.goEuskalBarItzuL(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="euskalbardicts.goEuskalBarHarluxet(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-Wikipedia-context" label="Wikipedia" oncommand="euskalbardicts.goEuskalBarWikipedia(escape(euskalbardicts.selectionText()));" />

@@ -844,6 +844,9 @@ var euskalbar = {
         if (prefManager.getBoolPref("euskalbar.batua.onkey")) {
           euskalbardicts.goEuskalBarEuskaltzaindia(searchStr);
         }
+        if (prefManager.getBoolPref("euskalbar.oeh.onkey")) {
+          euskalbardicts.goEuskalBarOEH(searchStr);
+        }
         if (prefManager.getBoolPref("euskalbar.adorez.onkey")) {
           euskalbardicts.goEuskalBarAdorez(searchStr);
         }

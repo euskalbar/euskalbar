@@ -16,6 +16,7 @@
       <preference id="prefMorris" name="euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="euskalbar.opentran.onkey" type="bool"/>
       <preference id="prefBatua" name="euskalbar.batua.onkey" type="bool"/>
+      <preference id="prefOEH" name="euskalbar.oeh.onkey" type="bool"/>
       <preference id="prefAdorez" name="euskalbar.adorez.onkey" type="bool"/>
       <preference id="prefUZEI" name="euskalbar.uzei.onkey" type="bool"/>
       <preference id="prefItzuL" name="euskalbar.itzul.onkey" type="bool"/>
@@ -171,30 +172,34 @@
                     <rows>
                     <row>
                       <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                      <checkbox preference="prefMokoroa" label="Mokoroa" />
+                      <checkbox preference="prefWikipedia" label="Wikipedia" />
                     </row>
                     <row>
                       <checkbox preference="prefElhuyar" label="Elhuyar" />
-                      <checkbox preference="prefIntza" label="Intza" />
+                      <checkbox preference="prefMokoroa" label="Mokoroa" />
                     </row>
                     <row>
                       <checkbox preference="pref3000" label="3000" />
-                      <checkbox preference="prefEurovoc" label="Eurovoc" />
+                      <checkbox preference="prefIntza" label="Intza" />
                     </row>
                     <row>
                       <checkbox preference="prefLabayru" label="Labayru" />
-                      <checkbox preference="prefBergara" label="Bergara" />
+                      <checkbox preference="prefEurovoc" label="Eurovoc" />
                     </row>
                     <row>
                       <checkbox preference="prefMorris" label="Morris" />
-                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
+                      <checkbox preference="prefBergara" label="Bergara" />
                     </row>
                     <row>
                       <checkbox preference="prefOpentran" label="Open-tran" />
-                      <checkbox preference="prefKlasikoak" label="Klasikoak" />
+                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
                     </row>
                     <row>
                       <checkbox preference="prefBatua" label="Hiztegi Batua" />
+                      <checkbox preference="prefKlasikoak" label="Klasikoak" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefOEH" label="OEH" />
                       <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
                     </row>
                     <row>
@@ -212,9 +217,6 @@
                     <row>
                       <checkbox preference="prefHarluxet" label="Harluxet" />
                       <checkbox preference="prefGoihata" label="Goihata" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefWikipedia" label="Wikipedia" />
                     </row>
                     </rows>
                   </grid> 

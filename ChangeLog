@@ -2,6 +2,10 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.6 bertsioa
+================
+- Orotariko Euskal Hiztegia integratu da. (#90)
+
 3.5 bertsioa
 ================
 - ItzuL posta-zerrendako mezuak Google bilatzailearen bidez kontsultatzen dira. (#85)

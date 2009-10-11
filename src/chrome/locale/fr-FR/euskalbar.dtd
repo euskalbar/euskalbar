@@ -13,6 +13,7 @@
 <!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">
 <!ENTITY euskalbar.opentran.tooltip "Base de données de traductions Open-tran.eu">
 <!ENTITY euskalbar.batua.tooltip "Dictionnaire Unifié d'Euskaltzaindia">
+<!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
 <!ENTITY euskalbar.adorez.tooltip "Dictionnaire des synonymes Adorez">
 <!ENTITY euskalbar.uzei.tooltip "Dictionnaire des synonymes UZEI">
 <!ENTITY euskalbar.itzul.tooltip "Archive de la liste de diffusion ItzuL">
@@ -35,9 +36,9 @@
 <!ENTITY euskalbar.about.title "Sur Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Sur cette version">
 <!ENTITY euskalbar.about.whatsnew1 "Les principales noveautés de cette version sont les suivants:">
-<!ENTITY euskalbar.about.whatsnew2 "Changed queries on Itzul mailing list to not use Gmane and to use Google">
-<!ENTITY euskalbar.about.whatsnew3 "Bergarako Hiztegia uses a new website">
-<!ENTITY euskalbar.about.whatsnew4 "Added Labayru Hiztegia">
+<!ENTITY euskalbar.about.whatsnew2 "Added Orotariko Euskal Hiztegia (OEH)">
+<!ENTITY euskalbar.about.whatsnew3 "">
+<!ENTITY euskalbar.about.whatsnew4 "">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "La liste complète de noveautés, dans la direction suivante:">

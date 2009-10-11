@@ -232,6 +232,21 @@ var euskalbardicts = {
       euskalbarstats.writeStats(5);
     },
 
+    // Euskaltzaindiaren OEHn bilaketa burutzen du
+    goEuskalBarOEH: function(term) {
+      // Begiratu kutxa hutsik dagoen 
+      if (euskalbar.alertEmptyBox(term)){
+        return;
+      }
+      var params = [];
+      var url = 'http://www.euskaltzaindia.net/index.php?option=com_oeh&amp;view=frontpage&amp;Itemid=340&amp;lang=eu';
+      params.push(new euskalbar.QueryParameter('sarrera', escape(term)));
+      var zein = 'com_oeh';
+      euskalbar.openURL(url, zein, 'POST', params);
+      //Estatistika lokalak idatzi
+      euskalbarstats.writeStats(23);
+    },
+
 
     // UZEIren sinonimoen hiztegia
     goEuskalBarUZEI: function(term) {

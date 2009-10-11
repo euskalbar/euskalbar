@@ -16,7 +16,7 @@
 
 
 <tree id="zuhaitza" datasources="rdf:null"
-         ref="http://www.euskalbar.eu/stats" flex="4" hidecolumnpicker="true" width="400px" height="440px">
+         ref="http://www.euskalbar.eu/stats" flex="4" hidecolumnpicker="true" width="400px" height="480px">
   <treecols>
     <treecol flex="3" id="stats-dicts" label="&euskalbar.menu.main;" sort="?name"/>
     <treecol flex="1" id="stats-count" label="&euskalbar.stats.count;" sort="?localstat"/>
