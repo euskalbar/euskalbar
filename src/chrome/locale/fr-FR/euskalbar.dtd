@@ -118,6 +118,7 @@
 
 <!ENTITY euskalbar.menu.general "Générales">
 <!ENTITY euskalbar.menu.euskaltzaindia "Dictionnaire Unifié d'Euskaltzaindia (EU)">
+<!ENTITY euskalbar.menu.oeh "Dictionnaire Orotariko Euskal Hiztegia (EU)">
 <!ENTITY euskalbar.menu.eurovoc "Thesaurus Eurovoc">
 <!ENTITY euskalbar.menu.euskalterm "Base de données terminologique Euskalterm (EU-ES)">
 <!ENTITY euskalbar.menu.euskaltermalt "Base de données terminologique alternative Euskalterm (EU-ES)">
@@ -125,6 +126,7 @@
 <!ENTITY euskalbar.menu.goihata "Dictionnaire Japonais - Basque (JP-EU)">
 <!ENTITY euskalbar.menu.3000 "Dictionnaire 3000 (EU-ES)">
 <!ENTITY euskalbar.menu.elhuyar "Dictionnaire Elhuyar (EU-ES)">
+<!ENTITY euskalbar.menu.labayru "Dictionnaire Labayru (EU-ES)">
 <!ENTITY euskalbar.menu.morris "Dictionnaire Morris (EU-EN)">
 <!ENTITY euskalbar.menu.opentran "Base de données de traductions Opentran (EN-EU)">
 <!ENTITY euskalbar.menu.lagun20 "Dictionnaire Polonais - Basque (PL-EU)">
