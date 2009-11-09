@@ -785,7 +785,7 @@ var euskalbarcomb = {
               //Timerra garbitu
               clearTimeout(requestTimer);
               txtEuskaltzaindia = xmlHttpReq.responseText;
-              txtEuskaltzaindia = this.manipulateEuskaltzaindia(txtEuskaltzaindia);
+              txtEuskaltzaindia = euskalbarcomb.manipulateEuskaltzaindia(txtEuskaltzaindia);
               txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"<font></strong>"+txtEuskaltzaindia;
               getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
               //azpisarrerak badauzka...
@@ -796,7 +796,7 @@ var euskalbarcomb = {
                   for (i in arrayEuskaltzaindia){
                     var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("frontpage")[0];
                     urlEuskaltzaindia = urlEuskaltzaindia+"frontpage";
-                    this.getsubShiftEuskaltzaindia(urlEuskaltzaindia);
+                    euskalbarcomb.getsubShiftEuskaltzaindia(urlEuskaltzaindia);
                   }
                 }
               }
@@ -843,7 +843,7 @@ var euskalbarcomb = {
               clearTimeout(requestTimer);
               txtEuskaltzaindia = xmlHttpReq.responseText;
               //Batuaren katea manipulatzen duen funtzioari deitu
-              txtEuskaltzaindia = this.manipulateEuskaltzaindia(txtEuskaltzaindia);
+              txtEuskaltzaindia = euskalbarcomb.manipulateEuskaltzaindia(txtEuskaltzaindia);
               //Emaitza HTMLan kargatu
               getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML+"<hr>"+txtEuskaltzaindia;
             }
