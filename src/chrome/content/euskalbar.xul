@@ -39,6 +39,7 @@
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
+    <toolbaritem id="euskalbar-leftbuttons" flex="0">
       <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="euskalbar.openLaguntza();"/>
       <toolbarseparator/>
       <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
@@ -64,9 +65,10 @@
           <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JA" tooltiptext="&euskalbar.language.eu_jp;" oncommand="euskalbar.setEuskalbarLang('eu', 'jp'); euskalbar.setEuskalbarDictionaries('jp'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
-      <textbox id="EuskalBar-search-string" hidden="false" style="margin-left: 10px;" onkeypress="euskalbar.goEuskalBarOnKey(event)" />
-      <!--splitter id="EuskalBar-search-splitter" resizeafter="grow" persist="width">
-      </splitter-->
+    </toolbaritem>
+      <textbox id="EuskalBar-search-string" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.goEuskalBarOnKey(event)" />
+      <splitter id="EuskalBar-search-splitter" resizeafter="grow" resizebefore="closest">
+      </splitter>
       <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
         <menupopup id="EuskalBar-Euskalterm-popup">
           <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>

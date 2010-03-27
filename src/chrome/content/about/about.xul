@@ -22,6 +22,7 @@
                 <description value="&euskalbar.about.whatsnewtitle;" class="title"/>
                 <description class="author">&euskalbar.about.whatsnew1;</description>
                 <description class="author"><html:ul><html:li>&euskalbar.about.whatsnew2;</html:li>
+                <html:li>&euskalbar.about.whatsnew3;</html:li>
                 <html:br></html:br>
                 </html:ul></description>
                 <description class="author">&euskalbar.about.whatsnew7;</description>
