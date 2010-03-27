@@ -18,6 +18,7 @@ pref("euskalbar.euskalterm.onkey", false);
 pref("euskalbar.3000.onkey", false);
 pref("euskalbar.elhuyar.onkey", true);
 pref("euskalbar.labayru.onkey", false);
+pref("euskalbar.zehazki.onkey", false);
 pref("euskalbar.morris.onkey", false);
 pref("euskalbar.opentran.onkey", false);
 pref("euskalbar.batua.onkey", false);

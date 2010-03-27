@@ -2,9 +2,10 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
-3.6.1 bertsioa
+3.7 bertsioa
 ================
 - Hiztegi Batua bilaketa konbinatuetan erabiltzean zegoen bug-a konpondu da. (#93)
+- Zehazki hiztegia integratu da. (#95)
 
 3.6 bertsioa
 ================

@@ -809,6 +809,12 @@ var euskalbar = {
           if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
             euskalbardicts.goEuskalBarElhuyar(this.euskalbar_source,this.euskalbar_target,searchStr);
           }
+          if (prefManager.getBoolPref("euskalbar.labayru.onkey")) {
+            euskalbardicts.goEuskalBarLabayru(this.euskalbar_source, searchStr);
+          }
+          if (prefManager.getBoolPref("euskalbar.zehazki.onkey")) {
+            euskalbardicts.goEuskalBarZehazki(this.euskalbar_source, searchStr);
+          }
         } else if ((this.euskalbar_source == 'fr') || (this.euskalbar_target == 'fr')) {
           // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
           if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
@@ -892,9 +898,6 @@ var euskalbar = {
         if (prefManager.getBoolPref("euskalbar.elebila.onkey")) {
           euskalbardicts.goEuskalBarElebila(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.labayru.onkey")) {
-          euskalbardicts.goEuskalBarLabayru(this.euskalbar_source, searchStr);
-        }
       } 
     }
     //Testu kutxa enfokatzen du
@@ -941,6 +944,7 @@ var euskalbar = {
     var opentran = document.getElementById('EuskalBar-Opentran');
     var h3000 = document.getElementById('EuskalBar-Ask');
     var labayru = document.getElementById('EuskalBar-Labayru');
+    var zehazki = document.getElementById('EuskalBar-Zehazki');
     var elhuyar = document.getElementById('EuskalBar-Elhuyar');
     var goihata = document.getElementById('EuskalBar-Goihata');
     
@@ -953,6 +957,7 @@ var euskalbar = {
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", false);
         labayru.setAttribute("hidden", false);
+        zehazki.setAttribute("hidden", false);
       break;
       case 'fr':
         euskalterm.setAttribute("hidden", false);
@@ -962,6 +967,7 @@ var euskalbar = {
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
+        zehazki.setAttribute("hidden", true);
       break;
       case 'en':
         euskalterm.setAttribute("hidden", false);
@@ -971,6 +977,7 @@ var euskalbar = {
         opentran.setAttribute("hidden", false);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
+        zehazki.setAttribute("hidden", true);
       break;
       case 'la':
         euskalterm.setAttribute("hidden", false);
@@ -980,6 +987,7 @@ var euskalbar = {
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
+        zehazki.setAttribute("hidden", true);
       break;
       case 'jp':
         euskalterm.setAttribute("hidden", true);
@@ -989,6 +997,7 @@ var euskalbar = {
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
+        zehazki.setAttribute("hidden", true);
       break;
     }
   },

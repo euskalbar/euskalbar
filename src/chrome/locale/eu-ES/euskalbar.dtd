@@ -9,6 +9,7 @@
 <!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
 <!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
+<!ENTITY euskalbar.zehazki.tooltip "Zehazki hiztegia">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">
@@ -36,7 +37,7 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "Orotariko Euskal Hiztegia gehitu da">
+<!ENTITY euskalbar.about.whatsnew2 "Zehazki hiztegia gehitu da">
 <!ENTITY euskalbar.about.whatsnew3 "">
 <!ENTITY euskalbar.about.whatsnew4 "">
 <!ENTITY euskalbar.about.whatsnew5 "">

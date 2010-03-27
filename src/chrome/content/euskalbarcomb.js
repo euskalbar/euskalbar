@@ -856,13 +856,13 @@ var euskalbarcomb = {
 
     //Batuaren katea manipulatzen duen funtzioa
     manipulateEuskaltzaindia: function(txtEuskaltzaindia) {
-      var txtEuskaltzaindia = txtEuskaltzaindia.split("contentheading")[1];
-      txtEuskaltzaindia = "<div class=\"contentheading"+txtEuskaltzaindia;
-      txtEuskaltzaindia = txtEuskaltzaindia.split("<p><b>Oharra")[0];
-      txtEuskaltzaindia = txtEuskaltzaindia.replace(/Hiztegi Batua/, "<br>");
-      txtEuskaltzaindia = txtEuskaltzaindia.replace(/\/index.php/g, "http://www.euskaltzaindia.net/hiztegibatua/index.php");
-      txtEuskaltzaindia = "<font size=\"2pt\">"+txtEuskaltzaindia+"<\/font>";
-      return txtEuskaltzaindia;
+      var arrayEl = txtEuskaltzaindia.split("xmlns");
+      arrayEl.shift();
+      arrayEl.shift();
+      var azkena = arrayEl.pop();
+      var retEuskaltzaindia = arrayEl.join("");
+      retEuskaltzaindia = "<p>&nbsp;</p><p xmlns"+retEuskaltzaindia+azkena.split("<\/td>")[0];
+      return retEuskaltzaindia;
     },
 
 

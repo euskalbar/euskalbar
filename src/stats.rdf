@@ -148,5 +148,11 @@
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/zehazki">
+      <stats:name>&euskalbar.zehazki.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
   </rdf:Bag>
 </rdf:RDF>

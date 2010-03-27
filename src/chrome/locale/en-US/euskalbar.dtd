@@ -9,6 +9,7 @@
 <!ENTITY euskalbar.3000.tooltip "3000 dictionary">
 <!ENTITY euskalbar.goihata.tooltip "Goihata dictionary">
 <!ENTITY euskalbar.labayru.tooltip "Labayru dictionary">
+<!ENTITY euskalbar.zehazki.tooltip "Zehazki dictionary">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar dictionary">
 <!ENTITY euskalbar.morris.tooltip "Morris dictionary">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu translation database">
@@ -36,7 +37,7 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "Added Orotariko Euskal Hiztegia (OEH)">
+<!ENTITY euskalbar.about.whatsnew2 "Added Zehazki hiztegia">
 <!ENTITY euskalbar.about.whatsnew3 "">
 <!ENTITY euskalbar.about.whatsnew4 "">
 <!ENTITY euskalbar.about.whatsnew5 "">
