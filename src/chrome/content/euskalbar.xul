@@ -108,7 +108,7 @@
       <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" oncommand="euskalbardicts.goEuskalBarGoihata(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
       <toolbarseparator/>
       <hbox id="Euskalbar-dicts-general">
-        <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Hiztegi Batua" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Batua" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-OEH" tooltiptext="&euskalbar.oeh.tooltip;" label="OEH" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarOEH(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.menu.uzeisinonim;" label="&euskalbar.uzei.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
@@ -119,7 +119,7 @@
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarIntza(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzko prosa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="EPG" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Klasikoak" tooltiptext="&euskalbar.klasikoak.tooltip;" label="Klasikoak" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarKlasikoak(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
@@ -133,7 +133,7 @@
   <!-- Hide/show buttons context menupopup right-click -->
   <window id="main-window">
     <menupopup id="Euskalbar-hsButtons">
-      <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Hiztegi Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-oeh" type="checkbox" persist="checked" label="OEH" oncommand="document.getElementById('EuskalBar-OEH').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').collapsed = !this.hasAttribute('checked');"/>
@@ -144,7 +144,7 @@
       <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-bergara" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="Ereduzko prosa" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="EPG" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-klasikoak" type="checkbox" persist="checked" label="Klasikoak" oncommand="document.getElementById('EuskalBar-Klasikoak').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
@@ -237,6 +237,7 @@
               <menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="euskalbardicts.goEuskalBarAsk('es', escape(euskalbardicts.selectionText()));" />
     	      <menuitem id="Euskalbar-Elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('es','eu', escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-Labayru-es-context" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru('es', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Zehazki-es-context" label="Zehazki" oncommand="euskalbardicts.goEuskalBarZehazki('es', escape(euskalbardicts.selectionText()));" />
     	    </menupopup>
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
@@ -404,7 +405,7 @@
     		    </menupopup>
     		  </menu>
     		  <menuseparator/>
-          <menuitem id="Euskalbar-Euskaltzaindia-context" label="Hiztegi Batua" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(escape(euskalbardicts.selectionText()));" />
+          <menuitem id="Euskalbar-Euskaltzaindia-context" label="Batua" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-OEH-context" label="OEH" oncommand="euskalbardicts.goEuskalBarOEH(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="euskalbardicts.goEuskalBarItzuL(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="euskalbardicts.goEuskalBarHarluxet(escape(euskalbardicts.selectionText()));" />
@@ -423,7 +424,7 @@
           </menu>
           <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbardicts.goEuskalBarEurovoc(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="euskalbardicts.goEuskalBarBergara(escape(euskalbardicts.selectionText()));" />
-          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko prosa" oncommand="euskalbardicts.goEuskalBarEreduzko(escape(euskalbardicts.selectionText()));" />
+          <menuitem id="EuskalBar-Ereduzko-context" label="EPG" oncommand="euskalbardicts.goEuskalBarEreduzko(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="euskalbardicts.goEuskalBarKlasikoak(escape(euskalbardicts.selectionText()));"/>
           <menuitem id="Euskalbar-ZTCorpusa-context" label="ZTCorpusa" oncommand="euskalbardicts.goEuskalBarZTCorpusa(escape(euskalbardicts.selectionText()));" />
           <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="euskalbardicts.goEuskalBarCorpEus(escape(euskalbardicts.selectionText()));" />

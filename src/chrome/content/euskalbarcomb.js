@@ -604,12 +604,11 @@ var euskalbarcomb = {
               } else {
                 var txtLab1 = txtLabayru.split("HiztegiaPalabra");
                 txtLabayru = txtLab1[1].slice(2+term.length, txtLab1[1].indexOf("<form"));
-                txtLabayru = "<p><b>"+term+"</b></p>"+txtLabayru;
-		txtLabayru = txtLabayru.replace(/<td>/g, "<p>");
-		txtLabayru = txtLabayru.replace(/<\/td>/g, "<\/p>");
-		txtLabayru = txtLabayru.replace(/<tr>/g, "");
-		txtLabayru = txtLabayru.replace(/<\/tr>/g, "");
-		txtLabayru = txtLabayru.replace(/<\/td>/g, "<\/p>");
+                txtLabayru = "<p><b>"+term+"</b></p><br/>"+txtLabayru;
+		txtLabayru = txtLabayru.replace(/<td/g, "<p");
+		txtLabayru = txtLabayru.replace(/<\/td/g, "<\/p");
+		txtLabayru = txtLabayru.replace(/<tr/g, "<p");
+		txtLabayru = txtLabayru.replace(/<\/tr/g, "<\/p");
                 txtLabayru = txtLabayru.replace(/CargaPalabra/g,"http://zerbitzuak.labayru.org/diccionario/CargaPalabra");
               }
             } else {

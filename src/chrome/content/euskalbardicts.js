@@ -168,16 +168,16 @@ var euskalbardicts = {
       if (source == 'es') {
         source = 'CAS';
         idioma = 'Castellano';
-        var url = 'http://zerbitzuak.labayru.org/diccionario/CargaPalabra.asp'
+        var url = 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabras.asp'
       } else {
         source = 'EUS';
         idioma = 'Euskera';
-        var url = 'http://zerbitzuak.labayru.org/diccionario/CargaPalabraeu.asp'
+        var url = 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabrasEU.asp'
       }
-
-      params.push(new euskalbar.QueryParameter('resul', escape(term)));
+      params.push(new euskalbar.QueryParameter('opc', '1'));
+      params.push(new euskalbar.QueryParameter('txtPalabra', escape(term)));
       var zein = 'labayru';
-      euskalbar.openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi .  Labayru dict = 22
       euskalbarstats.writeStats(22);
     },
