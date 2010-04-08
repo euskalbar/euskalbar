@@ -66,9 +66,11 @@
         </menupopup>
       </toolbarbutton>
     </toolbaritem>
-      <textbox id="EuskalBar-search-string" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.goEuskalBarOnKey(event)" />
-      <splitter id="EuskalBar-search-splitter" resizeafter="grow" resizebefore="closest">
-      </splitter>
+      <hbox>
+          <textbox id="EuskalBar-search-string" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.goEuskalBarOnKey(event)" />
+          <splitter id="EuskalBar-search-splitter" resizeafter="grow" resizebefore="closest">
+          </splitter>
+      </hbox>
       <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
         <menupopup id="EuskalBar-Euskalterm-popup">
           <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>

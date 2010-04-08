@@ -20,3 +20,7 @@ toolbar #EuskalBar-Search {
 
 #Euskalbar-menu [hidden="true"] {display: none !important;} 
 
+textbox#EuskalBar-search-string {
+    min-width: 50px;
+    max-width: 300px;
+}
