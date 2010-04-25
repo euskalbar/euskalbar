@@ -16,8 +16,9 @@
   table#nagusia { border-style: solid;
     border-width: 1px;
     background-color: rgb(240, 202, 158);
-    width: 90%;
-    margin-left: 5%;
+    width: 96%;
+    margin-left: 2%;
+    table-layout: fixed;
     }
 
   th { border-style: solid;
@@ -26,14 +27,9 @@
     font-size: 11pt;
     }
 
-  tr { border-style: dotted;
+  .gorputza { border-style: dotted;
     border-width: 1px;
     font-size: 9pt;
-    }
-
-  td#nagusia { border-style: dotted;
-    border-width: 1px;
-    width: 20%;
     vertical-align: top;
     }
 
@@ -41,8 +37,8 @@
     border-width: 1px;
     font-size: 12pt;
     text-align: center;
-    width: 90%;
-    margin-left: 5%;
+    width: 96%;
+    margin-left: 2%;
     padding-top: 2px;
     padding-bottom: 2px;
     }
