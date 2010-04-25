@@ -72,6 +72,7 @@ var euskalbarcomb = {
           txtEuskalterm = strRes.getString("m1Euskalterm");
         }
       getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
+      getBrowser().contentDocument.getElementById('oEuskalterm').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -275,18 +276,19 @@ var euskalbarcomb = {
                   for (i in arrayElhuyar){
                     var params = arrayElhuyar[i].split("\"")[0];
                     params = params.replace(/amp\;/g, "");
-		    if (params.indexOf("mota=azpisarrera")!=-1) {
+                      if (params.indexOf("mota=azpisarrera")!=-1) {
 	              euskalbarcomb.getsubShiftElhuyar(params,0);
-		    }
-  		  }
-		}
-	      }
+                    }
+                  }
+                }
+              }
             }
           }
         } catch(e) {
           txtElhuyar = strRes.getString("m1Elhuyar");
         }
       }
+      getBrowser().contentDocument.getElementById('oElhuyar').innerHTML = "<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>";
     },
 
 
@@ -400,6 +402,7 @@ var euskalbarcomb = {
           txt3000 = strRes.getString("m13000");
         }
         getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
+        getBrowser().contentDocument.getElementById('o3000').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_3000/indice_e.htm\">3000 hiztegia&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -550,6 +553,7 @@ var euskalbarcomb = {
           txtMorris = strRes.getString("m1Morris");
         }
         getBrowser().contentDocument.getElementById('aMorris').innerHTML = txtMorris;
+        getBrowser().contentDocument.getElementById('oMorris').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>";
       }
     
     },
@@ -619,6 +623,7 @@ var euskalbarcomb = {
           txtLabayru = strRes.getString("m1Labayru");
         }
         getBrowser().contentDocument.getElementById('aLabayru').innerHTML = txtLabayru;
+        getBrowser().contentDocument.getElementById('oLabayru').innerHTML = "<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -687,6 +692,7 @@ var euskalbarcomb = {
           txtSinonimoak = strRes.getString("m1Sinonimoak");
         }
         getBrowser().contentDocument.getElementById('aAdorez').innerHTML = txtSinonimoak;
+        getBrowser().contentDocument.getElementById('oAdorez').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_sinon/indice_e.htm\">Adorez&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -738,7 +744,8 @@ var euskalbarcomb = {
         } catch(e) {
           txtUZEI = strRes.getString("m1UZEI");
         }
-        getBrowser().contentDocument.getElementById('aUZEI').innerHTML = txtUZEI;
+        getBrowser().contentDocument.getElementById('aUzei').innerHTML = txtUZEI;
+        getBrowser().contentDocument.getElementById('oUzei').innerHTML = "<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -807,6 +814,7 @@ var euskalbarcomb = {
           txtEuskaltzaindia = strRes.getString("m1Batua");
         }
         getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
+        getBrowser().contentDocument.getElementById('oBatua').innerHTML = "<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -915,6 +923,7 @@ var euskalbarcomb = {
           txtMokoroa = strRes.getString("m1Mokoroa");
         }
         getBrowser().contentDocument.getElementById('aMokoroa').innerHTML = txtMokoroa;
+        getBrowser().contentDocument.getElementById('oMokoroa').innerHTML = "<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -971,6 +980,7 @@ var euskalbarcomb = {
           txtIntza = strRes.getString("m1Intza");
         }
         getBrowser().contentDocument.getElementById('aIntza').innerHTML = txtIntza;
+        getBrowser().contentDocument.getElementById('oIntza').innerHTML = "<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1025,6 +1035,7 @@ var euskalbarcomb = {
           txtOpentran = strRes.getString("m1Opentran");
         }
         getBrowser().contentDocument.getElementById('aOpentran').innerHTML = txtOpentran3;
+        getBrowser().contentDocument.getElementById('oOpentran').innerHTML = "<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 

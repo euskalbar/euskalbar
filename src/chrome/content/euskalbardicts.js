@@ -550,6 +550,7 @@ var euskalbardicts = {
       var url = 'http://www.corpeus.org/cgi-bin/kontsulta.py';
       params.push(new euskalbar.QueryParameter('bilagaiid', ' '));
       params.push(new euskalbar.QueryParameter('formalema', 'lema'));
+      params.push(new euskalbar.QueryParameter('motorea', 'googleajax'));
       if (term.indexOf(' ') != -1) {
         params.push(new euskalbar.QueryParameter('testu-hitza', escape('"'+term+'"')));
       } else {
