@@ -498,11 +498,6 @@ var euskalbar = {
             euskalbarstats.writeStats(4);
           }
         } catch(err) {}
-        try {
-          if (prefManager.getBoolPref("euskalbar.goihata.onkey") ) {
-            euskalbardicts.goEuskalBarGoihata( this.euskalbar_source, this.euskalbar_target, searchStr );
-          }
-        } catch(err) {}
 
       } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
         // Begiratu kutxa hutsik dagoen 
