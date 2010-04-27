@@ -472,9 +472,10 @@ var euskalbardicts = {
         return;
       }
       var params = [];
+      var zein = 'bergarakoeuskara';
       var url = 'http://www.bergarakoeuskara.net/hiztegia/bilatu';
       params.push(new euskalbar.QueryParameter('berbaki', escape(term)));
-      var zein = 'netkam';
+      params.push(new euskalbar.QueryParameter('form_id', 'berba_bilatu'));
       euskalbar.openURL(url, zein, 'POST', params);
       euskalbarstats.writeStats(14);
     },
