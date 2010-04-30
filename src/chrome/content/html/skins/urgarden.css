@@ -33,6 +33,7 @@
 
   .gorputza { border-style: solid;
     border-width: 1px;
+    border-color: rgb(59, 151, 255);
     font-size: 9pt;
     vertical-align: top;
     }
