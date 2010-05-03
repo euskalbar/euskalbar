@@ -5,17 +5,6 @@ This is Free Software (GPL License)
 asarasua@vitoria-gasteiz.org
 */
 
-//Hurrengo bi lerroek Euskalbarren direktorio nagusiaren URIa eskuratzen dute
-const idStats = "euskalbar@interneteuskadi.org";
-var extNonStats = Components.classes["@mozilla.org/extensions/manager;1"]
-                  .getService(Components.interfaces.nsIExtensionManager)
-                  .getInstallLocation(idStats)
-                  .getItemLocation(idStats);
-//Lerro honek erabiltzailearen profilaren URIa eskuratzen du
-var URLStats = Components.classes["@mozilla.org/file/directory_service;1"]
-               .getService(Components.interfaces.nsIProperties)
-               .get("ProfD", Components.interfaces.nsIFile);
-
 var euskalbarstats = {
 
     //Euskalbarren direktorioa sortzen du erabiltzailearen profilean eta horren barruan stats.rdf fitxategia (existitzen ez bada)
@@ -31,7 +20,7 @@ var euskalbarstats = {
         if (dir2.exists()) {
             dir2.remove(false);
         }
-        var URLStatsFile = extNonStats.clone();
+        var URLStatsFile = euskalbar.extURI.clone();
         URLStatsFile.append("stats.rdf");
         URLStatsFile.copyTo(dir1, "stats.rdf");
     },
@@ -43,7 +32,7 @@ var euskalbarstats = {
       var fileHandler = ios.getProtocolHandler("file")
                          .QueryInterface(Components.interfaces.nsIFileProtocolHandler);
 
-      var URLStatsS = URLStats.clone();
+      var URLStatsS = euskalbar.profileURI.clone();
       URLStatsS.append("euskalbar");
       URLStatsS.append("stats.rdf");
       var URL = fileHandler.getURLSpecFromFile(URLStatsS);
@@ -53,7 +42,7 @@ var euskalbarstats = {
 
     //Aldaketak idazten ditu stats.rdf fitxategian
     writeStats: function(dict) {
-      var URLStatsW = URLStats.clone();
+      var URLStatsW = euskalbar.profileURI.clone();
       URLStatsW.append("euskalbar");
       URLStatsW.append("stats.rdf");
       //Estatistiken fitxategia ireki eta irakurri

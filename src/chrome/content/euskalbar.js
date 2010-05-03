@@ -9,24 +9,23 @@
 // julenx@gmail.com
 // chetan.thapliyal@discreteguidepost.in
 
-//Hobespenak atzitzeko interfazea
-const prefManager = Components.classes["@mozilla.org/preferences-service;1"]
-.getService(Components.interfaces.nsIPrefBranch);
-
-//Hurrengo bi lerroek Euskalbarren direktorio nagusiaren URIa atzitzen dute
-const guid = "euskalbar@interneteuskadi.org";
-var extNon = Components.classes["@mozilla.org/extensions/manager;1"]
-                        .getService(Components.interfaces.nsIExtensionManager)
-                        .getInstallLocation(guid)
-                        .getItemLocation(guid);
-
 // Euskalbar hasieratzen du
 // Euskalbar deskargatzen du
 // Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
 // http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
 var euskalbar = {
+  guid: "euskalbar@interneteuskadi.org",
 
-  prefs: null,
+  extURI: null,
+
+  // URI of the current user's profile directory
+  profileURI: Components.classes["@mozilla.org/file/directory_service;1"]
+                        .getService(Components.interfaces.nsIProperties)
+                        .get("ProfD", Components.interfaces.nsIFile),
+
+  prefs: Components.classes["@mozilla.org/preferences-service;1"]
+                .getService(Components.interfaces.nsIPrefService)
+                .getBranch("euskalbar."),
 
   euskalbar_source: null,
 
@@ -35,23 +34,25 @@ var euskalbar = {
 
   // Funtzio honek Euskalbar hasieratzen du
   startup: function() {
+    // URI of the extension location
+    this.extURI = Components.classes["@mozilla.org/extensions/manager;1"]
+                  .getService(Components.interfaces.nsIExtensionManager)
+                  .getInstallLocation(this.guid)
+                  .getItemLocation(this.guid);
     // Register to receive notifications of preference changes	
-    this.prefs = Components.classes["@mozilla.org/preferences-service;1"]
-                .getService(Components.interfaces.nsIPrefService)
-                .getBranch("euskalbar.");
     this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
     //Hasieratu observerra
     this.prefs.addObserver("", this, false);
 
     // Euskalbar abian jartzen den lehen aldia bada...
-    if (navigator.preference('extensions.' + guid +'.welcome')) {
+    if (navigator.preference('extensions.' + this.guid +'.welcome')) {
       //Azalen hobespena aldatzen du
       navigator.preference ('euskalbar.style.combinedquery', 'skins/human.css');
       // Ongietorri leihoa erakusten du (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
       var file = Components.classes["@mozilla.org/extensions/manager;1"]
                 .getService(Components.interfaces.nsIExtensionManager)
-                .getInstallLocation(guid)
-                .getItemLocation(guid);
+                .getInstallLocation(this.guid)
+                .getItemLocation(this.guid);
       file.append("defaults");
       file.append("preferences");
       file.append("welcome.js");
@@ -65,7 +66,7 @@ var euskalbar = {
     }
 
     //Hasieratu hizkuntza hautatzeko botoia
-    var lang = prefManager.getCharPref("euskalbar.language.startup");
+    var lang = this.prefs.getCharPref("language.startup");
     this.euskalbar_source = lang[0]+lang[1];
     this.euskalbar_target = lang[3]+lang[4];
     this.setEuskalbarLang(this.euskalbar_source, this.euskalbar_target);
@@ -117,7 +118,7 @@ var euskalbar = {
   //HTML fitxategiak hasieratzen ditu
   initHTML: function(event) {
     //HTML fitxategietan estiloaren katea aldatzen du
-    var prefStyle = prefManager.getCharPref("euskalbar.style.combinedquery");
+    var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
     var URL = event.target.location.href;
     if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
       var link = event.target.getElementsByTagName("link")[0];
@@ -141,7 +142,7 @@ var euskalbar = {
     } else if (URL.indexOf("euskalbarktrl") != -1) {
       k = "onkey2";
     }
-    var cprefs = prefManager.getBranch("euskalbar.").getChildList("",{});
+    var cprefs = euskalbar.prefs.getChildList("",{});
     var sprefs = new Array();
     for (x in cprefs) {
       if (cprefs[x].indexOf(k+"."+l) != -1) {
@@ -149,7 +150,7 @@ var euskalbar = {
       }
     }
     for (x in sprefs) {
-      if (prefManager.getBoolPref("euskalbar."+sprefs[x])) {
+      if (euskalbar.prefs.getBoolPref(sprefs[x])) {
         var burua = sprefs[x].split(".")[0];
         burua = burua.charAt(0).toUpperCase() + burua.slice(1);
         event.target.getElementById('buruak').innerHTML = event.target.getElementById('buruak').innerHTML+'<th>'+burua+'<\/th>';
@@ -190,7 +191,7 @@ var euskalbar = {
   // Hiztegien menua erakusten/ezkutatzen du
   showhideDicts: function() {
     var button = document.getElementById('Euskalbar-menu');
-    if (!prefManager.getBoolPref("euskalbar.showdicts.enabled")) {
+    if (!this.prefs.getBoolPref("showdicts.enabled")) {
       button.setAttribute('hidden', true);
     } else  {
       button.removeAttribute('hidden');
@@ -202,7 +203,7 @@ var euskalbar = {
   showContextmenu: function() {
     var sep = document.getElementById('Euskalbar-context-menuseparator');
     var button = document.getElementById('Euskalbar-context-menu');
-    if (!prefManager.getBoolPref("euskalbar.showcontextmenu.enabled")) {
+    if (!this.prefs.getBoolPref("showcontextmenu.enabled")) {
       sep.setAttribute('hidden', true);
       button.setAttribute('hidden', true);
     } else  {
@@ -233,7 +234,7 @@ var euskalbar = {
     document.getElementById("btnUserSkinPath").disabled = !chkSkins.checked;
     document.getElementById("menuStartupSkin").disabled = chkSkins.checked;
     if (!chkSkins.checked){
-      prefManager.setCharPref("euskalbar.style.combinedquery", document.getElementById("menuStartupSkin").selectedItem.value);
+      this.prefs.setCharPref("style.combinedquery", document.getElementById("menuStartupSkin").selectedItem.value);
     }
   },
   
@@ -249,7 +250,7 @@ var euskalbar = {
     var showResult = fpicker.show();
     if(showResult == fpicker.returnOK) {
       document.getElementById("txtUserSkinPath").value = fpicker.file.path;
-      prefManager.setCharPref("euskalbar.style.combinedquery", "file://"+fpicker.file.path);
+      this.prefs.setCharPref("style.combinedquery", "file://"+fpicker.file.path);
     }
   },
   
@@ -258,10 +259,10 @@ var euskalbar = {
   teklakEuskalbar: function(prefer) {
     switch (prefer){
     case "showdicts":
-      prefManager.setBoolPref("euskalbar."+prefer+".enabled", !prefManager.getBoolPref("euskalbar."+prefer+".enabled"));
+      this.prefs.setBoolPref(prefer+".enabled", !this.prefs.getBoolPref(prefer+".enabled"));
       break;
     case "showcontextmenu":
-      prefManager.setBoolPref("euskalbar."+prefer+".enabled", !prefManager.getBoolPref("euskalbar."+prefer+".enabled"));
+      this.prefs.setBoolPref(prefer+".enabled", !this.prefs.getBoolPref(prefer+".enabled"));
       break;
     case "showeuskalbar":
       var el = document.getElementById("EuskalBar-Toolbar");
@@ -330,7 +331,7 @@ var euskalbar = {
       postData.addContentLength = true;
       postData.setData(stringStream);
     }
-    if (prefManager.getBoolPref("euskalbar.reusetabs.enabled")) {
+    if (this.prefs.getBoolPref("reusetabs.enabled")) {
       this.reuseOldtab(url, zein, postData);
     } else {
       this.openNewtab(url, postData);
@@ -349,7 +350,7 @@ var euskalbar = {
   openNewtab: function(taburl, aPostData) {
     var theTab = getBrowser().addTab(taburl, null, null, aPostData);
     // enfokatu hala eskatu bada
-    if (!prefManager.getBoolPref("euskalbar.bgtabs.enabled")) {
+    if (!this.prefs.getBoolPref("bgtabs.enabled")) {
       getBrowser().selectedTab = theTab;
     }
   },
@@ -369,7 +370,7 @@ var euskalbar = {
         // Hiztegia irekita dago
         currentTab.webNavigation.loadURI(taburl, null, null, aPostData, null);
         // enfokatu hala eskatu bada
-        if (!prefManager.getBoolPref("euskalbar.bgtabs.enabled")) {
+        if (!this.prefs.getBoolPref("bgtabs.enabled")) {
           getBrowser().mTabContainer.selectedIndex = index;
         }
         found = true;
@@ -433,67 +434,67 @@ var euskalbar = {
 
 
         try {
-          if (prefManager.getBoolPref("euskalbar.euskalterm."+k+"."+l)){
+          if (this.prefs.getBoolPref("euskalterm."+k+"."+l)){
             euskalbarcomb.getShiftEuskalterm(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(0);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.elhuyar."+k+"."+l)){
+          if (this.prefs.getBoolPref("elhuyar."+k+"."+l)){
             euskalbarcomb.getShiftElhuyar(this.euskalbar_source, this.euskalbar_target, searchStr);
             euskalbarstats.writeStats(1);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.3000."+k+"."+l)){
+          if (this.prefs.getBoolPref("3000."+k+"."+l)){
             euskalbarcomb.getShift3000(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(2);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.labayru."+k+"."+l)){
+          if (this.prefs.getBoolPref("labayru."+k+"."+l)){
             euskalbarcomb.getShiftLabayru(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(22);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.batua."+k+"."+l)){
+          if (this.prefs.getBoolPref("batua."+k+"."+l)){
             euskalbarcomb.getShiftEuskaltzaindia(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(5);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.uzei."+k+"."+l)){
+          if (this.prefs.getBoolPref("uzei."+k+"."+l)){
             euskalbarcomb.getShiftUZEI(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(6);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.adorez."+k+"."+l)){
+          if (this.prefs.getBoolPref("adorez."+k+"."+l)){
             euskalbarcomb.getShiftAdorez(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(7);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.mokoroa."+k+"."+l)){
+          if (this.prefs.getBoolPref("mokoroa."+k+"."+l)){
             euskalbarcomb.getShiftMokoroa(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(11);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.intza."+k+"."+l)){
+          if (this.prefs.getBoolPref("intza."+k+"."+l)){
             euskalbarcomb.getShiftIntza(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(12);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.morris."+k+"."+l)){
+          if (this.prefs.getBoolPref("morris."+k+"."+l)){
             euskalbarcomb.getShiftMorris(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(3);
           }
         } catch(err) {}
         try {
-          if (prefManager.getBoolPref("euskalbar.opentran."+k+"."+l)){
+          if (this.prefs.getBoolPref("opentran."+k+"."+l)){
             euskalbarcomb.getShiftOpentran(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(4);
           }
@@ -506,102 +507,102 @@ var euskalbar = {
         }
         if ((this.euskalbar_source == 'es') || (this.euskalbar_target == 'es')) {
           // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
-          if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
+          if (this.prefs.getBoolPref("euskalterm.onkey")) {
             euskalbardicts.goEuskalBarEuskalterm(this.euskalbar_source, searchStr, '0');
           }
-          if (prefManager.getBoolPref("euskalbar.3000.onkey")) {
+          if (this.prefs.getBoolPref("3000.onkey")) {
             euskalbardicts.goEuskalBarAsk(this.euskalbar_source, searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
+          if (this.prefs.getBoolPref("elhuyar.onkey")) {
             euskalbardicts.goEuskalBarElhuyar(this.euskalbar_source,this.euskalbar_target,searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.labayru.onkey")) {
+          if (this.prefs.getBoolPref("labayru.onkey")) {
             euskalbardicts.goEuskalBarLabayru(this.euskalbar_source, searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.zehazki.onkey")) {
+          if (this.prefs.getBoolPref("zehazki.onkey")) {
             euskalbardicts.goEuskalBarZehazki(this.euskalbar_source, searchStr);
           }
         } else if ((this.euskalbar_source == 'fr') || (this.euskalbar_target == 'fr')) {
           // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
-          if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
+          if (this.prefs.getBoolPref("euskalterm.onkey")) {
             euskalbardicts.goEuskalBarEuskalterm(this.euskalbar_source, searchStr, '0');
           }
-          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
+          if (this.prefs.getBoolPref("elhuyar.onkey")) {
             euskalbardicts.goEuskalBarElhuyar(this.euskalbar_source,this.euskalbar_target,searchStr);
           }
         } else if ( (this.euskalbar_source == 'eu') && (this.euskalbar_target == 'jp') ) {
           // Go to Goihata dictionary if translating from Basque to Japanese
-          if ( prefManager.getBoolPref("euskalbar.goihata.onkey") ) {
+          if (this.prefs.getBoolPref("goihata.onkey") ) {
             euskalbardicts.goEuskalBarGoihata( this.euskalbar_source, this.euskalbar_target, searchStr );
           }
         } else {
           // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
-          if (prefManager.getBoolPref("euskalbar.euskalterm.onkey")) {
+          if (this.prefs.getBoolPref("euskalterm.onkey")) {
             euskalbardicts.goEuskalBarEuskalterm(this.euskalbar_source, searchStr, '0');
           }
-          if (prefManager.getBoolPref("euskalbar.elhuyar.onkey")) {
+          if (this.prefs.getBoolPref("elhuyar.onkey")) {
             euskalbardicts.goEuskalBarElhuyar(this.euskalbar_source,this.euskalbar_target,searchStr);
           }
-          if (prefManager.getBoolPref("euskalbar.morris.onkey")) {
+          if (this.prefs.getBoolPref("morris.onkey")) {
             euskalbardicts.goEuskalBarMorris(this.euskalbar_source, searchStr);
           }
           // Open-tran.eu jatorrizko hizkuntza ingelesa denean bakarrik dabil
           if (this.euskalbar_source == 'en') {
-            if (prefManager.getBoolPref("euskalbar.opentran.onkey")) {
+            if (this.prefs.getBoolPref("opentran.onkey")) {
               euskalbardicts.goEuskalBarOpentran(searchStr);
             }
           }
         }
         // Aukeratutako hizkuntzarekiko menpekotasunik ez dutenak kargatu
-        if (prefManager.getBoolPref("euskalbar.batua.onkey")) {
+        if (this.prefs.getBoolPref("batua.onkey")) {
           euskalbardicts.goEuskalBarEuskaltzaindia(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.oeh.onkey")) {
+        if (this.prefs.getBoolPref("oeh.onkey")) {
           euskalbardicts.goEuskalBarOEH(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.adorez.onkey")) {
+        if (this.prefs.getBoolPref("adorez.onkey")) {
           euskalbardicts.goEuskalBarAdorez(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.uzei.onkey")) {
+        if (this.prefs.getBoolPref("uzei.onkey")) {
           euskalbardicts.goEuskalBarUZEI(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.itzul.onkey")) {
+        if (this.prefs.getBoolPref("itzul.onkey")) {
           euskalbardicts.goEuskalBarItzuL(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.harluxet.onkey")) {
+        if (this.prefs.getBoolPref("harluxet.onkey")) {
           euskalbardicts.goEuskalBarHarluxet(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.wikipedia.onkey")) {
+        if (this.prefs.getBoolPref("wikipedia.onkey")) {
           euskalbardicts.goEuskalBarWikipedia(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.mokoroa.onkey")) {
+        if (this.prefs.getBoolPref("mokoroa.onkey")) {
           euskalbardicts.goEuskalBarMokoroa(this.euskalbar_source, searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.intza.onkey")) {
+        if (this.prefs.getBoolPref("intza.onkey")) {
           euskalbardicts.goEuskalBarIntza(this.euskalbar_source, searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.eurovoc.onkey")) {
+        if (this.prefs.getBoolPref("eurovoc.onkey")) {
           euskalbardicts.goEuskalBarEurovoc(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.bergara.onkey")) {
+        if (this.prefs.getBoolPref("bergara.onkey")) {
           euskalbardicts.goEuskalBarBergara(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.ereduzko.onkey")) {
+        if (this.prefs.getBoolPref("ereduzko.onkey")) {
           euskalbardicts.goEuskalBarEreduzko(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.klasikoak.onkey")) {
+        if (this.prefs.getBoolPref("klasikoak.onkey")) {
           euskalbardicts.goEuskalBarKlasikoak(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.ztcorpusa.onkey")) {
+        if (this.prefs.getBoolPref("ztcorpusa.onkey")) {
           euskalbardicts.goEuskalBarZTCorpusa(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.corpeus.onkey")) {
+        if (this.prefs.getBoolPref("corpeus.onkey")) {
           euskalbardicts.goEuskalBarCorpEus(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.xuxenweb.onkey")) {
+        if (this.prefs.getBoolPref("xuxenweb.onkey")) {
           euskalbardicts.goEuskalBarXUXENweb(searchStr);
         }
-        if (prefManager.getBoolPref("euskalbar.elebila.onkey")) {
+        if (this.prefs.getBoolPref("elebila.onkey")) {
           euskalbardicts.goEuskalBarElebila(searchStr);
         }
       } 
