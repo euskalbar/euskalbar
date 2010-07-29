@@ -153,7 +153,7 @@ var euskalbar = {
       if (euskalbar.prefs.getBoolPref(sprefs[x])) {
         var burua = sprefs[x].split(".")[0];
         burua = burua.charAt(0).toUpperCase() + burua.slice(1);
-        event.target.getElementById('buruak').innerHTML = event.target.getElementById('buruak').innerHTML+'<th>'+burua+'<\/th>';
+        event.target.getElementById('buruak').innerHTML = event.target.getElementById('buruak').innerHTML+'<th id="burua'+burua+'">'+burua+'<\/th>';
         var atd = event.target.createElement('td');
         atd.setAttribute("id","a"+burua);
         atd.setAttribute("class","gorputza");
@@ -432,7 +432,6 @@ var euskalbar = {
         }
         this.openURL(urlhizt, zein, null, null);
 
-
         try {
           if (this.prefs.getBoolPref("euskalterm."+k+"."+l)){
             euskalbarcomb.getShiftEuskalterm(this.euskalbar_source, searchStr);
@@ -455,6 +454,24 @@ var euskalbar = {
           if (this.prefs.getBoolPref("labayru."+k+"."+l)){
             euskalbarcomb.getShiftLabayru(this.euskalbar_source, searchStr);
             euskalbarstats.writeStats(22);
+          }
+        } catch(err) {}
+        try {
+          if (this.prefs.getBoolPref("zthiztegia."+k+"."+l)){
+            euskalbarcomb.getShiftZTHiztegia(this.euskalbar_source, searchStr);
+            euskalbarstats.writeStats(25);
+          }
+        } catch(err) {}
+        try {
+          if (this.prefs.getBoolPref("energia."+k+"."+l)){
+            euskalbarcomb.getShiftEnergia(this.euskalbar_source, searchStr);
+            euskalbarstats.writeStats(26);
+          }
+        } catch(err) {}
+        try {
+          if (this.prefs.getBoolPref("telekom."+k+"."+l)){
+            euskalbarcomb.getShiftTelekom(this.euskalbar_source, searchStr);
+            euskalbarstats.writeStats(27);
           }
         } catch(err) {}
         try {
@@ -516,11 +533,17 @@ var euskalbar = {
           if (this.prefs.getBoolPref("elhuyar.onkey")) {
             euskalbardicts.goEuskalBarElhuyar(this.euskalbar_source,this.euskalbar_target,searchStr);
           }
+          if (this.prefs.getBoolPref("zthiztegia.onkey")) {
+            euskalbardicts.goEuskalBarZTHiztegia(this.euskalbar_source,searchStr);
+          }
           if (this.prefs.getBoolPref("labayru.onkey")) {
             euskalbardicts.goEuskalBarLabayru(this.euskalbar_source, searchStr);
           }
           if (this.prefs.getBoolPref("zehazki.onkey")) {
             euskalbardicts.goEuskalBarZehazki(this.euskalbar_source, searchStr);
+          }
+          if (this.prefs.getBoolPref("consumer.onkey")) {
+            euskalbardicts.goEuskalBarConsumer(this.euskalbar_source, searchStr);
           }
         } else if ((this.euskalbar_source == 'fr') || (this.euskalbar_target == 'fr')) {
           // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -596,6 +619,9 @@ var euskalbar = {
         if (this.prefs.getBoolPref("ztcorpusa.onkey")) {
           euskalbardicts.goEuskalBarZTCorpusa(searchStr);
         }
+        if (this.prefs.getBoolPref("lb.onkey")) {
+          euskalbardicts.goEuskalBarLB(searchStr);
+        }
         if (this.prefs.getBoolPref("corpeus.onkey")) {
           euskalbardicts.goEuskalBarCorpEus(searchStr);
         }
@@ -654,60 +680,77 @@ var euskalbar = {
     var zehazki = document.getElementById('EuskalBar-Zehazki');
     var elhuyar = document.getElementById('EuskalBar-Elhuyar');
     var goihata = document.getElementById('EuskalBar-Goihata');
+    var zthiztegia = document.getElementById('EuskalBar-ZTHiztegia');
+    var energia = document.getElementById('EuskalBar-Energia');
+    var telekom = document.getElementById('EuskalBar-Telekom');
     
     switch (hizk) {
       case 'es':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", false);
         goihata.setAttribute("hidden", true);
+        zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", false);
         labayru.setAttribute("hidden", false);
         zehazki.setAttribute("hidden", false);
+        energia.setAttribute("hidden", false);
+        telekom.setAttribute("hidden", false);
       break;
       case 'fr':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", false);
         goihata.setAttribute("hidden", true);
+        zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
+        energia.setAttribute("hidden", false);
+        telekom.setAttribute("hidden", false);
       break;
       case 'en':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", false);
         goihata.setAttribute("hidden", true);
+        zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", false);
         opentran.setAttribute("hidden", false);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
+        energia.setAttribute("hidden", false);
+        telekom.setAttribute("hidden", false);
       break;
       case 'la':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", true);
         goihata.setAttribute("hidden", true);
+        zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
+        energia.setAttribute("hidden", true);
+        telekom.setAttribute("hidden", true);
       break;
       case 'jp':
         euskalterm.setAttribute("hidden", true);
         elhuyar.setAttribute("hidden", true);
         goihata.setAttribute("hidden", false);
+        zthiztegia.setAttribute("hidden", true);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
         h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
+        energia.setAttribute("hidden", true);
+        telekom.setAttribute("hidden", true);
       break;
     }
   },
 
 } // euskalbar
-

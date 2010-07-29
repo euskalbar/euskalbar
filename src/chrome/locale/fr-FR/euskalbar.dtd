@@ -7,9 +7,12 @@
 <!ENTITY euskalbar.options.tooltip "Options ">
 <!ENTITY euskalbar.euskalterm.tooltip "Base de données Euskalterm">
 <!ENTITY euskalbar.3000.tooltip "Dictionnaire 3000">
+<!ENTITY euskalbar.goihata.tooltip "Dictionnaire Goihata">
 <!ENTITY euskalbar.labayru.tooltip "Dictionnaire Labayru">
 <!ENTITY euskalbar.zehazki.tooltip "Dictionnaire Zehazki">
-<!ENTITY euskalbar.goihata.tooltip "Dictionnaire Goihata">
+<!ENTITY euskalbar.zthiztegia.tooltip "Dictionnaire encyclopédique de la Science et la Technologie">
+<!ENTITY euskalbar.energia.tooltip "Dictionnaire de la Énergie">
+<!ENTITY euskalbar.telekom.tooltip "Dictionnaire des Télécommunications">
 <!ENTITY euskalbar.elhuyar.tooltip "Dictionnaire Elhuyar">
 <!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">
 <!ENTITY euskalbar.opentran.tooltip "Base de données de traductions Open-tran.eu">
@@ -25,6 +28,8 @@
 <!ENTITY euskalbar.klasikoak.tooltip "Trésors du Basque">
 <!ENTITY euskalbar.ereduzko.tooltip "Prose de référence aujourd'hui">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Science et de Technologie">
+<!ENTITY euskalbar.lb.tooltip "Corpus de Lexikoaren Behatokia">
+<!ENTITY euskalbar.consumer.tooltip "Corpus Consumer">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet comme corpus du Basque">
 <!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
 <!ENTITY euskalbar.xuxenweb.tooltip "Vérification ortographique XUXENweb">
@@ -37,9 +42,9 @@
 <!ENTITY euskalbar.about.title "Sur Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "Sur cette version">
 <!ENTITY euskalbar.about.whatsnew1 "Les principales noveautés de cette version sont les suivants:">
-<!ENTITY euskalbar.about.whatsnew2 "Added Zehazki hiztegia">
-<!ENTITY euskalbar.about.whatsnew3 "Resizable textbox">
-<!ENTITY euskalbar.about.whatsnew4 "">
+<!ENTITY euskalbar.about.whatsnew2 "Dictionnaire encyclopédique de la Science et la Technologie ajouté">
+<!ENTITY euskalbar.about.whatsnew3 "Dictionnaires de l'Énergie et des Télécommunications ajoutés">
+<!ENTITY euskalbar.about.whatsnew4 "Corpus de Lexikoaren Behatokia et Consumer ajoutés">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "La liste complète de noveautés, dans la direction suivante:">
@@ -127,7 +132,11 @@
 <!ENTITY euskalbar.menu.goihata "Dictionnaire Japonais - Basque (JP-EU)">
 <!ENTITY euskalbar.menu.3000 "Dictionnaire 3000 (EU-ES)">
 <!ENTITY euskalbar.menu.elhuyar "Dictionnaire Elhuyar (EU-ES)">
+<!ENTITY euskalbar.menu.zthiztegia "Dictionnaire encyclopédique de la Science et la Technologie (EU-ES)">
+<!ENTITY euskalbar.menu.energia "Dictionnaire de la Énergie (EU-ES)">
+<!ENTITY euskalbar.menu.telekom "Dictionnaire des Télécommunications (EU-ES)">
 <!ENTITY euskalbar.menu.labayru "Dictionnaire Labayru (EU-ES)">
+<!ENTITY euskalbar.menu.zehazki "Dictionnaire Zehazki (ES-EU)">
 <!ENTITY euskalbar.menu.morris "Dictionnaire Morris (EU-EN)">
 <!ENTITY euskalbar.menu.opentran "Base de données de traductions Opentran (EN-EU)">
 <!ENTITY euskalbar.menu.lagun20 "Dictionnaire Polonais - Basque (PL-EU)">
@@ -168,6 +177,8 @@
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.corpeus "CorpEus">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+<!ENTITY euskalbar.menu.lb "Lexikoaren Behatokia">
+<!ENTITY euskalbar.menu.consumer "Corpus Consumer">
 
 <!ENTITY euskalbar.menu.towns "Locales">
 <!ENTITY euskalbar.menu.bergara "Bergara">

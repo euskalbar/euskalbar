@@ -2,6 +2,12 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.8 bertsioa
+================
+- Elhuyarren Zientzia eta Teknologiaren Hiztegi Entziklopedikoa gehitu da. (#102)
+- Energia eta Telekomunikazioen hiztegiak gehitu dira.
+- Lexikoaren Behatokia eta Consumer Corpusak gehitu dira.
+
 3.7 bertsioa
 ================
 - Hiztegi Batua bilaketa konbinatuetan erabiltzean zegoen bug-a konpondu da. (#93)

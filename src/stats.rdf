@@ -154,5 +154,35 @@
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/zthiztegia">
+      <stats:name>&euskalbar.zthiztegia.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/energia">
+      <stats:name>&euskalbar.energia.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/telekom">
+      <stats:name>&euskalbar.telekom.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/lb">
+      <stats:name>&euskalbar.lb.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/consumer">
+      <stats:name>&euskalbar.consumer.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
   </rdf:Bag>
 </rdf:RDF>

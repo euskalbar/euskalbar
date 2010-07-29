@@ -10,6 +10,9 @@
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
 <!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki hiztegia">
+<!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologiaren Hiztegi Entziklopedikoa">
+<!ENTITY euskalbar.energia.tooltip "Energia Hiztegia">
+<!ENTITY euskalbar.telekom.tooltip "Telekomunikazio Hiztegia">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">
@@ -25,6 +28,8 @@
 <!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren Corpusa">
+<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren Corpusa">
+<!ENTITY euskalbar.consumer.tooltip "Consumer Corpusa">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet euskarazko corpus gisa">
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurusa">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
@@ -37,9 +42,9 @@
 <!ENTITY euskalbar.about.title "Euskalbarri buruz">
 <!ENTITY euskalbar.about.whatsnewtitle "Bertsioaren oharrak">
 <!ENTITY euskalbar.about.whatsnew1 "Euskalbarren bertsio honen berrikuntza nagusiak hauek dira:">
-<!ENTITY euskalbar.about.whatsnew2 "Zehazki hiztegia gehitu da">
-<!ENTITY euskalbar.about.whatsnew3 "Testu-kutxaren tamaina alda daiteke">
-<!ENTITY euskalbar.about.whatsnew4 "">
+<!ENTITY euskalbar.about.whatsnew2 "Zientzia eta Teknologiaren Hiztegi Entziklopedikoa gehitu da">
+<!ENTITY euskalbar.about.whatsnew3 "Energia eta Telekomunikazioen hiztegiak gehitu dira">
+<!ENTITY euskalbar.about.whatsnew4 "Lexikoaren Behatokia eta Consumer Corpusak gehitu dira">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "Berrikuntzen zerrenda osoa, hurrengo helbidean:">
@@ -127,10 +132,15 @@
 <!ENTITY euskalbar.menu.3000 "3000 hiztegia (EU-ES)">
 <!ENTITY euskalbar.menu.goihata "Goihata hiztegia Japoniera-Euskara (EU-JP)">
 <!ENTITY euskalbar.menu.elhuyar "Elhuyar hiztegia (EU-ES)">
+<!ENTITY euskalbar.menu.zthiztegia "Zientzia eta Teknologiaren Hiztegi Entziklopedikoa (EU-ES)">
+<!ENTITY euskalbar.menu.energia "Energia Hiztegia (EU-ES)">
+<!ENTITY euskalbar.menu.telekom "Telekomunikazio Hiztegia (EU-ES)">
 <!ENTITY euskalbar.menu.labayru "Labayru hiztegia (EU-ES)">
+<!ENTITY euskalbar.menu.zehazki "Zehazki hiztegia (ES-EU)">
 <!ENTITY euskalbar.menu.morris "Morris hiztegia (EU-EN)">
 <!ENTITY euskalbar.menu.opentran "Open-tran itzulpen datu-basea (EN-EU)">
-<!ENTITY euskalbar.menu.lagun20 "Poloniera - Euskara hiztegia (PL-EU)">
+<!ENTITY euskalbar.menu.lagun20 "Poloniera - Euskara hiztegia (PL-EU)">
+
 
 <!ENTITY euskalbar.menu.sinonimoak "Sinonimoak">
 <!ENTITY euskalbar.menu.sinonimoenhizt "Adorez sinonimoen hiztegia">
@@ -168,6 +178,8 @@
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.corpeus "CorpEus">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+<!ENTITY euskalbar.menu.lb "Lexikoaren Behatokia">
+<!ENTITY euskalbar.menu.consumer "Consumer Corpusa">
 
 <!ENTITY euskalbar.menu.towns "Herriak">
 <!ENTITY euskalbar.menu.bergara "Bergara aldeko hiztegia">

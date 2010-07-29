@@ -10,6 +10,9 @@
 <!ENTITY euskalbar.goihata.tooltip "Goihata dictionary">
 <!ENTITY euskalbar.labayru.tooltip "Labayru dictionary">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki dictionary">
+<!ENTITY euskalbar.zthiztegia.tooltip "Encyclopedic dictionary of Science and Technology">
+<!ENTITY euskalbar.energia.tooltip "Dictionary of Energy">
+<!ENTITY euskalbar.telekom.tooltip "Dictionary of Telecommunications">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar dictionary">
 <!ENTITY euskalbar.morris.tooltip "Morris dictionary">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu translation database">
@@ -27,6 +30,8 @@
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.klasikoak.tooltip "Basque classic writers">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
+<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokia Corpus">
+<!ENTITY euskalbar.consumer.tooltip "Consumer Corpus">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet as a Basque Corpus">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb spell checker">
 <!ENTITY euskalbar.elebila.tooltip "Elebila web search engine">
@@ -37,9 +42,9 @@
 <!ENTITY euskalbar.about.title "About Euskalbar">
 <!ENTITY euskalbar.about.whatsnewtitle "What's new">
 <!ENTITY euskalbar.about.whatsnew1 "These are the main new features of this new version of Euskalbar:">
-<!ENTITY euskalbar.about.whatsnew2 "Added Zehazki hiztegia">
-<!ENTITY euskalbar.about.whatsnew3 "Resizable textbox">
-<!ENTITY euskalbar.about.whatsnew4 "">
+<!ENTITY euskalbar.about.whatsnew2 "Added Encyclopedic dictionary of Science and Technology">
+<!ENTITY euskalbar.about.whatsnew3 "Added dictionaries of Energy and Telecommunications">
+<!ENTITY euskalbar.about.whatsnew4 "Added Lexikoaren Behatokia and Consumer corpora ">
 <!ENTITY euskalbar.about.whatsnew5 "">
 <!ENTITY euskalbar.about.whatsnew6 "">
 <!ENTITY euskalbar.about.whatsnew7 "The complete changelog can be seen here (in Basque):">
@@ -127,7 +132,11 @@
 <!ENTITY euskalbar.menu.3000 "3000 dictionary (EU-ES)">
 <!ENTITY euskalbar.menu.goihata "Goihata dictionary (EU-JP)">
 <!ENTITY euskalbar.menu.elhuyar "Elhuyar dictionary (EU-ES)">
+<!ENTITY euskalbar.menu.zthiztegia "Encyclopedic dictionary of Science and Technology (EU-ES)">
+<!ENTITY euskalbar.menu.energia "Dictionary of Energy (EU-ES)">
+<!ENTITY euskalbar.menu.telekom "Dictionary of Telecommunications (EU-ES)">
 <!ENTITY euskalbar.menu.labayru "Labayru dictionary (EU-ES)">
+<!ENTITY euskalbar.menu.zehazki "Zehazki dictionary (ES-EU)">
 <!ENTITY euskalbar.menu.morris "Morris dictionary (EU-EN)">
 <!ENTITY euskalbar.menu.opentran "Open-tran translation database (EN-EU)">
 <!ENTITY euskalbar.menu.lagun20 "Polish - Basque dictionary (PL-EU)">
@@ -169,6 +178,8 @@
 <!ENTITY euskalbar.menu.laburzki "Laburzki">
 <!ENTITY euskalbar.menu.corpeus "CorpEus">
 <!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa">
+<!ENTITY euskalbar.menu.lb "Lexikoaren Behatokia">
+<!ENTITY euskalbar.menu.consumer "Cosumer Corpusa">
 
 <!ENTITY euskalbar.menu.towns "Towns">
 <!ENTITY euskalbar.menu.bergara "Bergara zone dictionary">

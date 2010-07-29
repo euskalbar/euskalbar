@@ -332,6 +332,491 @@ var euskalbarcomb = {
     },
 
 
+    // ZT Hiztegiaren markoa kargatu
+    getShiftZTHiztegia: function(source, term) {
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
+        var erroremezua='Ez dago horrelako terminorik';
+        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+      } else if (h.match('english')) {
+        var erroremezua='Term not found';
+        var erroremezua2 = 'Word not found, choose from list';
+      } else if (h.match('français')) {
+        var erroremezua='Aucun r&eacute;sultat pour votre entr&eacute;e';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+      } else {
+        var erroremezua='No se han encontrado resultados para la b&uacute;squeda';
+        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+      }
+
+      var xmlHttpReq = new XMLHttpRequest();
+      if (!xmlHttpReq) {
+        txtZTHiztegia = strRes.getString("m1ZTHiztegia");
+        getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+        return false;
+      }
+      xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term='+euskalbarcomb.normalizatuetaminuskularatu(term)+'%25&lang='+source, true);
+      xmlHttpReq.send(null);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = euskalbar.prefs.getIntPref("query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtZTHiztegia = strRes.getString("m1ZTHiztegia");
+        getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+      }, tout);
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              erantzuna = xmlHttpReq.responseText;
+              if (erantzuna=='[]')
+              {
+                txtZTHiztegia = erroremezua;
+                getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+	      }
+              else
+              {
+                ztzerrenda=eval('('+erantzuna+')');
+                if (ztzerrenda[0].sortKey==euskalbarcomb.normalizatuetaminuskularatu(term))
+                {
+                  termida=ztzerrenda[0].termId;
+                  var xmlHttpReq2 = new XMLHttpRequest();
+                  if (!xmlHttpReq2) {
+                    txtZTHiztegia = strRes.getString("m1ZTHiztegia");
+                    getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+                    return false;
+                  }
+                  xmlHttpReq2.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=retrieveTerm&key='+termida, true);
+                  xmlHttpReq2.send(null);
+                  var requestTimer2 = setTimeout(function() {
+                     xmlHttpReq2.abort();
+                     txtZTHiztegia = strRes.getString("m1ZTHiztegia");
+                     getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+                  }, tout);
+                  xmlHttpReq2.onreadystatechange = function() {
+                    try {
+                      if (xmlHttpReq2.readyState == 4) {
+                        if (xmlHttpReq2.status == 200) {
+                          //Timerra garbitu
+                          clearTimeout(requestTimer2);
+                          erantzuna2 = xmlHttpReq2.responseText;
+                          txtZTHiztegia = erantzuna2.substring(0,erantzuna2.search('<ul id="menu_3">'));
+                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showTermEntryOf\(\'(.).+?\'\,\%20/g,'<a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaKlik(\'$1hizkuntzaid\',');
+			  txtZTHiztegia = txtZTHiztegia.replace(/Ehizkuntzaid/g,'eu');
+			  txtZTHiztegia = txtZTHiztegia.replace(/Ghizkuntzaid/g,'es');
+			  txtZTHiztegia = txtZTHiztegia.replace(/Fhizkuntzaid/g,'fr');
+			  txtZTHiztegia = txtZTHiztegia.replace(/Ihizkuntzaid/g,'en');
+			  txtZTHiztegia = txtZTHiztegia.replace(/Lhizkuntzaid/g,'la');
+                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showImage\(\'irudiak\/irudiak\/.*?\<\/a\>/g,'');
+                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showImage\(\'irudiak\/irudiak\/.*?\<\/a\>/g,'');
+                          txtZTHiztegia = txtZTHiztegia.replace(/\<div class\=\"ikus\"\>/g,'<div class="ikus"><img src="http://zthiztegia.elhuyar.org//irudiak/iko_ikus.gif" />');
+                          txtZTHiztegia = txtZTHiztegia.replace(/ onclick\=\"javascript\:showTermEntryOf\(\'.+?\'\, this\.innerHTML\)\; return false\;\"\>/g,'>');
+                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showArticle\(/g,'<a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaArtikulua(');
+			  if (ztzerrenda.length-1>1)
+			  {
+                            txtZTHiztegia=txtZTHiztegia+'<p>Beste batzuk:</p>';
+	                    for (termind=1;termind<ztzerrenda.length;termind++)
+               		    {
+                              txtZTHiztegia=txtZTHiztegia+'<p><a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaKlik(\''+source+'\',\''+ztzerrenda[termind].term+'\')\">'+ztzerrenda[termind].term+'</a></p>';
+          	            }
+			  };
+                          getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+		          getBrowser().contentDocument.getElementById('buruaZthiztegia').innerHTML = "ZT hiztegia";
+      			  getBrowser().contentDocument.getElementById('oZthiztegia').innerHTML = "<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+
+                        }
+                      }
+                    } catch(e) {
+                      txtZTHiztegia = strRes.getString("m1ZTHiztegia");
+                      getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+                    }
+                  }
+                }
+                else
+                {
+                  txtZTHiztegia=erroremezua2;
+                  for (termind=0;termind<ztzerrenda.length;termind++)
+                  {
+                    txtZTHiztegia=txtZTHiztegia+'<p><a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaKlik(\''+source+'\',\''+ztzerrenda[termind].term+'\')\">'+ztzerrenda[termind].term+'</a></p>';
+                  }
+                  getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+                }
+              }
+            }
+          }
+        } catch(e) {
+          txtZTHiztegia = strRes.getString("m1ZTHiztegia");
+          getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML =txtZTHiztegia;
+        }
+      }
+    },
+
+    // Energia Hiztegiaren markoa kargatu
+    getShiftEnergia: function(source, term) {
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
+        var erroremezua='Ez dago horrelako terminorik';
+        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+      } else if (h.match('english')) {
+        var erroremezua='Term not found';
+        var erroremezua2 = 'Word not found, choose from list';
+      } else if (h.match('français')) {
+        var erroremezua='Aucun r&eacute;sultat pour votre entr&eacute;e';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+      } else {
+        var erroremezua='No se han encontrado resultados para la b&uacute;squeda';
+        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+      }
+
+      if (source=='eu')
+      {
+	hizkid='E';
+      }
+      else if (source=='es')
+      {
+	hizkid='G';
+      }
+      else if (source=='en')
+      {
+	hizkid='I';
+      }
+      else if (source=='fr')
+      {
+	hizkid='F';
+      };
+
+      var xmlHttpReq = new XMLHttpRequest();
+      if (!xmlHttpReq) {
+        txtEnergia = strRes.getString("m1Energia");
+        getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+        return false;
+      }
+      var urlEnergia = 'http://www.eve.es/energia/bilatu.asp';
+      var params = 'txtHitza='+euskalbarcomb.normalizatu(term).replace(' ','%20')+'%25&selectHizkuntza='+hizkid+'&optNon=Terminotan&selectGaia=-%20Guztiak%20-';
+
+      var xmlHttpReq = new XMLHttpRequest();
+      if (!xmlHttpReq) {
+        txtEnergia = strRes.getString("m1Energia");
+        return false;
+      }
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              erantzuna = xmlHttpReq.responseText;
+	      if (erantzuna.search(/\<select name\=\"selectTerm\"/i)==-1)
+	      {
+                txtEnergia = erroremezua;
+                getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+	      }
+	      else
+	      {
+		zerrenda=erantzuna.substring(erantzuna.search(/\<select name\=\"selectTerm\"/i));
+		zerrenda=zerrenda.substring(zerrenda.search(/\<\/script\>/i)+10);
+		zerrenda=zerrenda.substring(0,zerrenda.search(/\<\/select\>/i));
+		zerrenda=zerrenda.split(/\<\/option\>/i);
+		elementua=zerrenda[0];
+		definizioa=elementua.substring(elementua.search(/\<option value\= \"\'definizioa\.asp\?Kodea\=/i)+'<option value= "\'definizioa.asp?Kodea='.length);
+		hitza=definizioa.substring(definizioa.search('>')+8);
+		hitza=hitza.substring(0,hitza.length-6);
+		definizioa=definizioa.substring(0,definizioa.search("','"));
+		if (euskalbarcomb.normalizatuetaminuskularatu(hitza)==euskalbarcomb.normalizatuetaminuskularatu(term))
+		{
+                  var xmlHttpReq2 = new XMLHttpRequest();
+                  if (!xmlHttpReq2) {
+                    txtEnergia = strRes.getString("m1Energia");
+                    getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+                    return false;
+                  }
+                  xmlHttpReq2.onreadystatechange = function() {
+                    try {
+                      if (xmlHttpReq2.readyState == 4) {
+                        if (xmlHttpReq2.status == 200) {
+                          //Timerra garbitu
+                          clearTimeout(requestTimer2);
+                          erantzuna2 = xmlHttpReq2.responseText;
+			  txtEnergia=erantzuna2;
+                          txtEnergia = txtEnergia.substring(txtEnergia.search('<p>'));
+                          txtEnergia = txtEnergia.substring(0,txtEnergia.search('</body>'));
+                          txtEnergia = txtEnergia.replace(/\<a href\=\"javascript\:definizioa\(\'definizioa\.asp\?kodea\=(.).+?\>(.*?)\</g,'<a href="javascript:euskalbardicts.goEuskalBarEnergiaKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
+			  txtEnergia = txtEnergia.replace(/Ehizkuntzaid/g,'eu');
+			  txtEnergia = txtEnergia.replace(/Ghizkuntzaid/g,'es');
+			  txtEnergia = txtEnergia.replace(/Fhizkuntzaid/g,'fr');
+			  txtEnergia = txtEnergia.replace(/Ihizkuntzaid/g,'en');
+			  txtEnergia = txtEnergia.replace(/artikulua\.asp\?kodea\=/g,'http://www.eve.es/energia/artikulua.asp?kodea=');
+			  txtEnergia = txtEnergia.replace(/\<img src\=\"\.\.\/energia\/irudiak\/eskua\.gif\"/g,'<img src="http://www.eve.es/energia/irudiak/eskua.gif"');
+			  txtEnergia = txtEnergia.replace(/\.\.\/energia\/pdf/g,'http://www.eve.es/energia/pdf');
+			  if (zerrenda.length-1>1)
+			  {
+                            txtEnergia=txtEnergia+'<p>Beste batzuk:</p>';
+			    for (elemind=1;elemind<zerrenda.length-1;elemind++)
+			    {
+			      elementua=zerrenda[elemind];
+			      definizioa=elementua.substring(elementua.search(/\<option value\= \"\'definizioa\.asp\?Kodea\=/i)+'<option value= "\'definizioa.asp?Kodea='.length);
+			      hitza=definizioa.substring(definizioa.search('>')+8);
+			      hitza=hitza.substring(0,hitza.length-5);
+			      definizioa=definizioa.substring(0,definizioa.search("','"));
+	                      txtEnergia=txtEnergia+'<p><a href="javascript:euskalbardicts.goEuskalBarEnergiaKlik2(\''+definizioa+'\',\''+hitza+'\')\">'+hitza+'</a></p>';
+			    };
+			  };
+                          getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+		          getBrowser().contentDocument.getElementById('buruaEnergia').innerHTML = "Energia hiztegia";
+      			  getBrowser().contentDocument.getElementById('oEnergia').innerHTML = "<div id=\"oharra\"><a href=\"http://www.eve.es/energia/index.html\">Energia hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+                        }
+                      }
+                    } catch(e) {
+                      txtEnergia = strRes.getString("m1Energia");
+                      getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+                    }
+		  }
+                  xmlHttpReq2.open('GET', 'http://www.eve.es/energia/definizioa.asp?Kodea='+definizioa, true);
+		  xmlHttpReq2.overrideMimeType("text/html; charset=ISO-8859-1");
+                  xmlHttpReq2.send(null);
+                  var requestTimer2 = setTimeout(function() {
+                     xmlHttpReq2.abort();
+                     txtEnergia = strRes.getString("m1Energia");
+                     getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+                  }, tout);
+		}
+		else
+		{
+                  txtEnergia=erroremezua2;
+		  for (elemind=0;elemind<zerrenda.length-1;elemind++)
+		  {
+		    elementua=zerrenda[elemind];
+		    definizioa=elementua.substring(elementua.search(/\<option value\= \"\'definizioa\.asp\?Kodea\=/i)+'<option value= "\'definizioa.asp?Kodea='.length);
+		    hitza=definizioa.substring(definizioa.search('>')+8);
+		    hitza=hitza.substring(0,hitza.length-5);
+		    definizioa=definizioa.substring(0,definizioa.search("','"));
+                    txtEnergia=txtEnergia+'<p><a href="javascript:euskalbardicts.goEuskalBarEnergiaKlik2(\''+definizioa+'\',\''+hitza+'\')\">'+hitza+'</a></p>';
+		  };
+                  getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+                }
+              }
+            }
+          }
+        } catch(e) {
+          txtEnergia = strRes.getString("m1Energia");
+          getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+        }
+      }
+      xmlHttpReq.open('POST', urlEnergia, true);
+      xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=iso-8859-1");
+      xmlHttpReq.overrideMimeType("text/html; charset=ISO-8859-1");
+      xmlHttpReq.send(params);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = euskalbar.prefs.getIntPref("query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtEnergia = strRes.getString("m1Energia");
+        getBrowser().contentDocument.getElementById('aEnergia').innerHTML =txtEnergia;
+      }, tout);
+    },
+
+    // Telekomunikazio Hiztegiaren markoa kargatu
+    getShiftTelekom: function(source, term) {
+      //Lokalizazio paketeak kargatu
+      strRes = document.getElementById('leuskal');
+      const h = strRes.getString("hizk");
+      if (h.match('euskara')) {
+        var erroremezua='Ez dago horrelako terminorik';
+        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+	var inthizk='eusk'
+      } else if (h.match('english')) {
+        var erroremezua='Term not found';
+        var erroremezua2 = 'Word not found, choose from list';
+	var inthizk='gazt'
+      } else if (h.match('français')) {
+        var erroremezua='Aucun r&eacute;sultat pour votre entr&eacute;e';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+	var inthizk='gazt'
+      } else {
+        var erroremezua='No se han encontrado resultados para la b&uacute;squeda';
+        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+	var inthizk='gazt'
+      }
+
+      if (source=='eu')
+      {
+	hizkid='E';
+      }
+      else if (source=='es')
+      {
+	hizkid='G';
+      }
+      else if (source=='en')
+      {
+	hizkid='I';
+      }
+      else if (source=='fr')
+      {
+	hizkid='F';
+      };
+
+      var xmlHttpReq = new XMLHttpRequest();
+      if (!xmlHttpReq) {
+        txtTelekom = strRes.getString("m1Telekom");
+        getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+        return false;
+      }
+      var urlTelekom = 'http://www.telekomunikaziohiztegia.org/bilatu.asp?';
+      var params = 'hizk='+inthizk+'&txtHitza='+euskalbarcomb.normalizatu(term).replace(' ','%20')+'%25&selectHizkuntza='+hizkid+'&optNon=Terminotan&selectAlorra=0';
+
+      var xmlHttpReq = new XMLHttpRequest();
+      if (!xmlHttpReq) {
+        txtTelekom = strRes.getString("m1Telekom");
+        return false;
+      }
+
+      xmlHttpReq.onreadystatechange = function() {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              erantzuna = xmlHttpReq.responseText;
+	      if (erantzuna.search(/\<select name\=\"selectTerm\"/i)==-1)
+	      {
+                txtTelekom = erroremezua;
+                getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+	      }
+	      else
+	      {
+		zerrenda=erantzuna.substring(erantzuna.search(/\<select name\=\"selectTerm\"/i));
+		zerrenda=zerrenda.substring(zerrenda.search(/\<\/script\>/i)+10);
+		zerrenda=zerrenda.substring(0,zerrenda.search(/\<\/select\>/i));
+		zerrenda=zerrenda.split(/\<\/option\>/i);
+		elementua=zerrenda[0];
+		definizioa=elementua.substring(elementua.search(/\<option value\= \"definizioa\.asp\?Kodea\=/i)+'<option value= "definizioa.asp?Kodea='.length);
+		hitza=definizioa.substring(definizioa.search('>')+20);
+		hitza=hitza.substring(0,hitza.length-18);
+		definizioa=definizioa.substring(0,definizioa.search("&"));
+		if (euskalbarcomb.normalizatuetaminuskularatu(hitza)==euskalbarcomb.normalizatuetaminuskularatu(term))
+		{
+                  var xmlHttpReq2 = new XMLHttpRequest();
+                  if (!xmlHttpReq2) {
+                    txtTelekom = strRes.getString("m1Telekom");
+                    getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+                    return false;
+                  }
+                  xmlHttpReq2.onreadystatechange = function() {
+                    try {
+                      if (xmlHttpReq2.readyState == 4) {
+                        if (xmlHttpReq2.status == 200) {
+                          //Timerra garbitu
+                          clearTimeout(requestTimer2);
+                          erantzuna2 = xmlHttpReq2.responseText;
+			  txtTelekom=erantzuna2;
+                          hasiera = '<p>'+txtTelekom.substring(txtTelekom.search('<td class="sarrera">')+'<td class="sarrera">'.length);
+                          hasiera = hasiera.substring(0,hasiera.search('</td>'))+'</p>';
+			  amaiera='';
+			  if (txtTelekom.indexOf('<table ',txtTelekom.search('          ARTIKULUAK'))!=-1)
+			  {
+			    amaiera=txtTelekom.substring(txtTelekom.indexOf('<table ',txtTelekom.search('          ARTIKULUAK')),txtTelekom.indexOf('</table>',txtTelekom.search('          ARTIKULUAK'))+8);
+			    txtTelekom=txtTelekom.substring(0,txtTelekom.indexOf('<table ',txtTelekom.search('          ARTIKULUAK')))+txtTelekom.substring(txtTelekom.indexOf('</table>',txtTelekom.search('          ARTIKULUAK'))+8);
+			  };
+			  if (txtTelekom.indexOf('<table ',txtTelekom.search('          IRUDIAK'))!=-1 && txtTelekom.indexOf('<table ',txtTelekom.search('          IRUDIAK'))<txtTelekom.search('          ARTIKULUAK'))
+			  {
+			    txtTelekom=txtTelekom.substring(0,txtTelekom.indexOf('<table ',txtTelekom.search('          IRUDIAK')))+txtTelekom.substring(txtTelekom.indexOf('</table>',txtTelekom.search('          IRUDIAK'))+8);
+			  };
+                          txtTelekom = txtTelekom.substring(txtTelekom.search('<td class="body">')+'<td class="body">'.length);
+                          txtTelekom = txtTelekom.substring(0,txtTelekom.search('</td>'));
+                          txtTelekom = hasiera+txtTelekom+amaiera;
+                          txtTelekom = txtTelekom.replace(/\<a href\=\"definizioa\.asp\?Kodea\=(.).+?\>(.*?)\</g,'<a href="javascript:euskalbardicts.goEuskalBarTelekomKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
+			  txtTelekom = txtTelekom.replace(/Ehizkuntzaid/g,'eu');
+			  txtTelekom = txtTelekom.replace(/Ghizkuntzaid/g,'es');
+			  txtTelekom = txtTelekom.replace(/Fhizkuntzaid/g,'fr');
+			  txtTelekom = txtTelekom.replace(/Ihizkuntzaid/g,'en');
+			  txtTelekom = txtTelekom.replace(/\<img src\=\"irudiak\/eskua\.gif\"/g,'<img src="http://www.telekomunikaziohiztegia.org/irudiak/eskua.gif"');
+			  txtTelekom = txtTelekom.replace(/TL_artikuluak/g,'http://www.telekomunikaziohiztegia.org/TL_artikuluak');
+			  if (zerrenda.length-1>1)
+			  {
+                            txtTelekom=txtTelekom+'<p>Beste batzuk:</p>';
+			    for (elemind=1;elemind<zerrenda.length-1;elemind++)
+			    {
+			      elementua=zerrenda[elemind];
+			      definizioa=elementua.substring(elementua.search(/\<option value\= \"definizioa\.asp\?Kodea\=/i)+'<option value= "definizioa.asp?Kodea='.length);
+			      hitza=definizioa.substring(definizioa.search('>')+20);
+			      hitza=hitza.substring(0,hitza.length-18);
+			      definizioa=definizioa.substring(0,definizioa.search("&"));
+	                      txtTelekom=txtTelekom+'<p><a href="javascript:euskalbardicts.goEuskalBarTelekomKlik2(\''+definizioa+'\',\''+hitza+'\')\">'+hitza+'</a></p>';
+			    };
+			  };
+                          getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+		          getBrowser().contentDocument.getElementById('buruaTelekom').innerHTML = "Telekomunikazio hiztegia";
+      			  getBrowser().contentDocument.getElementById('oTelekom').innerHTML = "<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+                        }
+                      }
+                    } catch(e) {
+                      txtTelekom = strRes.getString("m1Telekom");
+                      getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+                    }
+		  }
+                  xmlHttpReq2.open('GET', 'http://www.telekomunikaziohiztegia.org/definizioa.asp?Kodea='+definizioa+'&Hizkuntza='+hizkid+'&hizk='+inthizk, true);
+		  xmlHttpReq2.overrideMimeType("text/html; charset=ISO-8859-1");
+                  xmlHttpReq2.send(null);
+                  var requestTimer2 = setTimeout(function() {
+                     xmlHttpReq2.abort();
+                     txtTelekom = strRes.getString("m1Telekom");
+                     getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+                  }, tout);
+		}
+		else
+		{
+                  txtTelekom=erroremezua2;
+		  for (elemind=1;elemind<zerrenda.length-1;elemind++)
+		  {
+		    elementua=zerrenda[elemind];
+		    definizioa=elementua.substring(elementua.search(/\<option value\= \"definizioa\.asp\?Kodea\=/i)+'<option value= "definizioa.asp?Kodea='.length);
+		    hitza=definizioa.substring(definizioa.search('>')+20);
+		    hitza=hitza.substring(0,hitza.length-18);
+		    definizioa=definizioa.substring(0,definizioa.search("&"));
+                    txtTelekom=txtTelekom+'<p><a href="javascript:euskalbardicts.goEuskalBarTelekomKlik2(\''+definizioa+'\',\''+hitza+'\')\">'+hitza+'</a></p>';
+		  };
+                  getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+                }
+              }
+            }
+          }
+        } catch(e) {
+          txtTelekom = strRes.getString("m1Telekom");
+          getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+        }
+      }
+      xmlHttpReq.open('POST', urlTelekom, true);
+      xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=iso-8859-1");
+      xmlHttpReq.overrideMimeType("text/html; charset=ISO-8859-1");
+      xmlHttpReq.send(params);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = euskalbar.prefs.getIntPref("query.timeout");
+      tout=tout*1000
+	  
+      //Timerra sortu
+      var requestTimer = setTimeout(function() {
+        xmlHttpReq.abort();
+        txtTelekom = strRes.getString("m1Telekom");
+        getBrowser().contentDocument.getElementById('aTelekom').innerHTML =txtTelekom;
+      }, tout);
+    },
+
     // 3000 kargatu
     getShift3000: function(source, term) {
       var txt3000 = "";
@@ -1035,10 +1520,9 @@ var euskalbarcomb = {
       }
     },
 
-    normalizatuetaminuskularatu: function(katea) {
-        kateberria=katea.toLowerCase();
-    //	kateberria=kateberria.trim(); Hau ez dabil Linuxen
-        kateberria=kateberria.replace(/á/,"a");
+    normalizatu: function(katea) {
+	var kateberria;
+        kateberria=katea.replace(/á/,"a");
         kateberria=kateberria.replace(/à/,"a");
         kateberria=kateberria.replace(/ä/,"a");
         kateberria=kateberria.replace(/â/,"a");
@@ -1058,8 +1542,36 @@ var euskalbarcomb = {
         kateberria=kateberria.replace(/ù/,"u");
         kateberria=kateberria.replace(/ü/,"u");
         kateberria=kateberria.replace(/û/,"u");
+        kateberria=kateberria.replace(/Á/,"A");
+        kateberria=kateberria.replace(/À/,"A");
+        kateberria=kateberria.replace(/Ä/,"A");
+        kateberria=kateberria.replace(/Â/,"A");
+        kateberria=kateberria.replace(/É/,"E");
+        kateberria=kateberria.replace(/È/,"E");
+        kateberria=kateberria.replace(/Ë/,"E");
+        kateberria=kateberria.replace(/Ê/,"E");
+        kateberria=kateberria.replace(/Í/,"I");
+        kateberria=kateberria.replace(/Ì/,"I");
+        kateberria=kateberria.replace(/Ï/,"I");
+        kateberria=kateberria.replace(/Î/,"I");
+        kateberria=kateberria.replace(/Ó/,"O");
+        kateberria=kateberria.replace(/Ò/,"O");
+        kateberria=kateberria.replace(/Ö/,"O");
+        kateberria=kateberria.replace(/Ô/,"O");
+        kateberria=kateberria.replace(/Ú/,"U");
+        kateberria=kateberria.replace(/Ù/,"U");
+        kateberria=kateberria.replace(/Ü/,"U");
+        kateberria=kateberria.replace(/Û/,"U");
+        return kateberria;
+    },
 
+    normalizatuetaminuskularatu: function(katea) {
+	var kateberria;
+        kateberria=katea.toLowerCase();
+        kateberria=euskalbarcomb.normalizatu(kateberria);
         return kateberria;
     },
 
 }
+
+

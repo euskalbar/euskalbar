@@ -11,6 +11,9 @@
     <preferences>
       <preference id="prefEuskalterm" name="euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="prefElhuyar" name="euskalbar.elhuyar.onkey" type="bool"/>
+      <preference id="prefZTHiztegia" name="euskalbar.zthiztegia.onkey" type="bool"/>
+      <preference id="prefEnergia" name="euskalbar.energia.onkey" type="bool"/>
+      <preference id="prefTelekom" name="euskalbar.telekom.onkey" type="bool"/>
       <preference id="pref3000" name="euskalbar.3000.onkey" type="bool"/>
       <preference id="prefLabayru" name="euskalbar.labayru.onkey" type="bool"/>
       <preference id="prefZehazki" name="euskalbar.zehazki.onkey" type="bool"/>
@@ -30,6 +33,8 @@
       <preference id="prefEreduzko" name="euskalbar.ereduzko.onkey" type="bool"/>
       <preference id="prefKlasikoak" name="euskalbar.klasikoak.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="euskalbar.ztcorpusa.onkey" type="bool"/>
+      <preference id="prefLB" name="euskalbar.lb.onkey" type="bool"/>
+      <preference id="prefConsumer" name="euskalbar.consumer.onkey" type="bool"/>
       <preference id="prefCorpEus" name="euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefElebila" name="euskalbar.elebila.onkey" type="bool"/>
@@ -37,6 +42,9 @@
 
       <preference id="prefEuskaltermShiftES" name="euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="prefElhuyarShiftES" name="euskalbar.elhuyar.onkey1.es" type="bool"/>
+      <preference id="prefZTHiztegiaShiftES" name="euskalbar.zthiztegia.onkey1.es" type="bool"/>
+      <preference id="prefEnergiaShiftES" name="euskalbar.energia.onkey1.es" type="bool"/>
+      <preference id="prefTelekomShiftES" name="euskalbar.telekom.onkey1.es" type="bool"/>
       <preference id="pref3000ShiftES" name="euskalbar.3000.onkey1.es" type="bool"/>
       <preference id="prefLabayruShiftES" name="euskalbar.labayru.onkey1.es" type="bool"/>
       <preference id="prefGoihataShiftES" name="euskalbar.Goihata.onkey1.es" type="bool"/>
@@ -48,12 +56,18 @@
 
       <preference id="prefEuskaltermShiftFR" name="euskalbar.euskalterm.onkey1.fr" type="bool"/>
       <preference id="prefElhuyarShiftFR" name="euskalbar.elhuyar.onkey1.fr" type="bool"/>
+      <preference id="prefZTHiztegiaShiftFR" name="euskalbar.zthiztegia.onkey1.fr" type="bool"/>
+      <preference id="prefEnergiaShiftFR" name="euskalbar.energia.onkey1.fr" type="bool"/>
+      <preference id="prefTelekomShiftFR" name="euskalbar.telekom.onkey1.fr" type="bool"/>
       <preference id="prefBatuaShiftFR" name="euskalbar.batua.onkey1.fr" type="bool"/>
       <preference id="prefAdorezShiftFR" name="euskalbar.adorez.onkey1.fr" type="bool"/>
       <preference id="prefUZEIShiftFR" name="euskalbar.uzei.onkey1.fr" type="bool"/>
 
       <preference id="prefEuskaltermShiftEN" name="euskalbar.euskalterm.onkey1.en" type="bool"/>
       <preference id="prefElhuyarShiftEN" name="euskalbar.elhuyar.onkey1.en" type="bool"/>
+      <preference id="prefZTHiztegiaShiftEN" name="euskalbar.zthiztegia.onkey1.en" type="bool"/>
+      <preference id="prefEnergiaShiftEN" name="euskalbar.energia.onkey1.en" type="bool"/>
+      <preference id="prefTelekomShiftEN" name="euskalbar.telekom.onkey1.en" type="bool"/>
       <preference id="prefMorrisShiftEN" name="euskalbar.morris.onkey1.en" type="bool"/>
       <preference id="prefOpentranShiftEN" name="euskalbar.opentran.onkey1.en" type="bool"/>
       <preference id="prefBatuaShiftEN" name="euskalbar.batua.onkey1.en" type="bool"/>
@@ -63,6 +77,9 @@
       <preference id="prefEuskaltermCtrlES" name="euskalbar.euskalterm.onkey2.es" type="bool"/>
       <preference id="pref3000CtrlES" name="euskalbar.3000.onkey2.es" type="bool"/>
       <preference id="prefElhuyarCtrlES" name="euskalbar.elhuyar.onkey2.es" type="bool"/>
+      <preference id="prefZTHiztegiaCtrlES" name="euskalbar.zthiztegia.onkey2.es" type="bool"/>
+      <preference id="prefEnergiaCtrlES" name="euskalbar.energia.onkey2.es" type="bool"/>
+      <preference id="prefTelekomCtrlES" name="euskalbar.telekom.onkey2.es" type="bool"/>
       <preference id="prefLabayruCtrlES" name="euskalbar.labayru.onkey2.es" type="bool"/>
       <preference id="prefBatuaCtrlES" name="euskalbar.batua.onkey2.es" type="bool"/>
       <preference id="prefAdorezCtrlES" name="euskalbar.adorez.onkey2.es" type="bool"/>
@@ -73,12 +90,18 @@
 
       <preference id="prefEuskaltermCtrlFR" name="euskalbar.euskalterm.onkey2.fr" type="bool"/>
       <preference id="prefElhuyarCtrlFR" name="euskalbar.elhuyar.onkey2.fr" type="bool"/>
+      <preference id="prefZTHiztegiaCtrlFR" name="euskalbar.zthiztegia.onkey2.fr" type="bool"/>
+      <preference id="prefEnergiaCtrlFR" name="euskalbar.energia.onkey2.fr" type="bool"/>
+      <preference id="prefTelekomCtrlFR" name="euskalbar.telekom.onkey2.fr" type="bool"/>
       <preference id="prefBatuaCtrlFR" name="euskalbar.batua.onkey2.fr" type="bool"/>
       <preference id="prefAdorezCtrlFR" name="euskalbar.adorez.onkey2.fr" type="bool"/>
       <preference id="prefUZEICtrlFR" name="euskalbar.uzei.onkey2.fr" type="bool"/>
 
       <preference id="prefEuskaltermCtrlEN" name="euskalbar.euskalterm.onkey2.en" type="bool"/>
       <preference id="prefElhuyarCtrlEN" name="euskalbar.elhuyar.onkey2.en" type="bool"/>
+      <preference id="prefZTHiztegiaCtrlEN" name="euskalbar.zthiztegia.onkey2.en" type="bool"/>
+      <preference id="prefEnergiaCtrlEN" name="euskalbar.energia.onkey2.en" type="bool"/>
+      <preference id="prefTelekomCtrlEN" name="euskalbar.telekom.onkey2.en" type="bool"/>
       <preference id="prefMorrisCtrlEN" name="euskalbar.morris.onkey2.en" type="bool"/>
       <preference id="prefOpentranCtrlEN" name="euskalbar.opentran.onkey2.en" type="bool"/>
       <preference id="prefBatuaCtrlEN" name="euskalbar.batua.onkey2.en" type="bool"/>
@@ -174,49 +197,55 @@
                     <rows>
                     <row>
                       <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                      <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
-                      <checkbox preference="prefKlasikoak" label="Klasikoak" />
+                      <checkbox preference="prefOEH" label="OEH" />
+                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
                     </row>
                     <row>
                       <checkbox preference="prefElhuyar" label="Elhuyar" />
-                      <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+                      <checkbox preference="prefBatua" label="Hiztegi Batua" />
+                      <checkbox preference="prefKlasikoak" label="Klasikoak" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefZTHiztegia" label="ZT Hiztegia" />
+                      <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
                       <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
                     </row>
                     <row>
-                      <checkbox preference="pref3000" label="3000" />
+                      <checkbox preference="prefEnergia" label="Energia Hiztegia" />
+                      <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+                      <checkbox preference="prefLB" label="Lexikoaren Behatokia" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefTelekom" label="Telekomunikazio Hiztegia" />
                       <checkbox preference="prefItzuL" label="ItzuL" />
+                      <checkbox preference="prefConsumer" label="Consumer Corpusa" />
+                    </row>
+                    <row>
+                      <checkbox preference="pref3000" label="3000" />
+                      <checkbox preference="prefHarluxet" label="Harluxet" />
                       <checkbox preference="prefCorpEus" label="CorpEus" />
-
                     </row>
                     <row>
                       <checkbox preference="prefLabayru" label="Labayru" />
-                      <checkbox preference="prefHarluxet" label="Harluxet" />
+                      <checkbox preference="prefWikipedia" label="Wikipedia" />
                       <checkbox preference="prefXUXENweb" label="XUXENweb" />
                     </row>
                     <row>
                       <checkbox preference="prefZehazki" label="Zehazki" />
-                      <checkbox preference="prefWikipedia" label="Wikipedia" />
+                      <checkbox preference="prefMokoroa" label="Mokoroa" />
                       <checkbox preference="prefElebila" label="Elebila" />
                     </row>
                     <row>
                       <checkbox preference="prefMorris" label="Morris" />
-                      <checkbox preference="prefMokoroa" label="Mokoroa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefOpentran" label="Open-tran" />
                       <checkbox preference="prefIntza" label="Intza" />
                     </row>
                     <row>
-                      <checkbox preference="prefGoihata" label="Goihata" />
+                      <checkbox preference="prefOpentran" label="Open-tran" />
                       <checkbox preference="prefEurovoc" label="Eurovoc" />
                     </row>
                     <row>
-                      <checkbox preference="prefBatua" label="Hiztegi Batua" />
+                      <checkbox preference="prefGoihata" label="Goihata" />
                       <checkbox preference="prefBergara" label="Bergara" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefOEH" label="OEH" />
-                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
                     </row>
                     </rows>
                   </grid> 
@@ -243,6 +272,21 @@
                       <checkbox preference="prefElhuyarShiftES" label="Elhuyar" />
                       <checkbox preference="prefElhuyarShiftFR" label="Elhuyar" />
                       <checkbox preference="prefElhuyarShiftEN" label="Elhuyar" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefZTHiztegiaShiftES" label="ZT Hiztegia" />
+                      <checkbox preference="prefZTHiztegiaShiftFR" label="ZT Hiztegia" />
+                      <checkbox preference="prefZTHiztegiaShiftEN" label="ZT Hiztegia" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefEnergiaShiftES" label="Energia Hiztegia" />
+                      <checkbox preference="prefEnergiaShiftFR" label="Energia Hiztegia" />
+                      <checkbox preference="prefEnergiaShiftEN" label="Energia Hiztegia" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefTelekomShiftES" label="Telekomunikazio Hiztegia" />
+                      <checkbox preference="prefTelekomShiftFR" label="Telekomunikazio Hiztegia" />
+                      <checkbox preference="prefTelekomShiftEN" label="Telekomunikazio Hiztegia" />
                     </row>
                     <row>
                       <checkbox preference="pref3000ShiftES" label="3000" />
@@ -300,6 +344,21 @@
                       <checkbox preference="prefElhuyarCtrlES" label="Elhuyar" />
                       <checkbox preference="prefElhuyarCtrlFR" label="Elhuyar" />
                       <checkbox preference="prefElhuyarCtrlEN" label="Elhuyar" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefZTHiztegiaCtrlES" label="ZT Hiztegia" />
+                      <checkbox preference="prefZTHiztegiaCtrlFR" label="ZT Hiztegia" />
+                      <checkbox preference="prefZTHiztegiaCtrlEN" label="ZT Hiztegia" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefEnergiaCtrlES" label="Energia Hiztegia" />
+                      <checkbox preference="prefEnergiaCtrlFR" label="Energia Hiztegia" />
+                      <checkbox preference="prefEnergiaCtrlEN" label="Energia Hiztegia" />
+                    </row>
+                    <row>
+                      <checkbox preference="prefTelekomCtrlES" label="Telekomunikazio Hiztegia" />
+                      <checkbox preference="prefTelekomCtrlFR" label="Telekomunikazio Hiztegia" />
+                      <checkbox preference="prefTelekomCtrlEN" label="Telekomunikazio Hiztegia" />
                     </row>
                     <row>
                       <checkbox preference="pref3000CtrlES" label="3000" />
