@@ -18,7 +18,7 @@ var euskalbardicts = {
     // Euskaltermen bilaketak egiteko
     goEuskalBarEuskalterm: function(source, term, sub) {
       // Begiratu kutxa hutsik dagoen 
-      if (euskalbar.EmptyBox(term)){
+      if (euskalbar.alertEmptyBox(term)){
         return;
       }
       strRes = document.getElementById('leuskal');
@@ -403,15 +403,40 @@ var euskalbardicts = {
         inthizk = 'gazt';
       }
 
-      euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk='+inthizk, 'telekom', 'GET', null);
 
-      telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term); }, 50);
-      // Gelditzeko timerra sortu
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout=tout*1000;
-      telekomhiztegiatimeout2=setTimeout(function() {
-        clearTimeout(telekomhiztegiatimeout);
-      }, tout);
+      var dokumentua = Application.activeWindow.activeTab.document;
+      segi=0;
+      if (dokumentua.getElementsByTagName('frame').length>0)
+      {
+	if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument!=null)
+	{
+	  if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length>0)
+	  {
+	    if (dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument!=null)
+	    {
+	      segi=1;
+	    };
+	  };
+	};
+      };
+      if (segi==1)
+      {
+	dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value=term;
+	dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value=hizkid;
+	dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
+      }
+      else
+      {
+	euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk='+inthizk, 'telekom', 'GET', null);
+
+	telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term); }, 50);
+	// Gelditzeko timerra sortu
+	var tout = euskalbar.prefs.getIntPref("query.timeout");
+	tout=tout*1000;
+	telekomhiztegiatimeout2=setTimeout(function() {
+	  clearTimeout(telekomhiztegiatimeout);
+	}, tout);
+      };
 
       //Estatistika lokalak idatzi
       euskalbarstats.writeStats(27);

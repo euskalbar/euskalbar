@@ -71,48 +71,48 @@
           <splitter id="EuskalBar-search-splitter" resizeafter="grow" resizebefore="closest">
           </splitter>
       </hbox>
-      <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
-        <menupopup id="EuskalBar-Euskalterm-popup">
-          <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Arteak" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'W'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Biologia" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'C'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Ekonomia" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'O'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Eraikuntza" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'I'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Erlijioa" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'S'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Filosofia" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'R'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Garraioa" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'H'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Geografia" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Q'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Geologia" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'D'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Historia" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'J'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Hizkuntzalaritza" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'U'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Industria" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'K'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Informatika" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'G'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Kazetaritza" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'V'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Izenak" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Y'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Kimika" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'B'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Kirola" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'X'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Laburtzapenak" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Z'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Matematika" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'A'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Medikuntza" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'E'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Merkataritza" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'L'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Nekazaritza" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'F'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Politika" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'P'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Psikologia" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'T'); event.stopPropagation();"/>
-          <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'N'); event.stopPropagation();"/>
-        </menupopup>
-      </toolbarbutton>
-      <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" oncommand="euskalbardicts.goEuskalBarAsk(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Zehazki" tooltiptext="&euskalbar.zehazki.tooltip;" label="Zehazki" oncommand="euskalbardicts.goEuskalBarZehazki(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-ZTHiztegia" tooltiptext="&euskalbar.zthiztegia.tooltip;" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Energia" tooltiptext="&euskalbar.energia.tooltip;" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Telekom" tooltiptext="&euskalbar.telekom.tooltip;" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" oncommand="euskalbardicts.goEuskalBarGoihata(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
-      <toolbarseparator/>
       <hbox id="Euskalbar-dicts-general">
+        <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, '0');">
+          <menupopup id="EuskalBar-Euskalterm-popup">
+            <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Arteak" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'W'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Biologia" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'C'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Ekonomia" label="&euskalbar.euskalterm.ekonomia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'O'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Eraikuntza" label="&euskalbar.euskalterm.eraikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'I'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Erlijioa" label="&euskalbar.euskalterm.erlijioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'S'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Filosofia" label="&euskalbar.euskalterm.filosofia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'R'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Garraioa" label="&euskalbar.euskalterm.garraioa.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'H'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Geografia" label="&euskalbar.euskalterm.geografia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Q'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Geologia" label="&euskalbar.euskalterm.geologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'D'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Historia" label="&euskalbar.euskalterm.historia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'J'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Hizkuntzalaritza" label="&euskalbar.euskalterm.hizkuntzalaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'U'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Industria" label="&euskalbar.euskalterm.industria.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'K'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Informatika" label="&euskalbar.euskalterm.informatika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'G'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Kazetaritza" label="&euskalbar.euskalterm.kazetaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'V'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Izenak" label="&euskalbar.euskalterm.izenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Y'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Kimika" label="&euskalbar.euskalterm.kimika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'B'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Kirola" label="&euskalbar.euskalterm.kirola.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'X'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Laburtzapenak" label="&euskalbar.euskalterm.laburtzapenak.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'Z'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Matematika" label="&euskalbar.euskalterm.matematika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'A'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Medikuntza" label="&euskalbar.euskalterm.medikuntza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'E'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Merkataritza" label="&euskalbar.euskalterm.merkataritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'L'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Nekazaritza" label="&euskalbar.euskalterm.nekazaritza.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'F'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Politika" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'P'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Psikologia" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'T'); event.stopPropagation();"/>
+            <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbardicts.goEuskalBarEuskalterm(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value, 'N'); event.stopPropagation();"/>
+          </menupopup>
+        </toolbarbutton>
+        <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" oncommand="euskalbardicts.goEuskalBarAsk(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Zehazki" tooltiptext="&euskalbar.zehazki.tooltip;" label="Zehazki" oncommand="euskalbardicts.goEuskalBarZehazki(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-ZTHiztegia" tooltiptext="&euskalbar.zthiztegia.tooltip;" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Energia" tooltiptext="&euskalbar.energia.tooltip;" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Telekom" tooltiptext="&euskalbar.telekom.tooltip;" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris(euskalbar.euskalbar_source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" oncommand="euskalbardicts.goEuskalBarGoihata(euskalbar.euskalbar_source, euskalbar.euskalbar_target, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarseparator/>
         <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Batua" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-OEH" tooltiptext="&euskalbar.oeh.tooltip;" label="OEH" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarOEH(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.menu.sinonimoenhizt;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbardicts.goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
@@ -140,6 +140,18 @@
   <!-- Hide/show buttons context menupopup right-click -->
   <window id="main-window">
     <menupopup id="Euskalbar-hsButtons">
+      <menuitem id="Euskalbar-hs-euskalterm" type="checkbox" persist="checked" label="Euskalterm" oncommand="document.getElementById('EuskalBar-Search').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-elhuyar" type="checkbox" persist="checked" label="Elhuyar" oncommand="document.getElementById('EuskalBar-Elhuyar').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-3000" type="checkbox" persist="checked" label="3000 Hiztegia" oncommand="document.getElementById('EuskalBar-Ask').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-labayru" type="checkbox" persist="checked" label="Labayru" oncommand="document.getElementById('EuskalBar-Labayru').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-zehazki" type="checkbox" persist="checked" label="Zehazki" oncommand="document.getElementById('EuskalBar-Zehazki').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-zthiztegia" type="checkbox" persist="checked" label="ZT Hiztegia" oncommand="document.getElementById('EuskalBar-ZTHiztegia').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-energia" type="checkbox" persist="checked" label="Energia" oncommand="document.getElementById('EuskalBar-Energia').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-telekom" type="checkbox" persist="checked" label="Telekomunikazioak" oncommand="document.getElementById('EuskalBar-Telekom').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-morris" type="checkbox" persist="checked" label="Morris" oncommand="document.getElementById('EuskalBar-Morris').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-opentran" type="checkbox" persist="checked" label="Opentran" oncommand="document.getElementById('EuskalBar-Opentran').collapsed = !this.hasAttribute('checked');"/>
+      <menuitem id="Euskalbar-hs-goihata" type="checkbox" persist="checked" label="Goihata" oncommand="document.getElementById('EuskalBar-Goihata').collapsed = !this.hasAttribute('checked');"/>
+      <menuseparator/>
       <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-oeh" type="checkbox" persist="checked" label="OEH" oncommand="document.getElementById('EuskalBar-OEH').collapsed = !this.hasAttribute('checked');"/>
       <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').collapsed = !this.hasAttribute('checked');"/>
@@ -207,8 +219,8 @@
               <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu','es',escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-Labayru-eu-context" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru('eu', escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-ZTHiztegia-eu-context" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia('eu', escape(euskalbardicts.selectionText()));" />
-              <menuitem id="Euskalbar-Energia-eu-context" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia('eu', escape(euskalbardicts.selectionText()));" />
-              <menuitem id="Euskalbar-Telekom-eu-context" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom('eu', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Energia-eu-context" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia('eu', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Telekom-eu-context" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom('eu', escape(euskalbardicts.selectionText()));" />
     	    </menupopup>
     	  </menu>
     	  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
@@ -251,8 +263,8 @@
               <menuitem id="Euskalbar-Labayru-es-context" label="Labayru" oncommand="euskalbardicts.goEuskalBarLabayru('es', escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-Zehazki-es-context" label="Zehazki" oncommand="euskalbardicts.goEuskalBarZehazki('es', escape(euskalbardicts.selectionText()));" />
               <menuitem id="Euskalbar-ZTHiztegia-es-context" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia('es', escape(euskalbardicts.selectionText()));" />
-              <menuitem id="Euskalbar-Energia-es-context" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia('es', escape(euskalbardicts.selectionText()));" />
-              <menuitem id="Euskalbar-Telekom-es-context" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom('es', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Energia-es-context" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia('es', escape(euskalbardicts.selectionText()));" />
+              <menuitem id="Euskalbar-Telekom-es-context" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom('es', escape(euskalbardicts.selectionText()));" />
     	    </menupopup>
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
@@ -291,8 +303,8 @@
               </menu>
     		      <menuitem id="Euskalbar-Elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('eu', 'fr', escape(euskalbardicts.selectionText()));" />
     		      <menuitem id="Euskalbar-ZTHiztegia-eu_fr-context" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia('eu', escape(euskalbardicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Energia-eu_fr-context" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia('eu', escape(euskalbardicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Telekom-eu_fr-context" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom('eu', escape(euskalbardicts.selectionText()));" />
+    		      <menuitem id="Euskalbar-Energia-eu_fr-context" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia('eu', escape(euskalbardicts.selectionText()));" />
+    		      <menuitem id="Euskalbar-Telekom-eu_fr-context" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom('eu', escape(euskalbardicts.selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
@@ -331,8 +343,8 @@
               </menu>
       		    <menuitem id="Euskalbar-Elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbardicts.goEuskalBarElhuyar('fr', 'eu', euskalbardicts.selectionText());" />
       		    <menuitem id="Euskalbar-ZTHiztegia-fr_eu-context" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia('fr', euskalbardicts.selectionText());" />
-      		    <menuitem id="Euskalbar-Energia-fr_eu-context" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia('fr', euskalbardicts.selectionText());" />
-      		    <menuitem id="Euskalbar-Telekom-fr_eu-context" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom('fr', euskalbardicts.selectionText());" />
+      		    <menuitem id="Euskalbar-Energia-fr_eu-context" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia('fr', euskalbardicts.selectionText());" />
+      		    <menuitem id="Euskalbar-Telekom-fr_eu-context" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom('fr', euskalbardicts.selectionText());" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
@@ -373,8 +385,8 @@
     		      <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris('eu', escape(euskalbardicts.selectionText()));" />
       		      <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(escape(euskalbardicts.selectionText()));" />
     		      <menuitem id="Euskalbar-ZTHiztegia-eu_en-context" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia('eu', escape(euskalbardicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Energia-eu_en-context" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia('eu', escape(euskalbardicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Telekom-eu_en-context" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom('eu', escape(euskalbardicts.selectionText()));" />
+    		      <menuitem id="Euskalbar-Energia-eu_en-context" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia('eu', escape(euskalbardicts.selectionText()));" />
+    		      <menuitem id="Euskalbar-Telekom-eu_en-context" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom('eu', escape(euskalbardicts.selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
@@ -415,8 +427,8 @@
       		    <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="euskalbardicts.goEuskalBarMorris('en', escape(euskalbardicts.selectionText()));" />
       		    <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="euskalbardicts.goEuskalBarOpentran(escape(euskalbardicts.selectionText()));" />
       		    <menuitem id="Euskalbar-ZTHiztegia-en_eu-context" label="ZT Hiztegia" oncommand="euskalbardicts.goEuskalBarZTHiztegia('en', escape(euskalbardicts.selectionText()));" />
-      		    <menuitem id="Euskalbar-Energia-en_eu-context" label="Energia Hiztegia" oncommand="euskalbardicts.goEuskalBarEnergia('en', escape(euskalbardicts.selectionText()));" />
-      		    <menuitem id="Euskalbar-Telekom-en_eu-context" label="Telekomunikazio Hiztegia" oncommand="euskalbardicts.goEuskalBarTelekom('en', escape(euskalbardicts.selectionText()));" />
+      		    <menuitem id="Euskalbar-Energia-en_eu-context" label="Energia" oncommand="euskalbardicts.goEuskalBarEnergia('en', escape(euskalbardicts.selectionText()));" />
+      		    <menuitem id="Euskalbar-Telekom-en_eu-context" label="Telekomunikazioak" oncommand="euskalbardicts.goEuskalBarTelekom('en', escape(euskalbardicts.selectionText()));" />
     		    </menupopup>
     		  </menu>
     		  <menu id="Euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
