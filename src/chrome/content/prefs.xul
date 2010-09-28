@@ -159,6 +159,7 @@
                     <menuitem id = "human-skin" label="Human" value="skins/human.css"/>
                     <menuitem id = "oliba-skin" label="Oliba" value="skins/oliba.css"/>
                     <menuitem id = "urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>
+                    <menuitem id = "grisleun-skin" label="Grisleun" value="skins/grisleun.css"/>
                   </menupopup>
    		</menulist>
               </hbox>
