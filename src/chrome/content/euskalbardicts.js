@@ -142,9 +142,13 @@ var euskalbardicts = {
         return;
       }
       var zein = 'zthiztegia.elhuyar.org';
-      euskalbar.openURL('http://'+zein, zein, 'GET', null);
+      var tabulatzailea=euskalbar.getTab(zein);
+      if (tabulatzailea==-1)
+      {
+        euskalbar.openURL('http://'+zein, zein, 'GET', null);
+      }
 
-      zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term); }, 50);
+      zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term,'normal'); }, 50);
       // Gelditzeko timerra sortu
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000;
@@ -162,7 +166,7 @@ var euskalbardicts = {
       var newWindow = window.open('http://'+zein,zein);
       newWindow.focus();
 
-      zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term); }, 50);
+      zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term,'klik'); }, 50);
       // Gelditzeko timerra sortu
       zthiztegiatimeout2=setTimeout(function() {
         clearTimeout(zthiztegiatimeout);
@@ -172,39 +176,53 @@ var euskalbardicts = {
       euskalbarstats.writeStats(25);
     },
 
-    zthiztegiakargatzeanbilatu: function(source,term) {
-	var dokumentua = Application.activeWindow.activeTab.document;
-	if (dokumentua.getElementById('emaitza')!=null)
-	{
-	  if (dokumentua.getElementById('txtBilagaila').value!='')
-	  {
-	    zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term); }, 50);
-	  }
-	  else
-	  {
-	    if (dokumentua.getElementById('emaitza').innerHTML.search("Bilatzen...")!=-1)
-	    {
-	      dokumentua.getElementById('emaitza').style.visibility="hidden";
-	    };
-	    if (dokumentua.getElementById('emaitza').innerHTML.search("sarrera")!=-1)
-	    {
-	      dokumentua.getElementById('txtBilagaila').value=term;
-	      dokumentua.getElementById('selectHizkuntza').value=source;
-	      dokumentua.getElementById('bot_bilatu').click();
-	      dokumentua.getElementById('emaitza').style.visibility="visible";
-	      clearTimeout(zthiztegiatimeout2);
-	    }
-	    else
-	    {
-	      zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term); }, 50);
-	    };
-	  };
-	}
-	else
-	{
-	  zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term); }, 50);
+    zthiztegiakargatzeanbilatu: function(source,term,nondik) {
+
+      var segi=0;
+      var segi2=0;
+      var dokumentua=null;
+
+      if (nondik=='klik')
+      {
+        dokumentua=Application.activeWindow.activeTab.document;
+        segi2=1;
+      }
+      else
+      {
+        tabulatzailea=euskalbar.getTab('zthiztegia.elhuyar.org');
+        if (tabulatzailea != -1)
+        {
+	  dokumentua=getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
+	  segi2=1;
 	};
-      },
+      };
+      if (segi2 == 1)
+      {
+        if (dokumentua.getElementById('emaitza')!=null)
+        {
+	  if (dokumentua.getElementById('emaitza').innerHTML.search("Bilatzen...")!=-1)
+	  {
+	    dokumentua.getElementById('emaitza').style.visibility="hidden";
+	  };
+	  if (dokumentua.getElementById('emaitza').innerHTML.search("sarrera")!=-1)
+	  {
+	    segi=1;
+	  };
+        };
+      };
+      if (segi==1)
+      {
+        dokumentua.getElementById('txtBilagaila').value=term;
+        dokumentua.getElementById('selectHizkuntza').value=source;
+        dokumentua.getElementById('bot_bilatu').click();
+        dokumentua.getElementById('emaitza').style.visibility="visible";
+        clearTimeout(zthiztegiatimeout2);
+      }
+      else
+      {
+        zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanbilatu(source,term,nondik); }, 50);
+      };
+    },
 
     // ZT hiztegiko artikulu bat irekitzeko konbinatutik
     goEuskalBarZTHiztegiaArtikulua: function(artik) {
@@ -223,14 +241,20 @@ var euskalbardicts = {
     },
 
     zthiztegiakargatzeanartikulua: function(artik) {
-	var dokumentua = Application.activeWindow.activeTab.document;
-	if (dokumentua.getElementById('emaitza')!=null)
-	{
-	  if (dokumentua.getElementById('emaitza').innerHTML.search("Bilatzen...")!=-1)
+	  var segi=0;
+          var dokumentua = Application.activeWindow.activeTab.document;
+	  if (dokumentua.getElementById('emaitza')!=null)
 	  {
-	    dokumentua.getElementById('emaitza').style.visibility="hidden";
+	    if (dokumentua.getElementById('emaitza').innerHTML.search("Bilatzen...")!=-1)
+	    {
+	      dokumentua.getElementById('emaitza').style.visibility="hidden";
+	    };
+	    if (dokumentua.getElementById('emaitza').innerHTML.search("sarrera")!=-1)
+	    {
+	      segi=1;
+	    };
 	  };
-	  if (dokumentua.getElementById('emaitza').innerHTML.search("sarrera")!=-1)
+	  if (segi==1)
 	  {
 	    dokumentua.getElementById('emaitza').innerHTML='<form action="javascript:showArticle(\''+artik+'\')"><input style="visibility:hidden" id="bot_bilatu2" value="Bilatu" type="submit"></form>';
 	    dokumentua.getElementById('bot_bilatu2').click();
@@ -241,11 +265,6 @@ var euskalbardicts = {
 	  {
 	    zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanartikulua(artik); }, 50);
 	  };
-	}
-	else
-	{
-	  zthiztegiatimeout=setTimeout(function () { euskalbardicts.zthiztegiakargatzeanartikulua(artik); }, 50);
-	};
       },
 
     energiahiztegiatimeout: Boolean,
@@ -253,7 +272,7 @@ var euskalbardicts = {
 
     // Energia hiztegiko bilaketak
     goEuskalBarEnergia: function(source,term) {
-      // Begiratu kutxa hutsik dagoen 
+    	    // Begiratu kutxa hutsik dagoen 
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -275,9 +294,13 @@ var euskalbardicts = {
 	hizkid='F';
       };
 
-      euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia', 'GET', null);
+      var tabulatzailea=euskalbar.getTab('energia');
+      if (tabulatzailea==-1)
+      {
+        euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia', 'GET', null);
+      };
 
-      energiahiztegiatimeout=setTimeout(function () { euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid,term); }, 50);
+      energiahiztegiatimeout=setTimeout(function () { euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid,term,'normal'); }, 50);
       // Gelditzeko timerra sortu
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000;
@@ -312,7 +335,7 @@ var euskalbardicts = {
 	hizkid='F';
       };
 
-      energiahiztegiatimeout=setTimeout(function () { euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid,term); }, 50);
+      energiahiztegiatimeout=setTimeout(function () { euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid,term,'klik'); }, 50);
       // Gelditzeko timerra sortu
       energiahiztegiatimeout2=setTimeout(function() {
         clearTimeout(energiahiztegiatimeout);
@@ -331,22 +354,40 @@ var euskalbardicts = {
       euskalbarstats.writeStats(26);
     },
 
-    energiahiztegiakargatzeanbilatu: function(hizkid,term) {
-	var dokumentua = Application.activeWindow.activeTab.document;
-	segi=0;
-	if (dokumentua.getElementsByTagName('frame').length>0)
-	{
-	  if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByTagName('frame').length>0)
+    energiahiztegiakargatzeanbilatu: function(hizkid,term,nondik) {
+	var segi=0;
+	var segi2=0;
+	var dokumentua=null;
+        if (nondik=='klik')
+        {
+          dokumentua=Application.activeWindow.activeTab.document;
+          segi2=1;
+        }
+        else
+        {
+          tabulatzailea=euskalbar.getTab('energia');
+          if (tabulatzailea != -1)
+          {
+	    dokumentua=getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
+	    segi2=1;
+	  };
+        };
+        if (segi2 == 1)
+        {
+	  if (dokumentua.getElementsByTagName('frame').length>0)
 	  {
-	    if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument!=null)
+	    if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByTagName('frame').length>0)
 	    {
-	      if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza').length>0)
+	      if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument!=null)
 	      {
-		if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument!=null)
-		{
-		  if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('Hemen agertuko da zure bilaketaren emaitza')!=-1)
+	        if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza').length>0)
+	        {
+		  if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument!=null)
 		  {
-		    segi=1;
+		    if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('<br>')!=-1)
+		    {
+		      segi=1;
+		    };
 		  };
 		};
 	      };
@@ -362,7 +403,7 @@ var euskalbardicts = {
 	}
 	else
 	{
-	  energiahiztegiatimeout=setTimeout(function () { euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid,term); }, 50);
+	  energiahiztegiatimeout=setTimeout(function () { euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid,term,nondik); }, 50);
 	};
       },
 
@@ -403,40 +444,19 @@ var euskalbardicts = {
         inthizk = 'gazt';
       }
 
-
-      var dokumentua = Application.activeWindow.activeTab.document;
-      segi=0;
-      if (dokumentua.getElementsByTagName('frame').length>0)
-      {
-	if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument!=null)
-	{
-	  if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length>0)
-	  {
-	    if (dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument!=null)
-	    {
-	      segi=1;
-	    };
-	  };
-	};
-      };
-      if (segi==1)
-      {
-	dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value=term;
-	dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value=hizkid;
-	dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
-      }
-      else
+      var tabulatzailea=euskalbar.getTab('telekom');
+      if (tabulatzailea==-1)
       {
 	euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk='+inthizk, 'telekom', 'GET', null);
-
-	telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term); }, 50);
-	// Gelditzeko timerra sortu
-	var tout = euskalbar.prefs.getIntPref("query.timeout");
-	tout=tout*1000;
-	telekomhiztegiatimeout2=setTimeout(function() {
-	  clearTimeout(telekomhiztegiatimeout);
-	}, tout);
       };
+
+      telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term,'normal'); }, 50);
+      // Gelditzeko timerra sortu
+      var tout = euskalbar.prefs.getIntPref("query.timeout");
+      tout=tout*1000;
+      telekomhiztegiatimeout2=setTimeout(function() {
+	clearTimeout(telekomhiztegiatimeout);
+      }, tout);
 
       //Estatistika lokalak idatzi
       euskalbarstats.writeStats(27);
@@ -465,7 +485,7 @@ var euskalbardicts = {
 	hizkid='F';
       };
 
-      telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term); }, 50);
+      telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term,'klik'); }, 50);
       // Gelditzeko timerra sortu
       telekomhiztegiatimeout2=setTimeout(function() {
         clearTimeout(telekomhiztegiatimeout);
@@ -484,21 +504,39 @@ var euskalbardicts = {
       euskalbarstats.writeStats(27);
     },
 
-    telekomhiztegiakargatzeanbilatu: function(hizkid,term) {
-	var dokumentua = Application.activeWindow.activeTab.document;
-	segi=0;
-	if (dokumentua.getElementsByTagName('frame').length>0)
-	{
-	  if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument!=null)
+    telekomhiztegiakargatzeanbilatu: function(hizkid,term,nondik) {
+	var segi=0;
+	var segi2=0;
+	var dokumentua=null;
+        if (nondik=='klik')
+        {
+          dokumentua=Application.activeWindow.activeTab.document;
+          segi2=1;
+        }
+        else
+        {
+          tabulatzailea=euskalbar.getTab('telekom');
+          if (tabulatzailea != -1)
+          {
+	    dokumentua=getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
+	    segi2=1;
+	  };
+        };
+        if (segi2 == 1)
+        {
+	  if (dokumentua.getElementsByTagName('frame').length>0)
 	  {
-	    if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length>0)
+	    if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument!=null)
 	    {
-	      if (dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument!=null)
+	      if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length>0)
 	      {
-		if (dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('Hemen agertuko da zure bilaketaren emaitza')!=-1)
-		{
-		  segi=1;
-		};
+	        if (dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument!=null)
+	        {
+		  if ((dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('espacio.gif')!=-1))
+		  {
+		    segi=1;
+		  };
+	        };
 	      };
 	    };
 	  };
@@ -512,7 +550,7 @@ var euskalbardicts = {
 	}
 	else
 	{
-	  telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term); }, 50);
+	  telekomhiztegiatimeout=setTimeout(function () { euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid,term,nondik); }, 50);
 	};
       },
 

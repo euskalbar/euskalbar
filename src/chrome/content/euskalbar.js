@@ -382,7 +382,29 @@ var euskalbar = {
     }
   },
   
-  
+  // Fitxa zenbakia itzuli
+  getTab: function(tabzein) {
+    // Aztertu fitxa zahar bakoitza
+    var found = false;
+    var index = 0;
+    var numTabs = getBrowser().mTabContainer.childNodes.length;
+    while (index < numTabs && !found) {
+      var currentTab = getBrowser().getBrowserAtIndex(index);
+      var currentTabURI = currentTab.currentURI.spec;
+        if (currentTabURI.indexOf(tabzein)!= -1) {
+        found = true;
+      }
+      index++;
+    }
+    if (!found) {
+      return -1;
+    }
+    else {
+      return index-1;
+    };
+  },
+
+
   // Kutxa hutsik badago, mezu bat bidali
   alertEmptyBox: function(katea) {
     //Kateari aurreko eta atzeko zuriuneak kendu
@@ -415,8 +437,12 @@ var euskalbar = {
         l = "es";
       } else if ((euskalbar.euskalbar_source == 'fr') || (euskalbar.euskalbar_target == 'fr')) {
         l = "fr";
-      } else {
+      } else if ((euskalbar.euskalbar_source == 'en') || (euskalbar.euskalbar_target == 'en')) {
         l = "en";
+      } else if ((euskalbar.euskalbar_source == 'la') || (euskalbar.euskalbar_target == 'la')) {
+        l = "la";
+      } else if ((euskalbar.euskalbar_source == 'ja') || (euskalbar.euskalbar_target == 'ja')) {
+        l = "ja";
       }
 
       var k = "";
@@ -536,6 +562,12 @@ var euskalbar = {
           if (this.prefs.getBoolPref("zthiztegia.onkey")) {
             euskalbardicts.goEuskalBarZTHiztegia(this.euskalbar_source,searchStr);
           }
+          if (this.prefs.getBoolPref("energia.onkey")) {
+            euskalbardicts.goEuskalBarEnergia(this.euskalbar_source,searchStr);
+          }
+          if (this.prefs.getBoolPref("telekom.onkey")) {
+            euskalbardicts.goEuskalBarTelekom(this.euskalbar_source,searchStr);
+          }
           if (this.prefs.getBoolPref("labayru.onkey")) {
             euskalbardicts.goEuskalBarLabayru(this.euskalbar_source, searchStr);
           }
@@ -553,12 +585,16 @@ var euskalbar = {
           if (this.prefs.getBoolPref("elhuyar.onkey")) {
             euskalbardicts.goEuskalBarElhuyar(this.euskalbar_source,this.euskalbar_target,searchStr);
           }
-        } else if ( (this.euskalbar_source == 'eu') && (this.euskalbar_target == 'jp') ) {
-          // Go to Goihata dictionary if translating from Basque to Japanese
-          if (this.prefs.getBoolPref("goihata.onkey") ) {
-            euskalbardicts.goEuskalBarGoihata( this.euskalbar_source, this.euskalbar_target, searchStr );
+          if (this.prefs.getBoolPref("zthiztegia.onkey")) {
+            euskalbardicts.goEuskalBarZTHiztegia(this.euskalbar_source,searchStr);
           }
-        } else {
+          if (this.prefs.getBoolPref("energia.onkey")) {
+            euskalbardicts.goEuskalBarEnergia(this.euskalbar_source,searchStr);
+          }
+          if (this.prefs.getBoolPref("telekom.onkey")) {
+            euskalbardicts.goEuskalBarTelekom(this.euskalbar_source,searchStr);
+          }
+        } else if ((this.euskalbar_source == 'en') || (this.euskalbar_target == 'en')) {
           // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
           if (this.prefs.getBoolPref("euskalterm.onkey")) {
             euskalbardicts.goEuskalBarEuskalterm(this.euskalbar_source, searchStr, '0');
@@ -569,11 +605,29 @@ var euskalbar = {
           if (this.prefs.getBoolPref("morris.onkey")) {
             euskalbardicts.goEuskalBarMorris(this.euskalbar_source, searchStr);
           }
-          // Open-tran.eu jatorrizko hizkuntza ingelesa denean bakarrik dabil
-          if (this.euskalbar_source == 'en') {
-            if (this.prefs.getBoolPref("opentran.onkey")) {
-              euskalbardicts.goEuskalBarOpentran(searchStr);
-            }
+          if (this.prefs.getBoolPref("zthiztegia.onkey")) {
+            euskalbardicts.goEuskalBarZTHiztegia(this.euskalbar_source,searchStr);
+          }
+          if (this.prefs.getBoolPref("energia.onkey")) {
+            euskalbardicts.goEuskalBarEnergia(this.euskalbar_source,searchStr);
+          }
+          if (this.prefs.getBoolPref("telekom.onkey")) {
+            euskalbardicts.goEuskalBarTelekom(this.euskalbar_source,searchStr);
+          }
+          if (this.prefs.getBoolPref("opentran.onkey")) {
+            euskalbardicts.goEuskalBarOpentran(searchStr);
+          }
+        } else if ( (this.euskalbar_source == 'eu') && (this.euskalbar_target == 'jp') ) {
+          // Go to Goihata dictionary if translating from Basque to Japanese
+          if (this.prefs.getBoolPref("goihata.onkey") ) {
+            euskalbardicts.goEuskalBarGoihata( this.euskalbar_source, this.euskalbar_target, searchStr );
+          }
+        } else if ( (this.euskalbar_source == 'la') || (this.euskalbar_target == 'la') ) {
+          if (this.prefs.getBoolPref("euskalterm.onkey")) {
+            euskalbardicts.goEuskalBarEuskalterm(this.euskalbar_source, searchStr, '0');
+          }
+          if (this.prefs.getBoolPref("zthiztegia.onkey")) {
+            euskalbardicts.goEuskalBarZTHiztegia(this.euskalbar_source,searchStr);
           }
         }
         // Aukeratutako hizkuntzarekiko menpekotasunik ez dutenak kargatu
