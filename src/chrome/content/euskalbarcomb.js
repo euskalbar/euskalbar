@@ -384,7 +384,7 @@ var euskalbarcomb = {
 	      }
               else
               {
-                ztzerrenda=eval('('+erantzuna+')');
+                ztzerrenda=JSON.parse(erantzuna);
                 if (ztzerrenda[0].sortKey==euskalbarcomb.normalizatuetaminuskularatu(term))
                 {
                   termida=ztzerrenda[0].termId;
