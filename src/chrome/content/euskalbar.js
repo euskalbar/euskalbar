@@ -16,8 +16,6 @@
 var euskalbar = {
   guid: "euskalbar@interneteuskadi.org",
 
-  extURI: null,
-
   // URI of the current user's profile directory
   profileURI: Components.classes["@mozilla.org/file/directory_service;1"]
                         .getService(Components.interfaces.nsIProperties)
@@ -34,34 +32,31 @@ var euskalbar = {
 
   // Funtzio honek Euskalbar hasieratzen du
   startup: function() {
-    // URI of the extension location
-    this.extURI = Components.classes["@mozilla.org/extensions/manager;1"]
-                  .getService(Components.interfaces.nsIExtensionManager)
-                  .getInstallLocation(this.guid)
-                  .getItemLocation(this.guid);
+
     // Register to receive notifications of preference changes	
     this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
     //Hasieratu observerra
     this.prefs.addObserver("", this, false);
 
     // Euskalbar abian jartzen den lehen aldia bada...
-    if (navigator.preference('extensions.' + this.guid +'.welcome')) {
-      //Azalen hobespena aldatzen du
-      navigator.preference ('euskalbar.style.combinedquery', 'skins/human.css');
-      // Ongietorri leihoa erakusten du (ikusi http://forums.mozillazine.org/viewtopic.php?t=562299)
-      var file = Components.classes["@mozilla.org/extensions/manager;1"]
-                .getService(Components.interfaces.nsIExtensionManager)
-                .getInstallLocation(this.guid)
-                .getItemLocation(this.guid);
-      file.append("defaults");
-      file.append("preferences");
-      file.append("welcome.js");
-      file.remove(false);
+    Components.utils.import("resource://gre/modules/Services.jsm");
+    try {
+      Services.prefs.getBoolPref('extensions.' + this.guid +'.welcome');
+      Services.prefs.setCharPref('euskalbar.style.combinedquery', 'skins/human.css');
+      AddonManager.getAddonByID(this.guid, function(addon) { 
+        var file = addon.getResourceURI("").QueryInterface(Components.interfaces.nsIFileURL).file; 
+        //Estatistiken fitxategia sortu
+        euskalbarstats.createEuskalbarStatsFile(file);
+        //Ongietorri hobespenaren fitxategia ezabatu
+        file.append("defaults");
+        file.append("preferences");
+        file.append("welcome.js");
+        file.remove(false);
+      });
+      // Ongietorri leihoa erakusten du
       var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
       var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
-
-      //Estatistiken fitxategia sortu
-      euskalbarstats.createEuskalbarStatsFile();
+    } catch(e) {
 
     }
 

@@ -8,7 +8,7 @@ asarasua@vitoria-gasteiz.org
 var euskalbarstats = {
 
     //Euskalbarren direktorioa sortzen du erabiltzailearen profilean eta horren barruan stats.rdf fitxategia (existitzen ez bada)
-    createEuskalbarStatsFile: function(){
+    createEuskalbarStatsFile: function(file){
         var dir1 = Components.classes["@mozilla.org/file/directory_service;1"].
                    getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
         dir1.append("euskalbar");
@@ -20,7 +20,8 @@ var euskalbarstats = {
         if (dir2.exists()) {
             dir2.remove(false);
         }
-        var URLStatsFile = euskalbar.extURI.clone();
+
+        var URLStatsFile = file.clone();
         URLStatsFile.append("stats.rdf");
         URLStatsFile.copyTo(dir1, "stats.rdf");
     },
