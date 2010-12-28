@@ -2,6 +2,11 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.9 bertsioa
+================
+- Firefox 4 bertsioan funtziona dezan egokitu da Euskalbar. (#103)
+- Mokoroaren helbidea aldatu dute -> konpondu da botoi bidezko bilaketa, ez bilaketa konbinatua (#107)
+
 3.8 bertsioa
 ================
 - Elhuyarren Zientzia eta Teknologiaren Hiztegi Entziklopedikoa gehitu da. (#102)

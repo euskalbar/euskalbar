@@ -822,16 +822,16 @@ var euskalbardicts = {
         return;
       }
       var params = [];
-      var zein = 'mokoroa';
-      var url = 'http://www.hiru.com/hiztegiak/mokoroa/';
+      var zein = 'Mokoroa';
+      var url = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa';
       if (source == 'es') {
-        params.push(new euskalbar.QueryParameter('gazt', escape(term)));
-        params.push(new euskalbar.QueryParameter('bidali', 'Bilatu'));
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano', escape(term)));
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
       } else {
-        params.push(new euskalbar.QueryParameter('eusk', escape(term)));
-        params.push(new euskalbar.QueryParameter('bidali', 'Bilatu'));
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera', escape(term)));
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
       }
-      euskalbar.openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       euskalbarstats.writeStats(11);
     },

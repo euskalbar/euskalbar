@@ -315,6 +315,7 @@ var euskalbar = {
       var stringStream = Cc["@mozilla.org/io/string-input-stream;1"]
                          .createInstance(Components.interfaces.nsIStringInputStream);
       // Mozilla bug #318193
+
       if ("data" in stringStream) // Gecko 1.9 or newer
         stringStream.data = dataString;
       else // 1.8 or older
