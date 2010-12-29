@@ -151,7 +151,7 @@ var euskalbarcomb = {
         txtElhuyar = strRes.getString("m1Elhuyar");
         return false;
       }
-      xmlHttpReq.open('oPOST', urlElhuyar, true);
+      xmlHttpReq.open('POST', urlElhuyar, true);
       xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=iso-8859-1");
       xmlHttpReq.send(params);
 
