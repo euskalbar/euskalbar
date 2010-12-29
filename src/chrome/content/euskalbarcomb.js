@@ -151,7 +151,7 @@ var euskalbarcomb = {
         txtElhuyar = strRes.getString("m1Elhuyar");
         return false;
       }
-      xmlHttpReq.open('POST', urlElhuyar, true);
+      xmlHttpReq.open('oPOST', urlElhuyar, true);
       xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=iso-8859-1");
       xmlHttpReq.send(params);
 
@@ -1359,32 +1359,43 @@ var euskalbarcomb = {
       var txtMokoroa = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
+
+      var params = [];
+      var urlMokoroa = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa';
       if (source == 'es') {
-        var urlMokoroa = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt='+escape(term)+'&eusk=&nork=&kera=&bidali=Bilatu';
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano', encodeURI(term)));
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
       } else {
-        var urlMokoroa = 'http://www.hiru.com/hiztegiak/mokoroa/?gazt=&eusk='+escape(term)+'&nork=&kera=&bidali=Bilatu';
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera', encodeURI(term)));
+        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
+      }
+
+
+      var dataString = "";
+      for (var i = 0; i < params.length; ++i) {
+        var param = params[i];
+  
+        dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
       }
 
       var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
+      xmlHttpReq.overrideMimeType('text/xml; charset=UTF-8');
       if (!xmlHttpReq) {
         txtMokoroa = strRes.getString("m1Mokoroa");
         return false;
       }
-
-      xmlHttpReq.open('GET', urlMokoroa, true);
+      xmlHttpReq.open('POST', urlMokoroa+"&"+dataString, true);
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txtMokoroa = strRes.getString("m1Mokoroa");
       }, tout);
-
       xmlHttpReq.onreadystatechange = function() {
         try {
           if (xmlHttpReq.readyState == 4) {
@@ -1392,10 +1403,16 @@ var euskalbarcomb = {
               //Timerra garbitu
               clearTimeout(requestTimer);
               txtMokoroa = xmlHttpReq.responseText;
-              var txtMokoroa2 = txtMokoroa.split("<h2>")[2];
-              txtMokoroa = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">"+term+"</font></strong>"+"<h2>"+txtMokoroa2;
-              var txtMokoroa3 = txtMokoroa.split("<\/div>")[0];
-              txtMokoroa = txtMokoroa3.replace(/<p>/g, "<p><br>");
+              if (txtMokoroa.indexOf("Emaitza gehiegi aurkitzen da") != -1) {
+                txtMokoroa = "Emaitza gehiegi aurkitzen da";
+              } else if (txtMokoroa.indexOf("Ez da emaitzarik aurkitu") != -1) {
+                txtMokoroa = "Ez da emaitzarik aurkitu";
+              } else {
+                var txtMokoroa2 = txtMokoroa.split("<ul>	<li>	<a")[1];
+                txtMokoroa = "<ul>	<li>	<a"+txtMokoroa2;
+                var txtMokoroa3 = txtMokoroa.split("<div id\=\"justo")[0];
+                txtMokoroa = "<strong>"+term+"<\/strong><br\/><br\/>"+txtMokoroa3+"<div id\=\"justo";
+              }
             } else {
               txtMokoroa = strRes.getString("m1Mokoroa");
             }
