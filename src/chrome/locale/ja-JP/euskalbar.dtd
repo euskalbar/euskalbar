@@ -1,0 +1,195 @@
+<!-- Common -->
+<!ENTITY euskalbar.browse "検索...">
+<!ENTITY euskalbar.key "E">
+<!ENTITY euskalbar.label "Euskalbar">
+<!ENTITY euskalbar.name "Euskalbar">
+<!ENTITY euskalbar.help.tooltip "ヘルプ">
+<!ENTITY euskalbar.options.tooltip "オプション">
+<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm データベース">
+<!ENTITY euskalbar.3000.tooltip "3000 辞書">
+<!ENTITY euskalbar.goihata.tooltip "Goihata 辞書">
+<!ENTITY euskalbar.labayru.tooltip "Labayru 辞書">
+<!ENTITY euskalbar.zehazki.tooltip "Zehazki 辞書">
+<!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologia 辞書">
+<!ENTITY euskalbar.energia.tooltip "Energia 辞書">
+<!ENTITY euskalbar.telekom.tooltip "Telekomunikazio 辞書">
+<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar 辞書">
+<!ENTITY euskalbar.morris.tooltip "Morris 辞典">
+<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu 翻訳データベース">
+<!ENTITY euskalbar.batua.tooltip "バスク語アカデミーバスク語辞典">
+<!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
+<!ENTITY euskalbar.adorez.tooltip "Adorez 類語">
+<!ENTITY euskalbar.uzei.tooltip "UZEI 類語">
+<!ENTITY euskalbar.itzul.tooltip "ItzuL メールリストファイル">
+<!ENTITY euskalbar.harluxet.tooltip "Harluxet 百科事典">
+<!ENTITY euskalbar.wikipedia.tooltip "バスクwikipedia">
+<!ENTITY euskalbar.mokoroa.tooltip "Mokoroa データベース">
+<!ENTITY euskalbar.intza.tooltip "Intza慣用句">
+<!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua（古典の保管所）">
+<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa（典型散文）">
+<!ENTITY euskalbar.ztcorpusa.tooltip "ZT Corpusa（科学技術集成）">
+<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren Corpusa">
+<!ENTITY euskalbar.consumer.tooltip "Consumer Corpusa">
+<!ENTITY euskalbar.corpeus.tooltip "CorpEus - インターネットはバスク語のコーパス">
+<!ENTITY euskalbar.eurovoc.tooltip "欧州共同体シソーラス">
+<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb スペルチェッカー">
+<!ENTITY euskalbar.bergara.tooltip "Bergara市周辺辞書">
+<!ENTITY euskalbar.elebila.tooltip "Elebila バスク語検索エンジン">
+
+<!-- About -->
+<!ENTITY euskalbar.about.author "著者">
+<!ENTITY euskalbar.about.home.page "ホーム">
+<!ENTITY euskalbar.about.title "Euskalbarについて...">
+<!ENTITY euskalbar.about.whatsnewtitle "バージョンについて">
+<!ENTITY euskalbar.about.whatsnew1 "Euskalbarこのバージョンの主要更新内容">
+<!ENTITY euskalbar.about.whatsnew2 "Euskalbar Firefox 4 bertsiora egokitu da">
+<!ENTITY euskalbar.about.whatsnew3 "">
+<!ENTITY euskalbar.about.whatsnew4 "">
+<!ENTITY euskalbar.about.whatsnew5 "">
+<!ENTITY euskalbar.about.whatsnew6 "">
+<!ENTITY euskalbar.about.whatsnew7 "更新の全リストは以下のアドレス:">
+
+<!-- Prefs -->
+<!ENTITY euskalbar.prefs.title "Euskalbarの表示設定">
+<!ENTITY euskalbar.prefs.options.label "表示設定...">
+<!ENTITY euskalbar.prefs.dictionaries.tabtitle "上級検索">
+<!ENTITY euskalbar.prefs.dictionaries.label "同時サーチ(エンター)">
+<!ENTITY euskalbar.prefs.reusetabs.label "タブの再利用">
+<!ENTITY euskalbar.prefs.bgtabs.label "タブを背後に開く">
+<!ENTITY euskalbar.prefs.general.tabtitle "一般">
+<!ENTITY euskalbar.prefs.uppermenu.tabtitle "辞書のメニュー">
+<!ENTITY euskalbar.prefs.interface.tabtitle "外観">
+<!ENTITY euskalbar.prefs.uppermenu.label "辞書のメニュー表示">
+<!ENTITY euskalbar.prefs.uppermenu.tooltip "辞書のメニュー表示/非表示">
+<!ENTITY euskalbar.prefs.lang.caption "言語">
+<!ENTITY euskalbar.prefs.lang.label "Euskalbarのスタート時の言語選択:">
+<!ENTITY euskalbar.prefs.tabs.caption "タブ選択">
+<!ENTITY euskalbar.prefs.combined.caption "組み合わせ検索">
+<!ENTITY euskalbar.prefs.timeout.caption "検索のタイムアウト(seg)">
+<!ENTITY euskalbar.prefs.subqueries.caption "サブクエリー の検索">
+<!ENTITY euskalbar.prefs.skin.caption "スキン">
+<!ENTITY euskalbar.prefs.skin.label "Euskalbarのスキンを選択する:">
+<!ENTITY euskalbar.prefs.skin.custom "カスタマイズのスキンを使う">
+<!ENTITY euskalbar.prefs.gui.caption "インターフェース">
+<!ENTITY euskalbar.prefs.dicts.label "辞書のメニュー表示">
+<!ENTITY euskalbar.prefs.context.label "文脈メニューを表示">
+
+<!-- Euskalterm -->
+<!ENTITY euskalbar.euskalterm.dena.label "全ての分野">
+<!ENTITY euskalbar.euskalterm.administrazioa.label "経営管理">
+<!ENTITY euskalbar.euskalterm.arteak.label "芸術">
+<!ENTITY euskalbar.euskalterm.biologia.label "生物学">
+<!ENTITY euskalbar.euskalterm.ekonomia.label "経済・企業">
+<!ENTITY euskalbar.euskalterm.eraikuntza.label "建築、街作り">
+<!ENTITY euskalbar.euskalterm.erlijioa.label "宗教">
+<!ENTITY euskalbar.euskalterm.filosofia.label "哲学">
+<!ENTITY euskalbar.euskalterm.garraioa.label "輸送,郵便,通信">
+<!ENTITY euskalbar.euskalterm.geografia.label "地理学">
+<!ENTITY euskalbar.euskalterm.geologia.label "地質学">
+<!ENTITY euskalbar.euskalterm.historia.label "歴史, 軍隊関係">
+<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "言語学,文学">
+<!ENTITY euskalbar.euskalterm.industria.label "産業">
+<!ENTITY euskalbar.euskalterm.informatika.label "ソフトウェア・コンピューター">
+<!ENTITY euskalbar.euskalterm.kazetaritza.label "情報学,ドキュメンテーション">
+<!ENTITY euskalbar.euskalterm.izenak.label "名前, 題名、タイトル">
+<!ENTITY euskalbar.euskalterm.kimika.label "化学と物理学">
+<!ENTITY euskalbar.euskalterm.kirola.label "スポーツ・ゲーム・レジャー">
+<!ENTITY euskalbar.euskalterm.laburtzapenak.label "省略">
+<!ENTITY euskalbar.euskalterm.matematika.label "数学と統計">
+<!ENTITY euskalbar.euskalterm.medikuntza.label "医学">
+<!ENTITY euskalbar.euskalterm.merkataritza.label "商業,労政">
+<!ENTITY euskalbar.euskalterm.nekazaritza.label "農業,漁業">
+<!ENTITY euskalbar.euskalterm.politika.label "政治,社会学,人類学">
+<!ENTITY euskalbar.euskalterm.psikologia.label "心理学,教育学">
+<!ENTITY euskalbar.euskalterm.zuzenbidea.label "法律">
+
+<!--Language-->
+<!ENTITY euskalbar.language.eu_es "バスク語　‣ スペイン語">
+<!ENTITY euskalbar.language.es_eu "スペイン語 ‣ バスク語">
+<!ENTITY euskalbar.language.eu_en "バスク語 ‣ 英語">
+<!ENTITY euskalbar.language.en_eu "英語 ‣ バスク語">
+<!ENTITY euskalbar.language.eu_fr "バスク語 ‣ フランス語">
+<!ENTITY euskalbar.language.fr_eu "フランス語 ‣ バスク語">
+<!ENTITY euskalbar.language.la_eu "ラテン語 ‣ バスク語">
+<!ENTITY euskalbar.language.eu_jp "バスク語 ‣ 日本語">
+
+<!-- Context Menu -->
+<!ENTITY euskalbar.context.xuxenweb.label "XUXENweb使って訂正する">
+<!ENTITY euskalbar.context.sinonimoak.label "類語">
+<!ENTITY euskalbar.context.mokoroa.es.label "スペイン語の文書の中">
+<!ENTITY euskalbar.context.mokoroa.eu.label "バスク語の文書の中">
+
+<!-- Menu -->
+<!ENTITY euskalbar.menu.main "辞書">
+
+<!ENTITY euskalbar.menu.general "一般">
+<!ENTITY euskalbar.menu.euskaltzaindia "バスク語アカデミーの標準バスク語辞典 (EU)">
+<!ENTITY euskalbar.menu.oeh "Orotariko Euskal Hiztegia (EU)">
+<!ENTITY euskalbar.menu.eurovoc "欧州共同体シソーラス">
+<!ENTITY euskalbar.menu.euskalterm "Euskalterm 専門用語バンク(EU-ES)">
+<!ENTITY euskalbar.menu.euskaltermalt "Euskaltermオルテナティブ専門用語バンク (EU-ES)">
+<!ENTITY euskalbar.menu.bfa_term "BFA 専門用語辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.3000 "3000辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.goihata "GoiHataバスク語 ・日本語辞書(EU-JP)">
+<!ENTITY euskalbar.menu.elhuyar "Elhuyar辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.zthiztegia "Zientzia eta Teknologia 辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.energia "Energia 辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.telekom "Telekomunikazio 辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.labayru "Labayru 辞書 (EU-ES)">
+<!ENTITY euskalbar.menu.zehazki "Zehazki 辞書 (ES-EU)">
+<!ENTITY euskalbar.menu.morris "Morris辞典 (EU-EN)">
+<!ENTITY euskalbar.menu.opentran "Open-tran翻訳データベース (EN-EU)">
+<!ENTITY euskalbar.menu.lagun20 "ポーランド語・バスク語辞書 (PL-EU)">
+
+<!ENTITY euskalbar.menu.sinonimoak "類語">
+<!ENTITY euskalbar.menu.sinonimoenhizt "Adorez類語事典">
+<!ENTITY euskalbar.menu.uzeisinonim "UZEIの類語事典">
+<!ENTITY euskalbar.menu.entziklopediak "百科事典">
+<!ENTITY euskalbar.menu.aunam "Auñamendi百科事典">
+<!ENTITY euskalbar.menu.harluxet "Harluxet百科事典">
+<!ENTITY euskalbar.menu.wikipedia "eu.wikipedia.org">
+
+<!ENTITY euskalbar.menu.thematics "テーマ別">
+<!ENTITY euskalbar.menu.drugs "麻薬">
+<!ENTITY euskalbar.menu.energy "エネルギー">
+<!ENTITY euskalbar.menu.management "企業経営">
+<!ENTITY euskalbar.menu.industry "産業">
+<!ENTITY euskalbar.menu.industry2 "産業 (移住者用)">
+<!ENTITY euskalbar.menu.computers "コンピュータ">
+<!ENTITY euskalbar.menu.environment "環境">
+<!ENTITY euskalbar.menu.internet "インターネット">
+<!ENTITY euskalbar.menu.justice "司法">
+<!ENTITY euskalbar.menu.catalogues "目録">
+<!ENTITY euskalbar.menu.journalism "ジャーナリズム">
+<!ENTITY euskalbar.menu.parliament "議会">
+<!ENTITY euskalbar.menu.health "健康">
+<!ENTITY euskalbar.menu.cooking "料理">
+<!ENTITY euskalbar.menu.teleco "電気通信">
+<!ENTITY euskalbar.menu.science "科学">
+
+<!ENTITY euskalbar.menu.corpus "集成">
+<!ENTITY euskalbar.menu.euskaracorpusa "バスク語集成">
+<!ENTITY euskalbar.menu.mokoroa "Mokoroa（モコロア）">
+<!ENTITY euskalbar.menu.intza "Intza（インツァ慣用語）">
+<!ENTITY euskalbar.menu.ereduzkoa "Ereduzko prosa（典型散文）">
+<!ENTITY euskalbar.menu.klasikoak "Klasikoen gordailua（古典の保管所）">
+<!ENTITY euskalbar.menu.garate "Gotzon Garate">
+<!ENTITY euskalbar.menu.laburzki "Laburzki">
+<!ENTITY euskalbar.menu.corpeus "CorpEus">
+<!ENTITY euskalbar.menu.ztcorpusa "ZT Corpusa（科学技術集成）">
+<!ENTITY euskalbar.menu.lb "Lexikoaren Behatokia">
+<!ENTITY euskalbar.menu.consumer "Consumer Corpusa">
+
+<!ENTITY euskalbar.menu.towns "市町村">
+<!ENTITY euskalbar.menu.bergara "Bergara市周辺の辞書">
+<!ENTITY euskalbar.menu.eibar "Eibarのバスク語">
+
+<!ENTITY euskalbar.menu.search "インターネット検索エンジン">
+<!ENTITY euskalbar.menu.elebila "Elebila バスク語検索エンジン">
+
+<!-- Statistics -->
+<!ENTITY euskalbar.stats.menu "統計">
+<!ENTITY euskalbar.stats.main "Euskalbarの統計">
+<!ENTITY euskalbar.stats.count "検索回数">
+<!ENTITY euskalbar.stats.clearbutton "統計削除">
+
