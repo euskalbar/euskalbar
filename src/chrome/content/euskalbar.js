@@ -41,21 +41,19 @@ var euskalbar = {
     // Euskalbar abian jartzen den lehen aldia bada...
     Components.utils.import("resource://gre/modules/Services.jsm");
     try {
-      Services.prefs.getBoolPref('extensions.' + this.guid +'.welcome');
-      Services.prefs.setCharPref('euskalbar.style.combinedquery', 'skins/human.css');
+      var v1 = Services.prefs.getCharPref('euskalbar.version');
       AddonManager.getAddonByID(this.guid, function(addon) { 
-        var file = addon.getResourceURI("").QueryInterface(Components.interfaces.nsIFileURL).file; 
-        //Estatistiken fitxategia sortu
-        euskalbarstats.createEuskalbarStatsFile(file);
-        //Ongietorri hobespenaren fitxategia ezabatu
-        file.append("defaults");
-        file.append("preferences");
-        file.append("welcome.js");
-        file.remove(false);
+        var v2 = addon.version;
+        if (v1 != v2) {
+          var file = addon.getResourceURI("").QueryInterface(Components.interfaces.nsIFileURL).file;
+          euskalbarstats.createEuskalbarStatsFile(file);
+          // Ongietorri leihoa erakutsi
+          var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
+          Services.prefs.setCharPref('euskalbar.style.combinedquery', 'skins/human.css');
+          Services.prefs.setCharPref('euskalbar.version', v2);
+        }
       });
-      // Ongietorri leihoa erakusten du
-      var welcomedialogURL = "chrome://euskalbar/content/about/about.xul";
-      var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
+
     } catch(e) {
 
     }

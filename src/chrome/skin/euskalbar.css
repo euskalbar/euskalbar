@@ -4,18 +4,13 @@
   overflow: visible;
 } 
 
+toolbarbutton[type="menu-button"] > toolbarbutton {
+  -moz-box-orient: horizontal ;
+} 
+
 toolbar #euskalbar-button {
   list-style-image: url('chrome://euskalbar/skin/euskalbar16.png'); 
   margin-right: 0px;
-}
-
-toolbar #euskalbar-language {
-  margin-top: 1px;
-  max-height: 30px;
-}
-
-toolbar #EuskalBar-Search {
-  margin-top: 1px;
 }
 
 #Euskalbar-menu [hidden="true"] {display: none !important;} 

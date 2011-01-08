@@ -9,9 +9,8 @@
 // julenx@gmail.com
 // chetan.thapliyal@discreteguidepost.in
 
-/***************************** 
-   Dictionaries preferences
- *****************************/
+// Version
+pref("euskalbar.version", "");
 
 // Dictionaries searched on pressing "Enter" key
 pref("euskalbar.euskalterm.onkey", false);
