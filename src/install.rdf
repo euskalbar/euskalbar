@@ -31,6 +31,7 @@
     <em:description>Euskara hiztegiak</em:description>
     <em:homepageURL>http://www.euskalbar.eu</em:homepageURL>
     <em:iconURL>chrome://euskalbar/skin/euskalbar32.png</em:iconURL>
+    <em:icon64URL>chrome://euskalbar/skin/euskalbar64.png</em:icon64URL>
     <em:optionsURL>chrome://euskalbar/content/prefs.xul</em:optionsURL>
 
     <!-- Hedapena despaketatuta instalatzen du -->
