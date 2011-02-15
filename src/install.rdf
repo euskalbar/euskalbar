@@ -5,7 +5,7 @@
   <Description about="urn:mozilla:install-manifest">
 
     <!-- Derrigorrezko elementuak -->
-    <em:id>euskalbar@interneteuskadi.org</em:id>
+    <em:id>euskalbar@euskalbar.eu</em:id>
     <em:name>Euskalbar</em:name>
     <em:version>3.9</em:version>
 
@@ -18,7 +18,7 @@
     </em:targetApplication>
 
     <!-- Aukerazko elementuak -->
-    <em:creator>Juanan Pereira, Asier Sarasua Garmendia, Igor Leturia Azkarate, Ibon Aizpurua Ugarte, Julen Ruiz Aizpuru, Chetan Thapliyal</em:creator>
+    <em:creator>Euskalbar taldea</em:creator>
     <em:description>Euskara hiztegiak</em:description>
     <em:homepageURL>http://www.euskalbar.eu</em:homepageURL>
     <em:iconURL>chrome://euskalbar/skin/euskalbar32.png</em:iconURL>
