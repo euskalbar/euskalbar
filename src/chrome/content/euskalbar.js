@@ -14,7 +14,7 @@
 // Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
 // http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
 var euskalbar = {
-  guid: "euskalbar@interneteuskadi.org",
+  guid: "euskalbar@euskalbar.eu",
 
   // URI of the current user's profile directory
   profileURI: Components.classes["@mozilla.org/file/directory_service;1"]
