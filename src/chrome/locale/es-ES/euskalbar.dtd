@@ -36,19 +36,6 @@
 <!ENTITY euskalbar.bergara.tooltip "Diccionario de la zona de Bergara">
 <!ENTITY euskalbar.elebila.tooltip "Elebila, buscador web de euskera">
 
-<!-- About -->
-<!ENTITY euskalbar.about.author "Autores">
-<!ENTITY euskalbar.about.home.page "Home">
-<!ENTITY euskalbar.about.title "Sobre Euskalbar">
-<!ENTITY euskalbar.about.whatsnewtitle "Notas de la versión">
-<!ENTITY euskalbar.about.whatsnew1 "Las principales novedades de esta versión de Euskalbar son las siguientes:">
-<!ENTITY euskalbar.about.whatsnew2 "Se ha adaptado Euskalbar a Firefox 4">
-<!ENTITY euskalbar.about.whatsnew3 "">
-<!ENTITY euskalbar.about.whatsnew4 "">
-<!ENTITY euskalbar.about.whatsnew5 "">
-<!ENTITY euskalbar.about.whatsnew6 "">
-<!ENTITY euskalbar.about.whatsnew7 "El listado completo de cambios se puede consultar en la siguiente dirección (en euskera):">
-
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Preferencias de Euskalbar">
 <!ENTITY euskalbar.prefs.options.label "Preferencias...">

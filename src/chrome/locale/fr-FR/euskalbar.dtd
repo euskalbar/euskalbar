@@ -36,19 +36,6 @@
 <!ENTITY euskalbar.bergara.tooltip "Dictionnaire de Bergara">
 <!ENTITY euskalbar.elebila.tooltip "Chercheur en Basque Elebila">
 
-<!-- About -->
-<!ENTITY euskalbar.about.author "Auteurs">
-<!ENTITY euskalbar.about.home.page "Home">
-<!ENTITY euskalbar.about.title "Sur Euskalbar">
-<!ENTITY euskalbar.about.whatsnewtitle "Sur cette version">
-<!ENTITY euskalbar.about.whatsnew1 "Les principales noveautés de cette version sont les suivants:">
-<!ENTITY euskalbar.about.whatsnew2 "Euskalbar has been adapted to Firefox 4">
-<!ENTITY euskalbar.about.whatsnew3 "">
-<!ENTITY euskalbar.about.whatsnew4 "">
-<!ENTITY euskalbar.about.whatsnew5 "">
-<!ENTITY euskalbar.about.whatsnew6 "">
-<!ENTITY euskalbar.about.whatsnew7 "La liste complète de noveautés, dans la direction suivante:">
-
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Configuration d'Euskalbar">
 <!ENTITY euskalbar.prefs.options.label "Configuration...">

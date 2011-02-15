@@ -9,12 +9,16 @@
 // julenx@gmail.com
 // chetan.thapliyal@discreteguidepost.in
 
+Components.utils.import("resource://gre/modules/Services.jsm");
+
 // Euskalbar hasieratzen du
 // Euskalbar deskargatzen du
 // Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
 // http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
 var euskalbar = {
   guid: "euskalbar@euskalbar.eu",
+
+  firstrunURL: "http://euskalbar.eu/firstrun",
 
   // URI of the current user's profile directory
   profileURI: Components.classes["@mozilla.org/file/directory_service;1"]
@@ -23,7 +27,7 @@ var euskalbar = {
 
   prefs: Components.classes["@mozilla.org/preferences-service;1"]
                 .getService(Components.interfaces.nsIPrefService)
-                .getBranch("euskalbar."),
+                .getBranch("extensions.euskalbar."),
 
   euskalbar_source: null,
 
@@ -38,25 +42,46 @@ var euskalbar = {
     //Hasieratu observerra
     this.prefs.addObserver("", this, false);
 
-    // Euskalbar abian jartzen den lehen aldia bada...
-    Components.utils.import("resource://gre/modules/Services.jsm");
-    try {
-      var v1 = Services.prefs.getCharPref('euskalbar.version');
-      AddonManager.getAddonByID(this.guid, function(addon) { 
-        var v2 = addon.version;
-        if (v1 != v2) {
-          var file = addon.getResourceURI("").QueryInterface(Components.interfaces.nsIFileURL).file;
-          euskalbarstats.createEuskalbarStatsFile(file);
-          // Ongietorri leihoa erakutsi
-          var t = setTimeout("window.openDialog('chrome://euskalbar/content/about/about.xul', 'euskalbar-about-dialog','centerscreen,chrome,modal,resizable');",1000);
-          Services.prefs.setCharPref('euskalbar.style.combinedquery', 'skins/human.css');
-          Services.prefs.setCharPref('euskalbar.version', v2);
+    AddonManager.getAddonByID(this.guid, function(addon) {
+      /* Store version information for later use */
+      euskalbar.curVersion = addon.version;
+
+      var firstrun = Services.prefs.getBoolPref("extensions.euskalbar.firstrun");
+      var openInfo = false;
+      var infoURL = euskalbar.firstrunURL;
+
+      if (firstrun) {
+        Services.prefs.setBoolPref("extensions.euskalbar.firstrun", false);
+        Services.prefs.setCharPref("extensions.euskalbar.installedVersion",
+                                   euskalbar.curVersion);
+
+        var file = addon.getResourceURI("").
+          QueryInterface(Components.interfaces.nsIFileURL).file;
+        euskalbarstats.createEuskalbarStatsFile(file);
+
+        openInfo = true;
+      } else {
+        try {
+          var installedVersion = Services.prefs.
+            getCharPref("extensions.euskalbar.installedVersion");
+
+          /* We are in the middle of an upgrade */
+          if (euskalbar.curVersion > installedVersion) {
+            Services.prefs.setCharPref("extensions.euskalbar.installedVersion",
+                                       euskalbar.curVersion);
+
+            openInfo = true;
+            infoURL += "?v=" + euskalbar.curVersion;
+          }
+        } catch (ex) {
+          /* Reinstall: do we need to do something in this situation? */
         }
-      });
+      }
 
-    } catch(e) {
-
-    }
+      if (openInfo) {
+        window.gBrowser.selectedTab = window.gBrowser.addTab(infoURL);
+      }
+    });
 
     //Hasieratu hizkuntza hautatzeko botoia
     var lang = this.prefs.getCharPref("language.startup");
