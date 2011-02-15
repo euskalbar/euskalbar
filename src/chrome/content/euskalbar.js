@@ -133,56 +133,57 @@ var euskalbar = {
   },
 
 
-  //HTML fitxategiak hasieratzen ditu
+  // HTML fitxategiak hasieratzen ditu
   initHTML: function(event) {
-    //HTML fitxategietan estiloaren katea aldatzen du
+    // HTML fitxategietan estiloaren katea aldatzen du
     var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
     var URL = event.target.location.href;
+
     if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
       var link = event.target.getElementsByTagName("link")[0];
       link.setAttribute("href", prefStyle);
-    }
-  
-    //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
-    strRes = document.getElementById('leuskal');
-    const oh = strRes.getString("oharra");
-    var l = "";
-    if ((euskalbar.euskalbar_source == 'es') || (euskalbar.euskalbar_target == 'es')) { 
-      l = "es";
-    } else if ((euskalbar.euskalbar_source == 'fr') || (euskalbar.euskalbar_target == 'fr')) {
-      l = "fr";
-    } else {
-      l = "en";
-    }
-    var k = "";
-    if (URL.indexOf("euskalbarshift") != -1) { 
-      k = "onkey1";
-    } else if (URL.indexOf("euskalbarktrl") != -1) {
-      k = "onkey2";
-    }
-    var cprefs = euskalbar.prefs.getChildList("",{});
-    var sprefs = new Array();
-    for (x in cprefs) {
-      if (cprefs[x].indexOf(k+"."+l) != -1) {
-        sprefs.unshift(cprefs[x]);       
+
+      //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
+      strRes = document.getElementById('leuskal');
+      const oh = strRes.getString("oharra");
+      var l = "";
+      if ((euskalbar.euskalbar_source == 'es') || (euskalbar.euskalbar_target == 'es')) {
+        l = "es";
+      } else if ((euskalbar.euskalbar_source == 'fr') || (euskalbar.euskalbar_target == 'fr')) {
+        l = "fr";
+      } else {
+        l = "en";
       }
-    }
-    for (x in sprefs) {
-      if (euskalbar.prefs.getBoolPref(sprefs[x])) {
-        var burua = sprefs[x].split(".")[0];
-        burua = burua.charAt(0).toUpperCase() + burua.slice(1);
-        event.target.getElementById('buruak').innerHTML = event.target.getElementById('buruak').innerHTML+'<th id="burua'+burua+'">'+burua+'<\/th>';
-        var atd = event.target.createElement('td');
-        atd.setAttribute("id","a"+burua);
-        atd.setAttribute("class","gorputza");
-        event.target.getElementById('gorputzak').appendChild(atd);
-        var ato = event.target.createElement('td');
-        ato.setAttribute("id","o"+burua);
-        ato.setAttribute("class","gorputza");
-        event.target.getElementById('oinak').appendChild(ato);
+      var k = "";
+      if (URL.indexOf("euskalbarshift") != -1) {
+        k = "onkey1";
+      } else if (URL.indexOf("euskalbarktrl") != -1) {
+        k = "onkey2";
       }
+      var cprefs = euskalbar.prefs.getChildList("",{});
+      var sprefs = new Array();
+      for (x in cprefs) {
+        if (cprefs[x].indexOf(k+"."+l) != -1) {
+          sprefs.unshift(cprefs[x]);
+        }
+      }
+      for (x in sprefs) {
+        if (euskalbar.prefs.getBoolPref(sprefs[x])) {
+          var burua = sprefs[x].split(".")[0];
+          burua = burua.charAt(0).toUpperCase() + burua.slice(1);
+          event.target.getElementById('buruak').innerHTML = event.target.getElementById('buruak').innerHTML+'<th id="burua'+burua+'">'+burua+'<\/th>';
+          var atd = event.target.createElement('td');
+          atd.setAttribute("id","a"+burua);
+          atd.setAttribute("class","gorputza");
+          event.target.getElementById('gorputzak').appendChild(atd);
+          var ato = event.target.createElement('td');
+          ato.setAttribute("id","o"+burua);
+          ato.setAttribute("class","gorputza");
+          event.target.getElementById('oinak').appendChild(ato);
+        }
+      }
+      event.target.getElementById('oharra').innerHTML = oh;
     }
-    event.target.getElementById('oharra').innerHTML = oh;
   },
 
   
