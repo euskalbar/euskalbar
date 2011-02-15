@@ -3,8 +3,8 @@
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
-<!ENTITY euskalbar.help.tooltip "Laguntza">
-<!ENTITY euskalbar.options.tooltip "Aukerak ">
+<!ENTITY euskalbar.help.label "Laguntza">
+<!ENTITY euskalbar.options.tooltip "Ireki hobespenen leihoa">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu basea">
 <!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">

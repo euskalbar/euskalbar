@@ -3,7 +3,7 @@
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
-<!ENTITY euskalbar.help.tooltip "ヘルプ">
+<!ENTITY euskalbar.help.label "ヘルプ">
 <!ENTITY euskalbar.options.tooltip "オプション">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm データベース">
 <!ENTITY euskalbar.3000.tooltip "3000 辞書">

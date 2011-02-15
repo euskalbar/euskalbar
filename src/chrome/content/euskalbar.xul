@@ -40,12 +40,12 @@
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
     <toolbaritem id="euskalbar-leftbuttons" flex="0">
-      <toolbarbutton id="euskalbar-button" tooltiptext="&euskalbar.help.tooltip;" oncommand="euskalbar.openLaguntza();"/>
-      <toolbarseparator/>
-      <toolbarbutton id="EuskalBar-aukerak" label="&euskalbar.options.tooltip;" type="menu">
+      <toolbarbutton id="euskalbar-button" type="menu">
         <menupopup id="EuskalBar-aukerak-popup">
-          <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.prefs.options.label;" oncommand="euskalbar.euskalbarOptions();"/>
+          <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.options.tooltip;" oncommand="euskalbar.euskalbarOptions();"/>
           <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" oncommand="euskalbar.showLocalstats();" />
+          <menuseparator />
+          <menuitem id="euskalbar-help" label="&euskalbar.help.label;" oncommand="euskalbar.openLaguntza();"/>
         </menupopup>
       </toolbarbutton>
       <toolbarseparator />
