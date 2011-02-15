@@ -19,11 +19,21 @@
 
     <!-- Aukerazko elementuak -->
     <em:creator>Euskalbar taldea</em:creator>
+
+    <em:developer>Igor Leturia Azkarate</em:developer>
+    <em:developer>Juanan Pereira Varela</em:developer>
+    <em:developer>Julen Ruiz Aizpuru</em:developer>
+    <em:developer>Asier Sarasua Garmendia</em:developer>
+
+    <em:contributor>Ibon Aizpurua Ugarte</em:contributor>
+    <em:contributor>Chetan Thapliyal</em:contributor>
+
     <em:description>Euskara hiztegiak</em:description>
     <em:homepageURL>http://www.euskalbar.eu</em:homepageURL>
     <em:iconURL>chrome://euskalbar/skin/euskalbar32.png</em:iconURL>
     <em:aboutURL>chrome://euskalbar/content/about/about.xul</em:aboutURL>
     <em:optionsURL>chrome://euskalbar/content/prefs.xul</em:optionsURL>
+
     <!-- Hedapena despaketatuta instalatzen du -->
     <em:unpack>true</em:unpack>
 
