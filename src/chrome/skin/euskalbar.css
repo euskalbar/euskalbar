@@ -8,12 +8,9 @@ toolbarbutton[type="menu-button"] > toolbarbutton {
   -moz-box-orient: horizontal ;
 } 
 
-toolbar #euskalbar-button {
-  list-style-image: url('chrome://euskalbar/skin/euskalbar16.png'); 
-  margin-right: 0px;
+#Euskalbar-menu[hidden="true"] {
+  display: none !important;
 }
-
-#Euskalbar-menu [hidden="true"] {display: none !important;} 
 
 textbox#EuskalBar-search-string {
     min-width: 50px;
@@ -26,3 +23,15 @@ textbox#EuskalBar-search-string {
     border: none;
     -moz-appearance: none;
 } 
+
+/* Euskalbar button */
+
+#euskalbar-button {
+  list-style-image: url('chrome://euskalbar/skin/euskalbar22.png');
+}
+
+toolbar[iconsize="small"] #euskalbar-button {
+  list-style-image: url('chrome://euskalbar/skin/euskalbar16.png');
+  width: 16px;
+  height: 16px;
+}

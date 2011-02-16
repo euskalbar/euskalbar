@@ -1,9 +1,14 @@
-content	euskalbar chrome/content/
-locale	euskalbar	en-US	chrome/locale/en-US/
-locale	euskalbar	es-ES	chrome/locale/es-ES/
-locale	euskalbar	eu-ES	chrome/locale/eu-ES/
-locale	euskalbar	fr-FR	chrome/locale/fr-FR/
-locale  euskalbar	ja-JP	chrome/locale/ja-JP/
-skin	euskalbar	classic/1.0	chrome/skin/
-style	chrome://global/content/customizeToolbar.xul	chrome://euskalbar/skin/euskalbar.css
-overlay	chrome://browser/content/browser.xul	chrome://euskalbar/content/euskalbar.xul
+content euskalbar chrome/content/
+
+locale  euskalbar   en-US   chrome/locale/en-US/
+locale  euskalbar   es-ES   chrome/locale/es-ES/
+locale  euskalbar   eu-ES   chrome/locale/eu-ES/
+locale  euskalbar   fr-FR   chrome/locale/fr-FR/
+locale  euskalbar   ja-JP   chrome/locale/ja-JP/
+
+skin    euskalbar   classic/1.0 chrome/skin/
+
+style   chrome://global/content/customizeToolbar.xul    chrome://euskalbar/skin/euskalbar.css
+
+overlay chrome://browser/content/browser.xul    chrome://euskalbar/content/euskalbar.xul
+overlay chrome://global/content/customizeToolbar.xul    chrome://euskalbar/content/toolbarbutton/customizeToolbarOverlay.xul

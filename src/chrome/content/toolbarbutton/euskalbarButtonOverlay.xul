@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="../euskalbar.js"/>
+
+  <toolbarpalette id="BrowserToolbarPalette">
+
+    <toolbarbutton id="euskalbar-button"
+      class="toolbarbutton-1 chromeclass-toolbar-additional"
+      label="&euskalbar.label;"
+      tooltiptext="&euskalbar.label;"
+      type="menu-button">
+      <menupopup id="EuskalBar-aukerak-popup">
+        <menuitem id="optionsdialog"
+          label="&euskalbar.prefs.options.label;"
+          tooltiptext="&euskalbar.options.tooltip;"
+          oncommand="euskalbar.euskalbarOptions();" />
+        <menuitem id="showstatistics"
+          label="&euskalbar.stats.menu;"
+          tooltiptext="&euskalbar.stats.main;"
+          oncommand="euskalbar.showLocalstats();" />
+        <menuseparator />
+        <menuitem id="euskalbar-help"
+          label="&euskalbar.help.label;"
+          oncommand="euskalbar.openLaguntza();" />
+      </menupopup>
+    </toolbarbutton>
+
+  </toolbarpalette>
+
+</overlay>

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 
+<?xul-overlay href="chrome://euskalbar/content/toolbarbutton/euskalbarButtonOverlay.xul"?>
+
 <?xml-stylesheet href="chrome://euskalbar/skin/euskalbar.css" type="text/css"?>
-<?xml-stylesheet href="chrome://euskalbar/content/euskalgui.css" type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
@@ -11,6 +12,7 @@
   <script type="application/x-javascript" src="euskalbardicts.js"/>
   <script type="application/x-javascript" src="euskalbarcomb.js"/>
   <script type="application/x-javascript" src="euskalbarstats.js"/>
+  <script type="application/x-javascript" src="toolbarbutton/euskalbarButtonOverlay.js"/>
   <!-- Hau oraingoz kanpoan... ea hurrengo bertsioan !
   <script type="application/x-javascript" src="chrome://global/content/nsTransferable.js"/>
   <script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
@@ -36,19 +38,11 @@
     <key id="Euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="euskalbar.teklakEuskalbar('showcontextmenu');"/>
   </keyset>
 
+
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
     <toolbar id="EuskalBar-Toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
     <toolbaritem id="euskalbar-leftbuttons" flex="0">
-      <toolbarbutton id="euskalbar-button" type="menu">
-        <menupopup id="EuskalBar-aukerak-popup">
-          <menuitem id="optionsdialog" label="&euskalbar.prefs.options.label;" tooltiptext="&euskalbar.options.tooltip;" oncommand="euskalbar.euskalbarOptions();"/>
-          <menuitem id="showstatistics" label="&euskalbar.stats.menu;" tooltiptext="&euskalbar.stats.main;" oncommand="euskalbar.showLocalstats();" />
-          <menuseparator />
-          <menuitem id="euskalbar-help" label="&euskalbar.help.label;" oncommand="euskalbar.openLaguntza();"/>
-        </menupopup>
-      </toolbarbutton>
-      <toolbarseparator />
       <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.changeEuskalbarLang();">
         <menupopup id="euskalbar-language-popup">
           <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="euskalbar.setEuskalbarLang('eu', 'es'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>

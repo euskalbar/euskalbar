@@ -55,6 +55,9 @@ var euskalbar = {
         Services.prefs.setCharPref("extensions.euskalbar.installedVersion",
                                    euskalbar.curVersion);
 
+        /* Add Euskalbar button to the navigation bar */
+        euskalbarButton.appendToToolbar();
+
         var file = addon.getResourceURI("").
           QueryInterface(Components.interfaces.nsIFileURL).file;
         euskalbarstats.createEuskalbarStatsFile(file);
@@ -205,8 +208,7 @@ var euskalbar = {
     }
     this.reuseOldtab(hurl, "euskalbarhelp");
   },
-  
-  
+
   // Hiztegien menua erakusten/ezkutatzen du
   showhideDicts: function() {
     var button = document.getElementById('Euskalbar-menu');
