@@ -113,7 +113,7 @@ var euskalbar = {
   // Euskalbar deskargatu: observerra ezabatu
   shutdown: function() {
     this.prefs.removeObserver("", this);
-    document.persist("EuskalBar-Toolbar", "currentset"); 
+    document.persist("euskalbar-toolbar", "currentset");
 
   },
 
@@ -274,6 +274,13 @@ var euskalbar = {
       this.prefs.setCharPref("style.combinedquery", "file://"+fpicker.file.path);
     }
   },
+
+  /* Toggles Euskalbar status */
+  toggleBar: function () {
+    var el = document.getElementById("euskalbar-toolbar");
+    var state = el.collapsed;
+    el.collapsed = !state;
+  },
   
   
   // Laster-teklen aginduak exekutatzen ditu
@@ -284,11 +291,6 @@ var euskalbar = {
       break;
     case "showcontextmenu":
       this.prefs.setBoolPref(prefer+".enabled", !this.prefs.getBoolPref(prefer+".enabled"));
-      break;
-    case "showeuskalbar":
-      var el = document.getElementById("EuskalBar-Toolbar");
-      var state = el.collapsed;
-      el.collapsed = !state;
       break;
     case "focustextbox":
       var el = document.getElementById("EuskalBar-search-string");

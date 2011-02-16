@@ -29,9 +29,14 @@
     <stringbundle id="leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
   </stringbundleset>
 
+  <commandset>
+    <command id="cmd_toggleEuskalbar" oncommand="euskalbar.toggleBar()"/>
+  </commandset>
+
   <!-- Laster-teklak sortzen ditu -->  
   <keyset>
-    <key id="Euskalbar-showeuskalbar" modifiers="control alt" key="a" oncommand="euskalbar.teklakEuskalbar('showeuskalbar');"/>
+    <key id="euskalbar-toggle"
+      modifiers="control alt" key="a" command="cmd_toggleEuskalbar"/>
     <key id="Euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="euskalbar.teklakEuskalbar('focustextbox');"/>
     <key id="Euskalbar-toggledicts" modifiers="control alt" key="z" oncommand="euskalbar.teklakEuskalbar('toggledicts');"/>
     <key id="Euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="euskalbar.teklakEuskalbar('showdicts');"/>
@@ -41,7 +46,7 @@
 
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
-    <toolbar id="EuskalBar-Toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
+    <toolbar id="euskalbar-toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
     <toolbaritem id="euskalbar-leftbuttons" flex="0">
       <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.changeEuskalbarLang();">
         <menupopup id="euskalbar-language-popup">
