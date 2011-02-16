@@ -30,7 +30,7 @@
   </stringbundleset>
 
   <commandset>
-    <command id="cmd_toggleEuskalbar" oncommand="euskalbar.toggleBar()"/>
+    <command id="cmd_toggleEuskalbar" oncommand="euskalbar.toggleBar(event)"/>
   </commandset>
 
   <!-- Laster-teklak sortzen ditu -->  

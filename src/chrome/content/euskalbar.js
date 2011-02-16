@@ -276,7 +276,11 @@ var euskalbar = {
   },
 
   /* Toggles Euskalbar status */
-  toggleBar: function () {
+  toggleBar: function (event) {
+    if (event.target.id != "cmd_toggleEuskalbar") {
+      return;
+    }
+
     var el = document.getElementById("euskalbar-toolbar");
     var state = el.collapsed;
     el.collapsed = !state;
