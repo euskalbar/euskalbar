@@ -25,9 +25,7 @@ var euskalbar = {
                         .getService(Components.interfaces.nsIProperties)
                         .get("ProfD", Components.interfaces.nsIFile),
 
-  prefs: Components.classes["@mozilla.org/preferences-service;1"]
-                .getService(Components.interfaces.nsIPrefService)
-                .getBranch("extensions.euskalbar."),
+  prefs: Services.prefs.getBranch("extensions.euskalbar."),
 
   euskalbar_source: null,
 
@@ -38,9 +36,7 @@ var euskalbar = {
   startup: function() {
 
     // Register to receive notifications of preference changes	
-    this.prefs.QueryInterface(Components.interfaces.nsIPrefBranch2);
-    //Hasieratu observerra
-    this.prefs.addObserver("", this, false);
+    Services.prefs.addObserver("extensions.euskalbar.", this, false);
 
     AddonManager.getAddonByID(this.guid, function(addon) {
       /* Store version information for later use */
@@ -51,9 +47,8 @@ var euskalbar = {
       var infoURL = euskalbar.firstrunURL;
 
       if (firstrun) {
-        Services.prefs.setBoolPref("extensions.euskalbar.firstrun", false);
-        Services.prefs.setCharPref("extensions.euskalbar.installedVersion",
-                                   euskalbar.curVersion);
+        this.prefs.setBoolPref("firstrun", false);
+        this.prefs.setCharPref("installedVersion", euskalbar.curVersion);
 
         /* Add Euskalbar button to the navigation bar */
         euskalbarButton.appendToToolbar();
@@ -112,7 +107,7 @@ var euskalbar = {
 
   // Euskalbar deskargatu: observerra ezabatu
   shutdown: function() {
-    this.prefs.removeObserver("", this);
+    Services.prefs.removeObserver("", this);
     document.persist("euskalbar-toolbar", "currentset");
 
   },
@@ -125,11 +120,10 @@ var euskalbar = {
     }
 
     switch(data) {
-      //Hiztegien menua erakutsi/ezkutatu
-      case "showdicts.enabled":
+      case "extensions.euskalbar.showdicts.enabled":
         this.showhideDicts();
       break;
-      case "showcontextmenu.enabled":
+      case "extensions.euskalbar.showcontextmenu.enabled":
         this.showContextmenu();
       break;
     }
