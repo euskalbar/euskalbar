@@ -98,6 +98,11 @@ var euskalbar = {
     for (i=0; i < hsMenu.length; i++) {
       hsMenu[i].setAttribute('checked',!dicts[i].collapsed);
     }
+
+    // Initialize dictionaries menu in Tools and in Firefox menu
+    var euskalbarMenuPopup = document.getElementById("euskalbar-menuPopup");
+    this.initMenu("euskalbar-menu", euskalbarMenuPopup);
+    this.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
   },
 
 
@@ -122,6 +127,17 @@ var euskalbar = {
         this.showContextmenu();
       break;
     }
+  },
+
+
+  initMenu: function (parentMenuId, popupMenu) {
+    var parentMenu = document.getElementById(parentMenuId);
+
+    if (!parentMenu) {
+      return;
+    }
+
+    parentMenu.appendChild(popupMenu.cloneNode(true));
   },
 
 
@@ -200,11 +216,18 @@ var euskalbar = {
 
   // Hiztegien menua erakusten/ezkutatzen du
   showhideDicts: function() {
-    var button = document.getElementById('Euskalbar-menu');
+    var menuEntry = document.getElementById('euskalbar-menu');
+    var appmenuEntry = document.getElementById("appmenu_euskalbar");
+    var appmenuSpacer = document.getElementById("euskalbar-appmenu-spacer");
+
     if (!this.prefs.getBoolPref("showdicts.enabled")) {
-      button.setAttribute('hidden', true);
+      menuEntry.setAttribute('hidden', true);
+      appmenuEntry.setAttribute('hidden', true);
+      appmenuSpacer.setAttribute('hidden', true);
     } else  {
-      button.removeAttribute('hidden');
+      menuEntry.removeAttribute('hidden');
+      appmenuEntry.removeAttribute('hidden');
+      appmenuSpacer.removeAttribute('hidden');
     }
   },
   

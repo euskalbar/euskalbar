@@ -8,7 +8,7 @@ toolbarbutton[type="menu-button"] > toolbarbutton {
   -moz-box-orient: horizontal ;
 } 
 
-#Euskalbar-menu[hidden="true"] {
+#euskalbar-menu[hidden="true"] {
   display: none !important;
 }
 
@@ -22,7 +22,13 @@ textbox#EuskalBar-search-string {
     -moz-margin-start: -3px;
     border: none;
     -moz-appearance: none;
-} 
+}
+
+/* Firefox menu */
+
+#euskalbar-appmenu-spacer {
+  min-height: 1em;
+}
 
 /* Euskalbar button */
 

@@ -6,7 +6,7 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
-<overlay id="EuskalBar-Overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
   <script type="application/x-javascript" src="euskalbar.js"/>
   <script type="application/x-javascript" src="euskalbardicts.js"/>
@@ -132,41 +132,123 @@
   </toolbox>
 
 
-  <!-- Hide/show buttons context menupopup right-click -->
   <window id="main-window">
-    <menupopup id="Euskalbar-hsButtons">
-      <menuitem id="Euskalbar-hs-euskalterm" type="checkbox" persist="checked" label="Euskalterm" oncommand="document.getElementById('EuskalBar-Search').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-elhuyar" type="checkbox" persist="checked" label="Elhuyar" oncommand="document.getElementById('EuskalBar-Elhuyar').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-3000" type="checkbox" persist="checked" label="3000 Hiztegia" oncommand="document.getElementById('EuskalBar-Ask').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-labayru" type="checkbox" persist="checked" label="Labayru" oncommand="document.getElementById('EuskalBar-Labayru').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-zehazki" type="checkbox" persist="checked" label="Zehazki" oncommand="document.getElementById('EuskalBar-Zehazki').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-zthiztegia" type="checkbox" persist="checked" label="ZT Hiztegia" oncommand="document.getElementById('EuskalBar-ZTHiztegia').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-energia" type="checkbox" persist="checked" label="Energia" oncommand="document.getElementById('EuskalBar-Energia').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-telekom" type="checkbox" persist="checked" label="Telekomunikazioak" oncommand="document.getElementById('EuskalBar-Telekom').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-morris" type="checkbox" persist="checked" label="Morris" oncommand="document.getElementById('EuskalBar-Morris').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-opentran" type="checkbox" persist="checked" label="Opentran" oncommand="document.getElementById('EuskalBar-Opentran').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-goihata" type="checkbox" persist="checked" label="Goihata" oncommand="document.getElementById('EuskalBar-Goihata').collapsed = !this.hasAttribute('checked');"/>
-      <menuseparator/>
-      <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-oeh" type="checkbox" persist="checked" label="OEH" oncommand="document.getElementById('EuskalBar-OEH').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-wikipedia" type="checkbox" persist="checked" label="Wikipedia" oncommand="document.getElementById('EuskalBar-Wikipedia').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-bergara" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="EPG" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-klasikoak" type="checkbox" persist="checked" label="Klasikoak" oncommand="document.getElementById('EuskalBar-Klasikoak').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-lb" type="checkbox" persist="checked" label="Lexikoaren Behatokia" oncommand="document.getElementById('EuskalBar-LB').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-consumer" type="checkbox" persist="checked" label="Consumer Corpusa" oncommand="document.getElementById('EuskalBar-Consumer').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
-      <menuitem id="Euskalbar-hs-elebila" type="checkbox" persist="checked" label="Elebila" oncommand="document.getElementById('EuskalBar-Elebila').collapsed = !this.hasAttribute('checked');"/>
-    </menupopup>
+      <!-- Dictionaries menu -->
+      <menupopup id="euskalbar-menuPopup">
+          <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
+              <menupopup id="Euskalbar-subpopup1">
+                  <menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="euskalbar.openURL('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');" />
+                  <menuitem label="&euskalbar.menu.oeh;" oncommand="euskalbar.openURL('http://www.euskaltzaindia.net/oeh', 'oeh');" />
+                  <menuseparator/>
+                  <menuitem label="&euskalbar.menu.euskalterm;" oncommand="euskalbar.openURL('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');" />
+                  <menuitem label="&euskalbar.menu.3000;" oncommand="euskalbar.openURL('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');" />
+                  <menuitem label="&euskalbar.menu.elhuyar;" oncommand="euskalbar.openURL('http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta', 'elhuyar');"/>
+                  <menuitem label="&euskalbar.menu.labayru;" oncommand="euskalbar.openURL('http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp', 'labayru');"/>
+                  <menuitem label="&euskalbar.menu.zehazki;" oncommand="euskalbar.openURL('http://ehu.es/ehg/zehazki/', 'zehazki');"/>
+                  <menuitem label="&euskalbar.menu.bfa_term;" oncommand="euskalbar.openURL('http://apli.bizkaia.net/apps/danok/imiw/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
+                  <menuseparator/>
+                  <menuitem label="&euskalbar.menu.morris;" oncommand="euskalbar.openURL('http://www1.euskadi.net/morris/indice_e.htm', 'morris');" />
+                  <menuitem label="&euskalbar.menu.opentran;" oncommand="euskalbar.openURL('http://eu.open-tran.eu', 'open-tran');" />
+                  <menuseparator />
+                  <menuitem label="&euskalbar.menu.lagun20;" oncommand="euskalbar.openURL('http://www.hiztegia.org', 'lagun20');" />
+                  <menuitem label="&euskalbar.menu.goihata;" oncommand="euskalbar.openURL('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
+              </menupopup>
+          </menu>
+          <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">
+              <menupopup id="Euskalbar-subpopup2">
+                  <menuitem label="&euskalbar.menu.sinonimoenhizt;" oncommand="euskalbar.openURL('http://www1.euskadi.net/hizt_sinon/indice_e.htm', 'hizt_sinon');" />
+                  <menuitem label="&euskalbar.menu.uzeisinonim;" oncommand="euskalbar.openURL('http://www.uzei.com/estatico/sinonimos.asp', 'uzei.com/estatico');" />
+                  <menuitem label="&euskalbar.menu.eurovoc;" oncommand="euskalbar.openURL('http://www.bizkaia.net/kultura/eurovoc/index.asp', 'eurovoc');" />
+              </menupopup>
+          </menu>
+          <menu id="Euskalbar-entzik" label="&euskalbar.menu.entziklopediak;">
+              <menupopup id="Euskalbar-subpopup3">
+                  <menuitem label="&euskalbar.menu.aunam;" oncommand="euskalbardicts.goEuskalBarOthers('SAunamendi');"/>
+                  <menuitem label="&euskalbar.menu.harluxet;" oncommand="euskalbar.openURL('http://www1.euskadi.net/harluxet', 'harluxet');" />
+                  <menuitem label="&euskalbar.menu.wikipedia;" oncommand="euskalbar.openURL('http://eu.wikipedia.org', 'wikipedia');" />
+                  <menuitem label="&euskalbar.menu.zthiztegia;" oncommand="euskalbar.openURL('http://zthiztegia.elhuyar.org', 'zthiztegia');"/>
+              </menupopup>
+          </menu>
+          <menu id="Euskalbar-thematics" label="&euskalbar.menu.thematics;">
+              <menupopup id="Euskalbar-subpopup4">
+                  <menuitem label="&euskalbar.menu.drugs;" oncommand="euskalbar.openURL('http://www.drogomedia.com/eus/diccionario.php', 'drogomedia');" />
+                  <menuitem label="&euskalbar.menu.energy;" oncommand="euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia');" />
+                  <menuitem label="&euskalbar.menu.management;" oncommand="euskalbar.openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
+                  <menuitem label="&euskalbar.menu.industry;" oncommand="euskalbar.openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');" />
+                  <menuitem label="&euskalbar.menu.industry2;" oncommand="euskalbar.openURL('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
+                  <menuitem label="&euskalbar.menu.environment;" oncommand="euskalbar.openURL('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');" />
+                  <menuitem label="&euskalbar.menu.internet;" oncommand="euskalbar.openURL('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');" />
+                  <menuitem label="&euskalbar.menu.justice;" oncommand="euskalbar.openURL('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');" />
+                  <menuitem label="&euskalbar.menu.catalogues;" oncommand="euskalbardicts.goEuskalBarOthers('kapsula');" />
+                  <menuitem label="&euskalbar.menu.parliament;" oncommand="euskalbar.openURL('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');" />
+                  <menuitem label="&euskalbar.menu.health;" oncommand="euskalbardicts.goEuskalBarOthers('oeegunea');" />
+                  <menuitem label="&euskalbar.menu.cooking;" oncommand="euskalbar.openURL('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
+                  <menuitem label="&euskalbar.menu.teleco;" oncommand="euskalbar.openURL('http://www.telekomunikaziohiztegia.org', 'telekomunikaziohiztegia');" />
+                  <menuitem label="&euskalbar.menu.science;" oncommand="euskalbar.openURL('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');" />
+              </menupopup>
+          </menu>
+          <menu id="Euskalbar-towns" label="&euskalbar.menu.towns;">
+              <menupopup id="Euskalbar-subpopup6">
+                  <menuitem label="&euskalbar.menu.bergara;" oncommand="euskalbar.openURL('http://www.netkam.com/i/bergara/hiztegia/arakatu', 'netkam');" />
+                  <menuitem label="&euskalbar.menu.eibar;" oncommand="euskalbar.openURL('http://www.eibarko-euskara.com', 'eibarko-euskara');" />
+              </menupopup>
+          </menu>
+          <menu id="Euskalbar-corpusa" label="&euskalbar.menu.corpus;">
+              <menupopup id="Euskalbar-subpopup5">
+                  <menuitem label="&euskalbar.menu.mokoroa;" oncommand="euskalbar.openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');" />
+                  <menuitem label="&euskalbar.menu.intza;" oncommand="euskalbar.openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');" />
+                  <menuitem label="&euskalbar.menu.garate;" oncommand="euskalbar.openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');" />
+                  <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="euskalbar.openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
+                  <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="euskalbar.openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
+                  <menuitem label="&euskalbar.menu.klasikoak;" oncommand="euskalbar.openURL('http://klasikoak.armiarma.com/corpus.htm', 'klasikoak');"/>
+                  <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="euskalbar.openURL('http://www.ztcorpusa.net','ztcorpusa');" />
+                  <menuitem label="&euskalbar.menu.lb;" oncommand="euskalbar.openURL('http://lexikoarenbehatokia.euskaltzaindia.net','lb');" />
+                  <menuitem label="&euskalbar.menu.consumer;" oncommand="euskalbar.openURL('http://corpus.consumer.es/corpus/','consumer');" />
+                  <menuitem label="&euskalbar.menu.corpeus;" oncommand="euskalbar.openURL('http://www.corpeus.org','corpeus');" />
+              </menupopup>
+          </menu>
+          <menu id="Euskalbar-search" label="&euskalbar.menu.search;">
+              <menupopup id="Euskalbar-subpopup7">
+                  <menuitem label="&euskalbar.menu.elebila;" oncommand="euskalbar.openURL('http://www.elebila.eu', 'elebila');"/>
+              </menupopup>
+          </menu>
+      </menupopup>
+
+
+      <!-- Hide/show buttons context menupopup right-click -->
+      <menupopup id="Euskalbar-hsButtons">
+          <menuitem id="Euskalbar-hs-euskalterm" type="checkbox" persist="checked" label="Euskalterm" oncommand="document.getElementById('EuskalBar-Search').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-elhuyar" type="checkbox" persist="checked" label="Elhuyar" oncommand="document.getElementById('EuskalBar-Elhuyar').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-3000" type="checkbox" persist="checked" label="3000 Hiztegia" oncommand="document.getElementById('EuskalBar-Ask').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-labayru" type="checkbox" persist="checked" label="Labayru" oncommand="document.getElementById('EuskalBar-Labayru').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-zehazki" type="checkbox" persist="checked" label="Zehazki" oncommand="document.getElementById('EuskalBar-Zehazki').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-zthiztegia" type="checkbox" persist="checked" label="ZT Hiztegia" oncommand="document.getElementById('EuskalBar-ZTHiztegia').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-energia" type="checkbox" persist="checked" label="Energia" oncommand="document.getElementById('EuskalBar-Energia').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-telekom" type="checkbox" persist="checked" label="Telekomunikazioak" oncommand="document.getElementById('EuskalBar-Telekom').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-morris" type="checkbox" persist="checked" label="Morris" oncommand="document.getElementById('EuskalBar-Morris').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-opentran" type="checkbox" persist="checked" label="Opentran" oncommand="document.getElementById('EuskalBar-Opentran').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-goihata" type="checkbox" persist="checked" label="Goihata" oncommand="document.getElementById('EuskalBar-Goihata').collapsed = !this.hasAttribute('checked');"/>
+          <menuseparator/>
+          <menuitem id="Euskalbar-hs-batua" type="checkbox" persist="checked" label="Batua" oncommand="document.getElementById('EuskalBar-Euskaltzaindia').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-oeh" type="checkbox" persist="checked" label="OEH" oncommand="document.getElementById('EuskalBar-OEH').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-adorez" type="checkbox" persist="checked" label="&euskalbar.adorez.tooltip;" oncommand="document.getElementById('EuskalBar-Adorez').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-uzei" type="checkbox" persist="checked" label="&euskalbar.uzei.tooltip;" oncommand="document.getElementById('EuskalBar-UZEI').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-itzul" type="checkbox" persist="checked" label="ItzuL" oncommand="document.getElementById('EuskalBar-ItzuL').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-harluxet" type="checkbox" persist="checked" label="Harluxet" oncommand="document.getElementById('EuskalBar-Harluxet').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-wikipedia" type="checkbox" persist="checked" label="Wikipedia" oncommand="document.getElementById('EuskalBar-Wikipedia').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-mokoroa" type="checkbox" persist="checked" label="Mokoroa" oncommand="document.getElementById('EuskalBar-Mokoroa').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-intza" type="checkbox" persist="checked" label="Intza" oncommand="document.getElementById('EuskalBar-Intza').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-eurovoc" type="checkbox" persist="checked" label="Eurovoc" oncommand="document.getElementById('EuskalBar-Eurovoc').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-bergara" type="checkbox" persist="checked" label="Bergara" oncommand="document.getElementById('EuskalBar-Bergara').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-ereduzko" type="checkbox" persist="checked" label="EPG" oncommand="document.getElementById('EuskalBar-Ereduzko').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-klasikoak" type="checkbox" persist="checked" label="Klasikoak" oncommand="document.getElementById('EuskalBar-Klasikoak').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-ztcorpusa" type="checkbox" persist="checked" label="ZT Corpusa" oncommand="document.getElementById('EuskalBar-ZTCorpusa').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-lb" type="checkbox" persist="checked" label="Lexikoaren Behatokia" oncommand="document.getElementById('EuskalBar-LB').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-consumer" type="checkbox" persist="checked" label="Consumer Corpusa" oncommand="document.getElementById('EuskalBar-Consumer').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-corpeus" type="checkbox" persist="checked" label="CorpEus" oncommand="document.getElementById('EuskalBar-CorpEus').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-xuxenweb" type="checkbox" persist="checked" label="XUXENweb" oncommand="document.getElementById('EuskalBar-XUXENweb').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-elebila" type="checkbox" persist="checked" label="Elebila" oncommand="document.getElementById('EuskalBar-Elebila').collapsed = !this.hasAttribute('checked');"/>
+      </menupopup>
   </window>
 
 
@@ -472,89 +554,22 @@
   </popup>
 
 
-  <!-- Firefox main menu dictionaries -->
+  <!-- Firefox menubar -->
   <menubar id="main-menubar">
-      <menu id="Euskalbar-menu" class="Euskalbar-menu" label="&euskalbar.menu.main;" insertafter="tools-menu" persist="hidden">
-        <menupopup id="Euskalbar-popup">
-          <menu id="Euskalbar-general" label="&euskalbar.menu.general;">
-            <menupopup id="Euskalbar-subpopup1">
-          	<menuitem label="&euskalbar.menu.euskaltzaindia;" oncommand="euskalbar.openURL('http://www.euskaltzaindia.net/hiztegibatua', 'hiztegibatua');" />
-          	<menuitem label="&euskalbar.menu.oeh;" oncommand="euskalbar.openURL('http://www.euskaltzaindia.net/oeh', 'oeh');" />
-        	<menuseparator/>
-          	<menuitem label="&euskalbar.menu.euskalterm;" oncommand="euskalbar.openURL('http://www1.euskadi.net/euskalterm/indice_e.htm', 'euskalterm');" />
-          	<menuitem label="&euskalbar.menu.3000;" oncommand="euskalbar.openURL('http://www1.euskadi.net/hizt_3000/indice_e.htm', 'hizt_3000');" />
-          	<menuitem label="&euskalbar.menu.elhuyar;" oncommand="euskalbar.openURL('http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta', 'elhuyar');"/>
-          	<menuitem label="&euskalbar.menu.labayru;" oncommand="euskalbar.openURL('http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp', 'labayru');"/>
-          	<menuitem label="&euskalbar.menu.zehazki;" oncommand="euskalbar.openURL('http://ehu.es/ehg/zehazki/', 'zehazki');"/>
-          	<menuitem label="&euskalbar.menu.bfa_term;" oncommand="euskalbar.openURL('http://apli.bizkaia.net/apps/danok/imiw/euskara/euHiztegiSarrera.asp', 'bfa_term');"/>
-        	<menuseparator/>
-          	<menuitem label="&euskalbar.menu.morris;" oncommand="euskalbar.openURL('http://www1.euskadi.net/morris/indice_e.htm', 'morris');" />
-          	<menuitem label="&euskalbar.menu.opentran;" oncommand="euskalbar.openURL('http://eu.open-tran.eu', 'open-tran');" />
-          	<menuseparator />
-          	<menuitem label="&euskalbar.menu.lagun20;" oncommand="euskalbar.openURL('http://www.hiztegia.org', 'lagun20');" />
-          	<menuitem label="&euskalbar.menu.goihata;" oncommand="euskalbar.openURL('http://www.goihata.com/eu/japoniera-hiztegia/', 'goihata');" />
-            </menupopup>
-  	      </menu>
-          <menu id="Euskalbar-sinonimoak" label="&euskalbar.menu.sinonimoak;">
-            <menupopup id="Euskalbar-subpopup2">
-            <menuitem label="&euskalbar.menu.sinonimoenhizt;" oncommand="euskalbar.openURL('http://www1.euskadi.net/hizt_sinon/indice_e.htm', 'hizt_sinon');" />
-            <menuitem label="&euskalbar.menu.uzeisinonim;" oncommand="euskalbar.openURL('http://www.uzei.com/estatico/sinonimos.asp', 'uzei.com/estatico');" />
-            <menuitem label="&euskalbar.menu.eurovoc;" oncommand="euskalbar.openURL('http://www.bizkaia.net/kultura/eurovoc/index.asp', 'eurovoc');" />
-            </menupopup>
-          </menu>
-          <menu id="Euskalbar-entzik" label="&euskalbar.menu.entziklopediak;">
-            <menupopup id="Euskalbar-subpopup3">
-            <menuitem label="&euskalbar.menu.aunam;" oncommand="euskalbardicts.goEuskalBarOthers('SAunamendi');"/>
-            <menuitem label="&euskalbar.menu.harluxet;" oncommand="euskalbar.openURL('http://www1.euskadi.net/harluxet', 'harluxet');" />
-            <menuitem label="&euskalbar.menu.wikipedia;" oncommand="euskalbar.openURL('http://eu.wikipedia.org', 'wikipedia');" />
-            <menuitem label="&euskalbar.menu.zthiztegia;" oncommand="euskalbar.openURL('http://zthiztegia.elhuyar.org', 'zthiztegia');"/>
-            </menupopup>
-          </menu>
-          <menu id="Euskalbar-thematics" label="&euskalbar.menu.thematics;">
-            <menupopup id="Euskalbar-subpopup4">
-            <menuitem label="&euskalbar.menu.drugs;" oncommand="euskalbar.openURL('http://www.drogomedia.com/eus/diccionario.php', 'drogomedia');" />
-            <menuitem label="&euskalbar.menu.energy;" oncommand="euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia');" />
-            <menuitem label="&euskalbar.menu.management;" oncommand="euskalbar.openURL('http://www.clusterconocimiento.com/redir/cluster/3350/Default.aspx', 'clusterconocimiento');"/>
-            <menuitem label="&euskalbar.menu.industry;" oncommand="euskalbar.openURL('http://www.kondia.com/hiztegi/home.htm', 'kondia');" />
-            <menuitem label="&euskalbar.menu.industry2;" oncommand="euskalbar.openURL('http://clientes.incress.com:9080/imh/diccionario_entorno/', 'industria');" />
-            <menuitem label="&euskalbar.menu.environment;" oncommand="euskalbar.openURL('http://www.eionet.europa.eu/gemet/index_html?langcode=eu', 'eionet');" />
-            <menuitem label="&euskalbar.menu.internet;" oncommand="euskalbar.openURL('http://lg.msn.com/intl/eu/tutorial/glossary.htm', 'lg.msn.com');" />
-            <menuitem label="&euskalbar.menu.justice;" oncommand="euskalbar.openURL('http://www.justizia.net/uzei/idazki/lexiko/lexikoa.htm', 'justizia');" />
-            <menuitem label="&euskalbar.menu.catalogues;" oncommand="euskalbardicts.goEuskalBarOthers('kapsula');" />
-            <menuitem label="&euskalbar.menu.parliament;" oncommand="euskalbar.openURL('http://parlamento.euskadi.net/pfrm_cm_hiztegie.html', 'parlamento');" />
-            <menuitem label="&euskalbar.menu.health;" oncommand="euskalbardicts.goEuskalBarOthers('oeegunea');" />
-            <menuitem label="&euskalbar.menu.cooking;" oncommand="euskalbar.openURL('http://www.bagera.net/Bageranet/Ziberteka/Gastronomia/Sukaldehiztegia', 'Sukaldehiztegia');"/>
-            <menuitem label="&euskalbar.menu.teleco;" oncommand="euskalbar.openURL('http://www.telekomunikaziohiztegia.org', 'telekomunikaziohiztegia');" />
-            <menuitem label="&euskalbar.menu.science;" oncommand="euskalbar.openURL('http://www.zientzia.net/hiztegia/index.asp', 'zientzia');" />
-            </menupopup>
-          </menu>
-          <menu id="Euskalbar-towns" label="&euskalbar.menu.towns;">
-            <menupopup id="Euskalbar-subpopup6">
-            <menuitem label="&euskalbar.menu.bergara;" oncommand="euskalbar.openURL('http://www.netkam.com/i/bergara/hiztegia/arakatu', 'netkam');" />
-            <menuitem label="&euskalbar.menu.eibar;" oncommand="euskalbar.openURL('http://www.eibarko-euskara.com', 'eibarko-euskara');" />
-            </menupopup>
-          </menu>
-          <menu id="Euskalbar-corpusa" label="&euskalbar.menu.corpus;">
-            <menupopup id="Euskalbar-subpopup5">
-            <menuitem label="&euskalbar.menu.mokoroa;" oncommand="euskalbar.openURL('http://www.hiru.com/hiztegiak/mokoroa', 'mokoroa');" />
-            <menuitem label="&euskalbar.menu.intza;" oncommand="euskalbar.openURL('http://intza.armiarma.com/cgi-bin/bilatu2.pl', 'intza');" />
-            <menuitem label="&euskalbar.menu.garate;" oncommand="euskalbar.openURL('http://www.ametza.com/bbk/htdocs/garate.htm', 'ametza');" />
-            <menuitem label="&euskalbar.menu.euskaracorpusa;" oncommand="euskalbar.openURL('http://www.euskaracorpusa.net/XXmendea/Konts_arrunta_fr.html', 'euskaracorpusa');"/>
-            <menuitem label="&euskalbar.menu.ereduzkoa;" oncommand="euskalbar.openURL('http://www.ehu.es/euskara-orria/euskara/ereduzkoa/araka.html', 'ereduzkoa');"/>
-            <menuitem label="&euskalbar.menu.klasikoak;" oncommand="euskalbar.openURL('http://klasikoak.armiarma.com/corpus.htm', 'klasikoak');"/>
-            <menuitem label="&euskalbar.menu.ztcorpusa;" oncommand="euskalbar.openURL('http://www.ztcorpusa.net','ztcorpusa');" />
-            <menuitem label="&euskalbar.menu.lb;" oncommand="euskalbar.openURL('http://lexikoarenbehatokia.euskaltzaindia.net','lb');" />
-            <menuitem label="&euskalbar.menu.consumer;" oncommand="euskalbar.openURL('http://corpus.consumer.es/corpus/','consumer');" />
-            <menuitem label="&euskalbar.menu.corpeus;" oncommand="euskalbar.openURL('http://www.corpeus.org','corpeus');" />
-            </menupopup>
-          </menu>
-          <menu id="Euskalbar-search" label="&euskalbar.menu.search;">
-            <menupopup id="Euskalbar-subpopup7">
-            <menuitem label="&euskalbar.menu.elebila;" oncommand="euskalbar.openURL('http://www.elebila.eu', 'elebila');"/>
-            </menupopup>
-          </menu>
-        </menupopup>
+      <menu id="euskalbar-menu" label="&euskalbar.menu.main;"
+            insertafter="tools-menu" persist="hidden">
+          <!-- Content comes from euskalbar-menuPopup -->
       </menu>
   </menubar>
+
+  <!-- Firefox menu -->
+  <vbox id="appmenuSecondaryPane">
+      <menu id="appmenu_euskalbar" label="&euskalbar.menu.main;"
+            insertbefore="appmenu_addons" persist="hidden">
+          <!-- Content comes from euskalbar-menuPopup -->
+      </menu>
+      <spacer id="euskalbar-appmenu-spacer"
+              insertafter="appmenu_euskalbar" persist="hidden"/>
+  </vbox>
 
 </overlay>
