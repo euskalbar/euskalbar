@@ -9,8 +9,7 @@ var euskalbarstats = {
 
     //Euskalbarren direktorioa sortzen du erabiltzailearen profilean eta horren barruan stats.rdf fitxategia (existitzen ez bada)
     createEuskalbarStatsFile: function(file){
-        var dir1 = Components.classes["@mozilla.org/file/directory_service;1"].
-                   getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
+        var dir1 = euskalbar.profileURI;
         dir1.append("euskalbar");
         if (!dir1.exists()) {
             dir1.create(0x01, 0755);

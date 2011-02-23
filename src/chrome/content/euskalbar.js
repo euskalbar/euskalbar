@@ -17,9 +17,7 @@ var euskalbar = {
   firstrunURL: "http://euskalbar.eu/firstrun",
 
   // URI of the current user's profile directory
-  profileURI: Components.classes["@mozilla.org/file/directory_service;1"]
-                        .getService(Components.interfaces.nsIProperties)
-                        .get("ProfD", Components.interfaces.nsIFile),
+  profileURI: Services.dirsvc.get("ProfD", Components.interfaces.nsIFile),
 
   prefs: Services.prefs.getBranch("extensions.euskalbar."),
 
