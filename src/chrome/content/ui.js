@@ -1,6 +1,14 @@
 
 euskalbar.ui = {
 
+  /* Euskalbar UI initialization */
+  init: function () {
+    // Dictionaries menu in Tools and in Firefox menu
+    var euskalbarMenuPopup = document.getElementById("euskalbar-menuPopup");
+    this.initMenu("euskalbar-menu", euskalbarMenuPopup);
+    this.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
+  },
+
   /* Appends the Euskalbar button to the navigation bar */
   appendButtonToToolbar: function() {
     // Get the current navigation bar button set (a string of button IDs) and append

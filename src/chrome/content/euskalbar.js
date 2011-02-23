@@ -106,10 +106,7 @@ euskalbar = {
       hsMenu[i].setAttribute('checked', !dicts[i].collapsed);
     }
 
-    // Initialize dictionaries menu in Tools and in Firefox menu
-    var euskalbarMenuPopup = document.getElementById("euskalbar-menuPopup");
-    euskalbar.ui.initMenu("euskalbar-menu", euskalbarMenuPopup);
-    euskalbar.ui.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
+    euskalbar.ui.init();
   },
 
 
