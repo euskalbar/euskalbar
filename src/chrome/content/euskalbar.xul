@@ -12,7 +12,7 @@
   <script type="application/x-javascript" src="euskalbardicts.js"/>
   <script type="application/x-javascript" src="euskalbarcomb.js"/>
   <script type="application/x-javascript" src="euskalbarstats.js"/>
-  <script type="application/x-javascript" src="toolbarbutton/euskalbarButtonOverlay.js"/>
+  <script type="application/x-javascript" src="ui.js"/>
 
   <!-- Nabigatzailea kargatzean hasieratze funtzioari deitu -->
   <script type="application/x-javascript">

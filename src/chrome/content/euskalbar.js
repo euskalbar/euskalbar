@@ -11,7 +11,8 @@
 
 Components.utils.import("resource://gre/modules/Services.jsm");
 
-var euskalbar = {
+euskalbar = {
+
   guid: "euskalbar@euskalbar.eu",
 
   firstrunURL: "http://euskalbar.eu/firstrun",
@@ -62,7 +63,7 @@ var euskalbar = {
            * This behaviour MUST be changed just after releasing 3.9.
            */
           /* Add Euskalbar button to the navigation bar */
-          euskalbarButton.appendToToolbar();
+          euskalbar.UI.appendButtonToToolbar();
 
           var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
 
@@ -107,8 +108,8 @@ var euskalbar = {
 
     // Initialize dictionaries menu in Tools and in Firefox menu
     var euskalbarMenuPopup = document.getElementById("euskalbar-menuPopup");
-    this.initMenu("euskalbar-menu", euskalbarMenuPopup);
-    this.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
+    euskalbar.UI.initMenu("euskalbar-menu", euskalbarMenuPopup);
+    euskalbar.UI.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
   },
 
 
@@ -133,17 +134,6 @@ var euskalbar = {
       this.showContextmenu();
       break;
     }
-  },
-
-
-  initMenu: function (parentMenuId, popupMenu) {
-    var parentMenu = document.getElementById(parentMenuId);
-
-    if (!parentMenu) {
-      return;
-    }
-
-    parentMenu.appendChild(popupMenu.cloneNode(true));
   },
 
 

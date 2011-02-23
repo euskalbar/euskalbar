@@ -1,7 +1,8 @@
-var euskalbarButton = {
+
+euskalbar.UI = {
 
   /* Appends the Euskalbar button to the navigation bar */
-  appendToToolbar: function() {
+  appendButtonToToolbar: function() {
     // Get the current navigation bar button set (a string of button IDs) and append
     // the ID of the Euskalbar button into it
     var euskalbarButtonId = "euskalbar-button";
@@ -29,4 +30,17 @@ var euskalbarButton = {
     document.persist(navBarId, "collapsed");
   },
 
-}
+
+  /* Initializes a menu with id 'parentMenuId' by recursively cloning
+   * the 'popupMenu' DOM node */
+  initMenu: function (parentMenuId, popupMenu) {
+    var parentMenu = document.getElementById(parentMenuId);
+
+    if (!parentMenu) {
+      return;
+    }
+
+    parentMenu.appendChild(popupMenu.cloneNode(true));
+  },
+
+};
