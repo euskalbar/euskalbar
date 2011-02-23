@@ -52,7 +52,7 @@ euskalbar = {
 
         var file = addon.getResourceURI("").
         QueryInterface(Components.interfaces.nsIFileURL).file;
-        euskalbarstats.createEuskalbarStatsFile(file);
+        euskalbar.stats.createEuskalbarStatsFile(file);
 
         openInfo = true;
       } else {
@@ -490,85 +490,85 @@ euskalbar = {
         try {
           if (this.prefs.getBoolPref("euskalterm." + k + "." + l)) {
             euskalbarcomb.getShiftEuskalterm(this.source, searchStr);
-            euskalbarstats.writeStats(0);
+            euskalbar.stats.writeStats(0);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("elhuyar." + k + "." + l)) {
             euskalbarcomb.getShiftElhuyar(this.source, this.target, searchStr);
-            euskalbarstats.writeStats(1);
+            euskalbar.stats.writeStats(1);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("3000." + k + "." + l)) {
             euskalbarcomb.getShift3000(this.source, searchStr);
-            euskalbarstats.writeStats(2);
+            euskalbar.stats.writeStats(2);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
             euskalbarcomb.getShiftLabayru(this.source, searchStr);
-            euskalbarstats.writeStats(22);
+            euskalbar.stats.writeStats(22);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("zthiztegia." + k + "." + l)) {
             euskalbarcomb.getShiftZTHiztegia(this.source, searchStr);
-            euskalbarstats.writeStats(25);
+            euskalbar.stats.writeStats(25);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("energia." + k + "." + l)) {
             euskalbarcomb.getShiftEnergia(this.source, searchStr);
-            euskalbarstats.writeStats(26);
+            euskalbar.stats.writeStats(26);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
             euskalbarcomb.getShiftTelekom(this.source, searchStr);
-            euskalbarstats.writeStats(27);
+            euskalbar.stats.writeStats(27);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("batua." + k + "." + l)) {
             euskalbarcomb.getShiftEuskaltzaindia(this.source, searchStr);
-            euskalbarstats.writeStats(5);
+            euskalbar.stats.writeStats(5);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("uzei." + k + "." + l)) {
             euskalbarcomb.getShiftUZEI(this.source, searchStr);
-            euskalbarstats.writeStats(6);
+            euskalbar.stats.writeStats(6);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("adorez." + k + "." + l)) {
             euskalbarcomb.getShiftAdorez(this.source, searchStr);
-            euskalbarstats.writeStats(7);
+            euskalbar.stats.writeStats(7);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("mokoroa." + k + "." + l)) {
             euskalbarcomb.getShiftMokoroa(this.source, searchStr);
-            euskalbarstats.writeStats(11);
+            euskalbar.stats.writeStats(11);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("intza." + k + "." + l)) {
             euskalbarcomb.getShiftIntza(this.source, searchStr);
-            euskalbarstats.writeStats(12);
+            euskalbar.stats.writeStats(12);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("morris." + k + "." + l)) {
             euskalbarcomb.getShiftMorris(this.source, searchStr);
-            euskalbarstats.writeStats(3);
+            euskalbar.stats.writeStats(3);
           }
         } catch (err) {}
         try {
           if (this.prefs.getBoolPref("opentran." + k + "." + l)) {
             euskalbarcomb.getShiftOpentran(this.source, searchStr);
-            euskalbarstats.writeStats(4);
+            euskalbar.stats.writeStats(4);
           }
         } catch (err) {}
 

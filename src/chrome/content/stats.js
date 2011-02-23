@@ -5,7 +5,7 @@ This is Free Software (GPL License)
 asarasua@vitoria-gasteiz.org
 */
 
-var euskalbarstats = {
+euskalbar.stats = {
 
   /* Euskalbarren direktorioa sortzen du erabiltzailearen profilean eta
    * horren barruan stats.rdf fitxategia (existitzen ez bada) */
