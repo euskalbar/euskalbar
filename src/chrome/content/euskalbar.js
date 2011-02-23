@@ -63,7 +63,7 @@ euskalbar = {
            * This behaviour MUST be changed just after releasing 3.9.
            */
           /* Add Euskalbar button to the navigation bar */
-          euskalbar.UI.appendButtonToToolbar();
+          euskalbar.ui.appendButtonToToolbar();
 
           var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
 
@@ -108,8 +108,8 @@ euskalbar = {
 
     // Initialize dictionaries menu in Tools and in Firefox menu
     var euskalbarMenuPopup = document.getElementById("euskalbar-menuPopup");
-    euskalbar.UI.initMenu("euskalbar-menu", euskalbarMenuPopup);
-    euskalbar.UI.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
+    euskalbar.ui.initMenu("euskalbar-menu", euskalbarMenuPopup);
+    euskalbar.ui.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
   },
 
 

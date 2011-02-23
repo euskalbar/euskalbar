@@ -1,5 +1,5 @@
 
-euskalbar.UI = {
+euskalbar.ui = {
 
   /* Appends the Euskalbar button to the navigation bar */
   appendButtonToToolbar: function() {
