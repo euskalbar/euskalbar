@@ -4,7 +4,7 @@
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 
-var euskalbarcomb = {
+euskalbar.comb = {
 
   // Euskalterm kargatu
   getShiftEuskalterm: function (source, term) {
@@ -183,13 +183,13 @@ var euskalbarcomb = {
               for (i in arrayElhuyar) {
                 var estekakohitza = arrayElhuyar[i].split(">")[1];
                 estekakohitza = estekakohitza.split("<")[0];
-                estekakohitza2 = euskalbarcomb.normalizatuetaminuskularatu(estekakohitza);
-                jatorrizkoa2 = euskalbarcomb.normalizatuetaminuskularatu(jatorrizkoa);
+                estekakohitza2 = euskalbar.comb.normalizatuetaminuskularatu(estekakohitza);
+                jatorrizkoa2 = euskalbar.comb.normalizatuetaminuskularatu(jatorrizkoa);
                 var params = arrayElhuyar[i].split("\"")[0];
                 params = params.replace(/amp\;/g, "");
                 if (estekakohitza2 == jatorrizkoa2 || estekakohitza2 == '1 ' + jatorrizkoa2 || estekakohitza2 == '2 ' + jatorrizkoa2 || estekakohitza2 == '3 ' + jatorrizkoa2 || estekakohitza2 == '4 ' + jatorrizkoa2 || estekakohitza2 == '5 ' + jatorrizkoa2 || estekakohitza2 == '6 ' + jatorrizkoa2 || estekakohitza2 == '7 ' + jatorrizkoa2 || estekakohitza2 == '8 ' + jatorrizkoa2 || estekakohitza2 == '9 ' + jatorrizkoa2 || estekakohitza2 == '10 ' + jatorrizkoa2) {
                   badago = 1;
-                  euskalbarcomb.getsubShiftElhuyar(params, 1);
+                  euskalbar.comb.getsubShiftElhuyar(params, 1);
                 }
               }
               if (badago == 0) {
@@ -259,7 +259,7 @@ var euskalbarcomb = {
             clearTimeout(requestTimer);
             txtElhuyar = xmlHttpReq.responseText;
             //Elhuyarren katea manipulatzen duen funtzioari deitu
-            txtElhuyar1 = euskalbarcomb.manipulateElhuyar(txtElhuyar);
+            txtElhuyar1 = euskalbar.comb.manipulateElhuyar(txtElhuyar);
             //Emaitza HTMLan kargatu
             getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML + txtElhuyar1;
             if (azpi == 1) {
@@ -271,7 +271,7 @@ var euskalbarcomb = {
                   var params = arrayElhuyar[i].split("\"")[0];
                   params = params.replace(/amp\;/g, "");
                   if (params.indexOf("mota=azpisarrera") != -1) {
-                    euskalbarcomb.getsubShiftElhuyar(params, 0);
+                    euskalbar.comb.getsubShiftElhuyar(params, 0);
                   }
                 }
               }
@@ -355,7 +355,7 @@ var euskalbarcomb = {
       getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
       return false;
     }
-    xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + euskalbarcomb.normalizatuetaminuskularatu(term) + '%25&lang=' + source, true);
+    xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + euskalbar.comb.normalizatuetaminuskularatu(term) + '%25&lang=' + source, true);
     xmlHttpReq.send(null);
 
     //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
@@ -380,7 +380,7 @@ var euskalbarcomb = {
               getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
             } else {
               ztzerrenda = JSON.parse(erantzuna);
-              if (ztzerrenda[0].sortKey == euskalbarcomb.normalizatuetaminuskularatu(term)) {
+              if (ztzerrenda[0].sortKey == euskalbar.comb.normalizatuetaminuskularatu(term)) {
                 termida = ztzerrenda[0].termId;
                 var xmlHttpReq2 = new XMLHttpRequest();
                 if (!xmlHttpReq2) {
@@ -484,7 +484,7 @@ var euskalbarcomb = {
       return false;
     }
     var urlEnergia = 'http://www.eve.es/energia/bilatu.asp';
-    var params = 'txtHitza=' + euskalbarcomb.normalizatu(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectGaia=-%20Guztiak%20-';
+    var params = 'txtHitza=' + euskalbar.comb.normalizatu(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectGaia=-%20Guztiak%20-';
 
     var xmlHttpReq = new XMLHttpRequest();
     if (!xmlHttpReq) {
@@ -512,7 +512,7 @@ var euskalbarcomb = {
               hitza = definizioa.substring(definizioa.search('>') + 8);
               hitza = hitza.substring(0, hitza.length - 6);
               definizioa = definizioa.substring(0, definizioa.search("','"));
-              if (euskalbarcomb.normalizatuetaminuskularatu(hitza) == euskalbarcomb.normalizatuetaminuskularatu(term)) {
+              if (euskalbar.comb.normalizatuetaminuskularatu(hitza) == euskalbar.comb.normalizatuetaminuskularatu(term)) {
                 var xmlHttpReq2 = new XMLHttpRequest();
                 if (!xmlHttpReq2) {
                   txtEnergia = strRes.getString("m1Energia");
@@ -643,7 +643,7 @@ var euskalbarcomb = {
       return false;
     }
     var urlTelekom = 'http://www.telekomunikaziohiztegia.org/bilatu.asp?';
-    var params = 'hizk=' + inthizk + '&txtHitza=' + euskalbarcomb.normalizatu(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectAlorra=0';
+    var params = 'hizk=' + inthizk + '&txtHitza=' + euskalbar.comb.normalizatu(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectAlorra=0';
 
     var xmlHttpReq = new XMLHttpRequest();
     if (!xmlHttpReq) {
@@ -671,7 +671,7 @@ var euskalbarcomb = {
               hitza = definizioa.substring(definizioa.search('>') + 20);
               hitza = hitza.substring(0, hitza.length - 18);
               definizioa = definizioa.substring(0, definizioa.search("&"));
-              if (euskalbarcomb.normalizatuetaminuskularatu(hitza) == euskalbarcomb.normalizatuetaminuskularatu(term)) {
+              if (euskalbar.comb.normalizatuetaminuskularatu(hitza) == euskalbar.comb.normalizatuetaminuskularatu(term)) {
                 var xmlHttpReq2 = new XMLHttpRequest();
                 if (!xmlHttpReq2) {
                   txtTelekom = strRes.getString("m1Telekom");
@@ -819,7 +819,7 @@ var euskalbarcomb = {
               wtable = 2;
             }
             //3000ren katea manipulatzen duen funtzioa
-            txt3000 = euskalbarcomb.manipulate3000(wtable, txt3000);
+            txt3000 = euskalbar.comb.manipulate3000(wtable, txt3000);
             getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
             //azpisarrerak badauzka...
             if (txt3000.indexOf("cgi-bin_m33") != -1) {
@@ -828,7 +828,7 @@ var euskalbarcomb = {
                 array3000.shift();
                 for (i in array3000) {
                   var url3000 = array3000[i].split("\'>")[0];
-                  euskalbarcomb.getsubShift3000(url3000);
+                  euskalbar.comb.getsubShift3000(url3000);
                 }
               }
             }
@@ -875,7 +875,7 @@ var euskalbarcomb = {
             clearTimeout(requestTimer);
             txt3000 = xmlHttpReq.responseText;
             //Elhuyarren katea manipulatzen duen funtzioari deitu
-            txt3000 = euskalbarcomb.manipulate3000(3, txt3000);
+            txt3000 = euskalbar.comb.manipulate3000(3, txt3000);
             //Emaitza HTMLan kargatu
             getBrowser().contentDocument.getElementById('a3000').innerHTML = getBrowser().contentDocument.getElementById('a3000').innerHTML + txt3000;
           }
@@ -1229,7 +1229,7 @@ var euskalbarcomb = {
             //Timerra garbitu
             clearTimeout(requestTimer);
             txtEuskaltzaindia = xmlHttpReq.responseText;
-            txtEuskaltzaindia = euskalbarcomb.manipulateEuskaltzaindia(txtEuskaltzaindia);
+            txtEuskaltzaindia = euskalbar.comb.manipulateEuskaltzaindia(txtEuskaltzaindia);
             txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term + "<font></strong>" + txtEuskaltzaindia;
             getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
             //azpisarrerak badauzka...
@@ -1240,7 +1240,7 @@ var euskalbarcomb = {
                 for (i in arrayEuskaltzaindia) {
                   var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("frontpage")[0];
                   urlEuskaltzaindia = urlEuskaltzaindia + "frontpage";
-                  euskalbarcomb.getsubShiftEuskaltzaindia(urlEuskaltzaindia);
+                  euskalbar.comb.getsubShiftEuskaltzaindia(urlEuskaltzaindia);
                 }
               }
             }
@@ -1288,7 +1288,7 @@ var euskalbarcomb = {
             clearTimeout(requestTimer);
             txtEuskaltzaindia = xmlHttpReq.responseText;
             //Batuaren katea manipulatzen duen funtzioari deitu
-            txtEuskaltzaindia = euskalbarcomb.manipulateEuskaltzaindia(txtEuskaltzaindia);
+            txtEuskaltzaindia = euskalbar.comb.manipulateEuskaltzaindia(txtEuskaltzaindia);
             //Emaitza HTMLan kargatu
             getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML + "<hr>" + txtEuskaltzaindia;
           }
@@ -1542,7 +1542,7 @@ var euskalbarcomb = {
   normalizatuetaminuskularatu: function (katea) {
     var kateberria;
     kateberria = katea.toLowerCase();
-    kateberria = euskalbarcomb.normalizatu(kateberria);
+    kateberria = euskalbar.comb.normalizatu(kateberria);
     return kateberria;
   },
 

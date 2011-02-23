@@ -944,7 +944,7 @@ var euskalbardicts = {
     params.push(new euskalbar.QueryParameter('hizkuntza', source2));
     params.push(new euskalbar.QueryParameter('formalema', 'lema'));
     params.push(new euskalbar.QueryParameter('konparazioa', 'da'));
-    params.push(new euskalbar.QueryParameter('testuhitza', escape(euskalbarcomb.normalizatu(term))));
+    params.push(new euskalbar.QueryParameter('testuhitza', escape(euskalbar.comb.normalizatu(term))));
     params.push(new euskalbar.QueryParameter('kategoria', ''));
     params.push(new euskalbar.QueryParameter('hizkuntza2', source2));
     params.push(new euskalbar.QueryParameter('formalema2', ''));
