@@ -40,13 +40,13 @@ var euskalbar = {
       /* Store version information for later use */
       euskalbar.curVersion = addon.version;
 
-      var firstrun = Services.prefs.getBoolPref("extensions.euskalbar.firstrun");
+      var firstrun = euskalbar.prefs.getBoolPref("firstrun");
       var openInfo = false;
       var infoURL = euskalbar.firstrunURL;
 
       if (firstrun) {
-        this.prefs.setBoolPref("firstrun", false);
-        this.prefs.setCharPref("installedVersion", euskalbar.curVersion);
+        euskalbar.prefs.setBoolPref("firstrun", false);
+        euskalbar.prefs.setCharPref("installedVersion", euskalbar.curVersion);
 
         /* Add Euskalbar button to the navigation bar */
         euskalbarButton.appendToToolbar();
@@ -58,13 +58,11 @@ var euskalbar = {
         openInfo = true;
       } else {
         try {
-          var installedVersion = Services.prefs.
-            getCharPref("extensions.euskalbar.installedVersion");
+          var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
 
           /* We are in the middle of an upgrade */
           if (euskalbar.curVersion > installedVersion) {
-            Services.prefs.setCharPref("extensions.euskalbar.installedVersion",
-                                       euskalbar.curVersion);
+            euskalbar.prefs.setCharPref("installedVersion", euskalbar.curVersion);
 
             openInfo = true;
             infoURL += "?v=" + euskalbar.curVersion;
