@@ -12,11 +12,11 @@ var euskalbarcomb = {
       var txtEuskalterm = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (euskalbar.euskalbar_source == 'es') {
+      if (euskalbar.source == 'es') {
         idioma = 'G';
-      } else if (euskalbar.euskalbar_source == 'en') {
+      } else if (euskalbar.source == 'en') {
         idioma = 'I';
-      } else if (euskalbar.euskalbar_source == 'fr') {
+      } else if (euskalbar.source == 'fr') {
         idioma = 'F';
       } else {
         idioma = 'E';
@@ -1236,9 +1236,9 @@ var euskalbarcomb = {
       var txtEuskaltzaindia= "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-      if (euskalbar.euskalbar_source == 'es') {
+      if (euskalbar.source == 'es') {
         idioma = 'G';
-      } else if (euskalbar.euskalbar_source == 'en') {
+      } else if (euskalbar.source == 'en') {
         idioma = 'I';
       } else {
         idioma = 'E';
