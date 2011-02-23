@@ -13,10 +13,6 @@
   <script type="application/x-javascript" src="euskalbarcomb.js"/>
   <script type="application/x-javascript" src="euskalbarstats.js"/>
   <script type="application/x-javascript" src="toolbarbutton/euskalbarButtonOverlay.js"/>
-  <!-- Hau oraingoz kanpoan... ea hurrengo bertsioan !
-  <script type="application/x-javascript" src="chrome://global/content/nsTransferable.js"/>
-  <script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
-  <script type="application/x-javascript" src="euskalbardragdrop.js"/> -->
 
   <!-- Nabigatzailea kargatzean hasieratze funtzioari deitu -->
   <script type="application/x-javascript">
