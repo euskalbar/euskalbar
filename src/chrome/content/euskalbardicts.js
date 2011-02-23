@@ -17,7 +17,7 @@ var euskalbardicts = {
 
     // Euskaltermen bilaketak egiteko
     goEuskalBarEuskalterm: function(source, term, sub) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -64,7 +64,7 @@ var euskalbardicts = {
 
     // Elhuyar hiztegiko bilaketak
     goEuskalBarElhuyar: function(source,dest,term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -137,7 +137,7 @@ var euskalbardicts = {
 
     // ZT hiztegiko bilaketak
     goEuskalBarZTHiztegia: function(source,term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -272,7 +272,7 @@ var euskalbardicts = {
 
     // Energia hiztegiko bilaketak
     goEuskalBarEnergia: function(source,term) {
-    	    // Begiratu kutxa hutsik dagoen 
+    // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -413,7 +413,7 @@ var euskalbardicts = {
 
     // Telkomunikazio hiztegiko bilaketak
     goEuskalBarTelekom: function(source,term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -556,7 +556,7 @@ var euskalbardicts = {
 
     // Bilaketak 3000 hiztegian
     goEuskalBarAsk: function(source, term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -581,7 +581,7 @@ var euskalbardicts = {
 
     // Bilaketak Labayru hiztegian
     goEuskalBarLabayru: function(source, term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -606,7 +606,7 @@ var euskalbardicts = {
 
     // Bilaketak Zehazki hiztegian
     goEuskalBarZehazki: function(source, term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -621,7 +621,7 @@ var euskalbardicts = {
 
     // Morrisen bilaketak egiteko
     goEuskalBarMorris: function(source, term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -642,7 +642,7 @@ var euskalbardicts = {
 
     // eu.open-tran.eu itzulpen datu-basean bilaketak
     goEuskalBarOpentran: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -656,13 +656,13 @@ var euskalbardicts = {
 
     // Goihata hiztegiko bilaketak
     goEuskalBarGoihata: function(source,dest,term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
-      
+
       var urlGoihata = 'http://www.goihata.com/eu/japoniera-hiztegia/?tx_ghdictionary_pi1[cmd]=2';
-      
+
       var zein = 'goihata.com';
       //Azentu markak, eñeak eta dieresiak aldatu
       term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
@@ -671,7 +671,7 @@ var euskalbardicts = {
       params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[l]', 'basque'));
       params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[t]', 1));
       euskalbar.openURL(urlGoihata, zein, 'POST', params);
-      
+
       // Update search stats; 21 = Index of Goihata in stats file
       euskalbarstats.writeStats(21);
     },
@@ -679,7 +679,7 @@ var euskalbardicts = {
 
     // Euskaltzaindiaren hiztegi batuan bilaketa burutzen du
     goEuskalBarEuskaltzaindia: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -695,7 +695,7 @@ var euskalbardicts = {
 
     // Euskaltzaindiaren OEHn bilaketa burutzen du
     goEuskalBarOEH: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -711,7 +711,7 @@ var euskalbardicts = {
 
     // UZEIren sinonimoen hiztegia
     goEuskalBarUZEI: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -741,7 +741,7 @@ var euskalbardicts = {
 
     // Adorez sinonimoen hiztegia
     goEuskalBarAdorez: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -767,7 +767,7 @@ var euskalbardicts = {
 
     // ItzuL posta-zerrendan bilaketak
     goEuskalBarItzuL: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -785,7 +785,7 @@ var euskalbardicts = {
 
     // Harluxet hiztegi entziklopedikoa
     goEuskalBarHarluxet: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -801,7 +801,7 @@ var euskalbardicts = {
 
     // eu.wikipedia.org
     goEuskalBarWikipedia: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -817,7 +817,7 @@ var euskalbardicts = {
 
     // Mokoroan bilaketak
     goEuskalBarMokoroa: function(source, term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -839,13 +839,13 @@ var euskalbardicts = {
 
     // Intzaren bilaketak
     goEuskalBarIntza: function(source, term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'intza';
-      var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl'; 
+      var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl';
       if (source == 'es') {
         params.push(new euskalbar.QueryParameter('hitza1', escape(term)));
         params.push(new euskalbar.QueryParameter('eremu3', '1'));
@@ -863,7 +863,7 @@ var euskalbardicts = {
 
     // Eurovoc Tesaurusa
     goEuskalBarEurovoc: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -888,7 +888,7 @@ var euskalbardicts = {
 
     // Bergara aldeko hiztegia
     goEuskalBarBergara: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -904,13 +904,13 @@ var euskalbardicts = {
 
     // Ereduzko Prosa
     goEuskalBarEreduzko: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'ereduzkoa';
-      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu09.pl'; 
+      var url = 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu09.pl';
       params.push(new euskalbar.QueryParameter('o', '1'));
       params.push(new euskalbar.QueryParameter('h', '1'));
       params.push(new euskalbar.QueryParameter('n', 'bietan'));
@@ -925,13 +925,13 @@ var euskalbardicts = {
 
     // Klasikoen gordailua
     goEuskalBarKlasikoak: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
       var params = [];
       var zein = 'klasikoak';
-      var url = 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl'; 
+      var url = 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl';
       params.push(new euskalbar.QueryParameter('check1', '1'));
       params.push(new euskalbar.QueryParameter('hitza1', escape(term)));
       params.push(new euskalbar.QueryParameter('mota1', 'hasi'));
@@ -948,7 +948,7 @@ var euskalbardicts = {
 
     // ZT Corpusa
     goEuskalBarZTCorpusa: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -964,7 +964,7 @@ var euskalbardicts = {
 
     // Lexikoaren Behatokia
     goEuskalBarLB: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -980,7 +980,7 @@ var euskalbardicts = {
 
     // Consumer Corpusa
     goEuskalBarConsumer: function(source,term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -1018,7 +1018,7 @@ var euskalbardicts = {
 
     // CorpEus
     goEuskalBarCorpEus: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -1041,7 +1041,7 @@ var euskalbardicts = {
 
     // XUXENweb
     goEuskalBarXUXENweb: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }
@@ -1057,7 +1057,7 @@ var euskalbardicts = {
 
     // Elebila
     goEuskalBarElebila: function(term) {
-      // Begiratu kutxa hutsik dagoen 
+      // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)){
         return;
       }

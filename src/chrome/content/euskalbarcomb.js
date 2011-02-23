@@ -1,5 +1,4 @@
-// Developers:
-// Asier Sarasua Garmendia 2006
+// Developers: // Asier Sarasua Garmendia 2006
 // Julen Ruiz Aizpuru 2007
 // This is Free Software (GPL License)
 // asarasua@vitoria-gasteiz.org
@@ -40,7 +39,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -158,7 +157,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -246,7 +245,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -363,7 +362,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -621,7 +620,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -808,7 +807,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -822,13 +821,13 @@ var euskalbarcomb = {
       var txt3000 = "";
       //Lokalizazio paketeak kargatu
       strRes = document.getElementById('leuskal');
-    
+
       if (source == 'es') {
         source = 'CAS'; idioma = 'Castellano';
       } else{
         source = 'EUS'; idioma = 'Euskera';
       }
-    
+
       var url3000='http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe?Diccionario='+source+'&Idioma='+source+'&Txt_'+idioma+'='+escape(term);
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
@@ -836,20 +835,20 @@ var euskalbarcomb = {
         txt3000 = strRes.getString("m13000");
         return false;
       }
-    
+
       xmlHttpReq.open('GET', url3000, true);
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
         txt3000 = strRes.getString("m13000");
       }, tout);
-    
+
       xmlHttpReq.onreadystatechange = function() {
         try {
           if (xmlHttpReq.readyState == 4) {
@@ -903,7 +902,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -989,11 +988,11 @@ var euskalbarcomb = {
         return false;
       }
       xmlHttpReq.open('POST', urlMorris, true);
-      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun 
+      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun
       xmlHttpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
       xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
       xmlHttpReq.send(parametroak);
-	  
+
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
@@ -1036,7 +1035,7 @@ var euskalbarcomb = {
         getBrowser().contentDocument.getElementById('aMorris').innerHTML = txtMorris;
         getBrowser().contentDocument.getElementById('oMorris').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>";
       }
-    
+
     },
 
 
@@ -1061,11 +1060,11 @@ var euskalbarcomb = {
         return false;
       }
       xmlHttpReq.open('POST', urlLabayru, true);
-      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun 
+      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun
       xmlHttpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
       xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
       xmlHttpReq.send(parametroak);
-	  
+
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
@@ -1131,7 +1130,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -1196,7 +1195,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -1258,7 +1257,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -1316,7 +1315,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -1374,7 +1373,7 @@ var euskalbarcomb = {
       var dataString = "";
       for (var i = 0; i < params.length; ++i) {
         var param = params[i];
-  
+
         dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
       }
 
@@ -1450,7 +1449,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();
@@ -1503,7 +1502,7 @@ var euskalbarcomb = {
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout=tout*1000
-	  
+
       //Timerra sortu
       var requestTimer = setTimeout(function() {
         xmlHttpReq.abort();

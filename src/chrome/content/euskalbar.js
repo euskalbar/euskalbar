@@ -199,7 +199,7 @@ var euskalbar = {
     }
   },
 
-  
+
   // Laguntza erakusten du
   openLaguntza: function() {
     // Lokalizazio paketeak kargatu
@@ -207,11 +207,11 @@ var euskalbar = {
     const h = strRes.getString("hizk");
     if (h.match('euskara')) {
       var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
-    } else if (h.match('english')) {  
+    } else if (h.match('english')) {
       var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
-    } else if (h.match('français')) {  
+    } else if (h.match('français')) {
       var hurl = 'chrome://euskalbar/content/html/euskalbarhelpfr.html';
-    } else if (h.match('japanese')) {  
+    } else if (h.match('japanese')) {
       var hurl = 'chrome://euskalbar/content/html/euskalbarhelpja.html';
     } else {
       var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
@@ -235,8 +235,8 @@ var euskalbar = {
       appmenuSpacer.removeAttribute('hidden');
     }
   },
-  
-  
+
+
   // Testuinguru-menua erakusten/ezkutatzen du
   showContextmenu: function() {
     var sep = document.getElementById('Euskalbar-context-menuseparator');
@@ -249,22 +249,22 @@ var euskalbar = {
       button.removeAttribute('hidden');
     }
   },
-  
-  
+
+
   // Aukeren koadroa erakusten du
   euskalbarOptions: function() {
     var dialogURL = "chrome://euskalbar/content/prefs.xul";
     window.openDialog(dialogURL, "", "chrome,modal,close");
   },
-  
-  
+
+
   // Estatistika lokalak erakusten ditu
   showLocalstats: function() {
     var dialogURL = "chrome://euskalbar/content/stats.xul";
     window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable");
   },
-  
-  
+
+
   //Azal pertsonalizatuetarako script-ak (hau eta hurrengoa)
   setUserSkinDisabled: function() {
     var chkSkins = document.getElementById("chkUserSkinEnable");
@@ -275,16 +275,16 @@ var euskalbar = {
       this.prefs.setCharPref("style.combinedquery", document.getElementById("menuStartupSkin").selectedItem.value);
     }
   },
-  
-  
+
+
   browseSkin: function() {
     var fpicker = Components.classes["@mozilla.org/filepicker;1"]
                   .createInstance(Components.interfaces.nsIFilePicker);
-  
+
     fpicker.init(window, "CSS", fpicker.modeOpen);
     fpicker.appendFilter("CSS (*.css)", "*.css");
     fpicker.appendFilters(fpicker.filterAll);
-  
+
     var showResult = fpicker.show();
     if(showResult == fpicker.returnOK) {
       document.getElementById("txtUserSkinPath").value = fpicker.file.path;
@@ -302,8 +302,8 @@ var euskalbar = {
     var state = el.collapsed;
     el.collapsed = !state;
   },
-  
-  
+
+
   // Laster-teklen aginduak exekutatzen ditu
   teklakEuskalbar: function(prefer) {
     switch (prefer){
@@ -323,13 +323,13 @@ var euskalbar = {
       break;
     }
   },
-  
-  
+
+
   // *************************************
   //  Euskalbarren barneko funtzioak
   // *************************************
-  
-  
+
+
   /**
    * Emandako URLa zabaltzen du hobespenaren arabera
    * @param url
@@ -352,7 +352,7 @@ var euskalbar = {
     if (params != null) { // momentuko soluzioa...
       for (var i = 0; i < params.length; ++i) {
         var param = params[i];
-  
+
         dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
       }
     }
@@ -369,7 +369,7 @@ var euskalbar = {
         stringStream.data = dataString;
       else // 1.8 or older
         stringStream.setData(dataString, dataString.length);
-  
+
       var postData = Cc["@mozilla.org/network/mime-input-stream;1"]
                      .createInstance(Components.interfaces.nsIMIMEInputStream);
       postData.addHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -382,15 +382,15 @@ var euskalbar = {
       this.openNewtab(url, postData);
     }
   },
-  
-  
+
+
   // Izena/balioa pareak adierazteko objektua
   QueryParameter: function(aName, aValue) {
     this.name = aName;
     this.value = aValue;
   },
-  
-  
+
+
   // Hiztegia fitxa berri batean ireki
   openNewtab: function(taburl, aPostData) {
     var theTab = getBrowser().addTab(taburl, null, null, aPostData);
@@ -399,8 +399,8 @@ var euskalbar = {
       getBrowser().selectedTab = theTab;
     }
   },
-  
-  
+
+
   // Hiztegia fitxa zaharrean ireki
   reuseOldtab: function(taburl, tabzein, aPostData) {
     // Aztertu fitxa zahar bakoitza
@@ -426,7 +426,7 @@ var euskalbar = {
       this.openNewtab(taburl, aPostData);
     }
   },
-  
+
   // Fitxa zenbakia itzuli
   getTab: function(tabzein) {
     // Aztertu fitxa zahar bakoitza
@@ -461,8 +461,8 @@ var euskalbar = {
       return true;
     }
   },
-  
-  
+
+
   // Enter tekla sakatzean irekitzen diren hiztegiak
   goEuskalBarOnKey: function(event) {
     // Get search string entered by user
@@ -470,7 +470,7 @@ var euskalbar = {
     // Lokalizazio paketeak kargatu
     strRes = document.getElementById('leuskal');
     const h = strRes.getString("hizk");
-    // If user pressed Enter key  
+    // If user pressed Enter key
     if (event.keyCode == 13) {
       if (this.alertEmptyBox(searchStr)){
         return;
@@ -478,7 +478,7 @@ var euskalbar = {
 
       // Exekutatu euskalbarcomb.js fitxategian dauden skriptak
       var l = "";
-      if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) { 
+      if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
         l = "es";
       } else if ((euskalbar.source == 'fr') || (euskalbar.target == 'fr')) {
         l = "fr";
@@ -491,7 +491,7 @@ var euskalbar = {
       }
 
       var k = "";
-      if ((event.shiftKey) || (event.ctrlKey)) { 
+      if ((event.shiftKey) || (event.ctrlKey)) {
         if (event.shiftKey) {
           k = "onkey1";
           var urlhizt = 'chrome://euskalbar/content/html/euskalbarshift.html';
@@ -589,7 +589,7 @@ var euskalbar = {
         } catch(err) {}
 
       } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
-        // Begiratu kutxa hutsik dagoen 
+        // Begiratu kutxa hutsik dagoen
         if (this.alertEmptyBox(searchStr)){
           return;
         }
@@ -730,14 +730,14 @@ var euskalbar = {
         if (this.prefs.getBoolPref("elebila.onkey")) {
           euskalbardicts.goEuskalBarElebila(searchStr);
         }
-      } 
+      }
     }
     //Testu kutxa enfokatzen du
     var el = document.getElementById("EuskalBar-search-string");
     el.focus();
   },
-  
-  
+
+
   // Euskalbarren hizkuntza txandakatzen du (toggle modukoa)
   changeEuskalbarLang: function() {
     if (this.target == 'es') {
@@ -757,8 +757,8 @@ var euskalbar = {
       }
     }
   },
-  
-  
+
+
   // Euskalbarren hizkuntza berria zehazten du
   setEuskalbarLang: function(source, target) {
     var button = document.getElementById("euskalbar-language");
@@ -767,8 +767,8 @@ var euskalbar = {
     this.target = target;
     euskalbar_tooltip = source.toUpperCase()+" ‣ "+target.toUpperCase();
   },
-  
-  
+
+
   // Euskalbarreko hiztegiak moldatzen ditu hizkuntzaren arabera
   setEuskalbarDictionaries: function(hizk) {
     var euskalterm = document.getElementById('EuskalBar-Search');
@@ -782,7 +782,7 @@ var euskalbar = {
     var zthiztegia = document.getElementById('EuskalBar-ZTHiztegia');
     var energia = document.getElementById('EuskalBar-Energia');
     var telekom = document.getElementById('EuskalBar-Telekom');
-    
+
     switch (hizk) {
       case 'es':
         euskalterm.setAttribute("hidden", false);
