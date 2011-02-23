@@ -56,6 +56,13 @@ var euskalbar = {
         openInfo = true;
       } else {
         try {
+          /* XXX: As previous Euskalbar versions don't have the
+           * installedVersion pref, we must ensure they get the button when
+           * upgrading from older versions.
+           * This behaviour MUST be changed just after releasing 3.9. */
+          /* Add Euskalbar button to the navigation bar */
+          euskalbarButton.appendToToolbar();
+
           var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
 
           /* We are in the middle of an upgrade */
