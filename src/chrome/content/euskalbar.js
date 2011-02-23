@@ -11,10 +11,6 @@
 
 Components.utils.import("resource://gre/modules/Services.jsm");
 
-// Euskalbar hasieratzen du
-// Euskalbar deskargatzen du
-// Hobespenen observerra sortzen eta deusezten du (honetan oinarritua ->
-// http://developer.mozilla.org/en/docs/Adding_preferences_to_an_extension)
 var euskalbar = {
   guid: "euskalbar@euskalbar.eu",
 
@@ -32,7 +28,9 @@ var euskalbar = {
   euskalbar_target: null,
 
 
-  // Funtzio honek Euskalbar hasieratzen du
+  /* Euskalbar initialization function */
+  /* XXX: Try to minimize the actions executed here, as it affects to the
+     overall browser startup time */
   startup: function() {
 
     // Register to receive notifications of preference changes	
@@ -109,7 +107,6 @@ var euskalbar = {
   shutdown: function() {
     Services.prefs.removeObserver("", this);
     document.persist("euskalbar-toolbar", "currentset");
-
   },
 
 
@@ -829,4 +826,4 @@ var euskalbar = {
     }
   },
 
-} // euskalbar
+}
