@@ -52,7 +52,7 @@ euskalbar = {
 
         var file = addon.getResourceURI("").
         QueryInterface(Components.interfaces.nsIFileURL).file;
-        euskalbar.stats.createEuskalbarStatsFile(file);
+        euskalbar.stats.createStatsFile(file);
 
         openInfo = true;
       } else {

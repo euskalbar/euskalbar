@@ -9,7 +9,7 @@ euskalbar.stats = {
 
   /* Euskalbarren direktorioa sortzen du erabiltzailearen profilean eta
    * horren barruan stats.rdf fitxategia (existitzen ez bada) */
-  createEuskalbarStatsFile: function (file) {
+  createStatsFile: function (file) {
     var dir1 = euskalbar.profileURI;
     dir1.append("euskalbar");
     if (!dir1.exists()) {
