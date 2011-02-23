@@ -9,7 +9,7 @@
 // ileturia@gmail.com
 // chetan.thapliyal@discreteguidepost.in
 
-var euskalbardicts = {
+var euskalbar.dicts = {
 
   // Euskaltermen bilaketak egiteko
   goEuskalBarEuskalterm: function (source, term, sub) {
@@ -149,7 +149,7 @@ var euskalbardicts = {
     }
 
     zthiztegiatimeout = setTimeout(function () {
-      euskalbardicts.zthiztegiakargatzeanbilatu(source, term, 'normal');
+      euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, 'normal');
     }, 50);
     // Gelditzeko timerra sortu
     var tout = euskalbar.prefs.getIntPref("query.timeout");
@@ -169,7 +169,7 @@ var euskalbardicts = {
     newWindow.focus();
 
     zthiztegiatimeout = setTimeout(function () {
-      euskalbardicts.zthiztegiakargatzeanbilatu(source, term, 'klik');
+      euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, 'klik');
     }, 50);
     // Gelditzeko timerra sortu
     zthiztegiatimeout2 = setTimeout(function () {
@@ -214,7 +214,7 @@ var euskalbardicts = {
       clearTimeout(zthiztegiatimeout2);
     } else {
       zthiztegiatimeout = setTimeout(function () {
-        euskalbardicts.zthiztegiakargatzeanbilatu(source, term, nondik);
+        euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, nondik);
       }, 50);
     };
   },
@@ -226,7 +226,7 @@ var euskalbardicts = {
     newWindow.focus();
 
     zthiztegiatimeout = setTimeout(function () {
-      euskalbardicts.zthiztegiakargatzeanartikulua(artik);
+      euskalbar.dicts.zthiztegiakargatzeanartikulua(artik);
     }, 50);
     // Gelditzeko timerra sortu
     zthiztegiatimeout2 = setTimeout(function () {
@@ -255,7 +255,7 @@ var euskalbardicts = {
       clearTimeout(zthiztegiatimeout2);
     } else {
       zthiztegiatimeout = setTimeout(function () {
-        euskalbardicts.zthiztegiakargatzeanartikulua(artik);
+        euskalbar.dicts.zthiztegiakargatzeanartikulua(artik);
       }, 50);
     };
   },
@@ -286,7 +286,7 @@ var euskalbardicts = {
     };
 
     energiahiztegiatimeout = setTimeout(function () {
-      euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'normal');
+      euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'normal');
     }, 50);
     // Gelditzeko timerra sortu
     var tout = euskalbar.prefs.getIntPref("query.timeout");
@@ -316,7 +316,7 @@ var euskalbardicts = {
     };
 
     energiahiztegiatimeout = setTimeout(function () {
-      euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'klik');
+      euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'klik');
     }, 50);
     // Gelditzeko timerra sortu
     energiahiztegiatimeout2 = setTimeout(function () {
@@ -372,7 +372,7 @@ var euskalbardicts = {
       clearTimeout(energiahiztegiatimeout2);
     } else {
       energiahiztegiatimeout = setTimeout(function () {
-        euskalbardicts.energiahiztegiakargatzeanbilatu(hizkid, term, nondik);
+        euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, nondik);
       }, 50);
     };
   },
@@ -413,7 +413,7 @@ var euskalbardicts = {
     };
 
     telekomhiztegiatimeout = setTimeout(function () {
-      euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'normal');
+      euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'normal');
     }, 50);
     // Gelditzeko timerra sortu
     var tout = euskalbar.prefs.getIntPref("query.timeout");
@@ -443,7 +443,7 @@ var euskalbardicts = {
     };
 
     telekomhiztegiatimeout = setTimeout(function () {
-      euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'klik');
+      euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'klik');
     }, 50);
     // Gelditzeko timerra sortu
     telekomhiztegiatimeout2 = setTimeout(function () {
@@ -497,7 +497,7 @@ var euskalbardicts = {
       clearTimeout(telekomhiztegiatimeout2);
     } else {
       telekomhiztegiatimeout = setTimeout(function () {
-        euskalbardicts.telekomhiztegiakargatzeanbilatu(hizkid, term, nondik);
+        euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, nondik);
       }, 50);
     };
   },

@@ -580,139 +580,139 @@ euskalbar = {
         if ((this.source == 'es') || (this.target == 'es')) {
           // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
           if (this.prefs.getBoolPref("euskalterm.onkey")) {
-            euskalbardicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
+            euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
           }
           if (this.prefs.getBoolPref("3000.onkey")) {
-            euskalbardicts.goEuskalBarAsk(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarAsk(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("elhuyar.onkey")) {
-            euskalbardicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
+            euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
           }
           if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-            euskalbardicts.goEuskalBarZTHiztegia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("energia.onkey")) {
-            euskalbardicts.goEuskalBarEnergia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarEnergia(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("telekom.onkey")) {
-            euskalbardicts.goEuskalBarTelekom(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("labayru.onkey")) {
-            euskalbardicts.goEuskalBarLabayru(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarLabayru(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("zehazki.onkey")) {
-            euskalbardicts.goEuskalBarZehazki(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarZehazki(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("consumer.onkey")) {
-            euskalbardicts.goEuskalBarConsumer(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarConsumer(this.source, searchStr);
           }
         } else if ((this.source == 'fr') || (this.target == 'fr')) {
           // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
           if (this.prefs.getBoolPref("euskalterm.onkey")) {
-            euskalbardicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
+            euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
           }
           if (this.prefs.getBoolPref("elhuyar.onkey")) {
-            euskalbardicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
+            euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
           }
           if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-            euskalbardicts.goEuskalBarZTHiztegia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("energia.onkey")) {
-            euskalbardicts.goEuskalBarEnergia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarEnergia(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("telekom.onkey")) {
-            euskalbardicts.goEuskalBarTelekom(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
           }
         } else if ((this.source == 'en') || (this.target == 'en')) {
           // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
           if (this.prefs.getBoolPref("euskalterm.onkey")) {
-            euskalbardicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
+            euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
           }
           if (this.prefs.getBoolPref("elhuyar.onkey")) {
-            euskalbardicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
+            euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
           }
           if (this.prefs.getBoolPref("morris.onkey")) {
-            euskalbardicts.goEuskalBarMorris(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarMorris(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-            euskalbardicts.goEuskalBarZTHiztegia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("energia.onkey")) {
-            euskalbardicts.goEuskalBarEnergia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarEnergia(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("telekom.onkey")) {
-            euskalbardicts.goEuskalBarTelekom(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
           }
           if (this.prefs.getBoolPref("opentran.onkey")) {
-            euskalbardicts.goEuskalBarOpentran(searchStr);
+            euskalbar.dicts.goEuskalBarOpentran(searchStr);
           }
         } else if ((this.source == 'eu') && (this.target == 'jp')) {
           // Go to Goihata dictionary if translating from Basque to Japanese
           if (this.prefs.getBoolPref("goihata.onkey")) {
-            euskalbardicts.goEuskalBarGoihata(this.source, this.target, searchStr);
+            euskalbar.dicts.goEuskalBarGoihata(this.source, this.target, searchStr);
           }
         } else if ((this.source == 'la') || (this.target == 'la')) {
           if (this.prefs.getBoolPref("euskalterm.onkey")) {
-            euskalbardicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
+            euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
           }
           if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-            euskalbardicts.goEuskalBarZTHiztegia(this.source, searchStr);
+            euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
           }
         }
         // Aukeratutako hizkuntzarekiko menpekotasunik ez dutenak kargatu
         if (this.prefs.getBoolPref("batua.onkey")) {
-          euskalbardicts.goEuskalBarEuskaltzaindia(searchStr);
+          euskalbar.dicts.goEuskalBarEuskaltzaindia(searchStr);
         }
         if (this.prefs.getBoolPref("oeh.onkey")) {
-          euskalbardicts.goEuskalBarOEH(searchStr);
+          euskalbar.dicts.goEuskalBarOEH(searchStr);
         }
         if (this.prefs.getBoolPref("adorez.onkey")) {
-          euskalbardicts.goEuskalBarAdorez(searchStr);
+          euskalbar.dicts.goEuskalBarAdorez(searchStr);
         }
         if (this.prefs.getBoolPref("uzei.onkey")) {
-          euskalbardicts.goEuskalBarUZEI(searchStr);
+          euskalbar.dicts.goEuskalBarUZEI(searchStr);
         }
         if (this.prefs.getBoolPref("itzul.onkey")) {
-          euskalbardicts.goEuskalBarItzuL(searchStr);
+          euskalbar.dicts.goEuskalBarItzuL(searchStr);
         }
         if (this.prefs.getBoolPref("harluxet.onkey")) {
-          euskalbardicts.goEuskalBarHarluxet(searchStr);
+          euskalbar.dicts.goEuskalBarHarluxet(searchStr);
         }
         if (this.prefs.getBoolPref("wikipedia.onkey")) {
-          euskalbardicts.goEuskalBarWikipedia(searchStr);
+          euskalbar.dicts.goEuskalBarWikipedia(searchStr);
         }
         if (this.prefs.getBoolPref("mokoroa.onkey")) {
-          euskalbardicts.goEuskalBarMokoroa(this.source, searchStr);
+          euskalbar.dicts.goEuskalBarMokoroa(this.source, searchStr);
         }
         if (this.prefs.getBoolPref("intza.onkey")) {
-          euskalbardicts.goEuskalBarIntza(this.source, searchStr);
+          euskalbar.dicts.goEuskalBarIntza(this.source, searchStr);
         }
         if (this.prefs.getBoolPref("eurovoc.onkey")) {
-          euskalbardicts.goEuskalBarEurovoc(searchStr);
+          euskalbar.dicts.goEuskalBarEurovoc(searchStr);
         }
         if (this.prefs.getBoolPref("bergara.onkey")) {
-          euskalbardicts.goEuskalBarBergara(searchStr);
+          euskalbar.dicts.goEuskalBarBergara(searchStr);
         }
         if (this.prefs.getBoolPref("ereduzko.onkey")) {
-          euskalbardicts.goEuskalBarEreduzko(searchStr);
+          euskalbar.dicts.goEuskalBarEreduzko(searchStr);
         }
         if (this.prefs.getBoolPref("klasikoak.onkey")) {
-          euskalbardicts.goEuskalBarKlasikoak(searchStr);
+          euskalbar.dicts.goEuskalBarKlasikoak(searchStr);
         }
         if (this.prefs.getBoolPref("ztcorpusa.onkey")) {
-          euskalbardicts.goEuskalBarZTCorpusa(searchStr);
+          euskalbar.dicts.goEuskalBarZTCorpusa(searchStr);
         }
         if (this.prefs.getBoolPref("lb.onkey")) {
-          euskalbardicts.goEuskalBarLB(searchStr);
+          euskalbar.dicts.goEuskalBarLB(searchStr);
         }
         if (this.prefs.getBoolPref("corpeus.onkey")) {
-          euskalbardicts.goEuskalBarCorpEus(searchStr);
+          euskalbar.dicts.goEuskalBarCorpEus(searchStr);
         }
         if (this.prefs.getBoolPref("xuxenweb.onkey")) {
-          euskalbardicts.goEuskalBarXUXENweb(searchStr);
+          euskalbar.dicts.goEuskalBarXUXENweb(searchStr);
         }
         if (this.prefs.getBoolPref("elebila.onkey")) {
-          euskalbardicts.goEuskalBarElebila(searchStr);
+          euskalbar.dicts.goEuskalBarElebila(searchStr);
         }
       }
     }

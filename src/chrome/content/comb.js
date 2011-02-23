@@ -403,7 +403,7 @@ euskalbar.comb = {
                         clearTimeout(requestTimer2);
                         erantzuna2 = xmlHttpReq2.responseText;
                         txtZTHiztegia = erantzuna2.substring(0, erantzuna2.search('<ul id="menu_3">'));
-                        txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showTermEntryOf\(\'(.).+?\'\,\%20/g, '<a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaKlik(\'$1hizkuntzaid\',');
+                        txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showTermEntryOf\(\'(.).+?\'\,\%20/g, '<a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'$1hizkuntzaid\',');
                         txtZTHiztegia = txtZTHiztegia.replace(/Ehizkuntzaid/g, 'eu');
                         txtZTHiztegia = txtZTHiztegia.replace(/Ghizkuntzaid/g, 'es');
                         txtZTHiztegia = txtZTHiztegia.replace(/Fhizkuntzaid/g, 'fr');
@@ -413,11 +413,11 @@ euskalbar.comb = {
                         txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showImage\(\'irudiak\/irudiak\/.*?\<\/a\>/g, '');
                         txtZTHiztegia = txtZTHiztegia.replace(/\<div class\=\"ikus\"\>/g, '<div class="ikus"><img src="http://zthiztegia.elhuyar.org//irudiak/iko_ikus.gif" />');
                         txtZTHiztegia = txtZTHiztegia.replace(/ onclick\=\"javascript\:showTermEntryOf\(\'.+?\'\, this\.innerHTML\)\; return false\;\"\>/g, '>');
-                        txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showArticle\(/g, '<a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaArtikulua(');
+                        txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showArticle\(/g, '<a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaArtikulua(');
                         if (ztzerrenda.length - 1 > 1) {
                           txtZTHiztegia = txtZTHiztegia + '<p>Beste batzuk:</p>';
                           for (termind = 1; termind < ztzerrenda.length; termind++) {
-                            txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
+                            txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
                           }
                         };
                         getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
@@ -434,7 +434,7 @@ euskalbar.comb = {
               } else {
                 txtZTHiztegia = erroremezua2;
                 for (termind = 0; termind < ztzerrenda.length; termind++) {
-                  txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbardicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
+                  txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
                 }
                 getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
               }
@@ -529,7 +529,7 @@ euskalbar.comb = {
                         txtEnergia = erantzuna2;
                         txtEnergia = txtEnergia.substring(txtEnergia.search('<p>'));
                         txtEnergia = txtEnergia.substring(0, txtEnergia.search('</body>'));
-                        txtEnergia = txtEnergia.replace(/\<a href\=\"javascript\:definizioa\(\'definizioa\.asp\?kodea\=(.).+?\>(.*?)\</g, '<a href="javascript:euskalbardicts.goEuskalBarEnergiaKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
+                        txtEnergia = txtEnergia.replace(/\<a href\=\"javascript\:definizioa\(\'definizioa\.asp\?kodea\=(.).+?\>(.*?)\</g, '<a href="javascript:euskalbar.dicts.goEuskalBarEnergiaKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
                         txtEnergia = txtEnergia.replace(/Ehizkuntzaid/g, 'eu');
                         txtEnergia = txtEnergia.replace(/Ghizkuntzaid/g, 'es');
                         txtEnergia = txtEnergia.replace(/Fhizkuntzaid/g, 'fr');
@@ -545,7 +545,7 @@ euskalbar.comb = {
                             hitza = definizioa.substring(definizioa.search('>') + 8);
                             hitza = hitza.substring(0, hitza.length - 5);
                             definizioa = definizioa.substring(0, definizioa.search("','"));
-                            txtEnergia = txtEnergia + '<p><a href="javascript:euskalbardicts.goEuskalBarEnergiaKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
+                            txtEnergia = txtEnergia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarEnergiaKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                           };
                         };
                         getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
@@ -574,7 +574,7 @@ euskalbar.comb = {
                   hitza = definizioa.substring(definizioa.search('>') + 8);
                   hitza = hitza.substring(0, hitza.length - 5);
                   definizioa = definizioa.substring(0, definizioa.search("','"));
-                  txtEnergia = txtEnergia + '<p><a href="javascript:euskalbardicts.goEuskalBarEnergiaKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
+                  txtEnergia = txtEnergia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarEnergiaKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                 };
                 getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
               }
@@ -699,7 +699,7 @@ euskalbar.comb = {
                         txtTelekom = txtTelekom.substring(txtTelekom.search('<td class="body">') + '<td class="body">'.length);
                         txtTelekom = txtTelekom.substring(0, txtTelekom.search('</td>'));
                         txtTelekom = hasiera + txtTelekom + amaiera;
-                        txtTelekom = txtTelekom.replace(/\<a href\=\"definizioa\.asp\?Kodea\=(.).+?\>(.*?)\</g, '<a href="javascript:euskalbardicts.goEuskalBarTelekomKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
+                        txtTelekom = txtTelekom.replace(/\<a href\=\"definizioa\.asp\?Kodea\=(.).+?\>(.*?)\</g, '<a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
                         txtTelekom = txtTelekom.replace(/Ehizkuntzaid/g, 'eu');
                         txtTelekom = txtTelekom.replace(/Ghizkuntzaid/g, 'es');
                         txtTelekom = txtTelekom.replace(/Fhizkuntzaid/g, 'fr');
@@ -714,7 +714,7 @@ euskalbar.comb = {
                             hitza = definizioa.substring(definizioa.search('>') + 20);
                             hitza = hitza.substring(0, hitza.length - 18);
                             definizioa = definizioa.substring(0, definizioa.search("&"));
-                            txtTelekom = txtTelekom + '<p><a href="javascript:euskalbardicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
+                            txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                           };
                         };
                         getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
@@ -743,7 +743,7 @@ euskalbar.comb = {
                   hitza = definizioa.substring(definizioa.search('>') + 20);
                   hitza = hitza.substring(0, hitza.length - 18);
                   definizioa = definizioa.substring(0, definizioa.search("&"));
-                  txtTelekom = txtTelekom + '<p><a href="javascript:euskalbardicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
+                  txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                 };
                 getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
               }
