@@ -491,85 +491,85 @@ with (euskalbarLib) {
 
           try {
             if (this.prefs.getBoolPref("euskalterm." + k + "." + l)) {
-              euskalbarcomb.getShiftEuskalterm(this.source, searchStr);
+              euskalbar.comb.getShiftEuskalterm(this.source, searchStr);
               euskalbar.stats.writeStats(0);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("elhuyar." + k + "." + l)) {
-              euskalbarcomb.getShiftElhuyar(this.source, this.target, searchStr);
+              euskalbar.comb.getShiftElhuyar(this.source, this.target, searchStr);
               euskalbar.stats.writeStats(1);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("3000." + k + "." + l)) {
-              euskalbarcomb.getShift3000(this.source, searchStr);
+              euskalbar.comb.getShift3000(this.source, searchStr);
               euskalbar.stats.writeStats(2);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
-              euskalbarcomb.getShiftLabayru(this.source, searchStr);
+              euskalbar.comb.getShiftLabayru(this.source, searchStr);
               euskalbar.stats.writeStats(22);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("zthiztegia." + k + "." + l)) {
-              euskalbarcomb.getShiftZTHiztegia(this.source, searchStr);
+              euskalbar.comb.getShiftZTHiztegia(this.source, searchStr);
               euskalbar.stats.writeStats(25);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("energia." + k + "." + l)) {
-              euskalbarcomb.getShiftEnergia(this.source, searchStr);
+              euskalbar.comb.getShiftEnergia(this.source, searchStr);
               euskalbar.stats.writeStats(26);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
-              euskalbarcomb.getShiftTelekom(this.source, searchStr);
+              euskalbar.comb.getShiftTelekom(this.source, searchStr);
               euskalbar.stats.writeStats(27);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("batua." + k + "." + l)) {
-              euskalbarcomb.getShiftEuskaltzaindia(this.source, searchStr);
+              euskalbar.comb.getShiftEuskaltzaindia(this.source, searchStr);
               euskalbar.stats.writeStats(5);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("uzei." + k + "." + l)) {
-              euskalbarcomb.getShiftUZEI(this.source, searchStr);
+              euskalbar.comb.getShiftUZEI(this.source, searchStr);
               euskalbar.stats.writeStats(6);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("adorez." + k + "." + l)) {
-              euskalbarcomb.getShiftAdorez(this.source, searchStr);
+              euskalbar.comb.getShiftAdorez(this.source, searchStr);
               euskalbar.stats.writeStats(7);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("mokoroa." + k + "." + l)) {
-              euskalbarcomb.getShiftMokoroa(this.source, searchStr);
+              euskalbar.comb.getShiftMokoroa(this.source, searchStr);
               euskalbar.stats.writeStats(11);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("intza." + k + "." + l)) {
-              euskalbarcomb.getShiftIntza(this.source, searchStr);
+              euskalbar.comb.getShiftIntza(this.source, searchStr);
               euskalbar.stats.writeStats(12);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("morris." + k + "." + l)) {
-              euskalbarcomb.getShiftMorris(this.source, searchStr);
+              euskalbar.comb.getShiftMorris(this.source, searchStr);
               euskalbar.stats.writeStats(3);
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("opentran." + k + "." + l)) {
-              euskalbarcomb.getShiftOpentran(this.source, searchStr);
+              euskalbar.comb.getShiftOpentran(this.source, searchStr);
               euskalbar.stats.writeStats(4);
             }
           } catch (err) {}
