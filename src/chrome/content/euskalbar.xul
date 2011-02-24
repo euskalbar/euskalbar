@@ -14,12 +14,6 @@
   <script type="application/x-javascript" src="stats.js"/>
   <script type="application/x-javascript" src="ui.js"/>
 
-  <!-- Nabigatzailea kargatzean hasieratze funtzioari deitu -->
-  <script type="application/x-javascript">
-    window.addEventListener("load",  function(e) { euskalbar.startup(); }, false);
-    window.addEventListener("unload", function(e) { euskalbar.shutdown(); }, false);
-  </script>
-
   <!-- Create reference to locales for Javascript files -->
   <stringbundleset id="stringbundleset">
     <stringbundle id="leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>

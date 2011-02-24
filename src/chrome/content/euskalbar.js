@@ -30,7 +30,7 @@ euskalbar = {
   /* Euskalbar initialization function */
   /* XXX: Try to minimize the actions executed here, as it affects to the
      overall browser startup time */
-  startup: function () {
+  init: function () {
 
     // Register to receive notifications of preference changes
     Services.prefs.addObserver("extensions.euskalbar.", this, false);
@@ -112,6 +112,9 @@ euskalbar = {
 
   // Euskalbar deskargatu: observerra ezabatu
   shutdown: function () {
+    window.removeEventListener("load", euskalbar.init, false);
+    window.removeEventListener("unload", euskalbar.shutdown, false);
+
     Services.prefs.removeObserver("", this);
     document.persist("euskalbar-toolbar", "currentset");
   },
@@ -834,3 +837,6 @@ euskalbar = {
   },
 
 };
+
+window.addEventListener("load", function(e) { euskalbar.init(); }, false);
+window.addEventListener("unload", function(e) { euskalbar.shutdown(); }, false);
