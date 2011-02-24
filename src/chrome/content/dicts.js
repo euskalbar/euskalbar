@@ -1022,23 +1022,6 @@ with (euskalbarLib) {
     },
 
 
-    // Zenbait hiztegi atzitzen ditu
-    goEuskalBarOthers: function (zein) {
-      switch (zein) {
-      case 'SAunamendi':
-        var url = 'http://www.euskomedia.org/euskomedia/SAunamendi?idi=eu&op=1';
-        break;
-      case 'kapsula':
-        var url = 'http://tresnak.kapsula.com/cgi-bin-jo/HTMODFOR?ActionField=getmodel&$BaseNumber=02&$Modelo=01&CmdGetModel=KAPSULA.HTMLMOD.JOMODBIL';
-        break;
-      case 'oeegunea':
-        var url = 'http://www.oeegunea.org/hiztegia';
-        break;
-      }
-      euskalbar.openURL(url, zein, null, null);
-    },
-
-
     // Aukeratutako testua itzultzen du
     selectionText: function () {
       var focusedWindow = document.commandDispatcher.focusedWindow;
