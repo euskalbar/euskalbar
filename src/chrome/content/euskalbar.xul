@@ -8,6 +8,7 @@
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
+  <script type="application/x-javascript" src="lib.js"/>
   <script type="application/x-javascript" src="euskalbar.js"/>
   <script type="application/x-javascript" src="dicts.js"/>
   <script type="application/x-javascript" src="comb.js"/>
