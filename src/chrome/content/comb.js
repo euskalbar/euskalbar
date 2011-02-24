@@ -12,7 +12,7 @@ with (euskalbarLib) {
     getShiftEuskalterm: function (source, term) {
       var txtEuskalterm = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       if (euskalbar.source == 'es') {
         idioma = 'G';
       } else if (euskalbar.source == 'en') {
@@ -69,8 +69,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtEuskalterm = strRes.getString("m1Euskalterm");
         }
-        getBrowser().contentDocument.getElementById('aEuskalterm').innerHTML = txtEuskalterm;
-        getBrowser().contentDocument.getElementById('oEuskalterm').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>";
+        $('aEuskalterm', getBrowser().contentDocument).innerHTML = txtEuskalterm;
+        $('oEuskalterm', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -78,7 +78,7 @@ with (euskalbarLib) {
     getShiftElhuyar: function (source, dest, term) {
       var txtElhuyar = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
@@ -172,11 +172,11 @@ with (euskalbarLib) {
               //Timerra garbitu
               clearTimeout(requestTimer);
               txtElhuyar = xmlHttpReq.responseText;
-              getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = "";
+              $('aElhuyar', getBrowser().contentDocument).innerHTML = "";
               // Hitza existitzen ez bada...
               if (txtElhuyar.indexOf(elhuyarerroremezua) != -1) {
                 txtElhuyar = erroremezua;
-                getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = txtElhuyar;
+                $('aElhuyar', getBrowser().contentDocument).innerHTML = txtElhuyar;
               } else {
                 var txtElhuyar1 = txtElhuyar.split("div id=\"zerrenda\"")[1];
                 var arrayElhuyar = txtElhuyar1.split("a href=\"?");
@@ -195,13 +195,13 @@ with (euskalbarLib) {
                   }
                 }
                 if (badago == 0) {
-                  getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML + '<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + erroremezua2 + '</font></p><p></p>';
+                  $('aElhuyar', getBrowser().contentDocument).innerHTML = $('aElhuyar', getBrowser().contentDocument).innerHTML + '<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + erroremezua2 + '</font></p><p></p>';
                   for (i in arrayElhuyar) {
                     var estekakohitza = arrayElhuyar[i].split(">")[1];
                     estekakohitza = estekakohitza.split("<")[0];
                     var params = arrayElhuyar[i].split("\"")[0];
                     params = params.replace(/amp\;/g, "");
-                    getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML + '<p><a href="' + urlElhuyar + "?" + params.replace('txtHitza=' + encodeURI(term), 'txtHitza=' + estekakohitza) + '">' + estekakohitza + '</a></p>';
+                    $('aElhuyar', getBrowser().contentDocument).innerHTML = $('aElhuyar', getBrowser().contentDocument).innerHTML + '<p><a href="' + urlElhuyar + "?" + params.replace('txtHitza=' + encodeURI(term), 'txtHitza=' + estekakohitza) + '">' + estekakohitza + '</a></p>';
                   }
                 }
               }
@@ -217,7 +217,7 @@ with (euskalbarLib) {
 
     // Elhuyarren sarrerak eta azpisarrerak kargatu
     getsubShiftElhuyar: function (params, azpi) {
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
@@ -263,7 +263,7 @@ with (euskalbarLib) {
               //Elhuyarren katea manipulatzen duen funtzioari deitu
               txtElhuyar1 = euskalbar.comb.manipulateElhuyar(txtElhuyar);
               //Emaitza HTMLan kargatu
-              getBrowser().contentDocument.getElementById('aElhuyar').innerHTML = getBrowser().contentDocument.getElementById('aElhuyar').innerHTML + txtElhuyar1;
+              $('aElhuyar', getBrowser().contentDocument).innerHTML = $('aElhuyar', getBrowser().contentDocument).innerHTML + txtElhuyar1;
               if (azpi == 1) {
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
                   var txtElhuyar2 = txtElhuyar.split(azpisarreraktestua)[1];
@@ -284,13 +284,13 @@ with (euskalbarLib) {
           txtElhuyar = strRes.getString("m1Elhuyar");
         }
       }
-      getBrowser().contentDocument.getElementById('oElhuyar').innerHTML = "<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>";
+      $('oElhuyar', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>";
     },
 
 
     //Elhuyarren katea manipulatzen duen funtzioa
     manipulateElhuyar: function (txtElhuyar) {
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EU\/Hiztegi-kontsulta';
@@ -335,7 +335,7 @@ with (euskalbarLib) {
     // ZT Hiztegiaren markoa kargatu
     getShiftZTHiztegia: function (source, term) {
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var erroremezua = 'Ez dago horrelako terminorik';
@@ -354,7 +354,7 @@ with (euskalbarLib) {
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
         txtZTHiztegia = strRes.getString("m1ZTHiztegia");
-        getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+        $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
         return false;
       }
       xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + euskalbar.comb.normalizatuetaminuskularatu(term) + '%25&lang=' + source, true);
@@ -368,7 +368,7 @@ with (euskalbarLib) {
       var requestTimer = setTimeout(function () {
         xmlHttpReq.abort();
         txtZTHiztegia = strRes.getString("m1ZTHiztegia");
-        getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+        $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
       }, tout);
       xmlHttpReq.onreadystatechange = function () {
         try {
@@ -379,7 +379,7 @@ with (euskalbarLib) {
               erantzuna = xmlHttpReq.responseText;
               if (erantzuna == '[]') {
                 txtZTHiztegia = erroremezua;
-                getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+                $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
               } else {
                 ztzerrenda = JSON.parse(erantzuna);
                 if (ztzerrenda[0].sortKey == euskalbar.comb.normalizatuetaminuskularatu(term)) {
@@ -387,7 +387,7 @@ with (euskalbarLib) {
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
                     txtZTHiztegia = strRes.getString("m1ZTHiztegia");
-                    getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+                    $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
                     return false;
                   }
                   xmlHttpReq2.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=retrieveTerm&key=' + termida, true);
@@ -395,7 +395,7 @@ with (euskalbarLib) {
                   var requestTimer2 = setTimeout(function () {
                     xmlHttpReq2.abort();
                     txtZTHiztegia = strRes.getString("m1ZTHiztegia");
-                    getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+                    $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
                   }, tout);
                   xmlHttpReq2.onreadystatechange = function () {
                     try {
@@ -422,15 +422,15 @@ with (euskalbarLib) {
                               txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
                             }
                           };
-                          getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
-                          getBrowser().contentDocument.getElementById('buruaZthiztegia').innerHTML = "ZT hiztegia";
-                          getBrowser().contentDocument.getElementById('oZthiztegia').innerHTML = "<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+                          $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
+                          $('buruaZthiztegia', getBrowser().contentDocument).innerHTML = "ZT hiztegia";
+                          $('oZthiztegia', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>";
 
                         }
                       }
                     } catch (e) {
                       txtZTHiztegia = strRes.getString("m1ZTHiztegia");
-                      getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+                      $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
                     }
                   }
                 } else {
@@ -438,14 +438,14 @@ with (euskalbarLib) {
                   for (termind = 0; termind < ztzerrenda.length; termind++) {
                     txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
                   }
-                  getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+                  $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
                 }
               }
             }
           }
         } catch (e) {
           txtZTHiztegia = strRes.getString("m1ZTHiztegia");
-          getBrowser().contentDocument.getElementById('aZthiztegia').innerHTML = txtZTHiztegia;
+          $('aZthiztegia', getBrowser().contentDocument).innerHTML = txtZTHiztegia;
         }
       }
     },
@@ -453,7 +453,7 @@ with (euskalbarLib) {
     // Energia Hiztegiaren markoa kargatu
     getShiftEnergia: function (source, term) {
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var erroremezua = 'Ez dago horrelako terminorik';
@@ -482,7 +482,7 @@ with (euskalbarLib) {
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
         txtEnergia = strRes.getString("m1Energia");
-        getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+        $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
         return false;
       }
       var urlEnergia = 'http://www.eve.es/energia/bilatu.asp';
@@ -503,7 +503,7 @@ with (euskalbarLib) {
               erantzuna = xmlHttpReq.responseText;
               if (erantzuna.search(/\<select name\=\"selectTerm\"/i) == -1) {
                 txtEnergia = erroremezua;
-                getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+                $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
               } else {
                 zerrenda = erantzuna.substring(erantzuna.search(/\<select name\=\"selectTerm\"/i));
                 zerrenda = zerrenda.substring(zerrenda.search(/\<\/script\>/i) + 10);
@@ -518,7 +518,7 @@ with (euskalbarLib) {
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
                     txtEnergia = strRes.getString("m1Energia");
-                    getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+                    $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
                     return false;
                   }
                   xmlHttpReq2.onreadystatechange = function () {
@@ -550,14 +550,14 @@ with (euskalbarLib) {
                               txtEnergia = txtEnergia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarEnergiaKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                             };
                           };
-                          getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
-                          getBrowser().contentDocument.getElementById('buruaEnergia').innerHTML = "Energia hiztegia";
-                          getBrowser().contentDocument.getElementById('oEnergia').innerHTML = "<div id=\"oharra\"><a href=\"http://www.eve.es/energia/index.html\">Energia hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+                          $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
+                          $('buruaEnergia', getBrowser().contentDocument).innerHTML = "Energia hiztegia";
+                          $('oEnergia', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.eve.es/energia/index.html\">Energia hiztegia&nbsp;<sup>&curren;</sup></a></div>";
                         }
                       }
                     } catch (e) {
                       txtEnergia = strRes.getString("m1Energia");
-                      getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+                      $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
                     }
                   }
                   xmlHttpReq2.open('GET', 'http://www.eve.es/energia/definizioa.asp?Kodea=' + definizioa, true);
@@ -566,7 +566,7 @@ with (euskalbarLib) {
                   var requestTimer2 = setTimeout(function () {
                     xmlHttpReq2.abort();
                     txtEnergia = strRes.getString("m1Energia");
-                    getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+                    $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
                   }, tout);
                 } else {
                   txtEnergia = erroremezua2;
@@ -578,14 +578,14 @@ with (euskalbarLib) {
                     definizioa = definizioa.substring(0, definizioa.search("','"));
                     txtEnergia = txtEnergia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarEnergiaKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                   };
-                  getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+                  $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
                 }
               }
             }
           }
         } catch (e) {
           txtEnergia = strRes.getString("m1Energia");
-          getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+          $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
         }
       }
       xmlHttpReq.open('POST', urlEnergia, true);
@@ -601,14 +601,14 @@ with (euskalbarLib) {
       var requestTimer = setTimeout(function () {
         xmlHttpReq.abort();
         txtEnergia = strRes.getString("m1Energia");
-        getBrowser().contentDocument.getElementById('aEnergia').innerHTML = txtEnergia;
+        $('aEnergia', getBrowser().contentDocument).innerHTML = txtEnergia;
       }, tout);
     },
 
     // Telekomunikazio Hiztegiaren markoa kargatu
     getShiftTelekom: function (source, term) {
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var erroremezua = 'Ez dago horrelako terminorik';
@@ -641,7 +641,7 @@ with (euskalbarLib) {
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
         txtTelekom = strRes.getString("m1Telekom");
-        getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+        $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
         return false;
       }
       var urlTelekom = 'http://www.telekomunikaziohiztegia.org/bilatu.asp?';
@@ -662,7 +662,7 @@ with (euskalbarLib) {
               erantzuna = xmlHttpReq.responseText;
               if (erantzuna.search(/\<select name\=\"selectTerm\"/i) == -1) {
                 txtTelekom = erroremezua;
-                getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+                $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
               } else {
                 zerrenda = erantzuna.substring(erantzuna.search(/\<select name\=\"selectTerm\"/i));
                 zerrenda = zerrenda.substring(zerrenda.search(/\<\/script\>/i) + 10);
@@ -677,7 +677,7 @@ with (euskalbarLib) {
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
                     txtTelekom = strRes.getString("m1Telekom");
-                    getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+                    $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
                     return false;
                   }
                   xmlHttpReq2.onreadystatechange = function () {
@@ -719,14 +719,14 @@ with (euskalbarLib) {
                               txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                             };
                           };
-                          getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
-                          getBrowser().contentDocument.getElementById('buruaTelekom').innerHTML = "Telekomunikazio hiztegia";
-                          getBrowser().contentDocument.getElementById('oTelekom').innerHTML = "<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+                          $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
+                          $('buruaTelekom', getBrowser().contentDocument).innerHTML = "Telekomunikazio hiztegia";
+                          $('oTelekom', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>";
                         }
                       }
                     } catch (e) {
                       txtTelekom = strRes.getString("m1Telekom");
-                      getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+                      $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
                     }
                   }
                   xmlHttpReq2.open('GET', 'http://www.telekomunikaziohiztegia.org/definizioa.asp?Kodea=' + definizioa + '&Hizkuntza=' + hizkid + '&hizk=' + inthizk, true);
@@ -735,7 +735,7 @@ with (euskalbarLib) {
                   var requestTimer2 = setTimeout(function () {
                     xmlHttpReq2.abort();
                     txtTelekom = strRes.getString("m1Telekom");
-                    getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+                    $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
                   }, tout);
                 } else {
                   txtTelekom = erroremezua2;
@@ -747,14 +747,14 @@ with (euskalbarLib) {
                     definizioa = definizioa.substring(0, definizioa.search("&"));
                     txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                   };
-                  getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+                  $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
                 }
               }
             }
           }
         } catch (e) {
           txtTelekom = strRes.getString("m1Telekom");
-          getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+          $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
         }
       }
       xmlHttpReq.open('POST', urlTelekom, true);
@@ -770,7 +770,7 @@ with (euskalbarLib) {
       var requestTimer = setTimeout(function () {
         xmlHttpReq.abort();
         txtTelekom = strRes.getString("m1Telekom");
-        getBrowser().contentDocument.getElementById('aTelekom').innerHTML = txtTelekom;
+        $('aTelekom', getBrowser().contentDocument).innerHTML = txtTelekom;
       }, tout);
     },
 
@@ -778,7 +778,7 @@ with (euskalbarLib) {
     getShift3000: function (source, term) {
       var txt3000 = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
 
       if (source == 'es') {
         source = 'CAS';
@@ -822,7 +822,7 @@ with (euskalbarLib) {
               }
               //3000ren katea manipulatzen duen funtzioa
               txt3000 = euskalbar.comb.manipulate3000(wtable, txt3000);
-              getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
+              $('a3000', getBrowser().contentDocument).innerHTML = txt3000;
               //azpisarrerak badauzka...
               if (txt3000.indexOf("cgi-bin_m33") != -1) {
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
@@ -841,15 +841,15 @@ with (euskalbarLib) {
         } catch (e) {
           txt3000 = strRes.getString("m13000");
         }
-        getBrowser().contentDocument.getElementById('a3000').innerHTML = txt3000;
-        getBrowser().contentDocument.getElementById('o3000').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_3000/indice_e.htm\">3000 hiztegia&nbsp;<sup>&curren;</sup></a></div>";
+        $('a3000', getBrowser().contentDocument).innerHTML = txt3000;
+        $('o3000', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_3000/indice_e.htm\">3000 hiztegia&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
     // 3000ren sarrerak eta azpisarrerak kargatu
     getsubShift3000: function (url3000) {
       var txt3000 = "";
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
@@ -879,7 +879,7 @@ with (euskalbarLib) {
               //Elhuyarren katea manipulatzen duen funtzioari deitu
               txt3000 = euskalbar.comb.manipulate3000(3, txt3000);
               //Emaitza HTMLan kargatu
-              getBrowser().contentDocument.getElementById('a3000').innerHTML = getBrowser().contentDocument.getElementById('a3000').innerHTML + txt3000;
+              $('a3000', getBrowser().contentDocument).innerHTML = $('a3000', getBrowser().contentDocument).innerHTML + txt3000;
             }
           }
         } catch (e) {
@@ -931,7 +931,7 @@ with (euskalbarLib) {
     getShiftMorris: function (source, term) {
       var txtMorris = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
 
       if (source == 'en') {
         hizk = 'txtIngles';
@@ -965,7 +965,7 @@ with (euskalbarLib) {
 
       xmlHttpReq.onreadystatechange = function () {
         try {
-          div = getBrowser().contentDocument.getElementById('aMorris');
+          div = $('aMorris', getBrowser().contentDocument);
           if (xmlHttpReq.readyState == 4) {
             // Timerra garbitu
             clearTimeout(requestTimer);
@@ -992,8 +992,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtMorris = strRes.getString("m1Morris");
         }
-        getBrowser().contentDocument.getElementById('aMorris').innerHTML = txtMorris;
-        getBrowser().contentDocument.getElementById('oMorris').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>";
+        $('aMorris', getBrowser().contentDocument).innerHTML = txtMorris;
+        $('oMorris', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>";
       }
 
     },
@@ -1003,7 +1003,7 @@ with (euskalbarLib) {
     getShiftLabayru: function (source, term) {
       var txtLabayru = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
 
       if (source == 'es') {
         hizk = '';
@@ -1037,7 +1037,7 @@ with (euskalbarLib) {
 
       xmlHttpReq.onreadystatechange = function () {
         try {
-          div = getBrowser().contentDocument.getElementById('aLabayru');
+          div = $('aLabayru', getBrowser().contentDocument);
           if (xmlHttpReq.readyState == 4) {
             // Timerra garbitu
             clearTimeout(requestTimer);
@@ -1062,8 +1062,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtLabayru = strRes.getString("m1Labayru");
         }
-        getBrowser().contentDocument.getElementById('aLabayru').innerHTML = txtLabayru;
-        getBrowser().contentDocument.getElementById('oLabayru').innerHTML = "<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>";
+        $('aLabayru', getBrowser().contentDocument).innerHTML = txtLabayru;
+        $('oLabayru', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1072,7 +1072,7 @@ with (euskalbarLib) {
     getShiftAdorez: function (source, term) {
       var txtSinonimoak = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       if (source == 'eu') {
         var urlSinonimoak = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe?Palabra=Introducida&Idioma=EUS&txtpalabra=' + escape(term);
       } else {
@@ -1131,8 +1131,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtSinonimoak = strRes.getString("m1Sinonimoak");
         }
-        getBrowser().contentDocument.getElementById('aAdorez').innerHTML = txtSinonimoak;
-        getBrowser().contentDocument.getElementById('oAdorez').innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_sinon/indice_e.htm\">Adorez&nbsp;<sup>&curren;</sup></a></div>";
+        $('aAdorez', getBrowser().contentDocument).innerHTML = txtSinonimoak;
+        $('oAdorez', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_sinon/indice_e.htm\">Adorez&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1141,7 +1141,7 @@ with (euskalbarLib) {
     getShiftUZEI: function (source, term) {
       var txtUZEI = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       var urlUZEI = 'http://www.uzei.com/estatico/sinonimos.asp?sarrera=' + escape(term) + '&eragiketa=bilatu';
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
@@ -1184,8 +1184,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtUZEI = strRes.getString("m1UZEI");
         }
-        getBrowser().contentDocument.getElementById('aUzei').innerHTML = txtUZEI;
-        getBrowser().contentDocument.getElementById('oUzei').innerHTML = "<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>";
+        $('aUzei', getBrowser().contentDocument).innerHTML = txtUZEI;
+        $('oUzei', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1194,7 +1194,7 @@ with (euskalbarLib) {
     getShiftEuskaltzaindia: function (source, term) {
       var txtEuskaltzaindia = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       if (euskalbar.source == 'es') {
         idioma = 'G';
       } else if (euskalbar.source == 'en') {
@@ -1233,7 +1233,7 @@ with (euskalbarLib) {
               txtEuskaltzaindia = xmlHttpReq.responseText;
               txtEuskaltzaindia = euskalbar.comb.manipulateEuskaltzaindia(txtEuskaltzaindia);
               txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term + "<font></strong>" + txtEuskaltzaindia;
-              getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
+              $('aBatua', getBrowser().contentDocument).innerHTML = txtEuskaltzaindia;
               //azpisarrerak badauzka...
               if (txtEuskaltzaindia.indexOf("index.php") != -1) {
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
@@ -1253,8 +1253,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtEuskaltzaindia = strRes.getString("m1Batua");
         }
-        getBrowser().contentDocument.getElementById('aBatua').innerHTML = txtEuskaltzaindia;
-        getBrowser().contentDocument.getElementById('oBatua').innerHTML = "<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>";
+        $('aBatua', getBrowser().contentDocument).innerHTML = txtEuskaltzaindia;
+        $('oBatua', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1262,7 +1262,7 @@ with (euskalbarLib) {
     getsubShiftEuskaltzaindia: function (urlEuskaltzaindia) {
       urlEuskaltzaindia = "http://www.euskaltzaindia.net/hiztegibatua/index.php" + urlEuskaltzaindia;
       var txtEuskaltzaindia = "";
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
@@ -1292,7 +1292,7 @@ with (euskalbarLib) {
               //Batuaren katea manipulatzen duen funtzioari deitu
               txtEuskaltzaindia = euskalbar.comb.manipulateEuskaltzaindia(txtEuskaltzaindia);
               //Emaitza HTMLan kargatu
-              getBrowser().contentDocument.getElementById('aBatua').innerHTML = getBrowser().contentDocument.getElementById('aBatua').innerHTML + "<hr>" + txtEuskaltzaindia;
+              $('aBatua', getBrowser().contentDocument).innerHTML = $('aBatua', getBrowser().contentDocument).innerHTML + "<hr>" + txtEuskaltzaindia;
             }
           }
         } catch (e) {
@@ -1317,7 +1317,7 @@ with (euskalbarLib) {
     getShiftMokoroa: function (source, term) {
       var txtMokoroa = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
 
       var params = [];
       var urlMokoroa = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa';
@@ -1379,8 +1379,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtMokoroa = strRes.getString("m1Mokoroa");
         }
-        getBrowser().contentDocument.getElementById('aMokoroa').innerHTML = txtMokoroa;
-        getBrowser().contentDocument.getElementById('oMokoroa').innerHTML = "<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>";
+        $('aMokoroa', getBrowser().contentDocument).innerHTML = txtMokoroa;
+        $('oMokoroa', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1389,7 +1389,7 @@ with (euskalbarLib) {
     getShiftIntza: function (source, term) {
       var txtIntza = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       if (source == 'es') {
         var urlIntza = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + escape(term) + '&eremu3=1&eremu1=eeki';
       } else {
@@ -1436,8 +1436,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtIntza = strRes.getString("m1Intza");
         }
-        getBrowser().contentDocument.getElementById('aIntza').innerHTML = txtIntza;
-        getBrowser().contentDocument.getElementById('oIntza').innerHTML = "<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>";
+        $('aIntza', getBrowser().contentDocument).innerHTML = txtIntza;
+        $('oIntza', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 
@@ -1446,7 +1446,7 @@ with (euskalbarLib) {
     getShiftOpentran: function (source, term) {
       var txtOpentran = "";
       //Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       var urlOpentran = 'http://eu.open-tran.eu/suggest/' + escape(term);
 
       var xmlHttpReq = new XMLHttpRequest();
@@ -1491,8 +1491,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtOpentran = strRes.getString("m1Opentran");
         }
-        getBrowser().contentDocument.getElementById('aOpentran').innerHTML = txtOpentran3;
-        getBrowser().contentDocument.getElementById('oOpentran').innerHTML = "<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>";
+        $('aOpentran', getBrowser().contentDocument).innerHTML = txtOpentran3;
+        $('oOpentran', getBrowser().contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
 

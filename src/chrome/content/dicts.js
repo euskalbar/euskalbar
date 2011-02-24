@@ -19,7 +19,7 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       // interfazearen hizkuntza zehaztu
       if (h.match('euskara')) {
@@ -69,7 +69,7 @@ with (euskalbarLib) {
       }
 
       // interfazearen hizkuntza zehaztu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
@@ -401,7 +401,7 @@ with (euskalbarLib) {
       };
 
       // interfazearen hizkuntza zehaztu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         inthizk = 'eusk';
@@ -665,7 +665,7 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       // interfazearen hizkuntza zehaztu
       if (h.match('euskara')) {
@@ -696,7 +696,7 @@ with (euskalbarLib) {
         return;
       }
       var params = [];
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
       if (h.match('euskara')) {
@@ -818,7 +818,7 @@ with (euskalbarLib) {
         return;
       }
       var params = [];
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         hizk = 'EU';

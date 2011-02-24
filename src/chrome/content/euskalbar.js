@@ -102,8 +102,8 @@ with (euskalbarLib) {
 
       // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
       // (oharra: persist="checked" ez dabil)
-      var dicts = document.getElementById('Euskalbar-dicts-general').childNodes;
-      var hsMenu = document.getElementById('Euskalbar-hsButtons').childNodes;
+      var dicts = $('Euskalbar-dicts-general').childNodes;
+      var hsMenu = $('Euskalbar-hsButtons').childNodes;
       for (i = 0; i < hsMenu.length; i++) {
         hsMenu[i].setAttribute('checked', !dicts[i].collapsed);
       }
@@ -150,7 +150,7 @@ with (euskalbarLib) {
         link.setAttribute("href", prefStyle);
 
         //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
-        strRes = document.getElementById('leuskal');
+        strRes = $('leuskal');
         const oh = strRes.getString("oharra");
         var l = "";
         if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
@@ -197,7 +197,7 @@ with (euskalbarLib) {
     // Laguntza erakusten du
     openLaguntza: function () {
       // Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       if (h.match('euskara')) {
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
@@ -215,9 +215,9 @@ with (euskalbarLib) {
 
     // Hiztegien menua erakusten/ezkutatzen du
     showhideDicts: function () {
-      var menuEntry = document.getElementById('euskalbar-menu');
-      var appmenuEntry = document.getElementById("appmenu_euskalbar");
-      var appmenuSpacer = document.getElementById("euskalbar-appmenu-spacer");
+      var menuEntry = $('euskalbar-menu');
+      var appmenuEntry = $("appmenu_euskalbar");
+      var appmenuSpacer = $("euskalbar-appmenu-spacer");
 
       if (!this.prefs.getBoolPref("showdicts.enabled")) {
         menuEntry.setAttribute('hidden', true);
@@ -233,8 +233,8 @@ with (euskalbarLib) {
 
     // Testuinguru-menua erakusten/ezkutatzen du
     showContextmenu: function () {
-      var sep = document.getElementById('Euskalbar-context-menuseparator');
-      var button = document.getElementById('Euskalbar-context-menu');
+      var sep = $('Euskalbar-context-menuseparator');
+      var button = $('Euskalbar-context-menu');
       if (!this.prefs.getBoolPref("showcontextmenu.enabled")) {
         sep.setAttribute('hidden', true);
         button.setAttribute('hidden', true);
@@ -261,12 +261,12 @@ with (euskalbarLib) {
 
     //Azal pertsonalizatuetarako script-ak (hau eta hurrengoa)
     setUserSkinDisabled: function () {
-      var chkSkins = document.getElementById("chkUserSkinEnable");
-      document.getElementById("txtUserSkinPath").disabled = !chkSkins.checked;
-      document.getElementById("btnUserSkinPath").disabled = !chkSkins.checked;
-      document.getElementById("menuStartupSkin").disabled = chkSkins.checked;
+      var chkSkins = $("chkUserSkinEnable");
+      $("txtUserSkinPath").disabled = !chkSkins.checked;
+      $("btnUserSkinPath").disabled = !chkSkins.checked;
+      $("menuStartupSkin").disabled = chkSkins.checked;
       if (!chkSkins.checked) {
-        this.prefs.setCharPref("style.combinedquery", document.getElementById("menuStartupSkin").selectedItem.value);
+        this.prefs.setCharPref("style.combinedquery", $("menuStartupSkin").selectedItem.value);
       }
     },
 
@@ -280,7 +280,7 @@ with (euskalbarLib) {
 
       var showResult = fpicker.show();
       if (showResult == fpicker.returnOK) {
-        document.getElementById("txtUserSkinPath").value = fpicker.file.path;
+        $("txtUserSkinPath").value = fpicker.file.path;
         this.prefs.setCharPref("style.combinedquery", "file://" + fpicker.file.path);
       }
     },
@@ -291,7 +291,7 @@ with (euskalbarLib) {
         return;
       }
 
-      var el = document.getElementById("euskalbar-toolbar");
+      var el = $("euskalbar-toolbar");
       var state = el.collapsed;
       el.collapsed = !state;
     },
@@ -307,7 +307,7 @@ with (euskalbarLib) {
         this.prefs.setBoolPref(prefer + ".enabled", !this.prefs.getBoolPref(prefer + ".enabled"));
         break;
       case "focustextbox":
-        var el = document.getElementById("EuskalBar-search-string");
+        var el = $("EuskalBar-search-string");
         el.focus();
         el.select();
         break;
@@ -442,7 +442,7 @@ with (euskalbarLib) {
       katea = katea.replace(/^\s+|\s+$/g, "");
       if (katea == "") {
         // Lokalizazio paketeak kargatu
-        strRes = document.getElementById('leuskal');
+        strRes = $('leuskal');
         alert(strRes.getString("kutxahutsa"));
         return true;
       }
@@ -452,9 +452,9 @@ with (euskalbarLib) {
     // Enter tekla sakatzean irekitzen diren hiztegiak
     goEuskalBarOnKey: function (event) {
       // Get search string entered by user
-      var searchStr = document.getElementById('EuskalBar-search-string').value;
+      var searchStr = $('EuskalBar-search-string').value;
       // Lokalizazio paketeak kargatu
-      strRes = document.getElementById('leuskal');
+      strRes = $('leuskal');
       const h = strRes.getString("hizk");
       // If user pressed Enter key
       if (event.keyCode == 13) {
@@ -719,7 +719,7 @@ with (euskalbarLib) {
         }
       }
       //Testu kutxa enfokatzen du
-      var el = document.getElementById("EuskalBar-search-string");
+      var el = $("EuskalBar-search-string");
       el.focus();
     },
 
@@ -747,7 +747,7 @@ with (euskalbarLib) {
 
     // Euskalbarren hizkuntza berria zehazten du
     setEuskalbarLang: function (source, target) {
-      var button = document.getElementById("euskalbar-language");
+      var button = $("euskalbar-language");
       button.setAttribute("label", source.toUpperCase() + " ‣ " + target.toUpperCase());
       this.source = source;
       this.target = target;
@@ -757,17 +757,17 @@ with (euskalbarLib) {
 
     // Euskalbarreko hiztegiak moldatzen ditu hizkuntzaren arabera
     setEuskalbarDictionaries: function (hizk) {
-      var euskalterm = document.getElementById('EuskalBar-Search');
-      var morris = document.getElementById('EuskalBar-Morris');
-      var opentran = document.getElementById('EuskalBar-Opentran');
-      var h3000 = document.getElementById('EuskalBar-Ask');
-      var labayru = document.getElementById('EuskalBar-Labayru');
-      var zehazki = document.getElementById('EuskalBar-Zehazki');
-      var elhuyar = document.getElementById('EuskalBar-Elhuyar');
-      var goihata = document.getElementById('EuskalBar-Goihata');
-      var zthiztegia = document.getElementById('EuskalBar-ZTHiztegia');
-      var energia = document.getElementById('EuskalBar-Energia');
-      var telekom = document.getElementById('EuskalBar-Telekom');
+      var euskalterm = $('EuskalBar-Search');
+      var morris = $('EuskalBar-Morris');
+      var opentran = $('EuskalBar-Opentran');
+      var h3000 = $('EuskalBar-Ask');
+      var labayru = $('EuskalBar-Labayru');
+      var zehazki = $('EuskalBar-Zehazki');
+      var elhuyar = $('EuskalBar-Elhuyar');
+      var goihata = $('EuskalBar-Goihata');
+      var zthiztegia = $('EuskalBar-ZTHiztegia');
+      var energia = $('EuskalBar-Energia');
+      var telekom = $('EuskalBar-Telekom');
 
       switch (hizk) {
       case 'es':

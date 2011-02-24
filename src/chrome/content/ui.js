@@ -5,7 +5,7 @@ with (euskalbarLib) {
     /* Euskalbar UI initialization */
     init: function () {
       // Dictionaries menu in Tools and in Firefox menu
-      var euskalbarMenuPopup = document.getElementById("euskalbar-menuPopup");
+      var euskalbarMenuPopup = $("euskalbar-menuPopup");
       this.initMenu("euskalbar-menu", euskalbarMenuPopup);
       this.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
     },
@@ -16,7 +16,7 @@ with (euskalbarLib) {
       // the ID of the Euskalbar button into it
       var euskalbarButtonId = "euskalbar-button";
       var navBarId = "nav-bar";
-      var navBar = document.getElementById(navBarId);
+      var navBar = $(navBarId);
 
       var currentSet = navBar.currentSet;
 
@@ -43,7 +43,7 @@ with (euskalbarLib) {
     /* Initializes a menu with id 'parentMenuId' by recursively cloning
      * the 'popupMenu' DOM node */
     initMenu: function (parentMenuId, popupMenu) {
-      var parentMenu = document.getElementById(parentMenuId);
+      var parentMenu = $(parentMenuId);
 
       if (!parentMenu) {
         return;
