@@ -4,11 +4,77 @@ with (euskalbarLib) {
 
     /* Euskalbar UI initialization */
     init: function () {
-      // Dictionaries menu in Tools and in Firefox menu
-      var euskalbarMenuPopup = $("euskalbar-menuPopup");
-      this.initMenu("euskalbar-menu", euskalbarMenuPopup);
-      this.initMenu("appmenu_euskalbar", euskalbarMenuPopup);
+      // Create and populate the Dictionaries menu
+      this.initDictsMenu();
     },
+
+
+    initDictsMenu: function () {
+      var dictsMenu = this.createDictsMenu();
+
+      this.initMenu("euskalbar-menu", dictsMenu);
+      this.initMenu("appmenu_euskalbar", dictsMenu);
+    },
+
+
+    /* Dynamically creates the dictionaries menu based on the data
+     * available in euskalbar.dicts.menu
+     *
+     * TODO: allow nested categories by making this a recursive function
+     * TODO: only create the menu when asked (onPopupShowing)
+     * TODO: first try to load the dictionaries' JSON remotely
+     * TODO: use localized texts for 'name'
+     * TODO: slugify names when using them as IDs
+     */
+    createDictsMenu: function () {
+      var items = euskalbar.dicts.menu;
+      var menuPopup = document.createElement("menupopup");
+
+      for (var i=0; i<items.length; i++) {
+        var menu = document.createElement("menu");
+        menu.setAttribute("label", items[i].cat);
+        menu.setAttribute("id", "euskalbar-menu-" + items[i].cat);
+
+        var submenu = document.createElement("menupopup");
+        submenu.setAttribute("id", "euskalbar-menuPopup-" + items[i].cat);
+
+        var dicts = items[i].dicts;
+        for (var j=0; j<dicts.length; j++) {
+          var dict = dicts[j];
+
+          if (dict.hasOwnProperty("sep")) {
+            var item = document.createElement("menuseparator");
+          } else {
+            var item = document.createElement("menuitem");
+            item.setAttribute("label", dict.name);
+            item.setAttribute("oncommand",
+                              "euskalbar.openURL('" + dict.url + "', '" +
+                                                 dict.name + "')");
+          }
+
+          submenu.appendChild(item);
+        }
+
+        menu.appendChild(submenu);
+        menuPopup.appendChild(menu);
+      }
+
+      return menuPopup;
+    },
+
+
+    /* Initializes a menu with id 'parentMenuId' by recursively cloning
+     * the 'popupMenu' DOM node */
+    initMenu: function (parentMenuId, popupMenu) {
+      var parentMenu = $(parentMenuId);
+
+      if (!parentMenu) {
+        return;
+      }
+
+      parentMenu.appendChild(popupMenu.cloneNode(true));
+    },
+
 
     /* Appends the Euskalbar button to the navigation bar */
     appendButtonToToolbar: function() {
@@ -37,19 +103,6 @@ with (euskalbarLib) {
       // In case it's hidden, show the navigation bar
       navBar.setAttribute("collapsed", false);
       document.persist(navBarId, "collapsed");
-    },
-
-
-    /* Initializes a menu with id 'parentMenuId' by recursively cloning
-     * the 'popupMenu' DOM node */
-    initMenu: function (parentMenuId, popupMenu) {
-      var parentMenu = $(parentMenuId);
-
-      if (!parentMenu) {
-        return;
-      }
-
-      parentMenu.appendChild(popupMenu.cloneNode(true));
     },
 
   };
