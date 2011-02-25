@@ -2,9 +2,9 @@ euskalbar.dicts.menu = [
   { cat: "Orokorra",
     dicts: [
       { name: 'Euskaltzaindia',
-        url: 'http://euskaltzaindia.net' },
+        url: 'http://www.euskaltzaindia.net' },
       { name: 'Orotariko Euskal Hiztegia',
-        url: 'http://euskaltzaindia.net/oeh' },
+        url: 'http://www.euskaltzaindia.net/oeh' },
       { sep: true },
       { name: 'Euskalterm banku terminologikoa (eu-es)',
         url: 'http://www1.euskadi.net/euskalterm/indice_e.htm' },
