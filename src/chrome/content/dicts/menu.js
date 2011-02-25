@@ -1,8 +1,8 @@
 euskalbar.dicts.menu = [
   { cat: "Orokorra",
     dicts: [
-      { name: 'Euskaltzaindia',
-        url: 'http://www.euskaltzaindia.net' },
+      { name: 'Hiztegi Batua',
+        url: 'http://www.euskaltzaindia.net/hiztegibatua' },
       { name: 'Orotariko Euskal Hiztegia',
         url: 'http://www.euskaltzaindia.net/oeh' },
       { sep: true },
