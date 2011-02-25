@@ -22,7 +22,6 @@ with (euskalbarLib) {
      *
      * TODO: allow nested categories by making this a recursive function
      * TODO: first try to load the dictionaries' JSON remotely
-     * TODO: use localized texts for 'name'
      */
     createDictsMenu: function () {
       var items = euskalbar.dicts.menu;
