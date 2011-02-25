@@ -145,7 +145,7 @@ with (euskalbarLib) {
         return;
       }
       var zein = 'zthiztegia.elhuyar.org';
-      var tabulatzailea = euskalbar.getTab(zein);
+      var tabulatzailea = euskalbar.getTabIndexBySlug(zein);
       if (tabulatzailea == -1) {
         euskalbar.openURL('http://' + zein, zein, 'GET', null);
       }
@@ -192,7 +192,7 @@ with (euskalbarLib) {
         dokumentua = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
-        tabulatzailea = euskalbar.getTab('zthiztegia.elhuyar.org');
+        tabulatzailea = euskalbar.getTabIndexBySlug('zthiztegia.elhuyar.org');
         if (tabulatzailea != -1) {
           dokumentua = getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
           segi2 = 1;
@@ -282,7 +282,7 @@ with (euskalbarLib) {
         hizkid = 'F';
       };
 
-      var tabulatzailea = euskalbar.getTab('energia');
+      var tabulatzailea = euskalbar.getTabIndexBySlug('energia');
       if (tabulatzailea == -1) {
         euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia', 'GET', null);
       };
@@ -346,7 +346,7 @@ with (euskalbarLib) {
         dokumentua = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
-        tabulatzailea = euskalbar.getTab('energia');
+        tabulatzailea = euskalbar.getTabIndexBySlug('energia');
         if (tabulatzailea != -1) {
           dokumentua = getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
           segi2 = 1;
@@ -409,7 +409,7 @@ with (euskalbarLib) {
         inthizk = 'gazt';
       }
 
-      var tabulatzailea = euskalbar.getTab('telekom');
+      var tabulatzailea = euskalbar.getTabIndexBySlug('telekom');
       if (tabulatzailea == -1) {
         euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
       };
@@ -473,7 +473,7 @@ with (euskalbarLib) {
         dokumentua = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
-        tabulatzailea = euskalbar.getTab('telekom');
+        tabulatzailea = euskalbar.getTabIndexBySlug('telekom');
         if (tabulatzailea != -1) {
           dokumentua = getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
           segi2 = 1;

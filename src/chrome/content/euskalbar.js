@@ -337,9 +337,10 @@ with (euskalbarLib) {
      * Inspirazioa: /browser/components/search/nsSearchService.js
      *              EngineURL.prototype.getSubmission() metodoa
      */
-    openURL: function (url, zein, method, params) {
-      var postData = null; // POSTen kasuan bakarrik aldatuko da
-      var dataString = ""; // parametroak jasotzeko stringa
+    openURL: function (url, slug, method, params) {
+      var postData = null;
+      var dataString = "";
+
       if (params != null) { // momentuko soluzioa...
         for (var i = 0; i < params.length; ++i) {
           var param = params[i];
@@ -347,26 +348,30 @@ with (euskalbarLib) {
           dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
         }
       }
+
       if (method == 'GET') {
-        if (url.indexOf("?") == -1 && dataString) url += "?";
+        if (url.indexOf("?") == -1 && dataString) {
+          url += "?";
+        }
+
         url += dataString;
       } else if (method == "POST") {
-        var stringStream = Cc["@mozilla.org/io/string-input-stream;1"].createInstance(Components.interfaces.nsIStringInputStream);
-        // Mozilla bug #318193
-        if ("data" in stringStream) // Gecko 1.9 or newer
-        stringStream.data = dataString;
-        else // 1.8 or older
-        stringStream.setData(dataString, dataString.length);
+        var stringStream = Cc["@mozilla.org/io/string-input-stream;1"]
+                           .createInstance(Components.interfaces.nsIStringInputStream);
 
-        var postData = Cc["@mozilla.org/network/mime-input-stream;1"].createInstance(Components.interfaces.nsIMIMEInputStream);
+        stringStream.data = dataString;
+
+        var postData = Cc["@mozilla.org/network/mime-input-stream;1"]
+                       .createInstance(Components.interfaces.nsIMIMEInputStream);
         postData.addHeader("Content-Type", "application/x-www-form-urlencoded");
         postData.addContentLength = true;
         postData.setData(stringStream);
       }
+
       if (this.prefs.getBoolPref("reusetabs.enabled")) {
-        this.reuseOldTab(url, zein, postData);
+        this.reuseOldTab(url, slug, postData);
       } else {
-        this.openNewTab(url, postData);
+        this.openNewTab(url, slug, postData);
       }
     },
 
@@ -378,57 +383,66 @@ with (euskalbarLib) {
     },
 
 
-    // Hiztegia fitxa berri batean ireki
-    openNewTab: function (taburl, aPostData) {
-      var theTab = getBrowser().addTab(taburl, null, null, aPostData);
-      // enfokatu hala eskatu bada
+    /* Open URL in a new tab */
+    openNewTab: function (tabUrl, slug, aPostData) {
+      var newTab = gBrowser.addTab(tabUrl, null, null, aPostData);
+
+      // Store slug as an attribute for reusing purposes
+      newTab.setAttribute('slug', slug);
+
       if (!this.prefs.getBoolPref("bgtabs.enabled")) {
-        getBrowser().selectedTab = theTab;
+        getBrowser().selectedTab = newTab;
       }
     },
 
 
-    // Hiztegia fitxa zaharrean ireki
-    reuseOldTab: function (taburl, tabzein, aPostData) {
-      // Aztertu fitxa zahar bakoitza
-      var oldTab = getBrowser().selectedTab;
+    /* Reuse old tab by querying tabs for the 'slug' attribute */
+    reuseOldTab: function (tabUrl, slug, aPostData) {
+      var numTabs = gBrowser.tabs.length;
       var found = false;
       var index = 0;
-      var numTabs = getBrowser().mTabContainer.childNodes.length;
+
       while (index < numTabs && !found) {
-        var currentTab = getBrowser().getBrowserAtIndex(index);
-        var currentTabURI = currentTab.currentURI.spec;
-        if (currentTabURI.indexOf(tabzein) != -1) {
-          // Hiztegia irekita dago
-          currentTab.webNavigation.loadURI(taburl, null, null, aPostData, null);
-          // enfokatu hala eskatu bada
+        var currentTab = gBrowser.tabs[index];
+
+        if (currentTab.hasAttribute('slug')
+            && currentTab.getAttribute('slug') == slug) {
+
+          var currentBrowser = gBrowser.getBrowserAtIndex(index);
+          currentBrowser.webNavigation.loadURI(tabUrl, null, null,
+                                               aPostData, null);
+
           if (!this.prefs.getBoolPref("bgtabs.enabled")) {
-            getBrowser().mTabContainer.selectedIndex = index;
+            gBrowser.tabContainer.selectedIndex = index;
           }
+
           found = true;
         }
+
         index++;
       }
 
       if (!found) {
-        this.openNewTab(taburl, aPostData);
+        this.openNewTab(tabUrl, slug, aPostData);
       }
     },
 
-    // Fitxa zenbakia itzuli
-    getTab: function (tabzein) {
-      // Aztertu fitxa zahar bakoitza
+    /* Returns the tab index by matching a given slug */
+    getTabIndexBySlug: function (slug) {
       var found = false;
       var index = 0;
-      var numTabs = getBrowser().mTabContainer.childNodes.length;
+      var numTabs = gBrowser.tabs.length;
+
       while (index < numTabs && !found) {
-        var currentTab = getBrowser().getBrowserAtIndex(index);
-        var currentTabURI = currentTab.currentURI.spec;
-        if (currentTabURI.indexOf(tabzein) != -1) {
+        var currentTab = gBrowser.tabs[index];
+
+        if (currentTab.hasAttribute('slug')
+            && currentTab.getAttribute('slug') == slug) {
           found = true;
         }
         index++;
       }
+
       if (!found) {
         return -1;
       } else {
