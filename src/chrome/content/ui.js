@@ -30,7 +30,7 @@ with (euskalbarLib) {
 
       for (var i=0; i<items.length; i++) {
         var menu = document.createElement("menu");
-        menu.setAttribute("label", items[i].cat);
+        menu.setAttribute("label", _(items[i].cat));
         menu.setAttribute("id", "euskalbar-menu-" + slugify(items[i].cat));
 
         var submenu = document.createElement("menupopup");
@@ -45,7 +45,7 @@ with (euskalbarLib) {
             var item = document.createElement("menuseparator");
           } else {
             var item = document.createElement("menuitem");
-            item.setAttribute("label", dict.name);
+            item.setAttribute("label", _(dict.name));
             item.setAttribute("oncommand",
                               "euskalbar.openURL('" + dict.url + "', '" +
                                                  slugify(dict.name) + "')");
