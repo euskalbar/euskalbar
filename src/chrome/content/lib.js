@@ -58,7 +58,7 @@ var euskalbarLib = {};
     try {
       var bundle = this.getDefaultStrBundle();
       return bundle.GetStringFromName(strKey);
-    } catch (err) {
+    } catch (e) {
       console.log("Failed to get translation for key: " + strKey);
     }
 
