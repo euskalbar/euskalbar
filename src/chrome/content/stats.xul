@@ -9,11 +9,12 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         buttons="accept, extra1"
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
-        onload="euskalbarstats.setDS();"
-        ondialogextra1="euskalbarstats.writeStats(-1);">
+        onload="euskalbar.stats.setDS();"
+        ondialogextra1="euskalbar.stats.writeStats(-1);">
 
+<script type="application/x-javascript" src="lib.js"/>
 <script type="application/x-javascript" src="euskalbar.js"/>
-<script type="application/x-javascript" src="euskalbarstats.js"/>
+<script type="application/x-javascript" src="stats.js"/>
 
 
 <tree id="zuhaitza" datasources="rdf:null"
