@@ -210,7 +210,7 @@ with (euskalbarLib) {
       } else {
         var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
       }
-      this.reuseOldtab(hurl, "euskalbarhelp");
+      this.reuseOldTab(hurl, "euskalbarhelp");
     },
 
     // Hiztegien menua erakusten/ezkutatzen du
@@ -364,9 +364,9 @@ with (euskalbarLib) {
         postData.setData(stringStream);
       }
       if (this.prefs.getBoolPref("reusetabs.enabled")) {
-        this.reuseOldtab(url, zein, postData);
+        this.reuseOldTab(url, zein, postData);
       } else {
-        this.openNewtab(url, postData);
+        this.openNewTab(url, postData);
       }
     },
 
@@ -379,7 +379,7 @@ with (euskalbarLib) {
 
 
     // Hiztegia fitxa berri batean ireki
-    openNewtab: function (taburl, aPostData) {
+    openNewTab: function (taburl, aPostData) {
       var theTab = getBrowser().addTab(taburl, null, null, aPostData);
       // enfokatu hala eskatu bada
       if (!this.prefs.getBoolPref("bgtabs.enabled")) {
@@ -389,7 +389,7 @@ with (euskalbarLib) {
 
 
     // Hiztegia fitxa zaharrean ireki
-    reuseOldtab: function (taburl, tabzein, aPostData) {
+    reuseOldTab: function (taburl, tabzein, aPostData) {
       // Aztertu fitxa zahar bakoitza
       var oldTab = getBrowser().selectedTab;
       var found = false;
@@ -409,8 +409,9 @@ with (euskalbarLib) {
         }
         index++;
       }
+
       if (!found) {
-        this.openNewtab(taburl, aPostData);
+        this.openNewTab(taburl, aPostData);
       }
     },
 
