@@ -24,7 +24,6 @@ with (euskalbarLib) {
      * TODO: only create the menu when asked (onPopupShowing)
      * TODO: first try to load the dictionaries' JSON remotely
      * TODO: use localized texts for 'name'
-     * TODO: slugify names when using them as IDs
      */
     createDictsMenu: function () {
       var items = euskalbar.dicts.menu;
@@ -33,10 +32,11 @@ with (euskalbarLib) {
       for (var i=0; i<items.length; i++) {
         var menu = document.createElement("menu");
         menu.setAttribute("label", items[i].cat);
-        menu.setAttribute("id", "euskalbar-menu-" + items[i].cat);
+        menu.setAttribute("id", "euskalbar-menu-" + slugify(items[i].cat));
 
         var submenu = document.createElement("menupopup");
-        submenu.setAttribute("id", "euskalbar-menuPopup-" + items[i].cat);
+        submenu.setAttribute("id",
+                             "euskalbar-menuPopup-" + slugify(items[i].cat));
 
         var dicts = items[i].dicts;
         for (var j=0; j<dicts.length; j++) {
@@ -49,7 +49,7 @@ with (euskalbarLib) {
             item.setAttribute("label", dict.name);
             item.setAttribute("oncommand",
                               "euskalbar.openURL('" + dict.url + "', '" +
-                                                 dict.name + "')");
+                                                 slugify(dict.name) + "')");
           }
 
           submenu.appendChild(item);
