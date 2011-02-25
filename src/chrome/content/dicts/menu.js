@@ -37,7 +37,7 @@ euskalbar.dicts.menu = [
       { name: 'UZEIren sinonimoen hiztegia',
         url: 'http://www.uzei.com/estatico/sinonimos.asp' },
       { name: 'Eurovoc Thesaurusa',
-        url: 'www.bizkaia.net/kultura/eurovoc/index.asp' }
+        url: 'http://www.bizkaia.net/kultura/eurovoc/index.asp' }
     ]
   },
   { cat: 'Entziklopediak',
