@@ -19,14 +19,14 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      // interfazearen hizkuntza zehaztu
-      if (h.match('euskara')) {
+
+      var lang = _("hizk");
+
+      if (lang.match('euskara')) {
         hiztegiarenhizkuntza = 'eu';
-      } else if (h.match('english')) {
+      } else if (lang.match('english')) {
         hiztegiarenhizkuntza = 'en';
-      } else if (h.match('français')) {
+      } else if (lang.match('français')) {
         hiztegiarenhizkuntza = 'fr';
       } else {
         hiztegiarenhizkuntza = 'es';
@@ -68,16 +68,15 @@ with (euskalbarLib) {
         return;
       }
 
-      // interfazearen hizkuntza zehaztu
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      if (h.match('euskara')) {
+      var lang = _("hizk");
+
+      if (lang.match('euskara')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
         hiztegiarenhizkuntza = 'eu';
-      } else if (h.match('english')) {
+      } else if (lang.match('english')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
         hiztegiarenhizkuntza = 'en';
-      } else if (h.match('français')) {
+      } else if (lang.match('français')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
         hiztegiarenhizkuntza = 'fr';
       } else {
@@ -407,10 +406,9 @@ with (euskalbarLib) {
         hizkid = 'F';
       };
 
-      // interfazearen hizkuntza zehaztu
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      if (h.match('euskara')) {
+      var lang = _("hizk");
+
+      if (lang.match('euskara')) {
         inthizk = 'eusk';
       } else {
         inthizk = 'gazt';
@@ -675,18 +673,19 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      // interfazearen hizkuntza zehaztu
-      if (h.match('euskara')) {
+
+      var lang = _("hizk");
+
+      if (lang.match('euskara')) {
         hiztegiarenhizkuntza = '14';
-      } else if (h.match('english')) {
+      } else if (lang.match('english')) {
         hiztegiarenhizkuntza = '1347';
-      } else if (h.match('français')) {
+      } else if (lang.match('français')) {
         hiztegiarenhizkuntza = '1348';
       } else {
         hiztegiarenhizkuntza = '1';
       }
+
       var params = [];
       var url = 'http://www.uzei.com/estatico/sinonimos.asp';
       params.push(new euskalbar.QueryParameter('sesion', hiztegiarenhizkuntza));
@@ -705,19 +704,20 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
+
       var params = [];
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
-      if (h.match('euskara')) {
-        params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
+      var lang = _("hizk");
+
+      params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
+      params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
+
+      if (lang.match('euskara')) {
         params.push(new euskalbar.QueryParameter('Idioma', 'EUS'));
-        params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
       } else {
-        params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
         params.push(new euskalbar.QueryParameter('Idioma', 'CAS'));
-        params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
       }
+
+      var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
       var zein = 'cgi-bin_m32';
       euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
@@ -827,14 +827,16 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
+
       var params = [];
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      if (h.match('euskara')) {
-        hizk = 'EU';
+      var lang = _("hizk");
+
+      if (lang.match('euskara')) {
+        var hizk = 'EU';
       } else {
-        hizk = 'CA';
+        var hizk = 'CA';
       }
+
       var url = 'http://www.bizkaia.net/kultura/eurovoc/busqueda.asp';
       params.push(new euskalbar.QueryParameter('txtBuscar', 'S'));
       params.push(new euskalbar.QueryParameter('query', term));

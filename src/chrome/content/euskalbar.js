@@ -150,8 +150,6 @@ with (euskalbarLib) {
         link.setAttribute("href", prefStyle);
 
         //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
-        strRes = $('leuskal');
-        const oh = strRes.getString("oharra");
         var l = "";
         if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
           l = "es";
@@ -189,28 +187,28 @@ with (euskalbarLib) {
             event.target.getElementById('oinak').appendChild(ato);
           }
         }
-        event.target.getElementById('oharra').innerHTML = oh;
+        event.target.getElementById('oharra').innerHTML = _("oharra");
       }
     },
 
 
     // Laguntza erakusten du
     openLaguntza: function () {
-      // Lokalizazio paketeak kargatu
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
-      if (h.match('euskara')) {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
-      } else if (h.match('english')) {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
-      } else if (h.match('français')) {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpfr.html';
-      } else if (h.match('japanese')) {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpja.html';
+      var lang = _("hizk");
+
+      if (lang.match('euskara')) {
+        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
+      } else if (lang.match('english')) {
+        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
+      } else if (lang.match('français')) {
+        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpfr.html';
+      } else if (lang.match('japanese')) {
+        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpja.html';
       } else {
-        var hurl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
+        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
       }
-      this.reuseOldTab(hurl, "euskalbarhelp");
+
+      this.reuseOldTab(hUrl, "euskalbarhelp");
     },
 
     // Hiztegien menua erakusten/ezkutatzen du
@@ -456,9 +454,8 @@ with (euskalbarLib) {
       //Kateari aurreko eta atzeko zuriuneak kendu
       katea = katea.replace(/^\s+|\s+$/g, "");
       if (katea == "") {
-        // Lokalizazio paketeak kargatu
-        strRes = $('leuskal');
-        alert(strRes.getString("kutxahutsa"));
+        alert(_("kutxahutsa"));
+
         return true;
       }
     },
@@ -468,9 +465,7 @@ with (euskalbarLib) {
     goEuskalBarOnKey: function (event) {
       // Get search string entered by user
       var searchStr = $('EuskalBar-search-string').value;
-      // Lokalizazio paketeak kargatu
-      strRes = $('leuskal');
-      const h = strRes.getString("hizk");
+
       // If user pressed Enter key
       if (event.keyCode == 13) {
         if (this.alertEmptyBox(searchStr)) {
