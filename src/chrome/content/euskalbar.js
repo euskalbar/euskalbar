@@ -98,7 +98,7 @@ with (euskalbarLib) {
       }
 
       // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
-      getBrowser().addEventListener("DOMContentLoaded", this.initHTML, true);
+      gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
 
       // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
       // (oharra: persist="checked" ez dabil)
@@ -391,7 +391,7 @@ with (euskalbarLib) {
       newTab.setAttribute('slug', slug);
 
       if (!this.prefs.getBoolPref("bgtabs.enabled")) {
-        getBrowser().selectedTab = newTab;
+        gBrowser.selectedTab = newTab;
       }
     },
 
