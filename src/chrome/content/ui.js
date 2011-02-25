@@ -21,7 +21,6 @@ with (euskalbarLib) {
      * available in euskalbar.dicts.menu
      *
      * TODO: allow nested categories by making this a recursive function
-     * TODO: only create the menu when asked (onPopupShowing)
      * TODO: first try to load the dictionaries' JSON remotely
      * TODO: use localized texts for 'name'
      */
