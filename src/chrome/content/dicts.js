@@ -144,10 +144,11 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      var zein = 'zthiztegia.elhuyar.org';
-      var tabulatzailea = euskalbar.getTabIndexBySlug(zein);
-      if (tabulatzailea == -1) {
-        euskalbar.openURL('http://' + zein, zein, 'GET', null);
+
+      var slug = 'zthiztegia';
+      var tabIndex = euskalbar.getTabIndexBySlug(slug);
+      if (tabIndex == -1) {
+        euskalbar.openURL('http://zthiztegia.elhuyar.org', slug, 'GET', null);
       }
 
       zthiztegiatimeout = setTimeout(function () {
@@ -166,8 +167,8 @@ with (euskalbarLib) {
 
     // ZT hiztegia irekitzeko konbinatutik
     goEuskalBarZTHiztegiaKlik: function (source, term) {
-      var zein = 'zthiztegia.elhuyar.org';
-      var newWindow = window.open('http://' + zein, zein);
+      var slug = 'zthiztegia.elhuyar.org';
+      var newWindow = window.open('http://zthiztegia.elhuyar.org', slug);
       newWindow.focus();
 
       zthiztegiatimeout = setTimeout(function () {
@@ -183,7 +184,6 @@ with (euskalbarLib) {
     },
 
     zthiztegiakargatzeanbilatu: function (source, term, nondik) {
-
       var segi = 0;
       var segi2 = 0;
       var dokumentua = null;
@@ -192,9 +192,9 @@ with (euskalbarLib) {
         dokumentua = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
-        tabulatzailea = euskalbar.getTabIndexBySlug('zthiztegia.elhuyar.org');
-        if (tabulatzailea != -1) {
-          dokumentua = getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
+        var tabIndex = euskalbar.getTabIndexBySlug('zthiztegia.elhuyar.org');
+        if (tabIndex != -1) {
+          dokumentua = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
           segi2 = 1;
         };
       };
@@ -282,8 +282,8 @@ with (euskalbarLib) {
         hizkid = 'F';
       };
 
-      var tabulatzailea = euskalbar.getTabIndexBySlug('energia');
-      if (tabulatzailea == -1) {
+      var tabIndex = euskalbar.getTabIndexBySlug('energia');
+      if (tabIndex == -1) {
         euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia', 'GET', null);
       };
 
@@ -346,9 +346,9 @@ with (euskalbarLib) {
         dokumentua = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
-        tabulatzailea = euskalbar.getTabIndexBySlug('energia');
-        if (tabulatzailea != -1) {
-          dokumentua = getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
+        var tabIndex = euskalbar.getTabIndexBySlug('energia');
+        if (tabIndex != -1) {
+          dokumentua = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
           segi2 = 1;
         };
       };
@@ -409,8 +409,8 @@ with (euskalbarLib) {
         inthizk = 'gazt';
       }
 
-      var tabulatzailea = euskalbar.getTabIndexBySlug('telekom');
-      if (tabulatzailea == -1) {
+      var tabIndex = euskalbar.getTabIndexBySlug('telekom');
+      if (tabIndex == -1) {
         euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
       };
 
@@ -473,9 +473,9 @@ with (euskalbarLib) {
         dokumentua = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
-        tabulatzailea = euskalbar.getTabIndexBySlug('telekom');
-        if (tabulatzailea != -1) {
-          dokumentua = getBrowser().getBrowserAtIndex(tabulatzailea).contentDocument;
+        var tabIndex = euskalbar.getTabIndexBySlug('telekom');
+        if (tabIndex != -1) {
+          dokumentua = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
           segi2 = 1;
         };
       };
