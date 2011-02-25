@@ -186,33 +186,35 @@ with (euskalbarLib) {
     zthiztegiakargatzeanbilatu: function (source, term, nondik) {
       var segi = 0;
       var segi2 = 0;
-      var dokumentua = null;
+      var doc = null;
 
       if (nondik == 'klik') {
-        dokumentua = Application.activeWindow.activeTab.document;
+        doc = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
         var tabIndex = euskalbar.getTabIndexBySlug('zthiztegia.elhuyar.org');
         if (tabIndex != -1) {
-          dokumentua = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
+          doc = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
           segi2 = 1;
         };
       };
+
       if (segi2 == 1) {
-        if (dokumentua.getElementById('emaitza') != null) {
-          if (dokumentua.getElementById('emaitza').innerHTML.search("Bilatzen...") != -1) {
-            dokumentua.getElementById('emaitza').style.visibility = "hidden";
+        if ($('emaitza', doc) != null) {
+          if ($('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
+            $('emaitza', doc).style.visibility = "hidden";
           };
-          if (dokumentua.getElementById('emaitza').innerHTML.search("sarrera") != -1) {
+          if ($('emaitza', doc).innerHTML.search("sarrera") != -1) {
             segi = 1;
           };
         };
       };
+
       if (segi == 1) {
-        dokumentua.getElementById('txtBilagaila').value = term;
-        dokumentua.getElementById('selectHizkuntza').value = source;
-        dokumentua.getElementById('bot_bilatu').click();
-        dokumentua.getElementById('emaitza').style.visibility = "visible";
+        $('txtBilagaila', doc).value = term;
+        $('selectHizkuntza', doc).value = source;
+        $('bot_bilatu', doc).click();
+        $('emaitza', doc).style.visibility = "visible";
         clearTimeout(zthiztegiatimeout2);
       } else {
         zthiztegiatimeout = setTimeout(function () {
@@ -241,19 +243,21 @@ with (euskalbarLib) {
 
     zthiztegiakargatzeanartikulua: function (artik) {
       var segi = 0;
-      var dokumentua = Application.activeWindow.activeTab.document;
-      if (dokumentua.getElementById('emaitza') != null) {
-        if (dokumentua.getElementById('emaitza').innerHTML.search("Bilatzen...") != -1) {
-          dokumentua.getElementById('emaitza').style.visibility = "hidden";
+      var doc = Application.activeWindow.activeTab.document;
+
+      if ($('emaitza', doc) != null) {
+        if ($('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
+          $('emaitza', doc).style.visibility = "hidden";
         };
-        if (dokumentua.getElementById('emaitza').innerHTML.search("sarrera") != -1) {
+        if ($('emaitza', doc).innerHTML.search("sarrera") != -1) {
           segi = 1;
         };
       };
+
       if (segi == 1) {
-        dokumentua.getElementById('emaitza').innerHTML = '<form action="javascript:showArticle(\'' + artik + '\')"><input style="visibility:hidden" id="bot_bilatu2" value="Bilatu" type="submit"></form>';
-        dokumentua.getElementById('bot_bilatu2').click();
-        dokumentua.getElementById('emaitza').style.visibility = "visible";
+        $('emaitza', doc).innerHTML = '<form action="javascript:showArticle(\'' + artik + '\')"><input style="visibility:hidden" id="bot_bilatu2" value="Bilatu" type="submit"></form>';
+        $('bot_bilatu2', doc).click();
+        $('emaitza', doc).style.visibility = "visible";
         clearTimeout(zthiztegiatimeout2);
       } else {
         zthiztegiatimeout = setTimeout(function () {
@@ -341,24 +345,26 @@ with (euskalbarLib) {
     energiahiztegiakargatzeanbilatu: function (hizkid, term, nondik) {
       var segi = 0;
       var segi2 = 0;
-      var dokumentua = null;
+      var doc = null;
+
       if (nondik == 'klik') {
-        dokumentua = Application.activeWindow.activeTab.document;
+        doc = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
         var tabIndex = euskalbar.getTabIndexBySlug('energia');
         if (tabIndex != -1) {
-          dokumentua = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
+          doc = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
           segi2 = 1;
         };
       };
+
       if (segi2 == 1) {
-        if (dokumentua.getElementsByTagName('frame').length > 0) {
-          if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByTagName('frame').length > 0) {
-            if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument != null) {
-              if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza').length > 0) {
-                if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument != null) {
-                  if (dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('<br>') != -1) {
+        if (doc.getElementsByTagName('frame').length > 0) {
+          if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByTagName('frame').length > 0) {
+            if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument != null) {
+              if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza').length > 0) {
+                if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument != null) {
+                  if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('<br>') != -1) {
                     segi = 1;
                   };
                 };
@@ -367,10 +373,11 @@ with (euskalbarLib) {
           };
         };
       };
+
       if (segi == 1) {
-        dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value = term;
-        dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value = hizkid;
-        dokumentua.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
+        doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value = term;
+        doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value = hizkid;
+        doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
         clearTimeout(energiahiztegiatimeout2);
       } else {
         energiahiztegiatimeout = setTimeout(function () {
@@ -468,23 +475,25 @@ with (euskalbarLib) {
     telekomhiztegiakargatzeanbilatu: function (hizkid, term, nondik) {
       var segi = 0;
       var segi2 = 0;
-      var dokumentua = null;
+      var doc = null;
+
       if (nondik == 'klik') {
-        dokumentua = Application.activeWindow.activeTab.document;
+        doc = Application.activeWindow.activeTab.document;
         segi2 = 1;
       } else {
         var tabIndex = euskalbar.getTabIndexBySlug('telekom');
         if (tabIndex != -1) {
-          dokumentua = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
+          doc = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
           segi2 = 1;
         };
       };
+
       if (segi2 == 1) {
-        if (dokumentua.getElementsByTagName('frame').length > 0) {
-          if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument != null) {
-            if (dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length > 0) {
-              if (dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument != null) {
-                if ((dokumentua.getElementsByName('nagusiaFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('espacio.gif') != -1)) {
+        if (doc.getElementsByTagName('frame').length > 0) {
+          if (doc.getElementsByName('ezkerFrame')[0].contentDocument != null) {
+            if (doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length > 0) {
+              if (doc.getElementsByName('nagusiaFrame')[0].contentDocument != null) {
+                if ((doc.getElementsByName('nagusiaFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('espacio.gif') != -1)) {
                   segi = 1;
                 };
               };
@@ -492,10 +501,11 @@ with (euskalbarLib) {
           };
         };
       };
+
       if (segi == 1) {
-        dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value = term;
-        dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value = hizkid;
-        dokumentua.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
+        doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value = term;
+        doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value = hizkid;
+        doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
         clearTimeout(telekomhiztegiatimeout2);
       } else {
         telekomhiztegiatimeout = setTimeout(function () {
