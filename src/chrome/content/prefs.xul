@@ -152,7 +152,7 @@
       	    </groupbox>
       	    <groupbox>
               <caption label="&euskalbar.prefs.skin.caption;"/>
-      	      <hbox align="baseline">
+      	      <vbox align="left">
       	        <label value="&euskalbar.prefs.skin.label;" />
       	        <menulist id="menuStartupSkin" preference="prefSkin">
       	          <menupopup>
@@ -163,7 +163,7 @@
                     <menuitem id = "grisleun-skin" label="Grisleun" value="skins/grisleun.css"/>
                   </menupopup>
    		</menulist>
-              </hbox>
+              </vbox>
       	    </groupbox>
       	    <groupbox>
       	    <caption label="&euskalbar.prefs.gui.caption;" />
