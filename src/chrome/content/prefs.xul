@@ -164,13 +164,6 @@
                   </menupopup>
    		</menulist>
               </hbox>
-              <vbox>
-                <checkbox id="chkUserSkinEnable" label="&euskalbar.prefs.skin.custom;" persist="checked" oncommand="euskalbar.setUserSkinDisabled()"/>
-                <hbox>
-                  <textbox id="txtUserSkinPath" flex="1" width="20" preference="prefSkin" onchange="euskalbar.setUserSkin('this.value')"/>
-                  <button id="btnUserSkinPath" oncommand="euskalbar.browseSkin()" label="&euskalbar.browse;"/>
-                </hbox>
-              </vbox>
       	    </groupbox>
       	    <groupbox>
       	    <caption label="&euskalbar.prefs.gui.caption;" />

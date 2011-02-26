@@ -257,32 +257,6 @@ with (euskalbarLib) {
     },
 
 
-    //Azal pertsonalizatuetarako script-ak (hau eta hurrengoa)
-    setUserSkinDisabled: function () {
-      var chkSkins = $("chkUserSkinEnable");
-      $("txtUserSkinPath").disabled = !chkSkins.checked;
-      $("btnUserSkinPath").disabled = !chkSkins.checked;
-      $("menuStartupSkin").disabled = chkSkins.checked;
-      if (!chkSkins.checked) {
-        this.prefs.setCharPref("style.combinedquery", $("menuStartupSkin").selectedItem.value);
-      }
-    },
-
-
-    browseSkin: function () {
-      var fpicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
-
-      fpicker.init(window, "CSS", fpicker.modeOpen);
-      fpicker.appendFilter("CSS (*.css)", "*.css");
-      fpicker.appendFilters(fpicker.filterAll);
-
-      var showResult = fpicker.show();
-      if (showResult == fpicker.returnOK) {
-        $("txtUserSkinPath").value = fpicker.file.path;
-        this.prefs.setCharPref("style.combinedquery", "file://" + fpicker.file.path);
-      }
-    },
-
     /* Toggles Euskalbar status */
     toggleBar: function (event) {
       if (event.target.id != "cmd_toggleEuskalbar") {
