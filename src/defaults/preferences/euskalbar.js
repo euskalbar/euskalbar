@@ -127,5 +127,5 @@ pref("extensions.euskalbar.showcontextmenu.enabled", true);
 pref("extensions.euskalbar.language.startup", "es_eu");
 
 // Styles
-pref("extensions.euskalbar.style.combinedquery", "skins/human.css");
+pref("extensions.euskalbar.style.combinedquery", "skins/euskalbar.css");
 

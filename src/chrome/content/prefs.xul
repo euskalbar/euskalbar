@@ -156,6 +156,7 @@
       	        <label value="&euskalbar.prefs.skin.label;" />
       	        <menulist id="menuStartupSkin" preference="prefSkin">
       	          <menupopup>
+                    <menuitem id = "euskalbar-skin" label="Euskalbar" value="skins/euskalbar.css"/>
                     <menuitem id = "human-skin" label="Human" value="skins/human.css"/>
                     <menuitem id = "oliba-skin" label="Oliba" value="skins/oliba.css"/>
                     <menuitem id = "urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>

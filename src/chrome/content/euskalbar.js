@@ -737,7 +737,7 @@ with (euskalbarLib) {
     // Euskalbarren hizkuntza txandakatzen du (toggle modukoa)
     changeEuskalbarLang: function () {
       if (this.target == 'es') {
-        this.setEuskalbarLang('es', 'eu');
+      s  this.setEuskalbarLang('es', 'eu');
       } else if (this.target == 'en') {
         this.setEuskalbarLang('en', 'eu');
       } else if (this.target == 'fr') {
