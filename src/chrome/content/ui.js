@@ -90,6 +90,7 @@ with (euskalbarLib) {
         var set = curSet.concat(euskalbarButtonId);
 
         navBar.setAttribute("currentset", set.join(","));
+        navBar.currentSet = set;
         document.persist(navBarId, "currentset");
 
         try {
