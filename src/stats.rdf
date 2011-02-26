@@ -42,13 +42,13 @@
     </rdf:li>
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/uzei">
-      <stats:name>&euskalbar.menu.uzeisinonim;</stats:name>
+      <stats:name>&euskalbar.uzei.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
     <rdf:li>
       <rdf:Description about="http://www.euskalbar.eu/stats/adorez">
-      <stats:name>&euskalbar.menu.sinonimoenhizt;</stats:name>
+      <stats:name>&euskalbar.adorez.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
