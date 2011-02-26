@@ -30,6 +30,12 @@ var euskalbarLib = {};
    */
 
   this.slugify = function (text) {
+    var index = text.lastIndexOf(".");
+
+    if (index > 0) {
+      text = text.substr(index + 1);
+    }
+
     text = text.toLowerCase();
     text = text.replace(/[^-a-z0-9,&\s]+/ig, '');
     text = text.replace(/-/gi, "_");
