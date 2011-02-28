@@ -17,9 +17,13 @@ with (euskalbarLib) {
 
     guid: "euskalbar@euskalbar.eu",
 
+    curVersion: "3.9",
+
     firstrunURL: "http://euskalbar.eu/firstrun",
 
-    helpURL: "http://euskalbar.eu/help/",
+    versionBaseURL: "http://euskalbar.eu/version",
+
+    helpBaseURL: "http://euskalbar.eu/help/",
 
     // URI of the current user's profile directory
     profileURI: Services.dirsvc.get("ProfD", Components.interfaces.nsIFile),
@@ -39,53 +43,50 @@ with (euskalbarLib) {
       // Register to receive notifications of preference changes
       Services.prefs.addObserver("extensions.euskalbar.", this, false);
 
-      AddonManager.getAddonByID(this.guid, function (addon) {
-        /* Store version information for later use */
-        euskalbar.curVersion = addon.version;
+      var firstrun = euskalbar.prefs.getBoolPref("firstrun");
+      var infoURL, openInfo = false;
 
-        var firstrun = euskalbar.prefs.getBoolPref("firstrun");
-        var openInfo = false;
-        var infoURL = euskalbar.firstrunURL;
+      if (firstrun) {
+        euskalbar.prefs.setBoolPref("firstrun", false);
+        euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
 
-        if (firstrun) {
-          euskalbar.prefs.setBoolPref("firstrun", false);
-          euskalbar.prefs.setCharPref("installedVersion", euskalbar.curVersion);
+        /* Add Euskalbar button to the navigation bar */
+        euskalbar.ui.appendButtonToToolbar();
 
+        var file = addon.getResourceURI("").
+          QueryInterface(Components.interfaces.nsIFileURL).file;
+        euskalbar.stats.createStatsFile(file);
+
+        openInfo = true;
+        infoURL = euskalbar.firstrunURL;
+      } else {
+        try {
+          var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
+
+          /* We are in the middle of an upgrade */
+          if (this.curVersion > installedVersion) {
+            euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
+
+            openInfo = true;
+            infoURL = euskalbar.versionBaseURL +
+              this.curVersion.replace(/\D/g, '');
+          }
+        } catch (ex) { /* Reinstall: do we need to do something in this situation? */
+          /* XXX: As previous Euskalbar versions don't have the
+           * installedVersion pref, we must ensure they get the button
+           * when upgrading from older versions.
+           * This behaviour MUST be changed just after releasing 3.9.
+           */
           /* Add Euskalbar button to the navigation bar */
           euskalbar.ui.appendButtonToToolbar();
-
-          var file = addon.getResourceURI("").
-          QueryInterface(Components.interfaces.nsIFileURL).file;
-          euskalbar.stats.createStatsFile(file);
-
-          openInfo = true;
-        } else {
-          try {
-            /* XXX: As previous Euskalbar versions don't have the
-             * installedVersion pref, we must ensure they get the button
-             * when upgrading from older versions.
-             * This behaviour MUST be changed just after releasing 3.9.
-             */
-            /* Add Euskalbar button to the navigation bar */
-            euskalbar.ui.appendButtonToToolbar();
-
-            var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
-
-            /* We are in the middle of an upgrade */
-            if (euskalbar.curVersion > installedVersion) {
-              euskalbar.prefs.setCharPref("installedVersion", euskalbar.curVersion);
-
-              openInfo = true;
-              infoURL += "?v=" + euskalbar.curVersion;
-            }
-          } catch (ex) { /* Reinstall: do we need to do something in this situation? */
-          }
         }
+      }
 
-        if (openInfo) {
-          window.gBrowser.selectedTab = window.gBrowser.addTab(infoURL);
-        }
-      });
+      if (openInfo) {
+        setTimeout(function () {
+          gBrowser.selectedTab = gBrowser.addTab(infoURL);
+        }, 1000);
+      }
 
       //Hasieratu hizkuntza hautatzeko botoia
       var lang = this.prefs.getCharPref("language.startup");
@@ -203,7 +204,7 @@ with (euskalbarLib) {
         var locale = 'en';
       }
 
-      this.reuseOldTab(this.helpURL + locale, "euskalbarhelp");
+      this.reuseOldTab(this.helpBaseURL + locale, "euskalbarhelp");
     },
 
     // Hiztegien menua erakusten/ezkutatzen du
