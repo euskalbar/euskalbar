@@ -28,11 +28,12 @@ with (euskalbarLib) {
         term = term + "*";
       }
 
-      var urlEuskalterm = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1=' + idioma + '&hitz1=' + escape(term) + '&gaiak=0&hizkuntza=' + source;
+      var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='
+        + idioma + '&hitz1=' + escape(term) + '&gaiak=0&hizkuntza=' + source;
       var output = "";
 
       ajax({
-        url: urlEuskalterm,
+        url: url,
 
         onSuccess: function (data) {
           data = data.replace(/<HTML>/, " ");
@@ -1413,8 +1414,8 @@ with (euskalbarLib) {
 
     // Open-tran kargatu
     getShiftOpentran: function (source, term) {
-      var txtOpentran = "";
       var urlOpentran = 'http://eu.open-tran.eu/suggest/' + escape(term);
+      var txtOpentran = "";
 
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
