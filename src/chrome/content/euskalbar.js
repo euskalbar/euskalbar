@@ -52,7 +52,7 @@ with (euskalbarLib) {
           euskalbar.prefs.setCharPref("installedVersion", euskalbar.curVersion);
 
           /* Add Euskalbar button to the navigation bar */
-          euskalbarButton.appendToToolbar();
+          euskalbar.ui.appendButtonToToolbar();
 
           var file = addon.getResourceURI("").
           QueryInterface(Components.interfaces.nsIFileURL).file;
