@@ -212,11 +212,9 @@ var euskalbarLib = {};
 
       var parts = fileURI.split("/");
       parts[parts.length - 2] = "en-US";
-      console.log(parts.join('/'));
       this.defaultStrBundle = Services.strings.createBundle(parts.join("/"));
     }
 
-    console.log(this.defaultStrBundle);
     return this.defaultStrBundle;
   };
 
