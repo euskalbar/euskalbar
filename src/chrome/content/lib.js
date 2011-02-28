@@ -96,6 +96,17 @@ var euskalbarLib = {};
     return this.defaultStrBundle;
   };
 
+  /* Returns the language part of a given locale code */
+  this.langCode = function (code) {
+    var sepIndex = code.indexOf('-');
+
+    if (sepIndex != -1) {
+      return code.slice(0, sepIndex);
+    }
+
+    return code;
+  };
+
 
   /*
    * File IO operations

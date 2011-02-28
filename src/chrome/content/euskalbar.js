@@ -19,6 +19,8 @@ with (euskalbarLib) {
 
     firstrunURL: "http://euskalbar.eu/firstrun",
 
+    helpURL: "http://euskalbar.eu/help/",
+
     // URI of the current user's profile directory
     profileURI: Services.dirsvc.get("ProfD", Components.interfaces.nsIFile),
 
@@ -193,22 +195,15 @@ with (euskalbarLib) {
 
 
     // Laguntza erakusten du
-    openLaguntza: function () {
-      var lang = _("hizk");
+    openHelp: function () {
+      var acceptedLocales = ['eu', 'en', 'es', 'fr', 'ja'];
+      var locale = langCode(euskalbar.ui.locale);
 
-      if (lang.match('euskara')) {
-        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpeu.html';
-      } else if (lang.match('english')) {
-        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpen.html';
-      } else if (lang.match('français')) {
-        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpfr.html';
-      } else if (lang.match('japanese')) {
-        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpja.html';
-      } else {
-        var hUrl = 'chrome://euskalbar/content/html/euskalbarhelpes.html';
+      if (acceptedLocales.indexOf(locale) == -1) {
+        var locale = 'en';
       }
 
-      this.reuseOldTab(hUrl, "euskalbarhelp");
+      this.reuseOldTab(this.helpURL + locale, "euskalbarhelp");
     },
 
     // Hiztegien menua erakusten/ezkutatzen du

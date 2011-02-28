@@ -23,7 +23,7 @@
         <menuseparator />
         <menuitem id="euskalbar-help"
           label="&euskalbar.help.label;"
-          oncommand="euskalbar.openLaguntza();" />
+          oncommand="euskalbar.openHelp();" />
       </menupopup>
     </toolbarbutton>
 

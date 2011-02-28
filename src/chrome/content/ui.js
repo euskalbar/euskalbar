@@ -8,6 +8,16 @@ with (euskalbarLib) {
       this.initDictsMenu();
     },
 
+    get locale() {
+      try {
+        locale = Services.prefs.getCharPref("general.useragent.locale");
+      } catch (e) {
+        locale = "en-US";
+      }
+
+      return locale;
+    },
+
 
     initDictsMenu: function () {
       var dictsMenu = this.createDictsMenu();
