@@ -10,7 +10,8 @@ with (euskalbarLib) {
 
     get locale() {
       try {
-        locale = Services.prefs.getCharPref("general.useragent.locale");
+        locale = Services.prefs.getComplexValue("general.useragent.locale",
+                                                Ci.nsIPrefLocalizedString).data;
       } catch (e) {
         locale = "en-US";
       }
