@@ -10,6 +10,9 @@ var euskalbarLib = {};
 
   const resphIID = Ci.nsIResProtocolHandler;
 
+  const L10N_NORMAL = 0;
+  const L10N_FORMATTED = 1;
+
 
   /*
    * Ajax stuff
@@ -173,21 +176,34 @@ var euskalbarLib = {};
    * i18n / l10n
    */
 
-  this._ = function (text) {
+  /* General localization function
+   * 'type' can either be any of the L10N_* constants
+   */
+  this.gettext = function (text, args, type) {
     var strKey = text.replace(' ', '_', "g").toLowerCase();
 
     // First try getting the current locale's translation
     try {
       var bundle = this.$("leuskal");
-      return bundle.getString(strKey);
-    } catch(e) {
+
+      if (type == L10N_FORMATTED) {
+        return bundle.getFormattedString(strKey, args);
+      } else {
+        return bundle.getString(strKey);
+      }
+    } catch (e) {
       console.log("Failed to get translation for key: " + strKey);
     }
 
     // If it fails, fall back to en-US
     try {
       var bundle = this.getDefaultStrBundle();
-      return bundle.GetStringFromName(strKey);
+
+      if (type == L10N_FORMATTED) {
+        return bundle.formatStringFromName(strKey, args, args.length);
+      } else {
+        return bundle.GetStringFromName(strKey);
+      }
     } catch (e) {
       console.log("Failed to get translation for key: " + strKey);
     }
@@ -201,6 +217,18 @@ var euskalbarLib = {};
     text = text.replace("_", " ", "g");
 
     return text;
+  };
+
+  /* Basic localization function */
+  this._ = function (text) {
+    return this.gettext(text, null, L10N_NORMAL);
+  };
+
+  /* Localization function with support for formatted strings.
+   * Arguments are passed as an array of possible values.
+   */
+  this._f = function (text, args) {
+    return this.gettext(text, args, L10N_FORMATTED);
   };
 
   this.defaultStrBundle = null;
