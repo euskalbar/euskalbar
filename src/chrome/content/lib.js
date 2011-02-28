@@ -44,7 +44,7 @@ var euskalbarLib = {};
 
       // The data type that'll be returned from the server
       // the default is simply to determine what data was returned from the
-      // and act accordingly.
+      // server and act accordingly.
       data: options.data || ""
     };
 
