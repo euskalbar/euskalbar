@@ -21,57 +21,41 @@ with (euskalbarLib) {
       } else {
         idioma = 'E';
       }
-  /* Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
-           * egin ditzala bilaketak */
+
+      /* Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
+       * egin ditzala bilaketak */
       if (term.charAt(term.length - 1) != "*") {
         term = term + "*";
       }
 
       var urlEuskalterm = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1=' + idioma + '&hitz1=' + escape(term) + '&gaiak=0&hizkuntza=' + source;
-      var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
-      if (!xmlHttpReq) {
-        txtEuskalterm = _("m1Euskalterm");
-        return false;
-      }
+      var output = "";
 
-      xmlHttpReq.open('GET', urlEuskalterm, true);
-      xmlHttpReq.send(null);
+      ajax({
+        url: urlEuskalterm,
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+        onSuccess: function (data) {
+          data = data.replace(/<HTML>/, " ");
+          data = data.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
+          data = data.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term.replace(/\*/, "") + "<font></strong>");
+          data = data.replace(/<\/body><\/html>/, " ");
+          data = data.replace(/steelblue/g, "black");
+          data = data.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtEuskalterm = _("m1Euskalterm");
-      }, tout);
+          output = data;
+        },
 
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              txtEuskalterm = xmlHttpReq.responseText;
-              txtEuskalterm = txtEuskalterm.replace(/<HTML>/, " ");
-              txtEuskalterm = txtEuskalterm.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
-              txtEuskalterm = txtEuskalterm.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term.replace(/\*/, "") + "<font></strong>");
-              txtEuskalterm = txtEuskalterm.replace(/<\/body><\/html>/, " ");
-              txtEuskalterm = txtEuskalterm.replace(/steelblue/g, "black");
-              txtEuskalterm = txtEuskalterm.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
-            } else {
-              txtEuskalterm = _("m1Euskalterm");
-            }
-          }
-        } catch (e) {
-          txtEuskalterm = _("m1Euskalterm");
+        onError: function () {
+          output = _("m1Euskalterm");
+        },
+
+        onComplete: function () {
+          $('oEuskalterm', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>";
+          $('aEuskalterm', gBrowser.contentDocument).innerHTML = output;
         }
-        $('aEuskalterm', gBrowser.contentDocument).innerHTML = txtEuskalterm;
-        $('oEuskalterm', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>";
-      }
+      });
     },
+
 
     // Elhuyarren markoa kargatu
     getShiftElhuyar: function (source, dest, term) {
