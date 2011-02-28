@@ -1414,54 +1414,36 @@ with (euskalbarLib) {
 
     // Open-tran kargatu
     getShiftOpentran: function (source, term) {
-      var urlOpentran = 'http://eu.open-tran.eu/suggest/' + escape(term);
-      var txtOpentran = "";
+      var url = 'http://eu.open-tran.eu/suggest/' + escape(term);
+      var output = "";
 
-      var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
-      if (!xmlHttpReq) {
-        txtOpentran = _f("euskalbar.comb.error", ["Open-Tran"]);
-        return false;
-      }
+      ajax({
+        url: url,
 
-      xmlHttpReq.open('GET', urlOpentran, true);
-      xmlHttpReq.send(null);
+        onSuccess: function (data) {
+          var txtOpentran1 = data.split("<h1>")[1];
+          var txtOpentran2 = data.split("<h1>")[2];
+          data = "<h1>" + txtOpentran1 + "<h1>" + txtOpentran2;
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+          var output = data.split("<div id=\"bottom\">")[0];
+          output = output.replace(/\/images\//g, "http://eu.open-tran.eu/images/");
+          output = output.replace(/<a href=\"javascript\:\;\"  onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<b>");
+          output = output.replace(/<a href=\"javascript\:\;\" class=\"fuzzy\" onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<i>fuzzy</i> <b>");
+          output = output.replace(/\)<\/a>/g, ")</b>");
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtOpentran = _f("euskalbar.comb.error", ["Open-Tran"]);
-      }, tout);
+          $('aOpentran', gBrowser.contentDocument).innerHTML = output;
+        },
 
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              txtOpentran = xmlHttpReq.responseText;
-              var txtOpentran1 = txtOpentran.split("<h1>")[1];
-              var txtOpentran2 = txtOpentran.split("<h1>")[2];
-              txtOpentran = "<h1>" + txtOpentran1 + "<h1>" + txtOpentran2;
-              var txtOpentran3 = txtOpentran.split("<div id=\"bottom\">")[0];
-              txtOpentran3 = txtOpentran3.replace(/\/images\//g, "http://eu.open-tran.eu/images/");
-              txtOpentran3 = txtOpentran3.replace(/<a href=\"javascript\:\;\"  onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<b>");
-              txtOpentran3 = txtOpentran3.replace(/<a href=\"javascript\:\;\" class=\"fuzzy\" onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<i>fuzzy</i> <b>");
-              txtOpentran3 = txtOpentran3.replace(/\)<\/a>/g, ")</b>");
-            } else {
-              txtOpentran = _f("euskalbar.comb.error", ["Open-Tran"]);
-            }
-          }
-        } catch (e) {
-          txtOpentran = _f("euskalbar.comb.error", ["Open-Tran"]);
+        onError: function () {
+          output = _f("euskalbar.comb.error", ["Open-Tran"]);
+          $('aOpentran', gBrowser.contentDocument).innerHTML = output;
+        },
+
+        onComplete: function () {
+          $('oOpentran', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>";
         }
-        $('aOpentran', gBrowser.contentDocument).innerHTML = txtOpentran3;
-        $('oOpentran', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>";
-      }
+      });
+
     },
 
     normalizatu: function (katea) {
