@@ -1358,57 +1358,38 @@ with (euskalbarLib) {
 
     // Intza kargatu
     getShiftIntza: function (source, term) {
-      var txtIntza = "";
+      var output = "";
 
       if (source == 'es') {
-        var urlIntza = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + escape(term) + '&eremu3=1&eremu1=eeki';
+        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + escape(term) + '&eremu3=1&eremu1=eeki';
       } else {
-        var urlIntza = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1=' + escape(term) + '&eremu3=1';
+        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1=' + escape(term) + '&eremu3=1';
       }
 
-      var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
-      if (!xmlHttpReq) {
-        txtIntza = _f("euskalbar.comb.error", ["Intza"]);
-        return false;
-      }
+      ajax({
+        url: url,
 
-      xmlHttpReq.open('GET', urlIntza, true);
-      xmlHttpReq.send(null);
+        onSuccess: function (data) {
+          output = data;
+          var output2 = output.split("Bilaketaren emaitza")[2];
+          output = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term + "</font></strong>" + output2;
+          var output3 = output.split("<form")[0];
+          output = output3.replace(/<font size=5>/g, "<font size=\"3\">");
+          output = output.replace(/\/cgi-bin/g, "http:\/\/intza.armiarma.com\/cgi-bin");
+          output = output.replace(/\/intza\/kon/g, "http:\/\/intza.armiarma.com\/intza\/kon");
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+          $('aIntza', gBrowser.contentDocument).innerHTML = output;
+        },
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtIntza = _f("euskalbar.comb.error", ["Intza"]);
-      }, tout);
+        onError: function () {
+          output = _f("euskalbar.comb.error", ["Intza"]);
+          $('aIntza', gBrowser.contentDocument).innerHTML = output;
+        },
 
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              txtIntza = xmlHttpReq.responseText;
-              var txtIntza2 = txtIntza.split("Bilaketaren emaitza")[2];
-              txtIntza = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term + "</font></strong>" + txtIntza2;
-              var txtIntza3 = txtIntza.split("<form")[0];
-              txtIntza = txtIntza3.replace(/<font size=5>/g, "<font size=\"3\">");
-              txtIntza = txtIntza.replace(/\/cgi-bin/g, "http:\/\/intza.armiarma.com\/cgi-bin");
-              txtIntza = txtIntza.replace(/\/intza\/kon/g, "http:\/\/intza.armiarma.com\/intza\/kon");
-            } else {
-              txtIntza = _f("euskalbar.comb.error", ["Intza"]);
-            }
-          }
-        } catch (e) {
-          txtIntza = _f("euskalbar.comb.error", ["Intza"]);
+        onComplete: function () {
+          $('oIntza', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>";
         }
-        $('aIntza', gBrowser.contentDocument).innerHTML = txtIntza;
-        $('oIntza', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>";
-      }
+      });
     },
 
 
