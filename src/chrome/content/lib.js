@@ -5,6 +5,9 @@ var euskalbarLib = {};
 
   /* Constants */
 
+  const Cc = Components.classes;
+  const Ci = Components.interfaces;
+
   const chromeregCID = '@mozilla.org/chrome/chrome-registry;1';
   const chromeregIID = Ci.nsIChromeRegistry;
 
