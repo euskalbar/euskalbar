@@ -66,7 +66,8 @@ var euskalbarLib = {};
 
     // Initalize a callback which will fire 5 seconds from now, cancelling
     // the request (if it has not already occurred).
-    setTimeout(function(){
+    // TODO: determine if the request has actually been timed out
+    setTimeout(function () {
       requestDone = true;
     }, timeoutLength);
 
