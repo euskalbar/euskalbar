@@ -86,7 +86,7 @@ with (euskalbarLib) {
 
 
     /* Appends the Euskalbar button to the navigation bar */
-    appendButtonToToolbar: function() {
+    appendButtonToToolbar: function () {
       // Get the current navigation bar button set (a string of button IDs) and append
       // the ID of the Euskalbar button into it
       var euskalbarButtonId = "euskalbar-button";
@@ -98,9 +98,8 @@ with (euskalbarLib) {
       // Append only if the button is not already there
       var curSet = currentSet.split(",");
       if (curSet.indexOf(euskalbarButtonId) == -1) {
-        var set = curSet.concat(euskalbarButtonId);
+        var set = curSet.concat(euskalbarButtonId).join(",");
 
-        navBar.setAttribute("currentset", set.join(","));
         navBar.currentSet = set;
         document.persist(navBarId, "currentset");
 
