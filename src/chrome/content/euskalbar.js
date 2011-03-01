@@ -53,9 +53,7 @@ with (euskalbarLib) {
         /* Add Euskalbar button to the navigation bar */
         euskalbar.ui.appendButtonToToolbar();
 
-        var file = addon.getResourceURI("").
-          QueryInterface(Components.interfaces.nsIFileURL).file;
-        euskalbar.stats.createStatsFile(file);
+        euskalbar.stats.createStatsFile();
 
         openInfo = true;
         infoURL = euskalbar.firstrunURL;
@@ -67,18 +65,14 @@ with (euskalbarLib) {
           if (this.curVersion > installedVersion) {
             euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
 
+            /* Add Euskalbar button to the navigation bar */
+            euskalbar.ui.appendButtonToToolbar();
+
             openInfo = true;
             infoURL = euskalbar.versionBaseURL +
               this.curVersion.replace(/\D/g, '');
           }
         } catch (ex) { /* Reinstall: do we need to do something in this situation? */
-          /* XXX: As previous Euskalbar versions don't have the
-           * installedVersion pref, we must ensure they get the button
-           * when upgrading from older versions.
-           * This behaviour MUST be changed just after releasing 3.9.
-           */
-          /* Add Euskalbar button to the navigation bar */
-          euskalbar.ui.appendButtonToToolbar();
         }
       }
 
