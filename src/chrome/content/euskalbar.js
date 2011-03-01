@@ -249,8 +249,8 @@ with (euskalbarLib) {
 
     // Estatistika lokalak erakusten ditu
     showLocalstats: function () {
-      var dialogURL = "chrome://euskalbar/content/stats.xul";
-      window.openDialog(dialogURL, "statsDlg", "chrome,modal,resizable");
+      t = gBrowser.addTab("chrome://euskalbar/content/stats.xul");
+      gBrowser.selectedTab = t;
     },
 
 
