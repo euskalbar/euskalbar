@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Euskalbar - A Firefox extension for helping in Basque translations.
  * Copyright (C) 2006-2011 Euskalbar Taldea (see AUTHORS file)
  *
