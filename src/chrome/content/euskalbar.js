@@ -15,8 +15,6 @@ with (euskalbarLib) {
 
   euskalbar = {
 
-    guid: "euskalbar@euskalbar.eu",
-
     curVersion: "3.9",
 
     firstrunURL: "http://euskalbar.eu/firstrun",

@@ -5,7 +5,7 @@
   <Description about="urn:mozilla:install-manifest">
 
     <!-- Derrigorrezko elementuak -->
-    <em:id>euskalbar@euskalbar.eu</em:id>
+    <em:id>euskalbar@interneteuskadi.org</em:id>
     <em:name>Euskalbar</em:name>
     <em:version>3.9</em:version>
 
