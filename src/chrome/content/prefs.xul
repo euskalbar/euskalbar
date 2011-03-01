@@ -4,9 +4,10 @@
 
 <prefwindow id="euskalbar-prefs-dialog"
         title="&euskalbar.prefs.title;"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-        onload="euskalbar.setUserSkinDisabled()">
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
 <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
+  <script type="application/x-javascript" src="chrome://euskalbar/content/lib.js"/>
   <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
     <preferences>
       <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
@@ -396,7 +397,7 @@
               <vbox flex="1">
                 <hbox align="center">
                   <label value="&euskalbar.prefs.timeout.caption;"/>
-      	          <textbox type="number" width="50px" preference="prefQuerytimeout" onkeypress="numField(event);" />
+                  <textbox type="number" width="50px" preference="prefQuerytimeout" />
                 </hbox>
                 <hbox>
                   <checkbox preference="prefQuerysubqueries" label="&euskalbar.prefs.subqueries.caption;" />

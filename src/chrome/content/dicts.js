@@ -1041,19 +1041,6 @@ with (euskalbarLib) {
       return winWrapper.getSelection();
     },
 
-
-    // Testu kutxan sartzen den katea zenbakia dela balidatzen du
-    numField: function (event) {
-      if (event.which >= 48 && event.which <= 57 ||
-          (event.which == 46 && this.input.value.search('\\.') == -1)
-          || 8 == event.which || 13 == event.which || 0 == event.which) {
-        return;
-      } else {
-        event.preventDefault();
-        return;
-      }
-    },
-
   };
 
 }
