@@ -6,9 +6,11 @@
         title="&euskalbar.prefs.title;"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-<prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
-  <script type="application/x-javascript" src="chrome://euskalbar/content/lib.js"/>
-  <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
+  <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
+
+    <script type="application/x-javascript" src="chrome://euskalbar/content/lib.js"/>
+    <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
+
     <preferences>
       <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="prefElhuyar" name="extensions.euskalbar.elhuyar.onkey" type="bool"/>
@@ -127,13 +129,13 @@
 
       <tabpanels flex="1">
         <tabpanel id="tab-orokorra">
-      	  <vbox flex="1">
-      	    <groupbox>
-      	    <caption label="&euskalbar.prefs.lang.caption;"/>
-      	      <vbox align="left">
-      	      <label value="&euskalbar.prefs.lang.label;" />
-      		<menulist id="menuStartupLang" preference="prefStartupLang">
-      		  <menupopup>
+          <vbox flex="1">
+            <groupbox>
+              <caption label="&euskalbar.prefs.lang.caption;"/>
+              <vbox align="left">
+                <label value="&euskalbar.prefs.lang.label;" />
+                <menulist id="menuStartupLang" preference="prefStartupLang">
+                  <menupopup>
                     <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
                     <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
                     <menuitem label="&euskalbar.language.eu_fr;" value="eu_fr"/>
@@ -142,47 +144,51 @@
                     <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
                     <menuitem label="&euskalbar.language.la_eu;" value="la_eu"/>
                     <menuitem label="&euskalbar.language.eu_jp;" value="eu_jp"/>
-      		  </menupopup>
-      		</menulist>
-      	      </vbox>
-      	    </groupbox>
-      	    <groupbox>
-      	    <caption label="&euskalbar.prefs.tabs.caption;" />
-      	      <checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
-      	      <checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
-      	    </groupbox>
-      	    <groupbox>
-              <caption label="&euskalbar.prefs.skin.caption;"/>
-      	      <vbox align="left">
-      	        <label value="&euskalbar.prefs.skin.label;" />
-      	        <menulist id="menuStartupSkin" preference="prefSkin">
-      	          <menupopup>
-                    <menuitem id = "euskalbar-skin" label="Euskalbar" value="skins/euskalbar.css"/>
-                    <menuitem id = "human-skin" label="Human" value="skins/human.css"/>
-                    <menuitem id = "oliba-skin" label="Oliba" value="skins/oliba.css"/>
-                    <menuitem id = "urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>
-                    <menuitem id = "grisleun-skin" label="Grisleun" value="skins/grisleun.css"/>
                   </menupopup>
-   		</menulist>
+                </menulist>
               </vbox>
-      	    </groupbox>
-      	    <groupbox>
-      	    <caption label="&euskalbar.prefs.gui.caption;" />
-      	      <checkbox preference="prefShowhidedicts" label="&euskalbar.prefs.dicts.label;" />
-      	      <checkbox preference="prefShowcontextmenu" label="&euskalbar.prefs.context.label;" />
-      	    </groupbox>
-      	  </vbox>
+            </groupbox>
+
+            <groupbox>
+              <caption label="&euskalbar.prefs.tabs.caption;" />
+              <checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
+              <checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
+            </groupbox>
+
+            <groupbox>
+              <caption label="&euskalbar.prefs.skin.caption;"/>
+              <vbox align="left">
+                <label value="&euskalbar.prefs.skin.label;" />
+                <menulist id="menuStartupSkin" preference="prefSkin">
+                  <menupopup>
+                    <menuitem id="euskalbar-skin" label="Euskalbar" value="skins/euskalbar.css"/>
+                    <menuitem id="human-skin" label="Human" value="skins/human.css"/>
+                    <menuitem id="oliba-skin" label="Oliba" value="skins/oliba.css"/>
+                    <menuitem id="urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>
+                    <menuitem id="grisleun-skin" label="Grisleun" value="skins/grisleun.css"/>
+                  </menupopup>
+                </menulist>
+              </vbox>
+            </groupbox>
+
+            <groupbox>
+              <caption label="&euskalbar.prefs.gui.caption;" />
+              <checkbox preference="prefShowhidedicts" label="&euskalbar.prefs.dicts.label;" />
+              <checkbox preference="prefShowcontextmenu" label="&euskalbar.prefs.context.label;" />
+            </groupbox>
+          </vbox>
         </tabpanel>
 
         <tabpanel id="tab-aurreratua">
           <vbox flex="1">
-              <tabbox id="sec-tabbox" flex="1">
-                <tabs >
-                   <tab style="height:2em" label="Enter"/>
-                   <tab style="height:2em" label="Shift+Enter"/>
-                   <tab style="height:2em" label="Ctrl+Enter"/>
-                </tabs>
-                <tabpanels flex="1" >
+            <tabbox id="sec-tabbox" flex="1">
+              <tabs>
+                <tab style="height:2em" label="Enter"/>
+                <tab style="height:2em" label="Shift+Enter"/>
+                <tab style="height:2em" label="Ctrl+Enter"/>
+              </tabs>
+
+              <tabpanels flex="1" >
                 <tabpanel id="tab-enter">
                   <grid flex="1">
                     <columns>
@@ -191,61 +197,62 @@
                       <column flex="1" />
                     </columns>
                     <rows>
-                    <row>
-                      <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                      <checkbox preference="prefOEH" label="OEH" />
-                      <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefElhuyar" label="Elhuyar" />
-                      <checkbox preference="prefBatua" label="Hiztegi Batua" />
-                      <checkbox preference="prefKlasikoak" label="Klasikoak" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefZTHiztegia" label="ZT Hiztegia" />
-                      <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
-                      <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefEnergia" label="Energia Hiztegia" />
-                      <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
-                      <checkbox preference="prefLB" label="Lexikoaren Behatokia" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefTelekom" label="Telekomunikazio Hiztegia" />
-                      <checkbox preference="prefItzuL" label="ItzuL" />
-                      <checkbox preference="prefConsumer" label="Consumer Corpusa" />
-                    </row>
-                    <row>
-                      <checkbox preference="pref3000" label="3000" />
-                      <checkbox preference="prefHarluxet" label="Harluxet" />
-                      <checkbox preference="prefCorpEus" label="CorpEus" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefLabayru" label="Labayru" />
-                      <checkbox preference="prefWikipedia" label="Wikipedia" />
-                      <checkbox preference="prefXUXENweb" label="XUXENweb" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefZehazki" label="Zehazki" />
-                      <checkbox preference="prefMokoroa" label="Mokoroa" />
-                      <checkbox preference="prefElebila" label="Elebila" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefMorris" label="Morris" />
-                      <checkbox preference="prefIntza" label="Intza" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefOpentran" label="Open-tran" />
-                      <checkbox preference="prefEurovoc" label="Eurovoc" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefGoihata" label="Goihata" />
-                      <checkbox preference="prefBergara" label="Bergara" />
-                    </row>
+                      <row>
+                        <checkbox preference="prefEuskalterm" label="Euskalterm" />
+                        <checkbox preference="prefOEH" label="OEH" />
+                        <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefElhuyar" label="Elhuyar" />
+                        <checkbox preference="prefBatua" label="Hiztegi Batua" />
+                        <checkbox preference="prefKlasikoak" label="Klasikoak" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefZTHiztegia" label="ZT Hiztegia" />
+                        <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
+                        <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefEnergia" label="Energia Hiztegia" />
+                        <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
+                        <checkbox preference="prefLB" label="Lexikoaren Behatokia" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefTelekom" label="Telekomunikazio Hiztegia" />
+                        <checkbox preference="prefItzuL" label="ItzuL" />
+                        <checkbox preference="prefConsumer" label="Consumer Corpusa" />
+                      </row>
+                      <row>
+                        <checkbox preference="pref3000" label="3000" />
+                        <checkbox preference="prefHarluxet" label="Harluxet" />
+                        <checkbox preference="prefCorpEus" label="CorpEus" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefLabayru" label="Labayru" />
+                        <checkbox preference="prefWikipedia" label="Wikipedia" />
+                        <checkbox preference="prefXUXENweb" label="XUXENweb" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefZehazki" label="Zehazki" />
+                        <checkbox preference="prefMokoroa" label="Mokoroa" />
+                        <checkbox preference="prefElebila" label="Elebila" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefMorris" label="Morris" />
+                        <checkbox preference="prefIntza" label="Intza" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefOpentran" label="Open-tran" />
+                        <checkbox preference="prefEurovoc" label="Eurovoc" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefGoihata" label="Goihata" />
+                        <checkbox preference="prefBergara" label="Bergara" />
+                      </row>
                     </rows>
                   </grid> 
                 </tabpanel>
+
                 <tabpanel id="tab-shiftenter">
                   <grid flex="1">
                     <columns>
@@ -254,70 +261,71 @@
                       <column flex="1" />
                     </columns>
                     <rows>
-                    <row>
-      	              <label value="EU‣ES / ES‣EU" />
-      	              <label value="EU‣FR / FR‣EU" />
-      	              <label value="EU‣EN / EN‣EU" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefEuskaltermShiftES" label="Euskalterm" />
-                      <checkbox preference="prefEuskaltermShiftFR" label="Euskalterm" />
-                      <checkbox preference="prefEuskaltermShiftEN" label="Euskalterm" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefElhuyarShiftES" label="Elhuyar" />
-                      <checkbox preference="prefElhuyarShiftFR" label="Elhuyar" />
-                      <checkbox preference="prefElhuyarShiftEN" label="Elhuyar" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefZTHiztegiaShiftES" label="ZT Hiztegia" />
-                      <checkbox preference="prefZTHiztegiaShiftFR" label="ZT Hiztegia" />
-                      <checkbox preference="prefZTHiztegiaShiftEN" label="ZT Hiztegia" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefEnergiaShiftES" label="Energia Hiztegia" />
-                      <checkbox preference="prefEnergiaShiftFR" label="Energia Hiztegia" />
-                      <checkbox preference="prefEnergiaShiftEN" label="Energia Hiztegia" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefTelekomShiftES" label="Telekomunikazio Hiztegia" />
-                      <checkbox preference="prefTelekomShiftFR" label="Telekomunikazio Hiztegia" />
-                      <checkbox preference="prefTelekomShiftEN" label="Telekomunikazio Hiztegia" />
-                    </row>
-                    <row>
-                      <checkbox preference="pref3000ShiftES" label="3000" />
-      	              <label value="" />
-                      <checkbox preference="prefMorrisShiftEN" label="Morris" />
-                    </row>
-                    <row>
-      	              <checkbox preference="prefLabayruShiftES" label="Labayru" />
-      	              <label value="" />
-                      <checkbox preference="prefOpentranShiftEN" label="Open-tran" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefBatuaShiftES" label="Batua" />
-                      <checkbox preference="prefBatuaShiftFR" label="Batua" />
-                      <checkbox preference="prefBatuaShiftEN" label="Batua" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefAdorezShiftES" label="Adorez" />
-                      <checkbox preference="prefAdorezShiftFR" label="Adorez" />
-                      <checkbox preference="prefAdorezShiftEN" label="Adorez" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefUZEIShiftES" label="UZEI" />
-                      <checkbox preference="prefUZEIShiftFR" label="UZEI" />
-                      <checkbox preference="prefUZEIShiftEN" label="UZEI" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefMokoroaShiftES" label="Mokoroa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefIntzaShiftES" label="Intza" />
-                    </row>
+                      <row>
+                        <label value="EU‣ES / ES‣EU" />
+                        <label value="EU‣FR / FR‣EU" />
+                        <label value="EU‣EN / EN‣EU" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefEuskaltermShiftES" label="Euskalterm" />
+                        <checkbox preference="prefEuskaltermShiftFR" label="Euskalterm" />
+                        <checkbox preference="prefEuskaltermShiftEN" label="Euskalterm" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefElhuyarShiftES" label="Elhuyar" />
+                        <checkbox preference="prefElhuyarShiftFR" label="Elhuyar" />
+                        <checkbox preference="prefElhuyarShiftEN" label="Elhuyar" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefZTHiztegiaShiftES" label="ZT Hiztegia" />
+                        <checkbox preference="prefZTHiztegiaShiftFR" label="ZT Hiztegia" />
+                        <checkbox preference="prefZTHiztegiaShiftEN" label="ZT Hiztegia" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefEnergiaShiftES" label="Energia Hiztegia" />
+                        <checkbox preference="prefEnergiaShiftFR" label="Energia Hiztegia" />
+                        <checkbox preference="prefEnergiaShiftEN" label="Energia Hiztegia" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefTelekomShiftES" label="Telekomunikazio Hiztegia" />
+                        <checkbox preference="prefTelekomShiftFR" label="Telekomunikazio Hiztegia" />
+                        <checkbox preference="prefTelekomShiftEN" label="Telekomunikazio Hiztegia" />
+                      </row>
+                      <row>
+                        <checkbox preference="pref3000ShiftES" label="3000" />
+                        <label value="" />
+                        <checkbox preference="prefMorrisShiftEN" label="Morris" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefLabayruShiftES" label="Labayru" />
+                        <label value="" />
+                        <checkbox preference="prefOpentranShiftEN" label="Open-tran" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefBatuaShiftES" label="Batua" />
+                        <checkbox preference="prefBatuaShiftFR" label="Batua" />
+                        <checkbox preference="prefBatuaShiftEN" label="Batua" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefAdorezShiftES" label="Adorez" />
+                        <checkbox preference="prefAdorezShiftFR" label="Adorez" />
+                        <checkbox preference="prefAdorezShiftEN" label="Adorez" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefUZEIShiftES" label="UZEI" />
+                        <checkbox preference="prefUZEIShiftFR" label="UZEI" />
+                        <checkbox preference="prefUZEIShiftEN" label="UZEI" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefMokoroaShiftES" label="Mokoroa" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefIntzaShiftES" label="Intza" />
+                      </row>
                     </rows>
                   </grid>
                 </tabpanel>
+
                 <tabpanel id="tab-ctrlenter">
                   <grid flex="1">
                     <columns>
@@ -326,88 +334,92 @@
                       <column flex="1" />
                     </columns>
                     <rows>
-                    <row>
-      	              <label value="EU‣ES / ES‣EU" />
-      	              <label value="EU‣FR / FR‣EU" />
-      	              <label value="EU‣EN / EN‣EU" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefEuskaltermCtrlES" label="Euskalterm" />
-                      <checkbox preference="prefEuskaltermCtrlFR" label="Euskalterm" />
-                      <checkbox preference="prefEuskaltermCtrlEN" label="Euskalterm" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefElhuyarCtrlES" label="Elhuyar" />
-                      <checkbox preference="prefElhuyarCtrlFR" label="Elhuyar" />
-                      <checkbox preference="prefElhuyarCtrlEN" label="Elhuyar" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefZTHiztegiaCtrlES" label="ZT Hiztegia" />
-                      <checkbox preference="prefZTHiztegiaCtrlFR" label="ZT Hiztegia" />
-                      <checkbox preference="prefZTHiztegiaCtrlEN" label="ZT Hiztegia" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefEnergiaCtrlES" label="Energia Hiztegia" />
-                      <checkbox preference="prefEnergiaCtrlFR" label="Energia Hiztegia" />
-                      <checkbox preference="prefEnergiaCtrlEN" label="Energia Hiztegia" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefTelekomCtrlES" label="Telekomunikazio Hiztegia" />
-                      <checkbox preference="prefTelekomCtrlFR" label="Telekomunikazio Hiztegia" />
-                      <checkbox preference="prefTelekomCtrlEN" label="Telekomunikazio Hiztegia" />
-                    </row>
-                    <row>
-                      <checkbox preference="pref3000CtrlES" label="3000" />
-      	              <label value="" />
-                      <checkbox preference="prefMorrisCtrlEN" label="Morris" />
-                    </row>
-                    <row>
-      	              <checkbox preference="prefLabayruCtrlES" label="Labayru" />
-      	              <label value="" />
-                      <checkbox preference="prefOpentranCtrlEN" label="Open-tran" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefBatuaCtrlES" label="Batua" />
-                      <checkbox preference="prefBatuaCtrlFR" label="Batua" />
-                      <checkbox preference="prefBatuaCtrlEN" label="Batua" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefAdorezCtrlES" label="Adorez" />
-                      <checkbox preference="prefAdorezCtrlFR" label="Adorez" />
-                      <checkbox preference="prefAdorezCtrlEN" label="Adorez" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefUZEICtrlES" label="UZEI" />
-                      <checkbox preference="prefUZEICtrlFR" label="UZEI" />
-                      <checkbox preference="prefUZEICtrlEN" label="UZEI" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefMokoroaCtrlES" label="Mokoroa" />
-                    </row>
-                    <row>
-                      <checkbox preference="prefIntzaCtrlES" label="Intza" />
-                    </row>
+                      <row>
+                        <label value="EU‣ES / ES‣EU" />
+                        <label value="EU‣FR / FR‣EU" />
+                        <label value="EU‣EN / EN‣EU" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefEuskaltermCtrlES" label="Euskalterm" />
+                        <checkbox preference="prefEuskaltermCtrlFR" label="Euskalterm" />
+                        <checkbox preference="prefEuskaltermCtrlEN" label="Euskalterm" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefElhuyarCtrlES" label="Elhuyar" />
+                        <checkbox preference="prefElhuyarCtrlFR" label="Elhuyar" />
+                        <checkbox preference="prefElhuyarCtrlEN" label="Elhuyar" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefZTHiztegiaCtrlES" label="ZT Hiztegia" />
+                        <checkbox preference="prefZTHiztegiaCtrlFR" label="ZT Hiztegia" />
+                        <checkbox preference="prefZTHiztegiaCtrlEN" label="ZT Hiztegia" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefEnergiaCtrlES" label="Energia Hiztegia" />
+                        <checkbox preference="prefEnergiaCtrlFR" label="Energia Hiztegia" />
+                        <checkbox preference="prefEnergiaCtrlEN" label="Energia Hiztegia" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefTelekomCtrlES" label="Telekomunikazio Hiztegia" />
+                        <checkbox preference="prefTelekomCtrlFR" label="Telekomunikazio Hiztegia" />
+                        <checkbox preference="prefTelekomCtrlEN" label="Telekomunikazio Hiztegia" />
+                      </row>
+                      <row>
+                        <checkbox preference="pref3000CtrlES" label="3000" />
+                        <label value="" />
+                        <checkbox preference="prefMorrisCtrlEN" label="Morris" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefLabayruCtrlES" label="Labayru" />
+                        <label value="" />
+                        <checkbox preference="prefOpentranCtrlEN" label="Open-tran" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefBatuaCtrlES" label="Batua" />
+                        <checkbox preference="prefBatuaCtrlFR" label="Batua" />
+                        <checkbox preference="prefBatuaCtrlEN" label="Batua" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefAdorezCtrlES" label="Adorez" />
+                        <checkbox preference="prefAdorezCtrlFR" label="Adorez" />
+                        <checkbox preference="prefAdorezCtrlEN" label="Adorez" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefUZEICtrlES" label="UZEI" />
+                        <checkbox preference="prefUZEICtrlFR" label="UZEI" />
+                        <checkbox preference="prefUZEICtrlEN" label="UZEI" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefMokoroaCtrlES" label="Mokoroa" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefIntzaCtrlES" label="Intza" />
+                      </row>
                     </rows>
                   </grid>
-                  </tabpanel>
-                </tabpanels>
-              </tabbox>
-	    <groupbox>
-      	      <caption label="&euskalbar.prefs.combined.caption;" />
+                </tabpanel>
+
+              </tabpanels>
+            </tabbox>
+
+            <groupbox>
+              <caption label="&euskalbar.prefs.combined.caption;" />
               <vbox flex="1">
                 <hbox align="center">
                   <label value="&euskalbar.prefs.timeout.caption;"/>
-                  <textbox type="number" width="50px" preference="prefQuerytimeout" />
+                  <textbox type="number" width="50px"
+                           preference="prefQuerytimeout" />
                 </hbox>
                 <hbox>
-                  <checkbox preference="prefQuerysubqueries" label="&euskalbar.prefs.subqueries.caption;" />
+                  <checkbox preference="prefQuerysubqueries"
+                            label="&euskalbar.prefs.subqueries.caption;" />
                 </hbox>
               </vbox>
-      	    </groupbox>
-    	  </vbox>
+            </groupbox>
+
+          </vbox>
         </tabpanel>
       </tabpanels>
     </tabbox>
-</prefpane>
+  </prefpane>
 </prefwindow>
-
