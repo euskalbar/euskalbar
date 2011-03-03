@@ -57,6 +57,9 @@ with (euskalbarLib) {
         euskalbar.prefs.setBoolPref("firstrun", false);
         euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
 
+        /* XXX: This is only for 3.9, remove this code after this release */
+        euskalbar.migrateOldPrefs();
+
         /* Add Euskalbar button to the navigation bar and force
          * the toolbar to be displayed */
         euskalbar.ui.appendButtonToToolbar();
@@ -144,6 +147,48 @@ with (euskalbarLib) {
         this.showContextmenu();
         break;
       }
+    },
+
+
+    /* Migrates preferences from Euskalbar < 3.9 to 3.9 */
+    migrateOldPrefs: function () {
+      var prefName, prefType, oldPref, oldPrefsList,
+          oldPrefs = Services.prefs.getBranch("euskalbar.");
+
+      // Clear these prefs since we don't want to migrate them
+      if (oldPrefs.prefHasUserValue("firstrun")) {
+        oldPrefs.clearUserPref("firstrun");
+      }
+      if (oldPrefs.prefHasUserValue("style.combinedquery")) {
+        oldPrefs.clearUserPref("style.combinedquery");
+      }
+
+      oldPrefsList = oldPrefs.getChildList("");
+
+      for (var i=0; i<oldPrefsList.length; i++) {
+        prefName = oldPrefsList[i];
+        prefType = oldPrefs.getPrefType(prefName);
+
+        switch (prefType) {
+          case oldPrefs.PREF_STRING:
+            oldPref = oldPrefs.getCharPref(prefName);
+            euskalbar.prefs.setCharPref(prefName, oldPref);
+            break;
+          case oldPrefs.PREF_INT:
+            oldPref = oldPrefs.getIntPref(prefName);
+            euskalbar.prefs.setIntPref(prefName, oldPref);
+            break;
+          case oldPrefs.PREF_BOOL:
+            oldPref = oldPrefs.getBoolPref(prefName);
+            euskalbar.prefs.setBoolPref(prefName, oldPref);
+            break;
+          default:
+            break;
+        }
+      }
+
+      // Once we're done, delete the old prefs branch
+      oldPrefs.deleteBranch("");
     },
 
 
