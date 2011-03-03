@@ -120,7 +120,7 @@ pref("extensions.euskalbar.reusetabs.enabled", true);
 pref("extensions.euskalbar.bgtabs.enabled", false);
 
 // GUI prefs
-pref("extensions.euskalbar.showdicts.enabled", false);
+pref("extensions.euskalbar.showdicts.enabled", true);
 pref("extensions.euskalbar.showcontextmenu.enabled", true);
 
 // Language selected at startup
