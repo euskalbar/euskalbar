@@ -132,6 +132,9 @@ with (euskalbarLib) {
       // In case it's hidden, show the navigation bar
       navBar.setAttribute("collapsed", false);
       document.persist(navBarId, "collapsed");
+
+      // Also always display the toolbar when adding the button
+      $("euskalbar-toolbar").collapsed = false;
     },
 
   };
