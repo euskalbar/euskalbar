@@ -57,8 +57,10 @@ with (euskalbarLib) {
         euskalbar.prefs.setBoolPref("firstrun", false);
         euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
 
-        /* Add Euskalbar button to the navigation bar */
+        /* Add Euskalbar button to the navigation bar and force
+         * the toolbar to be displayed */
         euskalbar.ui.appendButtonToToolbar();
+        euskalbar.ui.displayToolbar();
 
         euskalbar.stats.createStatsFile();
 
@@ -72,8 +74,10 @@ with (euskalbarLib) {
           if (this.curVersion > installedVersion) {
             euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
 
-            /* Add Euskalbar button to the navigation bar */
+            /* Add Euskalbar button to the navigation bar and force
+             * the toolbar to be displayed */
             euskalbar.ui.appendButtonToToolbar();
+            euskalbar.ui.displayToolbar();
 
             openInfo = true;
             infoURL = euskalbar.versionBaseURL +
