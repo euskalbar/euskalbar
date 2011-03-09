@@ -66,7 +66,7 @@ with (euskalbarLib) {
 
         onComplete: function () {
           $('oEuskalterm', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>";
-          $('aEuskalterm', gBrowser.contentDocument).innerHTML = output;
+          cleanloadHTML(output, $('aEuskalterm', gBrowser.contentDocument));
         }
       });
     },
@@ -816,7 +816,6 @@ with (euskalbarLib) {
               }
               //3000ren katea manipulatzen duen funtzioa
               txt3000 = euskalbar.comb.manipulate3000(wtable, txt3000);
-              $('a3000', gBrowser.contentDocument).innerHTML = txt3000;
               //azpisarrerak badauzka...
               if (txt3000.indexOf("cgi-bin_m33") != -1) {
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
@@ -835,7 +834,7 @@ with (euskalbarLib) {
         } catch (e) {
           txt3000 = _f("euskalbar.comb.error", ["3000 Hiztegia"]);
         }
-        $('a3000', gBrowser.contentDocument).innerHTML = txt3000;
+        cleanloadHTML(txt3000, $('a3000', gBrowser.contentDocument));
         $('o3000', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_3000/indice_e.htm\">3000 hiztegia&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
@@ -984,7 +983,7 @@ with (euskalbarLib) {
         } catch (e) {
           txtMorris = _f("euskalbar.comb.error", ["Morris"]);
         }
-        $('aMorris', gBrowser.contentDocument).innerHTML = txtMorris;
+        cleanloadHTML(txtMorris, $('aMorris', gBrowser.contentDocument));
         $('oMorris', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>";
       }
 
@@ -1052,7 +1051,8 @@ with (euskalbarLib) {
         } catch (e) {
           txtLabayru = _f("euskalbar.comb.error", ["Labayru"]);
         }
-        $('aLabayru', gBrowser.contentDocument).innerHTML = txtLabayru;
+
+        cleanloadHTML(txtLabayru, $('aLabayru', gBrowser.contentDocument));
         $('oLabayru', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
@@ -1120,7 +1120,7 @@ with (euskalbarLib) {
         } catch (e) {
           txtSinonimoak = _f("euskalbar.comb.error", ["Adorez"]);
         }
-        $('aAdorez', gBrowser.contentDocument).innerHTML = txtSinonimoak;
+        cleanloadHTML(txtSinonimoak, $('aAdorez', gBrowser.contentDocument));
         $('oAdorez', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_sinon/indice_e.htm\">Adorez&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
@@ -1172,7 +1172,7 @@ with (euskalbarLib) {
         } catch (e) {
           txtUZEI = _f("euskalbar.comb.error", ["UZEI"]);
         }
-        $('aUzei', gBrowser.contentDocument).innerHTML = txtUZEI;
+        cleanloadHTML(txtUZEI, $('aUzei', gBrowser.contentDocument));
         $('oUzei', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
@@ -1364,7 +1364,7 @@ with (euskalbarLib) {
         } catch (e) {
           txtMokoroa = _f("euskalbar.comb.error", ["Mokoroa"]);
         }
-        $('aMokoroa', gBrowser.contentDocument).innerHTML = txtMokoroa;
+        cleanloadHTML(txtMokoroa, $('aMokoroa', gBrowser.contentDocument));
         $('oMokoroa', gBrowser.contentDocument).innerHTML = "<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>";
       }
     },
@@ -1392,12 +1392,12 @@ with (euskalbarLib) {
           output = output.replace(/\/cgi-bin/g, "http:\/\/intza.armiarma.com\/cgi-bin");
           output = output.replace(/\/intza\/kon/g, "http:\/\/intza.armiarma.com\/intza\/kon");
 
-          $('aIntza', gBrowser.contentDocument).innerHTML = output;
+          cleanloadHTML(output, $('aIntza', gBrowser.contentDocument));
         },
 
         onError: function () {
           output = _f("euskalbar.comb.error", ["Intza"]);
-          $('aIntza', gBrowser.contentDocument).innerHTML = output;
+          cleanloadHTML(output, $('aIntza', gBrowser.contentDocument));
         },
 
         onComplete: function () {
@@ -1425,13 +1425,12 @@ with (euskalbarLib) {
           output = output.replace(/<a href=\"javascript\:\;\"  onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<b>");
           output = output.replace(/<a href=\"javascript\:\;\" class=\"fuzzy\" onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<i>fuzzy</i> <b>");
           output = output.replace(/\)<\/a>/g, ")</b>");
-
-          $('aOpentran', gBrowser.contentDocument).innerHTML = output;
+          cleanloadHTML(output, $('aOpentran', gBrowser.contentDocument));
         },
 
         onError: function () {
           output = _f("euskalbar.comb.error", ["Open-Tran"]);
-          $('aOpentran', gBrowser.contentDocument).innerHTML = output;
+          cleanloadHTML(output, $('aOpentran', gBrowser.contentDocument));
         },
 
         onComplete: function () {

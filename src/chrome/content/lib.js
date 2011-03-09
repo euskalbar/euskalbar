@@ -196,6 +196,18 @@ var euskalbarLib = {};
 
 
   /*
+   * Parse HMTL fragments
+   */
+
+  this.cleanloadHTML = function (h, n) {
+    var fr = Components.classes["@mozilla.org/feed-unescapehtml;1"]
+                       .getService(Components.interfaces.nsIScriptableUnescapeHTML)
+                       .parseFragment(h, false, null, n);
+    n.appendChild(fr);
+  };
+
+
+  /*
    * i18n / l10n
    */
 
