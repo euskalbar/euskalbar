@@ -206,6 +206,15 @@ var euskalbarLib = {};
     n.appendChild(fr);
   };
 
+  this.appendF = function (h, n) {
+    if (n.childNodes.length == 0) {
+      var fr = Components.classes["@mozilla.org/feed-unescapehtml;1"]
+                         .getService(Components.interfaces.nsIScriptableUnescapeHTML)
+                         .parseFragment(h, false, null, n);
+      n.appendChild(fr);
+    }
+  };
+
 
   /*
    * i18n / l10n
