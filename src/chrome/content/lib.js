@@ -32,6 +32,9 @@ var euskalbarLib = {};
 
   const resphIID = Ci.nsIResProtocolHandler;
 
+  const feedunescapeCID = '@mozilla.org/feed-unescapehtml;1';
+  const feedunescapeIID = Ci.nsIScriptableUnescapeHTML;
+
   const L10N_NORMAL = 0;
   const L10N_FORMATTED = 1;
 
@@ -200,17 +203,15 @@ var euskalbarLib = {};
    */
 
   this.cleanloadHTML = function (h, n) {
-    var fr = Components.classes["@mozilla.org/feed-unescapehtml;1"]
-                       .getService(Components.interfaces.nsIScriptableUnescapeHTML)
-                       .parseFragment(h, false, null, n);
+    var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
+                                .parseFragment(h, false, null, n);
     n.appendChild(fr);
   };
 
   this.appendF = function (h, n) {
     if (n.childNodes.length == 0) {
-      var fr = Components.classes["@mozilla.org/feed-unescapehtml;1"]
-                         .getService(Components.interfaces.nsIScriptableUnescapeHTML)
-                         .parseFragment(h, false, null, n);
+      var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
+                                  .parseFragment(h, false, null, n);
       n.appendChild(fr);
     }
   };
