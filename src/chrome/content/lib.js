@@ -202,17 +202,17 @@ var euskalbarLib = {};
    * Parse HMTL fragments
    */
 
-  this.cleanloadHTML = function (h, n) {
+  this.cleanloadHTML = function (htm, node) {
     var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
-                                .parseFragment(h, false, null, n);
-    n.appendChild(fr);
+                                .parseFragment(htm, false, null, node);
+    node.appendChild(fr);
   };
 
-  this.appendF = function (h, n) {
-    if (n.childNodes.length == 0) {
+  this.appendFooter = function (htm, node) {
+    if (node.childNodes.length == 0) {
       var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
-                                  .parseFragment(h, false, null, n);
-      n.appendChild(fr);
+                                  .parseFragment(htm, false, null, node);
+      node.appendChild(fr);
     }
   };
 

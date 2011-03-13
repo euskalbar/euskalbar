@@ -66,7 +66,7 @@ with (euskalbarLib) {
 
         onComplete: function () {
           cleanloadHTML(output, $('aEuskalterm', gBrowser.contentDocument));
-          appendF("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", $('oEuskalterm', gBrowser.contentDocument));
+          appendFooter("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", $('oEuskalterm', gBrowser.contentDocument));
         }
       });
     },
@@ -282,7 +282,7 @@ with (euskalbarLib) {
           txtElhuyar = _f("euskalbar.comb.error", ["Elhuyar"]);
         }
       }
-      appendF("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", $('oElhuyar', gBrowser.contentDocument));
+      appendFooter("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", $('oElhuyar', gBrowser.contentDocument));
     },
 
 
@@ -420,8 +420,8 @@ with (euskalbarLib) {
                             }
                           };
                           cleanloadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-                          appendF("ZT hiztegia", $('buruaZthiztegia', gBrowser.contentDocument));
-                          appendF("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oZthiztegia', gBrowser.contentDocument));
+                          appendFooter("ZT hiztegia", $('buruaZthiztegia', gBrowser.contentDocument));
+                          appendFooter("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oZthiztegia', gBrowser.contentDocument));
 
                         }
                       }
@@ -547,8 +547,8 @@ with (euskalbarLib) {
                             };
                           };
                           cleanloadHTML(txtEnergia, $('aEnergia', gBrowser.contentDocument));
-                          appendF("Energia hiztegia", $('buruaEnergia', gBrowser.contentDocument));
-                          appendF("<div id=\"oharra\"><a href=\"http://www.eve.es/energia/index.html\">Energia hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oEnergia', gBrowser.contentDocument));
+                          appendFooter("Energia hiztegia", $('buruaEnergia', gBrowser.contentDocument));
+                          appendFooter("<div id=\"oharra\"><a href=\"http://www.eve.es/energia/index.html\">Energia hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oEnergia', gBrowser.contentDocument));
 
                         }
                       }
@@ -716,8 +716,8 @@ with (euskalbarLib) {
                             };
                           };
                           cleanloadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-                          appendF("Telekomunikazio hiztegia", $('buruaTelekom', gBrowser.contentDocument));
-                          appendF("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oTelekom', gBrowser.contentDocument));
+                          appendFooter("Telekomunikazio hiztegia", $('buruaTelekom', gBrowser.contentDocument));
+                          appendFooter("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oTelekom', gBrowser.contentDocument));
                         }
                       }
                     } catch (e) {
@@ -835,7 +835,7 @@ with (euskalbarLib) {
           txt3000 = _f("euskalbar.comb.error", ["3000 Hiztegia"]);
         }
         cleanloadHTML(txt3000, $('a3000', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_3000/indice_e.htm\">3000 hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('o3000', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_3000/indice_e.htm\">3000 hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('o3000', gBrowser.contentDocument));
       }
     },
 
@@ -983,7 +983,7 @@ with (euskalbarLib) {
           txtMorris = _f("euskalbar.comb.error", ["Morris"]);
         }
         cleanloadHTML(txtMorris, $('aMorris', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>", $('oMorris', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>", $('oMorris', gBrowser.contentDocument));
       }
     },
 
@@ -1050,7 +1050,7 @@ with (euskalbarLib) {
           txtLabayru = _f("euskalbar.comb.error", ["Labayru"]);
         }
         cleanloadHTML(txtLabayru, $('aLabayru', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", $('oLabayru', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", $('oLabayru', gBrowser.contentDocument));
       }
     },
 
@@ -1119,7 +1119,7 @@ with (euskalbarLib) {
           txtSinonimoak = _f("euskalbar.comb.error", ["Adorez"]);
         }
         cleanloadHTML(txtSinonimoak, $('aAdorez', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_sinon/indice_e.htm\">Adorez&nbsp;<sup>&curren;</sup></a></div>", $('oAdorez', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/hizt_sinon/indice_e.htm\">Adorez&nbsp;<sup>&curren;</sup></a></div>", $('oAdorez', gBrowser.contentDocument));
       }
     },
 
@@ -1171,7 +1171,7 @@ with (euskalbarLib) {
           txtUZEI = _f("euskalbar.comb.error", ["UZEI"]);
         }
         cleanloadHTML(txtUZEI, $('aUzei', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", $('oUzei', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", $('oUzei', gBrowser.contentDocument));
       }
     },
 
@@ -1238,7 +1238,7 @@ with (euskalbarLib) {
           txtEuskaltzaindia = _f("euskalbar.comb.error", ["Hiztegi Batua"]);
         }
         cleanloadHTML(txtEuskaltzaindia, $('aBatua', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>", $('oBatua', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>", $('oBatua', gBrowser.contentDocument));
       }
     },
 
@@ -1362,7 +1362,7 @@ with (euskalbarLib) {
           txtMokoroa = _f("euskalbar.comb.error", ["Mokoroa"]);
         }
         cleanloadHTML(txtMokoroa, $('aMokoroa', gBrowser.contentDocument));
-        appendF("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", $('oMokoroa', gBrowser.contentDocument));
+        appendFooter("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", $('oMokoroa', gBrowser.contentDocument));
       }
     },
 
@@ -1398,7 +1398,7 @@ with (euskalbarLib) {
         },
 
         onComplete: function () {
-          appendF("<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>", $('oIntza', gBrowser.contentDocument));
+          appendFooter("<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>", $('oIntza', gBrowser.contentDocument));
         }
       });
     },
@@ -1431,7 +1431,7 @@ with (euskalbarLib) {
         },
 
         onComplete: function () {
-          appendF("<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>", $('oOpentran', gBrowser.contentDocument));
+          appendFooter("<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>", $('oOpentran', gBrowser.contentDocument));
         }
       });
 
