@@ -208,14 +208,6 @@ var euskalbarLib = {};
     node.appendChild(fr);
   };
 
-  this.appendFooter = function (htm, node) {
-    if (node.childNodes.length == 0) {
-      var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
-                                  .parseFragment(htm, false, null, node);
-      node.appendChild(fr);
-    }
-  };
-
 
   /*
    * i18n / l10n
