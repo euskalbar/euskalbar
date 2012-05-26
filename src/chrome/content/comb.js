@@ -1430,6 +1430,69 @@ with (euskalbarLib) {
 
     },
 
+
+    // Danobat kargatu
+    getShiftDanobat: function (source, term) {
+      txtDanobat = "";
+
+      var params = [];
+      var url = 'http://hiztegia.danobatgroup.com/eu/dictionary/search';
+      if (source == 'es') {
+        params.push(new euskalbar.QueryParameter('direction_filter', 'es-eu'));
+      } else {
+        params.push(new euskalbar.QueryParameter('direction_filter', 'eu-es'));
+      }
+
+      params.push(new euskalbar.QueryParameter('term_filter', term));
+
+      var dataString = "";
+      for (var i = 0; i < params.length; ++i) {
+        var param = params[i];
+
+        dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
+      }
+
+      var xmlHttpReq = new XMLHttpRequest();
+      if (!xmlHttpReq) {
+        txtDanobat = _f("euskalbar.comb.error", ["Danobat"]);
+        return false;
+      }
+
+      xmlHttpReq.open('POST', url, true);
+      xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xmlHttpReq.setRequestHeader("Content-length", dataString.length);
+      xmlHttpReq.overrideMimeType('text/xml; charset=UTF-8');
+      xmlHttpReq.send(dataString);
+
+      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
+      var tout = euskalbar.prefs.getIntPref("query.timeout");
+      tout = tout * 1000
+
+      //Timerra sortu
+      var requestTimer = setTimeout(function () {
+        xmlHttpReq.abort();
+        txtDanobat = _f("euskalbar.comb.error", ["Danobat"]);
+      }, tout);
+      xmlHttpReq.onreadystatechange = function () {
+        try {
+          if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+              //Timerra garbitu
+              clearTimeout(requestTimer);
+              cleanloadHTML("<div id=\"oharra\"><a href=\"http://hiztegia.danobatgroup.com/eu/dictionary\">Danobat&nbsp;<sup>&curren;</sup></a></div>", $('oDanobat', gBrowser.contentDocument));
+              txtDanobat = xmlHttpReq.responseText;
+              txtDanobat = txtDanobat.substring(txtDanobat.indexOf('<div id="searchresult">'), txtDanobat.indexOf('</article>'));
+            } else {
+              txtDanobat = _f("euskalbar.comb.error", ["Danobat"]);
+            }
+          }
+        } catch (e) {
+          txtDanobat = _f("euskalbar.comb.error", ["Danobat"]);
+        }
+        cleanloadHTML(txtDanobat, $('aDanobat', gBrowser.contentDocument));
+      }
+    },
+
     normalizatu: function (katea) {
       var kateberria;
       kateberria = katea.replace(/á/, "a");

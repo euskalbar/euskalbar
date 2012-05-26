@@ -35,6 +35,7 @@
 <!ENTITY euskalbar.xuxenweb.tooltip "Corrector ortográfico XUXENweb">
 <!ENTITY euskalbar.bergara.tooltip "Diccionario de la zona de Bergara">
 <!ENTITY euskalbar.elebila.tooltip "Elebila, buscador web de euskera">
+<!ENTITY euskalbar.danobat.tooltip "Diccionario Danobat">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Preferencias de Euskalbar">

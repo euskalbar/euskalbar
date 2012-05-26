@@ -8,8 +8,8 @@ euskalbar.dicts.menu = [
       { sep: true },
       { name: 'euskalbar.menu.general.Euskalterm Terminological Bank',
         url: 'http://www1.euskadi.net/euskalterm/indice_e.htm' },
-      { name: 'euskalbar.menu.general.3000 Hiztegia',
-        url: 'http://www1.euskadi.net/hizt_3000/indice_e.htm' },
+      /*{ name: 'euskalbar.menu.general.3000 Hiztegia',
+        url: 'http://www1.euskadi.net/hizt_3000/indice_e.htm' },*/
       { name: 'euskalbar.menu.general.Elhuyar Hiztegia',
         url: 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta' },
       { name: 'euskalbar.menu.general.Labayru Hiztegia',
@@ -32,8 +32,8 @@ euskalbar.dicts.menu = [
   },
   { cat: 'euskalbar.menu.Synonyms',
     dicts: [
-      { name: 'euskalbar.menu.synonyms.Adorez synonyms dictionary',
-        url: 'http://www1.euskadi.net/hizt_sinon/indice_e.htm' },
+      /*{ name: 'euskalbar.menu.synonyms.Adorez synonyms dictionary',
+        url: 'http://www1.euskadi.net/hizt_sinon/indice_e.htm' },*/
       { name: 'euskalbar.menu.synonyms.UZEI synonyms dictionary',
         url: 'http://www.uzei.com/estatico/sinonimos.asp' },
       { name: 'euskalbar.menu.synonyms.Eurovoc Thesaurus',

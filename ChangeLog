@@ -2,6 +2,10 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.10 bertsioa
+================
+- Danobat hiztegia integratu da. (#127)
+
 3.9 bertsioa
 ================
 - Firefox 4 bertsioan funtziona dezan egokitu da Euskalbar. (#103)

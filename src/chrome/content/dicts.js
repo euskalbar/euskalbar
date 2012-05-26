@@ -1042,6 +1042,26 @@ with (euskalbarLib) {
       euskalbar.stats.writeStats(20);
     },
 
+    // Bilaketak Danobat hiztegian
+    goEuskalBarDanobat: function (source, term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+      var params = [];
+      var url = 'http://hiztegia.danobatgroup.com/eu/dictionary/search';
+      if (source == 'es') {
+        source = 'es-eu';
+      } else {
+        source = 'eu-es';
+      }
+      params.push(new euskalbar.QueryParameter('direction_filter', source));
+      params.push(new euskalbar.QueryParameter('term_filter', escape(term)));
+      var zein = 'danobat';
+      euskalbar.openURL(url, zein, 'POST', params);
+      //Estatistika lokalak idatzi .  Danobat dict = 32
+      euskalbar.stats.writeStats(32);
+    },
 
     // Aukeratutako testua itzultzen du
     selectionText: function () {

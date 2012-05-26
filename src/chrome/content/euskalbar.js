@@ -24,7 +24,7 @@ with (euskalbarLib) {
 
   euskalbar = {
 
-    curVersion: "3.9",
+    curVersion: "3.10",
 
     firstrunURL: "http://euskalbar.eu/firstrun",
 
@@ -56,9 +56,6 @@ with (euskalbarLib) {
       if (firstrun) {
         euskalbar.prefs.setBoolPref("firstrun", false);
         euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
-
-        /* XXX: This is only for 3.9, remove this code after this release */
-        euskalbar.migrateOldPrefs();
 
         /* Add Euskalbar button to the navigation bar and force
          * the toolbar to be displayed */
@@ -147,48 +144,6 @@ with (euskalbarLib) {
         this.showContextmenu();
         break;
       }
-    },
-
-
-    /* Migrates preferences from Euskalbar < 3.9 to 3.9 */
-    migrateOldPrefs: function () {
-      var prefName, prefType, oldPref, oldPrefsList,
-          oldPrefs = Services.prefs.getBranch("euskalbar.");
-
-      // Clear these prefs since we don't want to migrate them
-      if (oldPrefs.prefHasUserValue("firstrun")) {
-        oldPrefs.clearUserPref("firstrun");
-      }
-      if (oldPrefs.prefHasUserValue("style.combinedquery")) {
-        oldPrefs.clearUserPref("style.combinedquery");
-      }
-
-      oldPrefsList = oldPrefs.getChildList("");
-
-      for (var i=0; i<oldPrefsList.length; i++) {
-        prefName = oldPrefsList[i];
-        prefType = oldPrefs.getPrefType(prefName);
-
-        switch (prefType) {
-          case oldPrefs.PREF_STRING:
-            oldPref = oldPrefs.getCharPref(prefName);
-            euskalbar.prefs.setCharPref(prefName, oldPref);
-            break;
-          case oldPrefs.PREF_INT:
-            oldPref = oldPrefs.getIntPref(prefName);
-            euskalbar.prefs.setIntPref(prefName, oldPref);
-            break;
-          case oldPrefs.PREF_BOOL:
-            oldPref = oldPrefs.getBoolPref(prefName);
-            euskalbar.prefs.setBoolPref(prefName, oldPref);
-            break;
-          default:
-            break;
-        }
-      }
-
-      // Once we're done, delete the old prefs branch
-      oldPrefs.deleteBranch("");
     },
 
 
@@ -603,6 +558,12 @@ with (euskalbarLib) {
               euskalbar.stats.writeStats(4);
             }
           } catch (err) {}
+          try {
+            if (this.prefs.getBoolPref("danobat." + k + "." + l)) {
+              euskalbar.comb.getShiftDanobat(this.source, searchStr);
+              euskalbar.stats.writeStats(32);
+            }
+          } catch (err) {}
 
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           // Begiratu kutxa hutsik dagoen
@@ -637,6 +598,9 @@ with (euskalbarLib) {
             }
             if (this.prefs.getBoolPref("consumer.onkey")) {
               euskalbar.dicts.goEuskalBarConsumer(this.source, searchStr);
+            }
+            if (this.prefs.getBoolPref("danobat.onkey")) {
+              euskalbar.dicts.goEuskalBarDanobat(this.source, searchStr);
             }
           } else if ((this.source == 'fr') || (this.target == 'fr')) {
             // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -798,6 +762,7 @@ with (euskalbarLib) {
       var zthiztegia = $('EuskalBar-ZTHiztegia');
       var energia = $('EuskalBar-Energia');
       var telekom = $('EuskalBar-Telekom');
+      var danobat = $('EuskalBar-Danobat');
 
       switch (hizk) {
       case 'es':
@@ -812,6 +777,7 @@ with (euskalbarLib) {
         zehazki.setAttribute("hidden", false);
         energia.setAttribute("hidden", false);
         telekom.setAttribute("hidden", false);
+        danobat.setAttribute("hidden", false);
         break;
       case 'fr':
         euskalterm.setAttribute("hidden", false);
@@ -825,6 +791,7 @@ with (euskalbarLib) {
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", false);
         telekom.setAttribute("hidden", false);
+        danobat.setAttribute("hidden", true);
         break;
       case 'en':
         euskalterm.setAttribute("hidden", false);
@@ -838,6 +805,7 @@ with (euskalbarLib) {
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", false);
         telekom.setAttribute("hidden", false);
+        danobat.setAttribute("hidden", true);
         break;
       case 'la':
         euskalterm.setAttribute("hidden", false);
@@ -851,6 +819,7 @@ with (euskalbarLib) {
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", true);
         telekom.setAttribute("hidden", true);
+        danobat.setAttribute("hidden", true);
         break;
       case 'jp':
         euskalterm.setAttribute("hidden", true);
@@ -864,6 +833,7 @@ with (euskalbarLib) {
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", true);
         telekom.setAttribute("hidden", true);
+        danobat.setAttribute("hidden", true);
         break;
       }
     },

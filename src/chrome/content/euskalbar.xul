@@ -103,6 +103,7 @@
         <toolbarbutton id="EuskalBar-Morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarMorris(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarOpentran(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarGoihata(euskalbar.source, euskalbar.target, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Danobat" tooltiptext="&euskalbar.danobat.tooltip;" label="Danobat" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarDanobat(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarseparator/>
         <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Batua" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-OEH" tooltiptext="&euskalbar.oeh.tooltip;" label="OEH" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarOEH(document.getElementById('EuskalBar-search-string').value);" />
@@ -139,6 +140,7 @@
           <menuitem id="Euskalbar-hs-zthiztegia" type="checkbox" persist="checked" label="ZT Hiztegia" oncommand="document.getElementById('EuskalBar-ZTHiztegia').collapsed = !this.hasAttribute('checked');"/>
           <menuitem id="Euskalbar-hs-energia" type="checkbox" persist="checked" label="Energia" oncommand="document.getElementById('EuskalBar-Energia').collapsed = !this.hasAttribute('checked');"/>
           <menuitem id="Euskalbar-hs-telekom" type="checkbox" persist="checked" label="Telekomunikazioak" oncommand="document.getElementById('EuskalBar-Telekom').collapsed = !this.hasAttribute('checked');"/>
+          <menuitem id="Euskalbar-hs-danobat" type="checkbox" persist="checked" label="Danobat" oncommand="document.getElementById('EuskalBar-Danobat').collapsed = !this.hasAttribute('checked');"/>
           <menuitem id="Euskalbar-hs-morris" type="checkbox" persist="checked" label="Morris" oncommand="document.getElementById('EuskalBar-Morris').collapsed = !this.hasAttribute('checked');"/>
           <menuitem id="Euskalbar-hs-opentran" type="checkbox" persist="checked" label="Opentran" oncommand="document.getElementById('EuskalBar-Opentran').collapsed = !this.hasAttribute('checked');"/>
           <menuitem id="Euskalbar-hs-goihata" type="checkbox" persist="checked" label="Goihata" oncommand="document.getElementById('EuskalBar-Goihata').collapsed = !this.hasAttribute('checked');"/>

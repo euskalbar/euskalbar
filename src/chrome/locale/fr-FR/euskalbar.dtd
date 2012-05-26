@@ -35,6 +35,7 @@
 <!ENTITY euskalbar.xuxenweb.tooltip "Vérification ortographique XUXENweb">
 <!ENTITY euskalbar.bergara.tooltip "Dictionnaire de Bergara">
 <!ENTITY euskalbar.elebila.tooltip "Chercheur en Basque Elebila">
+<!ENTITY euskalbar.danobat.tooltip "Dictionnaire Danobat">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Configuration d'Euskalbar">

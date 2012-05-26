@@ -1,6 +1,7 @@
 ﻿// Developers:  Juanan Pereira, Asier Sarasua Garmendia 2006
 //              Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
-// Modified by: Chetan Thapliyal 2009
+//              Chetan Thapliyal 2009
+// Modified by: Ion Errasti 2012
 //
 // This is Free Software (GPL License)
 //
@@ -8,6 +9,7 @@
 // asarasua@vitoria-gasteiz.org
 // julenx@gmail.com
 // chetan.thapliyal@discreteguidepost.in
+// ion.errasti@gmail.com
 
 // Version
 pref("extensions.euskalbar.installedVersion", "0.0");
@@ -44,6 +46,7 @@ pref("extensions.euskalbar.corpeus.onkey", false);
 pref("extensions.euskalbar.xuxenweb.onkey", false);
 pref("extensions.euskalbar.elebila.onkey", false);
 pref("extensions.euskalbar.goihata.onkey", false);
+pref("extensions.euskalbar.danobat.onkey", false);
 
 // Dictionaries searched on pressing "Enter" + Shift key
 pref("extensions.euskalbar.euskalterm.onkey1.es", true);
@@ -58,6 +61,7 @@ pref("extensions.euskalbar.adorez.onkey1.es", false);
 pref("extensions.euskalbar.uzei.onkey1.es", false);
 pref("extensions.euskalbar.mokoroa.onkey1.es", false);
 pref("extensions.euskalbar.intza.onkey1.es", false);
+pref("extensions.euskalbar.danobat.onkey1.es", false);
 pref("extensions.euskalbar.euskalterm.onkey1.fr", true);
 pref("extensions.euskalbar.elhuyar.onkey1.fr", true);
 pref("extensions.euskalbar.zthiztegia.onkey1.fr", true);
@@ -77,6 +81,7 @@ pref("extensions.euskalbar.batua.onkey1.en", false);
 pref("extensions.euskalbar.adorez.onkey1.en", false);
 pref("extensions.euskalbar.uzei.onkey1.en", false);
 
+
 // Dictionaries searched on pressing "Enter" + Ctrl key
 pref("extensions.euskalbar.euskalterm.onkey2.es", false);
 pref("extensions.euskalbar.3000.onkey2.es", false);
@@ -90,6 +95,7 @@ pref("extensions.euskalbar.adorez.onkey2.es", true);
 pref("extensions.euskalbar.uzei.onkey2.es", true);
 pref("extensions.euskalbar.mokoroa.onkey2.es", false);
 pref("extensions.euskalbar.intza.onkey2.es", false);
+pref("extensions.euskalbar.danobat.onkey2.es", false);
 pref("extensions.euskalbar.euskalterm.onkey2.fr", false);
 pref("extensions.euskalbar.elhuyar.onkey2.fr", false);
 pref("extensions.euskalbar.zthiztegia.onkey2.fr", false);
@@ -108,6 +114,7 @@ pref("extensions.euskalbar.opentran.onkey2.en", false);
 pref("extensions.euskalbar.batua.onkey2.en", true);
 pref("extensions.euskalbar.adorez.onkey2.en", true);
 pref("extensions.euskalbar.uzei.onkey2.en", true);
+
 
 // Query timeout
 pref("extensions.euskalbar.query.timeout", 5);

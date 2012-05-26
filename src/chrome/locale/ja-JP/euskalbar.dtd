@@ -35,6 +35,7 @@
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb スペルチェッカー">
 <!ENTITY euskalbar.bergara.tooltip "Bergara市周辺辞書">
 <!ENTITY euskalbar.elebila.tooltip "Elebila バスク語検索エンジン">
+<!ENTITY euskalbar.elebila.tooltip "Danobat 辞書">
 
 <!-- Prefs -->
 <!ENTITY euskalbar.prefs.title "Euskalbarの表示設定">

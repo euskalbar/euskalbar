@@ -42,6 +42,7 @@
       <preference id="prefXUXENweb" name="extensions.euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefElebila" name="extensions.euskalbar.elebila.onkey" type="bool"/>
       <preference id="prefGoihata" name="extensions.euskalbar.goihata.onkey" type="bool"/>
+      <preference id="prefDanobat" name="extensions.euskalbar.danobat.onkey" type="bool"/>
 
       <preference id="prefEuskaltermShiftES" name="extensions.euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="prefElhuyarShiftES" name="extensions.euskalbar.elhuyar.onkey1.es" type="bool"/>
@@ -56,6 +57,7 @@
       <preference id="prefUZEIShiftES" name="extensions.euskalbar.uzei.onkey1.es" type="bool"/>
       <preference id="prefMokoroaShiftES" name="extensions.euskalbar.mokoroa.onkey1.es" type="bool"/>
       <preference id="prefIntzaShiftES" name="extensions.euskalbar.intza.onkey1.es" type="bool"/>
+      <preference id="prefDanobatShiftES" name="extensions.euskalbar.danobat.onkey1.es" type="bool"/>
 
       <preference id="prefEuskaltermShiftFR" name="extensions.euskalbar.euskalterm.onkey1.fr" type="bool"/>
       <preference id="prefElhuyarShiftFR" name="extensions.euskalbar.elhuyar.onkey1.fr" type="bool"/>
@@ -90,6 +92,7 @@
       <preference id="prefMokoroaCtrlES" name="extensions.euskalbar.mokoroa.onkey2.es" type="bool"/>
       <preference id="prefIntzaCtrlES" name="extensions.euskalbar.intza.onkey2.es" type="bool"/>
       <preference id="prefGoihataCtrlES" name="extensions.euskalbar.goihata.onkey2.es" type="bool"/>
+      <preference id="prefDanobatCtrlES" name="extensions.euskalbar.danobat.onkey2.es" type="bool"/>
 
       <preference id="prefEuskaltermCtrlFR" name="extensions.euskalbar.euskalterm.onkey2.fr" type="bool"/>
       <preference id="prefElhuyarCtrlFR" name="extensions.euskalbar.elhuyar.onkey2.fr" type="bool"/>
@@ -240,6 +243,7 @@
                       <row>
                         <checkbox preference="prefMorris" label="Morris" />
                         <checkbox preference="prefIntza" label="Intza" />
+                        <checkbox preference="prefDanobat" label="Danobat" />
                       </row>
                       <row>
                         <checkbox preference="prefOpentran" label="Open-tran" />
@@ -322,6 +326,9 @@
                       <row>
                         <checkbox preference="prefIntzaShiftES" label="Intza" />
                       </row>
+                      <row>
+                        <checkbox preference="prefDanobatShiftES" label="Danobat" />
+                      </row>
                     </rows>
                   </grid>
                 </tabpanel>
@@ -394,6 +401,9 @@
                       </row>
                       <row>
                         <checkbox preference="prefIntzaCtrlES" label="Intza" />
+                      </row>
+                      <row>
+                        <checkbox preference="prefDanobatCtrlES" label="Danobat" />
                       </row>
                     </rows>
                   </grid>
