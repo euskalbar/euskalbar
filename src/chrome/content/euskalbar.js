@@ -108,13 +108,38 @@ with (euskalbarLib) {
       // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
       gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
 
-      // Hasieratu barrako hiztegiak erakutsi eta ezkutatzeko menua
-      // (oharra: persist="checked" ez dabil)
-      var dicts = $('Euskalbar-dicts-general').childNodes;
-      var hsMenu = $('Euskalbar-hsButtons').childNodes;
-      for (i = 0; i < hsMenu.length; i++) {
-        hsMenu[i].setAttribute('checked', !dicts[i].collapsed);
-      }
+      // Hasieratu barrako hiztegiak
+      this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
+      this.toggleButtons("EuskalBar-Ask", "3000.visible");
+      this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
+      this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
+      this.toggleButtons("EuskalBar-Energia", "energia.visible");
+      this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
+      this.toggleButtons("EuskalBar-Labayru", "labayru.visible");
+      this.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
+      this.toggleButtons("EuskalBar-Morris", "morris.visible");
+      this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
+      this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
+      this.toggleButtons("EuskalBar-OEH", "oeh.visible");
+      this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
+      this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+      this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
+      this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
+      this.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
+      this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
+      this.toggleButtons("EuskalBar-Intza", "intza.visible");
+      this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
+      this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
+      this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
+      this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
+      this.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
+      this.toggleButtons("EuskalBar-LB", "lb.visible");
+      this.toggleButtons("EuskalBar-Consumer", "consumer.visible");
+      this.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
+      this.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
+      this.toggleButtons("EuskalBar-Elebila", "elebila.visible");
+      this.toggleButtons("EuskalBar-Goihata", "goihata.visible");
+      this.toggleButtons("EuskalBar-Danobat", "danobat.visible");
 
       euskalbar.ui.init();
     },
@@ -143,9 +168,109 @@ with (euskalbarLib) {
       case "extensions.euskalbar.showcontextmenu.enabled":
         this.showContextmenu();
         break;
+      //toggle buttons visibility
+      case "extensions.euskalbar.euskalterm.visible":
+        this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
+        break;
+      case "extensions.euskalbar.3000.visible":
+        this.toggleButtons("EuskalBar-Ask", "3000.visible");
+        break;
+      case "extensions.euskalbar.elhuyar.visible":
+        this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
+        break;
+      case "extensions.euskalbar.zthiztegia.visible":
+        this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
+        break;
+      case "extensions.euskalbar.energia.visible":
+        this.toggleButtons("EuskalBar-Energia", "energia.visible");
+        break;
+      case "extensions.euskalbar.telekom.visible":
+        this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
+        break;
+      case "extensions.euskalbar.labayru.visible":
+        this.toggleButtons("EuskalBar-Labayru", "labayru.visible");
+        break;
+      case "extensions.euskalbar.zehazki.visible":
+        this.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
+        break;
+      case "extensions.euskalbar.morris.visible":
+        this.toggleButtons("EuskalBar-Morris", "morris.visible");
+        break;
+      case "extensions.euskalbar.opentran.visible":
+        this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
+        break;
+      case "extensions.euskalbar.batua.visible":
+        this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
+        break;
+      case "extensions.euskalbar.oeh.visible":
+        this.toggleButtons("EuskalBar-OEH", "oeh.visible");
+        break;
+      case "extensions.euskalbar.adorez.visible":
+        this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
+        break;
+      case "extensions.euskalbar.uzei.visible":
+        this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+        break;
+      case "extensions.euskalbar.itzul.visible":
+        this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
+        break;
+      case "extensions.euskalbar.harluxet.visible":
+        this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
+        break;
+      case "extensions.euskalbar.wikipedia.visible":
+        this.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
+        break;
+      case "extensions.euskalbar.mokoroa.visible":
+        this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
+        break;
+      case "extensions.euskalbar.intza.visible":
+        this.toggleButtons("EuskalBar-Intza", "intza.visible");
+        break;
+      case "extensions.euskalbar.eurovoc.visible":
+        this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
+        break;
+      case "extensions.euskalbar.bergara.visible":
+        this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
+        break;
+      case "extensions.euskalbar.ereduzko.visible":
+        this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
+        break;
+      case "extensions.euskalbar.klasikoak.visible":
+        this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
+        break;
+      case "extensions.euskalbar.ztcorpusa.visible":
+        this.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
+        break;
+      case "extensions.euskalbar.lb.visible":
+        this.toggleButtons("EuskalBar-LB", "lb.visible");
+        break;
+      case "extensions.euskalbar.consumer.visible":
+        this.toggleButtons("EuskalBar-Consumer", "consumer.visible");
+        break;
+      case "extensions.euskalbar.corpeus.visible":
+        this.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
+        break;
+      case "extensions.euskalbar.xuxenweb.visible":
+        this.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
+        break;
+      case "extensions.euskalbar.elebila.visible":
+        this.toggleButtons("EuskalBar-Elebila", "elebila.visible");
+        break;
+      case "extensions.euskalbar.goihata.visible":
+        this.toggleButtons("EuskalBar-Goihata", "goihata.visible");
+        break;
+      case "extensions.euskalbar.danobat.visible":
+        this.toggleButtons("EuskalBar-Danobat", "danobat.visible");
+        break;
       }
     },
 
+    /* Toggles buttons visibility */
+    toggleButtons: function (name, apref) {
+      var btn = $(name);
+      state = euskalbar.prefs.getBoolPref(apref);
+      btn.collapsed = !state;
+    },
 
     // HTML fitxategiak hasieratzen ditu
     initHTML: function (event) {
@@ -247,7 +372,7 @@ with (euskalbarLib) {
     // Aukeren koadroa erakusten du
     euskalbarOptions: function () {
       var dialogURL = "chrome://euskalbar/content/prefs.xul";
-      window.openDialog(dialogURL, "", "chrome,modal,close");
+      var prefwindow = window.openDialog(dialogURL, "", "chrome,modal,close");
     },
 
 
@@ -268,7 +393,6 @@ with (euskalbarLib) {
       var state = el.collapsed;
       el.collapsed = !state;
     },
-
 
     // Laster-teklen aginduak exekutatzen ditu
     teklakEuskalbar: function (prefer) {

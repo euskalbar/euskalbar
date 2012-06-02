@@ -47,6 +47,7 @@
 <!ENTITY euskalbar.prefs.general.tabtitle "Orokorra">
 <!ENTITY euskalbar.prefs.uppermenu.tabtitle "Hiztegien menua">
 <!ENTITY euskalbar.prefs.interface.tabtitle "Itxura">
+<!ENTITY euskalbar.prefs.view.tabtitle "Bistan dauden hiztegiak">
 <!ENTITY euskalbar.prefs.uppermenu.label "Erakutsi hiztegien menua">
 <!ENTITY euskalbar.prefs.uppermenu.tooltip "Erakutsi/ezkutatu hiztegien menua">
 <!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">

@@ -47,6 +47,7 @@
 <!ENTITY euskalbar.prefs.general.tabtitle "一般">
 <!ENTITY euskalbar.prefs.uppermenu.tabtitle "辞書のメニュー">
 <!ENTITY euskalbar.prefs.interface.tabtitle "外観">
+<!ENTITY euskalbar.prefs.view.tabtitle "目に見える辞書">
 <!ENTITY euskalbar.prefs.uppermenu.label "辞書のメニュー表示">
 <!ENTITY euskalbar.prefs.uppermenu.tooltip "辞書のメニュー表示/非表示">
 <!ENTITY euskalbar.prefs.lang.caption "言語">

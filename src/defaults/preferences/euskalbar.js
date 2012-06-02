@@ -15,6 +15,39 @@
 pref("extensions.euskalbar.installedVersion", "0.0");
 pref("extensions.euskalbar.firstrun", true);
 
+// Dictionaries visibility
+pref("extensions.euskalbar.euskalterm.visible", true);
+pref("extensions.euskalbar.3000.visible", true);
+pref("extensions.euskalbar.elhuyar.visible", true);
+pref("extensions.euskalbar.zthiztegia.visible", true);
+pref("extensions.euskalbar.energia.visible", true);
+pref("extensions.euskalbar.telekom.visible", true);
+pref("extensions.euskalbar.labayru.visible", true);
+pref("extensions.euskalbar.zehazki.visible", true);
+pref("extensions.euskalbar.morris.visible", true);
+pref("extensions.euskalbar.opentran.visible", true);
+pref("extensions.euskalbar.batua.visible", true);
+pref("extensions.euskalbar.oeh.visible", true);
+pref("extensions.euskalbar.adorez.visible", true);
+pref("extensions.euskalbar.uzei.visible", true);
+pref("extensions.euskalbar.itzul.visible", true);
+pref("extensions.euskalbar.harluxet.visible", true);
+pref("extensions.euskalbar.wikipedia.visible", true);
+pref("extensions.euskalbar.mokoroa.visible", true);
+pref("extensions.euskalbar.intza.visible", true);
+pref("extensions.euskalbar.eurovoc.visible", true);
+pref("extensions.euskalbar.bergara.visible", true);
+pref("extensions.euskalbar.ereduzko.visible", true);
+pref("extensions.euskalbar.klasikoak.visible", true);
+pref("extensions.euskalbar.ztcorpusa.visible", true);
+pref("extensions.euskalbar.lb.visible", true);
+pref("extensions.euskalbar.consumer.visible", true);
+pref("extensions.euskalbar.corpeus.visible", true);
+pref("extensions.euskalbar.xuxenweb.visible", true);
+pref("extensions.euskalbar.elebila.visible", true);
+pref("extensions.euskalbar.goihata.visible", true);
+pref("extensions.euskalbar.danobat.visible", true);
+
 // Dictionaries searched on pressing "Enter" key
 pref("extensions.euskalbar.euskalterm.onkey", false);
 pref("extensions.euskalbar.3000.onkey", false);

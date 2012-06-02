@@ -47,6 +47,7 @@
 <!ENTITY euskalbar.prefs.general.tabtitle "General">
 <!ENTITY euskalbar.prefs.uppermenu.tabtitle "Dictionaries menu">
 <!ENTITY euskalbar.prefs.interface.tabtitle "Appearance">
+<!ENTITY euskalbar.prefs.view.tabtitle "Visible dictionaries">
 <!ENTITY euskalbar.prefs.uppermenu.label "Show dictionaries menu">
 <!ENTITY euskalbar.prefs.uppermenu.tooltip "Toggle dictionaries menu">
 <!ENTITY euskalbar.prefs.lang.caption "Default language">
