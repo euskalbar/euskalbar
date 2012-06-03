@@ -93,7 +93,19 @@ with (euskalbarLib) {
         }, 1000);
       }
 
-      //Hasieratu hizkuntza hautatzeko botoia
+      //Disable preferences related to 3000 and Adorez dictionaries, as they don't work (remove when those dictionaries work again)
+      this.prefs.setBoolPref("3000.onkey", false);
+      this.prefs.setBoolPref("3000.onkey1.es", false);
+      this.prefs.setBoolPref("3000.onkey2.es", false);
+      this.prefs.setBoolPref("adorez.onkey", false);
+      this.prefs.setBoolPref("adorez.onkey1.es", false);
+      this.prefs.setBoolPref("adorez.onkey1.en", false);
+      this.prefs.setBoolPref("adorez.onkey1.fr", false);
+      this.prefs.setBoolPref("adorez.onkey2.es", false);
+      this.prefs.setBoolPref("adorez.onkey2.en", false);
+      this.prefs.setBoolPref("adorez.onkey2.fr", false);
+
+      //Initialize language selection button
       var lang = this.prefs.getCharPref("language.startup");
       this.source = lang[0] + lang[1];
       this.target = lang[3] + lang[4];
