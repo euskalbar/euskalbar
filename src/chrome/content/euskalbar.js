@@ -71,7 +71,7 @@ with (euskalbarLib) {
           var installedVersion = euskalbar.prefs.getCharPref("installedVersion");
 
           /* We are in the middle of an upgrade */
-          if (this.curVersion > installedVersion) {
+          if (this.curVersion != installedVersion) {
             euskalbar.prefs.setCharPref("installedVersion", this.curVersion);
 
             /* Add Euskalbar button to the navigation bar and force
@@ -81,7 +81,7 @@ with (euskalbarLib) {
 
             openInfo = true;
             infoURL = euskalbar.versionBaseURL +
-              this.curVersion.replace(/\D/g, '');
+              this.curVersion.replace(/\./g, '');
           }
         } catch (ex) { /* Reinstall: do we need to do something in this situation? */
         }
