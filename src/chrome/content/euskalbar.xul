@@ -94,7 +94,7 @@
           </menupopup>
         </toolbarbutton>
         <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarElhuyar(euskalbar.source, euskalbar.target, document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarAsk(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
+        <!--toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarAsk(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" /-->
         <toolbarbutton id="EuskalBar-Labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLabayru(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Zehazki" tooltiptext="&euskalbar.zehazki.tooltip;" label="Zehazki" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarZehazki(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ZTHiztegia" tooltiptext="&euskalbar.zthiztegia.tooltip;" label="ZT Hiztegia" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
@@ -107,7 +107,7 @@
         <toolbarseparator/>
         <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Batua" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-OEH" tooltiptext="&euskalbar.oeh.tooltip;" label="OEH" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarOEH(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.adorez.tooltip;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" />
+        <!--toolbarbutton id="EuskalBar-Adorez" tooltiptext="&euskalbar.adorez.tooltip;" label="&euskalbar.adorez.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarAdorez(document.getElementById('EuskalBar-search-string').value);" /-->
         <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.uzei.tooltip;" label="&euskalbar.uzei.tooltip;" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
@@ -120,7 +120,7 @@
         <toolbarbutton id="EuskalBar-Klasikoak" tooltiptext="&euskalbar.klasikoak.tooltip;" label="Klasikoak" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarKlasikoak(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT Corpusa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-LB" tooltiptext="&euskalbar.lb.tooltip;" label="Lexikoaren Behatokia" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLB(document.getElementById('EuskalBar-search-string').value);" />
-        <toolbarbutton id="EuskalBar-Consumer" tooltiptext="&euskalbar.consumer.tooltip;" label="Consumer Corpusa" oncommand="euskalbar.dicts.goEuskalBarConsumer(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Consumer" tooltiptext="&euskalbar.consumer.tooltip;" label="Consumer Corpusa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarConsumer(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
@@ -174,7 +174,7 @@
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_es-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
               </menu>
-              <menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="euskalbar.dicts.goEuskalBarAsk('eu', escape(euskalbar.dicts.selectionText()));" />
+              <!--menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="euskalbar.dicts.goEuskalBarAsk('eu', escape(euskalbar.dicts.selectionText()));" /-->
               <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu','es',escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Labayru-eu-context" label="Labayru" oncommand="euskalbar.dicts.goEuskalBarLabayru('eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-ZTHiztegia-eu-context" label="ZT Hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
@@ -217,7 +217,7 @@
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-es_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
               </menu>
-              <menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="euskalbar.dicts.goEuskalBarAsk('es', escape(euskalbar.dicts.selectionText()));" />
+              <!--menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="euskalbar.dicts.goEuskalBarAsk('es', escape(euskalbar.dicts.selectionText()));" /-->
     	      <menuitem id="Euskalbar-Elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('es','eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Labayru-es-context" label="Labayru" oncommand="euskalbar.dicts.goEuskalBarLabayru('es', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Zehazki-es-context" label="Zehazki" oncommand="euskalbar.dicts.goEuskalBarZehazki('es', escape(euskalbar.dicts.selectionText()));" />
@@ -398,7 +398,7 @@
           <menuseparator/>
     		  <menu id="Euskalbar-sinonimoak-context" label="&euskalbar.context.sinonimoak.label;">
     		    <menupopup>
-    		      <menuitem id="Euskalbar-Adorez-sinonimoak-context" label="Adorez" oncommand="euskalbar.dicts.goEuskalBarAdorez(escape(euskalbar.dicts.selectionText()));" />
+    		      <!--menuitem id="Euskalbar-Adorez-sinonimoak-context" label="Adorez" oncommand="euskalbar.dicts.goEuskalBarAdorez(escape(euskalbar.dicts.selectionText()));" /-->
     		      <menuitem id="Euskalbar-UZEI-sinonimoak-context" label="UZEI" oncommand="euskalbar.dicts.goEuskalBarUZEI(escape(euskalbar.dicts.selectionText()));" />
     		    </menupopup>
     		  </menu>

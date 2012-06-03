@@ -17,7 +17,7 @@ pref("extensions.euskalbar.firstrun", true);
 
 // Dictionaries visibility
 pref("extensions.euskalbar.euskalterm.visible", true);
-pref("extensions.euskalbar.3000.visible", true);
+//pref("extensions.euskalbar.3000.visible", true);
 pref("extensions.euskalbar.elhuyar.visible", true);
 pref("extensions.euskalbar.zthiztegia.visible", true);
 pref("extensions.euskalbar.energia.visible", true);
@@ -28,7 +28,7 @@ pref("extensions.euskalbar.morris.visible", true);
 pref("extensions.euskalbar.opentran.visible", true);
 pref("extensions.euskalbar.batua.visible", true);
 pref("extensions.euskalbar.oeh.visible", true);
-pref("extensions.euskalbar.adorez.visible", true);
+//pref("extensions.euskalbar.adorez.visible", true);
 pref("extensions.euskalbar.uzei.visible", true);
 pref("extensions.euskalbar.itzul.visible", true);
 pref("extensions.euskalbar.harluxet.visible", true);
@@ -83,7 +83,7 @@ pref("extensions.euskalbar.danobat.onkey", false);
 
 // Dictionaries searched on pressing "Enter" + Shift key
 pref("extensions.euskalbar.euskalterm.onkey1.es", true);
-pref("extensions.euskalbar.3000.onkey1.es", true);
+pref("extensions.euskalbar.3000.onkey1.es", false);
 pref("extensions.euskalbar.elhuyar.onkey1.es", true);
 pref("extensions.euskalbar.zthiztegia.onkey1.es", true);
 pref("extensions.euskalbar.energia.onkey1.es", true);
@@ -124,7 +124,7 @@ pref("extensions.euskalbar.energia.onkey2.es", false);
 pref("extensions.euskalbar.telekom.onkey2.es", false);
 pref("extensions.euskalbar.labayru.onkey2.es", false);
 pref("extensions.euskalbar.batua.onkey2.es", true);
-pref("extensions.euskalbar.adorez.onkey2.es", true);
+pref("extensions.euskalbar.adorez.onkey2.es", false);
 pref("extensions.euskalbar.uzei.onkey2.es", true);
 pref("extensions.euskalbar.mokoroa.onkey2.es", false);
 pref("extensions.euskalbar.intza.onkey2.es", false);

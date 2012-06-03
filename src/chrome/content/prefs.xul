@@ -219,7 +219,7 @@
           <listbox width="400" id="list-dictsview">
             <listitem preference="prefEuskaltermVisible" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
             <listitem preference="prefElhuyarVisible" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-            <listitem preference="pref3000Visible" type="checkbox" label="&euskalbar.3000.tooltip;"/>
+            <!--listitem preference="pref3000Visible" type="checkbox" label="&euskalbar.3000.tooltip;"/-->
             <listitem preference="prefLabayruVisible" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
             <listitem preference="prefZehazkiVisible" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
             <listitem preference="prefZTHiztegiaVisible" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
@@ -231,7 +231,7 @@
             <listitem preference="prefGoihataVisible" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
             <listitem preference="prefBatuaVisible" type="checkbox" label="&euskalbar.batua.tooltip;"/>
             <listitem preference="prefOEHVisible" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-            <listitem preference="prefAdorezVisible" type="checkbox" label="&euskalbar.adorez.tooltip;"/>
+            <!--listitem preference="prefAdorezVisible" type="checkbox" label="&euskalbar.adorez.tooltip;"/-->
             <listitem preference="prefUZEIVisible" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
             <listitem preference="prefItzuLVisible" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
             <listitem preference="prefHarluxetVisible" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
@@ -281,7 +281,7 @@
                       </row>
                       <row>
                         <checkbox preference="prefZTHiztegia" label="ZT Hiztegia" />
-                        <checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" />
+                        <!--checkbox preference="prefAdorez" label="&euskalbar.adorez.tooltip;" /--><label value="" />
                         <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
                       </row>
                       <row>
@@ -295,7 +295,7 @@
                         <checkbox preference="prefConsumer" label="Consumer Corpusa" />
                       </row>
                       <row>
-                        <checkbox preference="pref3000" label="3000" />
+                        <!--checkbox preference="pref3000" label="3000" /--><label value="" />
                         <checkbox preference="prefHarluxet" label="Harluxet" />
                         <checkbox preference="prefCorpEus" label="CorpEus" />
                       </row>
@@ -365,7 +365,7 @@
                         <checkbox preference="prefTelekomShiftEN" label="Telekomunikazio Hiztegia" />
                       </row>
                       <row>
-                        <checkbox preference="pref3000ShiftES" label="3000" />
+                        <!--checkbox preference="pref3000ShiftES" label="3000" /--><label value="" />
                         <label value="" />
                         <checkbox preference="prefMorrisShiftEN" label="Morris" />
                       </row>
@@ -379,11 +379,11 @@
                         <checkbox preference="prefBatuaShiftFR" label="Batua" />
                         <checkbox preference="prefBatuaShiftEN" label="Batua" />
                       </row>
-                      <row>
+                      <!--row>
                         <checkbox preference="prefAdorezShiftES" label="Adorez" />
                         <checkbox preference="prefAdorezShiftFR" label="Adorez" />
                         <checkbox preference="prefAdorezShiftEN" label="Adorez" />
-                      </row>
+                      </row-->
                       <row>
                         <checkbox preference="prefUZEIShiftES" label="UZEI" />
                         <checkbox preference="prefUZEIShiftFR" label="UZEI" />
@@ -441,7 +441,7 @@
                         <checkbox preference="prefTelekomCtrlEN" label="Telekomunikazio Hiztegia" />
                       </row>
                       <row>
-                        <checkbox preference="pref3000CtrlES" label="3000" />
+                        <!--checkbox preference="pref3000CtrlES" label="3000" /--><label value="" />
                         <label value="" />
                         <checkbox preference="prefMorrisCtrlEN" label="Morris" />
                       </row>
@@ -455,11 +455,11 @@
                         <checkbox preference="prefBatuaCtrlFR" label="Batua" />
                         <checkbox preference="prefBatuaCtrlEN" label="Batua" />
                       </row>
-                      <row>
+                      <!--row>
                         <checkbox preference="prefAdorezCtrlES" label="Adorez" />
                         <checkbox preference="prefAdorezCtrlFR" label="Adorez" />
                         <checkbox preference="prefAdorezCtrlEN" label="Adorez" />
-                      </row>
+                      </row-->
                       <row>
                         <checkbox preference="prefUZEICtrlES" label="UZEI" />
                         <checkbox preference="prefUZEICtrlFR" label="UZEI" />

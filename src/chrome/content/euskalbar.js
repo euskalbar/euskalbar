@@ -110,7 +110,7 @@ with (euskalbarLib) {
 
       // Hasieratu barrako hiztegiak
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
-      this.toggleButtons("EuskalBar-Ask", "3000.visible");
+      //this.toggleButtons("EuskalBar-Ask", "3000.visible");
       this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
       this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
       this.toggleButtons("EuskalBar-Energia", "energia.visible");
@@ -121,7 +121,7 @@ with (euskalbarLib) {
       this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
       this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
       this.toggleButtons("EuskalBar-OEH", "oeh.visible");
-      this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
+      //this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
       this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
       this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
       this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
@@ -172,9 +172,9 @@ with (euskalbarLib) {
       case "extensions.euskalbar.euskalterm.visible":
         this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
         break;
-      case "extensions.euskalbar.3000.visible":
+      /*case "extensions.euskalbar.3000.visible":
         this.toggleButtons("EuskalBar-Ask", "3000.visible");
-        break;
+        break;*/
       case "extensions.euskalbar.elhuyar.visible":
         this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
         break;
@@ -205,9 +205,9 @@ with (euskalbarLib) {
       case "extensions.euskalbar.oeh.visible":
         this.toggleButtons("EuskalBar-OEH", "oeh.visible");
         break;
-      case "extensions.euskalbar.adorez.visible":
+      /*case "extensions.euskalbar.adorez.visible":
         this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
-        break;
+        break;*/
       case "extensions.euskalbar.uzei.visible":
         this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
         break;
@@ -878,7 +878,7 @@ with (euskalbarLib) {
       var euskalterm = $('EuskalBar-Search');
       var morris = $('EuskalBar-Morris');
       var opentran = $('EuskalBar-Opentran');
-      var h3000 = $('EuskalBar-Ask');
+      //var h3000 = $('EuskalBar-Ask');
       var labayru = $('EuskalBar-Labayru');
       var zehazki = $('EuskalBar-Zehazki');
       var elhuyar = $('EuskalBar-Elhuyar');
@@ -896,7 +896,7 @@ with (euskalbarLib) {
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        h3000.setAttribute("hidden", false);
+        //h3000.setAttribute("hidden", false);
         labayru.setAttribute("hidden", false);
         zehazki.setAttribute("hidden", false);
         energia.setAttribute("hidden", false);
@@ -910,7 +910,7 @@ with (euskalbarLib) {
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        h3000.setAttribute("hidden", true);
+        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", false);
@@ -924,7 +924,7 @@ with (euskalbarLib) {
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", false);
         opentran.setAttribute("hidden", false);
-        h3000.setAttribute("hidden", true);
+        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", false);
@@ -938,7 +938,7 @@ with (euskalbarLib) {
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        h3000.setAttribute("hidden", true);
+        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", true);
@@ -952,7 +952,7 @@ with (euskalbarLib) {
         zthiztegia.setAttribute("hidden", true);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        h3000.setAttribute("hidden", true);
+        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
         energia.setAttribute("hidden", true);
