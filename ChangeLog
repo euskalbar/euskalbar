@@ -5,6 +5,8 @@
 3.10 bertsioa
 ================
 - Danobat hiztegia integratu da. (#127)
+- Hiztegiak eskutatu eta erakusteko aukera hobespenetara eraman da. (#128)
+- 3000 eta Adorez desaktibatu dira, ez baitute funtzionatzen.
 
 3.9 bertsioa
 ================
