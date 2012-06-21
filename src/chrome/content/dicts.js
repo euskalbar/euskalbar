@@ -1,6 +1,6 @@
 /*
  * Euskalbar - A Firefox extension for helping in Basque translations.
- * Copyright (C) 2006-2011 Euskalbar Taldea (see AUTHORS file)
+ * Copyright (C) 2006-2012 Euskalbar Taldea (see AUTHORS file)
  *
  * This file is part of Euskalbar.
  *
@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-with (euskalbarLib) {
+"use strict";
 
   euskalbar.dicts = {
 
@@ -29,7 +29,9 @@ with (euskalbarLib) {
         return;
       }
 
-      var lang = _("hizk");
+      var lang = euskalbarLib._("hizk");
+      var hiztegiarenhizkuntza;
+      var idioma;
 
       if (lang.match('euskara')) {
         hiztegiarenhizkuntza = 'eu';
@@ -77,8 +79,8 @@ with (euskalbarLib) {
         return;
       }
 
-      var lang = _("hizk");
-
+      var lang = euskalbarLib._("hizk");
+      var hiztegiarenhizkuntza;
       if (lang.match('euskara')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
         hiztegiarenhizkuntza = 'eu';
@@ -143,8 +145,8 @@ with (euskalbarLib) {
       euskalbar.stats.writeStats(1);
     },
 
-    zthiztegiatimeout: Boolean,
-    zthiztegiatimeout2: Boolean,
+    zthiztegiatimeout: Boolean,  //Fixme
+    zthiztegiatimeout2: Boolean, //Fixme
 
     // ZT hiztegiko bilaketak
     goEuskalBarZTHiztegia: function (source, term) {
@@ -208,21 +210,21 @@ with (euskalbarLib) {
       };
 
       if (segi2 == 1) {
-        if ($('emaitza', doc) != null) {
-          if ($('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
-            $('emaitza', doc).style.visibility = "hidden";
+        if (euskalbarLib.$('emaitza', doc) != null) {
+          if (euskalbarLib.$('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
+            euskalbarLib.$('emaitza', doc).style.visibility = "hidden";
           };
-          if ($('emaitza', doc).innerHTML.search("sarrera") != -1) {
+          if (euskalbarLib.$('emaitza', doc).innerHTML.search("sarrera") != -1) {
             segi = 1;
           };
         };
       };
 
       if (segi == 1) {
-        $('txtBilagaila', doc).value = term;
-        $('selectHizkuntza', doc).value = source;
-        $('bot_bilatu', doc).click();
-        $('emaitza', doc).style.visibility = "visible";
+        euskalbarLib.$('txtBilagaila', doc).value = term;
+        euskalbarLib.$('selectHizkuntza', doc).value = source;
+        euskalbarLib.$('bot_bilatu', doc).click();
+        euskalbarLib.$('emaitza', doc).style.visibility = "visible";
         clearTimeout(zthiztegiatimeout2);
       } else {
         zthiztegiatimeout = setTimeout(function () {
@@ -253,19 +255,19 @@ with (euskalbarLib) {
       var segi = 0;
       var doc = Application.activeWindow.activeTab.document;
 
-      if ($('emaitza', doc) != null) {
-        if ($('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
-          $('emaitza', doc).style.visibility = "hidden";
+      if (euskalbarLib.$('emaitza', doc) != null) {
+        if (euskalbarLib.$('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
+          euskalbarLib.$('emaitza', doc).style.visibility = "hidden";
         };
-        if ($('emaitza', doc).innerHTML.search("sarrera") != -1) {
+        if (euskalbarLib.$('emaitza', doc).innerHTML.search("sarrera") != -1) {
           segi = 1;
         };
       };
 
       if (segi == 1) {
-        $('emaitza', doc).innerHTML = '<form action="javascript:showArticle(\'' + artik + '\')"><input style="visibility:hidden" id="bot_bilatu2" value="Bilatu" type="submit"></form>';
-        $('bot_bilatu2', doc).click();
-        $('emaitza', doc).style.visibility = "visible";
+        euskalbarLib.$('emaitza', doc).innerHTML = '<form action="javascript:showArticle(\'' + artik + '\')"><input style="visibility:hidden" id="bot_bilatu2" value="Bilatu" type="submit"></form>';
+        euskalbarLib.$('bot_bilatu2', doc).click();
+        euskalbarLib.$('emaitza', doc).style.visibility = "visible";
         clearTimeout(zthiztegiatimeout2);
       } else {
         zthiztegiatimeout = setTimeout(function () {
@@ -274,8 +276,8 @@ with (euskalbarLib) {
       };
     },
 
-    energiahiztegiatimeout: Boolean,
-    energiahiztegiatimeout2: Boolean,
+    energiahiztegiatimeout: Boolean, //Fixme
+    energiahiztegiatimeout2: Boolean, //Fixme
 
     // Energia hiztegiko bilaketak
     goEuskalBarEnergia: function (source, term) {
@@ -415,7 +417,7 @@ with (euskalbarLib) {
         hizkid = 'F';
       };
 
-      var lang = _("hizk");
+      var lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
         inthizk = 'eusk';
@@ -553,6 +555,7 @@ with (euskalbarLib) {
         return;
       }
       var params = [];
+      var idioma;
       if (source == 'es') {
         source = 'CAS';
         idioma = 'Castellano';
@@ -683,8 +686,8 @@ with (euskalbarLib) {
         return;
       }
 
-      var lang = _("hizk");
-
+      var lang = euskalbarLib._("hizk");
+      var hiztegiarenhizkuntza;
       if (lang.match('euskara')) {
         hiztegiarenhizkuntza = '14';
       } else if (lang.match('english')) {
@@ -715,7 +718,7 @@ with (euskalbarLib) {
       }
 
       var params = [];
-      var lang = _("hizk");
+      var lang = euskalbarLib._("hizk");
 
       params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
       params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
@@ -838,7 +841,7 @@ with (euskalbarLib) {
       }
 
       var params = [];
-      var lang = _("hizk");
+      var lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
         var hizk = 'EU';
@@ -955,6 +958,7 @@ with (euskalbarLib) {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
+      var source2;
       if (source == 'eu') {
         source2 = 'eu';
       } else {
@@ -1071,5 +1075,3 @@ with (euskalbarLib) {
     },
 
   };
-
-}

@@ -1,6 +1,6 @@
 /*
  * Euskalbar - A Firefox extension for helping in Basque translations.
- * Copyright (C) 2006-2011 Euskalbar Taldea (see AUTHORS file)
+ * Copyright (C) 2006-2012 Euskalbar Taldea (see AUTHORS file)
  *
  * This file is part of Euskalbar.
  *
@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-with (euskalbarLib) {
+"use strict";
 
   euskalbar.stats = {
 
@@ -29,7 +29,7 @@ with (euskalbarLib) {
       ebProfileDir.append("euskalbar");
 
       if (!ebProfileDir.exists()) {
-        ebProfileDir.create(0x01, 0755);
+        ebProfileDir.create(0x01, parseInt("0755", 8));
       }
 
       var ebProfileStatsFile = ebProfileDir.clone();
@@ -41,7 +41,7 @@ with (euskalbarLib) {
 
       try {
         var statsFileURL = "chrome://euskalbar/content/stats.rdf";
-        var statsFile = FileIO.getLocalSystemURI(statsFileURL)
+        var statsFile = euskalbarLib.FileIO.getLocalSystemURI(statsFileURL)
                               .QueryInterface(Ci.nsIFileURL).file;
         statsFile.copyTo(ebProfileDir, "stats.rdf");
       } catch (e) {
@@ -103,7 +103,7 @@ with (euskalbarLib) {
        * fitxategia irakurtzeko soilik delako), try catch erabiliz ez da
        * Euskalbar blokeatzen */
       try {
-        statout.init(URLStatsW, 0x04 | 0x08 | 0x20, 0664, 0);
+        statout.init(URLStatsW, 0x04 | 0x08 | 0x20, parseInt("0664",8), 0);
         statout.write(txtStatsNew, txtStatsNew.length);
         statout.flush();
         statout.close();
@@ -112,5 +112,3 @@ with (euskalbarLib) {
     },
 
   };
-
-}

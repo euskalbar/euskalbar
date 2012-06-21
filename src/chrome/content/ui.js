@@ -1,6 +1,6 @@
 /*
  * Euskalbar - A Firefox extension for helping in Basque translations.
- * Copyright (C) 2006-2011 Euskalbar Taldea (see AUTHORS file)
+ * Copyright (C) 2006-2012 Euskalbar Taldea (see AUTHORS file)
  *
  * This file is part of Euskalbar.
  *
@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-with (euskalbarLib) {
+"use strict";
 
   euskalbar.ui = {
 
@@ -30,7 +30,7 @@ with (euskalbarLib) {
 
     get locale() {
       try {
-        locale = Services.prefs.getComplexValue("general.useragent.locale",
+        var locale = Services.prefs.getComplexValue("general.useragent.locale",
                                                 Ci.nsIPrefLocalizedString).data;
       } catch (e) {
         locale = "en-US";
@@ -60,12 +60,12 @@ with (euskalbarLib) {
 
       for (var i=0; i<items.length; i++) {
         var menu = document.createElement("menu");
-        menu.setAttribute("label", _(items[i].cat));
-        menu.setAttribute("id", "euskalbar-menu-" + slugify(items[i].cat));
+        menu.setAttribute("label", euskalbarLib._(items[i].cat));
+        menu.setAttribute("id", "euskalbar-menu-" + euskalbarLib.slugify(items[i].cat));
 
         var submenu = document.createElement("menupopup");
         submenu.setAttribute("id",
-                             "euskalbar-menuPopup-" + slugify(items[i].cat));
+                             "euskalbar-menuPopup-" + euskalbarLib.slugify(items[i].cat));
 
         var dicts = items[i].dicts;
         for (var j=0; j<dicts.length; j++) {
@@ -75,10 +75,10 @@ with (euskalbarLib) {
             var item = document.createElement("menuseparator");
           } else {
             var item = document.createElement("menuitem");
-            item.setAttribute("label", _(dict.name));
+            item.setAttribute("label", euskalbarLib._(dict.name));
             item.setAttribute("oncommand",
                               "euskalbar.openURL('" + dict.url + "', '" +
-                                                 slugify(dict.name) + "')");
+                                                 euskalbarLib.slugify(dict.name) + "')");
           }
 
           submenu.appendChild(item);
@@ -95,7 +95,7 @@ with (euskalbarLib) {
     /* Initializes a menu with id 'parentMenuId' by recursively cloning
      * the 'popupMenu' DOM node */
     initMenu: function (parentMenuId, popupMenu) {
-      var parentMenu = $(parentMenuId);
+      var parentMenu = euskalbarLib.$(parentMenuId);
 
       if (!parentMenu) {
         return;
@@ -111,7 +111,7 @@ with (euskalbarLib) {
       // the ID of the Euskalbar button into it
       var euskalbarButtonId = "euskalbar-button";
       var navBarId = "nav-bar";
-      var navBar = $(navBarId);
+      var navBar = euskalbarLib.$(navBarId);
 
       var currentSet = navBar.currentSet;
 
@@ -136,9 +136,8 @@ with (euskalbarLib) {
     },
 
     displayToolbar: function () {
-      $("euskalbar-toolbar").collapsed = false;
+      euskalbarLib.$("euskalbar-toolbar").collapsed = false;
     },
 
   };
 
-}

@@ -12,11 +12,11 @@
       tooltiptext="&euskalbar.label;"
       command="cmd_toggleEuskalbar" type="menu-button">
       <menupopup id="EuskalBar-aukerak-popup">
-        <menuitem id="optionsdialog"
+        <menuitem id="euskalbar-optionsdialog"
           label="&euskalbar.prefs.options.label;"
           tooltiptext="&euskalbar.options.tooltip;"
           oncommand="euskalbar.euskalbarOptions();" />
-        <menuitem id="showstatistics"
+        <menuitem id="euskalbar-showstatistics"
           label="&euskalbar.stats.menu;"
           tooltiptext="&euskalbar.stats.main;"
           oncommand="euskalbar.showLocalstats();" />

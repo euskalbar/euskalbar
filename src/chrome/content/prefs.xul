@@ -216,7 +216,7 @@
         </tabpanel>
 
         <tabpanel id="tab-bistan">
-          <listbox width="400" id="list-dictsview">
+          <listbox flex="1" width="400" id="list-dictsview">
             <listitem preference="prefEuskaltermVisible" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
             <listitem preference="prefElhuyarVisible" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
             <!--listitem preference="pref3000Visible" type="checkbox" label="&euskalbar.3000.tooltip;"/-->

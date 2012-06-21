@@ -1,6 +1,6 @@
 /*
  * Euskalbar - A Firefox extension for helping in Basque translations.
- * Copyright (C) 2006-2011 Euskalbar Taldea (see AUTHORS file)
+ * Copyright (C) 2006-2012 Euskalbar Taldea (see AUTHORS file)
  *
  * This file is part of Euskalbar.
  *
@@ -17,6 +17,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+"use strict";
 
 var euskalbarLib = {};
 
@@ -221,7 +223,7 @@ var euskalbarLib = {};
 
     // First try getting the current locale's translation
     try {
-      var bundle = this.$("leuskal");
+      var bundle = this.$("euskalbar-leuskal");
 
       if (type == L10N_FORMATTED) {
         return bundle.getFormattedString(strKey, args);

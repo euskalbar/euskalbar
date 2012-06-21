@@ -18,7 +18,7 @@
 
   <!-- Create reference to locales for Javascript files -->
   <stringbundleset id="stringbundleset">
-    <stringbundle id="leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
+    <stringbundle id="euskalbar-leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
   </stringbundleset>
 
   <commandset>
