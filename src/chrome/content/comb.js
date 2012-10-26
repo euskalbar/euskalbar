@@ -90,11 +90,11 @@
         var erroremezua = 'Word ' + term + ' not found.';
         var erroremezua2 = 'Word not found, choose from list';
         var azpisarreraktestua = 'Azpisarrerak';
-      } else if (lang.match('franÃ§ais')) {
+      } else if (lang.match('français')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
         var elhuyarerroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua = 'Pas de rÃ©sultats pour le mot ' + term + '.';
-        var erroremezua2 = 'Pas de rÃ©sultats, choisir un mot de la liste';
+        var erroremezua = 'Pas de résultats pour le mot ' + term + '.';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
         var azpisarreraktestua = 'Azpisarrerak';
       } else {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
@@ -104,9 +104,9 @@
         var azpisarreraktestua = 'Azpisarrerak';
       }
 
-      //Azentu markak, eÃ±eak eta dieresiak aldatu
+      //Azentu markak, eñeak eta dieresiak aldatu
       var jatorrizkoa = term;
-      term = encodeURI(term); //honekin eÃ±eak eta dieresiak konpontzen dira
+      term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
       switch (source) {
       case 'es':
         var source2 = 'gazt';
@@ -223,7 +223,7 @@
       } else if (lang.match('english')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
         var azpisarreraktestua = 'Azpisarrerak';
-      } else if (lang.match('franÃ§ais')) {
+      } else if (lang.match('français')) {
         var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
         var azpisarreraktestua = 'Azpisarrerak';
       } else {
@@ -296,7 +296,7 @@
       } else if (lang.match('english')) {
         var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EN\/Dictionary-search';
         var txtsplit = 'Result:';
-      } else if (lang.match('franÃ§ais')) {
+      } else if (lang.match('français')) {
         var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/FR\/Dictionnaire-recherche';
         var txtsplit = 'R&eacute;sultat:';
       } else {
@@ -319,8 +319,8 @@
       txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"en\">euskara ingelesa<\/strong><\/p>/, "");
       txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"es\">castellano vasco<\/strong><\/p>/, "");
       txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">castellano vasco<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"fr\">franÃ§ais basque<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">franÃ§ais basque<\/strong><\/p>/, "");
+      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"fr\">français basque<\/strong><\/p>/, "");
+      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">français basque<\/strong><\/p>/, "");
       txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"en\">english basque<\/strong><\/p>/, "");
       txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">english basque<\/strong><\/p>/, "");
       txtElhuyar = txtElhuyar.replace(/<a href=\"\?/g, "<a href=\"" + urlElhuyar + "\?");
@@ -340,9 +340,9 @@
       } else if (lang.match('english')) {
         var erroremezua = 'Term not found';
         var erroremezua2 = 'Word not found, choose from list';
-      } else if (lang.match('franÃ§ais')) {
+      } else if (lang.match('français')) {
         var erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua2 = 'Pas de rÃ©sultats, choisir un mot de la liste';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
       } else {
         var erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
         var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
@@ -457,9 +457,9 @@
       } else if (lang.match('english')) {
         var erroremezua = 'Term not found';
         var erroremezua2 = 'Word not found, choose from list';
-      } else if (lang.match('franÃ§ais')) {
+      } else if (lang.match('français')) {
         var erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua2 = 'Pas de rÃ©sultats, choisir un mot de la liste';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
       } else {
         var erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
         var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
@@ -613,9 +613,9 @@
         var erroremezua = 'Term not found';
         var erroremezua2 = 'Word not found, choose from list';
         var inthizk = 'gazt'
-      } else if (lang.match('franÃ§ais')) {
+      } else if (lang.match('français')) {
         var erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua2 = 'Pas de rÃ©sultats, choisir un mot de la liste';
+        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
         var inthizk = 'gazt'
       } else {
         var erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
@@ -1495,46 +1495,46 @@
 
     normalizatu: function (katea) {
       var kateberria;
-      kateberria = katea.replace(/Ã¡/, "a");
-      kateberria = kateberria.replace(/Ã /, "a");
-      kateberria = kateberria.replace(/Ã¤/, "a");
-      kateberria = kateberria.replace(/Ã¢/, "a");
-      kateberria = kateberria.replace(/Ã©/, "e");
-      kateberria = kateberria.replace(/Ã¨/, "e");
-      kateberria = kateberria.replace(/Ã«/, "e");
-      kateberria = kateberria.replace(/Ãª/, "e");
-      kateberria = kateberria.replace(/Ã­/, "i");
-      kateberria = kateberria.replace(/Ã¬/, "i");
-      kateberria = kateberria.replace(/Ã¯/, "i");
-      kateberria = kateberria.replace(/Ã®/, "i");
-      kateberria = kateberria.replace(/Ã³/, "o");
-      kateberria = kateberria.replace(/Ã²/, "o");
-      kateberria = kateberria.replace(/Ã¶/, "o");
-      kateberria = kateberria.replace(/Ã´/, "o");
-      kateberria = kateberria.replace(/Ãº/, "u");
-      kateberria = kateberria.replace(/Ã¹/, "u");
-      kateberria = kateberria.replace(/Ã¼/, "u");
-      kateberria = kateberria.replace(/Ã»/, "u");
-      kateberria = kateberria.replace(/Ã/, "A");
-      kateberria = kateberria.replace(/Ã€/, "A");
-      kateberria = kateberria.replace(/Ã„/, "A");
-      kateberria = kateberria.replace(/Ã‚/, "A");
-      kateberria = kateberria.replace(/Ã‰/, "E");
-      kateberria = kateberria.replace(/Ãˆ/, "E");
-      kateberria = kateberria.replace(/Ã‹/, "E");
-      kateberria = kateberria.replace(/ÃŠ/, "E");
-      kateberria = kateberria.replace(/Ã/, "I");
-      kateberria = kateberria.replace(/ÃŒ/, "I");
-      kateberria = kateberria.replace(/Ã/, "I");
-      kateberria = kateberria.replace(/ÃŽ/, "I");
-      kateberria = kateberria.replace(/Ã“/, "O");
-      kateberria = kateberria.replace(/Ã’/, "O");
-      kateberria = kateberria.replace(/Ã–/, "O");
-      kateberria = kateberria.replace(/Ã”/, "O");
-      kateberria = kateberria.replace(/Ãš/, "U");
-      kateberria = kateberria.replace(/Ã™/, "U");
-      kateberria = kateberria.replace(/Ãœ/, "U");
-      kateberria = kateberria.replace(/Ã›/, "U");
+      kateberria = katea.replace(/á/, "a");
+      kateberria = kateberria.replace(/à/, "a");
+      kateberria = kateberria.replace(/ä/, "a");
+      kateberria = kateberria.replace(/â/, "a");
+      kateberria = kateberria.replace(/é/, "e");
+      kateberria = kateberria.replace(/è/, "e");
+      kateberria = kateberria.replace(/ë/, "e");
+      kateberria = kateberria.replace(/ê/, "e");
+      kateberria = kateberria.replace(/í/, "i");
+      kateberria = kateberria.replace(/ì/, "i");
+      kateberria = kateberria.replace(/ï/, "i");
+      kateberria = kateberria.replace(/î/, "i");
+      kateberria = kateberria.replace(/ó/, "o");
+      kateberria = kateberria.replace(/ò/, "o");
+      kateberria = kateberria.replace(/ö/, "o");
+      kateberria = kateberria.replace(/ô/, "o");
+      kateberria = kateberria.replace(/ú/, "u");
+      kateberria = kateberria.replace(/ù/, "u");
+      kateberria = kateberria.replace(/ü/, "u");
+      kateberria = kateberria.replace(/û/, "u");
+      kateberria = kateberria.replace(/Á/, "A");
+      kateberria = kateberria.replace(/À/, "A");
+      kateberria = kateberria.replace(/Ä/, "A");
+      kateberria = kateberria.replace(/Â/, "A");
+      kateberria = kateberria.replace(/É/, "E");
+      kateberria = kateberria.replace(/È/, "E");
+      kateberria = kateberria.replace(/Ë/, "E");
+      kateberria = kateberria.replace(/Ê/, "E");
+      kateberria = kateberria.replace(/Í/, "I");
+      kateberria = kateberria.replace(/Ì/, "I");
+      kateberria = kateberria.replace(/Ï/, "I");
+      kateberria = kateberria.replace(/Î/, "I");
+      kateberria = kateberria.replace(/Ó/, "O");
+      kateberria = kateberria.replace(/Ò/, "O");
+      kateberria = kateberria.replace(/Ö/, "O");
+      kateberria = kateberria.replace(/Ô/, "O");
+      kateberria = kateberria.replace(/Ú/, "U");
+      kateberria = kateberria.replace(/Ù/, "U");
+      kateberria = kateberria.replace(/Ü/, "U");
+      kateberria = kateberria.replace(/Û/, "U");
       return kateberria;
     },
 
