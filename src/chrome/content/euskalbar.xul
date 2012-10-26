@@ -63,8 +63,8 @@
           </splitter>
       </hbox>
       <hbox id="Euskalbar-dicts-general">
-        <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" type="menu-button" label="Euskalterm" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, '0');">
-          <menupopup id="EuskalBar-Euskalterm-popup">
+        <toolbarbutton id="EuskalBar-Search" tooltiptext="&euskalbar.euskalterm.tooltip;" label="Euskalterm" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, '0');">
+          <!--menupopup id="EuskalBar-Euskalterm-popup">
             <menuitem id="Euskalterm-Administrazioa" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, 'M'); event.stopPropagation();"/>
             <menuitem id="Euskalterm-Arteak" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, 'W'); event.stopPropagation();"/>
             <menuitem id="Euskalterm-Biologia" label="&euskalbar.euskalterm.biologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, 'C'); event.stopPropagation();"/>
@@ -91,7 +91,7 @@
             <menuitem id="Euskalterm-Politika" label="&euskalbar.euskalterm.politika.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, 'P'); event.stopPropagation();"/>
             <menuitem id="Euskalterm-Psikologia" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, 'T'); event.stopPropagation();"/>
             <menuitem id="Euskalterm-Zuzenbidea" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm(euskalbar.source, document.getElementById('EuskalBar-search-string').value, 'N'); event.stopPropagation();"/>
-          </menupopup>
+          </menupopup-->
         </toolbarbutton>
         <toolbarbutton id="EuskalBar-Elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarElhuyar(euskalbar.source, euskalbar.target, document.getElementById('EuskalBar-search-string').value);" />
         <!--toolbarbutton id="EuskalBar-Ask" tooltiptext="&euskalbar.3000.tooltip;" label="3000" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarAsk(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" /-->

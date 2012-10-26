@@ -44,29 +44,32 @@
       }
       // bilaketaren hizkuntza zehaztu
       if (source == 'es') {
-        idioma = 'G';
+        idioma = 'ES';
       } else if (source == 'en') {
-        idioma = 'I';
+        idioma = 'EN';
       } else if (source == 'fr') {
-        idioma = 'F';
+        idioma = 'FR';
       } else if (source == 'la') {
-        idioma = 'L';
+        idioma = 'LA';
       } else {
-        idioma = 'E';
+        idioma = 'EU';
       }
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan egin
       // ditzala bilaketak
       if (escape(term).charAt(escape(term).length - 1) != "*") {
-        term = term + "*";
+        term = term + "%";
       }
-      var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe';
+
+      var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do';
       var params = [];
-      params.push(new euskalbar.QueryParameter('hizkun1', idioma));
-      params.push(new euskalbar.QueryParameter('hitz1', escape(term)));
-      params.push(new euskalbar.QueryParameter('gaiak', sub));
+      params.push(new euskalbar.QueryParameter('ekintza', 'HASI'));
+      params.push(new euskalbar.QueryParameter('ekin', 'HASI'));
+      params.push(new euskalbar.QueryParameter('datuakaBilaketarako(galderakoHizkuntza)', idioma));
+      params.push(new euskalbar.QueryParameter('datuakaBilaketarako(galdera)', escape(term)));
+      params.push(new euskalbar.QueryParameter('zerrenda', ''));
       params.push(new euskalbar.QueryParameter('hizkuntza', hiztegiarenhizkuntza));
       var zein = 'euskalterm';
-      euskalbar.openURL(url, zein, 'GET', params);
+      euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(0);
     },
@@ -161,13 +164,13 @@
         euskalbar.openURL('http://zthiztegia.elhuyar.org', slug, 'GET', null);
       }
 
-      zthiztegiatimeout = setTimeout(function () {
+      var zthiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, 'normal');
       }, 50);
       // Gelditzeko timerra sortu
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout = tout * 1000;
-      zthiztegiatimeout2 = setTimeout(function () {
+      var zthiztegiatimeout2 = setTimeout(function () {
         clearTimeout(zthiztegiatimeout);
       }, tout);
 
@@ -181,11 +184,11 @@
       var newWindow = window.open('http://zthiztegia.elhuyar.org', slug);
       newWindow.focus();
 
-      zthiztegiatimeout = setTimeout(function () {
+      var zthiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, 'klik');
       }, 50);
       // Gelditzeko timerra sortu
-      zthiztegiatimeout2 = setTimeout(function () {
+      var zthiztegiatimeout2 = setTimeout(function () {
         clearTimeout(zthiztegiatimeout);
       }, 10000);
 
@@ -227,7 +230,7 @@
         euskalbarLib.$('emaitza', doc).style.visibility = "visible";
         clearTimeout(zthiztegiatimeout2);
       } else {
-        zthiztegiatimeout = setTimeout(function () {
+        var zthiztegiatimeout = setTimeout(function () {
           euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, nondik);
         }, 50);
       };
@@ -239,11 +242,11 @@
       var newWindow = window.open('http://' + zein, zein);
       newWindow.focus();
 
-      zthiztegiatimeout = setTimeout(function () {
+      var zthiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.zthiztegiakargatzeanartikulua(artik);
       }, 50);
       // Gelditzeko timerra sortu
-      zthiztegiatimeout2 = setTimeout(function () {
+      var zthiztegiatimeout2 = setTimeout(function () {
         clearTimeout(zthiztegiatimeout);
       }, 10000);
 
@@ -270,7 +273,7 @@
         euskalbarLib.$('emaitza', doc).style.visibility = "visible";
         clearTimeout(zthiztegiatimeout2);
       } else {
-        zthiztegiatimeout = setTimeout(function () {
+        var zthiztegiatimeout = setTimeout(function () {
           euskalbar.dicts.zthiztegiakargatzeanartikulua(artik);
         }, 50);
       };
@@ -285,7 +288,7 @@
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-
+      var hizkid;
       if (source == 'eu') {
         hizkid = 'E';
       } else if (source == 'es') {
@@ -301,13 +304,13 @@
         euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia', 'GET', null);
       };
 
-      energiahiztegiatimeout = setTimeout(function () {
+      var energiahiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'normal');
       }, 50);
       // Gelditzeko timerra sortu
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout = tout * 1000;
-      energiahiztegiatimeout2 = setTimeout(function () {
+      var energiahiztegiatimeout2 = setTimeout(function () {
         clearTimeout(energiahiztegiatimeout);
       }, tout);
 
@@ -331,11 +334,11 @@
         hizkid = 'F';
       };
 
-      energiahiztegiatimeout = setTimeout(function () {
+      var energiahiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'klik');
       }, 50);
       // Gelditzeko timerra sortu
-      energiahiztegiatimeout2 = setTimeout(function () {
+      var energiahiztegiatimeout2 = setTimeout(function () {
         clearTimeout(energiahiztegiatimeout);
       }, 10000);
 
@@ -390,7 +393,7 @@
         doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
         clearTimeout(energiahiztegiatimeout2);
       } else {
-        energiahiztegiatimeout = setTimeout(function () {
+        var energiahiztegiatimeout = setTimeout(function () {
           euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, nondik);
         }, 50);
       };
@@ -406,7 +409,7 @@
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-
+      var hizkid;
       if (source == 'eu') {
         hizkid = 'E';
       } else if (source == 'es') {
@@ -418,7 +421,7 @@
       };
 
       var lang = euskalbarLib._("hizk");
-
+      var inthizk;
       if (lang.match('euskara')) {
         inthizk = 'eusk';
       } else {
@@ -430,13 +433,13 @@
         euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
       };
 
-      telekomhiztegiatimeout = setTimeout(function () {
+      var telekomhiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'normal');
       }, 50);
       // Gelditzeko timerra sortu
       var tout = euskalbar.prefs.getIntPref("query.timeout");
       tout = tout * 1000;
-      telekomhiztegiatimeout2 = setTimeout(function () {
+      var telekomhiztegiatimeout2 = setTimeout(function () {
         clearTimeout(telekomhiztegiatimeout);
       }, tout);
 
@@ -460,11 +463,11 @@
         hizkid = 'F';
       };
 
-      telekomhiztegiatimeout = setTimeout(function () {
+      var telekomhiztegiatimeout = setTimeout(function () {
         euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'klik');
       }, 50);
       // Gelditzeko timerra sortu
-      telekomhiztegiatimeout2 = setTimeout(function () {
+      var telekomhiztegiatimeout2 = setTimeout(function () {
         clearTimeout(telekomhiztegiatimeout);
       }, 10000);
 
@@ -517,7 +520,7 @@
         doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
         clearTimeout(telekomhiztegiatimeout2);
       } else {
-        telekomhiztegiatimeout = setTimeout(function () {
+        var telekomhiztegiatimeout = setTimeout(function () {
           euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, nondik);
         }, 50);
       };
