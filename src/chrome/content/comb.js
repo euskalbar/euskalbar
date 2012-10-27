@@ -55,9 +55,13 @@
           euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.euskadi.net/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
 
           data = data.substring(data.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), data.indexOf('<div class="clr"/>'));
+          data = data.replace(/q91aBilaketaAction/g, "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction");
+          //data = data.replace(/<table id=\"erantzuna/g, "<hr><table id=\"erantzuna");
+
+          output = output.replace(/\)<\/a>/g, ")</b>");
 
           output = data;
-alert(data);
+
         },
 
         onError: function () {
