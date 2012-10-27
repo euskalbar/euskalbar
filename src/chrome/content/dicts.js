@@ -28,7 +28,7 @@
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-
+      term = term.trim();
       var lang = euskalbarLib._("hizk");
       var hiztegiarenhizkuntza;
       var idioma;
@@ -56,7 +56,7 @@
       }
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan egin
       // ditzala bilaketak
-      if (escape(term).charAt(escape(term).length - 1) != "*") {
+      if (escape(term).charAt(escape(term).length - 1) != "%") {
         term = term + "%";
       }
 

@@ -26,39 +26,38 @@
     getShiftEuskalterm: function (source, term) {
       var txtEuskalterm = "";
 
+      term = term.trim();
+
       if (euskalbar.source == 'es') {
-        idioma = 'G';
+        idioma = 'ES';
       } else if (euskalbar.source == 'en') {
-        idioma = 'I';
+        idioma = 'EN';
       } else if (euskalbar.source == 'fr') {
-        idioma = 'F';
+        idioma = 'FR';
       } else {
-        idioma = 'E';
+        idioma = 'EU';
       }
 
       /* Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
        * egin ditzala bilaketak */
-      if (term.charAt(term.length - 1) != "*") {
-        term = term + "*";
+      if (term.charAt(term.length - 1) != "%") {
+        term = term + "%";
       }
 
-      var url = 'http://www1.euskadi.net/euskalterm/cgibila7.exe?hizkun1='
-        + idioma + '&hitz1=' + escape(term) + '&gaiak=0&hizkuntza=' + source;
+      var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do?ekintza=HASI&ekin=HASI&datuakaBilaketarako%28galderakoHizkuntza%29='+idioma+'&datuakaBilaketarako%28galdera%29='+term+'&zerrenda=&hizkuntza=eu';
       var output = "";
 
       euskalbarLib.ajax({
+        //type: 'POST',
         url: url,
 
         onSuccess: function (data) {
-          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/euskalterm/indice_e.htm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
-          data = data.replace(/<HTML>/, " ");
-          data = data.replace(/<HEAD><TITLE>Fitxak<\/TITLE><\/HEAD>/, " ");
-          data = data.replace(/<BODY  bgcolor=lavender leftmargin="10">/, "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term.replace(/\*/, "") + "<font></strong>");
-          data = data.replace(/<\/body><\/html>/, " ");
-          data = data.replace(/steelblue/g, "black");
-          data = data.replace(/Verdana/g, "\"bitstream vera sans, verdana, arial\"");
+          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.euskadi.net/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
+
+          data = data.substring(data.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), data.indexOf('<div class="clr"/>'));
 
           output = data;
+alert(data);
         },
 
         onError: function () {
