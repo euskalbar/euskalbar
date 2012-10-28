@@ -27,6 +27,7 @@
       var txtEuskalterm = "";
 
       term = term.trim();
+      term = euskalbar.comb.normalizatuetaminuskularatu(term);
 
       if (euskalbar.source == 'es') {
         idioma = 'ES';
@@ -48,7 +49,6 @@
       var output = "";
 
       euskalbarLib.ajax({
-        //type: 'POST',
         url: url,
 
         onSuccess: function (data) {
@@ -56,12 +56,9 @@
 
           data = data.substring(data.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), data.indexOf('<div class="clr"/>'));
           data = data.replace(/q91aBilaketaAction/g, "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction");
-          //data = data.replace(/<table id=\"erantzuna/g, "<hr><table id=\"erantzuna");
-
-          output = output.replace(/\)<\/a>/g, ")</b>");
+          data = data.replace(/<table  class=\"erantzuna\"/g, "<hr><table  class=\"erantzuna\"");
 
           output = data;
-
         },
 
         onError: function () {
