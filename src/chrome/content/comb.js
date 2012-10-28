@@ -24,7 +24,7 @@
 
     // Euskalterm kargatu
     getShiftEuskalterm: function (source, term) {
-      var txtEuskalterm = "";
+      var idioma;
 
       term = term.trim();
       term = euskalbar.comb.normalizatuetaminuskularatu(term);
@@ -45,8 +45,8 @@
         term = term + "%";
       }
 
-      var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do?ekintza=HASI&ekin=HASI&datuakaBilaketarako%28galderakoHizkuntza%29='+idioma+'&datuakaBilaketarako%28galdera%29='+term+'&zerrenda=&hizkuntza=eu';
-      var output = "";
+      var output = '',
+          url = 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do?ekintza=HASI&ekin=HASI&datuakaBilaketarako%28galderakoHizkuntza%29='+idioma+'&datuakaBilaketarako%28galdera%29='+term+'&zerrenda=&hizkuntza=eu';
 
       euskalbarLib.ajax({
         url: url,
@@ -74,69 +74,76 @@
 
     // Elhuyarren markoa kargatu
     getShiftElhuyar: function (source, dest, term) {
-      var txtElhuyar = "";
-
-      var lang = euskalbarLib._("hizk");
+      var urlElhuyar, elhuyarerroremezua, erroremezua, erroremezua2,
+          azpisarreraktestua,
+          txtElhuyar = "",
+          lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-        var elhuyarerroremezua = 'Ez dago horrelako sarrerarik';
-        var erroremezua = 'Ez da aurkitu ' + term + ' hitza.';
-        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
+        elhuyarerroremezua = 'Ez dago horrelako sarrerarik';
+        erroremezua = 'Ez da aurkitu ' + term + ' hitza.';
+        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+        azpisarreraktestua = 'Azpisarrerak';
       } else if (lang.match('english')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-        var elhuyarerroremezua = 'No match found';
-        var erroremezua = 'Word ' + term + ' not found.';
-        var erroremezua2 = 'Word not found, choose from list';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
+        elhuyarerroremezua = 'No match found';
+        erroremezua = 'Word ' + term + ' not found.';
+        erroremezua2 = 'Word not found, choose from list';
+        azpisarreraktestua = 'Azpisarrerak';
       } else if (lang.match('français')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-        var elhuyarerroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua = 'Pas de résultats pour le mot ' + term + '.';
-        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
+        elhuyarerroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
+        erroremezua = 'Pas de résultats pour le mot ' + term + '.';
+        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+        azpisarreraktestua = 'Azpisarrerak';
       } else {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-        var elhuyarerroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        var erroremezua = 'No se ha encontrado la palabra ' + term + '.';
-        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
+        elhuyarerroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
+        erroremezua = 'No se ha encontrado la palabra ' + term + '.';
+        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+        azpisarreraktestua = 'Azpisarrerak';
       }
 
       //Azentu markak, eñeak eta dieresiak aldatu
       var jatorrizkoa = term;
       term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
+
+      var source2;
+
       switch (source) {
       case 'es':
-        var source2 = 'gazt';
+        source2 = 'gazt';
         break;
       case 'fr':
-        var source2 = 'fran';
+        source2 = 'fran';
         break;
       case 'en':
-        var source2 = 'ing';
+        source2 = 'ing';
         break;
       case 'eu':
-        var source2 = 'eusk';
+        source2 = 'eusk';
         break;
       }
+
+      var chkHizkuntza, dest2;
+
       switch (dest) {
       case 'es':
-        var chkHizkuntza = 'chkHizkuntzaG';
-        var dest2 = 'gazt';
+        chkHizkuntza = 'chkHizkuntzaG';
+        dest2 = 'gazt';
         break;
       case 'fr':
-        var chkHizkuntza = 'chkHizkuntzaF';
-        var dest2 = 'fran';
+        chkHizkuntza = 'chkHizkuntzaF';
+        dest2 = 'fran';
         break;
       case 'en':
-        var chkHizkuntza = 'chkHizkuntzaI';
-        var dest2 = 'ing';
+        chkHizkuntza = 'chkHizkuntzaI';
+        dest2 = 'ing';
         break;
       case 'eu':
-        var chkHizkuntza = '';
-        var dest2 = '';
+        chkHizkuntza = '';
+        dest2 = '';
         break;
       }
 
@@ -179,12 +186,12 @@
                 var txtElhuyar1 = txtElhuyar.split("div id=\"zerrenda\"")[1];
                 var arrayElhuyar = txtElhuyar1.split("a href=\"?");
                 arrayElhuyar.shift();
-                badago = 0;
-                for (i in arrayElhuyar) {
+                var badago = 0;
+                for (var i in arrayElhuyar) {
                   var estekakohitza = arrayElhuyar[i].split(">")[1];
                   estekakohitza = estekakohitza.split("<")[0];
-                  estekakohitza2 = euskalbar.comb.normalizatuetaminuskularatu(estekakohitza);
-                  jatorrizkoa2 = euskalbar.comb.normalizatuetaminuskularatu(jatorrizkoa);
+                  var estekakohitza2 = euskalbar.comb.normalizatuetaminuskularatu(estekakohitza);
+                  var jatorrizkoa2 = euskalbar.comb.normalizatuetaminuskularatu(jatorrizkoa);
                   var params = arrayElhuyar[i].split("\"")[0];
                   params = params.replace(/amp\;/g, "");
                   if (estekakohitza2 == jatorrizkoa2 || estekakohitza2 == '1 ' + jatorrizkoa2 || estekakohitza2 == '2 ' + jatorrizkoa2 || estekakohitza2 == '3 ' + jatorrizkoa2 || estekakohitza2 == '4 ' + jatorrizkoa2 || estekakohitza2 == '5 ' + jatorrizkoa2 || estekakohitza2 == '6 ' + jatorrizkoa2 || estekakohitza2 == '7 ' + jatorrizkoa2 || estekakohitza2 == '8 ' + jatorrizkoa2 || estekakohitza2 == '9 ' + jatorrizkoa2 || estekakohitza2 == '10 ' + jatorrizkoa2) {
@@ -194,7 +201,7 @@
                 }
                 if (badago == 0) {
                   euskalbarLib.cleanloadHTML('<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + erroremezua2 + '</font></p><p></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
-                  for (i in arrayElhuyar) {
+                  for (var i in arrayElhuyar) {
                     var estekakohitza = arrayElhuyar[i].split(">")[1];
                     estekakohitza = estekakohitza.split("<")[0];
                     var params = arrayElhuyar[i].split("\"")[0];
@@ -210,25 +217,26 @@
         } catch (e) {
           txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
         }
-      }
+      };
     },
 
     // Elhuyarren sarrerak eta azpisarrerak kargatu
     getsubShiftElhuyar: function (params, azpi) {
-      var lang = euskalbarLib._("hizk");
+      var urlElhuyar, azpisarreraktestua,
+          lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
+        azpisarreraktestua = 'Azpisarrerak';
       } else if (lang.match('english')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
+        azpisarreraktestua = 'Azpisarrerak';
       } else if (lang.match('français')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
+        azpisarreraktestua = 'Azpisarrerak';
       } else {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-        var azpisarreraktestua = 'Azpisarrerak';
+        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
+        azpisarreraktestua = 'Azpisarrerak';
       }
 
       urlElhuyar = urlElhuyar + "?" + params;
@@ -244,7 +252,7 @@
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
       var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+      tout = tout * 1000;
 
       //Timerra sortu
       var requestTimer = setTimeout(function () {
@@ -268,7 +276,7 @@
                   var txtElhuyar2 = txtElhuyar.split(azpisarreraktestua)[1];
                   var arrayElhuyar = txtElhuyar2.split("a href=\"?");
                   arrayElhuyar.shift();
-                  for (i in arrayElhuyar) {
+                  for (var i in arrayElhuyar) {
                     var params = arrayElhuyar[i].split("\"")[0];
                     params = params.replace(/amp\;/g, "");
                     if (params.indexOf("mota=azpisarrera") != -1) {
@@ -288,27 +296,28 @@
 
     //Elhuyarren katea manipulatzen duen funtzioa
     manipulateElhuyar: function (txtElhuyar) {
-      var lang = euskalbarLib._("hizk");
+      var urlElhuyar, txtsplit,
+          lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
-        var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EU\/Hiztegi-kontsulta';
-        var txtsplit = 'Emaitza:';
+        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EU\/Hiztegi-kontsulta';
+        txtsplit = 'Emaitza:';
       } else if (lang.match('english')) {
-        var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EN\/Dictionary-search';
-        var txtsplit = 'Result:';
+        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EN\/Dictionary-search';
+        txtsplit = 'Result:';
       } else if (lang.match('français')) {
-        var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/FR\/Dictionnaire-recherche';
-        var txtsplit = 'R&eacute;sultat:';
+        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/FR\/Dictionnaire-recherche';
+        txtsplit = 'R&eacute;sultat:';
       } else {
-        var urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/ES\/Consulta-de-diccionarios';
-        var txtsplit = 'Resultado:';
+        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/ES\/Consulta-de-diccionarios';
+        txtsplit = 'Resultado:';
       }
       var txtElhuyar1 = txtElhuyar.split(txtsplit)[1];
       if (txtElhuyar1.indexOf("<!-- euskalbarLib._______  end") == -1) {
         txtElhuyar = txtElhuyar1.split("<!-- end")[0];
       } else {
         txtElhuyar = txtElhuyar1.split("<!-- euskalbarLib._______  end")[0];
-      };
+      }
       txtElhuyar = txtElhuyar.replace(/<h2>/, "<font face=\"bitstream vera sans, verdana, arial\" size=\"3\"><B>");
       txtElhuyar = txtElhuyar.replace(/<\/h2>/, "<\/B><\/font>");
       txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">euskara gaztelania<\/strong><\/p>/, "");
@@ -332,20 +341,21 @@
 
     // ZT Hiztegiaren markoa kargatu
     getShiftZTHiztegia: function (source, term) {
-      var lang = euskalbarLib._("hizk");
+      var erroremezua, erroremezua2,
+          lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
-        var erroremezua = 'Ez dago horrelako terminorik';
-        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+        erroremezua = 'Ez dago horrelako terminorik';
+        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
       } else if (lang.match('english')) {
-        var erroremezua = 'Term not found';
-        var erroremezua2 = 'Word not found, choose from list';
+        erroremezua = 'Term not found';
+        erroremezua2 = 'Word not found, choose from list';
       } else if (lang.match('français')) {
-        var erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+        erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
+        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
       } else {
-        var erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+        erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
+        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
       }
 
       var xmlHttpReq = new XMLHttpRequest();
@@ -373,7 +383,7 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              erantzuna = xmlHttpReq.responseText;
+              var erantzuna = xmlHttpReq.responseText;
               if (erantzuna == '[]') {
                 txtZTHiztegia = erroremezua;
                 euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
@@ -449,20 +459,21 @@
 
     // Energia Hiztegiaren markoa kargatu
     getShiftEnergia: function (source, term) {
-      var lang = euskalbarLib._("hizk");
+      var erroremezua, erroremezua2, hizkid
+          lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
-        var erroremezua = 'Ez dago horrelako terminorik';
-        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+        erroremezua = 'Ez dago horrelako terminorik';
+        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
       } else if (lang.match('english')) {
-        var erroremezua = 'Term not found';
-        var erroremezua2 = 'Word not found, choose from list';
+        erroremezua = 'Term not found';
+        erroremezua2 = 'Word not found, choose from list';
       } else if (lang.match('français')) {
-        var erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+        erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
+        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
       } else {
-        var erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+        erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
+        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
       }
 
       if (source == 'eu') {
@@ -477,7 +488,7 @@
 
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
-        txtEnergia = euskalbarLib._f("euskalbar.comb.error", ["Energia Hiztegia"]);
+        var txtEnergia = euskalbarLib._f("euskalbar.comb.error", ["Energia Hiztegia"]);
         euskalbarLib.cleanloadHTML(txtEnergia, euskalbarLib.$('aEnergia', gBrowser.contentDocument));
         return false;
       }
@@ -486,7 +497,7 @@
 
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
-        txtEnergia = euskalbarLib._f("euskalbar.comb.error", ["Energia Hiztegia"]);
+        var txtEnergia = euskalbarLib._f("euskalbar.comb.error", ["Energia Hiztegia"]);
         return false;
       }
 
@@ -496,7 +507,7 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              erantzuna = xmlHttpReq.responseText;
+              var erantzuna = xmlHttpReq.responseText;
               if (erantzuna.search(/\<select name\=\"selectTerm\"/i) == -1) {
                 txtEnergia = erroremezua;
                 euskalbarLib.cleanloadHTML(txtEnergia, euskalbarLib.$('aEnergia', gBrowser.contentDocument));
@@ -603,24 +614,25 @@
 
     // Telekomunikazio Hiztegiaren markoa kargatu
     getShiftTelekom: function (source, term) {
-      var lang = euskalbarLib._("hizk");
+      var erroremezua, erroremezua2, inthizk, hizkid
+          lang = euskalbarLib._("hizk");
 
       if (lang.match('euskara')) {
-        var erroremezua = 'Ez dago horrelako terminorik';
-        var erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
-        var inthizk = 'eusk'
+        erroremezua = 'Ez dago horrelako terminorik';
+        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+        inthizk = 'eusk'
       } else if (lang.match('english')) {
-        var erroremezua = 'Term not found';
-        var erroremezua2 = 'Word not found, choose from list';
-        var inthizk = 'gazt'
+        erroremezua = 'Term not found';
+        erroremezua2 = 'Word not found, choose from list';
+        inthizk = 'gazt'
       } else if (lang.match('français')) {
-        var erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        var erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
-        var inthizk = 'gazt'
+        erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
+        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
+        inthizk = 'gazt'
       } else {
-        var erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        var erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
-        var inthizk = 'gazt'
+        erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
+        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+        inthizk = 'gazt'
       }
 
       if (source == 'eu') {
@@ -654,7 +666,7 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              erantzuna = xmlHttpReq.responseText;
+              var erantzuna = xmlHttpReq.responseText;
               if (erantzuna.search(/\<select name\=\"selectTerm\"/i) == -1) {
                 txtTelekom = erroremezua;
                 euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
@@ -771,7 +783,8 @@
 
     // 3000 kargatu
     getShift3000: function (source, term) {
-      var txt3000 = "";
+      var idioma,
+          txt3000 = "";
 
       if (source == 'es') {
         source = 'CAS';
@@ -821,7 +834,7 @@
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
                   array3000 = txt3000.split("Href=\'");
                   array3000.shift();
-                  for (i in array3000) {
+                  for (var i in array3000) {
                     var url3000 = array3000[i].split("\'>")[0];
                     var txt3000s = euskalbar.comb.getsubShift3000(url3000);
                   }
@@ -989,7 +1002,8 @@
 
     // Labayru hiztegia kargatu
     getShiftLabayru: function (source, term) {
-      var txtLabayru = "";
+      var hizk,
+          txtLabayru = "";
 
       if (source == 'es') {
         hizk = '';
@@ -1177,7 +1191,8 @@
 
     // Hiztegi Batua kargatu
     getShiftEuskaltzaindia: function (source, term) {
-      var txtEuskaltzaindia = "";
+      var idioma,
+          txtEuskaltzaindia = "";
 
       if (euskalbar.source == 'es') {
         idioma = 'G';
@@ -1223,7 +1238,7 @@
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
                   arrayEuskaltzaindia = txtEuskaltzaindia.split("index.php");
                   arrayEuskaltzaindia.shift();
-                  for (i in arrayEuskaltzaindia) {
+                  for (var i in arrayEuskaltzaindia) {
                     var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("frontpage")[0];
                     urlEuskaltzaindia = urlEuskaltzaindia + "frontpage";
                     euskalbar.comb.getsubShiftEuskaltzaindia(urlEuskaltzaindia);
@@ -1368,12 +1383,12 @@
 
     // Intza kargatu
     getShiftIntza: function (source, term) {
-      var output = "";
+      var url, output = "";
 
       if (source == 'es') {
-        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + escape(term) + '&eremu3=1&eremu1=eeki';
+        url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + escape(term) + '&eremu3=1&eremu1=eeki';
       } else {
-        var url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1=' + escape(term) + '&eremu3=1';
+        url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1=' + escape(term) + '&eremu3=1';
       }
 
       euskalbarLib.ajax({
