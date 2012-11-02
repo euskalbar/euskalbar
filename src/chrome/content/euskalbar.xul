@@ -142,7 +142,7 @@
     	<menupopup>
     	  <menu id="Euskalbar-eu_es-context" label="&euskalbar.language.eu_es;">
     	    <menupopup>
-    	      <menu id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm">
+    	      <!--menu id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm">
                 <menupopup>
                   <menuitem id="Euskalbar-Euskalterm-Dena-eu_es-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
                   <menuseparator/>
@@ -173,8 +173,9 @@
                   <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_es-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'T');" />
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_es-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
-              </menu>
+              </menu-->
               <!--menuitem id="Euskalbar-3000-eu_es-context" label="3000" oncommand="euskalbar.dicts.goEuskalBarAsk('eu', escape(euskalbar.dicts.selectionText()));" /-->
+              <menuitem id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
               <menuitem id="Euskalbar-Elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu','es',escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Labayru-eu-context" label="Labayru" oncommand="euskalbar.dicts.goEuskalBarLabayru('eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-ZTHiztegia-eu-context" label="ZT Hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
@@ -184,10 +185,10 @@
     	  </menu>
     	  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
     	    <menupopup>
-    	      <menu id="Euskalbar-Euskalterm-es_eu-context" label="Euskalterm">
+    	      <!--menu id="Euskalbar-Euskalterm-es_eu-context" label="Euskalterm">
                 <menupopup>
-                  <!-- escape() kendu da tildeak ongi tratatzeko, bestela ez baitabil -> Konponbide hau ez dabil-->
-                  <menuitem id="Euskalbar-Euskalterm-Dena-es_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), '0');" />
+                  <escape() kendu da tildeak ongi tratatzeko, bestela ez baitabil -> Konponbide hau ez dabil-->
+                  <!--menuitem id="Euskalbar-Euskalterm-Dena-es_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), '0');" />
                   <menuseparator/>
                   <menuitem id="Euskalbar-Euskalterm-Administrazioa-es_eu-context" label="&euskalbar.euskalterm.administrazioa.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), 'M');" />
                   <menuitem id="Euskalbar-Euskalterm-Arteak-es_eu-context" label="&euskalbar.euskalterm.arteak.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', euskalbar.dicts.selectionText(), 'W');" />
@@ -216,8 +217,9 @@
                   <menuitem id="Euskalbar-Euskalterm-Psikologia-es_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), 'T');" />
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-es_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
-              </menu>
+              </menu-->
               <!--menuitem id="Euskalbar-3000-es_eu-context" label="3000" oncommand="euskalbar.dicts.goEuskalBarAsk('es', escape(euskalbar.dicts.selectionText()));" /-->
+              <menuitem id="Euskalbar-Euskalterm-es_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('es', escape(euskalbar.dicts.selectionText()), '0');" />
     	      <menuitem id="Euskalbar-Elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('es','eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Labayru-es-context" label="Labayru" oncommand="euskalbar.dicts.goEuskalBarLabayru('es', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Zehazki-es-context" label="Zehazki" oncommand="euskalbar.dicts.goEuskalBarZehazki('es', escape(euskalbar.dicts.selectionText()));" />
@@ -228,7 +230,7 @@
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
    	    <menupopup>
-   	      <menu id="Euskalbar-Euskalterm-eu_fr-context" label="Euskalterm">
+   	      <!--menu id="Euskalbar-Euskalterm-eu_fr-context" label="Euskalterm">
                 <menupopup>
                   <menuitem id="Euskalbar-Euskalterm-Dena-eu_fr-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
                   <menuseparator/>
@@ -259,7 +261,8 @@
                   <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_fr-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'T');" />
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_fr-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
-              </menu>
+              </menu-->
+                      <menuitem id="Euskalbar-Euskalterm-eu_fr-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
     		      <menuitem id="Euskalbar-Elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu', 'fr', escape(euskalbar.dicts.selectionText()));" />
     		      <menuitem id="Euskalbar-ZTHiztegia-eu_fr-context" label="ZT Hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
     		      <menuitem id="Euskalbar-Energia-eu_fr-context" label="Energia" oncommand="euskalbar.dicts.goEuskalBarEnergia('eu', escape(euskalbar.dicts.selectionText()));" />
@@ -268,7 +271,7 @@
     		  </menu>
     		  <menu id="Euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
     		    <menupopup>
-    		      <menu id="Euskalbar-Euskalterm-fr_eu-context" label="Euskalterm">
+    		      <!--menu id="Euskalbar-Euskalterm-fr_eu-context" label="Euskalterm">
                 <menupopup>
                   <menuitem id="Euskalbar-Euskalterm-Dena-fr_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('fr', escape(euskalbar.dicts.selectionText()), '0');" />
                   <menuseparator/>
@@ -299,7 +302,8 @@
                   <menuitem id="Euskalbar-Euskalterm-Psikologia-fr_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('fr', escape(euskalbar.dicts.selectionText()), 'T');" />
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-fr_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('fr', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
-              </menu>
+              </menu-->
+                      <menuitem id="Euskalbar-Euskalterm-fr_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('fr', escape(euskalbar.dicts.selectionText()), '0');" />
       		    <menuitem id="Euskalbar-Elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('fr', 'eu', euskalbar.dicts.selectionText());" />
       		    <menuitem id="Euskalbar-ZTHiztegia-fr_eu-context" label="ZT Hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('fr', euskalbar.dicts.selectionText());" />
       		    <menuitem id="Euskalbar-Energia-fr_eu-context" label="Energia" oncommand="euskalbar.dicts.goEuskalBarEnergia('fr', euskalbar.dicts.selectionText());" />
@@ -308,7 +312,7 @@
     		  </menu>
     		  <menu id="Euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
     		    <menupopup>
-    		      <menu id="Euskalbar-Euskalterm-eu_en-context" label="Euskalterm">
+    		      <!--menu id="Euskalbar-Euskalterm-eu_en-context" label="Euskalterm">
                 <menupopup>
                   <menuitem id="Euskalbar-Euskalterm-Dena-eu_en-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
                   <menuseparator/>
@@ -339,7 +343,8 @@
                   <menuitem id="Euskalbar-Euskalterm-Psikologia-eu_en-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'T');" />
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-eu_en-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
-              </menu>
+              </menu-->
+                      <menuitem id="Euskalbar-Euskalterm-eu_en-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
     		      <menuitem id="Euskalbar-Elhuyar-eu_en-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu', 'en', escape(euskalbar.dicts.selectionText()));" />
     		      <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="euskalbar.dicts.goEuskalBarMorris('eu', escape(euskalbar.dicts.selectionText()));" />
       		      <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="euskalbar.dicts.goEuskalBarOpentran(escape(euskalbar.dicts.selectionText()));" />
@@ -350,7 +355,7 @@
     		  </menu>
     		  <menu id="Euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
     		    <menupopup>
-    		      <menu id="Euskalbar-Euskalterm-en_eu-context" label="Euskalterm">
+    		      <!--menu id="Euskalbar-Euskalterm-en_eu-context" label="Euskalterm">
                 <menupopup>
                   <menuitem id="Euskalbar-Euskalterm-Dena-en_eu-context" label="&euskalbar.euskalterm.dena.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('en', escape(euskalbar.dicts.selectionText()), '0');" />
                   <menuseparator/>
@@ -381,7 +386,8 @@
                   <menuitem id="Euskalbar-Euskalterm-Psikologia-en_eu-context" label="&euskalbar.euskalterm.psikologia.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('en', escape(euskalbar.dicts.selectionText()), 'T');" />
                   <menuitem id="Euskalbar-Euskalterm-Zuzenbidea-en_eu-context" label="&euskalbar.euskalterm.zuzenbidea.label;" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('en', escape(euskalbar.dicts.selectionText()), 'N');" />
                 </menupopup>
-              </menu>
+              </menu-->
+                      <menuitem id="Euskalbar-Euskalterm-en_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('en', escape(euskalbar.dicts.selectionText()), '0');" />
       		    <menuitem id="Euskalbar-Elhuyar-en_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('en', 'eu', escape(euskalbar.dicts.selectionText()));" />
       		    <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="euskalbar.dicts.goEuskalBarMorris('en', escape(euskalbar.dicts.selectionText()));" />
       		    <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="euskalbar.dicts.goEuskalBarOpentran(escape(euskalbar.dicts.selectionText()));" />
