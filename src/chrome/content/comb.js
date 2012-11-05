@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//"use strict";
+"use strict";
 
   euskalbar.comb = {
 
@@ -39,8 +39,8 @@
         idioma = 'EU';
       }
 
-      /* Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
-       * egin ditzala bilaketak */
+      // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
+       // egin ditzala bilaketak 
       if (term.charAt(term.length - 1) != "%") {
         term = term + "%";
       }
@@ -71,7 +71,7 @@
       });
     },
 
-
+/* USE STRICT KONPONDU
     // Elhuyarren markoa kargatu
     getShiftElhuyar: function (source, dest, term) {
       var urlElhuyar, elhuyarerroremezua, erroremezua, erroremezua2,
@@ -337,8 +337,9 @@
       txtElhuyar = txtElhuyar + "<hr size='1'>";
       return txtElhuyar;
     },
+*/
 
-
+/* KODE HAU EZ DABIL ONDO
     // ZT Hiztegiaren markoa kargatu
     getShiftZTHiztegia: function (source, term) {
       var erroremezua, erroremezua2,
@@ -456,7 +457,9 @@
         }
       }
     },
+*/
 
+/* ENERGIAREN HIZTEGIA DESAGERTU EGIN DA
     // Energia Hiztegiaren markoa kargatu
     getShiftEnergia: function (source, term) {
       var erroremezua, erroremezua2, hizkid
@@ -611,7 +614,9 @@
         euskalbarLib.cleanloadHTML(txtEnergia, euskalbarLib.$('aEnergia', gBrowser.contentDocument));
       }, tout);
     },
+*/
 
+/* USE STRICT KONPONDU
     // Telekomunikazio Hiztegiaren markoa kargatu
     getShiftTelekom: function (source, term) {
       var erroremezua, erroremezua2, inthizk, hizkid
@@ -781,6 +786,8 @@
       }, tout);
     },
 
+
+/* 3000 HIZTEGIA DESAGERTU EGIN DA
     // 3000 kargatu
     getShift3000: function (source, term) {
       var idioma,
@@ -928,8 +935,9 @@
         break;
       }
     },
+*/
 
-
+/* USE STRICT KONPONDU
     // Morris hiztegia kargatu
     getShiftMorris: function (source, term) {
       var txtMorris = "";
@@ -998,8 +1006,9 @@
         euskalbarLib.cleanloadHTML(txtMorris, euskalbarLib.$('aMorris', gBrowser.contentDocument));
       }
     },
+*/
 
-
+/* KONPONDU EGIN BEHAR DA
     // Labayru hiztegia kargatu
     getShiftLabayru: function (source, term) {
       var hizk,
@@ -1066,8 +1075,9 @@
         euskalbarLib.cleanloadHTML(txtLabayru, euskalbarLib.$('aLabayru', gBrowser.contentDocument));
       }
     },
+*/
 
-
+/* HAU EZ DABIL, DESAGERTU EGIN DA
     // Adorez sinonimoen hiztegia kargatu
     getShiftAdorez: function (source, term) {
       var txtSinonimoak = "";
@@ -1135,8 +1145,9 @@
         euskalbarLib.cleanloadHTML(txtSinonimoak, euskalbarLib.$('aAdorez', gBrowser.contentDocument));
       }
     },
+*/
 
-
+/* KONPONDU
     //UZEIren sinonimoen hiztegia kargatu
     getShiftUZEI: function (source, term) {
       var txtUZEI = "";
@@ -1187,7 +1198,7 @@
         euskalbarLib.cleanloadHTML(txtUZEI, euskalbarLib.$('aUzei', gBrowser.contentDocument));
       }
     },
-
+*/
 
     // Hiztegi Batua kargatu
     getShiftEuskaltzaindia: function (source, term) {
@@ -1310,7 +1321,7 @@
       return retEuskaltzaindia;
     },
 
-
+/* KONPONDU EGIN BEHAR DA
     // Mokoroa kargatu
     getShiftMokoroa: function (source, term) {
       var txtMokoroa = "";
@@ -1379,8 +1390,7 @@
         euskalbarLib.cleanloadHTML(txtMokoroa, euskalbarLib.$('aMokoroa', gBrowser.contentDocument));
       }
     },
-
-
+*/
     // Intza kargatu
     getShiftIntza: function (source, term) {
       var url, output = "";
@@ -1445,7 +1455,7 @@
 
     },
 
-
+/* USE STRICT KONPONDU
     // Danobat kargatu
     getShiftDanobat: function (source, term) {
       txtDanobat = "";
@@ -1507,6 +1517,7 @@
         euskalbarLib.cleanloadHTML(txtDanobat, euskalbarLib.$('aDanobat', gBrowser.contentDocument));
       }
     },
+*/
 
     normalizatu: function (katea) {
       var kateberria;
