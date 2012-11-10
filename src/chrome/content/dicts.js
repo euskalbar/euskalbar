@@ -279,6 +279,7 @@
       };
     },
 
+/*
     energiahiztegiatimeout: Boolean, //Fixme
     energiahiztegiatimeout2: Boolean, //Fixme
 
@@ -398,7 +399,7 @@
         }, 50);
       };
     },
-
+*/
 
     telekomhiztegiatimeout: Boolean,
     telekomhiztegiatimeout2: Boolean,
