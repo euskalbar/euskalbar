@@ -52,8 +52,6 @@ euskalbar.dicts.menu = [
   },
   { cat: 'euskalbar.menu.Synonyms',
     dicts: [
-      /*{ name: 'euskalbar.menu.synonyms.Adorez synonyms dictionary',
-        url: 'http://www1.euskadi.net/hizt_sinon/indice_e.htm' },*/
       { name: 'euskalbar.menu.synonyms.UZEI synonyms dictionary',
         url: 'http://www.uzei.com/estatico/sinonimos.asp' },
       { name: 'euskalbar.menu.synonyms.Eurovoc Thesaurus',
