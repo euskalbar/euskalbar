@@ -85,6 +85,11 @@ var euskalbarLib = {};
       s.data = this.serialize(s.data);
     }
 
+    // If data is available, append data to url for GET requests
+    if (s.data && s.type === "GET") {
+      s.url += (/\?/.test(s.url) ? "&" : "?") + s.data;
+    }
+
     // Create the request object
     var xhr = new XMLHttpRequest();
 
