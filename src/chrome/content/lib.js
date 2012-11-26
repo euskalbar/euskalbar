@@ -52,12 +52,18 @@ var euskalbarLib = {};
   this.ajax = function (options) {
     // Load the options object with defaults, if no
     // values were provided by the user
-    s = {
+    var s = {
       // The type of HTTP Request
       type: options.type || "GET",
 
       // The URL the request will be made to
       url: options.url || "",
+
+      // The Content-Type of the data we're sending
+      contentType: options.contentType || "application/x-www-form-urlencoded",
+
+      // Data passed to the request
+      data: options.data || "",
 
       // How long to wait before considering the request to be a timeout
       timeout: options.timeout ||
@@ -75,11 +81,21 @@ var euskalbarLib = {};
       dataType: options.dataType || ""
     };
 
+    if (s.data && typeof s.data !== 'string') {
+      s.data = this.serialize(s.data);
+    }
+
     // Create the request object
     var xhr = new XMLHttpRequest();
 
     // Open the asynchronous POST request
     xhr.open(s.type, s.url, true);
+
+    // Set the Content-Type header if data is being sent or it's
+    // explicitely overriden
+    if (s.data || options.contentType) {
+      xhr.setRequestHeader("Content-Type", s.contentType);
+    }
 
     // We're going to wait for a request for the amount of seconds
     // the user has in its preferences before giving up
@@ -121,7 +137,7 @@ var euskalbarLib = {};
     };
 
     // Establish the connection to the server
-    xhr.send();
+    xhr.send(s.type === 'POST' ? s.data : null);
 
     // Determine the success of the HTTP response
     function httpSuccess(r) {
@@ -192,6 +208,7 @@ var euskalbarLib = {};
     // Return the resulting serialization
     return s.join("&").replace(/%20/g, "+");
   };
+
 
   /*
    * Utils
