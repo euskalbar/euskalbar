@@ -29,9 +29,7 @@ euskalbar.dicts.menu = [
         url: 'http://www.euskaltzaindia.net/oeh' },
       { sep: true },
       { name: 'euskalbar.menu.general.Euskalterm Terminological Bank',
-        url: 'http://www1.euskadi.net/euskalterm/indice_e.htm' },
-      /*{ name: 'euskalbar.menu.general.3000 Hiztegia',
-        url: 'http://www1.euskadi.net/hizt_3000/indice_e.htm' },*/
+        url: 'http://www.euskara.euskadi.net/euskalterm' },
       { name: 'euskalbar.menu.general.Elhuyar Hiztegia',
         url: 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta' },
       { name: 'euskalbar.menu.general.Labayru Hiztegia',
