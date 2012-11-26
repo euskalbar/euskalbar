@@ -62,6 +62,9 @@ var euskalbarLib = {};
       // The Content-Type of the data we're sending
       contentType: options.contentType || "application/x-www-form-urlencoded",
 
+      // Custom MIME Type
+      mimeType: options.mimeType || "",
+
       // Data passed to the request
       data: options.data || "",
 
@@ -100,6 +103,11 @@ var euskalbarLib = {};
     // explicitely overriden
     if (s.data || options.contentType) {
       xhr.setRequestHeader("Content-Type", s.contentType);
+    }
+
+    // Override MIME Type if requested to do so
+    if (s.mimeType) {
+      xhr.overrideMimeType(s.mimeType);
     }
 
     // We're going to wait for a request for the amount of seconds
