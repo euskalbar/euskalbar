@@ -739,58 +739,40 @@
     },
 */
 
-/* KONPONDU
-    //UZEIren sinonimoen hiztegia kargatu
     getShiftUZEI: function (source, term) {
-      var txtUZEI = "";
-      var urlUZEI = 'http://www.uzei.com/estatico/sinonimos.asp?sarrera=' + escape(term) + '&eragiketa=bilatu';
-      var xmlHttpReq = new XMLHttpRequest();
+      var output = "",
+          reqURL = 'http://www.uzei.com/estatico/sinonimos.asp',
+          reqData = {sarrera: term, eragiketa: 'bilatu'};
 
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
-      if (!xmlHttpReq) {
-        txtUZEI = euskalbarLib._f("euskalbar.comb.error", ["UZEI"]);
-        return false;
-      }
-      xmlHttpReq.open('GET', urlUZEI, true);
-      xmlHttpReq.send(null);
+      euskalbarLib.ajax({
+        url: reqURL,
+        data: reqData,
+        mimeType: 'text/html; charset=ISO-8859-1',
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+        onSuccess: function (data) {
+          output = data;
+          var table = output.split("<TABLE");
+          output = table[2].substring(-1);
+          output = '<table' + output;
+          var table2 = output.split("</table");
+          output = table2[0].substring(-1);
+          output = output + '</table>';
+          output = output.replace(/sinonimos.asp/g, reqURL);
+          output = '<font face="bitstream vera sans, verdana, arial" size="3"><B>'
+            + term + '</B></font><font face="bitstream vera sans, verdana, arial">'
+            + output + '</font>';
+        },
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtUZEI = euskalbarLib._f("euskalbar.comb.error", ["UZEI"]);
-      }, tout);
+        onError: function () {
+          output = euskalbarLib._f("euskalbar.comb.error", ["UZEI"]);
+        },
 
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            //Timerra garbitu
-            clearTimeout(requestTimer);
-            euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oUzei', gBrowser.contentDocument));
-            if (xmlHttpReq.status == 200) {
-              txtUZEI = xmlHttpReq.responseText;
-              txtUZEItable1array = txtUZEI.split("<TABLE");
-              txtUZEI = txtUZEItable1array[2].substring(txtUZEItable1array[1].lenght - 1);
-              txtUZEI = '<table' + txtUZEI;
-              txtUZEItable2array = txtUZEI.split("</table");
-              txtUZEI = txtUZEItable2array[0].substring(txtUZEItable2array[1].lenght - 1);
-              txtUZEI = txtUZEI + '</table>';
-              txtUZEI = txtUZEI.replace(/sinonimos.asp/g, "http://www.uzei.com/estatico/sinonimos.asp");
-              txtUZEI = '<font face="bitstream vera sans, verdana, arial" size="3"><B>' + term + '</B></font><font face="bitstream vera sans, verdana, arial">' + txtUZEI + '</font>';
-            } else {
-              txtUZEI = euskalbarLib._f("euskalbar.comb.error", ["UZEI"]);
-            }
-          }
-        } catch (e) {
-          txtUZEI = euskalbarLib._f("euskalbar.comb.error", ["UZEI"]);
+        onComplete: function () {
+          var node = euskalbarLib.$('aUzei', gBrowser.contentDocument);
+          euskalbarLib.cleanLoadHTML(output, node);
         }
-        euskalbarLib.cleanLoadHTML(txtUZEI, euskalbarLib.$('aUzei', gBrowser.contentDocument));
-      }
+      });
     },
-*/
 
     // Hiztegi Batua kargatu
     getShiftEuskaltzaindia: function (source, term) {
