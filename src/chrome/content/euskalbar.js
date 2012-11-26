@@ -83,7 +83,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             infoURL = euskalbar.versionBaseURL +
               this.curVersion.replace(/\./g, '');
           }
-        } catch (ex) { /* Reinstall: do we need to do something in this situation? */
+        } catch (ex) {
+          /* Reinstall: do we need to do something in this situation? */
         }
       }
 
@@ -93,7 +94,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         }, 1000);
       }
 
-      //Disable preferences related to 3000 and Adorez dictionaries, as they don't work (remove when those dictionaries work again)
+      // Disable preferences related to 3000 and Adorez dictionaries, as they
+      // don't work (remove when those dictionaries work again)
       this.prefs.setBoolPref("3000.onkey", false);
       this.prefs.setBoolPref("3000.onkey1.es", false);
       this.prefs.setBoolPref("3000.onkey2.es", false);
