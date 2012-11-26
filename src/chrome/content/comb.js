@@ -47,7 +47,7 @@
         url: url,
 
         onSuccess: function (data) {
-          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.euskadi.net/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.euskadi.net/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
 
           data = data.substring(data.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), data.indexOf('<div class="clr"/>'));
           data = data.replace(/q91aBilaketaAction/g, "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction");
@@ -61,7 +61,7 @@
         },
 
         onComplete: function () {
-          euskalbarLib.cleanloadHTML(output, euskalbarLib.$('aEuskalterm', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aEuskalterm', gBrowser.contentDocument));
         }
       });
     },
@@ -171,12 +171,12 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oElhuyar', gBrowser.contentDocument));
+              euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oElhuyar', gBrowser.contentDocument));
               txtElhuyar = xmlHttpReq.responseText;
               // Hitza existitzen ez bada...
               if (txtElhuyar.indexOf(elhuyarerroremezua) != -1) {
                 txtElhuyar = erroremezua;
-                euskalbarLib.cleanloadHTML(txtElhuyar, euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
+                euskalbarLib.cleanLoadHTML(txtElhuyar, euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
               } else {
                 var txtElhuyar1 = txtElhuyar.split("div id=\"zerrenda\"")[1];
                 var arrayElhuyar = txtElhuyar1.split("a href=\"?");
@@ -195,13 +195,13 @@
                   }
                 }
                 if (badago == 0) {
-                  euskalbarLib.cleanloadHTML('<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + erroremezua2 + '</font></p><p></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
+                  euskalbarLib.cleanLoadHTML('<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + erroremezua2 + '</font></p><p></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
                   for (var i in arrayElhuyar) {
                     var estekakohitza = arrayElhuyar[i].split(">")[1];
                     estekakohitza = estekakohitza.split("<")[0];
                     var params = arrayElhuyar[i].split("\"")[0];
                     params = params.replace(/amp\;/g, "");
-                    euskalbarLib.cleanloadHTML('<p><a href="' + urlElhuyar + "?" + params.replace('txtHitza=' + encodeURI(term), 'txtHitza=' + estekakohitza) + '">' + estekakohitza + '</a></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
+                    euskalbarLib.cleanLoadHTML('<p><a href="' + urlElhuyar + "?" + params.replace('txtHitza=' + encodeURI(term), 'txtHitza=' + estekakohitza) + '">' + estekakohitza + '</a></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
                   }
                 }
               }
@@ -265,7 +265,7 @@
               //Elhuyarren katea manipulatzen duen funtzioari deitu
               txtElhuyar1 = euskalbar.comb.manipulateElhuyar(txtElhuyar);
               //Emaitza HTMLan kargatu
-              euskalbarLib.cleanloadHTML(txtElhuyar1, euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
+              euskalbarLib.cleanLoadHTML(txtElhuyar1, euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
               if (azpi == 1) {
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
                   var txtElhuyar2 = txtElhuyar.split(azpisarreraktestua)[1];
@@ -357,7 +357,7 @@
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
         txtZTHiztegia = euskalbarLib._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-        euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
         return false;
       }
       xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + euskalbar.comb.normalizatuetaminuskularatu(term) + '%25&lang=' + source, true);
@@ -371,7 +371,7 @@
       var requestTimer = setTimeout(function () {
         xmlHttpReq.abort();
         txtZTHiztegia = euskalbarLib._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-        euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
       }, tout);
       xmlHttpReq.onreadystatechange = function () {
         try {
@@ -382,7 +382,7 @@
               var erantzuna = xmlHttpReq.responseText;
               if (erantzuna == '[]') {
                 txtZTHiztegia = erroremezua;
-                euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+                euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
               } else {
                 ztzerrenda = JSON.parse(erantzuna);
                 if (ztzerrenda[0].sortKey == euskalbar.comb.normalizatuetaminuskularatu(term)) {
@@ -390,7 +390,7 @@
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
                     txtZTHiztegia = euskalbarLib._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-                    euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+                    euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
                     return false;
                   }
                   xmlHttpReq2.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=retrieveTerm&key=' + termida, true);
@@ -398,7 +398,7 @@
                   var requestTimer2 = setTimeout(function () {
                     xmlHttpReq2.abort();
                     txtZTHiztegia = euskalbarLib._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-                    euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+                    euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
                   }, tout);
                   xmlHttpReq2.onreadystatechange = function () {
                     try {
@@ -406,7 +406,7 @@
                         if (xmlHttpReq2.status == 200) {
                           //Timerra garbitu
                           clearTimeout(requestTimer2);
-                          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oZthiztegia', gBrowser.contentDocument));
+                          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oZthiztegia', gBrowser.contentDocument));
                           euskalbarLib.$('buruaZthiztegia', gBrowser.contentDocument).innerHTML = "ZT hiztegia";
                           erantzuna2 = xmlHttpReq2.responseText;
                           txtZTHiztegia = erantzuna2.substring(0, erantzuna2.search('<ul id="menu_3">'));
@@ -427,13 +427,13 @@
                               txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
                             }
                           };
-                          euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+                          euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
 
                         }
                       }
                     } catch (e) {
                       txtZTHiztegia = euskalbarLib._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-                      euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+                      euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
                     }
                   }
                 } else {
@@ -441,14 +441,14 @@
                   for (termind = 0; termind < ztzerrenda.length; termind++) {
                     txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
                   }
-                  euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+                  euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
                 }
               }
             }
           }
         } catch (e) {
           txtZTHiztegia = euskalbarLib._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-          euskalbarLib.cleanloadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
         }
       }
     },
@@ -492,7 +492,7 @@
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
         txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-        euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
         return false;
       }
       var urlTelekom = 'http://www.telekomunikaziohiztegia.org/bilatu.asp?';
@@ -513,7 +513,7 @@
               var erantzuna = xmlHttpReq.responseText;
               if (erantzuna.search(/\<select name\=\"selectTerm\"/i) == -1) {
                 txtTelekom = erroremezua;
-                euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+                euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
               } else {
                 zerrenda = erantzuna.substring(erantzuna.search(/\<select name\=\"selectTerm\"/i));
                 zerrenda = zerrenda.substring(zerrenda.search(/\<\/script\>/i) + 10);
@@ -528,7 +528,7 @@
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
                     txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-                    euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+                    euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
                     return false;
                   }
                   xmlHttpReq2.onreadystatechange = function () {
@@ -537,7 +537,7 @@
                         if (xmlHttpReq2.status == 200) {
                           //Timerra garbitu
                           clearTimeout(requestTimer2);
-                          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oTelekom', gBrowser.contentDocument));
+                          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oTelekom', gBrowser.contentDocument));
                           euskalbarLib.$('buruaTelekom', gBrowser.contentDocument).innerHTML = "Telekomunikazio hiztegia";
                           erantzuna2 = xmlHttpReq2.responseText;
                           txtTelekom = erantzuna2;
@@ -572,12 +572,12 @@
                               txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                             };
                           };
-                          euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+                          euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
                         }
                       }
                     } catch (e) {
                       txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-                      euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+                      euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
                     }
                   }
                   xmlHttpReq2.open('GET', 'http://www.telekomunikaziohiztegia.org/definizioa.asp?Kodea=' + definizioa + '&Hizkuntza=' + hizkid + '&hizk=' + inthizk, true);
@@ -586,7 +586,7 @@
                   var requestTimer2 = setTimeout(function () {
                     xmlHttpReq2.abort();
                     txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-                    euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+                    euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
                   }, tout);
                 } else {
                   txtTelekom = erroremezua2;
@@ -598,14 +598,14 @@
                     definizioa = definizioa.substring(0, definizioa.search("&"));
                     txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
                   };
-                  euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+                  euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
                 }
               }
             }
           }
         } catch (e) {
           txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-          euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
         }
       }
       xmlHttpReq.open('POST', urlTelekom, true);
@@ -621,7 +621,7 @@
       var requestTimer = setTimeout(function () {
         xmlHttpReq.abort();
         txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-        euskalbarLib.cleanloadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
       }, tout);
     },
 
@@ -739,7 +739,7 @@
           if (xmlHttpReq.readyState == 4) {
             // Timerra garbitu
             clearTimeout(requestTimer);
-            euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oLabayru', gBrowser.contentDocument));
+            euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oLabayru', gBrowser.contentDocument));
             if (xmlHttpReq.status == 200) {
               txtLabayru = xmlHttpReq.responseText;
               if (txtLabayru.match("No hay resultados") || txtLabayru.match("Ez dago holakorik")) {
@@ -761,7 +761,7 @@
         } catch (e) {
           txtLabayru = euskalbarLib._f("euskalbar.comb.error", ["Labayru"]);
         }
-        euskalbarLib.cleanloadHTML(txtLabayru, euskalbarLib.$('aLabayru', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtLabayru, euskalbarLib.$('aLabayru', gBrowser.contentDocument));
       }
     },
 */
@@ -796,7 +796,7 @@
           if (xmlHttpReq.readyState == 4) {
             //Timerra garbitu
             clearTimeout(requestTimer);
-            euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oUzei', gBrowser.contentDocument));
+            euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oUzei', gBrowser.contentDocument));
             if (xmlHttpReq.status == 200) {
               txtUZEI = xmlHttpReq.responseText;
               txtUZEItable1array = txtUZEI.split("<TABLE");
@@ -814,7 +814,7 @@
         } catch (e) {
           txtUZEI = euskalbarLib._f("euskalbar.comb.error", ["UZEI"]);
         }
-        euskalbarLib.cleanloadHTML(txtUZEI, euskalbarLib.$('aUzei', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtUZEI, euskalbarLib.$('aUzei', gBrowser.contentDocument));
       }
     },
 */
@@ -859,7 +859,7 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oBatua', gBrowser.contentDocument));
+              euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.euskaltzaindia.net/hiztegibatua\">Batua&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oBatua', gBrowser.contentDocument));
               txtEuskaltzaindia = xmlHttpReq.responseText;
               txtEuskaltzaindia = euskalbar.comb.manipulateEuskaltzaindia(txtEuskaltzaindia);
               txtEuskaltzaindia = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term + "<font></strong>" + txtEuskaltzaindia;
@@ -882,7 +882,7 @@
         } catch (e) {
           txtEuskaltzaindia = euskalbarLib._f("euskalbar.comb.error", ["Hiztegi Batua"]);
         }
-        euskalbarLib.cleanloadHTML(txtEuskaltzaindia, euskalbarLib.$('aBatua', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtEuskaltzaindia, euskalbarLib.$('aBatua', gBrowser.contentDocument));
       }
     },
 
@@ -920,7 +920,7 @@
               //Batuaren katea manipulatzen duen funtzioari deitu
               txtEuskaltzaindia = euskalbar.comb.manipulateEuskaltzaindia(txtEuskaltzaindia);
               //Emaitza HTMLan kargatu
-              euskalbarLib.cleanloadHTML("<hr>" + txtEuskaltzaindia, euskalbarLib.$('aBatua', gBrowser.contentDocument));
+              euskalbarLib.cleanLoadHTML("<hr>" + txtEuskaltzaindia, euskalbarLib.$('aBatua', gBrowser.contentDocument));
             }
           }
         } catch (e) {
@@ -987,7 +987,7 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oMokoroa', gBrowser.contentDocument));
+              euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oMokoroa', gBrowser.contentDocument));
               txtMokoroa = xmlHttpReq.responseText;
               if (txtMokoroa.indexOf("Emaitza gehiegi aurkitzen da") != -1) {
                 txtMokoroa = "Emaitza gehiegi aurkitzen da";
@@ -1006,7 +1006,7 @@
         } catch (e) {
           txtMokoroa = euskalbarLib._f("euskalbar.comb.error", ["Mokoroa"]);
         }
-        euskalbarLib.cleanloadHTML(txtMokoroa, euskalbarLib.$('aMokoroa', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtMokoroa, euskalbarLib.$('aMokoroa', gBrowser.contentDocument));
       }
     },
 */
@@ -1024,7 +1024,7 @@
         url: url,
 
         onSuccess: function (data) {
-          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oIntza', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://intza.armiarma.com/cgi-bin/bilatu2.pl\">Intza&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oIntza', gBrowser.contentDocument));
           output = data;
           var output2 = output.split("Bilaketaren emaitza")[2];
           output = "<strong><font face=\"bitstream vera sans, verdana, arial\" size=\"3\">" + term + "</font></strong>" + output2;
@@ -1033,12 +1033,12 @@
           output = output.replace(/\/cgi-bin/g, "http:\/\/intza.armiarma.com\/cgi-bin");
           output = output.replace(/\/intza\/kon/g, "http:\/\/intza.armiarma.com\/intza\/kon");
 
-          euskalbarLib.cleanloadHTML(output, euskalbarLib.$('aIntza', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aIntza', gBrowser.contentDocument));
         },
 
         onError: function () {
           output = euskalbarLib._f("euskalbar.comb.error", ["Intza"]);
-          euskalbarLib.cleanloadHTML(output, euskalbarLib.$('aIntza', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aIntza', gBrowser.contentDocument));
         }
       });
     },
@@ -1053,7 +1053,7 @@
         url: url,
 
         onSuccess: function (data) {
-          euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oOpentran', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://eu.open-tran.eu\">Open-tran&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oOpentran', gBrowser.contentDocument));
           var txtOpentran1 = data.split("<h1>")[1];
           var txtOpentran2 = data.split("<h1>")[2];
           data = "<h1>" + txtOpentran1 + "<h1>" + txtOpentran2;
@@ -1063,12 +1063,12 @@
           output = output.replace(/<a href=\"javascript\:\;\"  onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<b>");
           output = output.replace(/<a href=\"javascript\:\;\" class=\"fuzzy\" onclick=\"return visibility_switch\(\'sug([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\'\)\">/g, "<i>fuzzy</i> <b>");
           output = output.replace(/\)<\/a>/g, ")</b>");
-          euskalbarLib.cleanloadHTML(output, euskalbarLib.$('aOpentran', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aOpentran', gBrowser.contentDocument));
         },
 
         onError: function () {
           output = euskalbarLib._f("euskalbar.comb.error", ["Open-Tran"]);
-          euskalbarLib.cleanloadHTML(output, euskalbarLib.$('aOpentran', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aOpentran', gBrowser.contentDocument));
         }
       });
 
@@ -1123,7 +1123,7 @@
             if (xmlHttpReq.status == 200) {
               //Timerra garbitu
               clearTimeout(requestTimer);
-              euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://hiztegia.danobatgroup.com/eu/dictionary\">Danobat&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oDanobat', gBrowser.contentDocument));
+              euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://hiztegia.danobatgroup.com/eu/dictionary\">Danobat&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oDanobat', gBrowser.contentDocument));
               txtDanobat = xmlHttpReq.responseText;
               txtDanobat = txtDanobat.substring(txtDanobat.indexOf('<div id="searchresult">'), txtDanobat.indexOf('</article>'));
             } else {
@@ -1133,7 +1133,7 @@
         } catch (e) {
           txtDanobat = euskalbarLib._f("euskalbar.comb.error", ["Danobat"]);
         }
-        euskalbarLib.cleanloadHTML(txtDanobat, euskalbarLib.$('aDanobat', gBrowser.contentDocument));
+        euskalbarLib.cleanLoadHTML(txtDanobat, euskalbarLib.$('aDanobat', gBrowser.contentDocument));
       }
     },
 */

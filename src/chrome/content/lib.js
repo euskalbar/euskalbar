@@ -257,12 +257,12 @@ var euskalbarLib = {};
 
 
   /*
-   * Parse HMTL fragments
+   * Parse HTML fragments
    */
 
-  this.cleanloadHTML = function (htm, node) {
+  this.cleanLoadHTML = function (html, node) {
     var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
-                                .parseFragment(htm, false, null, node);
+                                .parseFragment(html, false, null, node);
     node.appendChild(fr);
   };
 
