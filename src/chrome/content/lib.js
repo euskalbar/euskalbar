@@ -72,7 +72,7 @@ var euskalbarLib = {};
       // The data type that'll be returned from the server
       // the default is simply to determine what data was returned from the
       // server and act accordingly.
-      data: options.data || ""
+      dataType: options.dataType || ""
     };
 
     // Create the request object
@@ -105,7 +105,7 @@ var euskalbarLib = {};
         if (httpSuccess(xhr)) {
 
           // Execute the success callback with the data returned from the server
-          options.onSuccess(httpData(xhr, options.type));
+          options.onSuccess(httpData(xhr, options.dataType));
 
           // Otherwise, an error occurred, so execute the error callback
         } else {
