@@ -35,7 +35,7 @@
           lang = langMap[euskalbar.source] || 'EU';
 
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
-       // egin ditzala bilaketak 
+      // egin ditzala bilaketak
       if (term.charAt(term.length - 1) != "%") {
         term = term + "%";
       }
