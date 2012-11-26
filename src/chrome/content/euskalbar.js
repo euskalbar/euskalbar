@@ -122,10 +122,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
       // Init bar's buttons
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
-      //this.toggleButtons("EuskalBar-Ask", "3000.visible");
       this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
       this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
-      //this.toggleButtons("EuskalBar-Energia", "energia.visible");
       this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
       this.toggleButtons("EuskalBar-Labayru", "labayru.visible");
       this.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
@@ -133,7 +131,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
       this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
       this.toggleButtons("EuskalBar-OEH", "oeh.visible");
-      //this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
       this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
       this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
       this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
@@ -184,18 +181,12 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       case "extensions.euskalbar.euskalterm.visible":
         this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
         break;
-      /*case "extensions.euskalbar.3000.visible":
-        this.toggleButtons("EuskalBar-Ask", "3000.visible");
-        break;*/
       case "extensions.euskalbar.elhuyar.visible":
         this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
         break;
       case "extensions.euskalbar.zthiztegia.visible":
         this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
         break;
-      /*case "extensions.euskalbar.energia.visible":
-        this.toggleButtons("EuskalBar-Energia", "energia.visible");
-        break;*/
       case "extensions.euskalbar.telekom.visible":
         this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
         break;
@@ -217,9 +208,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       case "extensions.euskalbar.oeh.visible":
         this.toggleButtons("EuskalBar-OEH", "oeh.visible");
         break;
-      /*case "extensions.euskalbar.adorez.visible":
-        this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
-        break;*/
       case "extensions.euskalbar.uzei.visible":
         this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
         break;
@@ -623,12 +611,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
               euskalbar.stats.writeStats(1);
             }
           } catch (err) {}
-          /*try {
-            if (this.prefs.getBoolPref("3000." + k + "." + l)) {
-              euskalbar.comb.getShift3000(this.source, searchStr);
-              euskalbar.stats.writeStats(2);
-            }
-          } catch (err) {}*/
           try {
             if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
               euskalbar.comb.getShiftLabayru(this.source, searchStr);
@@ -641,12 +623,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
               euskalbar.stats.writeStats(25);
             }
           } catch (err) {}
-          /*try {
-            if (this.prefs.getBoolPref("energia." + k + "." + l)) {
-              euskalbar.comb.getShiftEnergia(this.source, searchStr);
-              euskalbar.stats.writeStats(26);
-            }
-          } catch (err) {}*/
           try {
             if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
               euskalbar.comb.getShiftTelekom(this.source, searchStr);
@@ -665,12 +641,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
               euskalbar.stats.writeStats(6);
             }
           } catch (err) {}
-          /*try {
-            if (this.prefs.getBoolPref("adorez." + k + "." + l)) {
-              euskalbar.comb.getShiftAdorez(this.source, searchStr);
-              euskalbar.stats.writeStats(7);
-            }
-          } catch (err) {}*/
           try {
             if (this.prefs.getBoolPref("mokoroa." + k + "." + l)) {
               euskalbar.comb.getShiftMokoroa(this.source, searchStr);
@@ -712,18 +682,12 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             if (this.prefs.getBoolPref("euskalterm.onkey")) {
               euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
             }
-            /*if (this.prefs.getBoolPref("3000.onkey")) {
-              euskalbar.dicts.goEuskalBarAsk(this.source, searchStr);
-            }*/
             if (this.prefs.getBoolPref("elhuyar.onkey")) {
               euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
             }
             if (this.prefs.getBoolPref("zthiztegia.onkey")) {
               euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
             }
-            /*if (this.prefs.getBoolPref("energia.onkey")) {
-              euskalbar.dicts.goEuskalBarEnergia(this.source, searchStr);
-            }*/
             if (this.prefs.getBoolPref("telekom.onkey")) {
               euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
             }
@@ -750,9 +714,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             if (this.prefs.getBoolPref("zthiztegia.onkey")) {
               euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
             }
-            /*if (this.prefs.getBoolPref("energia.onkey")) {
-              euskalbar.dicts.goEuskalBarEnergia(this.source, searchStr);
-            }*/
             if (this.prefs.getBoolPref("telekom.onkey")) {
               euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
             }
@@ -770,9 +731,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             if (this.prefs.getBoolPref("zthiztegia.onkey")) {
               euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
             }
-            /*if (this.prefs.getBoolPref("energia.onkey")) {
-              euskalbar.dicts.goEuskalBarEnergia(this.source, searchStr);
-            }*/
             if (this.prefs.getBoolPref("telekom.onkey")) {
               euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
             }
@@ -799,9 +757,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
           if (this.prefs.getBoolPref("oeh.onkey")) {
             euskalbar.dicts.goEuskalBarOEH(searchStr);
           }
-          /*if (this.prefs.getBoolPref("adorez.onkey")) {
-            euskalbar.dicts.goEuskalBarAdorez(searchStr);
-          }*/
           if (this.prefs.getBoolPref("uzei.onkey")) {
             euskalbar.dicts.goEuskalBarUZEI(searchStr);
           }
@@ -891,13 +846,11 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       var euskalterm = euskalbarLib.$('EuskalBar-Search');
       var morris = euskalbarLib.$('EuskalBar-Morris');
       var opentran = euskalbarLib.$('EuskalBar-Opentran');
-      //var h3000 = euskalbarLib.$('EuskalBar-Ask');
       var labayru = euskalbarLib.$('EuskalBar-Labayru');
       var zehazki = euskalbarLib.$('EuskalBar-Zehazki');
       var elhuyar = euskalbarLib.$('EuskalBar-Elhuyar');
       var goihata = euskalbarLib.$('EuskalBar-Goihata');
       var zthiztegia = euskalbarLib.$('EuskalBar-ZTHiztegia');
-      /*var energia = euskalbarLib.$('EuskalBar-Energia');*/
       var telekom = euskalbarLib.$('EuskalBar-Telekom');
       var danobat = euskalbarLib.$('EuskalBar-Danobat');
 
@@ -909,10 +862,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        //h3000.setAttribute("hidden", false);
         labayru.setAttribute("hidden", false);
         zehazki.setAttribute("hidden", false);
-        //energia.setAttribute("hidden", false);
         telekom.setAttribute("hidden", false);
         danobat.setAttribute("hidden", false);
         break;
@@ -923,10 +874,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
-        //energia.setAttribute("hidden", false);
         telekom.setAttribute("hidden", false);
         danobat.setAttribute("hidden", true);
         break;
@@ -937,10 +886,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", false);
         opentran.setAttribute("hidden", false);
-        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
-        //energia.setAttribute("hidden", false);
         telekom.setAttribute("hidden", false);
         danobat.setAttribute("hidden", true);
         break;
@@ -951,10 +898,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
-        //energia.setAttribute("hidden", true);
         telekom.setAttribute("hidden", true);
         danobat.setAttribute("hidden", true);
         break;
@@ -965,10 +910,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         zthiztegia.setAttribute("hidden", true);
         morris.setAttribute("hidden", true);
         opentran.setAttribute("hidden", true);
-        //h3000.setAttribute("hidden", true);
         labayru.setAttribute("hidden", true);
         zehazki.setAttribute("hidden", true);
-        //energia.setAttribute("hidden", true);
         telekom.setAttribute("hidden", true);
         danobat.setAttribute("hidden", true);
         break;
@@ -979,4 +922,3 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
   window.addEventListener("load", function(e) { euskalbar.init(); }, false);
   window.addEventListener("unload", function(e) { euskalbar.shutdown(); }, false);
-
