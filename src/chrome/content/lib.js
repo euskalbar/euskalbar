@@ -167,6 +167,18 @@ var euskalbarLib = {};
 
 
   /*
+   * Utils
+   */
+  this.isFunction = function (obj) {
+    return toString.call(obj) === "[object Function]";
+  };
+
+  this.isArray = function (obj) {
+    return toString.call(obj) === "[object Array]";
+  };
+
+
+  /*
    * DOM manipulation
    */
 
