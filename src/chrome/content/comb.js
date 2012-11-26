@@ -24,20 +24,15 @@
 
     // Euskalterm kargatu
     getShiftEuskalterm: function (source, term) {
-      var idioma;
-
       term = term.trim();
       term = euskalbar.comb.normalizatuetaminuskularatu(term);
 
-      if (euskalbar.source == 'es') {
-        idioma = 'ES';
-      } else if (euskalbar.source == 'en') {
-        idioma = 'EN';
-      } else if (euskalbar.source == 'fr') {
-        idioma = 'FR';
-      } else {
-        idioma = 'EU';
-      }
+      var langMap = {
+            'es': 'ES',
+            'en': 'EN',
+            'fr': 'FR',
+          },
+          lang = langMap[euskalbar.source] || 'EU';
 
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
        // egin ditzala bilaketak 
@@ -46,7 +41,7 @@
       }
 
       var output = '',
-          url = 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do?ekintza=HASI&ekin=HASI&datuakaBilaketarako%28galderakoHizkuntza%29='+idioma+'&datuakaBilaketarako%28galdera%29='+term+'&zerrenda=&hizkuntza=eu';
+          url = 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do?ekintza=HASI&ekin=HASI&datuakaBilaketarako%28galderakoHizkuntza%29=' + lang + '&datuakaBilaketarako%28galdera%29='+term+'&zerrenda=&hizkuntza=eu';
 
       euskalbarLib.ajax({
         url: url,
