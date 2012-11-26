@@ -52,7 +52,7 @@ var euskalbarLib = {};
   this.ajax = function (options) {
     // Load the options object with defaults, if no
     // values were provided by the user
-    options = {
+    s = {
       // The type of HTTP Request
       type: options.type || "GET",
 
@@ -79,7 +79,7 @@ var euskalbarLib = {};
     var xhr = new XMLHttpRequest();
 
     // Open the asynchronous POST request
-    xhr.open(options.type, options.url, true);
+    xhr.open(s.type, s.url, true);
 
     // We're going to wait for a request for the amount of seconds
     // the user has in its preferences before giving up
@@ -105,15 +105,15 @@ var euskalbarLib = {};
         if (httpSuccess(xhr)) {
 
           // Execute the success callback with the data returned from the server
-          options.onSuccess(httpData(xhr, options.dataType));
+          s.onSuccess(httpData(xhr, s.dataType));
 
           // Otherwise, an error occurred, so execute the error callback
         } else {
-          options.onError();
+          s.onError();
         }
 
         // Call the completion callback
-        options.onComplete();
+        s.onComplete();
 
         // Clean up after ourselves, to avoid memory leaks
         xhr = null;
