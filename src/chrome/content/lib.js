@@ -165,6 +165,33 @@ var euskalbarLib = {};
 
   };
 
+  // Serialize an array of form elements or a set of
+  // key/values into a query string
+  this.serialize = function (a) {
+    var s = [];
+
+    function add(key, value) {
+      // If value is a function, invoke it and return its value
+      value = euskalbarLib.isFunction(value) ? value() : value;
+      s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value);
+    }
+
+    // If an array was passed in, assume that it is an array of form elements.
+    if (this.isArray(a)) {
+      // Serialize the form elements
+      for (var i=0; i<a.length; i++) {
+        add(a[i].name, a[i].value);
+      }
+    } else {
+      // Assume it's an object of key/value pairs
+      for (var j in a) {
+        add(j, a[j]);
+      }
+    }
+
+    // Return the resulting serialization
+    return s.join("&").replace(/%20/g, "+");
+  };
 
   /*
    * Utils
