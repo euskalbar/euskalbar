@@ -621,78 +621,54 @@
         euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
       }, tout);
     },
+    */
 
 
-/* USE STRICT KONPONDU
     // Morris hiztegia kargatu
     getShiftMorris: function (source, term) {
-      var txtMorris = "";
+      var output = "",
+          reqData = {},
+          url = 'http://www1.euskadi.net/morris/resultado.asp',
+          langMap = {'en': 'txtIngles'},
+          lang = langMap[source] || 'txtEuskera';
 
-      if (source == 'en') {
-        hizk = 'txtIngles';
-      } else {
-        hizk = 'txtEuskera';
-      }
-      // POST bidez pasatzeko parametroak
-      var parametroak = hizk + '=' + escape(term);
-      var urlMorris = 'http://www1.euskadi.net/morris/resultado.asp';
-      var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
-      if (!xmlHttpReq) {
-        txtMorris = euskalbarLib._f("euskalbar.comb.error", ["Morris"]);
-        return false;
-      }
-      xmlHttpReq.open('POST', urlMorris, true);
-      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun
-      xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
-      xmlHttpReq.send(parametroak);
+      reqData[lang] = term;
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+      euskalbarLib.ajax({
+        url: url,
+        type: 'POST',
+        data: reqData,
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtMorris = euskalbarLib._f("euskalbar.comb.error", ["Morris"]);
-      }, tout);
-
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          div = euskalbarLib.$('aMorris', gBrowser.contentDocument);
-          if (xmlHttpReq.readyState == 4) {
-            // Timerra garbitu
-            clearTimeout(requestTimer);
-            euskalbarLib.cleanloadHTML("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris/indice_e.htm\">Morris&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oMorris', gBrowser.contentDocument));
-            if (xmlHttpReq.status == 200) {
-              txtMorris = xmlHttpReq.responseText;
-              if (txtMorris.match("Barkatu, baina sarrera hau ez dago hiztegian")) {
-                txtMorris = "Ez da aurkitu " + term + " hitza.";
-              } else {
-                var txtMorrisTable1 = txtMorris.split("<hr>");
-                txtMorris = txtMorrisTable1[1].slice(0, txtMorrisTable1[1].lastIndexOf("<table"));
-                txtMorris = txtMorris.split("<td class=\"titularMaior\"")[0];
-                txtMorris = txtMorris.replace(/images/g, "http://www1.euskadi.net/morris/images");
-                txtMorris = txtMorris.replace(/datuak/g, "http://www1.euskadi.net/morris/datuak");
-                txtMorris = txtMorris.replace(/font-size: 8pt/g, "font-size: 10pt");
-                txtMorris = txtMorris.replace(/font-size:11ptl/g, "font-size: 12pt<br>");
-                txtMorris = txtMorris.replace(/color:green/g, "color: #000000");
-                txtMorris = txtMorris.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
-                txtMorris = txtMorris.replace(/width="550"/g, "");
-                txtMorris = txtMorris.replace(/width="150"/g, "");
-              }
-            } else {
-              txtMorris = euskalbarLib._f("euskalbar.comb.error", ["Morris"]);
-            }
+        onSuccess: function (data) {
+          output = data;
+          if (output.match("Barkatu, baina sarrera hau ez dago hiztegian")) {
+            // FIXME: L10n
+            output = "Ez da aurkitu " + term + " hitza.";
+          } else {
+            var table = output.split("<hr>");
+            output = table[1].slice(0, table[1].lastIndexOf("<table"));
+            output = output.split("<td class=\"titularMaior\"")[0];
+            output = output.replace(/images/g, "http://www1.euskadi.net/morris/images");
+            output = output.replace(/datuak/g, "http://www1.euskadi.net/morris/datuak");
+            output = output.replace(/font-size: 8pt/g, "font-size: 10pt");
+            output = output.replace(/font-size:11ptl/g, "font-size: 12pt<br>");
+            output = output.replace(/color:green/g, "color: #000000");
+            output = output.replace(/Arial, Helvetica, sans-serif/g, "bitstream vera sans, verdana, arial");
+            output = output.replace(/width="550"/g, "");
+            output = output.replace(/width="150"/g, "");
           }
-        } catch (e) {
-          txtMorris = euskalbarLib._f("euskalbar.comb.error", ["Morris"]);
+        },
+
+        onError: function () {
+          output = euskalbarLib._f("euskalbar.comb.error", ["Morris"]);
+        },
+
+        onComplete: function () {
+          var node = euskalbarLib.$('aMorris', gBrowser.contentDocument);
+          euskalbarLib.cleanLoadHTML(output, node);
         }
-        euskalbarLib.cleanloadHTML(txtMorris, euskalbarLib.$('aMorris', gBrowser.contentDocument));
-      }
+      });
     },
-*/
 
 /* KONPONDU EGIN BEHAR DA
     // Labayru hiztegia kargatu
