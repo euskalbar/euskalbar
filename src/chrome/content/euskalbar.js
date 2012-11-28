@@ -330,10 +330,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
     // Laguntza erakusten du
     openHelp: function () {
-      var acceptedLocales = ['eu', 'en', 'es', 'fr', 'ja'];
       var locale = euskalbarLib.langCode(euskalbar.ui.locale);
 
-      if (acceptedLocales.indexOf(locale) == -1) {
+      if (euskalbar.ui.acceptedLocales.indexOf(locale) == -1) {
         var locale = 'en';
       }
 

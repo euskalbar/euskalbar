@@ -28,6 +28,8 @@
       this.initDictsMenu();
     },
 
+    acceptedLocales: ['eu', 'en', 'es', 'fr', 'ja'],
+
     get locale() {
       try {
         var locale = Services.prefs.getComplexValue("general.useragent.locale",
