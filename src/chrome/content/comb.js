@@ -25,7 +25,7 @@
     // Euskalterm kargatu
     getShiftEuskalterm: function (source, term) {
       term = term.trim();
-      term = euskalbar.comb.normalizatuetaminuskularatu(term);
+      term = euskalbar.comb.normalize(term);
 
       var langMap = {
             'es': 'ES',
@@ -357,7 +357,7 @@
         euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
         return false;
       }
-      xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + euskalbar.comb.normalizatuetaminuskularatu(term) + '%25&lang=' + source, true);
+      xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + euskalbar.comb.normalize(term) + '%25&lang=' + source, true);
       xmlHttpReq.send(null);
 
       //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
@@ -382,7 +382,7 @@
                 euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
               } else {
                 ztzerrenda = JSON.parse(erantzuna);
-                if (ztzerrenda[0].sortKey == euskalbar.comb.normalizatuetaminuskularatu(term)) {
+                if (ztzerrenda[0].sortKey == euskalbar.comb.normalize(term)) {
                   termida = ztzerrenda[0].termId;
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
@@ -493,7 +493,7 @@
         return false;
       }
       var urlTelekom = 'http://www.telekomunikaziohiztegia.org/bilatu.asp?';
-      var params = 'hizk=' + inthizk + '&txtHitza=' + euskalbar.comb.normalizatu(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectAlorra=0';
+      var params = 'hizk=' + inthizk + '&txtHitza=' + euskalbar.comb.normalize(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectAlorra=0';
 
       var xmlHttpReq = new XMLHttpRequest();
       if (!xmlHttpReq) {
@@ -521,7 +521,7 @@
                 hitza = definizioa.substring(definizioa.search('>') + 20);
                 hitza = hitza.substring(0, hitza.length - 18);
                 definizioa = definizioa.substring(0, definizioa.search("&"));
-                if (euskalbar.comb.normalizatuetaminuskularatu(hitza) == euskalbar.comb.normalizatuetaminuskularatu(term)) {
+                if (euskalbar.comb.normalize(hitza) == euskalbar.comb.normalize(term)) {
                   var xmlHttpReq2 = new XMLHttpRequest();
                   if (!xmlHttpReq2) {
                     txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
@@ -1093,56 +1093,51 @@
     },
 */
 
-    normalizatu: function (katea) {
-      var kateberria;
-      kateberria = katea.replace(/á/, "a");
-      kateberria = kateberria.replace(/à/, "a");
-      kateberria = kateberria.replace(/ä/, "a");
-      kateberria = kateberria.replace(/â/, "a");
-      kateberria = kateberria.replace(/é/, "e");
-      kateberria = kateberria.replace(/è/, "e");
-      kateberria = kateberria.replace(/ë/, "e");
-      kateberria = kateberria.replace(/ê/, "e");
-      kateberria = kateberria.replace(/í/, "i");
-      kateberria = kateberria.replace(/ì/, "i");
-      kateberria = kateberria.replace(/ï/, "i");
-      kateberria = kateberria.replace(/î/, "i");
-      kateberria = kateberria.replace(/ó/, "o");
-      kateberria = kateberria.replace(/ò/, "o");
-      kateberria = kateberria.replace(/ö/, "o");
-      kateberria = kateberria.replace(/ô/, "o");
-      kateberria = kateberria.replace(/ú/, "u");
-      kateberria = kateberria.replace(/ù/, "u");
-      kateberria = kateberria.replace(/ü/, "u");
-      kateberria = kateberria.replace(/û/, "u");
-      kateberria = kateberria.replace(/Á/, "A");
-      kateberria = kateberria.replace(/À/, "A");
-      kateberria = kateberria.replace(/Ä/, "A");
-      kateberria = kateberria.replace(/Â/, "A");
-      kateberria = kateberria.replace(/É/, "E");
-      kateberria = kateberria.replace(/È/, "E");
-      kateberria = kateberria.replace(/Ë/, "E");
-      kateberria = kateberria.replace(/Ê/, "E");
-      kateberria = kateberria.replace(/Í/, "I");
-      kateberria = kateberria.replace(/Ì/, "I");
-      kateberria = kateberria.replace(/Ï/, "I");
-      kateberria = kateberria.replace(/Î/, "I");
-      kateberria = kateberria.replace(/Ó/, "O");
-      kateberria = kateberria.replace(/Ò/, "O");
-      kateberria = kateberria.replace(/Ö/, "O");
-      kateberria = kateberria.replace(/Ô/, "O");
-      kateberria = kateberria.replace(/Ú/, "U");
-      kateberria = kateberria.replace(/Ù/, "U");
-      kateberria = kateberria.replace(/Ü/, "U");
-      kateberria = kateberria.replace(/Û/, "U");
-      return kateberria;
-    },
+    normalize: function (str) {
+      var newStr = str.toLowerCase();
 
-    normalizatuetaminuskularatu: function (katea) {
-      var kateberria;
-      kateberria = katea.toLowerCase();
-      kateberria = euskalbar.comb.normalizatu(kateberria);
-      return kateberria;
+      newStr = newStr.replace(/á/, "a");
+      newStr = newStr.replace(/à/, "a");
+      newStr = newStr.replace(/ä/, "a");
+      newStr = newStr.replace(/â/, "a");
+      newStr = newStr.replace(/é/, "e");
+      newStr = newStr.replace(/è/, "e");
+      newStr = newStr.replace(/ë/, "e");
+      newStr = newStr.replace(/ê/, "e");
+      newStr = newStr.replace(/í/, "i");
+      newStr = newStr.replace(/ì/, "i");
+      newStr = newStr.replace(/ï/, "i");
+      newStr = newStr.replace(/î/, "i");
+      newStr = newStr.replace(/ó/, "o");
+      newStr = newStr.replace(/ò/, "o");
+      newStr = newStr.replace(/ö/, "o");
+      newStr = newStr.replace(/ô/, "o");
+      newStr = newStr.replace(/ú/, "u");
+      newStr = newStr.replace(/ù/, "u");
+      newStr = newStr.replace(/ü/, "u");
+      newStr = newStr.replace(/û/, "u");
+      newStr = newStr.replace(/Á/, "A");
+      newStr = newStr.replace(/À/, "A");
+      newStr = newStr.replace(/Ä/, "A");
+      newStr = newStr.replace(/Â/, "A");
+      newStr = newStr.replace(/É/, "E");
+      newStr = newStr.replace(/È/, "E");
+      newStr = newStr.replace(/Ë/, "E");
+      newStr = newStr.replace(/Ê/, "E");
+      newStr = newStr.replace(/Í/, "I");
+      newStr = newStr.replace(/Ì/, "I");
+      newStr = newStr.replace(/Ï/, "I");
+      newStr = newStr.replace(/Î/, "I");
+      newStr = newStr.replace(/Ó/, "O");
+      newStr = newStr.replace(/Ò/, "O");
+      newStr = newStr.replace(/Ö/, "O");
+      newStr = newStr.replace(/Ô/, "O");
+      newStr = newStr.replace(/Ú/, "U");
+      newStr = newStr.replace(/Ù/, "U");
+      newStr = newStr.replace(/Ü/, "U");
+      newStr = newStr.replace(/Û/, "U");
+
+      return newStr;
     },
 
   };
