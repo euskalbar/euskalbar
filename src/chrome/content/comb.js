@@ -63,273 +63,242 @@
       });
     },
 
-/* USE STRICT KONPONDU
-    // Elhuyarren markoa kargatu
-    getShiftElhuyar: function (source, dest, term) {
-      var urlElhuyar, elhuyarerroremezua, erroremezua, erroremezua2,
-          azpisarreraktestua,
-          txtElhuyar = "",
-          lang = euskalbarLib._("hizk");
 
-      if (lang.match('euskara')) {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-        elhuyarerroremezua = 'Ez dago horrelako sarrerarik';
-        erroremezua = 'Ez da aurkitu ' + term + ' hitza.';
-        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
-        azpisarreraktestua = 'Azpisarrerak';
-      } else if (lang.match('english')) {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-        elhuyarerroremezua = 'No match found';
-        erroremezua = 'Word ' + term + ' not found.';
-        erroremezua2 = 'Word not found, choose from list';
-        azpisarreraktestua = 'Azpisarrerak';
-      } else if (lang.match('français')) {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-        elhuyarerroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        erroremezua = 'Pas de résultats pour le mot ' + term + '.';
-        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
-        azpisarreraktestua = 'Azpisarrerak';
+    getShiftElhuyar: function (source, target, term) {
+      var reqURL, errorMsg, errorMsgTerm, errorMsgList,
+          subEntryText, chkHizkuntza, newTarget,
+          reqData = {},
+          reqURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/',
+          output = "";
+
+      // FIXME: implement a better way to naively match locale codes
+      if (/eu(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        reqURL += 'EU/Hiztegi-kontsulta';
+        errorMsg = 'Ez dago horrelako sarrerarik';
+        errorMsgTerm = 'Ez da aurkitu ' + term + ' hitza.';
+        errorMsgList = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
+        subEntryText = 'Azpisarrerak';
+      } else if (/en(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        reqURL += 'EN/Dictionary-search';
+        errorMsg = 'No match found';
+        errorMsgTerm = 'Word ' + term + ' not found.';
+        errorMsgList = 'Word not found, choose from list';
+        subEntryText = 'Azpisarrerak';
+      } else if (/fr(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        reqURL += 'FR/Dictionnaire-recherche';
+        errorMsg = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
+        errorMsgTerm = 'Pas de résultats pour le mot ' + term + '.';
+        errorMsgList = 'Pas de résultats, choisir un mot de la liste';
+        subEntryText = 'Azpisarrerak';
       } else {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-        elhuyarerroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        erroremezua = 'No se ha encontrado la palabra ' + term + '.';
-        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
-        azpisarreraktestua = 'Azpisarrerak';
+        reqURL += 'ES/Consulta-de-diccionarios';
+        errorMsg = 'No se han encontrado resultados para la b&uacute;squeda';
+        errorMsgTerm = 'No se ha encontrado la palabra ' + term + '.';
+        errorMsgList = 'No se ha encontrado la palabra, seleccione de la lista';
+        subEntryText = 'Azpisarrerak';
       }
 
-      //Azentu markak, eñeak eta dieresiak aldatu
-      var jatorrizkoa = term;
-      term = encodeURI(term); //honekin eñeak eta dieresiak konpontzen dira
-
-      var source2;
-
-      switch (source) {
-      case 'es':
-        source2 = 'gazt';
-        break;
-      case 'fr':
-        source2 = 'fran';
-        break;
-      case 'en':
-        source2 = 'ing';
-        break;
-      case 'eu':
-        source2 = 'eusk';
-        break;
+      var sourceMap = {
+        es: 'gazt',
+        fr: 'fran',
+        en: 'ing',
+        eu: 'eusk',
       }
 
-      var chkHizkuntza, dest2;
-
-      switch (dest) {
+      switch (target) {
       case 'es':
         chkHizkuntza = 'chkHizkuntzaG';
-        dest2 = 'gazt';
+        newTarget = 'gazt';
         break;
       case 'fr':
         chkHizkuntza = 'chkHizkuntzaF';
-        dest2 = 'fran';
+        newTarget = 'fran';
         break;
       case 'en':
         chkHizkuntza = 'chkHizkuntzaI';
-        dest2 = 'ing';
+        newTarget = 'ing';
         break;
       case 'eu':
         chkHizkuntza = '';
-        dest2 = '';
+        newTarget = '';
         break;
       }
 
-      var params = 'txtHitza=' + term + '&nondik=' + source2 + '&edozer=ehunekoa&bot_kon=%3E';
+      reqData = {
+        txtHitza: term,
+        nondik: sourceMap[source],
+        edozer: 'ehunekoa',
+        bot_kon: '>'
+      }
+
       if (chkHizkuntza != '') {
-        params = params + '&' + chkHizkuntza + '=' + dest2;
+        reqData[chkHizkuntza] = newTarget;
       }
 
-      var xmlHttpReq = new XMLHttpRequest();
-      if (!xmlHttpReq) {
-        txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
-        return false;
-      }
-      xmlHttpReq.open('POST', urlElhuyar, true);
-      xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=iso-8859-1");
-      xmlHttpReq.send(params);
+      // TODO: Review if iso-8859-1 is necessary
+      euskalbarLib.ajax({
+        url: reqURL,
+        data: reqData,
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+        onSuccess: function (data) {
+          output = data;
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
-      }, tout);
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oElhuyar', gBrowser.contentDocument));
-              txtElhuyar = xmlHttpReq.responseText;
-              // Hitza existitzen ez bada...
-              if (txtElhuyar.indexOf(elhuyarerroremezua) != -1) {
-                txtElhuyar = erroremezua;
-                euskalbarLib.cleanLoadHTML(txtElhuyar, euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
-              } else {
-                var txtElhuyar1 = txtElhuyar.split("div id=\"zerrenda\"")[1];
-                var arrayElhuyar = txtElhuyar1.split("a href=\"?");
-                arrayElhuyar.shift();
-                var badago = 0;
-                for (var i in arrayElhuyar) {
-                  var estekakohitza = arrayElhuyar[i].split(">")[1];
-                  estekakohitza = estekakohitza.split("<")[0];
-                  var estekakohitza2 = euskalbar.comb.normalizatuetaminuskularatu(estekakohitza);
-                  var jatorrizkoa2 = euskalbar.comb.normalizatuetaminuskularatu(jatorrizkoa);
-                  var params = arrayElhuyar[i].split("\"")[0];
-                  params = params.replace(/amp\;/g, "");
-                  if (estekakohitza2 == jatorrizkoa2 || estekakohitza2 == '1 ' + jatorrizkoa2 || estekakohitza2 == '2 ' + jatorrizkoa2 || estekakohitza2 == '3 ' + jatorrizkoa2 || estekakohitza2 == '4 ' + jatorrizkoa2 || estekakohitza2 == '5 ' + jatorrizkoa2 || estekakohitza2 == '6 ' + jatorrizkoa2 || estekakohitza2 == '7 ' + jatorrizkoa2 || estekakohitza2 == '8 ' + jatorrizkoa2 || estekakohitza2 == '9 ' + jatorrizkoa2 || estekakohitza2 == '10 ' + jatorrizkoa2) {
-                    badago = 1;
-                    euskalbar.comb.getsubShiftElhuyar(params, 1);
-                  }
-                }
-                if (badago == 0) {
-                  euskalbarLib.cleanLoadHTML('<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + erroremezua2 + '</font></p><p></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
-                  for (var i in arrayElhuyar) {
-                    var estekakohitza = arrayElhuyar[i].split(">")[1];
-                    estekakohitza = estekakohitza.split("<")[0];
-                    var params = arrayElhuyar[i].split("\"")[0];
-                    params = params.replace(/amp\;/g, "");
-                    euskalbarLib.cleanLoadHTML('<p><a href="' + urlElhuyar + "?" + params.replace('txtHitza=' + encodeURI(term), 'txtHitza=' + estekakohitza) + '">' + estekakohitza + '</a></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
-                  }
-                }
+          if (output.indexOf(errorMsg) != -1) {
+            output = errorMsgTerm;
+            var node = euskalbarLib.$('aElhuyar', gBrowser.contentDocument);
+            euskalbarLib.cleanLoadHTML(output, node);
+          } else {
+            var resultsList = output.split('div id="zerrenda"')[1],
+                resultsArray = resultsList.split('a href="?'),
+                hasResults = false;
+
+            resultsArray.shift();
+
+            for (var i in resultsArray) {
+              var linkWord = resultsArray[i].split(">")[1].split("<")[0],
+                  linkWordNorm = euskalbar.comb.normalize(linkWord),
+                  originalNorm = euskalbar.comb.normalize(term),
+                  params = resultsArray[i].split('"')[0].replace(/amp\;/g, "");
+
+              if (linkWordNorm === originalNorm ||
+                  linkWordNorm === '1 ' + originalNorm ||
+                  linkWordNorm === '2 ' + originalNorm ||
+                  linkWordNorm === '3 ' + originalNorm ||
+                  linkWordNorm === '4 ' + originalNorm ||
+                  linkWordNorm === '5 ' + originalNorm ||
+                  linkWordNorm === '6 ' + originalNorm ||
+                  linkWordNorm === '7 ' + originalNorm ||
+                  linkWordNorm === '8 ' + originalNorm ||
+                  linkWordNorm === '9 ' + originalNorm ||
+                  linkWordNorm === '10 ' + originalNorm) {
+                hasResults = true;
+                euskalbar.comb.getsubShiftElhuyar(reqURL, params, true);
               }
-            } else {
-              txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
             }
-          }
-        } catch (e) {
-          txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
-        }
-      };
-    },
 
-    // Elhuyarren sarrerak eta azpisarrerak kargatu
-    getsubShiftElhuyar: function (params, azpi) {
-      var urlElhuyar, azpisarreraktestua,
-          lang = euskalbarLib._("hizk");
+            if (!hasResults) {
+              euskalbarLib.cleanLoadHTML('<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + errorMsgList + '</font></p><p></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
 
-      if (lang.match('euskara')) {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-        azpisarreraktestua = 'Azpisarrerak';
-      } else if (lang.match('english')) {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-        azpisarreraktestua = 'Azpisarrerak';
-      } else if (lang.match('français')) {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-        azpisarreraktestua = 'Azpisarrerak';
-      } else {
-        urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-        azpisarreraktestua = 'Azpisarrerak';
-      }
+              for (var i in resultsArray) {
+                var linkWord = resultsArray[i].split(">")[1].split("<")[0],
+                    params = resultsArray[i].split('"')[0];
+                params = params.replace(/amp\;/g, "");
 
-      urlElhuyar = urlElhuyar + "?" + params;
-
-      var xmlHttpReq = new XMLHttpRequest();
-      if (!xmlHttpReq) {
-        txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
-        return false;
-      }
-      xmlHttpReq.open('GET', urlElhuyar, true);
-      xmlHttpReq.setRequestHeader('Content-Type', 'charset=ISO-8859-1');
-      xmlHttpReq.send(null);
-
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000;
-
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
-      }, tout);
-
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              txtElhuyar = xmlHttpReq.responseText;
-              //Elhuyarren katea manipulatzen duen funtzioari deitu
-              txtElhuyar1 = euskalbar.comb.manipulateElhuyar(txtElhuyar);
-              //Emaitza HTMLan kargatu
-              euskalbarLib.cleanLoadHTML(txtElhuyar1, euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
-              if (azpi == 1) {
-                if (euskalbar.prefs.getBoolPref("query.subqueries")) {
-                  var txtElhuyar2 = txtElhuyar.split(azpisarreraktestua)[1];
-                  var arrayElhuyar = txtElhuyar2.split("a href=\"?");
-                  arrayElhuyar.shift();
-                  for (var i in arrayElhuyar) {
-                    var params = arrayElhuyar[i].split("\"")[0];
-                    params = params.replace(/amp\;/g, "");
-                    if (params.indexOf("mota=azpisarrera") != -1) {
-                      euskalbar.comb.getsubShiftElhuyar(params, 0);
-                    }
-                  }
-                }
+                euskalbarLib.cleanLoadHTML('<p><a href="' + reqURL + "?" + params.replace('txtHitza=' + encodeURIComponent(term), 'txtHitza=' + linkWord) + '">' + linkWord + '</a></p>', euskalbarLib.$('aElhuyar', gBrowser.contentDocument));
               }
             }
           }
-        } catch (e) {
-          txtElhuyar = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
+        },
+
+        onError: function () {
+          output = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
+        },
+
+        onComplete: function () {
+          var node = euskalbarLib.$('Elhuyar', gBrowser.contentDocument);
+          euskalbarLib.cleanLoadHTML(output, node);
         }
+      });
+
+    },
+
+    getsubShiftElhuyar: function (reqURL, params, isSubQuery) {
+      var subEntryText,
+          output = "";
+
+      if (/eu(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        subEntryText = 'Azpisarrerak';
+      } else if (/en(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        subEntryText = 'Sub-headwords';
+      } else if (/fr(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        subEntryText = 'Sous-entrées';
+      } else {
+        subEntryText = 'Subentradas';
       }
+
+      // TODO: Review if iso-8859-1 is necessary
+      euskalbarLib.ajax({
+        url: reqURL,
+        data: params,
+
+        onSuccess: function (data) {
+          output = data;
+          // Elhuyarren katea manipulatzen duen funtzioari deitu
+          var txtBody = euskalbar.comb.manipulateElhuyar(output);
+
+          var node = euskalbarLib.$('aElhuyar', gBrowser.contentDocument);
+          euskalbarLib.cleanLoadHTML(txtBody, node);
+
+          // Only make subqueries if the function isn't being called
+          // recursively and subqueries are enabled
+          if (isSubQuery && euskalbar.prefs.getBoolPref("query.subqueries")) {
+            var txtElhuyar2 = output.split(subEntryText)[1];
+            var arrayElhuyar = txtElhuyar2.split('a href="?');
+            arrayElhuyar.shift();
+
+            for (var i in arrayElhuyar) {
+              var params = arrayElhuyar[i].split('"')[0];
+              params = params.replace(/amp\;/g, "");
+              if (params.indexOf("mota=azpisarrera") !== -1) {
+                euskalbar.comb.getsubShiftElhuyar(reqURL, params, false);
+              }
+            }
+          }
+        },
+
+        onError: function () {
+          output = euskalbarLib._f("euskalbar.comb.error", ["Elhuyar"]);
+        },
+
+        onComplete: function () {
+          var node = euskalbarLib.$('Elhuyar', gBrowser.contentDocument);
+          euskalbarLib.cleanLoadHTML(output, node);
+        }
+
+      });
     },
 
 
-    //Elhuyarren katea manipulatzen duen funtzioa
-    manipulateElhuyar: function (txtElhuyar) {
-      var urlElhuyar, txtsplit,
-          lang = euskalbarLib._("hizk");
+    manipulateElhuyar: function (txt) {
+      var txtSplit,
+          reqURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/';
 
-      if (lang.match('euskara')) {
-        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EU\/Hiztegi-kontsulta';
-        txtsplit = 'Emaitza:';
-      } else if (lang.match('english')) {
-        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/EN\/Dictionary-search';
-        txtsplit = 'Result:';
-      } else if (lang.match('français')) {
-        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/FR\/Dictionnaire-recherche';
-        txtsplit = 'R&eacute;sultat:';
+      // FIXME: implement a better way to naively match locale codes
+      if (/eu(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        reqURL += 'EU/Hiztegi-kontsulta';
+        txtSplit = 'Emaitza:';
+      } else if (/en(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        reqURL += 'EN/Dictionary-search';
+        txtSplit = 'Result:';
+      } else if (/fr(-[A-Z])?/.test(euskalbar.ui.locale)) {
+        reqURL += 'FR/Dictionnaire-recherche';
+        txtSplit = 'R&eacute;sultat:';
       } else {
-        urlElhuyar = 'http:\/\/www.elhuyar.org\/hizkuntza-zerbitzuak\/ES\/Consulta-de-diccionarios';
-        txtsplit = 'Resultado:';
+        reqURL += 'ES/Consulta-de-diccionarios';
+        txtSplit = 'Resultado:';
       }
-      var txtElhuyar1 = txtElhuyar.split(txtsplit)[1];
-      if (txtElhuyar1.indexOf("<!-- euskalbarLib._______  end") == -1) {
-        txtElhuyar = txtElhuyar1.split("<!-- end")[0];
+
+      var txtBody = txt.split(txtSplit)[1];
+
+      // Remove kxo! ad
+      txtBody = txtBody.split('<h2>')[1];
+
+      if (txtBody.indexOf("<!-- _______  end") === -1) {
+        txt = txtBody.split("<!-- end")[0];
       } else {
-        txtElhuyar = txtElhuyar1.split("<!-- euskalbarLib._______  end")[0];
+        txt = txtBody.split("<!-- _______  end")[0];
       }
-      txtElhuyar = txtElhuyar.replace(/<h2>/, "<font face=\"bitstream vera sans, verdana, arial\" size=\"3\"><B>");
-      txtElhuyar = txtElhuyar.replace(/<\/h2>/, "<\/B><\/font>");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">euskara gaztelania<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"es\">euskara gaztelania<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">euskara frantsesa<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"fr\">euskara frantsesa<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">euskara ingelesa<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"en\">euskara ingelesa<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"es\">castellano vasco<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">castellano vasco<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"fr\">français basque<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">français basque<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"en\">english basque<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<p class=\"hiz\"><strong lang=\"eu\">english basque<\/strong><\/p>/, "");
-      txtElhuyar = txtElhuyar.replace(/<a href=\"\?/g, "<a href=\"" + urlElhuyar + "\?");
-      txtElhuyar = txtElhuyar.replace(/amp\;/g, '');
-      txtElhuyar = txtElhuyar + "<hr size='1'>";
-      return txtElhuyar;
+
+      txt = txt.replace(/<h2>/, '<font face="bitstream vera sans, verdana, arial" size="3"><B>');
+      txt = txt.replace(/<\/h2>/, "<\/B><\/font>");
+      txt = txt.replace(/<p class="hiz"><strong lang="\w{2}">.*<\/strong><\/p>/, "");
+      txt = txt.replace(/<a href="\?/g, '<a href="' + reqURL + '\?');
+      txt = txt.replace(/amp\;/g, '');
+      txt = txt + "<hr size='1'>";
+
+      return txt;
     },
-*/
+
 
 /* KODE HAU EZ DABIL ONDO
     // ZT Hiztegiaren markoa kargatu
