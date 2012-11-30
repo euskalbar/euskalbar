@@ -279,128 +279,6 @@
       };
     },
 
-/*
-    energiahiztegiatimeout: Boolean, //Fixme
-    energiahiztegiatimeout2: Boolean, //Fixme
-
-    // Energia hiztegiko bilaketak
-    goEuskalBarEnergia: function (source, term) {
-      // Begiratu kutxa hutsik dagoen
-      if (euskalbar.alertEmptyBox(term)) {
-        return;
-      }
-      var hizkid;
-      if (source == 'eu') {
-        hizkid = 'E';
-      } else if (source == 'es') {
-        hizkid = 'G';
-      } else if (source == 'en') {
-        hizkid = 'I';
-      } else if (source == 'fr') {
-        hizkid = 'F';
-      };
-
-      var tabIndex = euskalbar.getTabIndexBySlug('energia');
-      if (tabIndex == -1) {
-        euskalbar.openURL('http://www.eve.es/energia/index.html', 'energia', 'GET', null);
-      };
-
-      var energiahiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'normal');
-      }, 50);
-      // Gelditzeko timerra sortu
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000;
-      var energiahiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(energiahiztegiatimeout);
-      }, tout);
-
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(26);
-    },
-
-    // Energia hiztegia irekitzeko konbinatutik
-    goEuskalBarEnergiaKlik: function (source, term) {
-      var zein = 'energia';
-      var newWindow = window.open('http://www.eve.es/energia/index.html', zein);
-      newWindow.focus();
-
-      if (source == 'eu') {
-        hizkid = 'E';
-      } else if (source == 'es') {
-        hizkid = 'G';
-      } else if (source == 'en') {
-        hizkid = 'I';
-      } else if (source == 'fr') {
-        hizkid = 'F';
-      };
-
-      var energiahiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, 'klik');
-      }, 50);
-      // Gelditzeko timerra sortu
-      var energiahiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(energiahiztegiatimeout);
-      }, 10000);
-
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(26);
-    },
-
-    // Energia hiztegia irekitzeko konbinatuko zerrendetatik
-    goEuskalBarEnergiaKlik2: function (termid, term) {
-      var zein = 'energia';
-      var newWindow = window.open('http://www.eve.es/energia/definizioa.asp?Kodea=' + termid, zein);
-      newWindow.focus();
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(26);
-    },
-
-    energiahiztegiakargatzeanbilatu: function (hizkid, term, nondik) {
-      var segi = 0;
-      var segi2 = 0;
-      var doc = null;
-
-      if (nondik == 'klik') {
-        doc = Application.activeWindow.activeTab.document;
-        segi2 = 1;
-      } else {
-        var tabIndex = euskalbar.getTabIndexBySlug('energia');
-        if (tabIndex != -1) {
-          doc = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
-          segi2 = 1;
-        };
-      };
-
-      if (segi2 == 1) {
-        if (doc.getElementsByTagName('frame').length > 0) {
-          if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByTagName('frame').length > 0) {
-            if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument != null) {
-              if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza').length > 0) {
-                if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument != null) {
-                  if (doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('azalpenFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('<br>') != -1) {
-                    segi = 1;
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-
-      if (segi == 1) {
-        doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value = term;
-        doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value = hizkid;
-        doc.getElementsByTagName('frame')[2].contentDocument.getElementsByName('bilaketaFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
-        clearTimeout(energiahiztegiatimeout2);
-      } else {
-        var energiahiztegiatimeout = setTimeout(function () {
-          euskalbar.dicts.energiahiztegiakargatzeanbilatu(hizkid, term, nondik);
-        }, 50);
-      };
-    },
-*/
-
     telekomhiztegiatimeout: Boolean,
     telekomhiztegiatimeout2: Boolean,
 
@@ -525,30 +403,6 @@
           euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, nondik);
         }, 50);
       };
-    },
-
-    // Bilaketak 3000 hiztegian
-    goEuskalBarAsk: function (source, term) {
-      // Begiratu kutxa hutsik dagoen
-      if (euskalbar.alertEmptyBox(term)) {
-        return;
-      }
-      var params = [];
-      if (source == 'es') {
-        source = 'CAS';
-        idioma = 'Castellano';
-      } else {
-        source = 'EUS';
-        idioma = 'Euskera';
-      }
-      var url = 'http://www1.euskadi.net/cgi-bin_m33/DicioIe.exe';
-      params.push(new euskalbar.QueryParameter('Diccionario', source));
-      params.push(new euskalbar.QueryParameter('Idioma', source))
-      params.push(new euskalbar.QueryParameter('Txt_' + idioma, escape(term)));
-      var zein = 'cgi-bin_m33';
-      euskalbar.openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(2);
     },
 
 
@@ -711,33 +565,6 @@
       euskalbar.openURL(url, zein, 'GET', params);
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(6);
-    },
-
-
-    // Adorez sinonimoen hiztegia
-    goEuskalBarAdorez: function (term) {
-      // Begiratu kutxa hutsik dagoen
-      if (euskalbar.alertEmptyBox(term)) {
-        return;
-      }
-
-      var params = [];
-      var lang = euskalbarLib._("hizk");
-
-      params.push(new euskalbar.QueryParameter('Palabra', 'Introducida'));
-      params.push(new euskalbar.QueryParameter('txtpalabra', escape(term)));
-
-      if (lang.match('euskara')) {
-        params.push(new euskalbar.QueryParameter('Idioma', 'EUS'));
-      } else {
-        params.push(new euskalbar.QueryParameter('Idioma', 'CAS'));
-      }
-
-      var url = 'http://www1.euskadi.net/cgi-bin_m32/sinonimoak.exe';
-      var zein = 'cgi-bin_m32';
-      euskalbar.openURL(url, zein, 'GET', params);
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(7);
     },
 
 

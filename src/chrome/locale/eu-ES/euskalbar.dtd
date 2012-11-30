@@ -10,9 +10,9 @@
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
 <!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki hiztegia">
-<!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologiaren Hiztegi Entziklopedikoa">
-<!ENTITY euskalbar.energia.tooltip "Energia Hiztegia">
-<!ENTITY euskalbar.telekom.tooltip "Telekomunikazio Hiztegia">
+<!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologiaren hiztegi entziklopedikoa">
+<!ENTITY euskalbar.energia.tooltip "Energia hiztegia">
+<!ENTITY euskalbar.telekom.tooltip "Telekomunikazio hiztegia">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">

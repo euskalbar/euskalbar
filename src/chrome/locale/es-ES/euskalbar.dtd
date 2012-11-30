@@ -105,8 +105,8 @@
 <!-- Context Menu -->
 <!ENTITY euskalbar.context.xuxenweb.label "Corregir con XUXENweb">
 <!ENTITY euskalbar.context.sinonimoak.label "Sinonimos">
-<!ENTITY euskalbar.context.mokoroa.es.label "En el texto en Castellano">
-<!ENTITY euskalbar.context.mokoroa.eu.label "En el texto en Euskera">
+<!ENTITY euskalbar.context.mokoroa.es.label "En el texto en castellano">
+<!ENTITY euskalbar.context.mokoroa.eu.label "En el texto en euskera">
 
 <!-- Menu -->
 <!ENTITY euskalbar.menu.main "Diccionarios">

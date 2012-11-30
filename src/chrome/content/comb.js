@@ -957,6 +957,7 @@
       }*/
     },
 
+
     // Intza kargatu
     getShiftIntza: function (source, term) {
       var url, output = "";

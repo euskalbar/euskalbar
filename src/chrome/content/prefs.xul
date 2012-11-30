@@ -75,7 +75,7 @@
       <preference id="prefZTHiztegiaShiftES" name="extensions.euskalbar.zthiztegia.onkey1.es" type="bool"/>
       <preference id="prefTelekomShiftES" name="extensions.euskalbar.telekom.onkey1.es" type="bool"/>
       <preference id="prefLabayruShiftES" name="extensions.euskalbar.labayru.onkey1.es" type="bool"/>
-      <preference id="prefGoihataShiftES" name="extensions.euskalbar.Goihata.onkey1.es" type="bool"/>
+      <preference id="prefGoihataShiftES" name="extensions.euskalbar.goihata.onkey1.es" type="bool"/>
       <preference id="prefBatuaShiftES" name="extensions.euskalbar.batua.onkey1.es" type="bool"/>
       <preference id="prefUZEIShiftES" name="extensions.euskalbar.uzei.onkey1.es" type="bool"/>
       <preference id="prefMokoroaShiftES" name="extensions.euskalbar.mokoroa.onkey1.es" type="bool"/>
