@@ -1,7 +1,7 @@
 ﻿// Developers:  Juanan Pereira, Asier Sarasua Garmendia 2006
 //              Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
 //              Chetan Thapliyal 2009
-// Modified by: Ion Errasti 2012
+// Modified by: Ion Errasti, Asier Sarasua 2012
 //
 // This is Free Software (GPL License)
 //
@@ -17,10 +17,8 @@ pref("extensions.euskalbar.firstrun", true);
 
 // Dictionaries visibility
 pref("extensions.euskalbar.euskalterm.visible", true);
-//pref("extensions.euskalbar.3000.visible", true);
 pref("extensions.euskalbar.elhuyar.visible", true);
 pref("extensions.euskalbar.zthiztegia.visible", true);
-//pref("extensions.euskalbar.energia.visible", true);
 pref("extensions.euskalbar.telekom.visible", true);
 pref("extensions.euskalbar.labayru.visible", true);
 pref("extensions.euskalbar.zehazki.visible", true);
@@ -28,7 +26,6 @@ pref("extensions.euskalbar.morris.visible", true);
 pref("extensions.euskalbar.opentran.visible", true);
 pref("extensions.euskalbar.batua.visible", true);
 pref("extensions.euskalbar.oeh.visible", true);
-//pref("extensions.euskalbar.adorez.visible", true);
 pref("extensions.euskalbar.uzei.visible", true);
 pref("extensions.euskalbar.itzul.visible", true);
 pref("extensions.euskalbar.harluxet.visible", true);
@@ -50,10 +47,8 @@ pref("extensions.euskalbar.danobat.visible", true);
 
 // Dictionaries searched on pressing "Enter" key
 pref("extensions.euskalbar.euskalterm.onkey", false);
-//pref("extensions.euskalbar.3000.onkey", false);
 pref("extensions.euskalbar.elhuyar.onkey", true);
 pref("extensions.euskalbar.zthiztegia.onkey", false);
-//pref("extensions.euskalbar.energia.onkey", false);
 pref("extensions.euskalbar.telekom.onkey", false);
 pref("extensions.euskalbar.labayru.onkey", false);
 pref("extensions.euskalbar.zehazki.onkey", false);
@@ -61,7 +56,6 @@ pref("extensions.euskalbar.morris.onkey", false);
 pref("extensions.euskalbar.opentran.onkey", false);
 pref("extensions.euskalbar.batua.onkey", false);
 pref("extensions.euskalbar.oeh.onkey", false);
-//pref("extensions.euskalbar.adorez.onkey", false);
 pref("extensions.euskalbar.uzei.onkey", false);
 pref("extensions.euskalbar.itzul.onkey", false);
 pref("extensions.euskalbar.harluxet.onkey", false);
@@ -83,14 +77,11 @@ pref("extensions.euskalbar.danobat.onkey", false);
 
 // Dictionaries searched on pressing "Enter" + Shift key
 pref("extensions.euskalbar.euskalterm.onkey1.es", true);
-//pref("extensions.euskalbar.3000.onkey1.es", false);
 pref("extensions.euskalbar.elhuyar.onkey1.es", true);
 pref("extensions.euskalbar.zthiztegia.onkey1.es", true);
-//pref("extensions.euskalbar.energia.onkey1.es", true);
 pref("extensions.euskalbar.telekom.onkey1.es", true);
 pref("extensions.euskalbar.labayru.onkey1.es", true);
 pref("extensions.euskalbar.batua.onkey1.es", false);
-//pref("extensions.euskalbar.adorez.onkey1.es", false);
 pref("extensions.euskalbar.uzei.onkey1.es", false);
 pref("extensions.euskalbar.mokoroa.onkey1.es", false);
 pref("extensions.euskalbar.intza.onkey1.es", false);
@@ -98,33 +89,26 @@ pref("extensions.euskalbar.danobat.onkey1.es", false);
 pref("extensions.euskalbar.euskalterm.onkey1.fr", true);
 pref("extensions.euskalbar.elhuyar.onkey1.fr", true);
 pref("extensions.euskalbar.zthiztegia.onkey1.fr", true);
-//pref("extensions.euskalbar.energia.onkey1.fr", true);
 pref("extensions.euskalbar.telekom.onkey1.fr", true);
 pref("extensions.euskalbar.batua.onkey1.fr", false);
-//pref("extensions.euskalbar.adorez.onkey1.fr", false);
 pref("extensions.euskalbar.uzei.onkey1.fr", false);
 pref("extensions.euskalbar.euskalterm.onkey1.en", true);
 pref("extensions.euskalbar.elhuyar.onkey1.en", true);
 pref("extensions.euskalbar.zthiztegia.onkey1.en", true);
-//pref("extensions.euskalbar.energia.onkey1.en", true);
 pref("extensions.euskalbar.telekom.onkey1.en", true);
 pref("extensions.euskalbar.morris.onkey1.en", true);
 pref("extensions.euskalbar.opentran.onkey1.en", true);
 pref("extensions.euskalbar.batua.onkey1.en", false);
-//pref("extensions.euskalbar.adorez.onkey1.en", false);
 pref("extensions.euskalbar.uzei.onkey1.en", false);
 
 
 // Dictionaries searched on pressing "Enter" + Ctrl key
 pref("extensions.euskalbar.euskalterm.onkey2.es", false);
-//pref("extensions.euskalbar.3000.onkey2.es", false);
 pref("extensions.euskalbar.elhuyar.onkey2.es", false);
 pref("extensions.euskalbar.zthiztegia.onkey2.es", false);
-//pref("extensions.euskalbar.energia.onkey2.es", false);
 pref("extensions.euskalbar.telekom.onkey2.es", false);
 pref("extensions.euskalbar.labayru.onkey2.es", false);
 pref("extensions.euskalbar.batua.onkey2.es", true);
-//pref("extensions.euskalbar.adorez.onkey2.es", false);
 pref("extensions.euskalbar.uzei.onkey2.es", true);
 pref("extensions.euskalbar.mokoroa.onkey2.es", false);
 pref("extensions.euskalbar.intza.onkey2.es", false);
@@ -132,20 +116,16 @@ pref("extensions.euskalbar.danobat.onkey2.es", false);
 pref("extensions.euskalbar.euskalterm.onkey2.fr", false);
 pref("extensions.euskalbar.elhuyar.onkey2.fr", false);
 pref("extensions.euskalbar.zthiztegia.onkey2.fr", false);
-//pref("extensions.euskalbar.energia.onkey2.fr", false);
 pref("extensions.euskalbar.telekom.onkey2.fr", false);
 pref("extensions.euskalbar.batua.onkey2.fr", true);
-//pref("extensions.euskalbar.adorez.onkey2.fr", true);
 pref("extensions.euskalbar.uzei.onkey2.fr", true);
 pref("extensions.euskalbar.euskalterm.onkey2.en", false);
 pref("extensions.euskalbar.elhuyar.onkey2.en", false);
 pref("extensions.euskalbar.zthiztegia.onkey2.en", false);
-//pref("extensions.euskalbar.energia.onkey2.en", false);
 pref("extensions.euskalbar.telekom.onkey2.en", false);
 pref("extensions.euskalbar.morris.onkey2.en", false);
 pref("extensions.euskalbar.opentran.onkey2.en", false);
 pref("extensions.euskalbar.batua.onkey2.en", true);
-//pref("extensions.euskalbar.adorez.onkey2.en", true);
 pref("extensions.euskalbar.uzei.onkey2.en", true);
 
 

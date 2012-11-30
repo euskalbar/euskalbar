@@ -5,7 +5,7 @@
 3.11 bertsioa
 ================
 - Euskalterm berria integratu da. (#121)
-- Energia Hiztegia ezabatu da, ez baitago jadanik eskuragarri EEEren webgunean. (#135)
+- Energia hiztegia ezabatu da, ez baitago jadanik eskuragarri EEEren webgunean. (#135)
 - Kodea txukuntzea Mozillak ezarritako baldintzak betetzeko. (#130)
 - Aurrekoa betetzeko, hainbat hiztegi desaktibatu dira bilaketa konbinatuetan. Hurrengo bertsio batean aktibatuko dira berriro. Desaktibatu diren hiztegiak: ZT hiztegia, Telekomunikazio hiztegia, Labayru, Mokoroa, Danobat.
 
