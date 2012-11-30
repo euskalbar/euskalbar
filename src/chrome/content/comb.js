@@ -738,6 +738,7 @@
         mimeType: 'text/html; charset=ISO-8859-1',
 
         onSuccess: function (data) {
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oUzei', gBrowser.contentDocument));
           output = data;
           var table = output.split("<TABLE");
           output = table[2].substring(-1);
