@@ -47,6 +47,8 @@
         url: url,
 
         onSuccess: function (data) {
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.euskara.euskadi.net/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
+
           output = data;
           output = output.substring(output.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), output.indexOf('<div class="clr"/>'));
           output = output.replace(/q91aBilaketaAction/g, "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction");
@@ -141,6 +143,7 @@
         data: reqData,
 
         onSuccess: function (data) {
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hiztegia\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oElhuyar', gBrowser.contentDocument));
           output = data;
 
           if (output.indexOf(errorMsg) != -1) {
@@ -300,9 +303,14 @@
     },
 
 
-/* KODE HAU EZ DABIL ONDO
+
     // ZT Hiztegiaren markoa kargatu
     getShiftZTHiztegia: function (source, term) {
+      var output = euskalbarLib._f("euskalbar.comb.disabled", ["ZT hiztegia"]);
+      euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oZthiztegia', gBrowser.contentDocument));
+      euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
+
+      /* FIXME: Use new Ajax POST function
       var erroremezua, erroremezua2,
           lang = euskalbarLib._("hizk");
 
@@ -417,13 +425,17 @@
           euskalbarLib.cleanLoadHTML(txtZTHiztegia, euskalbarLib.$('aZthiztegia', gBrowser.contentDocument));
         }
       }
-    },
 */
+    },
 
 
-/* USE STRICT KONPONDU
     // Telekomunikazio Hiztegiaren markoa kargatu
     getShiftTelekom: function (source, term) {
+      var output = euskalbarLib._f("euskalbar.comb.disabled", ["Telekomunikazio hiztegia"]);
+      euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oTelekom', gBrowser.contentDocument));
+      euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
+
+      /* FIXME: Use new Ajax POST function
       var erroremezua, erroremezua2, inthizk, hizkid
           lang = euskalbarLib._("hizk");
 
@@ -589,8 +601,8 @@
         txtTelekom = euskalbarLib._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
         euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
       }, tout);
+*/
     },
-    */
 
 
     // Morris hiztegia kargatu
@@ -609,6 +621,7 @@
         data: reqData,
 
         onSuccess: function (data) {
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www1.euskadi.net/morris\">Morris&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oMorris', gBrowser.contentDocument));
           output = data;
           if (output.match("Barkatu, baina sarrera hau ez dago hiztegian")) {
             // FIXME: L10n
@@ -639,9 +652,14 @@
       });
     },
 
-/* KONPONDU EGIN BEHAR DA
+
     // Labayru hiztegia kargatu
     getShiftLabayru: function (source, term) {
+      var output = euskalbarLib._f("euskalbar.comb.disabled", ["Labayru"]);
+      euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oLabayru', gBrowser.contentDocument));
+      euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aLabayru', gBrowser.contentDocument));
+
+      /* FIXME: Use new Ajax POST function
       var hizk,
           txtLabayru = "";
 
@@ -705,8 +723,9 @@
         }
         euskalbarLib.cleanLoadHTML(txtLabayru, euskalbarLib.$('aLabayru', gBrowser.contentDocument));
       }
-    },
 */
+    },
+
 
     getShiftUZEI: function (source, term) {
       var output = "",
@@ -864,11 +883,14 @@
       return retEuskaltzaindia;
     },
 
-/* KONPONDU EGIN BEHAR DA
+
     // Mokoroa kargatu
     getShiftMokoroa: function (source, term) {
-      var txtMokoroa = "";
+      var output = euskalbarLib._f("euskalbar.comb.disabled", ["Mokoroa"]);
+      euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oMokoroa', gBrowser.contentDocument));
+      euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aMokoroa', gBrowser.contentDocument));
 
+      /* FIXME: Use new Ajax POST function
       var params = [];
       var urlMokoroa = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa';
       if (source == 'es') {
@@ -931,9 +953,9 @@
           txtMokoroa = euskalbarLib._f("euskalbar.comb.error", ["Mokoroa"]);
         }
         euskalbarLib.cleanLoadHTML(txtMokoroa, euskalbarLib.$('aMokoroa', gBrowser.contentDocument));
-      }
+      }*/
     },
-*/
+
     // Intza kargatu
     getShiftIntza: function (source, term) {
       var url, output = "";
@@ -998,9 +1020,15 @@
 
     },
 
-/* USE STRICT KONPONDU
+
     // Danobat kargatu
     getShiftDanobat: function (source, term) {
+
+      var output = euskalbarLib._f("euskalbar.comb.disabled", ["Danobat"]);
+      euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://hiztegia.danobatgroup.com/eu/dictionary\">Danobat&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oDanobat', gBrowser.contentDocument));
+      euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aDanobat', gBrowser.contentDocument));
+
+      /* FIXME: Use new Ajax POST function
       txtDanobat = "";
 
       var params = [];
@@ -1059,8 +1087,8 @@
         }
         euskalbarLib.cleanLoadHTML(txtDanobat, euskalbarLib.$('aDanobat', gBrowser.contentDocument));
       }
-    },
 */
+    },
 
     normalize: function (str) {
       var newStr = str.toLowerCase();

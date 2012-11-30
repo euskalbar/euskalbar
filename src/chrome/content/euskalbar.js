@@ -122,6 +122,14 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
       gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
 
+      //Execute combined queries only when the HTML is loaded
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
+
+
       // Init bar's buttons
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
       this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
