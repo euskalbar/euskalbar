@@ -563,7 +563,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       //Kateari aurreko eta atzeko zuriuneak kendu
       katea = katea.replace(/^\s+|\s+$/g, "");
       if (katea == "") {
-        alert(_("kutxahutsa"));
+        alert(euskalbarLib._f("kutxahutsa", ""));
 
         return true;
       }
