@@ -805,8 +805,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             euskalbar.dicts.goEuskalBarElebila(searchStr);
           }
         }
-        //Focus textbox
-        this.focusTextbox();
       }
     },
 
