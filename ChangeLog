@@ -2,6 +2,10 @@
 //  Euskalbar - CHANGELOG
 // ***********************
 
+3.12 bertsioa
+================
+- Hobespen berria: kurtsorearen fokua kutxan utzi edo leihora eraman.  (#131)
+
 3.11 bertsioa
 ================
 - Euskalterm berria integratu da. (#121)

@@ -62,6 +62,7 @@
 <!ENTITY euskalbar.prefs.gui.caption "インターフェース">
 <!ENTITY euskalbar.prefs.dicts.label "辞書のメニュー表示">
 <!ENTITY euskalbar.prefs.context.label "文脈メニューを表示">
+<!ENTITY euskalbar.prefs.focuswindow.label "Focus window after query">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "全ての分野">

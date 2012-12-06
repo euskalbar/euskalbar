@@ -24,7 +24,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
   var euskalbar = {
 
-    curVersion: "3.11",
+    curVersion: "3.12",
 
     firstrunURL: "http://euskalbar.eu/firstrun",
 
@@ -94,19 +94,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         }, 1000);
       }
 
-      // Disable preferences related to 3000 and Adorez dictionaries, as they
-      // don't work (remove when those dictionaries work again)
-      this.prefs.setBoolPref("3000.onkey", false);
-      this.prefs.setBoolPref("3000.onkey1.es", false);
-      this.prefs.setBoolPref("3000.onkey2.es", false);
-      this.prefs.setBoolPref("adorez.onkey", false);
-      this.prefs.setBoolPref("adorez.onkey1.es", false);
-      this.prefs.setBoolPref("adorez.onkey1.en", false);
-      this.prefs.setBoolPref("adorez.onkey1.fr", false);
-      this.prefs.setBoolPref("adorez.onkey2.es", false);
-      this.prefs.setBoolPref("adorez.onkey2.en", false);
-      this.prefs.setBoolPref("adorez.onkey2.fr", false);
-
       //Initialize language selection button
       var lang = this.prefs.getCharPref("language.startup");
       this.source = lang[0] + lang[1];
@@ -119,7 +106,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         this.setEuskalbarDictionaries(this.target);
       }
 
-      // Azalak aldatzeko funtzioari deitu (DOMContentLoaded gertaerapean)
+      // Events executed after DOMContentLoaded
       gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
 
       //Execute combined queries only when the HTML is loaded
@@ -282,7 +269,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       btn.collapsed = !state;
     },
 
-    // HTML fitxategiak hasieratzen ditu
+    // Init HTML files
     initHTML: function (event) {
       // HTML fitxategietan estiloaren katea aldatzen du
       var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
@@ -336,7 +323,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Laguntza erakusten du
+    // Shows help
     openHelp: function () {
       var locale = euskalbarLib.langCode(euskalbar.ui.locale);
 
@@ -347,7 +334,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.reuseOldTab(this.helpBaseURL + locale, "euskalbarhelp");
     },
 
-    // Hiztegien menua erakusten/ezkutatzen du
+    // Shows/hides dictionaries menu
     showhideDicts: function () {
       var menuEntry = euskalbarLib.$('euskalbar-menu');
       var appmenuEntry = euskalbarLib.$("appmenu_euskalbar");
@@ -365,7 +352,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Testuinguru-menua erakusten/ezkutatzen du
+    // Shows/hides context menu
     showContextmenu: function () {
       var sep = euskalbarLib.$('Euskalbar-context-menuseparator');
       var button = euskalbarLib.$('Euskalbar-context-menu');
@@ -379,7 +366,17 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Aukeren koadroa erakusten du
+    // Focus window or search box
+    focusTextbox: function () {
+      if (!this.prefs.getBoolPref("focuswindow.enabled")) {
+        var tb = euskalbarLib.$("EuskalBar-search-string");
+        tb.focus();
+        tb.select();
+      }
+    },
+
+
+    // Shows prefs window
     euskalbarOptions: function () {
       var dialogURL = "chrome://euskalbar/content/prefs.xul";
       var prefwindow = window.openDialog(dialogURL, "", "chrome,modal,close");
@@ -414,9 +411,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         this.prefs.setBoolPref(prefer + ".enabled", !this.prefs.getBoolPref(prefer + ".enabled"));
         break;
       case "focustextbox":
-        var el = euskalbarLib.$("EuskalBar-search-string");
-        el.focus();
-        el.select();
+        var tb = euskalbarLib.$("EuskalBar-search-string");
+        tb.focus();
+        tb.select();
         break;
       case "toggledicts":
         this.changeEuskalbarLang();
@@ -522,7 +519,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
           if (!this.prefs.getBoolPref("bgtabs.enabled")) {
             gBrowser.tabContainer.selectedIndex = index;
           }
-
+          currentBrowser.focus();
           found = true;
         }
 
@@ -581,7 +578,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
           return;
         }
 
-        // Exekutatu euskalbarcomb.js fitxategian dauden skriptak
+        // Execute scripts in comb.js file
         var l = "";
         if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
           l = "es";
@@ -812,10 +809,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             euskalbar.dicts.goEuskalBarElebila(searchStr);
           }
         }
+        //Focus textbox
+        this.focusTextbox();
       }
-      //Focus textbox
-      var el = euskalbarLib.$("EuskalBar-search-string");
-      el.focus();
     },
 
 

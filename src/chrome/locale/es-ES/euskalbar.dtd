@@ -62,6 +62,7 @@
 <!ENTITY euskalbar.prefs.gui.caption "Interfaz">
 <!ENTITY euskalbar.prefs.dicts.label "Mostrar el menú de diccionarios">
 <!ENTITY euskalbar.prefs.context.label "Mostrar el menú contextual">
+<!ENTITY euskalbar.prefs.focuswindow.label "Enfocar la ventana tras la búsqueda">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Todos">

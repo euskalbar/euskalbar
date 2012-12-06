@@ -62,6 +62,7 @@
 <!ENTITY euskalbar.prefs.gui.caption "GUI">
 <!ENTITY euskalbar.prefs.dicts.label "Show dictionaries menu">
 <!ENTITY euskalbar.prefs.context.label "Show context menu">
+<!ENTITY euskalbar.prefs.focuswindow.label "Focus window after query">
 
 <!-- Euskalterm -->
 <!ENTITY euskalbar.euskalterm.dena.label "Any">

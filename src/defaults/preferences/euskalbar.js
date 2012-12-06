@@ -142,6 +142,7 @@ pref("extensions.euskalbar.bgtabs.enabled", false);
 // GUI prefs
 pref("extensions.euskalbar.showdicts.enabled", true);
 pref("extensions.euskalbar.showcontextmenu.enabled", true);
+pref("extensions.euskalbar.focuswindow.enabled", false);
 
 // Language selected at startup
 pref("extensions.euskalbar.language.startup", "es_eu");

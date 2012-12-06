@@ -130,6 +130,7 @@
       <preference id="prefBGtabs" name="extensions.euskalbar.bgtabs.enabled" type="bool"/>
       <preference id="prefShowhidedicts" name="extensions.euskalbar.showdicts.enabled" type="bool"/>
       <preference id="prefShowcontextmenu" name="extensions.euskalbar.showcontextmenu.enabled" type="bool"/>
+      <preference id="prefFocuswindow" name="extensions.euskalbar.focuswindow.enabled" type="bool"/>
       <preference id="prefStartupLang" name="extensions.euskalbar.language.startup" type="string"/>
       <preference id="prefQuerytimeout" name="extensions.euskalbar.query.timeout" type="int"/>
       <preference id="prefQuerysubqueries" name="extensions.euskalbar.query.subqueries" type="bool"/>
@@ -191,6 +192,7 @@
               <caption label="&euskalbar.prefs.gui.caption;" />
               <checkbox preference="prefShowhidedicts" label="&euskalbar.prefs.dicts.label;" />
               <checkbox preference="prefShowcontextmenu" label="&euskalbar.prefs.context.label;" />
+              <checkbox preference="prefFocuswindow" label="&euskalbar.prefs.focuswindow.label;" />
             </groupbox>
           </vbox>
         </tabpanel>
