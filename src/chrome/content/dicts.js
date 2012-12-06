@@ -70,7 +70,6 @@
       params.push(new euskalbar.QueryParameter('hizkuntza', hiztegiarenhizkuntza));
       var zein = 'euskalterm';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(0);
     },
@@ -145,7 +144,6 @@
       }
       params.push(new euskalbar.QueryParameter('bot_kon', '%3E'));
       euskalbar.openURL(urlElhuyar, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(1);
     },
@@ -164,7 +162,6 @@
       var tabIndex = euskalbar.getTabIndexBySlug(slug);
       if (tabIndex == -1) {
         euskalbar.openURL('http://zthiztegia.elhuyar.org', slug, 'GET', null);
-        euskalbar.focusTextbox();
       }
 
       var zthiztegiatimeout = setTimeout(function () {
@@ -313,7 +310,6 @@
       var tabIndex = euskalbar.getTabIndexBySlug('telekom');
       if (tabIndex == -1) {
         euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
-        euskalbar.focusTextbox();
       };
 
       var telekomhiztegiatimeout = setTimeout(function () {
@@ -431,7 +427,6 @@
       params.push(new euskalbar.QueryParameter('txtPalabra', escape(term)));
       var zein = 'labayru';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi .  Labayru dict = 22
       euskalbar.stats.writeStats(22);
     },
@@ -447,7 +442,6 @@
       var url = 'http://ehu.es/ehg/cgi/zehazki/bila?m=has&z=' + escape(term);
       var zein = 'zehazki';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(24);
     },
@@ -469,7 +463,6 @@
       params.push(new euskalbar.QueryParameter(hizk, escape(term)));
       var zein = 'morris';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(3);
     },
@@ -484,7 +477,6 @@
       var url = 'http://eu.open-tran.eu/suggest/' + escape(term);
       var zein = 'open-tran';
       euskalbar.openURL(url, zein, null, null);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(4);
     },
@@ -507,7 +499,6 @@
       params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[l]', 'basque'));
       params.push(new euskalbar.QueryParameter('tx_ghdictionary_pi1[t]', 1));
       euskalbar.openURL(urlGoihata, zein, 'POST', params);
-      euskalbar.focusTextbox();
       // Update search stats; 21 = Index of Goihata in stats file
       euskalbar.stats.writeStats(21);
     },
@@ -525,7 +516,6 @@
       params.push(new euskalbar.QueryParameter('bila', "bai"));
       var zein = 'hiztegibatua';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(5);
     },
@@ -541,7 +531,6 @@
       params.push(new euskalbar.QueryParameter('sarrera', escape(term)));
       var zein = 'com_oeh';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(23);
     },
@@ -573,7 +562,6 @@
       params.push(new euskalbar.QueryParameter('eragiketa', 'bilatu'));
       var zein = 'uzei';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(6);
     },
@@ -592,7 +580,6 @@
       params.push(new euskalbar.QueryParameter('q', encodeURI(term) + " site:http://postaria.com/pipermail/itzul/"));
       var zein = 'postaria.com';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(8);
     },
@@ -609,7 +596,6 @@
       params.push(new euskalbar.QueryParameter('sarrera', escape(term)));
       var zein = 'harluxet';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(9);
     },
@@ -626,7 +612,6 @@
       params.push(new euskalbar.QueryParameter('search', escape(term)));
       var zein = 'eu.wikipedia.org';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(10);
     },
@@ -649,7 +634,6 @@
         params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
       }
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(11);
     },
@@ -674,7 +658,6 @@
         params.push(new euskalbar.QueryParameter('eremu3', '1'));
       }
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi, hau aldatu egin behar da
       euskalbar.stats.writeStats(12);
     },
@@ -702,7 +685,6 @@
       params.push(new euskalbar.QueryParameter('idioma', hizk));
       var zein = 'eurovoc';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(13);
     },
@@ -720,7 +702,6 @@
       params.push(new euskalbar.QueryParameter('berbaki', escape(term)));
       params.push(new euskalbar.QueryParameter('form_id', 'berba_bilatu'));
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       euskalbar.stats.writeStats(14);
     },
 
@@ -741,7 +722,6 @@
       params.push(new euskalbar.QueryParameter('m1', 'hitza'));
       params.push(new euskalbar.QueryParameter('h1', escape(term)));
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi, hau aldatu egin behar da
       euskalbar.stats.writeStats(15);
     },
@@ -765,7 +745,6 @@
       params.push(new euskalbar.QueryParameter('garaia', '0'));
       params.push(new euskalbar.QueryParameter('euskalkia', '0'));
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi, hau aldatu egin behar da
       euskalbar.stats.writeStats(16);
     },
@@ -782,7 +761,6 @@
       params.push(new euskalbar.QueryParameter('testu-hitza1', escape(term)));
       var zein = 'ztcorpusa';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(17);
     },
@@ -799,7 +777,6 @@
       params.push(new euskalbar.QueryParameter('testu-hitza1', escape(term)));
       var zein = 'lb';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(28);
     },
@@ -836,7 +813,6 @@
       params.push(new euskalbar.QueryParameter('grafiko_aukerak', '1forma'));
       var zein = 'consumer';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(29);
     },
@@ -860,7 +836,6 @@
       };
       var zein = 'corpeus';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(18);
     },
@@ -877,7 +852,6 @@
       params.push(new euskalbar.QueryParameter('idatzArea', term));
       var zein = 'xuxen';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(19);
     },
@@ -898,7 +872,6 @@
       };
       var zein = 'elebila';
       euskalbar.openURL(url, zein, 'GET', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(20);
     },
@@ -920,7 +893,6 @@
       params.push(new euskalbar.QueryParameter('term_filter', escape(term)));
       var zein = 'danobat';
       euskalbar.openURL(url, zein, 'POST', params);
-      euskalbar.focusTextbox();
       //Estatistika lokalak idatzi .  Danobat dict = 32
       euskalbar.stats.writeStats(32);
     },

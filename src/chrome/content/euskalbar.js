@@ -366,16 +366,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Focus window or search box
-    focusTextbox: function () {
-      if (!this.prefs.getBoolPref("focuswindow.enabled")) {
-        var tb = euskalbarLib.$("EuskalBar-search-string");
-        tb.focus();
-        tb.select();
-      }
-    },
-
-
     // Shows prefs window
     euskalbarOptions: function () {
       var dialogURL = "chrome://euskalbar/content/prefs.xul";
@@ -476,6 +466,12 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         this.reuseOldTab(url, slug, postData);
       } else {
         this.openNewTab(url, slug, postData);
+      }
+
+      if (!this.prefs.getBoolPref("focuswindow.enabled")) {
+        var tb = euskalbarLib.$("EuskalBar-search-string");
+        tb.focus();
+        tb.select();
       }
     },
 
