@@ -41,7 +41,7 @@ euskalbar.dicts.menu = [
       { name: 'euskalbar.menu.general.Hiztegi Batua Euskal Prosan',
         url: 'http://ehu.es/ehg/' },
       { name: 'euskalbar.menu.general.Hauta Lanerako Euskal Hiztegia',
-        url: 'hhttp://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl' },
+        url: 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl' },
       { name: 'euskalbar.menu.general.BFA Terminological Dictionary',
         url: 'http://aplijava.bizkaia.net/TK00/servlet/webAgentTK00' },
       { sep: true },
