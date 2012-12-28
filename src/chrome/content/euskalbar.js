@@ -556,8 +556,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       //Kateari aurreko eta atzeko zuriuneak kendu
       katea = katea.replace(/^\s+|\s+$/g, "");
       if (katea == "") {
-        alert(euskalbarLib._f("kutxahutsa", ""));
-
+        var euskalbarNotify = gBrowser.getNotificationBox();
+        euskalbarNotify.appendNotification(euskalbarLib._f("kutxahutsa", ""));
         return true;
       }
     },
