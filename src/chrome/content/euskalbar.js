@@ -558,6 +558,11 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       if (katea == "") {
         var euskalbarNotify = gBrowser.getNotificationBox();
         euskalbarNotify.appendNotification(euskalbarLib._f("kutxahutsa", ""));
+
+        setTimeout(function(){
+          euskalbarNotify.removeCurrentNotification();
+        }, 4000);
+
         return true;
       }
     },
