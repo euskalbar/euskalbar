@@ -241,63 +241,36 @@
 
               <tabpanels flex="1" >
                 <tabpanel id="tab-enter">
-                  <grid flex="1">
-                    <columns>
-                      <column flex="1" />
-                      <column flex="1" />
-                      <column flex="1" />
-                    </columns>
-                    <rows>
-                      <row>
-                        <checkbox preference="prefEuskalterm" label="Euskalterm" />
-                        <checkbox preference="prefOEH" label="OEH" />
-                        <checkbox preference="prefEreduzko" label="Ereduzko prosa" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefElhuyar" label="Elhuyar" />
-                        <checkbox preference="prefBatua" label="Hiztegi Batua" />
-                        <checkbox preference="prefKlasikoak" label="Klasikoak" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefZehazki" label="Zehazki" />
-                        <checkbox preference="prefMokoroa" label="Mokoroa" />
-                        <checkbox preference="prefZTCorpusa" label="ZT Corpusa" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefZTHiztegia" label="ZT Hiztegia" />
-                        <checkbox preference="prefUZEI" label="&euskalbar.uzei.tooltip;" />
-                        <checkbox preference="prefLB" label="Lexikoaren Behatokia" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefTelekom" label="Telekomunikazio Hiztegia" />
-                        <checkbox preference="prefItzuL" label="ItzuL" />
-                        <checkbox preference="prefConsumer" label="Consumer Corpusa" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefLabayru" label="Labayru" />
-                        <checkbox preference="prefHarluxet" label="Harluxet" />
-                        <checkbox preference="prefCorpEus" label="CorpEus" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefMorris" label="Morris" />
-                        <checkbox preference="prefWikipedia" label="Wikipedia" />
-                        <checkbox preference="prefXUXENweb" label="XUXENweb" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefIntza" label="Intza" />
-                        <checkbox preference="prefDanobat" label="Danobat" />
-                        <checkbox preference="prefElebila" label="Elebila" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefOpentran" label="Open-tran" />
-                        <checkbox preference="prefEurovoc" label="Eurovoc" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefGoihata" label="Goihata" />
-                        <checkbox preference="prefBergara" label="Bergara" />
-                      </row>
-                    </rows>
-                  </grid> 
+                  <listbox flex="1" id="list-enter">
+                    <listitem preference="prefEuskalterm" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                    <listitem preference="prefElhuyar" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                    <listitem preference="prefLabayru" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
+                    <listitem preference="prefZehazki" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
+                    <listitem preference="prefZTHiztegia" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                    <listitem preference="prefTelekom" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                    <listitem preference="prefDanobat" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
+                    <listitem preference="prefMorris" type="checkbox" label="&euskalbar.morris.tooltip;"/>
+                    <listitem preference="prefOpentran" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
+                    <listitem preference="prefGoihata" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
+                    <listitem preference="prefBatua" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                    <listitem preference="prefOEH" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
+                    <listitem preference="prefUZEI" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                    <listitem preference="prefItzuL" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
+                    <listitem preference="prefHarluxet" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
+                    <listitem preference="prefWikipedia" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
+                    <listitem preference="prefMokoroa" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
+                    <listitem preference="prefIntza" type="checkbox" label="&euskalbar.intza.tooltip;"/>
+                    <listitem preference="prefEurovoc" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>
+                    <listitem preference="prefBergara" type="checkbox" label="&euskalbar.bergara.tooltip;"/>
+                    <listitem preference="prefEreduzko" type="checkbox" label="&euskalbar.ereduzko.tooltip;"/>
+                    <listitem preference="prefKlasikoak" type="checkbox" label="&euskalbar.klasikoak.tooltip;"/>
+                    <listitem preference="prefZTCorpusa" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
+                    <listitem preference="prefLB" type="checkbox" label="&euskalbar.lb.tooltip;"/>
+                    <listitem preference="prefConsumer" type="checkbox" label="&euskalbar.consumer.tooltip;"/>
+                    <listitem preference="prefCorpEus" type="checkbox" label="&euskalbar.corpeus.tooltip;"/>
+                    <listitem preference="prefXUXENweb" type="checkbox" label="&euskalbar.xuxenweb.tooltip;"/>
+                    <listitem preference="prefElebila" type="checkbox" label="&euskalbar.elebila.tooltip;"/>
+                  </listbox>
                 </tabpanel>
 
                 <tabpanel id="tab-shiftenter">
@@ -313,51 +286,37 @@
                         <label value="EU‣FR / FR‣EU" />
                         <label value="EU‣EN / EN‣EU" />
                       </row>
-                      <row>
-                        <checkbox preference="prefEuskaltermShiftES" label="Euskalterm" />
-                        <checkbox preference="prefEuskaltermShiftFR" label="Euskalterm" />
-                        <checkbox preference="prefEuskaltermShiftEN" label="Euskalterm" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefElhuyarShiftES" label="Elhuyar" />
-                        <checkbox preference="prefElhuyarShiftFR" label="Elhuyar" />
-                        <checkbox preference="prefElhuyarShiftEN" label="Elhuyar" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefZTHiztegiaShiftES" label="ZT Hiztegia" />
-                        <checkbox preference="prefZTHiztegiaShiftFR" label="ZT Hiztegia" />
-                        <checkbox preference="prefZTHiztegiaShiftEN" label="ZT Hiztegia" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefTelekomShiftES" label="Telekomunikazio Hiztegia" />
-                        <checkbox preference="prefTelekomShiftFR" label="Telekomunikazio Hiztegia" />
-                        <checkbox preference="prefTelekomShiftEN" label="Telekomunikazio Hiztegia" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefBatuaShiftES" label="Batua" />
-                        <checkbox preference="prefBatuaShiftFR" label="Batua" />
-                        <checkbox preference="prefBatuaShiftEN" label="Batua" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefUZEIShiftES" label="UZEI" />
-                        <checkbox preference="prefUZEIShiftFR" label="UZEI" />
-                        <checkbox preference="prefUZEIShiftEN" label="UZEI" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefLabayruShiftES" label="Labayru" />
-                        <label value="" />
-                        <checkbox preference="prefMorrisShiftEN" label="Morris" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefMokoroaShiftES" label="Mokoroa" />
-                        <label value="" />
-                        <checkbox preference="prefOpentranShiftEN" label="Open-tran" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefIntzaShiftES" label="Intza" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefDanobatShiftES" label="Danobat" />
+                      <row flex="1">
+                        <listbox id="list-shiftenter-eues">
+                          <listitem preference="prefEuskaltermShiftES" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                          <listitem preference="prefElhuyarShiftES" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                          <listitem preference="prefZTHiztegiaShiftES" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                          <listitem preference="prefTelekomShiftES" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefBatuaShiftES" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                          <listitem preference="prefUZEIShiftES" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                          <listitem preference="prefLabayruShiftES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
+                          <listitem preference="prefMokoroaShiftES" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
+                          <listitem preference="prefIntzaShiftES" type="checkbox" label="&euskalbar.intza.tooltip;"/>
+                          <listitem preference="prefDanobatShiftES" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
+                        </listbox>
+                        <listbox id="list-shiftenter-eufr">
+                          <listitem preference="prefEuskaltermShiftFR" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                          <listitem preference="prefElhuyarShiftFR" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                          <listitem preference="prefZTHiztegiaShiftFR" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                          <listitem preference="prefTelekomShiftFR" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefBatuaShiftFR" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                          <listitem preference="prefUZEIShiftFR" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                        </listbox>
+                        <listbox id="list-shiftenter-euen">
+                          <listitem preference="prefEuskaltermShiftEN" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                          <listitem preference="prefElhuyarShiftEN" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                          <listitem preference="prefZTHiztegiaShiftEN" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                          <listitem preference="prefTelekomShiftEN" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefBatuaShiftEN" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                          <listitem preference="prefUZEIShiftEN" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                          <listitem preference="prefMorrisShiftEN" type="checkbox" label="&euskalbar.morris.tooltip;"/>
+                          <listitem preference="prefOpentranShiftEN" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
+                        </listbox>
                       </row>
                     </rows>
                   </grid>
@@ -376,51 +335,37 @@
                         <label value="EU‣FR / FR‣EU" />
                         <label value="EU‣EN / EN‣EU" />
                       </row>
-                      <row>
-                        <checkbox preference="prefEuskaltermCtrlES" label="Euskalterm" />
-                        <checkbox preference="prefEuskaltermCtrlFR" label="Euskalterm" />
-                        <checkbox preference="prefEuskaltermCtrlEN" label="Euskalterm" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefElhuyarCtrlES" label="Elhuyar" />
-                        <checkbox preference="prefElhuyarCtrlFR" label="Elhuyar" />
-                        <checkbox preference="prefElhuyarCtrlEN" label="Elhuyar" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefZTHiztegiaCtrlES" label="ZT Hiztegia" />
-                        <checkbox preference="prefZTHiztegiaCtrlFR" label="ZT Hiztegia" />
-                        <checkbox preference="prefZTHiztegiaCtrlEN" label="ZT Hiztegia" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefTelekomCtrlES" label="Telekomunikazio Hiztegia" />
-                        <checkbox preference="prefTelekomCtrlFR" label="Telekomunikazio Hiztegia" />
-                        <checkbox preference="prefTelekomCtrlEN" label="Telekomunikazio Hiztegia" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefBatuaCtrlES" label="Batua" />
-                        <checkbox preference="prefBatuaCtrlFR" label="Batua" />
-                        <checkbox preference="prefBatuaCtrlEN" label="Batua" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefUZEICtrlES" label="UZEI" />
-                        <checkbox preference="prefUZEICtrlFR" label="UZEI" />
-                        <checkbox preference="prefUZEICtrlEN" label="UZEI" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefLabayruCtrlES" label="Labayru" />
-                        <label value="" />
-                        <checkbox preference="prefMorrisCtrlEN" label="Morris" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefMokoroaCtrlES" label="Mokoroa" />
-                        <label value="" />
-                        <checkbox preference="prefOpentranCtrlEN" label="Open-tran" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefIntzaCtrlES" label="Intza" />
-                      </row>
-                      <row>
-                        <checkbox preference="prefDanobatCtrlES" label="Danobat" />
+                      <row flex="1">
+                        <listbox id="list-shiftenter-eues" rows="10">
+                          <listitem preference="prefEuskaltermCtrlES" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                          <listitem preference="prefElhuyarCtrlES" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                          <listitem preference="prefZTHiztegiaCtrlES" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                          <listitem preference="prefTelekomCtrlES" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefBatuaCtrlES" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                          <listitem preference="prefUZEICtrlES" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                          <listitem preference="prefLabayruCtrlES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
+                          <listitem preference="prefMokoroaCtrlES" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
+                          <listitem preference="prefIntzaCtrlES" type="checkbox" label="&euskalbar.intza.tooltip;"/>
+                          <listitem preference="prefDanobatCtrlES" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
+                        </listbox>
+                        <listbox id="list-shiftenter-eufr">
+                          <listitem preference="prefEuskaltermCtrlFR" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                          <listitem preference="prefElhuyarCtrlFR" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                          <listitem preference="prefZTHiztegiaCtrlFR" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                          <listitem preference="prefTelekomCtrlFR" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefBatuaCtrlFR" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                          <listitem preference="prefUZEICtrlFR" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                        </listbox>
+                        <listbox id="list-shiftenter-euen">
+                          <listitem preference="prefEuskaltermCtrlEN" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
+                          <listitem preference="prefElhuyarCtrlEN" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                          <listitem preference="prefZTHiztegiaCtrlEN" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
+                          <listitem preference="prefTelekomCtrlEN" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefBatuaCtrlEN" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                          <listitem preference="prefUZEICtrlEN" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                          <listitem preference="prefMorrisCtrlEN" type="checkbox" label="&euskalbar.morris.tooltip;"/>
+                          <listitem preference="prefOpentranCtrlEN" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
+                        </listbox>
                       </row>
                     </rows>
                   </grid>

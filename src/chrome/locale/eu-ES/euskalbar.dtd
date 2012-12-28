@@ -5,7 +5,7 @@
 <!ENTITY euskalbar.name "Euskalbar">
 <!ENTITY euskalbar.help.label "Laguntza">
 <!ENTITY euskalbar.options.tooltip "Ireki hobespenen leihoa">
-<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu basea">
+<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu-basea">
 <!ENTITY euskalbar.3000.tooltip "3000 hiztegia">
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
 <!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
@@ -16,22 +16,22 @@
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu itzulpen datu-basea">
-<!ENTITY euskalbar.batua.tooltip "Euskaltzaindiaren hiztegi batua">
+<!ENTITY euskalbar.batua.tooltip "Hiztegi Batua">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.adorez.tooltip "Adorez sin.">
-<!ENTITY euskalbar.uzei.tooltip "UZEI sin.">
+<!ENTITY euskalbar.adorez.tooltip "Adorez sinonimoak">
+<!ENTITY euskalbar.uzei.tooltip "UZEI sinonimoak">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
 <!ENTITY euskalbar.wikipedia.tooltip "Euskal wikipedia">
-<!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu basea">
+<!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu-basea">
 <!ENTITY euskalbar.intza.tooltip "Intza proiektuaren lokuzioak">
-<!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua">
-<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
-<!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren Corpusa">
-<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren Corpusa">
-<!ENTITY euskalbar.consumer.tooltip "Consumer Corpusa">
+<!ENTITY euskalbar.klasikoak.tooltip "Klasikoen Gordailua">
+<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko Prosa Gaur">
+<!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren corpusa">
+<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren corpusa">
+<!ENTITY euskalbar.consumer.tooltip "Consumer corpusa">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet euskarazko corpus gisa">
-<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurusa">
+<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc thesaurusa">
 <!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
 <!ENTITY euskalbar.bergara.tooltip "Bergaraldeko hiztegia">
 <!ENTITY euskalbar.elebila.tooltip "Elebila euskarazko bilatzailea">
