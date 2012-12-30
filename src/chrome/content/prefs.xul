@@ -33,6 +33,7 @@
       <preference id="prefEurovocVisible" name="extensions.euskalbar.eurovoc.visible" type="bool"/>
       <preference id="prefBergaraVisible" name="extensions.euskalbar.bergara.visible" type="bool"/>
       <preference id="prefEreduzkoVisible" name="extensions.euskalbar.ereduzko.visible" type="bool"/>
+      <preference id="prefEgungoVisible" name="extensions.euskalbar.ereduzko.visible" type="bool"/>
       <preference id="prefKlasikoakVisible" name="extensions.euskalbar.klasikoak.visible" type="bool"/>
       <preference id="prefZTCorpusaVisible" name="extensions.euskalbar.ztcorpusa.visible" type="bool"/>
       <preference id="prefLBVisible" name="extensions.euskalbar.lb.visible" type="bool"/>
@@ -64,6 +65,7 @@
       <preference id="prefEurovoc" name="extensions.euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefBergara" name="extensions.euskalbar.bergara.onkey" type="bool"/>
       <preference id="prefEreduzko" name="extensions.euskalbar.ereduzko.onkey" type="bool"/>
+      <preference id="prefEgungo" name="extensions.euskalbar.ereduzko.onkey" type="bool"/>
       <preference id="prefKlasikoak" name="extensions.euskalbar.klasikoak.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="extensions.euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefLB" name="extensions.euskalbar.lb.onkey" type="bool"/>
@@ -226,6 +228,7 @@
             <listitem preference="prefEurovocVisible" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>
             <listitem preference="prefBergaraVisible" type="checkbox" label="&euskalbar.bergara.tooltip;"/>
             <listitem preference="prefEreduzkoVisible" type="checkbox" label="&euskalbar.ereduzko.tooltip;"/>
+            <listitem preference="prefEgungoVisible" type="checkbox" label="&euskalbar.egungo.tooltip;"/>
             <listitem preference="prefKlasikoakVisible" type="checkbox" label="&euskalbar.klasikoak.tooltip;"/>
             <listitem preference="prefZTCorpusaVisible" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
             <listitem preference="prefLBVisible" type="checkbox" label="&euskalbar.lb.tooltip;"/>
@@ -271,6 +274,7 @@
                     <listitem preference="prefEurovoc" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>
                     <listitem preference="prefBergara" type="checkbox" label="&euskalbar.bergara.tooltip;"/>
                     <listitem preference="prefEreduzko" type="checkbox" label="&euskalbar.ereduzko.tooltip;"/>
+                    <listitem preference="prefEgungo" type="checkbox" label="&euskalbar.egungo.tooltip;"/>
                     <listitem preference="prefKlasikoak" type="checkbox" label="&euskalbar.klasikoak.tooltip;"/>
                     <listitem preference="prefZTCorpusa" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
                     <listitem preference="prefLB" type="checkbox" label="&euskalbar.lb.tooltip;"/>

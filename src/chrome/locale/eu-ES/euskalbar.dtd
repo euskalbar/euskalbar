@@ -27,6 +27,7 @@
 <!ENTITY euskalbar.intza.tooltip "Intza proiektuaren lokuzioak">
 <!ENTITY euskalbar.klasikoak.tooltip "Klasikoen Gordailua">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko Prosa Gaur">
+<!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren corpusa">
 <!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren corpusa">
 <!ENTITY euskalbar.consumer.tooltip "Consumer corpusa">

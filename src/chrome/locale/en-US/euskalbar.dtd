@@ -28,6 +28,7 @@
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc Thesaurus">
 <!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
+<!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
 <!ENTITY euskalbar.klasikoak.tooltip "Basque classic writers">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Science and Technology Corpus">
 <!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokia Corpus">

@@ -757,6 +757,22 @@
     },
 
 
+    // Egungo Euskararen Hiztegia
+    goEuskalBarEgungo: function (term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+      var params = [];
+      var zein = 'www.ehu.es/eeh';
+      var url = 'www.ehu.es/eeh/cgi/bila';
+      params.push(new euskalbar.QueryParameter('z', escape(term)));
+      euskalbar.openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi, hau aldatu egin behar da
+      euskalbar.stats.writeStats(31);
+    },
+
+
     // Klasikoen gordailua
     goEuskalBarKlasikoak: function (term) {
       // Begiratu kutxa hutsik dagoen

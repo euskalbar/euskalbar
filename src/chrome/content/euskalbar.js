@@ -139,6 +139,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
       this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
       this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
+      this.toggleButtons("EuskalBar-Egungo", "egungo.visible");
       this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
       this.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
       this.toggleButtons("EuskalBar-LB", "lb.visible");
@@ -803,6 +804,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             euskalbar.dicts.goEuskalBarBergara(searchStr);
           }
           if (this.prefs.getBoolPref("ereduzko.onkey")) {
+            euskalbar.dicts.goEuskalBarEreduzko(searchStr);
+          }
+          if (this.prefs.getBoolPref("egungo.onkey")) {
             euskalbar.dicts.goEuskalBarEreduzko(searchStr);
           }
           if (this.prefs.getBoolPref("klasikoak.onkey")) {
