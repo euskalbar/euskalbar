@@ -241,6 +241,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       case "extensions.euskalbar.ereduzko.visible":
         this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
         break;
+      case "extensions.euskalbar.egungo.visible":
+        this.toggleButtons("EuskalBar-Egungo", "egungo.visible");
+        break;
       case "extensions.euskalbar.klasikoak.visible":
         this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
         break;
@@ -807,7 +810,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             euskalbar.dicts.goEuskalBarEreduzko(searchStr);
           }
           if (this.prefs.getBoolPref("egungo.onkey")) {
-            euskalbar.dicts.goEuskalBarEreduzko(searchStr);
+            euskalbar.dicts.goEuskalBarEgungo(searchStr);
           }
           if (this.prefs.getBoolPref("klasikoak.onkey")) {
             euskalbar.dicts.goEuskalBarKlasikoak(searchStr);
