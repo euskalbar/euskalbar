@@ -6,7 +6,6 @@
 <!ENTITY euskalbar.help.label "Aide">
 <!ENTITY euskalbar.options.tooltip "Options">
 <!ENTITY euskalbar.euskalterm.tooltip "Base de données Euskalterm">
-<!ENTITY euskalbar.3000.tooltip "Dictionnaire 3000">
 <!ENTITY euskalbar.goihata.tooltip "Dictionnaire Goihata">
 <!ENTITY euskalbar.labayru.tooltip "Dictionnaire Labayru">
 <!ENTITY euskalbar.zehazki.tooltip "Dictionnaire Zehazki">
@@ -18,9 +17,10 @@
 <!ENTITY euskalbar.opentran.tooltip "Base de données de traductions Open-tran.eu">
 <!ENTITY euskalbar.batua.tooltip "Dictionnaire Unifié d'Euskaltzaindia">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.adorez.tooltip "Dictionnaire des synonymes Adorez">
 <!ENTITY euskalbar.uzei.tooltip "Dictionnaire des synonymes UZEI">
 <!ENTITY euskalbar.itzul.tooltip "Archive de la liste de diffusion ItzuL">
+<!ENTITY euskalbar.lurhe.tooltip "Dictionnaire encyclopédique Lur">
+<!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
 <!ENTITY euskalbar.harluxet.tooltip "Dictionnaire encyclopédique Harluxet">
 <!ENTITY euskalbar.wikipedia.tooltip "Wikipedia en Basque">
 <!ENTITY euskalbar.mokoroa.tooltip "Base de données de Mokoroa">
@@ -64,36 +64,9 @@
 <!ENTITY euskalbar.prefs.context.label "Montrer menu contextuel">
 <!ENTITY euskalbar.prefs.focuswindow.label "Focus window after query">
 
-<!-- Euskalterm -->
-<!ENTITY euskalbar.euskalterm.dena.label "Tous les sujets">
-<!ENTITY euskalbar.euskalterm.administrazioa.label "Administration">
-<!ENTITY euskalbar.euskalterm.arteak.label "Arts">
-<!ENTITY euskalbar.euskalterm.biologia.label "Biologie">
-<!ENTITY euskalbar.euskalterm.ekonomia.label "Economie et entreprise">
-<!ENTITY euskalbar.euskalterm.eraikuntza.label "Construction, urbanisme">
-<!ENTITY euskalbar.euskalterm.erlijioa.label "Religion">
-<!ENTITY euskalbar.euskalterm.filosofia.label "Philosophie">
-<!ENTITY euskalbar.euskalterm.garraioa.label "Transport, courrier, télécommunications">
-<!ENTITY euskalbar.euskalterm.geografia.label "Géographie">
-<!ENTITY euskalbar.euskalterm.geologia.label "Géologie">
-<!ENTITY euskalbar.euskalterm.historia.label "Histoire, références militaires">
-<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "Linguistique, littérature">
-<!ENTITY euskalbar.euskalterm.industria.label "Industrie">
-<!ENTITY euskalbar.euskalterm.informatika.label "Informatique">
-<!ENTITY euskalbar.euskalterm.kazetaritza.label "Sciences de l'information, documentation">
-<!ENTITY euskalbar.euskalterm.izenak.label "Noms, titres">
-<!ENTITY euskalbar.euskalterm.kimika.label "Chimie et physique">
-<!ENTITY euskalbar.euskalterm.kirola.label "Sports, jeux, loisirs">
-<!ENTITY euskalbar.euskalterm.laburtzapenak.label "Abréviations">
-<!ENTITY euskalbar.euskalterm.matematika.label "Mathématique et statistique">
-<!ENTITY euskalbar.euskalterm.medikuntza.label "Médecine">
-<!ENTITY euskalbar.euskalterm.merkataritza.label "Activités commerciales, relations de travail">
-<!ENTITY euskalbar.euskalterm.nekazaritza.label "Agriculture, pêche">
-<!ENTITY euskalbar.euskalterm.politika.label "Politique, sociologie, antropologie">
-<!ENTITY euskalbar.euskalterm.psikologia.label "Psychologie, pédagogie">
-<!ENTITY euskalbar.euskalterm.zuzenbidea.label "Droit">
 
 <!--Language-->
+<!ENTITY euskalbar.language.eu "Basque">
 <!ENTITY euskalbar.language.eu_es "Basque ‣ Espagnol">
 <!ENTITY euskalbar.language.es_eu "Espagnol ‣ Basque">
 <!ENTITY euskalbar.language.eu_en "Basque ‣ Anglais">

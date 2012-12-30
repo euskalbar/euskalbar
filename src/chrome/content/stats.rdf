@@ -17,8 +17,8 @@
       </rdf:Description>
     </rdf:li>
     <rdf:li>
-      <rdf:Description about="http://www.euskalbar.eu/stats/3000">
-      <stats:name>&euskalbar.3000.tooltip;</stats:name>
+      <rdf:Description about="http://www.euskalbar.eu/stats/lurhe">
+      <stats:name>&euskalbar.lurhe.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
@@ -47,8 +47,8 @@
       </rdf:Description>
     </rdf:li>
     <rdf:li>
-      <rdf:Description about="http://www.euskalbar.eu/stats/adorez">
-      <stats:name>&euskalbar.adorez.tooltip;</stats:name>
+      <rdf:Description about="http://www.euskalbar.eu/stats/luret">
+      <stats:name>&euskalbar.luret.tooltip;</stats:name>
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>

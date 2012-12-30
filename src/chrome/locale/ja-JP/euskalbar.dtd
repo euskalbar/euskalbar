@@ -6,7 +6,6 @@
 <!ENTITY euskalbar.help.label "ヘルプ">
 <!ENTITY euskalbar.options.tooltip "オプション">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm データベース">
-<!ENTITY euskalbar.3000.tooltip "3000 辞書">
 <!ENTITY euskalbar.goihata.tooltip "Goihata 辞書">
 <!ENTITY euskalbar.labayru.tooltip "Labayru 辞書">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki 辞書">
@@ -18,9 +17,10 @@
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu 翻訳データベース">
 <!ENTITY euskalbar.batua.tooltip "バスク語アカデミーバスク語辞典">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.adorez.tooltip "Adorez 類語">
 <!ENTITY euskalbar.uzei.tooltip "UZEI 類語">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL メールリストファイル">
+<!ENTITY euskalbar.lurhe.tooltip "Lur hiztegi entziklopedikoa">
+<!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet 百科事典">
 <!ENTITY euskalbar.wikipedia.tooltip "バスクwikipedia">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa データベース">
@@ -64,36 +64,8 @@
 <!ENTITY euskalbar.prefs.context.label "文脈メニューを表示">
 <!ENTITY euskalbar.prefs.focuswindow.label "Focus window after query">
 
-<!-- Euskalterm -->
-<!ENTITY euskalbar.euskalterm.dena.label "全ての分野">
-<!ENTITY euskalbar.euskalterm.administrazioa.label "経営管理">
-<!ENTITY euskalbar.euskalterm.arteak.label "芸術">
-<!ENTITY euskalbar.euskalterm.biologia.label "生物学">
-<!ENTITY euskalbar.euskalterm.ekonomia.label "経済・企業">
-<!ENTITY euskalbar.euskalterm.eraikuntza.label "建築、街作り">
-<!ENTITY euskalbar.euskalterm.erlijioa.label "宗教">
-<!ENTITY euskalbar.euskalterm.filosofia.label "哲学">
-<!ENTITY euskalbar.euskalterm.garraioa.label "輸送,郵便,通信">
-<!ENTITY euskalbar.euskalterm.geografia.label "地理学">
-<!ENTITY euskalbar.euskalterm.geologia.label "地質学">
-<!ENTITY euskalbar.euskalterm.historia.label "歴史, 軍隊関係">
-<!ENTITY euskalbar.euskalterm.hizkuntzalaritza.label "言語学,文学">
-<!ENTITY euskalbar.euskalterm.industria.label "産業">
-<!ENTITY euskalbar.euskalterm.informatika.label "ソフトウェア・コンピューター">
-<!ENTITY euskalbar.euskalterm.kazetaritza.label "情報学,ドキュメンテーション">
-<!ENTITY euskalbar.euskalterm.izenak.label "名前, 題名、タイトル">
-<!ENTITY euskalbar.euskalterm.kimika.label "化学と物理学">
-<!ENTITY euskalbar.euskalterm.kirola.label "スポーツ・ゲーム・レジャー">
-<!ENTITY euskalbar.euskalterm.laburtzapenak.label "省略">
-<!ENTITY euskalbar.euskalterm.matematika.label "数学と統計">
-<!ENTITY euskalbar.euskalterm.medikuntza.label "医学">
-<!ENTITY euskalbar.euskalterm.merkataritza.label "商業,労政">
-<!ENTITY euskalbar.euskalterm.nekazaritza.label "農業,漁業">
-<!ENTITY euskalbar.euskalterm.politika.label "政治,社会学,人類学">
-<!ENTITY euskalbar.euskalterm.psikologia.label "心理学,教育学">
-<!ENTITY euskalbar.euskalterm.zuzenbidea.label "法律">
-
 <!--Language-->
+<!ENTITY euskalbar.language.eu "バスク語">
 <!ENTITY euskalbar.language.eu_es "バスク語　‣ スペイン語">
 <!ENTITY euskalbar.language.es_eu "スペイン語 ‣ バスク語">
 <!ENTITY euskalbar.language.eu_en "バスク語 ‣ 英語">

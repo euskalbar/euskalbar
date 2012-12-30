@@ -4,10 +4,12 @@
 
 3.12 bertsioa
 ================
+- Lur hiztegi entziklopedikoa eta Lur entziklopedia tematikoa barran sartu dira. (#129)
 - Hobespen berria: kurtsorearen fokua kutxan utzi edo leihora eraman.  (#131)
 - Hobespenen "Kontsulta aurreratua" fitxa aldatu da. (#138)
 - Hiztegien menua eguneratu da. (#139)
 - Euskalbarren bilaketa-kutxa hutsik dagoenean agertzen den jakinarazpenaren itxura hobetu da. (#140)
+- Testuinguru-menua beste modu batera antolatu da, gero eta baliabide gehiago izanik jadanik ez baitziren ongi sartzen pantailan. (#141)
 
 3.11 bertsioa
 ================

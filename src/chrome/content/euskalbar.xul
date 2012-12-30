@@ -80,6 +80,8 @@
         <toolbarbutton id="EuskalBar-UZEI" tooltiptext="&euskalbar.uzei.tooltip;" label="UZEI sin." collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarUZEI(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-ItzuL" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarItzuL(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarHarluxet(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Lurhe" tooltiptext="&euskalbar.lurhe.tooltip;" label="Lur HE" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLurhe(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Luret" tooltiptext="&euskalbar.luret.tooltip;" label="Lur ET" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLuret(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Wikipedia" tooltiptext="&euskalbar.wikipedia.tooltip;" label="Wikipedia" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarWikipedia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarMokoroa(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarIntza(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
@@ -109,6 +111,25 @@
       <menu id="Euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
       <observes element="cmd_copy" attribute="disabled" />
     	<menupopup>
+    	  <menu id="Euskalbar-eu-context" label="&euskalbar.language.eu;">
+    	    <menupopup>
+              <menuitem id="Euskalbar-Euskaltzaindia-context" label="Batua" oncommand="euskalbar.dicts.goEuskalBarEuskaltzaindia(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-OEH-context" label="OEH" oncommand="euskalbar.dicts.goEuskalBarOEH(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="euskalbar.dicts.goEuskalBarItzuL(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Lurhe-context" label="Lur HE" oncommand="euskalbar.dicts.goEuskalBarLurhe(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Luret-context" label="Lur ET" oncommand="euskalbar.dicts.goEuskalBarLuret(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="euskalbar.dicts.goEuskalBarHarluxet(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Wikipedia-context" label="Wikipedia" oncommand="euskalbar.dicts.goEuskalBarWikipedia(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbar.dicts.goEuskalBarEurovoc(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="euskalbar.dicts.goEuskalBarBergara(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko Prosa Gaur" oncommand="euskalbar.dicts.goEuskalBarEreduzko(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="euskalbar.dicts.goEuskalBarKlasikoak(escape(euskalbar.dicts.selectionText()));"/>
+              <menuitem id="Euskalbar-ZTCorpusa-context" label="ZT corpusa" oncommand="euskalbar.dicts.goEuskalBarZTCorpusa(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-LB-context" label="Lexikoaren Behatokia" oncommand="euskalbar.dicts.goEuskalBarLB(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="euskalbar.dicts.goEuskalBarCorpEus(escape(euskalbar.dicts.selectionText()));" />
+    	    </menupopup>
+    	  </menu>
+          <menuseparator/>
     	  <menu id="Euskalbar-eu_es-context" label="&euskalbar.language.eu_es;">
     	    <menupopup>
               <menuitem id="Euskalbar-Euskalterm-eu_es-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
@@ -116,6 +137,8 @@
               <menuitem id="Euskalbar-Labayru-eu-context" label="Labayru" oncommand="euskalbar.dicts.goEuskalBarLabayru('eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-ZTHiztegia-eu-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Telekom-eu-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Mokoroa-eu-context" label="Mokoroa" oncommand="euskalbar.dicts.goEuskalBarMokoroa('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Intza-eu-context" label="Intza" oncommand="euskalbar.dicts.goEuskalBarIntza('eu', escape(euskalbar.dicts.selectionText()));" />
     	    </menupopup>
     	  </menu>
     	  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
@@ -126,87 +149,64 @@
               <menuitem id="Euskalbar-Zehazki-es-context" label="Zehazki" oncommand="euskalbar.dicts.goEuskalBarZehazki('es', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-ZTHiztegia-es-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('es', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Telekom-es-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('es', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Mokoroa-es-context" label="Mokoroa" oncommand="euskalbar.dicts.goEuskalBarMokoroa('es', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Intza-es-context" label="Intza" oncommand="euskalbar.dicts.goEuskalBarIntza('es', escape(euskalbar.dicts.selectionText()));" />
     	    </menupopup>
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
    	    <menupopup>
-                      <menuitem id="Euskalbar-Euskalterm-eu_fr-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
-    		      <menuitem id="Euskalbar-Elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu', 'fr', escape(euskalbar.dicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-ZTHiztegia-eu_fr-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Telekom-eu_fr-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('eu', escape(euskalbar.dicts.selectionText()));" />
-    		    </menupopup>
-    		  </menu>
-    		  <menu id="Euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
-    		    <menupopup>
-                      <menuitem id="Euskalbar-Euskalterm-fr_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('fr', escape(euskalbar.dicts.selectionText()), '0');" />
-      		    <menuitem id="Euskalbar-Elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('fr', 'eu', euskalbar.dicts.selectionText());" />
-      		    <menuitem id="Euskalbar-ZTHiztegia-fr_eu-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('fr', euskalbar.dicts.selectionText());" />
-      		    <menuitem id="Euskalbar-Telekom-fr_eu-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('fr', euskalbar.dicts.selectionText());" />
-    		    </menupopup>
-    		  </menu>
-    		  <menu id="Euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
-    		    <menupopup>
-                      <menuitem id="Euskalbar-Euskalterm-eu_en-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
-    		      <menuitem id="Euskalbar-Elhuyar-eu_en-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu', 'en', escape(euskalbar.dicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="euskalbar.dicts.goEuskalBarMorris('eu', escape(euskalbar.dicts.selectionText()));" />
-      		      <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="euskalbar.dicts.goEuskalBarOpentran(escape(euskalbar.dicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-ZTHiztegia-eu_en-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
-    		      <menuitem id="Euskalbar-Telekom-eu_en-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('eu', escape(euskalbar.dicts.selectionText()));" />
-    		    </menupopup>
-    		  </menu>
-    		  <menu id="Euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
-    		    <menupopup>
-                      <menuitem id="Euskalbar-Euskalterm-en_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('en', escape(euskalbar.dicts.selectionText()), '0');" />
-      		    <menuitem id="Euskalbar-Elhuyar-en_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('en', 'eu', escape(euskalbar.dicts.selectionText()));" />
-      		    <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="euskalbar.dicts.goEuskalBarMorris('en', escape(euskalbar.dicts.selectionText()));" />
-      		    <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="euskalbar.dicts.goEuskalBarOpentran(escape(euskalbar.dicts.selectionText()));" />
-      		    <menuitem id="Euskalbar-ZTHiztegia-en_eu-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('en', escape(euskalbar.dicts.selectionText()));" />
-      		    <menuitem id="Euskalbar-Telekom-en_eu-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('en', escape(euskalbar.dicts.selectionText()));" />
-    		    </menupopup>
-    		  </menu>
-    		  <menu id="Euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
-    		    <menupopup>
-    		      <menuitem id="Euskalbar-Goihata-eu_jp-context" label="Goihata" oncommand="euskalbar.dicts.goEuskalBarGoihata('eu', 'jp', escape(euskalbar.dicts.selectionText()));" />
-    		    </menupopup>
-    		  </menu>
+              <menuitem id="Euskalbar-Euskalterm-eu_fr-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
+              <menuitem id="Euskalbar-Elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu', 'fr', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-ZTHiztegia-eu_fr-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Telekom-eu_fr-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('eu', escape(euskalbar.dicts.selectionText()));" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
+            <menupopup>
+              <menuitem id="Euskalbar-Euskalterm-fr_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('fr', escape(euskalbar.dicts.selectionText()), '0');" />
+              <menuitem id="Euskalbar-Elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('fr', 'eu', euskalbar.dicts.selectionText());" />
+              <menuitem id="Euskalbar-ZTHiztegia-fr_eu-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('fr', euskalbar.dicts.selectionText());" />
+              <menuitem id="Euskalbar-Telekom-fr_eu-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('fr', euskalbar.dicts.selectionText());" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
+            <menupopup>
+              <menuitem id="Euskalbar-Euskalterm-eu_en-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('eu', escape(euskalbar.dicts.selectionText()), '0');" />
+              <menuitem id="Euskalbar-Elhuyar-eu_en-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('eu', 'en', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Morris-eu_en-context" label="Morris" oncommand="euskalbar.dicts.goEuskalBarMorris('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Opentran-eu_en-context" label="Open-tran" oncommand="euskalbar.dicts.goEuskalBarOpentran(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-ZTHiztegia-eu_en-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Telekom-eu_en-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('eu', escape(euskalbar.dicts.selectionText()));" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
+            <menupopup>
+              <menuitem id="Euskalbar-Euskalterm-en_eu-context" label="Euskalterm" oncommand="euskalbar.dicts.goEuskalBarEuskalterm('en', escape(euskalbar.dicts.selectionText()), '0');" />
+              <menuitem id="Euskalbar-Elhuyar-en_eu-context" label="Elhuyar" oncommand="euskalbar.dicts.goEuskalBarElhuyar('en', 'eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Morris-en_eu-context" label="Morris" oncommand="euskalbar.dicts.goEuskalBarMorris('en', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Opentran-en_eu-context" label="Open-tran" oncommand="euskalbar.dicts.goEuskalBarOpentran(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-ZTHiztegia-en_eu-context" label="ZT hiztegia" oncommand="euskalbar.dicts.goEuskalBarZTHiztegia('en', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Telekom-en_eu-context" label="Telekomunikazioak" oncommand="euskalbar.dicts.goEuskalBarTelekom('en', escape(euskalbar.dicts.selectionText()));" />
+            </menupopup>
+          </menu>
+          <menu id="Euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
+            <menupopup>
+              <menuitem id="Euskalbar-Goihata-eu_jp-context" label="Goihata" oncommand="euskalbar.dicts.goEuskalBarGoihata('eu', 'jp', escape(euskalbar.dicts.selectionText()));" />
+            </menupopup>
+          </menu>
           <menuseparator/>
-    		  <menu id="Euskalbar-sinonimoak-context" label="&euskalbar.context.sinonimoak.label;">
-    		    <menupopup>
-    		      <menuitem id="Euskalbar-UZEI-sinonimoak-context" label="UZEI sinonimoak" oncommand="euskalbar.dicts.goEuskalBarUZEI(escape(euskalbar.dicts.selectionText()));" />
-    		    </menupopup>
-    		  </menu>
-    		  <menuseparator/>
-          <menuitem id="Euskalbar-Euskaltzaindia-context" label="Batua" oncommand="euskalbar.dicts.goEuskalBarEuskaltzaindia(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-OEH-context" label="OEH" oncommand="euskalbar.dicts.goEuskalBarOEH(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="euskalbar.dicts.goEuskalBarItzuL(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-Harluxet-context" label="Harluxet" oncommand="euskalbar.dicts.goEuskalBarHarluxet(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-Wikipedia-context" label="Wikipedia" oncommand="euskalbar.dicts.goEuskalBarWikipedia(escape(euskalbar.dicts.selectionText()));" />
-          <menu id="Euskalbar-Mokoroa-context" label="Mokoroa">
+          <menu id="Euskalbar-sinonimoak-context" label="&euskalbar.context.sinonimoak.label;">
             <menupopup>
-              <menuitem id="Euskalbar-Mokoroa-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbar.dicts.goEuskalBarMokoroa('es', escape(euskalbar.dicts.selectionText()));" />
-              <menuitem id="Euskalbar-Mokoroa-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbar.dicts.goEuskalBarMokoroa('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-UZEI-sinonimoak-context" label="UZEI sinonimoak" oncommand="euskalbar.dicts.goEuskalBarUZEI(escape(euskalbar.dicts.selectionText()));" />
             </menupopup>
           </menu>
-          <menu id="Euskalbar-Intza-context" label="Intza">
-            <menupopup>
-              <menuitem id="Euskalbar-Intza-es-context" label="&euskalbar.context.mokoroa.es.label;" oncommand="euskalbar.dicts.goEuskalBarIntza('es', escape(euskalbar.dicts.selectionText()));" />
-              <menuitem id="Euskalbar-Intza-eu-context" label="&euskalbar.context.mokoroa.eu.label;" oncommand="euskalbar.dicts.goEuskalBarIntza('eu', escape(euskalbar.dicts.selectionText()));" />
-            </menupopup>
-          </menu>
-          <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbar.dicts.goEuskalBarEurovoc(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="euskalbar.dicts.goEuskalBarBergara(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko Prosa Gaur" oncommand="euskalbar.dicts.goEuskalBarEreduzko(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="euskalbar.dicts.goEuskalBarKlasikoak(escape(euskalbar.dicts.selectionText()));"/>
-          <menuitem id="Euskalbar-ZTCorpusa-context" label="ZT corpusa" oncommand="euskalbar.dicts.goEuskalBarZTCorpusa(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-LB-context" label="Lexikoaren Behatokia" oncommand="euskalbar.dicts.goEuskalBarLB(escape(euskalbar.dicts.selectionText()));" />
-          <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="euskalbar.dicts.goEuskalBarCorpEus(escape(euskalbar.dicts.selectionText()));" />
           <menuseparator/>
           <menuitem id="Euskalbar-XUXENweb-context" label="&euskalbar.context.xuxenweb.label;" oncommand="euskalbar.dicts.goEuskalBarXUXENweb(escape(euskalbar.dicts.selectionText()));" />
           <menuseparator/>
           <menuitem id="Euskalbar-Elebila-context" label="Elebila" oncommand="euskalbar.dicts.goEuskalBarElebila(escape(euskalbar.dicts.selectionText()));" />
         </menupopup>
       </menu>
-  </popup>
+    </popup>
 
 
   <!-- Firefox menubar -->

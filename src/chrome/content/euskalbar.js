@@ -130,6 +130,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.toggleButtons("EuskalBar-OEH", "oeh.visible");
       this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
       this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
+      this.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
+      this.toggleButtons("EuskalBar-Luret", "luret.visible");
       this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
       this.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
       this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
@@ -207,6 +209,12 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         break;
       case "extensions.euskalbar.uzei.visible":
         this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+        break;
+      case "extensions.euskalbar.lurhe.visible":
+        this.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
+        break;
+      case "extensions.euskalbar.luret.visible":
+        this.toggleButtons("EuskalBar-Luret", "luret.visible");
         break;
       case "extensions.euskalbar.itzul.visible":
         this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
@@ -766,6 +774,12 @@ Components.utils.import("resource://gre/modules/Services.jsm");
           }
           if (this.prefs.getBoolPref("uzei.onkey")) {
             euskalbar.dicts.goEuskalBarUZEI(searchStr);
+          }
+          if (this.prefs.getBoolPref("lurhe.onkey")) {
+            euskalbar.dicts.goEuskalBarLurhe(searchStr);
+          }
+          if (this.prefs.getBoolPref("luret.onkey")) {
+            euskalbar.dicts.goEuskalBarLuret(searchStr);
           }
           if (this.prefs.getBoolPref("itzul.onkey")) {
             euskalbar.dicts.goEuskalBarItzuL(searchStr);

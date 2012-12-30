@@ -585,6 +585,36 @@
     },
 
 
+    // Lur hiztegi entziklopedikoa
+    goEuskalBarLurhe: function (term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+      var params = [];
+      var url = 'http://www.euskara.euskadi.net/r59-lursresd/eu?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:termino;m:documentLanguage.EQ.eu;m:documentName.BEGINNING.'+escape(term);
+      var zein = 'r59-lursresd';
+      euskalbar.openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(2);
+    },
+
+
+    // ItzuL posta-zerrendan bilaketak
+    goEuskalBarLuret: function (term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+      var params = [];
+      var url = 'http://www.euskara.euskadi.net/r59-lursresu/eu?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:articulo;m:documentLanguage.EQ.eu;m:documentDescription.LIKE.'+escape(term);
+      var zein = 'r59-lursresu';
+      euskalbar.openURL(url, zein, 'GET', params);
+      //Estatistika lokalak idatzi*/
+      euskalbar.stats.writeStats(7);
+    },
+
+
     // Harluxet hiztegi entziklopedikoa
     goEuskalBarHarluxet: function (term) {
       // Begiratu kutxa hutsik dagoen
@@ -894,7 +924,7 @@
       var zein = 'danobat';
       euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi .  Danobat dict = 32
-      euskalbar.stats.writeStats(32);
+      euskalbar.stats.writeStats(30);
     },
 
     // Aukeratutako testua itzultzen du
