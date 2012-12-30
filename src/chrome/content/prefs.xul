@@ -33,7 +33,7 @@
       <preference id="prefEurovocVisible" name="extensions.euskalbar.eurovoc.visible" type="bool"/>
       <preference id="prefBergaraVisible" name="extensions.euskalbar.bergara.visible" type="bool"/>
       <preference id="prefEreduzkoVisible" name="extensions.euskalbar.ereduzko.visible" type="bool"/>
-      <preference id="prefEgungoVisible" name="extensions.euskalbar.ereduzko.visible" type="bool"/>
+      <preference id="prefEgungoVisible" name="extensions.euskalbar.egungo.visible" type="bool"/>
       <preference id="prefKlasikoakVisible" name="extensions.euskalbar.klasikoak.visible" type="bool"/>
       <preference id="prefZTCorpusaVisible" name="extensions.euskalbar.ztcorpusa.visible" type="bool"/>
       <preference id="prefLBVisible" name="extensions.euskalbar.lb.visible" type="bool"/>
@@ -65,7 +65,7 @@
       <preference id="prefEurovoc" name="extensions.euskalbar.eurovoc.onkey" type="bool"/>
       <preference id="prefBergara" name="extensions.euskalbar.bergara.onkey" type="bool"/>
       <preference id="prefEreduzko" name="extensions.euskalbar.ereduzko.onkey" type="bool"/>
-      <preference id="prefEgungo" name="extensions.euskalbar.ereduzko.onkey" type="bool"/>
+      <preference id="prefEgungo" name="extensions.euskalbar.egungo.onkey" type="bool"/>
       <preference id="prefKlasikoak" name="extensions.euskalbar.klasikoak.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="extensions.euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefLB" name="extensions.euskalbar.lb.onkey" type="bool"/>
