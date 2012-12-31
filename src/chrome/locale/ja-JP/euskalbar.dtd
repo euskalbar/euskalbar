@@ -14,15 +14,16 @@
 <!ENTITY euskalbar.telekom.tooltip "Telekomunikazio 辞書">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar 辞書">
 <!ENTITY euskalbar.morris.tooltip "Morris 辞典">
-<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu 翻訳データベース">
+<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, computer related translation memories">
 <!ENTITY euskalbar.batua.tooltip "バスク語アカデミーバスク語辞典">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.uzei.tooltip "UZEI 類語">
-<!ENTITY euskalbar.itzul.tooltip "ItzuL メールリストファイル">
-<!ENTITY euskalbar.lurhe.tooltip "Lur hiztegi entziklopedikoa">
-<!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
+<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
+<!ENTITY euskalbar.lurhe.tooltip "Lur encyclopedic dictionary">
+<!ENTITY euskalbar.luret.tooltip "Lur thematic encyclopedia">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet 百科事典">
 <!ENTITY euskalbar.wikipedia.tooltip "バスクwikipedia">
+<!ENTITY euskalbar.uzei.tooltip "UZEI 類語">
+<!ENTITY euskalbar.itzul.tooltip "ItzuL メールリストファイル">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa データベース">
 <!ENTITY euskalbar.intza.tooltip "Intza慣用句">
 <!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua（古典の保管所）">

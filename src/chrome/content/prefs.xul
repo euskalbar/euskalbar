@@ -22,12 +22,13 @@
       <preference id="prefOpentranVisible" name="extensions.euskalbar.opentran.visible" type="bool"/>
       <preference id="prefBatuaVisible" name="extensions.euskalbar.batua.visible" type="bool"/>
       <preference id="prefOEHVisible" name="extensions.euskalbar.oeh.visible" type="bool"/>
-      <preference id="prefUZEIVisible" name="extensions.euskalbar.uzei.visible" type="bool"/>
-      <preference id="prefItzuLVisible" name="extensions.euskalbar.itzul.visible" type="bool"/>
+      <preference id="prefEHUskaratuakVisible" name="extensions.euskalbar.ehuskaratuak.visible" type="bool"/>
       <preference id="prefLurheVisible" name="extensions.euskalbar.lurhe.visible" type="bool"/>
       <preference id="prefLuretVisible" name="extensions.euskalbar.luret.visible" type="bool"/>
       <preference id="prefHarluxetVisible" name="extensions.euskalbar.harluxet.visible" type="bool"/>
       <preference id="prefWikipediaVisible" name="extensions.euskalbar.wikipedia.visible" type="bool"/>
+      <preference id="prefUZEIVisible" name="extensions.euskalbar.uzei.visible" type="bool"/>
+      <preference id="prefItzuLVisible" name="extensions.euskalbar.itzul.visible" type="bool"/>
       <preference id="prefMokoroaVisible" name="extensions.euskalbar.mokoroa.visible" type="bool"/>
       <preference id="prefIntzaVisible" name="extensions.euskalbar.intza.visible" type="bool"/>
       <preference id="prefEurovocVisible" name="extensions.euskalbar.eurovoc.visible" type="bool"/>
@@ -54,12 +55,13 @@
       <preference id="prefOpentran" name="extensions.euskalbar.opentran.onkey" type="bool"/>
       <preference id="prefBatua" name="extensions.euskalbar.batua.onkey" type="bool"/>
       <preference id="prefOEH" name="extensions.euskalbar.oeh.onkey" type="bool"/>
-      <preference id="prefUZEI" name="extensions.euskalbar.uzei.onkey" type="bool"/>
+      <preference id="prefEHUskaratuak" name="extensions.euskalbar.ehuskaratuak.onkey" type="bool"/>
       <preference id="prefLurhe" name="extensions.euskalbar.lurhe.onkey" type="bool"/>
       <preference id="prefLuret" name="extensions.euskalbar.luret.onkey" type="bool"/>
-      <preference id="prefItzuL" name="extensions.euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefHarluxet" name="extensions.euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefWikipedia" name="extensions.euskalbar.wikipedia.onkey" type="bool"/>
+      <preference id="prefUZEI" name="extensions.euskalbar.uzei.onkey" type="bool"/>
+      <preference id="prefItzuL" name="extensions.euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefMokoroa" name="extensions.euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefIntza" name="extensions.euskalbar.intza.onkey" type="bool"/>
       <preference id="prefEurovoc" name="extensions.euskalbar.eurovoc.onkey" type="bool"/>
@@ -217,12 +219,13 @@
             <listitem preference="prefGoihataVisible" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
             <listitem preference="prefBatuaVisible" type="checkbox" label="&euskalbar.batua.tooltip;"/>
             <listitem preference="prefOEHVisible" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-            <listitem preference="prefUZEIVisible" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+            <listitem preference="prefEHUskaratuakVisible" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
             <listitem preference="prefLurheVisible" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
             <listitem preference="prefLuretVisible" type="checkbox" label="&euskalbar.luret.tooltip;"/>
-            <listitem preference="prefItzuLVisible" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
             <listitem preference="prefHarluxetVisible" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
             <listitem preference="prefWikipediaVisible" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
+            <listitem preference="prefUZEIVisible" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+            <listitem preference="prefItzuLVisible" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
             <listitem preference="prefMokoroaVisible" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
             <listitem preference="prefIntzaVisible" type="checkbox" label="&euskalbar.intza.tooltip;"/>
             <listitem preference="prefEurovocVisible" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>
@@ -263,12 +266,13 @@
                     <listitem preference="prefGoihata" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
                     <listitem preference="prefBatua" type="checkbox" label="&euskalbar.batua.tooltip;"/>
                     <listitem preference="prefOEH" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-                    <listitem preference="prefUZEI" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                    <listitem preference="prefEHUskaratuak" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
                     <listitem preference="prefLurhe" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
                     <listitem preference="prefLuret" type="checkbox" label="&euskalbar.luret.tooltip;"/>
-                    <listitem preference="prefItzuL" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
                     <listitem preference="prefHarluxet" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
                     <listitem preference="prefWikipedia" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
+                    <listitem preference="prefItzuL" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
+                    <listitem preference="prefUZEI" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
                     <listitem preference="prefMokoroa" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
                     <listitem preference="prefIntza" type="checkbox" label="&euskalbar.intza.tooltip;"/>
                     <listitem preference="prefEurovoc" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>

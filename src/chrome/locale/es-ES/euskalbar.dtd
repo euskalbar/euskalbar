@@ -14,15 +14,16 @@
 <!ENTITY euskalbar.telekom.tooltip "Diccionario de Telecomunicaciones">
 <!ENTITY euskalbar.elhuyar.tooltip "Diccionario Elhuyar">
 <!ENTITY euskalbar.morris.tooltip "Diccionario Morris">
-<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu base de datos de traducción">
+<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, memorias de traducción de términos informáticos">
 <!ENTITY euskalbar.batua.tooltip "Diccionario unificado de Euskaltzaindia">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.uzei.tooltip "Sinónimos de UZEI">
-<!ENTITY euskalbar.itzul.tooltip "Archivo de la lista de correo ItzuL">
-<!ENTITY euskalbar.lurhe.tooltip "Lur diccionario enciclopédico">
-<!ENTITY euskalbar.luret.tooltip "Lur enciclopedia temática">
+<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, memorias de traducción de la UPV">
+<!ENTITY euskalbar.lurhe.tooltip "Diccionario enciclopédico Lur">
+<!ENTITY euskalbar.luret.tooltip "Enciclopedia temática Lur">
 <!ENTITY euskalbar.harluxet.tooltip "Diccionario enciclopédico Harluxet">
 <!ENTITY euskalbar.wikipedia.tooltip "Wikipedia en euskera">
+<!ENTITY euskalbar.uzei.tooltip "Sinónimos de UZEI">
+<!ENTITY euskalbar.itzul.tooltip "Archivo de la lista de correo ItzuL">
 <!ENTITY euskalbar.mokoroa.tooltip "Base de datos Mokoroa">
 <!ENTITY euskalbar.intza.tooltip "Locuciones del proyecto Intza">
 <!ENTITY euskalbar.klasikoak.tooltip "Clásicos del euskera (Klasikoen gordailua)">

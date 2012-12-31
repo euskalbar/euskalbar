@@ -447,6 +447,39 @@
     },
 
 
+    // Hauta Lanerako Euskal Hiztegia
+    goEuskalBarEHUskaratuak: function (source, dest, term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+      var params = [];
+      var url = 'http://ehuskaratuak.ehu.es/bilaketa/';
+      params.push(new euskalbar.QueryParameter('mota', "arrunta"));
+      params.push(new euskalbar.QueryParameter('hizkuntza', source));
+      params.push(new euskalbar.QueryParameter('formalema', "lema"));
+      params.push(new euskalbar.QueryParameter('testuhitza', escape(term)));
+      params.push(new euskalbar.QueryParameter('kategoria', ""));
+      params.push(new euskalbar.QueryParameter('alor', "guz"));
+      params.push(new euskalbar.QueryParameter('azpialor', "guz"));
+      params.push(new euskalbar.QueryParameter('aurreratua', "arrunta"));
+      params.push(new euskalbar.QueryParameter('hizkuntza2', dest));
+      params.push(new euskalbar.QueryParameter('formalema2', "forma"));
+      params.push(new euskalbar.QueryParameter('testuhitza2', ""));
+      params.push(new euskalbar.QueryParameter('kategoria2', ""));
+      params.push(new euskalbar.QueryParameter('distantzia', "0"));
+      params.push(new euskalbar.QueryParameter('osagaietan', dest));
+      params.push(new euskalbar.QueryParameter('grafauk', "1forma"));
+      params.push(new euskalbar.QueryParameter('grafiko_aukerak', "1forma"));
+
+      var zein = 'ehuskaratuak';
+      euskalbar.openURL(url, zein, 'POST', params);
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(32);
+    },
+
+
+
     // Morrisen bilaketak egiteko
     goEuskalBarMorris: function (source, term) {
       // Begiratu kutxa hutsik dagoen
