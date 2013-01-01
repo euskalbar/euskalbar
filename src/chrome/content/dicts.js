@@ -447,7 +447,7 @@
     },
 
 
-    // Hauta Lanerako Euskal Hiztegia
+    // EHUskaratuak
     goEuskalBarEHUskaratuak: function (source, dest, term) {
       // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)) {
@@ -566,6 +566,33 @@
       euskalbar.openURL(url, zein, 'POST', params);
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(23);
+    },
+
+
+    goEuskalBarHauta: function (term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+ 
+      var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl';
+      var params = [];
+
+      var zein = 'r59-15172x';
+      euskalbar.openURL(url, zein, 'POST', params);
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(33);
+    },
+
+    //Triggered with an event listener of DOMContentLoaded
+    goEuskalBarHautaKlik: function (aEvent) {
+      var doc = aEvent.originalTarget;
+      if (doc.location.href.indexOf("r59-15172x") != -1) {
+        var textbox = doc.getElementById("hitza");
+        var button = doc.getElementById("bilatu");
+        textbox.value = euskalbarLib.$("EuskalBar-search-string").value;
+        button.click();
+      }
     },
 
 

@@ -15,9 +15,10 @@
 <!ENTITY euskalbar.elhuyar.tooltip "Dictionnaire Elhuyar">
 <!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, computer related translation memories">
+<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
 <!ENTITY euskalbar.batua.tooltip "Dictionnaire Unifié d'Euskaltzaindia">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
+<!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
 <!ENTITY euskalbar.lurhe.tooltip "Dictionnaire encyclopédique Lur">
 <!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
 <!ENTITY euskalbar.harluxet.tooltip "Dictionnaire encyclopédique Harluxet">

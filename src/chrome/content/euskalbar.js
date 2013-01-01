@@ -115,6 +115,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
       gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
       gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.dicts.goEuskalBarHautaKlik, true);
 
 
       // Init bar's buttons
@@ -126,9 +127,10 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
       this.toggleButtons("EuskalBar-Morris", "morris.visible");
       this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
+      this.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
       this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
       this.toggleButtons("EuskalBar-OEH", "oeh.visible");
-      this.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
+      this.toggleButtons("EuskalBar-Hauta", "hauta.visible");
       this.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
       this.toggleButtons("EuskalBar-Luret", "luret.visible");
       this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
@@ -155,10 +157,18 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Euskalbar deskargatu: observerra ezabatu
+    // Euskalbar deskargatu
     shutdown: function () {
       window.removeEventListener("load", euskalbar.init, false);
       window.removeEventListener("unload", euskalbar.shutdown, false);
+
+      gBrowser.removeEventListener("DOMContentLoaded", this.initHTML, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.dicts.goEuskalBarHautaKlik, true);
 
       Services.prefs.removeObserver("", this);
       document.persist("euskalbar-toolbar", "currentset");
@@ -203,14 +213,17 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       case "extensions.euskalbar.opentran.visible":
         this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
         break;
+      case "extensions.euskalbar.ehuskaratuak.visible":
+        this.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
+        break;
       case "extensions.euskalbar.batua.visible":
         this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
         break;
       case "extensions.euskalbar.oeh.visible":
         this.toggleButtons("EuskalBar-OEH", "oeh.visible");
         break;
-      case "extensions.euskalbar.ehuskaratuak.visible":
-        this.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
+      case "extensions.euskalbar.hauta.visible":
+        this.toggleButtons("EuskalBar-Hauta", "hauta.visible");
         break;
       case "extensions.euskalbar.lurhe.visible":
         this.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
@@ -788,6 +801,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
           }
           if (this.prefs.getBoolPref("oeh.onkey")) {
             euskalbar.dicts.goEuskalBarOEH(searchStr);
+          }
+          if (this.prefs.getBoolPref("hauta.onkey")) {
+            euskalbar.dicts.goEuskalBarHauta(searchStr);
           }
           if (this.prefs.getBoolPref("lurhe.onkey")) {
             euskalbar.dicts.goEuskalBarLurhe(searchStr);

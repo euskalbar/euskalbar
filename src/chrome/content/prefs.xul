@@ -20,9 +20,10 @@
       <preference id="prefZehazkiVisible" name="extensions.euskalbar.zehazki.visible" type="bool"/>
       <preference id="prefMorrisVisible" name="extensions.euskalbar.morris.visible" type="bool"/>
       <preference id="prefOpentranVisible" name="extensions.euskalbar.opentran.visible" type="bool"/>
+      <preference id="prefEHUskaratuakVisible" name="extensions.euskalbar.ehuskaratuak.visible" type="bool"/>
       <preference id="prefBatuaVisible" name="extensions.euskalbar.batua.visible" type="bool"/>
       <preference id="prefOEHVisible" name="extensions.euskalbar.oeh.visible" type="bool"/>
-      <preference id="prefEHUskaratuakVisible" name="extensions.euskalbar.ehuskaratuak.visible" type="bool"/>
+      <preference id="prefHautaVisible" name="extensions.euskalbar.hauta.visible" type="bool"/>
       <preference id="prefLurheVisible" name="extensions.euskalbar.lurhe.visible" type="bool"/>
       <preference id="prefLuretVisible" name="extensions.euskalbar.luret.visible" type="bool"/>
       <preference id="prefHarluxetVisible" name="extensions.euskalbar.harluxet.visible" type="bool"/>
@@ -53,9 +54,10 @@
       <preference id="prefZehazki" name="extensions.euskalbar.zehazki.onkey" type="bool"/>
       <preference id="prefMorris" name="extensions.euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="extensions.euskalbar.opentran.onkey" type="bool"/>
+      <preference id="prefEHUskaratuak" name="extensions.euskalbar.ehuskaratuak.onkey" type="bool"/>
       <preference id="prefBatua" name="extensions.euskalbar.batua.onkey" type="bool"/>
       <preference id="prefOEH" name="extensions.euskalbar.oeh.onkey" type="bool"/>
-      <preference id="prefEHUskaratuak" name="extensions.euskalbar.ehuskaratuak.onkey" type="bool"/>
+      <preference id="prefHauta" name="extensions.euskalbar.hauta.onkey" type="bool"/>
       <preference id="prefLurhe" name="extensions.euskalbar.lurhe.onkey" type="bool"/>
       <preference id="prefLuret" name="extensions.euskalbar.luret.onkey" type="bool"/>
       <preference id="prefHarluxet" name="extensions.euskalbar.harluxet.onkey" type="bool"/>
@@ -217,9 +219,10 @@
             <listitem preference="prefMorrisVisible" type="checkbox" label="&euskalbar.morris.tooltip;"/>
             <listitem preference="prefOpentranVisible" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
             <listitem preference="prefGoihataVisible" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
+            <listitem preference="prefEHUskaratuakVisible" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
             <listitem preference="prefBatuaVisible" type="checkbox" label="&euskalbar.batua.tooltip;"/>
             <listitem preference="prefOEHVisible" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-            <listitem preference="prefEHUskaratuakVisible" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
+            <listitem preference="prefHautaVisible" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
             <listitem preference="prefLurheVisible" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
             <listitem preference="prefLuretVisible" type="checkbox" label="&euskalbar.luret.tooltip;"/>
             <listitem preference="prefHarluxetVisible" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
@@ -264,9 +267,10 @@
                     <listitem preference="prefMorris" type="checkbox" label="&euskalbar.morris.tooltip;"/>
                     <listitem preference="prefOpentran" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
                     <listitem preference="prefGoihata" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
+                    <listitem preference="prefEHUskaratuak" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
                     <listitem preference="prefBatua" type="checkbox" label="&euskalbar.batua.tooltip;"/>
                     <listitem preference="prefOEH" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-                    <listitem preference="prefEHUskaratuak" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
+                    <listitem preference="prefHauta" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
                     <listitem preference="prefLurhe" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
                     <listitem preference="prefLuret" type="checkbox" label="&euskalbar.luret.tooltip;"/>
                     <listitem preference="prefHarluxet" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>

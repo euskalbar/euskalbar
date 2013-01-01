@@ -15,9 +15,10 @@
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu informatikako itzulpen-memoriak">
+<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, EHUren itzulpen-memoriak">
 <!ENTITY euskalbar.batua.tooltip "Hiztegi Batua">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, EHUren itzulpen-memoriak">
+<!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
 <!ENTITY euskalbar.lurhe.tooltip "Lur hiztegi entziklopedikoa">
 <!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
