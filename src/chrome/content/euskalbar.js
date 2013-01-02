@@ -115,7 +115,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
       gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
       gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
-      //gBrowser.addEventListener("load", euskalbar.dicts.goEuskalBarTelekomKlik, true);
 
       // Init bar's buttons
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
@@ -167,8 +166,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
       gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
       gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
-      //gBrowser.removeEventListener("load", euskalbar.dicts.goEuskalBarTelekomKlik, true);
-      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.dicts.goEuskalBarHautaKlik, true);
 
       Services.prefs.removeObserver("", this);
       document.persist("euskalbar-toolbar", "currentset");

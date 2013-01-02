@@ -204,12 +204,13 @@
     },
 
 
-//TELEKOM KODE BERRIA, GUZTIZ GARATU GABE 
     goEuskalBarTelekom: function (term) {
       // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
+
+      gBrowser.addEventListener("load", euskalbar.dicts.goEuskalBarTelekomKlik, true);
 
       var lang = euskalbarLib._("hizk");
       var inthizk;
@@ -251,136 +252,11 @@
         langcombo.selectedIndex = i;
         var button = doc.getElementsByName("submit")[0];
         button.click();
+
+        gBrowser.removeEventListener("load", euskalbar.dicts.goEuskalBarTelekomKlik, true);
       }
     },
 
-
-/*    telekomhiztegiatimeout: Boolean,
-    telekomhiztegiatimeout2: Boolean,
-
-    // Telkomunikazio hiztegiko bilaketak
-    goEuskalBarTelekom: function (source, term) {
-      // Begiratu kutxa hutsik dagoen
-      if (euskalbar.alertEmptyBox(term)) {
-        return;
-      }
-      var hizkid;
-      if (source == 'eu') {
-        hizkid = 'E';
-      } else if (source == 'es') {
-        hizkid = 'G';
-      } else if (source == 'en') {
-        hizkid = 'I';
-      } else if (source == 'fr') {
-        hizkid = 'F';
-      };
-
-      var lang = euskalbarLib._("hizk");
-      var inthizk;
-      if (lang.match('euskara')) {
-        inthizk = 'eusk';
-      } else {
-        inthizk = 'gazt';
-      }
-
-      var tabIndex = euskalbar.getTabIndexBySlug('telekom');
-      if (tabIndex == -1) {
-        euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
-      };
-
-      var telekomhiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'normal');
-      }, 50);
-      // Gelditzeko timerra sortu
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000;
-      var telekomhiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(telekomhiztegiatimeout);
-      }, tout);
-
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(27);
-    },
-
-    // Telekom hiztegia irekitzeko konbinatutik
-    goEuskalBarTelekomKlik: function (source, term) {
-      var zein = 'telekom';
-      var newWindow = window.open('http://www.telekomunikaziohiztegia.org/index.asp', zein);
-      newWindow.focus();
-
-      if (source == 'eu') {
-        hizkid = 'E';
-      } else if (source == 'es') {
-        hizkid = 'G';
-      } else if (source == 'en') {
-        hizkid = 'I';
-      } else if (source == 'fr') {
-        hizkid = 'F';
-      };
-
-      var telekomhiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, 'klik');
-      }, 50);
-      // Gelditzeko timerra sortu
-      var telekomhiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(telekomhiztegiatimeout);
-      }, 10000);
-
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(27);
-    },
-
-    // Telekom hiztegia irekitzeko konbinatuko zerrendetatik
-    goEuskalBarTelekomKlik2: function (termid, term) {
-      var zein = 'telekom';
-      var newWindow = window.open('http://www.telekomunikaziohiztegia.org/definizioa.asp?Kodea=' + termid + '&Hizkuntza=' + termid.substring(0, 1) + '&hizk=eusk', zein);
-      newWindow.focus();
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(27);
-    },
-
-    telekomhiztegiakargatzeanbilatu: function (hizkid, term, nondik) {
-      var segi = 0;
-      var segi2 = 0;
-      var doc = null;
-
-      if (nondik == 'klik') {
-        doc = Application.activeWindow.activeTab.document;
-        segi2 = 1;
-      } else {
-        var tabIndex = euskalbar.getTabIndexBySlug('telekom');
-        if (tabIndex != -1) {
-          doc = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
-          segi2 = 1;
-        };
-      };
-
-      if (segi2 == 1) {
-        if (doc.getElementsByTagName('frame').length > 0) {
-          if (doc.getElementsByName('ezkerFrame')[0].contentDocument != null) {
-            if (doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza').length > 0) {
-              if (doc.getElementsByName('nagusiaFrame')[0].contentDocument != null) {
-                if ((doc.getElementsByName('nagusiaFrame')[0].contentDocument.getElementsByTagName('body')[0].innerHTML.search('espacio.gif') != -1)) {
-                  segi = 1;
-                };
-              };
-            };
-          };
-        };
-      };
-
-      if (segi == 1) {
-        doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('txtHitza')[0].value = term;
-        doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('selectHizkuntza')[0].value = hizkid;
-        doc.getElementsByName('ezkerFrame')[0].contentDocument.getElementsByName('form1')[0].submit();
-        clearTimeout(telekomhiztegiatimeout2);
-      } else {
-        var telekomhiztegiatimeout = setTimeout(function () {
-          euskalbar.dicts.telekomhiztegiakargatzeanbilatu(hizkid, term, nondik);
-        }, 50);
-      };
-    },
-*/
 
     // Bilaketak Labayru hiztegian
     goEuskalBarLabayru: function (source, term) {
