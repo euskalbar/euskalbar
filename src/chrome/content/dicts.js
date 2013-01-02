@@ -159,11 +159,11 @@
         return;
       }
 
+      gBrowser.addEventListener("load", euskalbar.dicts.goEuskalBarZTHiztegiaKlik, true);
+
       var url = 'http://zthiztegia.elhuyar.org',
           zein = 'zthiztegia';
-
       euskalbar.openURL(url, zein, 'GET', null);
-
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(25);
     },
@@ -198,11 +198,13 @@
         langcombo.selectedIndex = i;
         var button = doc.getElementById("bot_bilatu");
         button.click();
+
+        gBrowser.removeEventListener("load", euskalbar.dicts.goEuskalBarZTHiztegiaKlik, true);
       }
     },
 
 
-/*TELEKOM KODE BERRIA, GUZTIZ GARATU GABE 
+//TELEKOM KODE BERRIA, GUZTIZ GARATU GABE 
     goEuskalBarTelekom: function (term) {
       // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)) {
@@ -252,8 +254,8 @@
       }
     },
 
-*/
-    telekomhiztegiatimeout: Boolean,
+
+/*    telekomhiztegiatimeout: Boolean,
     telekomhiztegiatimeout2: Boolean,
 
     // Telkomunikazio hiztegiko bilaketak
@@ -378,7 +380,7 @@
         }, 50);
       };
     },
-
+*/
 
     // Bilaketak Labayru hiztegian
     goEuskalBarLabayru: function (source, term) {
@@ -575,10 +577,11 @@
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
- 
+
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.dicts.goEuskalBarHautaKlik, true); 
+
       var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl',
           zein = 'sarasola';
-
       euskalbar.openURL(url, zein, 'POST', null);
 
       //Estatistika lokalak idatzi
@@ -593,6 +596,8 @@
         var button = doc.getElementById("bilatu");
         textbox.value = euskalbarLib.$("EuskalBar-search-string").value;
         button.click();
+
+        gBrowser.removeEventListener("DOMContentLoaded", euskalbar.dicts.goEuskalBarHautaKlik, true); 
       }
     },
 
