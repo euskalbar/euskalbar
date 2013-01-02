@@ -448,21 +448,26 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     // *************************************
     //  Euskalbarren barneko funtzioak
     // *************************************
+
     /**
-     * Emandako URLa zabaltzen du hobespenaren arabera
+     * Opens a browser tab with the given URL.
      * @param url
-     *        Zabaldu beharreko URLa
-     * @param zein
-     *        URLaren baitan dagoen kate identifikagarri bat
-     *        (fitxak URI bitartez berrerabiltzeko)
+     *        The URL to open.
+     * @param slug
+     *        A unique string to identify the dictionary.
      * @param method
-     *        HTTP eskaeran daturen bat igorri behar bada,
-     *        zein metodo erabiliko den datuak pasatzeko (GET, POST)
+     *        The method of the HTTP request.
      * @param params
-     *        Parametroen array bat, elementu bakoitza
-     *        izena/balioa bikote bat izanik (QueryParameter-ek sortuta)
-     * Inspirazioa: /browser/components/search/nsSearchService.js
-     *              EngineURL.prototype.getSubmission() metodoa
+     *        Data to be sent in the HTTP request.
+     *
+     *        Parameters can either be:
+     *        #. An object of key-value pairs. In case values are functions,
+     *        the returned value will be used.
+     *        #. Arrays serialized out of forms. In these situations the object
+     *        elements of the array must have 'name' and 'value' properties.
+     *
+     *        Values will be properly escaped when invoking this function, so
+     *        no prior escaping is needed.
      */
     openURL: function (url, slug, method, params) {
       var postData = null,
