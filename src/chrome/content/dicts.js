@@ -148,137 +148,104 @@
       euskalbar.stats.writeStats(1);
     },
 
-    zthiztegiatimeout: Boolean,  //Fixme
-    zthiztegiatimeout2: Boolean, //Fixme
 
-    // ZT hiztegiko bilaketak
-    goEuskalBarZTHiztegia: function (source, term) {
+    goEuskalBarZTHiztegia: function (term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+      var url = 'http://zthiztegia.elhuyar.org';
+      var zein = 'zthiztegia';
+      euskalbar.openURL(url, zein, 'GET', null);
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(25);
+    },
+
+    //Triggered with a load event listener
+    goEuskalBarZTHiztegiaKlik: function (aEvent) {
+      var doc = aEvent.originalTarget;
+      if (doc.location.href.indexOf("zthiztegia") != -1) {
+        var langbutton = euskalbarLib.$("euskalbar-language");
+        var hizk = langbutton.getAttribute("label").substr(0,2);
+        var i = "0";
+        switch (hizk) {
+        case 'EU':
+          i = "0";
+          break;
+        case 'EN':
+          i = "1";
+          break;
+        case 'ES':
+          i = "2";
+          break;
+        case 'FR':
+          i = "3";
+          break;
+        case 'LA':
+          i = "4";
+          break;
+        }
+        var textbox = doc.getElementById("txtBilagaila");
+        textbox.value = euskalbarLib.$("EuskalBar-search-string").value;
+        var langcombo = doc.getElementById("selectHizkuntza");
+        langcombo.selectedIndex = i;
+        var button = doc.getElementById("bot_bilatu");
+        button.click();
+      }
+    },
+
+
+/*TELEKOM KODE BERRIA, GUZTIZ GARATU GABE 
+    goEuskalBarTelekom: function (term) {
       // Begiratu kutxa hutsik dagoen
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
 
-      var slug = 'zthiztegia';
-      var tabIndex = euskalbar.getTabIndexBySlug(slug);
-      if (tabIndex == -1) {
-        euskalbar.openURL('http://zthiztegia.elhuyar.org', slug, 'GET', null);
+      var lang = euskalbarLib._("hizk");
+      var inthizk;
+      if (lang.match('euskara')) {
+        inthizk = 'eusk';
+      } else {
+        inthizk = 'gazt';
       }
-
-      var zthiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, 'normal');
-      }, 50);
-      // Gelditzeko timerra sortu
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000;
-      var zthiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(zthiztegiatimeout);
-      }, tout);
+      euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(25);
+      euskalbar.stats.writeStats(27);
     },
 
-    // ZT hiztegia irekitzeko konbinatutik
-    goEuskalBarZTHiztegiaKlik: function (source, term) {
-      var slug = 'zthiztegia.elhuyar.org';
-      var newWindow = window.open('http://zthiztegia.elhuyar.org', slug);
-      newWindow.focus();
-
-      var zthiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, 'klik');
-      }, 50);
-      // Gelditzeko timerra sortu
-      var zthiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(zthiztegiatimeout);
-      }, 10000);
-
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(25);
+    //Triggered with a load event listener
+    goEuskalBarTelekomKlik: function (aEvent) {
+      var doc = aEvent.originalTarget;
+      if (doc.location.href.indexOf("telekomunikaziohiztegia") != -1) {
+        var langbutton = euskalbarLib.$("euskalbar-language");
+        var hizk = langbutton.getAttribute("label").substr(0,2);
+        var i = "0";
+        switch (hizk) {
+        case 'EU':
+          i = "0";
+          break;
+        case 'EN':
+          i = "2";
+          break;
+        case 'ES':
+          i = "1";
+          break;
+        case 'FR':
+          i = "3";
+          break;
+        }
+        var textbox = doc.getElementsByName("txtHitza")[0];
+        textbox.value = euskalbarLib.$("EuskalBar-search-string").value;
+        var langcombo = doc.getElementsByName("selectHizkuntza")[0];
+        langcombo.selectedIndex = i;
+        var button = doc.getElementsByName("submit")[0];
+        button.click();
+      }
     },
 
-    zthiztegiakargatzeanbilatu: function (source, term, nondik) {
-      var segi = 0;
-      var segi2 = 0;
-      var doc = null;
-
-      if (nondik == 'klik') {
-        doc = Application.activeWindow.activeTab.document;
-        segi2 = 1;
-      } else {
-        var tabIndex = euskalbar.getTabIndexBySlug('zthiztegia.elhuyar.org');
-        if (tabIndex != -1) {
-          doc = gBrowser.getBrowserAtIndex(tabIndex).contentDocument;
-          segi2 = 1;
-        };
-      };
-
-      if (segi2 == 1) {
-        if (euskalbarLib.$('emaitza', doc) != null) {
-          if (euskalbarLib.$('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
-            euskalbarLib.$('emaitza', doc).style.visibility = "hidden";
-          };
-          if (euskalbarLib.$('emaitza', doc).innerHTML.search("sarrera") != -1) {
-            segi = 1;
-          };
-        };
-      };
-
-      if (segi == 1) {
-        euskalbarLib.$('txtBilagaila', doc).value = term;
-        euskalbarLib.$('selectHizkuntza', doc).value = source;
-        euskalbarLib.$('bot_bilatu', doc).click();
-        euskalbarLib.$('emaitza', doc).style.visibility = "visible";
-        clearTimeout(zthiztegiatimeout2);
-      } else {
-        var zthiztegiatimeout = setTimeout(function () {
-          euskalbar.dicts.zthiztegiakargatzeanbilatu(source, term, nondik);
-        }, 50);
-      };
-    },
-
-    // ZT hiztegiko artikulu bat irekitzeko konbinatutik
-    goEuskalBarZTHiztegiaArtikulua: function (artik) {
-      var zein = 'zthiztegia.elhuyar.org';
-      var newWindow = window.open('http://' + zein, zein);
-      newWindow.focus();
-
-      var zthiztegiatimeout = setTimeout(function () {
-        euskalbar.dicts.zthiztegiakargatzeanartikulua(artik);
-      }, 50);
-      // Gelditzeko timerra sortu
-      var zthiztegiatimeout2 = setTimeout(function () {
-        clearTimeout(zthiztegiatimeout);
-      }, 10000);
-
-      //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(25);
-    },
-
-    zthiztegiakargatzeanartikulua: function (artik) {
-      var segi = 0;
-      var doc = Application.activeWindow.activeTab.document;
-
-      if (euskalbarLib.$('emaitza', doc) != null) {
-        if (euskalbarLib.$('emaitza', doc).innerHTML.search("Bilatzen...") != -1) {
-          euskalbarLib.$('emaitza', doc).style.visibility = "hidden";
-        };
-        if (euskalbarLib.$('emaitza', doc).innerHTML.search("sarrera") != -1) {
-          segi = 1;
-        };
-      };
-
-      if (segi == 1) {
-        euskalbarLib.$('emaitza', doc).innerHTML = '<form action="javascript:showArticle(\'' + artik + '\')"><input style="visibility:hidden" id="bot_bilatu2" value="Bilatu" type="submit"></form>';
-        euskalbarLib.$('bot_bilatu2', doc).click();
-        euskalbarLib.$('emaitza', doc).style.visibility = "visible";
-        clearTimeout(zthiztegiatimeout2);
-      } else {
-        var zthiztegiatimeout = setTimeout(function () {
-          euskalbar.dicts.zthiztegiakargatzeanartikulua(artik);
-        }, 50);
-      };
-    },
-
+*/
     telekomhiztegiatimeout: Boolean,
     telekomhiztegiatimeout2: Boolean,
 
@@ -576,10 +543,8 @@
       }
  
       var url = 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl';
-      var params = [];
-
       var zein = 'r59-15172x';
-      euskalbar.openURL(url, zein, 'POST', params);
+      euskalbar.openURL(url, zein, 'POST', null);
       //Estatistika lokalak idatzi
       euskalbar.stats.writeStats(33);
     },
