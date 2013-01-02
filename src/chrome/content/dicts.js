@@ -514,15 +514,16 @@
         return;
       }
 
-      var urlGoihata = 'http://www.goihata.com/eu/japoniera-hiztegia/?tx_ghdictionary_pi1[cmd]=2',
-          zein = 'goihata.com',
+      var url = 'http://www.kotobai.com/eu/euskara-japoniera-hiztegia/',
+          zein = 'kotobai.com',
           params = {
+            'tx_ghdictionary_pi1[cmd]': '2',
             'tx_ghdictionary_pi1[q]': term,
             'tx_ghdictionary_pi1[l]': 'basque',
             'tx_ghdictionary_pi1[t]': '1'
           };
 
-      euskalbar.openURL(urlGoihata, zein, 'POST', params);
+      euskalbar.openURL(url, zein, 'POST', params);
 
       // Update search stats; 21 = Index of Goihata in stats file
       euskalbar.stats.writeStats(21);
