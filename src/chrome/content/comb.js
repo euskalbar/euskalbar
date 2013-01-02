@@ -776,7 +776,7 @@
         idioma = 'E';
       }
 
-      var urlEuskaltzaindia = 'http://www.euskaltzaindia.net/hiztegibatua/index.php?option=com_hiztegianbilatu&amp;Itemid=189&amp;lang=eu&amp;view=frontpage&amp;bila=bai&amp;sarrera=' + escape(term);
+      var urlEuskaltzaindia = 'http://www.euskaltzaindia.net/hiztegibatua/index.php?option=com_hiztegianbilatu&amp;Itemid=189&amp;lang=eu&amp;view=frontpage&amp;bila=bai&amp;sarrera=' + encodeURIComponent(term);
       var xmlHttpReq = new XMLHttpRequest();
       xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
       if (!xmlHttpReq) {
@@ -963,9 +963,9 @@
       var url, output = "";
 
       if (source == 'es') {
-        url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + escape(term) + '&eremu3=1&eremu1=eeki';
+        url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?hitza1=' + encodeURIComponent(term) + '&eremu3=1&eremu1=eeki';
       } else {
-        url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1=' + escape(term) + '&eremu3=1';
+        url = 'http://intza.armiarma.com/cgi-bin/bilatu2.pl?eremu1=giltzarriak&hitza1=' + encodeURIComponent(term) + '&eremu3=1';
       }
 
       euskalbarLib.ajax({
@@ -994,7 +994,7 @@
 
     // Open-tran kargatu
     getShiftOpentran: function (source, term) {
-      var url = 'http://eu.open-tran.eu/suggest/' + escape(term);
+      var url = 'http://eu.open-tran.eu/suggest/' + encodeURIComponent(term);
       var output = "";
 
       euskalbarLib.ajax({

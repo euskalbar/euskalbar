@@ -56,7 +56,7 @@
       }
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan egin
       // ditzala bilaketak
-      if (escape(term).charAt(escape(term).length - 1) != "%") {
+      if (encodeURIComponent(term).charAt(encodeURIComponent(term).length - 1) != "%") {
         term = term + "%";
       }
 
@@ -497,7 +497,7 @@
         return;
       }
 
-      var url = 'http://eu.open-tran.eu/suggest/' + escape(term),
+      var url = 'http://eu.open-tran.eu/suggest/' + encodeURIComponent(term),
           zein = 'open-tran';
 
       euskalbar.openURL(url, zein, 'GET', null);
@@ -659,7 +659,7 @@
         return;
       }
 
-      var url = 'http://www.euskara.euskadi.net/r59-lursresd/eu?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:termino;m:documentLanguage.EQ.eu;m:documentName.BEGINNING.'+escape(term);
+      var url = 'http://www.euskara.euskadi.net/r59-lursresd/eu?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:termino;m:documentLanguage.EQ.eu;m:documentName.BEGINNING.' + encodeURIComponent(term);
       var zein = 'r59-lursresd';
 
       euskalbar.openURL(url, zein, 'GET', null);
@@ -675,7 +675,7 @@
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      var url = 'http://www.euskara.euskadi.net/r59-lursresu/eu?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:articulo;m:documentLanguage.EQ.eu;m:documentDescription.LIKE.'+escape(term);
+      var url = 'http://www.euskara.euskadi.net/r59-lursresu/eu?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:articulo;m:documentLanguage.EQ.eu;m:documentDescription.LIKE.' + encodeURIComponent(term);
       var zein = 'r59-lursresu';
 
       euskalbar.openURL(url, zein, 'GET', null);
