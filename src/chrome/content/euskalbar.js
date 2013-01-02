@@ -506,13 +506,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Izena/balioa pareak adierazteko objektua
-    QueryParameter: function (aName, aValue) {
-      this.name = aName;
-      this.value = aValue;
-    },
-
-
     /* Open URL in a new tab */
     openNewTab: function (tabUrl, slug, aPostData) {
       var newTab = gBrowser.addTab(tabUrl, null, null, aPostData);
