@@ -465,16 +465,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
      *              EngineURL.prototype.getSubmission() metodoa
      */
     openURL: function (url, slug, method, params) {
-      var postData = null;
-      var dataString = "";
-
-      if (params != null) { // momentuko soluzioa...
-        for (var i = 0; i < params.length; ++i) {
-          var param = params[i];
-
-          dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
-        }
-      }
+      var postData = null,
+          dataString = euskalbarLib.serialize(params);
 
       if (method == 'GET') {
         if (url.indexOf("?") == -1 && dataString) {
