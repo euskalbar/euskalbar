@@ -18,6 +18,8 @@
     </em:targetApplication>
 
     <!-- Aukerazko elementuak -->
+    <em:type>2</em:type>
+
     <em:creator>Euskalbar taldea</em:creator>
 
     <em:developer>Igor Leturia Azkarate</em:developer>
