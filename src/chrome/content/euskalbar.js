@@ -145,6 +145,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
       this.toggleButtons("EuskalBar-LB", "lb.visible");
       this.toggleButtons("EuskalBar-Consumer", "consumer.visible");
+      this.toggleButtons("EuskalBar-Literatura", "lth.visible");
+      this.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
+      this.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
       this.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
       this.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
       this.toggleButtons("EuskalBar-Elebila", "elebila.visible");
@@ -269,6 +272,15 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         break;
       case "extensions.euskalbar.consumer.visible":
         this.toggleButtons("EuskalBar-Consumer", "consumer.visible");
+        break;
+      case "extensions.euskalbar.lth.visible":
+        this.toggleButtons("EuskalBar-Literatura", "lth.visible");
+        break;
+      case "extensions.euskalbar.lanbide.visible":
+        this.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
+        break;
+      case "extensions.euskalbar.epaitegiak.visible":
+        this.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
         break;
       case "extensions.euskalbar.corpeus.visible":
         this.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
@@ -726,6 +738,12 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             if (this.prefs.getBoolPref("danobat.onkey")) {
               euskalbar.dicts.goEuskalBarDanobat(this.source, searchStr);
             }
+            if (this.prefs.getBoolPref("lanbide.onkey")) {
+              euskalbar.dicts.goEuskalBarLanbide(this.source, searchStr);
+            }
+            if (this.prefs.getBoolPref("epaitegiak.onkey")) {
+              euskalbar.dicts.goEuskalBarEpaitegiak(this.source, searchStr);
+            }
             if (this.prefs.getBoolPref("ehuskaratuak.onkey")) {
               euskalbar.dicts.goEuskalBarEHUskaratuak(this.source, this.target, searchStr);
             }
@@ -837,6 +855,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
           if (this.prefs.getBoolPref("lb.onkey")) {
             euskalbar.dicts.goEuskalBarLB(searchStr);
           }
+          if (this.prefs.getBoolPref("lth.onkey")) {
+            euskalbar.dicts.goEuskalBarLiteratura(searchStr);
+          }
           if (this.prefs.getBoolPref("corpeus.onkey")) {
             euskalbar.dicts.goEuskalBarCorpEus(searchStr);
           }
@@ -895,6 +916,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       var telekom = euskalbarLib.$('EuskalBar-Telekom');
       var danobat = euskalbarLib.$('EuskalBar-Danobat');
       var ehuskaratuak = euskalbarLib.$('EuskalBar-EHUskaratuak');
+      var lanbide = euskalbarLib.$('EuskalBar-Lanbide');
+      var epaitegiak = euskalbarLib.$('EuskalBar-Epaitegiak');
 
       switch (hizk) {
       case 'es':
@@ -909,6 +932,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         telekom.setAttribute("hidden", false);
         danobat.setAttribute("hidden", false);
         ehuskaratuak.setAttribute("hidden", false);
+        lanbide.setAttribute("hidden", false);
+        epaitegiak.setAttribute("hidden", false);
         break;
       case 'fr':
         euskalterm.setAttribute("hidden", false);
@@ -922,6 +947,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         telekom.setAttribute("hidden", false);
         danobat.setAttribute("hidden", true);
         ehuskaratuak.setAttribute("hidden", false);
+        lanbide.setAttribute("hidden", true);
+        epaitegiak.setAttribute("hidden", true);
         break;
       case 'en':
         euskalterm.setAttribute("hidden", false);
@@ -935,6 +962,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         telekom.setAttribute("hidden", false);
         danobat.setAttribute("hidden", true);
         ehuskaratuak.setAttribute("hidden", false);
+        lanbide.setAttribute("hidden", true);
+        epaitegiak.setAttribute("hidden", true);
         break;
       case 'la':
         euskalterm.setAttribute("hidden", false);
@@ -948,6 +977,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         telekom.setAttribute("hidden", true);
         danobat.setAttribute("hidden", true);
         ehuskaratuak.setAttribute("hidden", true);
+        lanbide.setAttribute("hidden", true);
+        epaitegiak.setAttribute("hidden", true);
         break;
       case 'jp':
         euskalterm.setAttribute("hidden", true);
@@ -961,6 +992,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         telekom.setAttribute("hidden", true);
         danobat.setAttribute("hidden", true);
         ehuskaratuak.setAttribute("hidden", true);
+        lanbide.setAttribute("hidden", true);
+        epaitegiak.setAttribute("hidden", true);
         break;
       }
     },

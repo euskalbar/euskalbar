@@ -208,5 +208,23 @@
       <stats:localstat>0</stats:localstat>
       </rdf:Description>
     </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/lth">
+      <stats:name>&euskalbar.lth.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/lanbide">
+      <stats:name>&euskalbar.lanbide.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
+    <rdf:li>
+      <rdf:Description about="http://www.euskalbar.eu/stats/epaitegiak">
+      <stats:name>&euskalbar.epaitegiak.tooltip;</stats:name>
+      <stats:localstat>0</stats:localstat>
+      </rdf:Description>
+    </rdf:li>
   </rdf:Bag>
 </rdf:RDF>

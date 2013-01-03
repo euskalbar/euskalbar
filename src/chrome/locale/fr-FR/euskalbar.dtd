@@ -16,6 +16,8 @@
 <!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, computer related translation memories">
 <!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
+<!ENTITY euskalbar.lanbide.tooltip "Lanbide heziketarako hiztegia">
+<!ENTITY euskalbar.epaitegiak.tooltip "Epaitegietako lexikoa">
 <!ENTITY euskalbar.batua.tooltip "Dictionnaire Unifié d'Euskaltzaindia">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
 <!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
@@ -33,6 +35,7 @@
 <!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Science et de Technologie">
 <!ENTITY euskalbar.lb.tooltip "Corpus de Lexikoaren Behatokia">
 <!ENTITY euskalbar.consumer.tooltip "Corpus Consumer">
+<!ENTITY euskalbar.lth.tooltip "Literatura terminoen hiztegia">
 <!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet comme corpus du Basque">
 <!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
 <!ENTITY euskalbar.xuxenweb.tooltip "Vérification ortographique XUXENweb">

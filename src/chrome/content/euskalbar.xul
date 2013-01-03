@@ -74,6 +74,8 @@
         <toolbarbutton id="EuskalBar-Goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarGoihata(euskalbar.source, euskalbar.target, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Danobat" tooltiptext="&euskalbar.danobat.tooltip;" label="Danobat" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarDanobat(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-EHUskaratuak" tooltiptext="&euskalbar.ehuskaratuak.tooltip;" label="EHUskaratuak" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEHUskaratuak(euskalbar.source, euskalbar.target, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Lanbide" tooltiptext="&euskalbar.lanbide.tooltip;" label="Lanbideak" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLanbide(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Epaitegiak" tooltiptext="&euskalbar.epaitegiak.tooltip;" label="Epaitegiak" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEpaitegiak(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarseparator/>
         <toolbarbutton id="EuskalBar-Euskaltzaindia" tooltiptext="&euskalbar.batua.tooltip;" label="Batua" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEuskaltzaindia(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-OEH" tooltiptext="&euskalbar.oeh.tooltip;" label="Orotarikoa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarOEH(document.getElementById('EuskalBar-search-string').value);" />
@@ -94,6 +96,7 @@
         <toolbarbutton id="EuskalBar-ZTCorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT corpusa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarZTCorpusa(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-LB" tooltiptext="&euskalbar.lb.tooltip;" label="Lexikoaren B." collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLB(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Consumer" tooltiptext="&euskalbar.consumer.tooltip;" label="Consumer" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarConsumer(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Literatura" tooltiptext="&euskalbar.lth.tooltip;" label="Literatura" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarLiteratura(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-CorpEus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarCorpEus(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-XUXENweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarXUXENweb(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarElebila(document.getElementById('EuskalBar-search-string').value);" />
@@ -128,6 +131,7 @@
               <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko Prosa Gaur" oncommand="euskalbar.dicts.goEuskalBarEreduzko(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="EuskalBar-Egungo-context" label="Egungo Euskararen Hiztegia" oncommand="euskalbar.dicts.goEuskalBarEgungo(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="euskalbar.dicts.goEuskalBarKlasikoak(escape(euskalbar.dicts.selectionText()));"/>
+              <menuitem id="Euskalbar-Literatura-context" label="Literatura" oncommand="euskalbar.dicts.goEuskalBarLiteratura(escape(euskalbar.dicts.selectionText()));"/>
               <menuitem id="Euskalbar-ZTCorpusa-context" label="ZT corpusa" oncommand="euskalbar.dicts.goEuskalBarZTCorpusa(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-LB-context" label="Lexikoaren Behatokiaren corpusa" oncommand="euskalbar.dicts.goEuskalBarLB(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-CorpEus-context" label="CorpEus" oncommand="euskalbar.dicts.goEuskalBarCorpEus(escape(euskalbar.dicts.selectionText()));" />
@@ -144,6 +148,8 @@
               <menuitem id="Euskalbar-Mokoroa-eu-context" label="Mokoroa" oncommand="euskalbar.dicts.goEuskalBarMokoroa('eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Intza-eu-context" label="Intza" oncommand="euskalbar.dicts.goEuskalBarIntza('eu', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-EHUskaratuak-eu_es-context" label="EHUskaratuak" oncommand="euskalbar.dicts.goEuskalBarEHUskaratuak('eu','es', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Lanbide-eu_es-context" label="Lanbideak" oncommand="euskalbar.dicts.goEuskalBarLanbide('eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Epaitegiak-eu_es-context" label="Epaitegiak" oncommand="euskalbar.dicts.goEuskalBarEpaitegiak('eu', escape(euskalbar.dicts.selectionText()));" />
     	    </menupopup>
     	  </menu>
     	  <menu id="Euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
@@ -157,6 +163,8 @@
               <menuitem id="Euskalbar-Mokoroa-es-context" label="Mokoroa" oncommand="euskalbar.dicts.goEuskalBarMokoroa('es', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Intza-es-context" label="Intza" oncommand="euskalbar.dicts.goEuskalBarIntza('es', escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-EHUskaratuak-es_eu-context" label="EHUskaratuak" oncommand="euskalbar.dicts.goEuskalBarEHUskaratuak('es','eu', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Lanbide-es_eu-context" label="Lanbideak" oncommand="euskalbar.dicts.goEuskalBarLanbide('es', escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="Euskalbar-Epaitegiak-es_eu-context" label="Epaitegiak" oncommand="euskalbar.dicts.goEuskalBarEpaitegiak('es', escape(euskalbar.dicts.selectionText()));" />
     	    </menupopup>
           </menu>
    	  <menu id="Euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">

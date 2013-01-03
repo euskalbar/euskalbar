@@ -862,6 +862,108 @@
     },
 
 
+    // Literatura terminoen hiztegia
+    goEuskalBarLiteratura: function (term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+
+      var url = 'http://www.euskaltzaindia.net/index.php',
+          zein = 'lth_detail',
+          params = {
+            'option': 'com_xslt',
+            'lang': 'eu',
+            'layout': 'lth_detail',
+            'view': 'frontpage',
+            'Itemid': '474',
+            'search': term
+          };
+
+      euskalbar.openURL(url, zein, 'GET', params);
+
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(34);
+    },
+
+    // Lanbide heziketarako hiztegia
+    goEuskalBarLanbide: function (source, term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+
+      gBrowser.addEventListener("load", euskalbar.dicts.goEuskalBarLanbideKlik, true);
+
+      var url = 'http://kantauri.eleka.net/laneki',
+          zein = 'laneki'
+
+      euskalbar.openURL(url, zein, null, null);
+
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(35);
+    },
+
+
+    // Lanbide heziketarako hiztegia Klik
+    //Triggered with a load event listener
+    goEuskalBarLanbideKlik: function (aEvent) {
+      var doc = aEvent.originalTarget;
+      if (doc.location.href.indexOf("laneki") != -1) {
+        var langbutton = euskalbarLib.$("euskalbar-language");
+        var hizk = langbutton.getAttribute("label").substr(0,2);
+        var i = "0";
+        switch (hizk) {
+        case 'EU':
+          i = "0";
+          break;
+        case 'ES':
+          i = "1";
+          break;
+        }
+
+        var textbox = doc.getElementById("field-bilatu");
+        textbox.value = euskalbarLib.$("EuskalBar-search-string").value;
+        var langcombo = doc.getElementById("selectHizkuntza");
+        langcombo.selectedIndex = i;
+        var button = doc.getElementById("bot_bilatu");
+        button.click();
+
+        gBrowser.removeEventListener("load", euskalbar.dicts.goEuskalBarLanbideKlik, true);
+      }
+    },
+
+
+    // Epaitegietako lexikoa
+    goEuskalBarEpaitegiak: function (source, term) {
+      // Begiratu kutxa hutsik dagoen
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+
+      var source2;
+      if (source == 'eu') {
+        source2 = 'EU';
+      } else {
+        source2 = 'ES';
+      };
+
+      var url = 'http://www.justizia.net/euskara-justizian',
+          zein = 'justizia',
+          params = {
+            '_charset_': 'ISO-8859-1',
+            'cjterm': term,
+            'bjterm': 'Bilatu',
+            'idiomaBusq': source2
+          };
+
+      euskalbar.openURL(url, zein, 'GET', params);
+
+      //Estatistika lokalak idatzi
+      euskalbar.stats.writeStats(36);
+    },
+
+
     // CorpEus
     goEuskalBarCorpEus: function (term) {
       // Begiratu kutxa hutsik dagoen
@@ -919,7 +1021,8 @@
       var url = 'http://www.elebila.eu/search/',
           zein = 'elebila',
           params = {
-            'bilatu': term
+            'bilatu': term,
+            'optNon': '1'
           };
 
       if (term.indexOf(' ') != -1) {

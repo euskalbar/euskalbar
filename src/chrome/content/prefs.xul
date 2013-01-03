@@ -21,6 +21,8 @@
       <preference id="prefMorrisVisible" name="extensions.euskalbar.morris.visible" type="bool"/>
       <preference id="prefOpentranVisible" name="extensions.euskalbar.opentran.visible" type="bool"/>
       <preference id="prefEHUskaratuakVisible" name="extensions.euskalbar.ehuskaratuak.visible" type="bool"/>
+      <preference id="prefLanbideVisible" name="extensions.euskalbar.lanbide.visible" type="bool"/>
+      <preference id="prefEpaitegiakVisible" name="extensions.euskalbar.epaitegiak.visible" type="bool"/>
       <preference id="prefBatuaVisible" name="extensions.euskalbar.batua.visible" type="bool"/>
       <preference id="prefOEHVisible" name="extensions.euskalbar.oeh.visible" type="bool"/>
       <preference id="prefHautaVisible" name="extensions.euskalbar.hauta.visible" type="bool"/>
@@ -40,6 +42,7 @@
       <preference id="prefZTCorpusaVisible" name="extensions.euskalbar.ztcorpusa.visible" type="bool"/>
       <preference id="prefLBVisible" name="extensions.euskalbar.lb.visible" type="bool"/>
       <preference id="prefConsumerVisible" name="extensions.euskalbar.consumer.visible" type="bool"/>
+      <preference id="prefLiteraturaVisible" name="extensions.euskalbar.lth.visible" type="bool"/>
       <preference id="prefCorpEusVisible" name="extensions.euskalbar.corpeus.visible" type="bool"/>
       <preference id="prefXUXENwebVisible" name="extensions.euskalbar.xuxenweb.visible" type="bool"/>
       <preference id="prefElebilaVisible" name="extensions.euskalbar.elebila.visible" type="bool"/>
@@ -55,6 +58,8 @@
       <preference id="prefMorris" name="extensions.euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="extensions.euskalbar.opentran.onkey" type="bool"/>
       <preference id="prefEHUskaratuak" name="extensions.euskalbar.ehuskaratuak.onkey" type="bool"/>
+      <preference id="prefLanbide" name="extensions.euskalbar.lanbide.onkey" type="bool"/>
+      <preference id="prefEpaitegiak" name="extensions.euskalbar.epaitegiak.onkey" type="bool"/>
       <preference id="prefBatua" name="extensions.euskalbar.batua.onkey" type="bool"/>
       <preference id="prefOEH" name="extensions.euskalbar.oeh.onkey" type="bool"/>
       <preference id="prefHauta" name="extensions.euskalbar.hauta.onkey" type="bool"/>
@@ -74,6 +79,7 @@
       <preference id="prefZTCorpusa" name="extensions.euskalbar.ztcorpusa.onkey" type="bool"/>
       <preference id="prefLB" name="extensions.euskalbar.lb.onkey" type="bool"/>
       <preference id="prefConsumer" name="extensions.euskalbar.consumer.onkey" type="bool"/>
+      <preference id="prefLiteratura" name="extensions.euskalbar.lth.onkey" type="bool"/>
       <preference id="prefCorpEus" name="extensions.euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="extensions.euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefElebila" name="extensions.euskalbar.elebila.onkey" type="bool"/>
@@ -149,13 +155,13 @@
 
     <tabbox id="main-tabbox" flex="1">
       <tabs>
-        <tab label="&euskalbar.prefs.general.tabtitle;"/>
-        <tab label="&euskalbar.prefs.view.tabtitle;"/>
-        <tab label="&euskalbar.prefs.dictionaries.tabtitle;"/>
+        <tab id="tab-orokorra" label="&euskalbar.prefs.general.tabtitle;"/>
+        <tab id="tab-bistan" label="&euskalbar.prefs.view.tabtitle;"/>
+        <tab id="tab-aurreratua" label="&euskalbar.prefs.dictionaries.tabtitle;"/>
       </tabs>
 
       <tabpanels flex="1">
-        <tabpanel id="tab-orokorra">
+        <tabpanel id="tabpanel-orokorra">
           <vbox flex="1">
             <groupbox>
               <caption label="&euskalbar.prefs.lang.caption;"/>
@@ -207,7 +213,7 @@
           </vbox>
         </tabpanel>
 
-        <tabpanel id="tab-bistan">
+        <tabpanel id="tabpanel-bistan">
           <listbox flex="1" width="400" id="list-dictsview">
             <listitem preference="prefEuskaltermVisible" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
             <listitem preference="prefElhuyarVisible" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
@@ -220,6 +226,8 @@
             <listitem preference="prefOpentranVisible" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
             <listitem preference="prefGoihataVisible" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
             <listitem preference="prefEHUskaratuakVisible" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
+            <listitem preference="prefLanbideVisible" type="checkbox" label="&euskalbar.lanbide.tooltip;"/>
+            <listitem preference="prefEpaitegiakVisible" type="checkbox" label="&euskalbar.epaitegiak.tooltip;"/>
             <listitem preference="prefBatuaVisible" type="checkbox" label="&euskalbar.batua.tooltip;"/>
             <listitem preference="prefOEHVisible" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
             <listitem preference="prefHautaVisible" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
@@ -239,13 +247,14 @@
             <listitem preference="prefZTCorpusaVisible" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
             <listitem preference="prefLBVisible" type="checkbox" label="&euskalbar.lb.tooltip;"/>
             <listitem preference="prefConsumerVisible" type="checkbox" label="&euskalbar.consumer.tooltip;"/>
+            <listitem preference="prefLiteraturaVisible" type="checkbox" label="&euskalbar.lth.tooltip;"/>
             <listitem preference="prefCorpEusVisible" type="checkbox" label="&euskalbar.corpeus.tooltip;"/>
             <listitem preference="prefXUXENwebVisible" type="checkbox" label="&euskalbar.xuxenweb.tooltip;"/>
             <listitem preference="prefElebilaVisible" type="checkbox" label="&euskalbar.elebila.tooltip;"/>
           </listbox>
         </tabpanel>
 
-        <tabpanel id="tab-aurreratua">
+        <tabpanel id="tabpanel-aurreratua">
           <vbox flex="1">
             <tabbox id="sec-tabbox" flex="1">
               <tabs>
@@ -268,6 +277,8 @@
                     <listitem preference="prefOpentran" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
                     <listitem preference="prefGoihata" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
                     <listitem preference="prefEHUskaratuak" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
+                    <listitem preference="prefLanbide" type="checkbox" label="&euskalbar.lanbide.tooltip;"/>
+                    <listitem preference="prefEpaitegiak" type="checkbox" label="&euskalbar.epaitegiak.tooltip;"/>
                     <listitem preference="prefBatua" type="checkbox" label="&euskalbar.batua.tooltip;"/>
                     <listitem preference="prefOEH" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
                     <listitem preference="prefHauta" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
@@ -287,6 +298,7 @@
                     <listitem preference="prefZTCorpusa" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
                     <listitem preference="prefLB" type="checkbox" label="&euskalbar.lb.tooltip;"/>
                     <listitem preference="prefConsumer" type="checkbox" label="&euskalbar.consumer.tooltip;"/>
+                    <listitem preference="prefLiteratura" type="checkbox" label="&euskalbar.lth.tooltip;"/>
                     <listitem preference="prefCorpEus" type="checkbox" label="&euskalbar.corpeus.tooltip;"/>
                     <listitem preference="prefXUXENweb" type="checkbox" label="&euskalbar.xuxenweb.tooltip;"/>
                     <listitem preference="prefElebila" type="checkbox" label="&euskalbar.elebila.tooltip;"/>
