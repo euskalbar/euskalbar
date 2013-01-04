@@ -810,7 +810,7 @@
               //azpisarrerak badauzka...
               if (txtEuskaltzaindia.indexOf("index.php") != -1) {
                 if (euskalbar.prefs.getBoolPref("query.subqueries")) {
-                  arrayEuskaltzaindia = txtEuskaltzaindia.split("index.php");
+                  var arrayEuskaltzaindia = txtEuskaltzaindia.split("index.php");
                   arrayEuskaltzaindia.shift();
                   for (var i in arrayEuskaltzaindia) {
                     var urlEuskaltzaindia = arrayEuskaltzaindia[i].split("frontpage")[0];

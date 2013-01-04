@@ -34,8 +34,8 @@ var euskalbarLib = {};
 
   const resphIID = Ci.nsIResProtocolHandler;
 
-  const feedunescapeCID = '@mozilla.org/feed-unescapehtml;1';
-  const feedunescapeIID = Ci.nsIScriptableUnescapeHTML;
+  const feedunescapeCID = '@mozilla.org/parserutils;1';
+  const feedunescapeIID = Ci.nsIParserUtils;
 
   const L10N_NORMAL = 0;
   const L10N_FORMATTED = 1;
@@ -275,7 +275,7 @@ var euskalbarLib = {};
 
   this.cleanLoadHTML = function (html, node) {
     var fr = Cc[feedunescapeCID].getService(feedunescapeIID)
-                                .parseFragment(html, false, null, node);
+                                .parseFragment(html, null, false, null, node);
     node.appendChild(fr);
   };
 
