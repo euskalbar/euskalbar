@@ -93,6 +93,6 @@
 <!-- Statistics -->
 <!ENTITY euskalbar.stats.menu "Estatistikak">
 <!ENTITY euskalbar.stats.main "Euskalbarren estatistikak">
-<!ENTITY euskalbar.stats.count "Kontsulta kop.">
+<!ENTITY euskalbar.stats.count "Kontsulta-kopurua">
 <!ENTITY euskalbar.stats.clearbutton "Garbitu estatistikak">
 

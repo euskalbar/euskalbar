@@ -9,7 +9,6 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         buttons="accept, extra1"
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
-        onload="euskalbar.stats.setDS();"
         ondialogextra1="euskalbar.stats.writeStats(-1);">
 
 <script type="application/x-javascript" src="lib.js"/>
@@ -17,25 +16,27 @@
 <script type="application/x-javascript" src="stats.js"/>
 
 
-<tree id="zuhaitza" datasources="rdf:null"
-         ref="http://www.euskalbar.eu/stats" flex="4" hidecolumnpicker="true" width="400px" height="480px">
+<tree id="estatistikak" datasources="profile:euskalbar.sqlite" ref="*"
+      querytype="storage" flags="dont-build-content"
+      flex="4" hidecolumnpicker="true" width="400px" height="480px">
   <treecols>
-    <treecol flex="3" id="stats-dicts" label="&euskalbar.menu.main;" sort="?name"/>
-    <treecol flex="1" id="stats-count" label="&euskalbar.stats.count;" sort="?localstat"/>
+    <treecol id="name" label="&euskalbar.menu.main;" flex="3"/>
+    <treecol id="count" label="&euskalbar.stats.count;" flex="1"/>
   </treecols>
-
-    <template>
-      <rule>
-        <treechildren>
-          <treeitem uri="rdf:*">
-            <treerow>
-              <treecell label="rdf:http://www.euskalbar.eu/rdf#name"/>
-              <treecell label="rdf:http://www.euskalbar.eu/rdf#localstat"/>
-            </treerow>
-          </treeitem>
-        </treechildren>
-      </rule>
-    </template>
-
+  <template>
+    <query>
+      select name, count from stats
+    </query>
+    <action>
+      <treechildren>
+        <treeitem uri="?">
+          <treerow>
+            <treecell label="?name"/>
+            <treecell label="?count"/>
+          </treerow>
+        </treeitem>
+      </treechildren>
+    </action>
+  </template>
 </tree>
 </dialog>
