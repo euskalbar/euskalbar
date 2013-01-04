@@ -63,6 +63,7 @@
           euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aEuskalterm', gBrowser.contentDocument));
         }
       });
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskalterm, true);
     },
 
 
@@ -202,7 +203,7 @@
           euskalbarLib.cleanLoadHTML(output, node);
         }
       });
-
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
     },
 
     getsubShiftElhuyar: function (reqURL, params, isSubQuery) {
@@ -426,6 +427,7 @@
         }
       }
 */
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
     },
 
 
@@ -602,6 +604,8 @@
         euskalbarLib.cleanLoadHTML(txtTelekom, euskalbarLib.$('aTelekom', gBrowser.contentDocument));
       }, tout);
 */
+
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
     },
 
 
@@ -650,6 +654,7 @@
           euskalbarLib.cleanLoadHTML(output, node);
         }
       });
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftMorris, true);
     },
 
 
@@ -724,6 +729,7 @@
         euskalbarLib.cleanLoadHTML(txtLabayru, euskalbarLib.$('aLabayru', gBrowser.contentDocument));
       }
 */
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
     },
 
 
@@ -761,6 +767,7 @@
           euskalbarLib.cleanLoadHTML(output, node);
         }
       });
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftUZEI, true);
     },
 
     // Hiztegi Batua kargatu
@@ -828,6 +835,7 @@
         }
         euskalbarLib.cleanLoadHTML(txtEuskaltzaindia, euskalbarLib.$('aBatua', gBrowser.contentDocument));
       }
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskaltzaindia, true);
     },
 
     // Batuaren sarrerak eta azpisarrerak kargatu
@@ -955,6 +963,7 @@
         }
         euskalbarLib.cleanLoadHTML(txtMokoroa, euskalbarLib.$('aMokoroa', gBrowser.contentDocument));
       }*/
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
     },
 
 
@@ -989,6 +998,7 @@
           euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aIntza', gBrowser.contentDocument));
         }
       });
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftIntza, true);
     },
 
 
@@ -1019,7 +1029,7 @@
           euskalbarLib.cleanLoadHTML(output, euskalbarLib.$('aOpentran', gBrowser.contentDocument));
         }
       });
-
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftOpentran, true);
     },
 
 
@@ -1090,6 +1100,7 @@
         euskalbarLib.cleanLoadHTML(txtDanobat, euskalbarLib.$('aDanobat', gBrowser.contentDocument));
       }
 */
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
     },
 
     normalize: function (str) {

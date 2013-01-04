@@ -109,13 +109,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       // Events executed after DOMContentLoaded
       gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
 
-      //Execute combined queries only when the HTML is loaded
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
-
       // Init bar's buttons
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
       this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
@@ -164,11 +157,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       window.removeEventListener("unload", euskalbar.shutdown, false);
 
       gBrowser.removeEventListener("DOMContentLoaded", this.initHTML, true);
-      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
-      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
-      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
-      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
-      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
 
       Services.prefs.removeObserver("", this);
       document.persist("euskalbar-toolbar", "currentset");
@@ -309,6 +297,21 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
     // Init HTML files
     initHTML: function (event) {
+
+      //Execute combined queries only when the HTML is loaded
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskalterm, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMorris, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftUZEI, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskaltzaindia, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftIntza, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftOpentran, true);
+      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
+
       // HTML fitxategietan estiloaren katea aldatzen du
       var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
       var URL = event.target.location.href;
