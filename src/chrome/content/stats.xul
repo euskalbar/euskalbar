@@ -9,19 +9,19 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         buttons="accept, extra1"
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
-        ondialogextra1="euskalbar.stats.writeStats(-1);">
+        ondialogextra1="euskalbar.stats.writeStats('');">
 
 <script type="application/x-javascript" src="lib.js"/>
 <script type="application/x-javascript" src="euskalbar.js"/>
 <script type="application/x-javascript" src="stats.js"/>
 
 
-<tree id="estatistikak" datasources="profile:euskalbar.sqlite" ref="*"
+<tree id="stats-tree" datasources="profile:euskalbar.sqlite" ref="*"
       querytype="storage" flags="dont-build-content"
       flex="4" hidecolumnpicker="true" width="400px" height="480px">
   <treecols>
-    <treecol id="name" label="&euskalbar.menu.main;" flex="3"/>
-    <treecol id="count" label="&euskalbar.stats.count;" flex="1"/>
+    <treecol id="name" label="&euskalbar.menu.main;" sort="?name" flex="3"/>
+    <treecol id="count" label="&euskalbar.stats.count;" sort="?count" flex="1"/>
   </treecols>
   <template>
     <query>
