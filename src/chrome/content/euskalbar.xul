@@ -40,20 +40,20 @@
   <toolbox id="navigator-toolbox">
     <toolbar id="euskalbar-toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="Euskalbar-hsButtons" collapsed="false" persist="collapsed">
     <toolbaritem id="euskalbar-leftbuttons" flex="0">
-      <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.changeEuskalbarLang();">
+      <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.toggleLang();">
         <menupopup id="euskalbar-language-popup">
-          <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="euskalbar.setEuskalbarLang('eu', 'es'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-es_eu" label="ES ‣ EU" tooltiptext="&euskalbar.language.es_eu;" oncommand="euskalbar.setEuskalbarLang('es', 'eu'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="euskalbar.setLang('eu', 'es'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-es_eu" label="ES ‣ EU" tooltiptext="&euskalbar.language.es_eu;" oncommand="euskalbar.setLang('es', 'eu'); euskalbar.setEuskalbarDictionaries('es'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-eu_fr" label="EU ‣ FR" tooltiptext="&euskalbar.language.eu_fr;" oncommand="euskalbar.setEuskalbarLang('eu', 'fr'); euskalbar.setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-fr_eu" label="FR ‣ EU" tooltiptext="&euskalbar.language.fr_eu;" oncommand="euskalbar.setEuskalbarLang('fr', 'eu'); euskalbar.setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_fr" label="EU ‣ FR" tooltiptext="&euskalbar.language.eu_fr;" oncommand="euskalbar.setLang('eu', 'fr'); euskalbar.setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-fr_eu" label="FR ‣ EU" tooltiptext="&euskalbar.language.fr_eu;" oncommand="euskalbar.setLang('fr', 'eu'); euskalbar.setEuskalbarDictionaries('fr'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-eu_en" label="EU ‣ EN" tooltiptext="&euskalbar.language.eu_en;" oncommand="euskalbar.setEuskalbarLang('eu', 'en'); euskalbar.setEuskalbarDictionaries('en'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="euskalbar.setEuskalbarLang('en', 'eu'); euskalbar.setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_en" label="EU ‣ EN" tooltiptext="&euskalbar.language.eu_en;" oncommand="euskalbar.setLang('eu', 'en'); euskalbar.setEuskalbarDictionaries('en'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="euskalbar.setLang('en', 'eu'); euskalbar.setEuskalbarDictionaries('en'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-la_eu" label="LA ‣ EU" tooltiptext="&euskalbar.language.la_eu;" oncommand="euskalbar.setEuskalbarLang('la', 'eu'); euskalbar.setEuskalbarDictionaries('la'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-la_eu" label="LA ‣ EU" tooltiptext="&euskalbar.language.la_eu;" oncommand="euskalbar.setLang('la', 'eu'); euskalbar.setEuskalbarDictionaries('la'); event.stopPropagation();"/>
           <menuseparator/>
-          <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JA" tooltiptext="&euskalbar.language.eu_jp;" oncommand="euskalbar.setEuskalbarLang('eu', 'jp'); euskalbar.setEuskalbarDictionaries('jp'); event.stopPropagation();"/>
+          <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JA" tooltiptext="&euskalbar.language.eu_jp;" oncommand="euskalbar.setLang('eu', 'jp'); euskalbar.setEuskalbarDictionaries('jp'); event.stopPropagation();"/>
         </menupopup>
       </toolbarbutton>
     </toolbaritem>

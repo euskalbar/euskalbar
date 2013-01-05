@@ -99,7 +99,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.source = lang[0] + lang[1];
       this.target = lang[3] + lang[4];
 
-      this.setEuskalbarLang(this.source, this.target);
+      this.setLang(this.source, this.target);
       if (this.source != 'eu') {
         this.setEuskalbarDictionaries(this.source);
       } else {
@@ -875,29 +875,19 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Euskalbarren hizkuntza txandakatzen du (toggle modukoa)
-    changeEuskalbarLang: function () {
-      if (this.target == 'es') {
-        this.setEuskalbarLang('es', 'eu');
-      } else if (this.target == 'en') {
-        this.setEuskalbarLang('en', 'eu');
-      } else if (this.target == 'fr') {
-        this.setEuskalbarLang('fr', 'eu');
-      } else if (this.target == 'eu') {
-        // eu: aztertu iturburu hizkuntza
-        if (this.source == 'es') {
-          this.setEuskalbarLang('eu', 'es');
-        } else if (this.source == 'en') {
-          this.setEuskalbarLang('eu', 'en');
-        } else if (this.source == 'fr') {
-          this.setEuskalbarLang('eu', 'fr');
-        }
-      }
+    // Toggles the active language pair
+    toggleLang: function () {
+      this.setLang(this.target, this.source);
     },
 
 
-    // Euskalbarren hizkuntza berria zehazten du
-    setEuskalbarLang: function (source, target) {
+    // Sets the new active language pair
+    setLang: function (source, target) {
+      // Some exceptions to the rule
+      if (['jp'].indexOf(source) !== -1 || ['la'].indexOf(target) !== -1) {
+        return;
+      }
+
       var button = euskalbarLib.$("euskalbar-language");
       button.setAttribute("label", source.toUpperCase() + " ‣ " + target.toUpperCase());
       this.source = source;
