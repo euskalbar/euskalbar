@@ -100,11 +100,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.target = lang[3] + lang[4];
 
       this.setLang(this.source, this.target);
-      if (this.source != 'eu') {
-        this.setEuskalbarDictionaries(this.source);
-      } else {
-        this.setEuskalbarDictionaries(this.target);
-      }
+      this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
 
       // Events executed after DOMContentLoaded
       gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
@@ -896,8 +892,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     },
 
 
-    // Euskalbarreko hiztegiak moldatzen ditu hizkuntzaren arabera
-    setEuskalbarDictionaries: function (hizk) {
+    // Adapts dictionary visibility according to the given language
+    // XXX: This should to the job by giving a language pair
+    setDictionaries: function (hizk) {
       var euskalterm = euskalbarLib.$('EuskalBar-Search');
       var morris = euskalbarLib.$('EuskalBar-Morris');
       var opentran = euskalbarLib.$('EuskalBar-Opentran');
