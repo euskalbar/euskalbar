@@ -61,18 +61,9 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
         var boxobject = t.boxObject;
         boxobject.QueryInterface(Components.interfaces.nsITreeBoxObject);
         boxobject.invalidate();
-
       } else {
-        var valuest = euskalbarConn.createStatement("SELECT count FROM stats WHERE id= :dict");
-        valuest.params.dict = dict;
-        while (valuest.executeStep()) {
-          var value = valuest.row.count;
-        }
-        valuest.reset();
-        value = value + 1;
-        var statement = euskalbarConn.createStatement("UPDATE stats SET count= :value WHERE id= :dict");
+        var statement = euskalbarConn.createStatement("UPDATE stats SET count= count + 1 WHERE id= :dict");
         statement.params.dict = dict;
-        statement.params.value = value;
         statement.executeAsync();
       }
     },
