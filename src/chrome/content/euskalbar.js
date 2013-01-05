@@ -102,9 +102,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
       this.setLang(this.source, this.target);
       this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
 
-      // Events executed after DOMContentLoaded
-      gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
-
       // Init bar's buttons
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
       this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
@@ -151,8 +148,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
     shutdown: function () {
       window.removeEventListener("load", euskalbar.init, false);
       window.removeEventListener("unload", euskalbar.shutdown, false);
-
-      gBrowser.removeEventListener("DOMContentLoaded", this.initHTML, true);
 
       Services.prefs.removeObserver("", this);
       document.persist("euskalbar-toolbar", "currentset");
@@ -293,24 +288,11 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
     // Init HTML files
     initHTML: function (event) {
-
-      //Execute combined queries only when the HTML is loaded
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskalterm, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMorris, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftUZEI, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskaltzaindia, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftIntza, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftOpentran, true);
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
-
-      // HTML fitxategietan estiloaren katea aldatzen du
+      // Changes style in HTML template
       var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
       var URL = event.target.location.href;
+
+      gBrowser.removeEventListener("DOMContentLoaded", this.initHTML, true);
 
       if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
         var link = event.target.getElementsByTagName("link")[0];
@@ -622,6 +604,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
         var k = "";
         if ((event.shiftKey) || (event.ctrlKey)) {
+          gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
           if (event.shiftKey) {
             k = "onkey1";
             var urlhizt = 'chrome://euskalbar/content/html/euskalbarshift.html';
@@ -635,72 +618,85 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
           try {
             if (this.prefs.getBoolPref("euskalterm." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskalterm, true);
               euskalbar.comb.getShiftEuskalterm(this.source, searchStr);
               euskalbar.stats.writeStats('euskalterm');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("elhuyar." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
               euskalbar.comb.getShiftElhuyar(this.source, this.target, searchStr);
               euskalbar.stats.writeStats('elhuyar');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
+
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
               euskalbar.comb.getShiftLabayru(this.source, searchStr);
               euskalbar.stats.writeStats('labayru');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("zthiztegia." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
               euskalbar.comb.getShiftZTHiztegia(this.source, searchStr);
               euskalbar.stats.writeStats('zthiztegia');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
               euskalbar.comb.getShiftTelekom(this.source, searchStr);
               euskalbar.stats.writeStats('telekom');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("batua." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskaltzaindia, true);
               euskalbar.comb.getShiftEuskaltzaindia(this.source, searchStr);
               euskalbar.stats.writeStats('batua');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("uzei." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftUZEI, true);
               euskalbar.comb.getShiftUZEI(this.source, searchStr);
               euskalbar.stats.writeStats('uzei');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("mokoroa." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
               euskalbar.comb.getShiftMokoroa(this.source, searchStr);
               euskalbar.stats.writeStats('mokoroa');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("intza." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftIntza, true);
               euskalbar.comb.getShiftIntza(this.source, searchStr);
               euskalbar.stats.writeStats('intza');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("morris." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMorris, true);
               euskalbar.comb.getShiftMorris(this.source, searchStr);
               euskalbar.stats.writeStats('morris');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("opentran." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftOpentran, true);
               euskalbar.comb.getShiftOpentran(this.source, searchStr);
               euskalbar.stats.writeStats('opentran');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("danobat." + k + "." + l)) {
+              gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
               euskalbar.comb.getShiftDanobat(this.source, searchStr);
               euskalbar.stats.writeStats('danobat');
             }

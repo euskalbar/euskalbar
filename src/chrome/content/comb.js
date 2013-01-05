@@ -203,7 +203,7 @@
           euskalbarLib.cleanLoadHTML(output, node);
         }
       });
-      gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
+      gBrowser.removeEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
     },
 
     getsubShiftElhuyar: function (reqURL, params, isSubQuery) {
