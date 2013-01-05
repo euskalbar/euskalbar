@@ -52,15 +52,13 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
       let file = FileUtils.getFile("ProfD", ["euskalbar.sqlite"]);
       let euskalbarConn = Services.storage.openDatabase(file);
       if (dict == '') {
-        var value = 0;
+        var value = 0;	
         var statement = euskalbarConn.createStatement("UPDATE stats SET count= :value");
         statement.params.value = value;
         statement.executeAsync();
-        //Invalidate to refresh data <- FIXME
-        var t = euskalbarLib.$("stats-tree");
-        var boxobject = t.boxObject;
-        boxobject.QueryInterface(Components.interfaces.nsITreeBoxObject);
-        boxobject.invalidate();
+        //reload statistics tab
+        window.content.location.reload(); 
+
       } else {
         var statement = euskalbarConn.createStatement("UPDATE stats SET count= count + 1 WHERE id= :dict");
         statement.params.dict = dict;

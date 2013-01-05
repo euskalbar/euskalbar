@@ -586,7 +586,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         var euskalbarNotify = gBrowser.getNotificationBox();
         euskalbarNotify.appendNotification(euskalbarLib._f("kutxahutsa", ""));
 
-        setTimeout(function(){
+        var t = setTimeout(function(){
           euskalbarNotify.removeCurrentNotification();
         }, 4000);
 
