@@ -415,11 +415,14 @@
         return;
       }
 
-      var url = 'http://www.euskaltzaindia.net/hiztegibatua/index.php?option=com_hiztegianbilatu&amp;Itemid=189&amp;lang=eu&amp;view=frontpage',
-          zein = 'hiztegibatua',
+      var url = 'http://www.euskaltzaindia.net/index.php',
+          zein = 'com_hiztegianbilatu',
           params = {
-            'sarrera': term,
-            'bila': bai
+            'option': 'com_hiztegianbilatu',
+            'lang': 'eu',
+            'view': 'frontpage',
+            'Itemid': '410',
+            'sarrera': term
           };
 
       euskalbar.openURL(url, zein, 'POST', params);
@@ -545,9 +548,8 @@
       var zein = 'r59-lursresd';
 
       euskalbar.openURL(url, zein, 'GET', null);
-
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats(2);
+      euskalbar.stats.writeStats('lurhe');
     },
 
 
@@ -563,7 +565,7 @@
       euskalbar.openURL(url, zein, 'GET', null);
 
       //Estatistika lokalak idatzi*/
-      euskalbar.stats.writeStats(7);
+      euskalbar.stats.writeStats('luret');
     },
 
 
@@ -732,7 +734,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      euskalbar.stats.writeStats('ereduzkoa');
+      euskalbar.stats.writeStats('ereduzko');
     },
 
 
@@ -752,7 +754,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      euskalbar.stats.writeStats('egungoa');
+      euskalbar.stats.writeStats('egungo');
     },
 
 
