@@ -28,20 +28,14 @@
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-      term = term.trim();
-      var lang = euskalbarLib._("hizk");
-      var hiztegiarenhizkuntza;
-      var idioma;
 
-      if (lang.match('euskara')) {
-        hiztegiarenhizkuntza = 'eu';
-      } else if (lang.match('english')) {
-        hiztegiarenhizkuntza = 'en';
-      } else if (lang.match('français')) {
-        hiztegiarenhizkuntza = 'fr';
-      } else {
-        hiztegiarenhizkuntza = 'es';
-      }
+      term = term.trim();
+
+      var idioma,
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
+
+      var dictLang = ['en', 'fr', 'es'].indexOf(uiLang) !== -1: uiLang: 'eu';
+
       // bilaketaren hizkuntza zehaztu
       if (source == 'es') {
         idioma = 'ES';
@@ -68,7 +62,7 @@
             'datuakaBilaketarako(galderakoHizkuntza)': idioma,
             'datuakaBilaketarako(galdera)': term,
             'zerrenda': '',
-            'hizkuntza': hiztegiarenhizkuntza
+            'hizkuntza': dictLang
           };
 
       euskalbar.openURL(url, id, 'POST', params);
@@ -84,20 +78,17 @@
         return;
       }
 
-      var lang = euskalbarLib._("hizk");
-      var hiztegiarenhizkuntza;
-      if (lang.match('euskara')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
-        hiztegiarenhizkuntza = 'eu';
-      } else if (lang.match('english')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
-        hiztegiarenhizkuntza = 'en';
-      } else if (lang.match('français')) {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
-        hiztegiarenhizkuntza = 'fr';
+      var dictURL,
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale);
+
+      if (uiLang === 'en') {
+        dictURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
+      } else if (uiLang === 'es') {
+        dictURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
+      } else if (uiLang === 'fr') {
+        dictURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/FR/Dictionnaire-recherche';
       } else {
-        var urlElhuyar = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/ES/Consulta-de-diccionarios';
-        hiztegiarenhizkuntza = 'es';
+        dictURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta';
       }
 
       switch (source) {
@@ -145,7 +136,7 @@
         params[chkHizkuntza] = dest2;
       }
 
-      euskalbar.openURL(urlElhuyar, id, 'POST', params);
+      euskalbar.openURL(dictURL, id, 'POST', params);
 
       euskalbar.stats.write(id);
     },
@@ -485,22 +476,23 @@
         return;
       }
 
-      var lang = euskalbarLib._("hizk");
-      var hiztegiarenhizkuntza;
-      if (lang.match('euskara')) {
-        hiztegiarenhizkuntza = '14';
-      } else if (lang.match('english')) {
-        hiztegiarenhizkuntza = '1347';
-      } else if (lang.match('français')) {
-        hiztegiarenhizkuntza = '1348';
+      var dictLang,
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
+
+      if (uiLang === 'en') {
+        dictLang = '1347';
+      } else if (uiLang === 'fr') {
+        dictLang = '1348';
+      } else if (uiLang === 'es') {
+        dictLang = '1';
       } else {
-        hiztegiarenhizkuntza = '1';
+        dictLang = '14';
       }
 
       var url = 'http://www.uzei.com/estatico/sinonimos.asp',
           id = 'uzei',
           params = {
-            'sesion': hiztegiarenhizkuntza,
+            'sesion': dictLang,
             'sarrera': term,
             'eragiketa': 'bilatu'
           };
@@ -660,12 +652,13 @@
         return;
       }
 
-      var lang = euskalbarLib._("hizk");
+      var dictLang,
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
 
-      if (lang.match('euskara')) {
-        var hizk = 'EU';
+      if (uiLang === 'es') {
+        dictLang = 'CA';
       } else {
-        var hizk = 'CA';
+        dictLang = 'EU';
       }
 
       var url = 'http://www.bizkaia.net/kultura/eurovoc/busqueda.asp',
@@ -673,7 +666,7 @@
           params = {
             'txtBuscar': 'S',
             'query': term,
-            'idioma': hizk
+            'idioma': dictLang
           };
 
       euskalbar.openURL(url, id, 'POST', params);
