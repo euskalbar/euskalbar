@@ -12,7 +12,6 @@
         ondialogextra1="euskalbar.stats.clear();">
 
 <script type="application/x-javascript" src="lib.js"/>
-<script type="application/x-javascript" src="euskalbar.js"/>
 <script type="application/x-javascript" src="stats.js"/>
 
 
