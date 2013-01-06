@@ -434,7 +434,7 @@ euskalbar = function () {
         tb.select();
         break;
       case "toggledicts":
-        this.changeEuskalbarLang();
+        this.toggleLang();
         break;
       }
     },
