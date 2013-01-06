@@ -32,8 +32,9 @@ euskalbar.ui = {
 
   get locale() {
     try {
-      var locale = Services.prefs.getComplexValue("general.useragent.locale",
-                                              Ci.nsIPrefLocalizedString).data;
+      var locale = Services.prefs
+                           .getComplexValue("general.useragent.locale",
+                                            Ci.nsIPrefLocalizedString).data;
     } catch (e) {
       locale = "en-US";
     }
