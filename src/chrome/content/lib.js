@@ -1,6 +1,6 @@
 /*
  * Euskalbar - A Firefox extension for helping in Basque translations.
- * Copyright (C) 2006-2012 Euskalbar Taldea (see AUTHORS file)
+ * Copyright (C) 2006-2013 Euskalbar Taldea (see AUTHORS file)
  *
  * This file is part of Euskalbar.
  *
