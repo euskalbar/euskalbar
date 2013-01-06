@@ -74,7 +74,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('euskalterm');
+      euskalbar.stats.write('euskalterm');
     },
 
 
@@ -149,7 +149,7 @@
       euskalbar.openURL(urlElhuyar, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('elhuyar');
+      euskalbar.stats.write('elhuyar');
     },
 
 
@@ -165,7 +165,7 @@
           zein = 'zthiztegia';
       euskalbar.openURL(url, zein, 'GET', null);
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('zthiztegia');
+      euskalbar.stats.write('zthiztegia');
     },
 
     //Triggered with a load event listener
@@ -222,7 +222,7 @@
       euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, 'telekom', 'GET', null);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('telekom');
+      euskalbar.stats.write('telekom');
     },
 
     //Triggered with a load event listener
@@ -282,7 +282,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi .  Labayru dict = 22
-      euskalbar.stats.writeStats('labayru');
+      euskalbar.stats.write('labayru');
     },
 
 
@@ -303,7 +303,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('zehazki');
+      euskalbar.stats.write('zehazki');
     },
 
 
@@ -338,7 +338,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('ehuskaratuak');
+      euskalbar.stats.write('ehuskaratuak');
     },
 
 
@@ -364,7 +364,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('morris');
+      euskalbar.stats.write('morris');
     },
 
 
@@ -381,7 +381,7 @@
       euskalbar.openURL(url, zein, 'GET', null);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('opentran');
+      euskalbar.stats.write('opentran');
     },
 
 
@@ -404,7 +404,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       // Update search stats; 21 = Index of Goihata in stats file
-      euskalbar.stats.writeStats('goihata');
+      euskalbar.stats.write('goihata');
     },
 
 
@@ -428,7 +428,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('batua');
+      euskalbar.stats.write('batua');
     },
 
     // Euskaltzaindiaren OEHn bilaketa burutzen du
@@ -447,7 +447,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('oeh');
+      euskalbar.stats.write('oeh');
     },
 
 
@@ -464,7 +464,7 @@
       euskalbar.openURL(url, zein, 'POST', null);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('hauta');
+      euskalbar.stats.write('hauta');
     },
 
     //Triggered with an event listener of DOMContentLoaded
@@ -511,7 +511,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('uzei');
+      euskalbar.stats.write('uzei');
     },
 
 
@@ -533,7 +533,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('itzul');
+      euskalbar.stats.write('itzul');
     },
 
 
@@ -549,7 +549,7 @@
 
       euskalbar.openURL(url, zein, 'GET', null);
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('lurhe');
+      euskalbar.stats.write('lurhe');
     },
 
 
@@ -565,7 +565,7 @@
       euskalbar.openURL(url, zein, 'GET', null);
 
       //Estatistika lokalak idatzi*/
-      euskalbar.stats.writeStats('luret');
+      euskalbar.stats.write('luret');
     },
 
 
@@ -585,7 +585,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('harluxet');
+      euskalbar.stats.write('harluxet');
     },
 
 
@@ -605,7 +605,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('wikipedia');
+      euskalbar.stats.write('wikipedia');
     },
 
 
@@ -631,7 +631,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('mokoroa');
+      euskalbar.stats.write('mokoroa');
     },
 
 
@@ -659,7 +659,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      euskalbar.stats.writeStats('intza');
+      euskalbar.stats.write('intza');
     },
 
 
@@ -689,7 +689,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('eurovoc');
+      euskalbar.stats.write('eurovoc');
     },
 
 
@@ -709,7 +709,7 @@
 
       euskalbar.openURL(url, zein, 'POST', params);
 
-      euskalbar.stats.writeStats('bergara');
+      euskalbar.stats.write('bergara');
     },
 
 
@@ -734,7 +734,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      euskalbar.stats.writeStats('ereduzko');
+      euskalbar.stats.write('ereduzko');
     },
 
 
@@ -754,7 +754,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      euskalbar.stats.writeStats('egungo');
+      euskalbar.stats.write('egungo');
     },
 
 
@@ -781,7 +781,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi, hau aldatu egin behar da
-      euskalbar.stats.writeStats('klasikoak');
+      euskalbar.stats.write('klasikoak');
     },
 
 
@@ -801,7 +801,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('ztcorpusa');
+      euskalbar.stats.write('ztcorpusa');
     },
 
 
@@ -821,7 +821,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('lb');
+      euskalbar.stats.write('lb');
     },
 
 
@@ -860,7 +860,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('consumer');
+      euskalbar.stats.write('consumer');
     },
 
 
@@ -885,7 +885,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('lth');
+      euskalbar.stats.write('lth');
     },
 
     // Lanbide heziketarako hiztegia
@@ -903,7 +903,7 @@
       euskalbar.openURL(url, zein, null, null);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('lanbide');
+      euskalbar.stats.write('lanbide');
     },
 
 
@@ -962,7 +962,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('epaitegiak');
+      euskalbar.stats.write('epaitegiak');
     },
 
 
@@ -989,7 +989,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('corpeus');
+      euskalbar.stats.write('corpeus');
     },
 
 
@@ -1009,7 +1009,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('xuxenweb');
+      euskalbar.stats.write('xuxenweb');
     },
 
 
@@ -1034,7 +1034,7 @@
       euskalbar.openURL(url, zein, 'GET', params);
 
       //Estatistika lokalak idatzi
-      euskalbar.stats.writeStats('elebila');
+      euskalbar.stats.write('elebila');
     },
 
 
@@ -1061,7 +1061,7 @@
       euskalbar.openURL(url, zein, 'POST', params);
 
       //Estatistika lokalak idatzi .  Danobat dict = 32
-      euskalbar.stats.writeStats('danobat');
+      euskalbar.stats.write('danobat');
     },
 
     // Aukeratutako testua itzultzen du

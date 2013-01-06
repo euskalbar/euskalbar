@@ -48,7 +48,7 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
 
     // Write statistics in euskalbar.sqlite
-    writeStats: function (dict) {
+    write: function (dict) {
       let file = FileUtils.getFile("ProfD", ["euskalbar.sqlite"]);
       let euskalbarConn = Services.storage.openDatabase(file);
       if (dict == '') {

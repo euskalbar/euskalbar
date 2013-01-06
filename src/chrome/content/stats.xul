@@ -9,7 +9,7 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         buttons="accept, extra1"
         buttonlabelextra1="&euskalbar.stats.clearbutton;"
-        ondialogextra1="euskalbar.stats.writeStats('');">
+        ondialogextra1="euskalbar.stats.write('');">
 
 <script type="application/x-javascript" src="lib.js"/>
 <script type="application/x-javascript" src="euskalbar.js"/>

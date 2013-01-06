@@ -620,14 +620,14 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             if (this.prefs.getBoolPref("euskalterm." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskalterm, true);
               euskalbar.comb.getShiftEuskalterm(this.source, searchStr);
-              euskalbar.stats.writeStats('euskalterm');
+              euskalbar.stats.write('euskalterm');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("elhuyar." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
               euskalbar.comb.getShiftElhuyar(this.source, this.target, searchStr);
-              euskalbar.stats.writeStats('elhuyar');
+              euskalbar.stats.write('elhuyar');
             }
           } catch (err) {}
           try {
@@ -635,70 +635,70 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftLabayru, true);
               euskalbar.comb.getShiftLabayru(this.source, searchStr);
-              euskalbar.stats.writeStats('labayru');
+              euskalbar.stats.write('labayru');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("zthiztegia." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftZTHiztegia, true);
               euskalbar.comb.getShiftZTHiztegia(this.source, searchStr);
-              euskalbar.stats.writeStats('zthiztegia');
+              euskalbar.stats.write('zthiztegia');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftTelekom, true);
               euskalbar.comb.getShiftTelekom(this.source, searchStr);
-              euskalbar.stats.writeStats('telekom');
+              euskalbar.stats.write('telekom');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("batua." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftEuskaltzaindia, true);
               euskalbar.comb.getShiftEuskaltzaindia(this.source, searchStr);
-              euskalbar.stats.writeStats('batua');
+              euskalbar.stats.write('batua');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("uzei." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftUZEI, true);
               euskalbar.comb.getShiftUZEI(this.source, searchStr);
-              euskalbar.stats.writeStats('uzei');
+              euskalbar.stats.write('uzei');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("mokoroa." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMokoroa, true);
               euskalbar.comb.getShiftMokoroa(this.source, searchStr);
-              euskalbar.stats.writeStats('mokoroa');
+              euskalbar.stats.write('mokoroa');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("intza." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftIntza, true);
               euskalbar.comb.getShiftIntza(this.source, searchStr);
-              euskalbar.stats.writeStats('intza');
+              euskalbar.stats.write('intza');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("morris." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftMorris, true);
               euskalbar.comb.getShiftMorris(this.source, searchStr);
-              euskalbar.stats.writeStats('morris');
+              euskalbar.stats.write('morris');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("opentran." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftOpentran, true);
               euskalbar.comb.getShiftOpentran(this.source, searchStr);
-              euskalbar.stats.writeStats('opentran');
+              euskalbar.stats.write('opentran');
             }
           } catch (err) {}
           try {
             if (this.prefs.getBoolPref("danobat." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftDanobat, true);
               euskalbar.comb.getShiftDanobat(this.source, searchStr);
-              euskalbar.stats.writeStats('danobat');
+              euskalbar.stats.write('danobat');
             }
           } catch (err) {}
 
