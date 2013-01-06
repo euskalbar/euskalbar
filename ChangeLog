@@ -17,6 +17,7 @@
 - Euskalbarren bilaketa-kutxa hutsik dagoenean agertzen den jakinarazpenaren itxura hobetu da. (#140)
 - Testuinguru-menua beste modu batera antolatu da, gero eta baliabide gehiago izanik jadanik ez baitziren ongi sartzen pantailan. (#141)
 - GoiHata hiztegia berrezarri da.
+- Estatistikak SQLite datu-base batean gordetzen dira orain, horrek mantenimendua errazten du. Bestalde, orain estatistiken datuak zutabeen arabera ordena daitezke. (#143)
 - Akatsen konponketa.
 
 3.11 bertsioa

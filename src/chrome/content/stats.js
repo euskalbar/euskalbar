@@ -60,6 +60,7 @@ euskalbar.stats = {
 
     statement.params.dict = dict;
     statement.executeAsync();
+    euskalbarConn.asyncClose();
   },
 
 
@@ -72,6 +73,7 @@ euskalbar.stats = {
         statement = euskalbarConn.createStatement(query);
 
     statement.executeAsync();
+    euskalbarConn.asyncClose();
 
     // Refresh stats view
     euskalbarLib.$('stats-tree').builder.rebuild();

@@ -47,7 +47,7 @@
         url: url,
 
         onSuccess: function (data) {
-          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.euskara.euskadi.net/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http:\/\/www.euskara.euskadi.net\/euskalterm\">Euskalterm&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oEuskalterm', gBrowser.contentDocument));
 
           output = data;
           output = output.substring(output.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), output.indexOf('<div class="clr"/>'));
@@ -144,7 +144,7 @@
         data: reqData,
 
         onSuccess: function (data) {
-          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.elhuyar.org/hiztegia\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oElhuyar', gBrowser.contentDocument));
+          euskalbarLib.cleanLoadHTML("<div id=\"oharra\"><a href=\"http:\/\/www.elhuyar.org\/hiztegia\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", euskalbarLib.$('oElhuyar', gBrowser.contentDocument));
           output = data;
 
           if (output.indexOf(errorMsg) != -1) {
