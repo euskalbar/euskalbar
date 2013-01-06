@@ -25,19 +25,22 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
 euskalbar.stats = {
 
+  filename: 'euskalbar.sqlite',
+
   /* Copies euskalbar.sqlite file to the user profile */
   createStatsFile: function () {
-    //First copy euskalbar.sqlite
+    // First copy euskalbar.sqlite
     var profileDir = euskalbar.profileURI;
     try {
       var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
       var statsFile = euskalbarLib.FileIO.getLocalSystemURI(statsFileURL)
                             .QueryInterface(Ci.nsIFileURL).file;
-      statsFile.copyTo(profileDir, "euskalbar.sqlite");
+      statsFile.copyTo(profileDir, this.filename);
     } catch (e) {
       console.log(e);
     }
-    //Then remove the deprecated statistics folder (just this time)
+
+    // Then remove the deprecated statistics folder (just this time)
     profileDir.append("euskalbar");
 
     if (profileDir.exists()) {
@@ -49,7 +52,7 @@ euskalbar.stats = {
 
   // Write statistics in euskalbar.sqlite
   write: function (dict) {
-    let file = FileUtils.getFile("ProfD", ["euskalbar.sqlite"]);
+    let file = FileUtils.getFile("ProfD", [this.filename]);
     let euskalbarConn = Services.storage.openDatabase(file);
 
     var query = "UPDATE stats SET count=count + 1 WHERE id=:dict",
@@ -62,7 +65,7 @@ euskalbar.stats = {
 
   // Clears statistics
   clear: function () {
-    let file = FileUtils.getFile("ProfD", ["euskalbar.sqlite"]);
+    let file = FileUtils.getFile("ProfD", [this.filename]);
     let euskalbarConn = Services.storage.openDatabase(file);
 
     var query = "UPDATE stats SET count=0",
