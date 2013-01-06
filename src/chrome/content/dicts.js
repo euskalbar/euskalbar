@@ -32,9 +32,9 @@
       term = term.trim();
 
       var idioma,
-          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale);
 
-      var dictLang = ['en', 'fr', 'es'].indexOf(uiLang) !== -1: uiLang: 'eu';
+      var dictLang = ['en', 'fr', 'es'].indexOf(uiLang) !== -1 ? uiLang : 'eu';
 
       // bilaketaren hizkuntza zehaztu
       if (source == 'es') {
@@ -477,7 +477,7 @@
       }
 
       var dictLang,
-          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale);
 
       if (uiLang === 'en') {
         dictLang = '1347';
@@ -653,7 +653,7 @@
       }
 
       var dictLang,
-          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale);
 
       if (uiLang === 'es') {
         dictLang = 'CA';
