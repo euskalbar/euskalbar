@@ -23,6 +23,8 @@
 Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
+if (!euskalbar) var euskalbar = {};
+
 euskalbar.stats = {
 
   filename: 'euskalbar.sqlite',

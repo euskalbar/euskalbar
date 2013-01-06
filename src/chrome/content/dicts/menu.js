@@ -20,6 +20,10 @@
 
 "use strict";
 
+if (!euskalbar) var euskalbar = {};
+
+if (!euskalbar.dicts) euskalbar.dicts = {};
+
 euskalbar.dicts.menu = [
   { cat: 'euskalbar.menu.General',
     dicts: [

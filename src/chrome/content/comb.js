@@ -20,6 +20,8 @@
 
 "use strict";
 
+if (!euskalbar) var euskalbar = {};
+
 euskalbar.comb = {
 
   // Euskalterm kargatu
