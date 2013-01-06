@@ -27,14 +27,14 @@ euskalbar.stats = {
 
   filename: 'euskalbar.sqlite',
 
-  /* Copies euskalbar.sqlite file to the user profile */
-  createStatsFile: function () {
+  /* Initializes the stats file and copies it to the user profile directory */
+  init: function () {
     // First copy euskalbar.sqlite
     var profileDir = euskalbar.profileURI;
     try {
       var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
       var statsFile = euskalbarLib.FileIO.getLocalSystemURI(statsFileURL)
-                            .QueryInterface(Ci.nsIFileURL).file;
+                                  .QueryInterface(Ci.nsIFileURL).file;
       statsFile.copyTo(profileDir, this.filename);
     } catch (e) {
       console.log(e);

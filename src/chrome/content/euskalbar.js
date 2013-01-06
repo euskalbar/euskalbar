@@ -62,7 +62,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
         euskalbar.ui.appendButtonToToolbar();
         euskalbar.ui.displayToolbar();
 
-        euskalbar.stats.createStatsFile();
+        euskalbar.stats.init();
 
         openInfo = true;
         infoURL = euskalbar.firstrunURL;
