@@ -626,7 +626,7 @@ Components.utils.import("resource://gre/modules/Services.jsm");
             if (this.prefs.getBoolPref("elhuyar." + k + "." + l)) {
               gBrowser.addEventListener("DOMContentLoaded", euskalbar.comb.getShiftElhuyar, true);
               euskalbar.comb.getShiftElhuyar(this.source, this.target, searchStr);
-              euskalbar.stats.write('elhuyar');
+              euskalbar.stats.write('elhuyar.org');
             }
           } catch (err) {}
           try {
