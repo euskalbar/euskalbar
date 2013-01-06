@@ -70,8 +70,8 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
       statement.executeAsync();
 
-      // Reload statistics tab
-      window.content.location.reload();
+      // Refresh stats view
+      euskalbarLib.$('stats-tree').builder.rebuild();
     },
 
   };
