@@ -146,7 +146,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
     // Euskalbar deskargatu
     shutdown: function () {
-      window.removeEventListener("load", euskalbar.init, false);
       window.removeEventListener("unload", euskalbar.shutdown, false);
 
       Services.prefs.removeObserver("", this);
@@ -986,5 +985,8 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 
   };
 
-  window.addEventListener("load", function(e) { euskalbar.init(); }, false);
+  window.addEventListener("load", function(e) {
+      window.removeEventListener('load', euskalbar.init, false);
+      euskalbar.init();
+  }, false);
   window.addEventListener("unload", function(e) { euskalbar.shutdown(); }, false);
