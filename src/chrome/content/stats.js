@@ -25,60 +25,69 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
 if (!euskalbar) var euskalbar = {};
 
-euskalbar.stats = {
+euskalbar.stats = function () {
 
-  filename: 'euskalbar.sqlite',
+  // Private vars
+  var $L = euskalbarLib,
+      $ = $L.$;
 
-  /* Initializes the stats file and copies it to the user profile directory */
-  init: function () {
-    // First copy euskalbar.sqlite
-    var profileDir = euskalbar.profileURI;
-    try {
-      var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
-      var statsFile = euskalbarLib.FileIO.getLocalSystemURI(statsFileURL)
-                                  .QueryInterface(Ci.nsIFileURL).file;
-      statsFile.copyTo(profileDir, this.filename);
-    } catch (e) {
-      console.log(e);
-    }
+  // Public interface
+  return {
 
-    // Then remove the deprecated statistics folder (just this time)
-    profileDir.append("euskalbar");
+    filename: 'euskalbar.sqlite',
 
-    if (profileDir.exists()) {
-      profileDir.remove(true);
-    }
+    /* Initializes the stats file and copies it to the user profile directory */
+    init: function () {
+      // First copy euskalbar.sqlite
+      var profileDir = euskalbar.profileURI;
+      try {
+        var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
+        var statsFile = $L.FileIO.getLocalSystemURI(statsFileURL)
+                                 .QueryInterface(Ci.nsIFileURL).file;
+        statsFile.copyTo(profileDir, this.filename);
+      } catch (e) {
+        console.log(e);
+      }
 
-  },
+      // Then remove the deprecated statistics folder (just this time)
+      profileDir.append("euskalbar");
 
+      if (profileDir.exists()) {
+        profileDir.remove(true);
+      }
 
-  // Write statistics in euskalbar.sqlite
-  write: function (dict) {
-    let file = FileUtils.getFile("ProfD", [this.filename]);
-    let euskalbarConn = Services.storage.openDatabase(file);
-
-    var query = "UPDATE stats SET count=count + 1 WHERE id=:dict",
-        statement = euskalbarConn.createStatement(query);
-
-    statement.params.dict = dict;
-    statement.executeAsync();
-    euskalbarConn.asyncClose();
-  },
+    },
 
 
-  // Clears statistics
-  clear: function () {
-    let file = FileUtils.getFile("ProfD", [this.filename]);
-    let euskalbarConn = Services.storage.openDatabase(file);
+    // Write statistics in euskalbar.sqlite
+    write: function (dict) {
+      let file = FileUtils.getFile("ProfD", [this.filename]);
+      let euskalbarConn = Services.storage.openDatabase(file);
 
-    var query = "UPDATE stats SET count=0",
-        statement = euskalbarConn.createStatement(query);
+      var query = "UPDATE stats SET count=count + 1 WHERE id=:dict",
+          statement = euskalbarConn.createStatement(query);
 
-    statement.executeAsync();
-    euskalbarConn.asyncClose();
+      statement.params.dict = dict;
+      statement.executeAsync();
+      euskalbarConn.asyncClose();
+    },
 
-    // Refresh stats view
-    euskalbarLib.$('stats-tree').builder.rebuild();
-  },
 
-};
+    // Clears statistics
+    clear: function () {
+      let file = FileUtils.getFile("ProfD", [this.filename]);
+      let euskalbarConn = Services.storage.openDatabase(file);
+
+      var query = "UPDATE stats SET count=0",
+          statement = euskalbarConn.createStatement(query);
+
+      statement.executeAsync();
+      euskalbarConn.asyncClose();
+
+      // Refresh stats view
+      $('stats-tree').builder.rebuild();
+    },
+
+  };
+
+}();
