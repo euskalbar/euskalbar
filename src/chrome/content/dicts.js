@@ -211,17 +211,22 @@
 
       gBrowser.addEventListener("load", euskalbar.dicts.goEuskalBarTelekomKlik, true);
 
-      var inthizk,
-          lang = euskalbarLib._("hizk"),
+      var dictLang,
+          dictURL = 'http://www.telekomunikaziohiztegia.org/',
+          uiLang = euskalbarLib.langCode(euskalbar.ui.locale),
           id = 'telekom';
 
-      if (lang.match('euskara')) {
-        inthizk = 'eusk';
+      if (uiLang === 'es') {
+        dictLang = 'gazt';
       } else {
-        inthizk = 'gazt';
+        dictLang = 'eusk';
       }
 
-      euskalbar.openURL('http://www.telekomunikaziohiztegia.org/index.asp?hizk=' + inthizk, id, 'GET', null);
+      var params = {
+        'hizk': dictLang,
+      };
+
+      euskalbar.openURL(dictURL, id, 'GET', params);
 
       euskalbar.stats.write(id);
     },
