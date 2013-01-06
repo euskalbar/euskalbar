@@ -51,19 +51,27 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
     write: function (dict) {
       let file = FileUtils.getFile("ProfD", ["euskalbar.sqlite"]);
       let euskalbarConn = Services.storage.openDatabase(file);
-      if (dict == '') {
-        var value = 0;	
-        var statement = euskalbarConn.createStatement("UPDATE stats SET count= :value");
-        statement.params.value = value;
-        statement.executeAsync();
-        //reload statistics tab
-        window.content.location.reload(); 
 
-      } else {
-        var statement = euskalbarConn.createStatement("UPDATE stats SET count= count + 1 WHERE id= :dict");
-        statement.params.dict = dict;
-        statement.executeAsync();
-      }
+      var query = "UPDATE stats SET count=count + 1 WHERE id=:dict",
+          statement = euskalbarConn.createStatement(query);
+
+      statement.params.dict = dict;
+      statement.executeAsync();
+    },
+
+
+    // Clears statistics
+    clear: function () {
+      let file = FileUtils.getFile("ProfD", ["euskalbar.sqlite"]);
+      let euskalbarConn = Services.storage.openDatabase(file);
+
+      var query = "UPDATE stats SET count=0",
+          statement = euskalbarConn.createStatement(query);
+
+      statement.executeAsync();
+
+      // Reload statistics tab
+      window.content.location.reload();
     },
 
   };
