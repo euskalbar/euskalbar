@@ -718,10 +718,6 @@ euskalbar = function () {
           } catch (err) {}
 
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
-          // Begiratu kutxa hutsik dagoen
-          if (this.alertEmptyBox(searchStr)) {
-            return;
-          }
           if ((this.source == 'es') || (this.target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
             if (this.prefs.getBoolPref("euskalterm.onkey")) {
