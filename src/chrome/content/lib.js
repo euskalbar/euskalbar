@@ -50,6 +50,8 @@ var euskalbarLib = {};
    * Thanks for this, John Resig.
    */
   this.ajax = function (options) {
+    var status;
+
     // Load the options object with defaults, if no
     // values were provided by the user
     var s = {
@@ -117,37 +119,50 @@ var euskalbarLib = {};
     // Keep track of when the request has been succesfully completed
     var requestDone = false;
 
-    // Initalize a callback which will fire `timeoutLength` seconds from now,
-    // cancelling the request (if it has not already occurred).
-    // TODO: determine if the request has actually been timed out
-    setTimeout(function () {
-      requestDone = true;
-    }, timeoutLength);
-
     // Watch for when the state of the document gets updated
-    xhr.onreadystatechange = function() {
+    var onreadystatechange = xhr.onreadystatechange = function (isTimeout) {
       // Wait until the data is fully loaded,
       // and make sure that the request hasn't already timed out
-      if (xhr.readyState == 4 && !requestDone) {
+      if (!requestDone && xhr &&
+          (xhr.readyState === 4 || isTimeout === 'timeout')) {
+        requestDone = true;
 
-        // Check to see if the request was successful
-        if (httpSuccess(xhr)) {
+        // Check the resulting status
+        status = isTimeout === 'timeout' ?
+                 'timeout' :
+                 httpSuccess(xhr) ?
+                 'success' :
+                 'error';
+
+        if (status === 'success') {
 
           // Execute the success callback with the data returned from the server
           s.onSuccess(httpData(xhr, s.dataType));
 
           // Otherwise, an error occurred, so execute the error callback
         } else {
-          s.onError();
+          s.onError(status);
         }
 
         // Call the completion callback
         s.onComplete();
 
+        if (isTimeout === 'timeout') {
+          xhr.abort();
+        }
+
         // Clean up after ourselves, to avoid memory leaks
         xhr = null;
       }
     };
+
+    // Initalize a callback which will fire `timeoutLength` seconds from now,
+    // cancelling the request (if it has not already occurred).
+    setTimeout(function () {
+      if (xhr && !requestDone) {
+        onreadystatechange('timeout');
+      }
+    }, timeoutLength);
 
     // Establish the connection to the server
     xhr.send(s.type === 'POST' ? s.data : null);
