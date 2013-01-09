@@ -112,13 +112,13 @@ var euskalbarLib = {};
 
     // We're going to wait for a request for the amount of seconds
     // the user has in its preferences before giving up
-    var timeoutLength = euskalbar.prefs.getIntPref("query.timeout") * 1000;
+    var timeoutLength = s.timeout;
 
     // Keep track of when the request has been succesfully completed
     var requestDone = false;
 
-    // Initalize a callback which will fire 5 seconds from now, cancelling
-    // the request (if it has not already occurred).
+    // Initalize a callback which will fire `timeoutLength` seconds from now,
+    // cancelling the request (if it has not already occurred).
     // TODO: determine if the request has actually been timed out
     setTimeout(function () {
       requestDone = true;
