@@ -283,6 +283,55 @@ var euskalbarLib = {};
     return text;
   };
 
+  /*
+   * Removes diacritics from strings
+   */
+  this.normalize = function (str) {
+    var newStr = str.toLowerCase();
+
+    newStr = newStr.replace(/á/, "a");
+    newStr = newStr.replace(/à/, "a");
+    newStr = newStr.replace(/ä/, "a");
+    newStr = newStr.replace(/â/, "a");
+    newStr = newStr.replace(/é/, "e");
+    newStr = newStr.replace(/è/, "e");
+    newStr = newStr.replace(/ë/, "e");
+    newStr = newStr.replace(/ê/, "e");
+    newStr = newStr.replace(/í/, "i");
+    newStr = newStr.replace(/ì/, "i");
+    newStr = newStr.replace(/ï/, "i");
+    newStr = newStr.replace(/î/, "i");
+    newStr = newStr.replace(/ó/, "o");
+    newStr = newStr.replace(/ò/, "o");
+    newStr = newStr.replace(/ö/, "o");
+    newStr = newStr.replace(/ô/, "o");
+    newStr = newStr.replace(/ú/, "u");
+    newStr = newStr.replace(/ù/, "u");
+    newStr = newStr.replace(/ü/, "u");
+    newStr = newStr.replace(/û/, "u");
+    newStr = newStr.replace(/Á/, "A");
+    newStr = newStr.replace(/À/, "A");
+    newStr = newStr.replace(/Ä/, "A");
+    newStr = newStr.replace(/Â/, "A");
+    newStr = newStr.replace(/É/, "E");
+    newStr = newStr.replace(/È/, "E");
+    newStr = newStr.replace(/Ë/, "E");
+    newStr = newStr.replace(/Ê/, "E");
+    newStr = newStr.replace(/Í/, "I");
+    newStr = newStr.replace(/Ì/, "I");
+    newStr = newStr.replace(/Ï/, "I");
+    newStr = newStr.replace(/Î/, "I");
+    newStr = newStr.replace(/Ó/, "O");
+    newStr = newStr.replace(/Ò/, "O");
+    newStr = newStr.replace(/Ö/, "O");
+    newStr = newStr.replace(/Ô/, "O");
+    newStr = newStr.replace(/Ú/, "U");
+    newStr = newStr.replace(/Ù/, "U");
+    newStr = newStr.replace(/Ü/, "U");
+    newStr = newStr.replace(/Û/, "U");
+
+    return newStr;
+  };
 
   /*
    * Parse HTML fragments
