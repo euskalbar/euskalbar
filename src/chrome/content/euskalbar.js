@@ -299,12 +299,13 @@ euskalbar = function () {
     initHTML: function (event) {
       // Changes style in HTML template
       var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
-      var URL = event.target.location.href;
+      var doc = event.target,
+          url = doc.location.href;
 
-      gBrowser.removeEventListener("DOMContentLoaded", this.initHTML, true);
+      doc.removeEventListener("DOMContentLoaded", this.initHTML, true);
 
-      if (URL.indexOf("chrome://euskalbar/content/html/") != -1) {
-        var link = event.target.getElementsByTagName("link")[0];
+      if (url.indexOf("chrome://euskalbar/content/html/") != -1) {
+        var link = doc.getElementsByTagName("link")[0];
         link.setAttribute("href", prefStyle);
 
         //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
@@ -317,9 +318,9 @@ euskalbar = function () {
           l = "en";
         }
         var k = "";
-        if (URL.indexOf("euskalbarshift") != -1) {
+        if (url.indexOf("euskalbarshift") != -1) {
           k = "onkey1";
-        } else if (URL.indexOf("euskalbarktrl") != -1) {
+        } else if (url.indexOf("euskalbarktrl") != -1) {
           k = "onkey2";
         }
         var cprefs = euskalbar.prefs.getChildList("", {});
@@ -334,19 +335,19 @@ euskalbar = function () {
           if (euskalbar.prefs.getBoolPref(sprefs[x])) {
             var burua = sprefs[x].split(".")[0];
             burua = burua.charAt(0).toUpperCase() + burua.slice(1);
-            event.target.getElementById('buruak').innerHTML =
-            event.target.getElementById('buruak').innerHTML + '<th id="burua' + burua + '">' + burua + '<\/th>';
-            var atd = event.target.createElement('td');
+            doc.getElementById('buruak').innerHTML =
+            doc.getElementById('buruak').innerHTML + '<th id="burua' + burua + '">' + burua + '<\/th>';
+            var atd = doc.createElement('td');
             atd.setAttribute("id", "a" + burua);
             atd.setAttribute("class", "gorputza");
-            event.target.getElementById('gorputzak').appendChild(atd);
-            var ato = event.target.createElement('td');
+            doc.getElementById('gorputzak').appendChild(atd);
+            var ato = doc.createElement('td');
             ato.setAttribute("id", "o" + burua);
             ato.setAttribute("class", "gorputza");
-            event.target.getElementById('oinak').appendChild(ato);
+            doc.getElementById('oinak').appendChild(ato);
           }
         }
-        event.target.getElementById('oharra').innerHTML = $L._("oharra");
+        doc.getElementById('oharra').innerHTML = $L._("oharra");
       }
     },
 
@@ -613,7 +614,7 @@ euskalbar = function () {
 
         var k = "";
         if ((event.shiftKey) || (event.ctrlKey)) {
-          gBrowser.addEventListener("DOMContentLoaded", this.initHTML, true);
+
           if (event.shiftKey) {
             k = "onkey1";
             var urlhizt = 'chrome://euskalbar/content/html/euskalbarshift.html';
@@ -623,7 +624,12 @@ euskalbar = function () {
             var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrl.html';
             var zein = 'euskalbarktrl';
           }
+
           this.openURL(urlhizt, zein, null, null);
+
+          var tab = gBrowser
+            .getBrowserAtIndex(euskalbar.getTabIndexBySlug(zein));
+          tab.addEventListener("DOMContentLoaded", this.initHTML, true);
 
           try {
             if (this.prefs.getBoolPref("euskalterm." + k + "." + l)) {
