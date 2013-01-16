@@ -67,6 +67,9 @@ var euskalbarLib = {};
       // Custom MIME Type
       mimeType: options.mimeType || "",
 
+      // Whether to use async requests or not
+      async: options.async || true,
+
       // Data passed to the request
       data: options.data || "",
 
@@ -99,7 +102,7 @@ var euskalbarLib = {};
     var xhr = new XMLHttpRequest();
 
     // Open the asynchronous POST request
-    xhr.open(s.type, s.url, true);
+    xhr.open(s.type, s.url, s.async);
 
     // Set the Content-Type header if data is being sent or it's
     // explicitely overriden
@@ -152,17 +155,21 @@ var euskalbarLib = {};
         }
 
         // Clean up after ourselves, to avoid memory leaks
-        xhr = null;
+        if (s.async) {
+          xhr = null;
+        }
       }
     };
 
     // Initalize a callback which will fire `timeoutLength` seconds from now,
     // cancelling the request (if it has not already occurred).
-    setTimeout(function () {
-      if (xhr && !requestDone) {
-        onreadystatechange('timeout');
-      }
-    }, timeoutLength);
+    if (s.async && s.timeout > 0) {
+      setTimeout(function () {
+        if (xhr && !requestDone) {
+          onreadystatechange('timeout');
+        }
+      }, timeoutLength);
+    }
 
     // Establish the connection to the server
     xhr.send(s.type === 'POST' ? s.data : null);
