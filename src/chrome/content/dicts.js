@@ -134,7 +134,7 @@ euskalbar.dicts = function () {
         break;
       }
 
-      var id = 'elhuyar.org',
+      var id = 'elhuyar',
           params = {
             txtHitza: term,
             edozer: 'ehunekoa',
