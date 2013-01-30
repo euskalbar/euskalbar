@@ -664,75 +664,55 @@ euskalbar.comb = function () {
 
     // Labayru hiztegia kargatu
     getShiftLabayru: function (source, term) {
-      var output = $L._f("euskalbar.comb.disabled", ["Labayru"]);
-      $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", $('oLabayru', gBrowser.contentDocument));
-      $L.cleanLoadHTML(output, $('aLabayru', gBrowser.contentDocument));
 
-      /* FIXME: Use new Ajax POST function
-      var hizk,
+      var lang,
           txtLabayru = "";
 
       if (source == 'es') {
-        hizk = '';
+        lang = '';
       } else {
-        hizk = 'EU';
+        lang = 'EU';
       }
-      // POST bidez pasatzeko parametroak
-      var parametroak = 'txtPalabra=' + term + '&opc=1';
-      var urlLabayru = 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabras' + hizk + '.asp';
-      var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=ISO-8859-1');
-      if (!xmlHttpReq) {
-        txtLabayru = $L._f("euskalbar.comb.error", ["Labayru"]);
-        return false;
+      var output = "",
+          reqData = {},
+          url = 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabras' + lang + '.asp';
+
+      reqData = {
+        txtPalabra: term,
+        opc: '1'
       }
-      xmlHttpReq.open('POST', urlLabayru, true);
-      // Beharrezkoa web zerbitzariak jakin dezan zer bidaltzen dugun
-      xmlHttpReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      xmlHttpReq.setRequestHeader("Content-length", parametroak.length);
-      xmlHttpReq.send(parametroak);
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
+      $L.ajax({
+        url: url,
+        type: 'POST',
+        data: reqData,
 
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtLabayru = $L._f("euskalbar.comb.error", ["Labayru"]);
-      }, tout);
-
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          div = $('aLabayru', gBrowser.contentDocument);
-          if (xmlHttpReq.readyState == 4) {
-            // Timerra garbitu
-            clearTimeout(requestTimer);
-            $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", $('oLabayru', gBrowser.contentDocument));
-            if (xmlHttpReq.status == 200) {
-              txtLabayru = xmlHttpReq.responseText;
-              if (txtLabayru.match("No hay resultados") || txtLabayru.match("Ez dago holakorik")) {
-                txtLabayru = "Ez da aurkitu " + term + " hitza.";
-              } else {
-                var txtLab1 = txtLabayru.split("HiztegiaPalabra");
-                txtLabayru = txtLab1[1].slice(2 + term.length, txtLab1[1].indexOf("<form"));
-                txtLabayru = "<p><b>" + term + "</b></p><br/>" + txtLabayru;
-                txtLabayru = txtLabayru.replace(/<td/g, "<p");
-                txtLabayru = txtLabayru.replace(/<\/td/g, "<\/p");
-                txtLabayru = txtLabayru.replace(/<tr/g, "<p");
-                txtLabayru = txtLabayru.replace(/<\/tr/g, "<\/p");
-                txtLabayru = txtLabayru.replace(/CargaPalabra/g, "http://zerbitzuak.labayru.org/diccionario/CargaPalabra");
-              }
-            } else {
-              txtLabayru = $L._f("euskalbar.comb.error", ["Labayru"]);
-            }
+        onSuccess: function (data) {
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp\">Labayru&nbsp;<sup>&curren;</sup></a></div>", $('oLabayru', gBrowser.contentDocument));
+          output = data;
+          if (output.match("Ez dago holakorik") || output.match("No hay resultados")) {
+            output = $L._f("euskalbar.comb.noword", [term]);
+          } else {
+            var output1 = output.split("HiztegiaPalabra");
+            output = output1[1].slice(2 + term.length, output1[1].indexOf("<form"));
+            output = "<p><b>" + term + "</b></p><br/>" + output;
+            output = output.replace(/<td/g, "<p");
+            output = output.replace(/<\/td/g, "<\/p");
+            output = output.replace(/<tr/g, "<p");
+            output = output.replace(/<\/tr/g, "<\/p");
+            output = output.replace(/CargaPalabra/g, "http://zerbitzuak.labayru.org/diccionario/CargaPalabra");
           }
-        } catch (e) {
-          txtLabayru = $L._f("euskalbar.comb.error", ["Labayru"]);
+        },
+
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["Labayru"]);
+        },
+
+        onComplete: function () {
+          var node = $('aLabayru', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
         }
-        $L.cleanLoadHTML(txtLabayru, $('aLabayru', gBrowser.contentDocument));
-      }
-  */
+      });
     },
 
 

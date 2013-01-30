@@ -297,7 +297,7 @@ euskalbar.dicts = function () {
       if (euskalbar.alertEmptyBox(term)) {
         return;
       }
-
+      term = $L.normalize(term);
       var url = 'http://ehu.es/ehg/cgi/zehazki/bila',
           id = 'zehazki',
           params = {
