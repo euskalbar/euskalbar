@@ -876,74 +876,41 @@ euskalbar.comb = function () {
 
     // Mokoroa kargatu
     getShiftMokoroa: function (source, term) {
-      var output = $L._f("euskalbar.comb.disabled", ["Mokoroa"]);
-      $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", $('oMokoroa', gBrowser.contentDocument));
-      $L.cleanLoadHTML(output, $('aMokoroa', gBrowser.contentDocument));
 
-      /* FIXME: Use new Ajax POST function
-      var params = [];
-      var urlMokoroa = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa';
+      var output = "",
+          reqData = {},
+          url = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa';
+
+      reqData = {
+        '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaFuente': '',
+        '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto': 'Edozein Euskalki'
+      }
+
       if (source == 'es') {
-        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano', encodeURI(term)));
-        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
+        reqData['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano'] = term;
       } else {
-        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera', encodeURI(term)));
-        params.push(new euskalbar.QueryParameter('_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto', 'Edozein%20Euskalki'));
+        reqData['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera'] = term;
       }
 
+      $L.ajax({
+        url: url,
+        type: 'POST',
+        data: reqData,
 
-      var dataString = "";
-      for (var i = 0; i < params.length; ++i) {
-        var param = params[i];
+        onSuccess: function (data) {
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", $('oMokoroa', gBrowser.contentDocument));
+          output = data;
+          output = output.substring(output.indexOf('<font color=red >'), output.indexOf('<div id="justo_mokoroa">'));
+        },
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["Mokoroa"]);
+        },
 
-        dataString += (i > 0 ? "&" : "") + param.name + "=" + param.value;
-      }
-
-      var xmlHttpReq = new XMLHttpRequest();
-      xmlHttpReq.overrideMimeType('text/xml; charset=UTF-8');
-      if (!xmlHttpReq) {
-        txtMokoroa = $L._f("euskalbar.comb.error", ["Mokoroa"]);
-        return false;
-      }
-      xmlHttpReq.open('POST', urlMokoroa + "&" + dataString, true);
-      xmlHttpReq.send(null);
-
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
-
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtMokoroa = $L._f("euskalbar.comb.error", ["Mokoroa"]);
-      }, tout);
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.hiru.com/hiztegiak/mokoroa\">Mokoroa&nbsp;<sup>&curren;</sup></a></div>", $('oMokoroa', gBrowser.contentDocument));
-              txtMokoroa = xmlHttpReq.responseText;
-              if (txtMokoroa.indexOf("Emaitza gehiegi aurkitzen da") != -1) {
-                txtMokoroa = "Emaitza gehiegi aurkitzen da";
-              } else if (txtMokoroa.indexOf("Ez da emaitzarik aurkitu") != -1) {
-                txtMokoroa = "Ez da emaitzarik aurkitu";
-              } else {
-                var txtMokoroa2 = txtMokoroa.split("<ul>	<li>	<a")[1];
-                txtMokoroa = "<ul>	<li>	<a" + txtMokoroa2;
-                var txtMokoroa3 = txtMokoroa.split("<div id\=\"justo")[0];
-                txtMokoroa = "<strong>" + term + "<\/strong><br\/><br\/>" + txtMokoroa3 + "<div id\=\"justo";
-              }
-            } else {
-              txtMokoroa = $L._f("euskalbar.comb.error", ["Mokoroa"]);
-            }
-          }
-        } catch (e) {
-          txtMokoroa = $L._f("euskalbar.comb.error", ["Mokoroa"]);
+        onComplete: function () {
+          var node = $('aMokoroa', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
         }
-        $L.cleanLoadHTML(txtMokoroa, $('aMokoroa', gBrowser.contentDocument));
-      }*/
+      });
     },
 
 

@@ -611,8 +611,10 @@ euskalbar.dicts = function () {
 
       var url = 'http://www.hiru.com/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=buscarMokoroa',
           id = 'mokoroa',
+
           params = {
-            '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto': 'Edozein%20Euskalki'
+            '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaFuente': '',
+            '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto': 'Edozein Euskalki'
           };
 
       if (source == 'es') {
