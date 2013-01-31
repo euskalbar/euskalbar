@@ -665,14 +665,14 @@ euskalbar.comb = function () {
     // Labayru hiztegia kargatu
     getShiftLabayru: function (source, term) {
 
-      var lang,
-          txtLabayru = "";
+      var lang;
 
       if (source == 'es') {
         lang = '';
       } else {
         lang = 'EU';
       }
+
       var output = "",
           reqData = {},
           url = 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabras' + lang + '.asp';
@@ -1014,9 +1014,44 @@ euskalbar.comb = function () {
     // Danobat kargatu
     getShiftDanobat: function (source, term) {
 
-      var output = $L._f("euskalbar.comb.disabled", ["Danobat"]);
-      $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://hiztegia.danobatgroup.com/eu/dictionary\">Danobat&nbsp;<sup>&curren;</sup></a></div>", $('oDanobat', gBrowser.contentDocument));
-      $L.cleanLoadHTML(output, $('aDanobat', gBrowser.contentDocument));
+      var lang;
+      if (source == 'es') {
+        lang = 'es-eu';
+      } else {
+        lang = 'eu-es';
+      }
+
+      var output = "",
+          reqData = {},
+          url = 'http://hiztegia.danobatgroup.com/eu/dictionary/search';
+
+      reqData = {
+        "term_filter": term,
+        "direction_filter": lang
+      }
+
+      $L.ajax({
+        url: url,
+        type: 'POST',
+        data: reqData,
+
+        onSuccess: function (data) {
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://hiztegia.danobatgroup.com/eu/dictionary\">Danobat&nbsp;<sup>&curren;</sup></a></div>", $('oDanobat', gBrowser.contentDocument));
+
+          output = data;
+          output = output.substring(output.indexOf('<div id="searchresult">'), output.indexOf('</article>'));
+
+        },
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["Danobat"]);
+        },
+
+        onComplete: function () {
+          var node = $('aDanobat', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
+        }
+      });
+
 
       /* FIXME: Use new Ajax POST function
       txtDanobat = "";
