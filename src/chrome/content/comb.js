@@ -62,6 +62,8 @@ euskalbar.comb = function () {
           output = output.substring(output.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), output.indexOf('<div class="clr"/>'));
           output = output.replace(/q91aBilaketaAction/g, "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction");
           output = output.replace(/<table  class=\"erantzuna\"/g, "<hr><table  class=\"erantzuna\"");
+          output = output.replace(/<table/g, "<p")
+          output = output.replace(/<\/table/g, "</p")
         },
 
         onError: function () {
