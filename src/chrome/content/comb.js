@@ -471,27 +471,30 @@ euskalbar.comb = function () {
         onSuccess: function (data) {
           $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oTelekom', gBrowser.contentDocument));
           output = data;
-          output = output.substring(output.indexOf('<form name="form2"'), output.indexOf('document.form1.txtHitza.focus'));
-          output = output.replace(/selected/g, "");
-          var urls = output.split("definizioa.asp");
-          urls.shift();
-          urls.shift();
-          output = "";
-          for (var i in urls) {
-            var reqURL = urls[i].split("\"")[0];
-            reqURL = "http://www.telekomunikaziohiztegia.org/definizioa.asp" + reqURL;
-            euskalbar.comb.getsubShiftTelekom(reqURL);
+          if (output.match("Hutsa=bai")) {
+            output = $L._f("euskalbar.comb.noword", [term]);
+          } else {
+            output = output.substring(output.indexOf('<form name="form2"'), output.indexOf('document.form1.txtHitza.focus'));
+            output = output.replace(/selected/g, "");
+            var urls = output.split("definizioa.asp");
+            urls.shift();
+            urls.shift();
+            output = "";
+            for (var i in urls) {
+              var reqURL = urls[i].split("\"")[0];
+              reqURL = "http://www.telekomunikaziohiztegia.org/definizioa.asp" + reqURL;
+              euskalbar.comb.getsubShiftTelekom(reqURL);
+            }
           }
         },
 
         onError: function () {
           output = $L._f("euskalbar.comb.error", ["Telekomunikazioak"]);
-          var node = $('aTelekom', gBrowser.contentDocument);
-          $L.cleanLoadHTML(output, node);
         },
 
         onComplete: function () {
-
+          var node = $('aTelekom', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
         }
       });
     },
