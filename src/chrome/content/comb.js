@@ -62,8 +62,8 @@ euskalbar.comb = function () {
           output = output.substring(output.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'), output.indexOf('<div class="clr"/>'));
           output = output.replace(/q91aBilaketaAction/g, "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction");
           output = output.replace(/<table  class=\"erantzuna\"/g, "<hr><table  class=\"erantzuna\"");
-          output = output.replace(/<table/g, "<p")
-          output = output.replace(/<\/table/g, "</p")
+          output = output.replace(/<table/g, "<p");
+          output = output.replace(/<\/table/g, "</p");
         },
 
         onError: function () {
@@ -313,129 +313,84 @@ euskalbar.comb = function () {
     },
 
 
-
-    // ZT Hiztegiaren markoa kargatu
+    // ZT Hiztegia
     getShiftZTHiztegia: function (source, term) {
-      var output = $L._f("euskalbar.comb.disabled", ["ZT hiztegia"]);
-      $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oZthiztegia', gBrowser.contentDocument));
-      $L.cleanLoadHTML(output, $('aZthiztegia', gBrowser.contentDocument));
 
-      /* FIXME: Use new Ajax POST function
-      var erroremezua, erroremezua2,
-          lang = $L._("hizk");
+      var output = "",
+          reqData = {},
+          lang = '',
+          url = 'http://zthiztegia.elhuyar.org/api/search';
 
-      if (lang.match('euskara')) {
-        erroremezua = 'Ez dago horrelako terminorik';
-        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
-      } else if (lang.match('english')) {
-        erroremezua = 'Term not found';
-        erroremezua2 = 'Word not found, choose from list';
-      } else if (lang.match('français')) {
-        erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
-      } else {
-        erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
+      var langMap = {
+        es: 'es',
+        fr: 'fr',
+        en: 'en',
+        eu: 'eu',
+        la: 'la',
+      }
+      lang = langMap[source];
+
+      reqData = {
+        'action': 'searchTerms',
+        'term': term,
+        'lang': lang,
+        'selectAlorra': '0'
       }
 
-      var xmlHttpReq = new XMLHttpRequest();
-      if (!xmlHttpReq) {
-        txtZTHiztegia = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-        $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-        return false;
-      }
-      xmlHttpReq.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=searchTerms&term=' + $L.normalize(term) + '%25&lang=' + source, true);
-      xmlHttpReq.send(null);
+      $L.ajax({
+        url: url,
+        type: 'GET',
+        data: reqData,
 
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
-
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtZTHiztegia = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-        $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-      }, tout);
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              var erantzuna = xmlHttpReq.responseText;
-              if (erantzuna == '[]') {
-                txtZTHiztegia = erroremezua;
-                $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-              } else {
-                ztzerrenda = JSON.parse(erantzuna);
-                if (ztzerrenda[0].sortKey == $L.normalize(term)) {
-                  termida = ztzerrenda[0].termId;
-                  var xmlHttpReq2 = new XMLHttpRequest();
-                  if (!xmlHttpReq2) {
-                    txtZTHiztegia = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-                    $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-                    return false;
-                  }
-                  xmlHttpReq2.open('GET', 'http://zthiztegia.elhuyar.org/api/search?action=retrieveTerm&key=' + termida, true);
-                  xmlHttpReq2.send(null);
-                  var requestTimer2 = setTimeout(function () {
-                    xmlHttpReq2.abort();
-                    txtZTHiztegia = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-                    $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-                  }, tout);
-                  xmlHttpReq2.onreadystatechange = function () {
-                    try {
-                      if (xmlHttpReq2.readyState == 4) {
-                        if (xmlHttpReq2.status == 200) {
-                          //Timerra garbitu
-                          clearTimeout(requestTimer2);
-                          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oZthiztegia', gBrowser.contentDocument));
-                          $('buruaZthiztegia', gBrowser.contentDocument).innerHTML = "ZT hiztegia";
-                          erantzuna2 = xmlHttpReq2.responseText;
-                          txtZTHiztegia = erantzuna2.substring(0, erantzuna2.search('<ul id="menu_3">'));
-                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showTermEntryOf\(\'(.).+?\'\,\%20/g, '<a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'$1hizkuntzaid\',');
-                          txtZTHiztegia = txtZTHiztegia.replace(/Ehizkuntzaid/g, 'eu');
-                          txtZTHiztegia = txtZTHiztegia.replace(/Ghizkuntzaid/g, 'es');
-                          txtZTHiztegia = txtZTHiztegia.replace(/Fhizkuntzaid/g, 'fr');
-                          txtZTHiztegia = txtZTHiztegia.replace(/Ihizkuntzaid/g, 'en');
-                          txtZTHiztegia = txtZTHiztegia.replace(/Lhizkuntzaid/g, 'la');
-                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showImage\(\'irudiak\/irudiak\/.*?\<\/a\>/g, '');
-                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showImage\(\'irudiak\/irudiak\/.*?\<\/a\>/g, '');
-                          txtZTHiztegia = txtZTHiztegia.replace(/\<div class\=\"ikus\"\>/g, '<div class="ikus"><img src="http://zthiztegia.elhuyar.org//irudiak/iko_ikus.gif" />');
-                          txtZTHiztegia = txtZTHiztegia.replace(/ onclick\=\"javascript\:showTermEntryOf\(\'.+?\'\, this\.innerHTML\)\; return false\;\"\>/g, '>');
-                          txtZTHiztegia = txtZTHiztegia.replace(/\<a href\=\"javascript\:showArticle\(/g, '<a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaArtikulua(');
-                          if (ztzerrenda.length - 1 > 1) {
-                            txtZTHiztegia = txtZTHiztegia + '<p>Beste batzuk:</p>';
-                            for (termind = 1; termind < ztzerrenda.length; termind++) {
-                              txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
-                            }
-                          };
-                          $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-
-                        }
-                      }
-                    } catch (e) {
-                      txtZTHiztegia = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-                      $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-                    }
-                  }
-                } else {
-                  txtZTHiztegia = erroremezua2;
-                  for (termind = 0; termind < ztzerrenda.length; termind++) {
-                    txtZTHiztegia = txtZTHiztegia + '<p><a href="javascript:euskalbar.dicts.goEuskalBarZTHiztegiaKlik(\'' + source + '\',\'' + ztzerrenda[termind].term + '\')\">' + ztzerrenda[termind].term + '</a></p>';
-                  }
-                  $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
-                }
-              }
-            }
+        onSuccess: function (data) {
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://zthiztegia.elhuyar.org\">ZT hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oZthiztegia', gBrowser.contentDocument));
+          output = data;
+          if (output.match('termId')) {
+            var id = JSON.parse(output)[0].termId;
+            euskalbar.comb.getsubShiftZTHiztegia(id);
+          } else {
+            output = $L._f("euskalbar.comb.noword", [term]);
+            var node = $('aZthiztegia', gBrowser.contentDocument);
+            $L.cleanLoadHTML(output, node);
           }
-        } catch (e) {
-          txtZTHiztegia = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
-          $L.cleanLoadHTML(txtZTHiztegia, $('aZthiztegia', gBrowser.contentDocument));
+        },
+
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
+        },
+
+        onComplete: function () {
+
         }
-      }
-  */
+      });
+    },
+
+
+    getsubShiftZTHiztegia: function (id) {
+      var output = "",
+          url = 'http://zthiztegia.elhuyar.org/api/search?action=retrieveTerm&key=' + id,
+          reqData = {};
+
+      $L.ajax({
+        url: url,
+        type: 'GET',
+        data: reqData,
+
+        onSuccess: function (data) {
+          output = data;
+          output = output.substring(output.indexOf('<dl class="testua">'), output.indexOf('<ul id="menu_3">'));
+          output = output.replace(/<a/g, "<span");
+        },
+
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["ZT Hiztegia"]);
+        },
+
+        onComplete: function () {
+          var node = $('aZthiztegia', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
+        }
+      });
     },
 
 
