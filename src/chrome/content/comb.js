@@ -439,182 +439,96 @@ euskalbar.comb = function () {
     },
 
 
-    // Telekomunikazio Hiztegiaren markoa kargatu
+    // Telekomunikazio Hiztegia
     getShiftTelekom: function (source, term) {
-      var output = $L._f("euskalbar.comb.disabled", ["Telekomunikazio hiztegia"]);
-      $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oTelekom', gBrowser.contentDocument));
-      $L.cleanLoadHTML(output, $('aTelekom', gBrowser.contentDocument));
 
-      /* FIXME: Use new Ajax POST function
-      var erroremezua, erroremezua2, inthizk, hizkid
-          lang = $L._("hizk");
+      var output = "",
+          reqData = {},
+          lang = '',
+          url = 'http://www.telekomunikaziohiztegia.org/bilatu.asp';
 
-      if (lang.match('euskara')) {
-        erroremezua = 'Ez dago horrelako terminorik';
-        erroremezua2 = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
-        inthizk = 'eusk'
-      } else if (lang.match('english')) {
-        erroremezua = 'Term not found';
-        erroremezua2 = 'Word not found, choose from list';
-        inthizk = 'gazt'
-      } else if (lang.match('français')) {
-        erroremezua = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        erroremezua2 = 'Pas de résultats, choisir un mot de la liste';
-        inthizk = 'gazt'
-      } else {
-        erroremezua = 'No se han encontrado resultados para la b&uacute;squeda';
-        erroremezua2 = 'No se ha encontrado la palabra, seleccione de la lista';
-        inthizk = 'gazt'
+      var langMap = {
+        es: 'G',
+        fr: 'F',
+        en: 'I',
+        eu: 'E',
+      }
+      lang = langMap[source];
+
+      reqData = {
+        'hizk': 'eusk',
+        'txtHitza': term,
+        'optNon': 'Terminotan',
+        'selectHizkuntza': lang,
+        'selectAlorra': '0'
       }
 
-      if (source == 'eu') {
-        hizkid = 'E';
-      } else if (source == 'es') {
-        hizkid = 'G';
-      } else if (source == 'en') {
-        hizkid = 'I';
-      } else if (source == 'fr') {
-        hizkid = 'F';
-      };
+      $L.ajax({
+        url: url,
+        type: 'POST',
+        data: reqData,
 
-      var xmlHttpReq = new XMLHttpRequest();
-      if (!xmlHttpReq) {
-        txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-        $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-        return false;
-      }
-      var urlTelekom = 'http://www.telekomunikaziohiztegia.org/bilatu.asp?';
-      var params = 'hizk=' + inthizk + '&txtHitza=' + $L.normalize(term).replace(' ', '%20') + '%25&selectHizkuntza=' + hizkid + '&optNon=Terminotan&selectAlorra=0';
-
-      var xmlHttpReq = new XMLHttpRequest();
-      if (!xmlHttpReq) {
-        txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-        return false;
-      }
-
-      xmlHttpReq.onreadystatechange = function () {
-        try {
-          if (xmlHttpReq.readyState == 4) {
-            if (xmlHttpReq.status == 200) {
-              //Timerra garbitu
-              clearTimeout(requestTimer);
-              var erantzuna = xmlHttpReq.responseText;
-              if (erantzuna.search(/\<select name\=\"selectTerm\"/i) == -1) {
-                txtTelekom = erroremezua;
-                $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-              } else {
-                zerrenda = erantzuna.substring(erantzuna.search(/\<select name\=\"selectTerm\"/i));
-                zerrenda = zerrenda.substring(zerrenda.search(/\<\/script\>/i) + 10);
-                zerrenda = zerrenda.substring(0, zerrenda.search(/\<\/select\>/i));
-                zerrenda = zerrenda.split(/\<\/option\>/i);
-                elementua = zerrenda[0];
-                definizioa = elementua.substring(elementua.search(/\<option value\= \"definizioa\.asp\?Kodea\=/i) + '<option value= "definizioa.asp?Kodea='.length);
-                hitza = definizioa.substring(definizioa.search('>') + 20);
-                hitza = hitza.substring(0, hitza.length - 18);
-                definizioa = definizioa.substring(0, definizioa.search("&"));
-                if ($L.normalize(hitza) == $L.normalize(term)) {
-                  var xmlHttpReq2 = new XMLHttpRequest();
-                  if (!xmlHttpReq2) {
-                    txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-                    $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-                    return false;
-                  }
-                  xmlHttpReq2.onreadystatechange = function () {
-                    try {
-                      if (xmlHttpReq2.readyState == 4) {
-                        if (xmlHttpReq2.status == 200) {
-                          //Timerra garbitu
-                          clearTimeout(requestTimer2);
-                          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org/\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oTelekom', gBrowser.contentDocument));
-                          $('buruaTelekom', gBrowser.contentDocument).innerHTML = "Telekomunikazio hiztegia";
-                          erantzuna2 = xmlHttpReq2.responseText;
-                          txtTelekom = erantzuna2;
-                          hasiera = '<p>' + txtTelekom.substring(txtTelekom.search('<td class="sarrera">') + '<td class="sarrera">'.length);
-                          hasiera = hasiera.substring(0, hasiera.search('</td>')) + '</p>';
-                          amaiera = '';
-                          if (txtTelekom.indexOf('<table ', txtTelekom.search('          ARTIKULUAK')) != -1) {
-                            amaiera = txtTelekom.substring(txtTelekom.indexOf('<table ', txtTelekom.search('          ARTIKULUAK')), txtTelekom.indexOf('</table>', txtTelekom.search('          ARTIKULUAK')) + 8);
-                            txtTelekom = txtTelekom.substring(0, txtTelekom.indexOf('<table ', txtTelekom.search('          ARTIKULUAK'))) + txtTelekom.substring(txtTelekom.indexOf('</table>', txtTelekom.search('          ARTIKULUAK')) + 8);
-                          };
-                          if (txtTelekom.indexOf('<table ', txtTelekom.search('          IRUDIAK')) != -1 && txtTelekom.indexOf('<table ', txtTelekom.search('          IRUDIAK')) < txtTelekom.search('          ARTIKULUAK')) {
-                            txtTelekom = txtTelekom.substring(0, txtTelekom.indexOf('<table ', txtTelekom.search('          IRUDIAK'))) + txtTelekom.substring(txtTelekom.indexOf('</table>', txtTelekom.search('          IRUDIAK')) + 8);
-                          };
-                          txtTelekom = txtTelekom.substring(txtTelekom.search('<td class="body">') + '<td class="body">'.length);
-                          txtTelekom = txtTelekom.substring(0, txtTelekom.search('</td>'));
-                          txtTelekom = hasiera + txtTelekom + amaiera;
-                          txtTelekom = txtTelekom.replace(/\<a href\=\"definizioa\.asp\?Kodea\=(.).+?\>(.*?)\</g, '<a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik(\'$1hizkuntzaid\'\,\'$2\')">$2<');
-                          txtTelekom = txtTelekom.replace(/Ehizkuntzaid/g, 'eu');
-                          txtTelekom = txtTelekom.replace(/Ghizkuntzaid/g, 'es');
-                          txtTelekom = txtTelekom.replace(/Fhizkuntzaid/g, 'fr');
-                          txtTelekom = txtTelekom.replace(/Ihizkuntzaid/g, 'en');
-                          txtTelekom = txtTelekom.replace(/\<img src\=\"irudiak\/eskua\.gif\"/g, '<img src="http://www.telekomunikaziohiztegia.org/irudiak/eskua.gif"');
-                          txtTelekom = txtTelekom.replace(/TL_artikuluak/g, 'http://www.telekomunikaziohiztegia.org/TL_artikuluak');
-                          if (zerrenda.length - 1 > 1) {
-                            txtTelekom = txtTelekom + '<p>Beste batzuk:</p>';
-                            for (elemind = 1; elemind < zerrenda.length - 1; elemind++) {
-                              elementua = zerrenda[elemind];
-                              definizioa = elementua.substring(elementua.search(/\<option value\= \"definizioa\.asp\?Kodea\=/i) + '<option value= "definizioa.asp?Kodea='.length);
-                              hitza = definizioa.substring(definizioa.search('>') + 20);
-                              hitza = hitza.substring(0, hitza.length - 18);
-                              definizioa = definizioa.substring(0, definizioa.search("&"));
-                              txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
-                            };
-                          };
-                          $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-                        }
-                      }
-                    } catch (e) {
-                      txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-                      $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-                    }
-                  }
-                  xmlHttpReq2.open('GET', 'http://www.telekomunikaziohiztegia.org/definizioa.asp?Kodea=' + definizioa + '&Hizkuntza=' + hizkid + '&hizk=' + inthizk, true);
-                  xmlHttpReq2.overrideMimeType("text/html; charset=ISO-8859-1");
-                  xmlHttpReq2.send(null);
-                  var requestTimer2 = setTimeout(function () {
-                    xmlHttpReq2.abort();
-                    txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-                    $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-                  }, tout);
-                } else {
-                  txtTelekom = erroremezua2;
-                  for (elemind = 1; elemind < zerrenda.length - 1; elemind++) {
-                    elementua = zerrenda[elemind];
-                    definizioa = elementua.substring(elementua.search(/\<option value\= \"definizioa\.asp\?Kodea\=/i) + '<option value= "definizioa.asp?Kodea='.length);
-                    hitza = definizioa.substring(definizioa.search('>') + 20);
-                    hitza = hitza.substring(0, hitza.length - 18);
-                    definizioa = definizioa.substring(0, definizioa.search("&"));
-                    txtTelekom = txtTelekom + '<p><a href="javascript:euskalbar.dicts.goEuskalBarTelekomKlik2(\'' + definizioa + '\',\'' + hitza + '\')\">' + hitza + '</a></p>';
-                  };
-                  $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-                }
-              }
-            }
+        onSuccess: function (data) {
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.telekomunikaziohiztegia.org\">Telekomunikazio hiztegia&nbsp;<sup>&curren;</sup></a></div>", $('oTelekom', gBrowser.contentDocument));
+          output = data;
+          output = output.substring(output.indexOf('<form name="form2"'), output.indexOf('document.form1.txtHitza.focus'));
+          output = output.replace(/selected/g, "");
+          var urls = output.split("definizioa.asp");
+          urls.shift();
+          urls.shift();
+          output = "";
+          for (var i in urls) {
+            var reqURL = urls[i].split("\"")[0];
+            reqURL = "http://www.telekomunikaziohiztegia.org/definizioa.asp" + reqURL;
+            euskalbar.comb.getsubShiftTelekom(reqURL);
           }
-        } catch (e) {
-          txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-          $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
+        },
+
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["Telekomunikazioak"]);
+          var node = $('aTelekom', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
+        },
+
+        onComplete: function () {
+
         }
-      }
-      xmlHttpReq.open('POST', urlTelekom, true);
-      xmlHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=iso-8859-1");
-      xmlHttpReq.overrideMimeType("text/html; charset=ISO-8859-1");
-      xmlHttpReq.send(params);
-
-      //Hiztegiak kargatzen zenbat denbora egongo den, kargak huts egin arte
-      var tout = euskalbar.prefs.getIntPref("query.timeout");
-      tout = tout * 1000
-
-      //Timerra sortu
-      var requestTimer = setTimeout(function () {
-        xmlHttpReq.abort();
-        txtTelekom = $L._f("euskalbar.comb.error", ["Telekomunikazio Hiztegia"]);
-        $L.cleanLoadHTML(txtTelekom, $('aTelekom', gBrowser.contentDocument));
-      }, tout);
-  */
-
+      });
     },
 
+    getsubShiftTelekom: function (url) {
+
+      var output = "",
+          reqData = {};
+
+      $L.ajax({
+        url: url,
+        type: 'GET',
+        mimeType: 'text/html; charset=ISO-8859-1',
+        data: reqData,
+
+        onSuccess: function (data) {
+          output = data;
+          output = output.substring(output.indexOf('<td class="sarrera">'), output.indexOf('IKUS'));
+          output = output.replace(/irudiak\/espacio.gif/g, "");
+          output = output.replace(/irudiak\/naranja.gif/g, "");
+          output = output.replace(/irudiak\/bot-inprimatu.gif/g, "");
+          output = output.replace(/width=\"...\"/g, "width=\"\"");
+          output = output.replace(/width=\"..\"/g, "width=\"\"");
+          output = output.replace(/definizioa.asp/g, "http://www.telekomunikaziohiztegia.org/definizioa.asp");
+          output = "<hr/>" + output;
+        },
+
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["Telekomunikazioak"]);
+        },
+
+        onComplete: function () {
+          var node = $('aTelekom', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
+        }
+      });
+    },
 
     // Morris hiztegia kargatu
     getShiftMorris: function (source, term) {
