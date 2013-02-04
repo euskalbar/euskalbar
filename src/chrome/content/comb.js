@@ -153,8 +153,8 @@ euskalbar.comb = function () {
             var node = $('aElhuyar', gBrowser.contentDocument);
             $L.cleanLoadHTML(output, node);
           } else {
-            var resultsList = output.split('div id="zerrenda"')[1],
-                resultsArray = resultsList.split('a href="?'),
+            var resultsList = output.substring(output.indexOf('<div id="zerrenda">'), output.indexOf('</form>')),
+                resultsArray = resultsList.split('href="?'),
                 hasResults = false;
 
             resultsArray.shift();
@@ -164,21 +164,24 @@ euskalbar.comb = function () {
                   linkWordNorm = $L.normalize(linkWord),
                   originalNorm = $L.normalize(term),
                   params = resultsArray[i].split('"')[0].replace(/amp\;/g, "");
-              if (linkWordNorm === originalNorm ||
-                  linkWordNorm === '1 ' + originalNorm ||
-                  linkWordNorm === '2 ' + originalNorm ||
-                  linkWordNorm === '3 ' + originalNorm ||
-                  linkWordNorm === '4 ' + originalNorm ||
-                  linkWordNorm === '5 ' + originalNorm ||
-                  linkWordNorm === '6 ' + originalNorm ||
-                  linkWordNorm === '7 ' + originalNorm ||
-                  linkWordNorm === '8 ' + originalNorm ||
-                  linkWordNorm === '9 ' + originalNorm ||
-                  linkWordNorm === '10 ' + originalNorm) {
+                  linkWordNorm = linkWordNorm.trim();
+
+              if (linkWordNorm == originalNorm ||
+                  linkWordNorm == '1 ' + originalNorm ||
+                  linkWordNorm == '2 ' + originalNorm ||
+                  linkWordNorm == '3 ' + originalNorm ||
+                  linkWordNorm == '4 ' + originalNorm ||
+                  linkWordNorm == '5 ' + originalNorm ||
+                  linkWordNorm == '6 ' + originalNorm ||
+                  linkWordNorm == '7 ' + originalNorm ||
+                  linkWordNorm == '8 ' + originalNorm ||
+                  linkWordNorm == '9 ' + originalNorm ||
+                  linkWordNorm == '10 ' + originalNorm) {
                 hasResults = true;
                 euskalbar.comb.getsubShiftElhuyar(reqURL, params, true);
               }
             }
+
 
             if (!hasResults) {
               $L.cleanLoadHTML('<p><strong><font face="bitstream vera sans, verdana, arial" size="3">' + decodeURI(term) + '<font></strong></p><p></p><p><font color="black" face="bitstream vera sans, verdana, arial" size="-1">' + errorMsgList + '</font></p><p></p>', $('aElhuyar', gBrowser.contentDocument));
