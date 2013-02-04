@@ -76,9 +76,8 @@ euskalbar.comb = function () {
       });
     },
 
-
     getShiftElhuyar: function (source, target, term) {
-      var reqURL, errorMsg, errorMsgTerm, errorMsgList,
+      var reqURL, errorMsgList,
           subEntryText, chkHizkuntza, newTarget,
           reqData = {},
           reqURL = 'http://www.elhuyar.org/hizkuntza-zerbitzuak/',
@@ -87,26 +86,18 @@ euskalbar.comb = function () {
       // FIXME: implement a better way to naively match locale codes
       if (/eu(-[A-Z])?/.test(euskalbar.ui.locale)) {
         reqURL += 'EU/Hiztegi-kontsulta';
-        errorMsg = 'Ez dago horrelako sarrerarik';
-        errorMsgTerm = 'Ez da aurkitu ' + term + ' hitza.';
         errorMsgList = 'Hitza ez da aurkitu, aukeratu bat zerrendatik';
         subEntryText = 'Azpisarrerak';
       } else if (/en(-[A-Z])?/.test(euskalbar.ui.locale)) {
         reqURL += 'EN/Dictionary-search';
-        errorMsg = 'No match found';
-        errorMsgTerm = 'Word ' + term + ' not found.';
         errorMsgList = 'Word not found, choose from list';
         subEntryText = 'Azpisarrerak';
       } else if (/fr(-[A-Z])?/.test(euskalbar.ui.locale)) {
         reqURL += 'FR/Dictionnaire-recherche';
-        errorMsg = 'Aucun r&eacute;sultat pour votre entr&eacute;e';
-        errorMsgTerm = 'Pas de résultats pour le mot ' + term + '.';
         errorMsgList = 'Pas de résultats, choisir un mot de la liste';
         subEntryText = 'Azpisarrerak';
       } else {
         reqURL += 'ES/Consulta-de-diccionarios';
-        errorMsg = 'No se han encontrado resultados para la b&uacute;squeda';
-        errorMsgTerm = 'No se ha encontrado la palabra ' + term + '.';
         errorMsgList = 'No se ha encontrado la palabra, seleccione de la lista';
         subEntryText = 'Azpisarrerak';
       }
@@ -157,8 +148,8 @@ euskalbar.comb = function () {
           $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http:\/\/www.elhuyar.org\/hiztegia\">Elhuyar&nbsp;<sup>&curren;</sup></a></div>", $('oElhuyar', gBrowser.contentDocument));
           output = data;
 
-          if (output.indexOf(errorMsg) != -1) {
-            output = errorMsgTerm;
+          if (output.indexOf('ordainen_zerrenda') == -1) {
+            output = $L._f("euskalbar.comb.noword", [term]);
             var node = $('aElhuyar', gBrowser.contentDocument);
             $L.cleanLoadHTML(output, node);
           } else {
@@ -173,7 +164,6 @@ euskalbar.comb = function () {
                   linkWordNorm = $L.normalize(linkWord),
                   originalNorm = $L.normalize(term),
                   params = resultsArray[i].split('"')[0].replace(/amp\;/g, "");
-
               if (linkWordNorm === originalNorm ||
                   linkWordNorm === '1 ' + originalNorm ||
                   linkWordNorm === '2 ' + originalNorm ||
@@ -195,7 +185,7 @@ euskalbar.comb = function () {
 
               for (var i in resultsArray) {
                 var linkWord = resultsArray[i].split(">")[1].split("<")[0],
-                    params = resultsArray[i].split('"')[0];
+                params = resultsArray[i].split('"')[0];
                 params = params.replace(/amp\;/g, "");
 
                 $L.cleanLoadHTML('<p><a href="' + reqURL + "?" + params.replace('txtHitza=' + encodeURIComponent(term), 'txtHitza=' + linkWord) + '">' + linkWord + '</a></p>', $('aElhuyar', gBrowser.contentDocument));
