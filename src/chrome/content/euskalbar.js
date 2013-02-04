@@ -644,12 +644,6 @@ euskalbar = function () {
             }
           } catch (err) {}
           try {
-            if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
-              euskalbar.comb.getShiftLabayru(this.source, searchStr);
-              euskalbar.stats.write('labayru');
-            }
-          } catch (err) {}
-          try {
             if (this.prefs.getBoolPref("zthiztegia." + k + "." + l)) {
               euskalbar.comb.getShiftZTHiztegia(this.source, searchStr);
               euskalbar.stats.write('zthiztegia');
@@ -659,6 +653,18 @@ euskalbar = function () {
             if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
               euskalbar.comb.getShiftTelekom(this.source, searchStr);
               euskalbar.stats.write('telekom');
+            }
+          } catch (err) {}
+          try {
+            if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
+              euskalbar.comb.getShiftLabayru(this.source, searchStr);
+              euskalbar.stats.write('labayru');
+            }
+          } catch (err) {}
+          try {
+            if (this.prefs.getBoolPref("zehazki." + k + "." + l)) {
+              euskalbar.comb.getShiftZehazki(this.source, searchStr);
+              euskalbar.stats.write('zehazki');
             }
           } catch (err) {}
           try {

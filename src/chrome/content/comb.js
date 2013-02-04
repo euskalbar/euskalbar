@@ -583,6 +583,43 @@ euskalbar.comb = function () {
     },
 
 
+    // Zehazki hiztegia
+    getShiftZehazki: function (source, term) {
+      var output = "",
+          reqData = {},
+          url = 'http://ehu.es/ehg/cgi/zehazki/bila';
+      reqData = {
+        'm': 'has',
+        'z': term
+      }
+
+      $L.ajax({
+        url: url,
+        type: 'POST',
+        data: reqData,
+
+        onSuccess: function (data) {
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://ehu.es/ehg/zehazki\/\">Zehazki&nbsp;<sup>&curren;</sup></a></div>", $('oZehazki', gBrowser.contentDocument));
+          output = data;
+          if (output.indexOf('zehazki-sarrera') == -1) {
+            output = $L._f("euskalbar.comb.noword", [term]);
+          } else {
+            output = output.substring(output.indexOf('<div class=\'zehazki-sarrera\'>'), output.indexOf('</td></tr></table>'));
+          }
+        },
+
+        onError: function () {
+          output = $L._f("euskalbar.comb.error", ["Zehazki"]);
+        },
+
+        onComplete: function () {
+          var node = $('aZehazki', gBrowser.contentDocument);
+          $L.cleanLoadHTML(output, node);
+        }
+      });
+    },
+
+
     getShiftUZEI: function (source, term) {
       var output = "",
           reqURL = 'http://www.uzei.com/estatico/sinonimos.asp',

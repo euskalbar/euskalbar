@@ -91,6 +91,7 @@
       <preference id="prefZTHiztegiaShiftES" name="extensions.euskalbar.zthiztegia.onkey1.es" type="bool"/>
       <preference id="prefTelekomShiftES" name="extensions.euskalbar.telekom.onkey1.es" type="bool"/>
       <preference id="prefLabayruShiftES" name="extensions.euskalbar.labayru.onkey1.es" type="bool"/>
+      <preference id="prefZehazkiShiftES" name="extensions.euskalbar.zehazki.onkey1.es" type="bool"/>
       <preference id="prefGoihataShiftES" name="extensions.euskalbar.goihata.onkey1.es" type="bool"/>
       <preference id="prefBatuaShiftES" name="extensions.euskalbar.batua.onkey1.es" type="bool"/>
       <preference id="prefUZEIShiftES" name="extensions.euskalbar.uzei.onkey1.es" type="bool"/>
@@ -119,6 +120,7 @@
       <preference id="prefZTHiztegiaCtrlES" name="extensions.euskalbar.zthiztegia.onkey2.es" type="bool"/>
       <preference id="prefTelekomCtrlES" name="extensions.euskalbar.telekom.onkey2.es" type="bool"/>
       <preference id="prefLabayruCtrlES" name="extensions.euskalbar.labayru.onkey2.es" type="bool"/>
+      <preference id="prefZehazkiCtrlES" name="extensions.euskalbar.zehazki.onkey2.es" type="bool"/>
       <preference id="prefBatuaCtrlES" name="extensions.euskalbar.batua.onkey2.es" type="bool"/>
       <preference id="prefUZEICtrlES" name="extensions.euskalbar.uzei.onkey2.es" type="bool"/>
       <preference id="prefMokoroaCtrlES" name="extensions.euskalbar.mokoroa.onkey2.es" type="bool"/>
@@ -324,9 +326,10 @@
                           <listitem preference="prefElhuyarShiftES" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
                           <listitem preference="prefZTHiztegiaShiftES" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
                           <listitem preference="prefTelekomShiftES" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefLabayruShiftES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
+                          <listitem preference="prefZehazkiShiftES" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
                           <listitem preference="prefBatuaShiftES" type="checkbox" label="&euskalbar.batua.tooltip;"/>
                           <listitem preference="prefUZEIShiftES" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                          <listitem preference="prefLabayruShiftES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
                           <listitem preference="prefMokoroaShiftES" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
                           <listitem preference="prefIntzaShiftES" type="checkbox" label="&euskalbar.intza.tooltip;"/>
                           <listitem preference="prefDanobatShiftES" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
@@ -373,9 +376,10 @@
                           <listitem preference="prefElhuyarCtrlES" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
                           <listitem preference="prefZTHiztegiaCtrlES" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
                           <listitem preference="prefTelekomCtrlES" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
+                          <listitem preference="prefLabayruCtrlES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
+                          <listitem preference="prefZehazkiCtrlES" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
                           <listitem preference="prefBatuaCtrlES" type="checkbox" label="&euskalbar.batua.tooltip;"/>
                           <listitem preference="prefUZEICtrlES" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                          <listitem preference="prefLabayruCtrlES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
                           <listitem preference="prefMokoroaCtrlES" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
                           <listitem preference="prefIntzaCtrlES" type="checkbox" label="&euskalbar.intza.tooltip;"/>
                           <listitem preference="prefDanobatCtrlES" type="checkbox" label="&euskalbar.danobat.tooltip;"/>

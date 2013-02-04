@@ -1,7 +1,7 @@
 ﻿// Developers:  Juanan Pereira, Asier Sarasua Garmendia 2006
 //              Julen Ruiz Aizpuru, Asier Sarasua Garmendia 2007
 //              Chetan Thapliyal 2009
-// Modified by: Ion Errasti, Asier Sarasua 2012
+// Modified by: Ion Errasti, Asier Sarasua 2012, 2013
 //
 // This is Free Software (GPL License)
 //
@@ -97,6 +97,7 @@ pref("extensions.euskalbar.elhuyar.onkey1.es", true);
 pref("extensions.euskalbar.zthiztegia.onkey1.es", true);
 pref("extensions.euskalbar.telekom.onkey1.es", true);
 pref("extensions.euskalbar.labayru.onkey1.es", true);
+pref("extensions.euskalbar.zehazki.onkey1.es", true);
 pref("extensions.euskalbar.batua.onkey1.es", false);
 pref("extensions.euskalbar.uzei.onkey1.es", false);
 pref("extensions.euskalbar.mokoroa.onkey1.es", false);
@@ -124,6 +125,7 @@ pref("extensions.euskalbar.elhuyar.onkey2.es", false);
 pref("extensions.euskalbar.zthiztegia.onkey2.es", false);
 pref("extensions.euskalbar.telekom.onkey2.es", false);
 pref("extensions.euskalbar.labayru.onkey2.es", false);
+pref("extensions.euskalbar.zehazki.onkey2.es", false);
 pref("extensions.euskalbar.batua.onkey2.es", true);
 pref("extensions.euskalbar.uzei.onkey2.es", true);
 pref("extensions.euskalbar.mokoroa.onkey2.es", false);
