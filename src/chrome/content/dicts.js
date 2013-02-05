@@ -834,7 +834,7 @@ euskalbar.dicts = function () {
             'hizkuntza': source2,
             'formalema': 'lema',
             'konparazioa': 'da',
-            'testuhitza': euskalbar.comb.normalize(term),
+            'testuhitza': $L.normalize(term),
             'kategoria': '',
             'hizkuntza2': source2,
             'formalema2': '',

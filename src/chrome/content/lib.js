@@ -329,6 +329,8 @@ var euskalbarLib = {};
     newStr = newStr.replace(/Ù/, "U");
     newStr = newStr.replace(/Ü/, "U");
     newStr = newStr.replace(/Û/, "U");
+    newStr = newStr.replace(/Ñ/, "N");
+    newStr = newStr.replace(/ñ/, "n");
 
     return newStr;
   };

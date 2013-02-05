@@ -585,6 +585,8 @@ euskalbar.comb = function () {
 
     // Zehazki hiztegia
     getShiftZehazki: function (source, term) {
+
+      term = $L.normalize(term);
       var output = "",
           reqData = {},
           url = 'http://ehu.es/ehg/cgi/zehazki/bila';
@@ -595,7 +597,7 @@ euskalbar.comb = function () {
 
       $L.ajax({
         url: url,
-        type: 'POST',
+        type: 'GET',
         data: reqData,
 
         onSuccess: function (data) {
