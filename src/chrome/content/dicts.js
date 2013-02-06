@@ -31,6 +31,98 @@ euskalbar.dicts = function () {
   // Public interface
   return {
 
+
+    /*
+     * Queries the given `dictName` dictionary.
+     *
+     * Dictionaries need to provide in their public interface at least:
+     *  - `url`: A URL to query.
+     *  - `method`: HTTP method to use when performing queries ('GET', 'POST')
+     *  - `getParams`: Function that returns an object of key-value pairs that
+     *     will be passed as the request data. This function will be passed the
+     *     `term` that is being queried.
+     *
+     * Optionally, dictionaries can invoke post-query hooks by providing a
+     * `postQuery` function.
+     */
+    query: function (dictName) {
+      // FIXME: determine where the query comes from to know which search string
+      // to use
+      var term = $('EuskalBar-search-string').value;
+
+      // XXX: Doesn't this check belong to the UI?
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+
+      var dict = euskalbar.dicts[dictName];
+
+      euskalbar.openURL(dict.url, dictName, dict.method, dict.getParams(term));
+
+      // If the dictionary provides it, execute the post-query hook once the
+      // page has been loaded
+      if (dict.hasOwnProperty('postQuery') && $L.isFunction(dict.postQuery)) {
+        var tab = gBrowser
+          .getBrowserAtIndex(euskalbar.getTabIndexBySlug(dictName)),
+            hook = function (event) {
+              tab.removeEventListener("load", hook, true);
+              dict.postQuery(term, event.originalTarget);
+            };
+
+        tab.addEventListener("load", hook, true);
+      }
+
+      euskalbar.stats.write(dictName);
+    },
+
+
+    /*
+     * Runs a combined query for the given `dictName` dictionary.
+     *
+     * Dictionaries need to provide in their public interface at least:
+     *  - `url`: A URL to query.
+     *  - `method`: HTTP method to use when performing queries ('GET', 'POST')
+     *  - `getParams`: Function that returns an object of key-value pairs that
+     *     will be passed as the request data. This function will be passed the
+     *     `term` that is being queried.
+     *  - `scrap`: Function that manipulates the data retrieved via XHR and
+     *     returns HTML ready to be injected into the resulting table.
+     */
+    combinedQuery: function (dictName, doc) {
+      var term = $('EuskalBar-search-string').value,
+          dict = euskalbar.dicts[dictName],
+          output = '';
+
+      // XXX: should we normalize it for all queries?
+      // term = euskalbar.comb.normalize(term);
+      $L.ajax({
+        url: dict.url,
+
+        type: dict.method,
+
+        data: dict.getParams(term),
+
+        onSuccess: function (data) {
+          var notice = '<div id="oharra"><a href="' + dict.homePage + '">' +
+                       dict.displayName + '&nbsp;<sup>&curren;</sup></a></div>';
+          $L.cleanLoadHTML(notice, $('o' + dictName, doc));
+
+          output = dict.scrap(data, term);
+        },
+
+        onError: function (status) {
+          // TODO: `status` can be used to determine if the request timed out
+          output = $L._f("euskalbar.comb.error", [dict.displayName]);
+        },
+
+        onComplete: function () {
+          $L.cleanLoadHTML(output, $('a' + dictName, doc));
+        }
+      });
+
+      euskalbar.stats.write(dictName);
+    },
+
     // Euskaltermen bilaketak egiteko
     goEuskalBarEuskalterm: function (source, term, sub) {
       // Begiratu kutxa hutsik dagoen
