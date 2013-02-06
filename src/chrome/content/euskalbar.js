@@ -113,42 +113,42 @@ euskalbar = function () {
       this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
 
       // Init bar's buttons
-      this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
-      this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
-      this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
-      this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
-      this.toggleButtons("EuskalBar-Labayru", "labayru.visible");
-      this.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
-      this.toggleButtons("EuskalBar-Morris", "morris.visible");
-      this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
-      this.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
-      this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
-      this.toggleButtons("EuskalBar-OEH", "oeh.visible");
-      this.toggleButtons("EuskalBar-Hauta", "hauta.visible");
-      this.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
-      this.toggleButtons("EuskalBar-Luret", "luret.visible");
-      this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
-      this.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
-      this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
-      this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
-      this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
-      this.toggleButtons("EuskalBar-Intza", "intza.visible");
-      this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
-      this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
-      this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
-      this.toggleButtons("EuskalBar-Egungo", "egungo.visible");
-      this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
-      this.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
-      this.toggleButtons("EuskalBar-LB", "lb.visible");
-      this.toggleButtons("EuskalBar-Consumer", "consumer.visible");
-      this.toggleButtons("EuskalBar-Literatura", "lth.visible");
-      this.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
-      this.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
-      this.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
-      this.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
-      this.toggleButtons("EuskalBar-Elebila", "elebila.visible");
-      this.toggleButtons("EuskalBar-Goihata", "goihata.visible");
-      this.toggleButtons("EuskalBar-Danobat", "danobat.visible");
+      euskalbar.ui.toggleButtons("euskalbar-euskalterm", "euskalterm.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Telekom", "telekom.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Labayru", "labayru.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Morris", "morris.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Opentran", "opentran.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-OEH", "oeh.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Hauta", "hauta.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Luret", "luret.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Intza", "intza.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Bergara", "bergara.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Egungo", "egungo.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-LB", "lb.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Consumer", "consumer.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Literatura", "lth.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Elebila", "elebila.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Goihata", "goihata.visible");
+      euskalbar.ui.toggleButtons("EuskalBar-Danobat", "danobat.visible");
 
       euskalbar.ui.init();
     },
@@ -178,121 +178,114 @@ euskalbar = function () {
         break;
       //toggle buttons visibility
       case "extensions.euskalbar.euskalterm.visible":
-        this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Search", "euskalterm.visible");
         break;
       case "extensions.euskalbar.elhuyar.visible":
-        this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
         break;
       case "extensions.euskalbar.zthiztegia.visible":
-        this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
         break;
       case "extensions.euskalbar.telekom.visible":
-        this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Telekom", "telekom.visible");
         break;
       case "extensions.euskalbar.labayru.visible":
-        this.toggleButtons("EuskalBar-Labayru", "labayru.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Labayru", "labayru.visible");
         break;
       case "extensions.euskalbar.zehazki.visible":
-        this.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
         break;
       case "extensions.euskalbar.morris.visible":
-        this.toggleButtons("EuskalBar-Morris", "morris.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Morris", "morris.visible");
         break;
       case "extensions.euskalbar.opentran.visible":
-        this.toggleButtons("EuskalBar-Opentran", "opentran.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Opentran", "opentran.visible");
         break;
       case "extensions.euskalbar.ehuskaratuak.visible":
-        this.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
         break;
       case "extensions.euskalbar.batua.visible":
-        this.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
         break;
       case "extensions.euskalbar.oeh.visible":
-        this.toggleButtons("EuskalBar-OEH", "oeh.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-OEH", "oeh.visible");
         break;
       case "extensions.euskalbar.hauta.visible":
-        this.toggleButtons("EuskalBar-Hauta", "hauta.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Hauta", "hauta.visible");
         break;
       case "extensions.euskalbar.lurhe.visible":
-        this.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
         break;
       case "extensions.euskalbar.luret.visible":
-        this.toggleButtons("EuskalBar-Luret", "luret.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Luret", "luret.visible");
         break;
       case "extensions.euskalbar.harluxet.visible":
-        this.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
         break;
       case "extensions.euskalbar.wikipedia.visible":
-        this.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
         break;
       case "extensions.euskalbar.itzul.visible":
-        this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
         break;
       case "extensions.euskalbar.uzei.visible":
-        this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-UZEI", "uzei.visible");
         break;
       case "extensions.euskalbar.mokoroa.visible":
-        this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
         break;
       case "extensions.euskalbar.intza.visible":
-        this.toggleButtons("EuskalBar-Intza", "intza.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Intza", "intza.visible");
         break;
       case "extensions.euskalbar.eurovoc.visible":
-        this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
         break;
       case "extensions.euskalbar.bergara.visible":
-        this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Bergara", "bergara.visible");
         break;
       case "extensions.euskalbar.ereduzko.visible":
-        this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
         break;
       case "extensions.euskalbar.egungo.visible":
-        this.toggleButtons("EuskalBar-Egungo", "egungo.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Egungo", "egungo.visible");
         break;
       case "extensions.euskalbar.klasikoak.visible":
-        this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
         break;
       case "extensions.euskalbar.ztcorpusa.visible":
-        this.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
         break;
       case "extensions.euskalbar.lb.visible":
-        this.toggleButtons("EuskalBar-LB", "lb.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-LB", "lb.visible");
         break;
       case "extensions.euskalbar.consumer.visible":
-        this.toggleButtons("EuskalBar-Consumer", "consumer.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Consumer", "consumer.visible");
         break;
       case "extensions.euskalbar.lth.visible":
-        this.toggleButtons("EuskalBar-Literatura", "lth.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Literatura", "lth.visible");
         break;
       case "extensions.euskalbar.lanbide.visible":
-        this.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
         break;
       case "extensions.euskalbar.epaitegiak.visible":
-        this.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
         break;
       case "extensions.euskalbar.corpeus.visible":
-        this.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
         break;
       case "extensions.euskalbar.xuxenweb.visible":
-        this.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
         break;
       case "extensions.euskalbar.elebila.visible":
-        this.toggleButtons("EuskalBar-Elebila", "elebila.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Elebila", "elebila.visible");
         break;
       case "extensions.euskalbar.goihata.visible":
-        this.toggleButtons("EuskalBar-Goihata", "goihata.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Goihata", "goihata.visible");
         break;
       case "extensions.euskalbar.danobat.visible":
-        this.toggleButtons("EuskalBar-Danobat", "danobat.visible");
+        euskalbar.ui.toggleButtons("EuskalBar-Danobat", "danobat.visible");
         break;
       }
-    },
-
-    /* Toggles buttons visibility */
-    toggleButtons: function (name, apref) {
-      var btn = $(name);
-      var state = euskalbar.prefs.getBoolPref(apref);
-      btn.collapsed = !state;
     },
 
     // Init HTML files

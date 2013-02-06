@@ -147,6 +147,14 @@ euskalbar.ui = function () {
       document.persist(navBarId, "collapsed");
     },
 
+    /* Toggles buttons visibility */
+    toggleButtons: function (name, apref) {
+      var btn = $(name),
+          state = euskalbar.prefs.getBoolPref(apref);
+
+      btn.collapsed = !state;
+    },
+
     displayToolbar: function () {
       $("euskalbar-toolbar").collapsed = false;
     },
