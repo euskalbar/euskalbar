@@ -45,16 +45,7 @@ euskalbar.dicts = function () {
      * Optionally, dictionaries can invoke post-query hooks by providing a
      * `postQuery` function.
      */
-    query: function (dictName) {
-      // FIXME: determine where the query comes from to know which search string
-      // to use
-      var term = $('EuskalBar-search-string').value;
-
-      // XXX: Doesn't this check belong to the UI?
-      if (euskalbar.alertEmptyBox(term)) {
-        return;
-      }
-
+    query: function (dictName, term) {
       var dict = euskalbar.dicts[dictName];
 
       euskalbar.openURL(dict.url, dictName, dict.method, dict.getParams(term));
