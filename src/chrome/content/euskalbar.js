@@ -565,9 +565,9 @@ euskalbar = function () {
 
     // Kutxa hutsik badago, mezu bat bidali
     alertEmptyBox: function (katea) {
-      //Kateari aurreko eta atzeko zuriuneak kendu
+      // Remove pre and post whitespaces
       katea = katea.replace(/^\s+|\s+$/g, "");
-      if (katea == "") {
+      if (katea === "") {
         var euskalbarNotify = gBrowser.getNotificationBox();
         euskalbarNotify.appendNotification($L._f("kutxahutsa", ""));
 
@@ -577,6 +577,8 @@ euskalbar = function () {
 
         return true;
       }
+
+      return false;
     },
 
 
