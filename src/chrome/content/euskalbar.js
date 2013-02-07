@@ -541,9 +541,9 @@ euskalbar = function () {
 
     /* Returns the tab index by matching a given slug */
     getTabIndexBySlug: function (slug) {
-      var found = false;
-      var index = 0;
-      var numTabs = gBrowser.tabs.length;
+      var found = false,
+          index = 0,
+          numTabs = gBrowser.tabs.length;
 
       while (index < numTabs && !found) {
         var currentTab = gBrowser.tabs[index];
@@ -555,11 +555,11 @@ euskalbar = function () {
         index++;
       }
 
-      if (!found) {
-        return -1;
-      } else {
+      if (found) {
         return index - 1;
-      };
+      }
+
+      return -1;
     },
 
 
