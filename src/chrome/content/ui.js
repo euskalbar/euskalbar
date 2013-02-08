@@ -163,8 +163,17 @@ euskalbar.ui = function () {
       }
     },
 
+
     displayToolbar: function () {
       $("euskalbar-toolbar").collapsed = false;
+    },
+
+
+    /* Returns the selected text from the current focused window */
+    selectionText: function () {
+      var focusedWindow = document.commandDispatcher.focusedWindow;
+      var winWrapper = new XPCNativeWrapper(focusedWindow, 'getSelection()');
+      return winWrapper.getSelection().toString();
     },
 
   };

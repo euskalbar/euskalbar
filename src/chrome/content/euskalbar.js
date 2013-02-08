@@ -169,7 +169,7 @@ euskalbar = function () {
 
       dictName = element.id.split('-')[1];
       isContext = element.id.endsWith('-context');
-      term = isContext ? euskalbar.dicts.selectionText()
+      term = isContext ? euskalbar.ui.selectionText()
                        : $('euskalbar-search-string').value;
 
       if (euskalbar.alertEmptyBox(term)) {

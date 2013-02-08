@@ -153,13 +153,6 @@ euskalbar.dicts = function () {
       euskalbar.stats.write(dictName);
     },
 
-    // Aukeratutako testua itzultzen du
-    selectionText: function () {
-      var focusedWindow = document.commandDispatcher.focusedWindow;
-      var winWrapper = new XPCNativeWrapper(focusedWindow, 'getSelection()');
-      return winWrapper.getSelection().toString();
-    },
-
   };
 
 }();
