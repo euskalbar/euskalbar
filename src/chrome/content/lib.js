@@ -256,6 +256,10 @@ var euskalbarLib = {};
     return toString.call(obj) === "[object Array]";
   };
 
+  this.log = function (msg) {
+    Application.console.log(msg);
+  };
+
 
   /*
    * DOM manipulation
