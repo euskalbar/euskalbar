@@ -153,10 +153,14 @@ euskalbar.ui = function () {
 
     /* Toggles buttons visibility */
     toggleButtons: function (name, apref) {
-      var btn = $(name),
-          state = euskalbar.prefs.getBoolPref(apref);
+      try {
+        var btn = $(name),
+            state = euskalbar.prefs.getBoolPref(apref);
 
-      btn.collapsed = !state;
+        btn.collapsed = !state;
+      } catch (e) {
+        $L.log("Error while toggling button visibility: " + name);
+      }
     },
 
     displayToolbar: function () {
