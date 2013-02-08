@@ -112,43 +112,11 @@ euskalbar = function () {
       this.setLang(this.source, this.target);
       this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
 
-      // Init bar's buttons
-      euskalbar.ui.toggleButtons("euskalbar-euskalterm", "euskalterm.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Telekom", "telekom.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Labayru", "labayru.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Morris", "morris.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Opentran", "opentran.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-OEH", "oeh.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Hauta", "hauta.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Luret", "luret.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-UZEI", "uzei.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Intza", "intza.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Bergara", "bergara.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Egungo", "egungo.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-LB", "lb.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Consumer", "consumer.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Literatura", "lth.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Elebila", "elebila.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Goihata", "goihata.visible");
-      euskalbar.ui.toggleButtons("EuskalBar-Danobat", "danobat.visible");
+      // Load available dictionaries
+      euskalbar.dicts.available.forEach(function (dictName) {
+        var dictURI = 'chrome://euskalbar/content/dicts/' + dictName + '.js';
+        Services.scriptloader.loadSubScript(dictURI, this, 'UTF-8');
+      });
 
       euskalbar.ui.init();
     },
@@ -170,178 +138,146 @@ euskalbar = function () {
       }
 
       switch (data) {
-      case "extensions.euskalbar.showdicts.enabled":
-        this.showhideDicts();
-        break;
-      case "extensions.euskalbar.showcontextmenu.enabled":
-        this.showContextmenu();
-        break;
-      //toggle buttons visibility
-      case "extensions.euskalbar.euskalterm.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Search", "euskalterm.visible");
-        break;
-      case "extensions.euskalbar.elhuyar.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
-        break;
-      case "extensions.euskalbar.zthiztegia.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
-        break;
-      case "extensions.euskalbar.telekom.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Telekom", "telekom.visible");
-        break;
-      case "extensions.euskalbar.labayru.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Labayru", "labayru.visible");
-        break;
-      case "extensions.euskalbar.zehazki.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Zehazki", "zehazki.visible");
-        break;
-      case "extensions.euskalbar.morris.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Morris", "morris.visible");
-        break;
-      case "extensions.euskalbar.opentran.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Opentran", "opentran.visible");
-        break;
-      case "extensions.euskalbar.ehuskaratuak.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-EHUskaratuak", "ehuskaratuak.visible");
-        break;
-      case "extensions.euskalbar.batua.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Euskaltzaindia", "batua.visible");
-        break;
-      case "extensions.euskalbar.oeh.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-OEH", "oeh.visible");
-        break;
-      case "extensions.euskalbar.hauta.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Hauta", "hauta.visible");
-        break;
-      case "extensions.euskalbar.lurhe.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Lurhe", "lurhe.visible");
-        break;
-      case "extensions.euskalbar.luret.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Luret", "luret.visible");
-        break;
-      case "extensions.euskalbar.harluxet.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Harluxet", "harluxet.visible");
-        break;
-      case "extensions.euskalbar.wikipedia.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
-        break;
-      case "extensions.euskalbar.itzul.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
-        break;
-      case "extensions.euskalbar.uzei.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-UZEI", "uzei.visible");
-        break;
-      case "extensions.euskalbar.mokoroa.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
-        break;
-      case "extensions.euskalbar.intza.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Intza", "intza.visible");
-        break;
-      case "extensions.euskalbar.eurovoc.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
-        break;
-      case "extensions.euskalbar.bergara.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Bergara", "bergara.visible");
-        break;
-      case "extensions.euskalbar.ereduzko.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
-        break;
-      case "extensions.euskalbar.egungo.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Egungo", "egungo.visible");
-        break;
-      case "extensions.euskalbar.klasikoak.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
-        break;
-      case "extensions.euskalbar.ztcorpusa.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-ZTCorpusa", "ztcorpusa.visible");
-        break;
-      case "extensions.euskalbar.lb.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-LB", "lb.visible");
-        break;
-      case "extensions.euskalbar.consumer.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Consumer", "consumer.visible");
-        break;
-      case "extensions.euskalbar.lth.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Literatura", "lth.visible");
-        break;
-      case "extensions.euskalbar.lanbide.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Lanbide", "lanbide.visible");
-        break;
-      case "extensions.euskalbar.epaitegiak.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Epaitegiak", "epaitegiak.visible");
-        break;
-      case "extensions.euskalbar.corpeus.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-CorpEus", "corpeus.visible");
-        break;
-      case "extensions.euskalbar.xuxenweb.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-XUXENweb", "xuxenweb.visible");
-        break;
-      case "extensions.euskalbar.elebila.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Elebila", "elebila.visible");
-        break;
-      case "extensions.euskalbar.goihata.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Goihata", "goihata.visible");
-        break;
-      case "extensions.euskalbar.danobat.visible":
-        euskalbar.ui.toggleButtons("EuskalBar-Danobat", "danobat.visible");
-        break;
+        case "extensions.euskalbar.showdicts.enabled":
+          this.showhideDicts();
+          break;
+        case "extensions.euskalbar.showcontextmenu.enabled":
+          this.showContextmenu();
+          break;
+      }
+
+      // Buttons' visibility
+      euskalbar.dicts.available.forEach(function (dictName) {
+        if (data === 'extensions.euskalbar.' + dictName + '.visible') {
+          euskalbar.ui.toggleButtons('euskalbar-' + dictName,
+                                     dictName + '.visible');
+        }
+      });
+    },
+
+    /*
+     * Runs a query.
+     *
+     * The dictionary to query for and the search terms will be determined
+     * according to the element that fired the event.
+     */
+    runQuery: function (event) {
+      var dictName, isContext, term,
+          source = euskalbar.source,
+          target = euskalbar.target,
+          element = event.target;
+
+      dictName = element.id.split('-')[1];
+      isContext = element.id.endsWith('-context');
+      term = isContext ? euskalbar.dicts.selectionText()
+                       : $('euskalbar-search-string').value;
+
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+
+      // In case a context-menu search is being performed, we need to retrieve
+      // the `source` and `target` languages from the element that fired this
+      // event.
+      if (isContext) {
+        // Element IDs will have the following form:
+        // `euskalbar-dictName-source_target-context`
+        var pair = element.id.split('-')[2];
+
+        // A language pair's source and target languages will always be
+        // delimited by the underscore character
+        if (pair && pair.indexOf('_') !== -1) {
+          source = pair.slice(0,2);
+          target = pair.slice(3,5);
+        }
+      }
+
+      euskalbar.dicts.query(dictName, term, source, target);
+    },
+
+    /*
+     * Runs a combined query.
+     */
+    runCombinedQueries: function (event) {
+      var doc = event.target,
+          url = doc.location.href,
+          term = $('euskalbar-search-string').value,
+          source = euskalbar.source,
+          target = euskalbar.target;
+
+      doc.removeEventListener("DOMContentLoaded",
+                              euskalbar.runCombinedQueries, true);
+
+      if (url.indexOf("chrome://euskalbar/content/html/") != -1) {
+        // FIXME: This code is repeated, find a way to pass it along while
+        // being able to remove the event listener.
+        var lang = "";
+        if ((source == 'es') || (target == 'es')) {
+          lang = "es";
+        } else if ((source == 'fr') || (target == 'fr')) {
+          lang = "fr";
+        } else {
+          lang = "en";
+        }
+
+        var key = "";
+        if (url.indexOf("euskalbarshift") != -1) {
+          key = "onkey1";
+        } else if (url.indexOf("euskalbarktrl") != -1) {
+          key = "onkey2";
+        }
+
+        euskalbar.initHTML(doc, key, lang);
+
+        // Go through each dictionary
+        euskalbar.dicts.available.forEach(function (dictName) {
+          try {
+            var prefName = dictName + '.' + key + '.' + lang;
+            if (euskalbar.prefs.getBoolPref(prefName)) {
+              euskalbar.dicts.combinedQuery(dictName, term, source, target,
+                                            doc);
+            }
+          } catch (e) {
+            $L.log("Error while running combined query for " + dictName);
+          }
+        });
       }
     },
 
-    // Init HTML files
-    initHTML: function (event) {
-      // Changes style in HTML template
-      var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery");
-      var doc = event.target,
-          url = doc.location.href;
+    // Initializes the HTML files in preparation of the combined queries
+    initHTML: function (doc, key, lang) {
+      // Sets the theme for the HTML files
+      var prefStyle = euskalbar.prefs.getCharPref("style.combinedquery"),
+          link = doc.getElementsByTagName("link")[0];
+      link.setAttribute("href", prefStyle);
 
-      doc.removeEventListener("DOMContentLoaded", this.initHTML, true);
+      var childPrefs = euskalbar.prefs.getChildList("", {}),
+          isEnabledPref = function (value, index, array) {
+            return (value.indexOf(key + '.' + lang) !== -1 &&
+                    euskalbar.prefs.getBoolPref(value));
+          },
+          enabledPrefs = childPrefs.filter(isEnabledPref);
 
-      if (url.indexOf("chrome://euskalbar/content/html/") != -1) {
-        var link = doc.getElementsByTagName("link")[0];
-        link.setAttribute("href", prefStyle);
+      enabledPrefs.forEach(function (prefName) {
+        var dictName = prefName.split(".")[0],
+            dictDisplayName = euskalbar.dicts[dictName].displayName;
 
-        //Erakutsiko diren hiztegien zutabeak erakusteko funtzioari deitzen dio
-        var l = "";
-        if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
-          l = "es";
-        } else if ((euskalbar.source == 'fr') || (euskalbar.target == 'fr')) {
-          l = "fr";
-        } else {
-          l = "en";
-        }
-        var k = "";
-        if (url.indexOf("euskalbarshift") != -1) {
-          k = "onkey1";
-        } else if (url.indexOf("euskalbarktrl") != -1) {
-          k = "onkey2";
-        }
-        var cprefs = euskalbar.prefs.getChildList("", {});
-        var sprefs = new Array();
-        var x;
-        for (x in cprefs) {
-          if (cprefs[x].indexOf(k + "." + l) != -1) {
-            sprefs.unshift(cprefs[x]);
-          }
-        }
-        for (x in sprefs) {
-          if (euskalbar.prefs.getBoolPref(sprefs[x])) {
-            var burua = sprefs[x].split(".")[0];
-            burua = burua.charAt(0).toUpperCase() + burua.slice(1);
-            doc.getElementById('buruak').innerHTML =
-            doc.getElementById('buruak').innerHTML + '<th id="burua' + burua + '">' + burua + '<\/th>';
-            var atd = doc.createElement('td');
-            atd.setAttribute("id", "a" + burua);
-            atd.setAttribute("class", "gorputza");
-            doc.getElementById('gorputzak').appendChild(atd);
-            var ato = doc.createElement('td');
-            ato.setAttribute("id", "o" + burua);
-            ato.setAttribute("class", "gorputza");
-            doc.getElementById('oinak').appendChild(ato);
-          }
-        }
-        doc.getElementById('oharra').innerHTML = $L._("oharra");
-      }
+        $('buruak', doc).innerHTML = $('buruak', doc).innerHTML
+                                     + '<th id="dictName' + dictName + '">'
+                                     + dictDisplayName + '<\/th>';
+
+        var atd = doc.createElement('td');
+        atd.setAttribute("id", "a" + dictName);
+        atd.setAttribute("class", "gorputza");
+        doc.getElementById('gorputzak').appendChild(atd);
+
+        var ato = doc.createElement('td');
+        ato.setAttribute("id", "o" + dictName);
+        ato.setAttribute("class", "gorputza");
+        doc.getElementById('oinak').appendChild(ato);
+      });
+
+      doc.getElementById('oharra').innerHTML = $L._("oharra");
     },
 
 
@@ -376,8 +312,8 @@ euskalbar = function () {
 
     // Shows/hides context menu
     showContextmenu: function () {
-      var sep = $('Euskalbar-context-menuseparator');
-      var button = $('Euskalbar-context-menu');
+      var sep = $('euskalbar-context-menuseparator');
+      var button = $('euskalbar-context-menu');
       if (!this.prefs.getBoolPref("showcontextmenu.enabled")) {
         sep.setAttribute('hidden', true);
         button.setAttribute('hidden', true);
@@ -423,7 +359,7 @@ euskalbar = function () {
         this.prefs.setBoolPref(prefer + ".enabled", !this.prefs.getBoolPref(prefer + ".enabled"));
         break;
       case "focustextbox":
-        var tb = $("EuskalBar-search-string");
+        var tb = $("euskalbar-search-string");
         tb.focus();
         tb.select();
         break;
@@ -488,7 +424,7 @@ euskalbar = function () {
       }
 
       if (!this.prefs.getBoolPref("focuswindow.enabled")) {
-        var tb = $("EuskalBar-search-string");
+        var tb = $("euskalbar-search-string");
         tb.focus();
         tb.select();
       }
@@ -585,7 +521,7 @@ euskalbar = function () {
     // Enter tekla sakatzean irekitzen diren hiztegiak
     goEuskalBarOnKey: function (event) {
       // Get search string entered by user
-      var searchStr = $('EuskalBar-search-string').value;
+      var searchStr = $('euskalbar-search-string').value;
 
       // If user pressed Enter key
       if (event.keyCode == 13) {
@@ -593,7 +529,6 @@ euskalbar = function () {
           return;
         }
 
-        // Execute scripts in comb.js file
         var l = "";
         if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
           l = "es";
@@ -624,81 +559,8 @@ euskalbar = function () {
 
           var tab = gBrowser
             .getBrowserAtIndex(euskalbar.getTabIndexBySlug(zein));
-          tab.addEventListener("DOMContentLoaded", this.initHTML, true);
-
-          try {
-            if (this.prefs.getBoolPref("euskalterm." + k + "." + l)) {
-              euskalbar.comb.getShiftEuskalterm(this.source, searchStr);
-              euskalbar.stats.write('euskalterm');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("elhuyar." + k + "." + l)) {
-              euskalbar.comb.getShiftElhuyar(this.source, this.target, searchStr);
-              euskalbar.stats.write('elhuyar.org');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("labayru." + k + "." + l)) {
-              euskalbar.comb.getShiftLabayru(this.source, searchStr);
-              euskalbar.stats.write('labayru');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("zthiztegia." + k + "." + l)) {
-              euskalbar.comb.getShiftZTHiztegia(this.source, searchStr);
-              euskalbar.stats.write('zthiztegia');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("telekom." + k + "." + l)) {
-              euskalbar.comb.getShiftTelekom(this.source, searchStr);
-              euskalbar.stats.write('telekom');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("batua." + k + "." + l)) {
-              euskalbar.comb.getShiftEuskaltzaindia(this.source, searchStr);
-              euskalbar.stats.write('batua');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("uzei." + k + "." + l)) {
-              euskalbar.comb.getShiftUZEI(this.source, searchStr);
-              euskalbar.stats.write('uzei');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("mokoroa." + k + "." + l)) {
-              euskalbar.comb.getShiftMokoroa(this.source, searchStr);
-              euskalbar.stats.write('mokoroa');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("intza." + k + "." + l)) {
-              euskalbar.comb.getShiftIntza(this.source, searchStr);
-              euskalbar.stats.write('intza');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("morris." + k + "." + l)) {
-              euskalbar.comb.getShiftMorris(this.source, searchStr);
-              euskalbar.stats.write('morris');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("opentran." + k + "." + l)) {
-              euskalbar.comb.getShiftOpentran(this.source, searchStr);
-              euskalbar.stats.write('opentran');
-            }
-          } catch (err) {}
-          try {
-            if (this.prefs.getBoolPref("danobat." + k + "." + l)) {
-              euskalbar.comb.getShiftDanobat(this.source, searchStr);
-              euskalbar.stats.write('danobat');
-            }
-          } catch (err) {}
-
+          tab.addEventListener("DOMContentLoaded", this.runCombinedQueries,
+                               true);
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
           if ((this.source == 'es') || (this.target == 'es')) {
             // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
@@ -884,19 +746,19 @@ euskalbar = function () {
     // Adapts dictionary visibility according to the given language
     // XXX: This should to the job by giving a language pair
     setDictionaries: function (hizk) {
-      var euskalterm = $('EuskalBar-Search');
-      var morris = $('EuskalBar-Morris');
-      var opentran = $('EuskalBar-Opentran');
-      var labayru = $('EuskalBar-Labayru');
-      var zehazki = $('EuskalBar-Zehazki');
-      var elhuyar = $('EuskalBar-Elhuyar');
-      var goihata = $('EuskalBar-Goihata');
-      var zthiztegia = $('EuskalBar-ZTHiztegia');
-      var telekom = $('EuskalBar-Telekom');
-      var danobat = $('EuskalBar-Danobat');
-      var ehuskaratuak = $('EuskalBar-EHUskaratuak');
-      var lanbide = $('EuskalBar-Lanbide');
-      var epaitegiak = $('EuskalBar-Epaitegiak');
+      var euskalterm = $('euskalbar-euskalterm');
+      var morris = $('euskalbar-morris');
+      var opentran = $('euskalbar-opentran');
+      var labayru = $('euskalbar-labayru');
+      var zehazki = $('euskalbar-zehazki');
+      var elhuyar = $('euskalbar-elhuyar');
+      var goihata = $('euskalbar-goihata');
+      var zthiztegia = $('euskalbar-zthiztegia');
+      var telekom = $('euskalbar-telekomunikazioak');
+      var danobat = $('euskalbar-danobat');
+      var ehuskaratuak = $('euskalbar-ehuskaratuak');
+      var lanbide = $('euskalbar-lanbide_heziketa');
+      var epaitegiak = $('euskalbar-epaitegiak');
 
       switch (hizk) {
       case 'es':

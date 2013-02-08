@@ -15,17 +15,17 @@
       <preference id="prefEuskaltermVisible" name="extensions.euskalbar.euskalterm.visible" type="bool"/>
       <preference id="prefElhuyarVisible" name="extensions.euskalbar.elhuyar.visible" type="bool"/>
       <preference id="prefZTHiztegiaVisible" name="extensions.euskalbar.zthiztegia.visible" type="bool"/>
-      <preference id="prefTelekomVisible" name="extensions.euskalbar.telekom.visible" type="bool"/>
+      <preference id="prefTelekomVisible" name="extensions.euskalbar.telekomunikazioak.visible" type="bool"/>
       <preference id="prefLabayruVisible" name="extensions.euskalbar.labayru.visible" type="bool"/>
       <preference id="prefZehazkiVisible" name="extensions.euskalbar.zehazki.visible" type="bool"/>
       <preference id="prefMorrisVisible" name="extensions.euskalbar.morris.visible" type="bool"/>
       <preference id="prefOpentranVisible" name="extensions.euskalbar.opentran.visible" type="bool"/>
       <preference id="prefEHUskaratuakVisible" name="extensions.euskalbar.ehuskaratuak.visible" type="bool"/>
-      <preference id="prefLanbideVisible" name="extensions.euskalbar.lanbide.visible" type="bool"/>
+      <preference id="prefLanbideVisible" name="extensions.euskalbar.lanbide_heziketa.visible" type="bool"/>
       <preference id="prefEpaitegiakVisible" name="extensions.euskalbar.epaitegiak.visible" type="bool"/>
       <preference id="prefBatuaVisible" name="extensions.euskalbar.batua.visible" type="bool"/>
       <preference id="prefOEHVisible" name="extensions.euskalbar.oeh.visible" type="bool"/>
-      <preference id="prefHautaVisible" name="extensions.euskalbar.hauta.visible" type="bool"/>
+      <preference id="prefHautaVisible" name="extensions.euskalbar.hautalan.visible" type="bool"/>
       <preference id="prefLurheVisible" name="extensions.euskalbar.lurhe.visible" type="bool"/>
       <preference id="prefLuretVisible" name="extensions.euskalbar.luret.visible" type="bool"/>
       <preference id="prefHarluxetVisible" name="extensions.euskalbar.harluxet.visible" type="bool"/>
@@ -40,9 +40,9 @@
       <preference id="prefEgungoVisible" name="extensions.euskalbar.egungo.visible" type="bool"/>
       <preference id="prefKlasikoakVisible" name="extensions.euskalbar.klasikoak.visible" type="bool"/>
       <preference id="prefZTCorpusaVisible" name="extensions.euskalbar.ztcorpusa.visible" type="bool"/>
-      <preference id="prefLBVisible" name="extensions.euskalbar.lb.visible" type="bool"/>
+      <preference id="prefLBVisible" name="extensions.euskalbar.lexikoaren_behatokia.visible" type="bool"/>
       <preference id="prefConsumerVisible" name="extensions.euskalbar.consumer.visible" type="bool"/>
-      <preference id="prefLiteraturaVisible" name="extensions.euskalbar.lth.visible" type="bool"/>
+      <preference id="prefLiteraturaVisible" name="extensions.euskalbar.literatura.visible" type="bool"/>
       <preference id="prefCorpEusVisible" name="extensions.euskalbar.corpeus.visible" type="bool"/>
       <preference id="prefXUXENwebVisible" name="extensions.euskalbar.xuxenweb.visible" type="bool"/>
       <preference id="prefElebilaVisible" name="extensions.euskalbar.elebila.visible" type="bool"/>
@@ -52,17 +52,17 @@
       <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="prefElhuyar" name="extensions.euskalbar.elhuyar.onkey" type="bool"/>
       <preference id="prefZTHiztegia" name="extensions.euskalbar.zthiztegia.onkey" type="bool"/>
-      <preference id="prefTelekom" name="extensions.euskalbar.telekom.onkey" type="bool"/>
+      <preference id="prefTelekom" name="extensions.euskalbar.telekomunikazioak.onkey" type="bool"/>
       <preference id="prefLabayru" name="extensions.euskalbar.labayru.onkey" type="bool"/>
       <preference id="prefZehazki" name="extensions.euskalbar.zehazki.onkey" type="bool"/>
       <preference id="prefMorris" name="extensions.euskalbar.morris.onkey" type="bool"/>
       <preference id="prefOpentran" name="extensions.euskalbar.opentran.onkey" type="bool"/>
       <preference id="prefEHUskaratuak" name="extensions.euskalbar.ehuskaratuak.onkey" type="bool"/>
-      <preference id="prefLanbide" name="extensions.euskalbar.lanbide.onkey" type="bool"/>
+      <preference id="prefLanbide" name="extensions.euskalbar.lanbide_heziketa.onkey" type="bool"/>
       <preference id="prefEpaitegiak" name="extensions.euskalbar.epaitegiak.onkey" type="bool"/>
       <preference id="prefBatua" name="extensions.euskalbar.batua.onkey" type="bool"/>
       <preference id="prefOEH" name="extensions.euskalbar.oeh.onkey" type="bool"/>
-      <preference id="prefHauta" name="extensions.euskalbar.hauta.onkey" type="bool"/>
+      <preference id="prefHauta" name="extensions.euskalbar.hautalan.onkey" type="bool"/>
       <preference id="prefLurhe" name="extensions.euskalbar.lurhe.onkey" type="bool"/>
       <preference id="prefLuret" name="extensions.euskalbar.luret.onkey" type="bool"/>
       <preference id="prefHarluxet" name="extensions.euskalbar.harluxet.onkey" type="bool"/>
@@ -77,9 +77,9 @@
       <preference id="prefEgungo" name="extensions.euskalbar.egungo.onkey" type="bool"/>
       <preference id="prefKlasikoak" name="extensions.euskalbar.klasikoak.onkey" type="bool"/>
       <preference id="prefZTCorpusa" name="extensions.euskalbar.ztcorpusa.onkey" type="bool"/>
-      <preference id="prefLB" name="extensions.euskalbar.lb.onkey" type="bool"/>
+      <preference id="prefLB" name="extensions.euskalbar.lexikoaren_behatokia.onkey" type="bool"/>
       <preference id="prefConsumer" name="extensions.euskalbar.consumer.onkey" type="bool"/>
-      <preference id="prefLiteratura" name="extensions.euskalbar.lth.onkey" type="bool"/>
+      <preference id="prefLiteratura" name="extensions.euskalbar.literatura.onkey" type="bool"/>
       <preference id="prefCorpEus" name="extensions.euskalbar.corpeus.onkey" type="bool"/>
       <preference id="prefXUXENweb" name="extensions.euskalbar.xuxenweb.onkey" type="bool"/>
       <preference id="prefElebila" name="extensions.euskalbar.elebila.onkey" type="bool"/>
@@ -89,7 +89,7 @@
       <preference id="prefEuskaltermShiftES" name="extensions.euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="prefElhuyarShiftES" name="extensions.euskalbar.elhuyar.onkey1.es" type="bool"/>
       <preference id="prefZTHiztegiaShiftES" name="extensions.euskalbar.zthiztegia.onkey1.es" type="bool"/>
-      <preference id="prefTelekomShiftES" name="extensions.euskalbar.telekom.onkey1.es" type="bool"/>
+      <preference id="prefTelekomShiftES" name="extensions.euskalbar.telekomunikazioak.onkey1.es" type="bool"/>
       <preference id="prefLabayruShiftES" name="extensions.euskalbar.labayru.onkey1.es" type="bool"/>
       <preference id="prefGoihataShiftES" name="extensions.euskalbar.goihata.onkey1.es" type="bool"/>
       <preference id="prefBatuaShiftES" name="extensions.euskalbar.batua.onkey1.es" type="bool"/>
@@ -101,14 +101,14 @@
       <preference id="prefEuskaltermShiftFR" name="extensions.euskalbar.euskalterm.onkey1.fr" type="bool"/>
       <preference id="prefElhuyarShiftFR" name="extensions.euskalbar.elhuyar.onkey1.fr" type="bool"/>
       <preference id="prefZTHiztegiaShiftFR" name="extensions.euskalbar.zthiztegia.onkey1.fr" type="bool"/>
-      <preference id="prefTelekomShiftFR" name="extensions.euskalbar.telekom.onkey1.fr" type="bool"/>
+      <preference id="prefTelekomShiftFR" name="extensions.euskalbar.telekomunikazioak.onkey1.fr" type="bool"/>
       <preference id="prefBatuaShiftFR" name="extensions.euskalbar.batua.onkey1.fr" type="bool"/>
       <preference id="prefUZEIShiftFR" name="extensions.euskalbar.uzei.onkey1.fr" type="bool"/>
 
       <preference id="prefEuskaltermShiftEN" name="extensions.euskalbar.euskalterm.onkey1.en" type="bool"/>
       <preference id="prefElhuyarShiftEN" name="extensions.euskalbar.elhuyar.onkey1.en" type="bool"/>
       <preference id="prefZTHiztegiaShiftEN" name="extensions.euskalbar.zthiztegia.onkey1.en" type="bool"/>
-      <preference id="prefTelekomShiftEN" name="extensions.euskalbar.telekom.onkey1.en" type="bool"/>
+      <preference id="prefTelekomShiftEN" name="extensions.euskalbar.telekomunikazioak.onkey1.en" type="bool"/>
       <preference id="prefMorrisShiftEN" name="extensions.euskalbar.morris.onkey1.en" type="bool"/>
       <preference id="prefOpentranShiftEN" name="extensions.euskalbar.opentran.onkey1.en" type="bool"/>
       <preference id="prefBatuaShiftEN" name="extensions.euskalbar.batua.onkey1.en" type="bool"/>
@@ -117,7 +117,7 @@
       <preference id="prefEuskaltermCtrlES" name="extensions.euskalbar.euskalterm.onkey2.es" type="bool"/>
       <preference id="prefElhuyarCtrlES" name="extensions.euskalbar.elhuyar.onkey2.es" type="bool"/>
       <preference id="prefZTHiztegiaCtrlES" name="extensions.euskalbar.zthiztegia.onkey2.es" type="bool"/>
-      <preference id="prefTelekomCtrlES" name="extensions.euskalbar.telekom.onkey2.es" type="bool"/>
+      <preference id="prefTelekomCtrlES" name="extensions.euskalbar.telekomunikazioak.onkey2.es" type="bool"/>
       <preference id="prefLabayruCtrlES" name="extensions.euskalbar.labayru.onkey2.es" type="bool"/>
       <preference id="prefBatuaCtrlES" name="extensions.euskalbar.batua.onkey2.es" type="bool"/>
       <preference id="prefUZEICtrlES" name="extensions.euskalbar.uzei.onkey2.es" type="bool"/>
@@ -129,14 +129,14 @@
       <preference id="prefEuskaltermCtrlFR" name="extensions.euskalbar.euskalterm.onkey2.fr" type="bool"/>
       <preference id="prefElhuyarCtrlFR" name="extensions.euskalbar.elhuyar.onkey2.fr" type="bool"/>
       <preference id="prefZTHiztegiaCtrlFR" name="extensions.euskalbar.zthiztegia.onkey2.fr" type="bool"/>
-      <preference id="prefTelekomCtrlFR" name="extensions.euskalbar.telekom.onkey2.fr" type="bool"/>
+      <preference id="prefTelekomCtrlFR" name="extensions.euskalbar.telekomunikazioak.onkey2.fr" type="bool"/>
       <preference id="prefBatuaCtrlFR" name="extensions.euskalbar.batua.onkey2.fr" type="bool"/>
       <preference id="prefUZEICtrlFR" name="extensions.euskalbar.uzei.onkey2.fr" type="bool"/>
 
       <preference id="prefEuskaltermCtrlEN" name="extensions.euskalbar.euskalterm.onkey2.en" type="bool"/>
       <preference id="prefElhuyarCtrlEN" name="extensions.euskalbar.elhuyar.onkey2.en" type="bool"/>
       <preference id="prefZTHiztegiaCtrlEN" name="extensions.euskalbar.zthiztegia.onkey2.en" type="bool"/>
-      <preference id="prefTelekomCtrlEN" name="extensions.euskalbar.telekom.onkey2.en" type="bool"/>
+      <preference id="prefTelekomCtrlEN" name="extensions.euskalbar.telekomunikazioak.onkey2.en" type="bool"/>
       <preference id="prefMorrisCtrlEN" name="extensions.euskalbar.morris.onkey2.en" type="bool"/>
       <preference id="prefOpentranCtrlEN" name="extensions.euskalbar.opentran.onkey2.en" type="bool"/>
       <preference id="prefBatuaCtrlEN" name="extensions.euskalbar.batua.onkey2.en" type="bool"/>

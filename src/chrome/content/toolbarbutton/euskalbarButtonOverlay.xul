@@ -11,7 +11,7 @@
       label="&euskalbar.label;"
       tooltiptext="&euskalbar.label;"
       command="cmd_toggleEuskalbar" type="menu-button">
-      <menupopup id="EuskalBar-aukerak-popup">
+      <menupopup id="euskalbar-aukerak-popup">
         <menuitem id="euskalbar-optionsdialog"
           label="&euskalbar.prefs.options.label;"
           tooltiptext="&euskalbar.options.tooltip;"

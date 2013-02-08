@@ -24,15 +24,19 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.ui = function () {
 
-  // Private vars
   var $L = euskalbarLib,
       $ = $L.$;
 
-  // Public interface
   return {
 
     /* Euskalbar UI initialization */
     init: function () {
+      // Toggle toolbar buttons' visibility
+      euskalbar.dicts.available.forEach(function (dictName) {
+        euskalbar.ui.toggleButtons('euskalbar-' + dictName,
+                                   dictName + '.visible');
+      });
+
       // Create and populate the Dictionaries menu
       this.initDictsMenu();
     },

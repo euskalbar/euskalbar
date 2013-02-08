@@ -12,12 +12,12 @@ toolbarbutton[type="menu-button"] > toolbarbutton {
   display: none !important;
 }
 
-textbox#EuskalBar-search-string {
+textbox#euskalbar-search-string {
     min-width: 50px;
     max-width: 300px;
 }
 
-#EuskalBar-search-splitter {
+#euskalbar-search-splitter {
     min-width: 6px;
     -moz-margin-start: -3px;
     border: none;
