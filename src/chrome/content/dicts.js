@@ -45,10 +45,13 @@ euskalbar.dicts = function () {
      * Optionally, dictionaries can invoke post-query hooks by providing a
      * `postQuery` function.
      */
-    query: function (dictName, term) {
+    query: function (dictName, term, source, target) {
       var dict = euskalbar.dicts[dictName];
 
-      euskalbar.openURL(dict.url, dictName, dict.method, dict.getParams(term));
+      euskalbar.openURL(dict.getUrl(term, source, target),
+                        dictName,
+                        dict.method,
+                        dict.getParams(term, source, target));
 
       // If the dictionary provides it, execute the post-query hook once the
       // page has been loaded
@@ -57,7 +60,7 @@ euskalbar.dicts = function () {
           .getBrowserAtIndex(euskalbar.getTabIndexBySlug(dictName)),
             hook = function (event) {
               tab.removeEventListener("load", hook, true);
-              dict.postQuery(term, event.originalTarget);
+              dict.postQuery(term, source, target, event.originalTarget);
             };
 
         tab.addEventListener("load", hook, true);
@@ -79,26 +82,25 @@ euskalbar.dicts = function () {
      *  - `scrap`: Function that manipulates the data retrieved via XHR and
      *     returns HTML ready to be injected into the resulting table.
      */
-    combinedQuery: function (dictName, doc) {
-      var term = $('EuskalBar-search-string').value,
-          dict = euskalbar.dicts[dictName],
+    combinedQuery: function (dictName, term, source, target, doc) {
+      var dict = euskalbar.dicts[dictName],
           output = '';
 
-      // XXX: should we normalize it for all queries?
+      // XXX: should we normalize term for all queries?
       // term = euskalbar.comb.normalize(term);
       $L.ajax({
-        url: dict.url,
+        url: dict.getUrl(term, source, target),
 
         type: dict.method,
 
-        data: dict.getParams(term),
+        data: dict.getParams(term, source, target),
 
         onSuccess: function (data) {
           var notice = '<div id="oharra"><a href="' + dict.homePage + '">' +
                        dict.displayName + '&nbsp;<sup>&curren;</sup></a></div>';
           $L.cleanLoadHTML(notice, $('o' + dictName, doc));
 
-          output = dict.scrap(data, term);
+          output = dict.scrap(term, source, target, data);
         },
 
         onError: function (status) {
