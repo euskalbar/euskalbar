@@ -735,11 +735,12 @@ euskalbar = function () {
         return;
       }
 
-      var button = $("euskalbar-language");
-      button.setAttribute("label", source.toUpperCase() + " ‣ " + target.toUpperCase());
+      $("euskalbar-language").setAttribute("label",
+                                           source.toUpperCase() +
+                                           " ‣ " +
+                                           target.toUpperCase());
       this.source = source;
       this.target = target;
-      var euskalbar_tooltip = source.toUpperCase() + " ‣ " + target.toUpperCase();
     },
 
 
