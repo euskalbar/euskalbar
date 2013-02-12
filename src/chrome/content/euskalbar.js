@@ -529,23 +529,23 @@ euskalbar = function () {
           return;
         }
 
-        var k = "";
         if ((event.shiftKey) || (event.ctrlKey)) {
+          var k, url, slug;
 
           if (event.shiftKey) {
             k = "onkey1";
-            var urlhizt = 'chrome://euskalbar/content/html/euskalbarshift.html';
-            var zein = 'euskalbarshift';
+            url = 'chrome://euskalbar/content/html/euskalbarshift.html';
+            slug = 'euskalbarshift';
           } else if (event.ctrlKey) {
             k = "onkey2";
-            var urlhizt = 'chrome://euskalbar/content/html/euskalbarktrl.html';
-            var zein = 'euskalbarktrl';
+            url = 'chrome://euskalbar/content/html/euskalbarktrl.html';
+            slug = 'euskalbarktrl';
           }
 
-          this.openURL(urlhizt, zein, null, null);
+          this.openURL(url, slug, null, null);
 
           var tab = gBrowser
-            .getBrowserAtIndex(euskalbar.getTabIndexBySlug(zein));
+            .getBrowserAtIndex(euskalbar.getTabIndexBySlug(slug));
           tab.addEventListener("DOMContentLoaded", this.runCombinedQueries,
                                true);
         } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
