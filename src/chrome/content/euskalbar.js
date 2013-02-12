@@ -529,19 +529,6 @@ euskalbar = function () {
           return;
         }
 
-        var l = "";
-        if ((euskalbar.source == 'es') || (euskalbar.target == 'es')) {
-          l = "es";
-        } else if ((euskalbar.source == 'fr') || (euskalbar.target == 'fr')) {
-          l = "fr";
-        } else if ((euskalbar.source == 'en') || (euskalbar.target == 'en')) {
-          l = "en";
-        } else if ((euskalbar.source == 'la') || (euskalbar.target == 'la')) {
-          l = "la";
-        } else if ((euskalbar.source == 'ja') || (euskalbar.target == 'ja')) {
-          l = "ja";
-        }
-
         var k = "";
         if ((event.shiftKey) || (event.ctrlKey)) {
 
