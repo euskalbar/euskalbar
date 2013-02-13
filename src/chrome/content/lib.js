@@ -249,11 +249,11 @@ var euskalbarLib = {};
    * Utils
    */
   this.isFunction = function (obj) {
-    return toString.call(obj) === "[object Function]";
+    return Object.prototype.toString.call(obj) === "[object Function]";
   };
 
   this.isArray = function (obj) {
-    return toString.call(obj) === "[object Array]";
+    return Object.prototype.toString.call(obj) === "[object Array]";
   };
 
   this.log = function (msg) {
