@@ -394,10 +394,12 @@ euskalbar = function () {
     teklakEuskalbar: function (prefer) {
       switch (prefer) {
       case "showdicts":
-        this.prefs.setBoolPref(prefer + ".enabled", !this.prefs.getBoolPref(prefer + ".enabled"));
+        this.prefs.setBoolPref(prefer + ".enabled",
+                               !this.prefs.getBoolPref(prefer + ".enabled"));
         break;
       case "showcontextmenu":
-        this.prefs.setBoolPref(prefer + ".enabled", !this.prefs.getBoolPref(prefer + ".enabled"));
+        this.prefs.setBoolPref(prefer + ".enabled",
+                               !this.prefs.getBoolPref(prefer + ".enabled"));
         break;
       case "focustextbox":
         var tb = $("euskalbar-search-string");
