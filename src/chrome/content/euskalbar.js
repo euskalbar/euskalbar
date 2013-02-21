@@ -175,13 +175,15 @@ euskalbar = function () {
      *   }
      */
     loadPairs: function (dictName) {
-      var dict = euskalbar.dicts[dictName];
-      if (!dict.hasOwnProperty('pairs')) {
-        return;
-      }
-
       var source, target,
+          dict = euskalbar.dicts[dictName],
           ns = euskalbar.pairs;
+
+      // If not language-pair has been specified, we'll treat it like a
+      // monolingual dictionary
+      if (!dict.hasOwnProperty('pairs')) {
+        dict.pairs = ['eu-eu'];
+      }
 
       dict.pairs.forEach(function (pair) {
         [source, target] = pair.split('-');
