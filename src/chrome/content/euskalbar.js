@@ -563,12 +563,11 @@ euskalbar = function () {
 
     // Enter tekla sakatzean irekitzen diren hiztegiak
     goEuskalBarOnKey: function (event) {
-      // Get search string entered by user
-      var searchStr = $('euskalbar-search-string').value;
+      var term = $('euskalbar-search-string').value;
 
       // If user pressed Enter key
       if (event.keyCode == 13) {
-        if (this.alertEmptyBox(searchStr)) {
+        if (this.alertEmptyBox(term)) {
           return;
         }
 
