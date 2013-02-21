@@ -592,162 +592,31 @@ euskalbar = function () {
             .getBrowserAtIndex(euskalbar.getTabIndexBySlug(slug));
           tab.addEventListener("DOMContentLoaded", this.runCombinedQueries,
                                true);
-        } else { // Shift tekla eta Ktrl tekla sakatuta ez badaude...
-          if ((this.source == 'es') || (this.target == 'es')) {
-            // eu-es eta es-eu hizkuntzan hobetsitako hiztegiak kargatu
-            if (this.prefs.getBoolPref("euskalterm.onkey")) {
-              euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
-            }
-            if (this.prefs.getBoolPref("elhuyar.onkey")) {
-              euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
-            }
-            if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-              euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("telekom.onkey")) {
-              euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("labayru.onkey")) {
-              euskalbar.dicts.goEuskalBarLabayru(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("zehazki.onkey")) {
-              euskalbar.dicts.goEuskalBarZehazki(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("consumer.onkey")) {
-              euskalbar.dicts.goEuskalBarConsumer(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("danobat.onkey")) {
-              euskalbar.dicts.goEuskalBarDanobat(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("lanbide.onkey")) {
-              euskalbar.dicts.goEuskalBarLanbide(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("epaitegiak.onkey")) {
-              euskalbar.dicts.goEuskalBarEpaitegiak(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("ehuskaratuak.onkey")) {
-              euskalbar.dicts.goEuskalBarEHUskaratuak(this.source, this.target, searchStr);
-            }
-          } else if ((this.source == 'fr') || (this.target == 'fr')) {
-            // eu-fr eta fr-eu hizkuntzan hobetsitako hiztegiak kargatu
-            if (this.prefs.getBoolPref("euskalterm.onkey")) {
-              euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
-            }
-            if (this.prefs.getBoolPref("elhuyar.onkey")) {
-              euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
-            }
-            if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-              euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("telekom.onkey")) {
-              euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("ehuskaratuak.onkey")) {
-              euskalbar.dicts.goEuskalBarEHUskaratuak(this.source, this.target, searchStr);
-            }
-          } else if ((this.source == 'en') || (this.target == 'en')) {
-            // eu-en eta en-eu hizkuntzan hobetsitako hiztegiak kargatu
-            if (this.prefs.getBoolPref("euskalterm.onkey")) {
-              euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
-            }
-            if (this.prefs.getBoolPref("elhuyar.onkey")) {
-              euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
-            }
-            if (this.prefs.getBoolPref("morris.onkey")) {
-              euskalbar.dicts.goEuskalBarMorris(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-              euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("telekom.onkey")) {
-              euskalbar.dicts.goEuskalBarTelekom(this.source, searchStr);
-            }
-            if (this.prefs.getBoolPref("opentran.onkey")) {
-              euskalbar.dicts.goEuskalBarOpentran(searchStr);
-            }
-            if (this.prefs.getBoolPref("ehuskaratuak.onkey")) {
-              euskalbar.dicts.goEuskalBarEHUskaratuak(this.source, this.target, searchStr);
-            }
-          } else if ((this.source == 'eu') && (this.target == 'jp')) {
-            // Go to Goihata dictionary if translating from Basque to Japanese
-            if (this.prefs.getBoolPref("goihata.onkey")) {
-              euskalbar.dicts.goEuskalBarGoihata(this.source, this.target, searchStr);
-            }
-          } else if ((this.source == 'la') || (this.target == 'la')) {
-            if (this.prefs.getBoolPref("euskalterm.onkey")) {
-              euskalbar.dicts.goEuskalBarEuskalterm(this.source, searchStr, '0');
-            }
-            if (this.prefs.getBoolPref("zthiztegia.onkey")) {
-              euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
+        } else {
+          // User pressed the ENTER Key
+
+          // Language-dependant dictionaries
+          for (var source in this.pairs) {
+            if (this.source === source &&
+                this.pairs[source].hasOwnProperty(this.target)) {
+              var targetDicts = this.pairs[source][this.target];
+
+              targetDicts.forEach(function (dictName) {
+                if (euskalbar.prefs.getBoolPref(dictName + '.onkey')) {
+                  euskalbar.dicts.query(dictName, term,
+                                        euskalbar.source, euskalbar.target);
+                }
+              });
             }
           }
-          // Aukeratutako hizkuntzarekiko menpekotasunik ez dutenak kargatu
-          if (this.prefs.getBoolPref("batua.onkey")) {
-            euskalbar.dicts.goEuskalBarEuskaltzaindia(searchStr);
-          }
-          if (this.prefs.getBoolPref("oeh.onkey")) {
-            euskalbar.dicts.goEuskalBarOEH(searchStr);
-          }
-          if (this.prefs.getBoolPref("hauta.onkey")) {
-            euskalbar.dicts.goEuskalBarHauta(searchStr);
-          }
-          if (this.prefs.getBoolPref("lurhe.onkey")) {
-            euskalbar.dicts.goEuskalBarLurhe(searchStr);
-          }
-          if (this.prefs.getBoolPref("luret.onkey")) {
-            euskalbar.dicts.goEuskalBarLuret(searchStr);
-          }
-          if (this.prefs.getBoolPref("harluxet.onkey")) {
-            euskalbar.dicts.goEuskalBarHarluxet(searchStr);
-          }
-          if (this.prefs.getBoolPref("wikipedia.onkey")) {
-            euskalbar.dicts.goEuskalBarWikipedia(searchStr);
-          }
-          if (this.prefs.getBoolPref("uzei.onkey")) {
-            euskalbar.dicts.goEuskalBarUZEI(searchStr);
-          }
-          if (this.prefs.getBoolPref("itzul.onkey")) {
-            euskalbar.dicts.goEuskalBarItzuL(searchStr);
-          }
-          if (this.prefs.getBoolPref("mokoroa.onkey")) {
-            euskalbar.dicts.goEuskalBarMokoroa(this.source, searchStr);
-          }
-          if (this.prefs.getBoolPref("intza.onkey")) {
-            euskalbar.dicts.goEuskalBarIntza(this.source, searchStr);
-          }
-          if (this.prefs.getBoolPref("eurovoc.onkey")) {
-            euskalbar.dicts.goEuskalBarEurovoc(searchStr);
-          }
-          if (this.prefs.getBoolPref("bergara.onkey")) {
-            euskalbar.dicts.goEuskalBarBergara(searchStr);
-          }
-          if (this.prefs.getBoolPref("ereduzko.onkey")) {
-            euskalbar.dicts.goEuskalBarEreduzko(searchStr);
-          }
-          if (this.prefs.getBoolPref("egungo.onkey")) {
-            euskalbar.dicts.goEuskalBarEgungo(searchStr);
-          }
-          if (this.prefs.getBoolPref("klasikoak.onkey")) {
-            euskalbar.dicts.goEuskalBarKlasikoak(searchStr);
-          }
-          if (this.prefs.getBoolPref("ztcorpusa.onkey")) {
-            euskalbar.dicts.goEuskalBarZTCorpusa(searchStr);
-          }
-          if (this.prefs.getBoolPref("lb.onkey")) {
-            euskalbar.dicts.goEuskalBarLB(searchStr);
-          }
-          if (this.prefs.getBoolPref("lth.onkey")) {
-            euskalbar.dicts.goEuskalBarLiteratura(searchStr);
-          }
-          if (this.prefs.getBoolPref("corpeus.onkey")) {
-            euskalbar.dicts.goEuskalBarCorpEus(searchStr);
-          }
-          if (this.prefs.getBoolPref("xuxenweb.onkey")) {
-            euskalbar.dicts.goEuskalBarXUXENweb(searchStr);
-          }
-          if (this.prefs.getBoolPref("elebila.onkey")) {
-            euskalbar.dicts.goEuskalBarElebila(searchStr);
-          }
+
+          // Language-independent dictionaries
+          this.pairs.eu.eu.forEach(function (dictName) {
+            if (euskalbar.prefs.getBoolPref(dictName + '.onkey')) {
+              euskalbar.dicts.query(dictName, term,
+                                    euskalbar.source, euskalbar.target);
+            }
+          });
         }
       }
     },
