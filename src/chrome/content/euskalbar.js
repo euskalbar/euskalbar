@@ -47,6 +47,8 @@ euskalbar = function () {
 
     prefs: Services.prefs.getBranch("extensions.euskalbar."),
 
+    pairs: {},
+
     source: null,
 
     target: null,
@@ -116,6 +118,8 @@ euskalbar = function () {
       euskalbar.dicts.available.forEach(function (dictName) {
         var dictURI = 'chrome://euskalbar/content/dicts/' + dictName + '.js';
         Services.scriptloader.loadSubScript(dictURI, this, 'UTF-8');
+
+        euskalbar.loadPairs(dictName);
       });
 
       euskalbar.ui.init();
@@ -152,6 +156,43 @@ euskalbar = function () {
           euskalbar.ui.toggleButtons('euskalbar-' + dictName,
                                      dictName + '.visible');
         }
+      });
+    },
+
+    /*
+     * Loads `dictName` into the mapping structure for language pairs.
+     *
+     * The underlying structure will look like this:
+     *
+     *   pairs: {
+     *     'ab': {
+     *       'cd': ['dict1', 'dict2', ..., 'dictN']
+     *       'ef': ['dict1', 'dict2', ..., 'dictN']
+     *     },
+     *     'cd': {
+     *       'ab': ['dict1', 'dict2', ..., 'dictN']
+     *     }
+     *   }
+     */
+    loadPairs: function (dictName) {
+      var dict = euskalbar.dicts[dictName];
+      if (!dict.hasOwnProperty('pairs')) {
+        return;
+      }
+
+      var source, target,
+          ns = euskalbar.pairs;
+
+      dict.pairs.forEach(function (pair) {
+        [source, target] = pair.split('-');
+
+        if (!ns[source]) {
+          ns[source] = {};
+        }
+        if (!ns[source][target]) {
+          ns[source][target] = [];
+        }
+        ns[source][target].push(dictName);
       });
     },
 
