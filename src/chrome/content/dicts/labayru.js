@@ -31,7 +31,7 @@ euskalbar.dicts.labayru = function () {
   return {
     displayName: "Labayru Hiztegia",
 
-    homePage: "http://zerbitzuak.labayru.org/diccionario/",
+    homePage: "http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp",
 
     pairs: ['eu-es', 'es-eu'],
 
