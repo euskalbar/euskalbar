@@ -31,10 +31,6 @@ euskalbar.dicts.ztcorpusa = function () {
 
     homepage: 'http://www.ztcorpusa.net/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

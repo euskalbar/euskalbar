@@ -31,10 +31,6 @@ euskalbar.dicts.wikipedia = function () {
 
     homepage: 'https://eu.wikipedia.org/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

@@ -33,9 +33,8 @@ euskalbar.dicts.telekomunikazioak = function () {
 
     homepage: 'http://www.telekomunikaziohiztegia.org/',
 
-    sourceLangs: ['eu', 'es', 'en', 'fr'],
-
-    targetLangs: ['eu', 'es', 'en', 'fr'],
+    pairs: ['eu-es', 'eu-en', 'eu-fr',
+            'es-eu', 'en-eu', 'fr-eu'],
 
     method: 'GET',
 

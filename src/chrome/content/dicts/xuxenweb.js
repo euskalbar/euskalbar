@@ -31,10 +31,6 @@ euskalbar.dicts.xuxenweb = function () {
 
     homepage: 'http://www.xuxen.com/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

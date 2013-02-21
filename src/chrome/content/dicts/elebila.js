@@ -31,10 +31,6 @@ euskalbar.dicts.elebila = function () {
 
     homepage: 'http://www.elebila.eu/search/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

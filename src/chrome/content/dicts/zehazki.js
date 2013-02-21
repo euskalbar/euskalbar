@@ -31,9 +31,7 @@ euskalbar.dicts.zehazki = function () {
 
     homePage: 'http://ehu.es/ehg/cgi/zehazki/bila',
 
-    sourceLangs: ['eu', 'es'],
-
-    targetLangs: ['eu', 'es'],
+    pairs: ['es-eu'],
 
     method: 'GET',
 

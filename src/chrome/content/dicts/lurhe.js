@@ -31,10 +31,6 @@ euskalbar.dicts.lurhe = function () {
 
     homepage: 'http://www.euskara.euskadi.net/r59-lursubhd/eu/contenidos/informacion/lursubhd/eu_lursubhd/lursubhd.html',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

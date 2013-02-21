@@ -33,10 +33,6 @@ euskalbar.dicts.eurovoc = function () {
 
     homepage: 'http://www.bizkaia.net/kultura/eurovoc/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'POST',
 
     getUrl: function (term, source, target) {

@@ -31,10 +31,6 @@ euskalbar.dicts.consumer = function () {
 
     homepage: 'http://corpus.consumer.es/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'POST',
 
     getUrl: function (term, source, target) {

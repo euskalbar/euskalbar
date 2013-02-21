@@ -33,9 +33,8 @@ euskalbar.dicts.zthiztegia = function () {
 
     homePage: 'http://zthiztegia.elhuyar.org',
 
-    sourceLangs: ['eu', 'es', 'fr', 'en', 'la'],
-
-    targetLangs: ['eu', 'es', 'fr', 'en', 'la'],
+    pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-la',
+            'es-eu', 'fr-eu', 'en-eu', 'la-eu'],
 
     method: 'GET',
 

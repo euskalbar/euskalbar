@@ -33,9 +33,7 @@ euskalbar.dicts.labayru = function () {
 
     homePage: "http://zerbitzuak.labayru.org/diccionario/",
 
-    sourceLangs: ['eu', 'es'],
-
-    targetLangs: ['eu', 'es'],
+    pairs: ['eu-es', 'es-eu'],
 
     method: 'POST',
 

@@ -31,9 +31,7 @@ euskalbar.dicts.danobat = function () {
 
     homepage: 'http://hiztegia.danobatgroup.com/',
 
-    sourceLangs: ['eu', 'es'],
-
-    targetLangs: ['eu', 'es'],
+    pairs: ['eu-es', 'es-eu'],
 
     method: 'POST',
 

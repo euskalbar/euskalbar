@@ -31,10 +31,6 @@ euskalbar.dicts.klasikoak = function () {
 
     homepage: 'http://klasikoak.armiarma.com/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

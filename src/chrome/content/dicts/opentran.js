@@ -34,9 +34,7 @@ euskalbar.dicts.opentran = function () {
 
     homePage: 'http://open-tran.eu/',
 
-    sourceLangs: ['eu', 'en'],
-
-    targetLangs: ['eu', 'en'],
+    pairs: ['eu-en', 'en-eu'],
 
     method: 'GET',
 

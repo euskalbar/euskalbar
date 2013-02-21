@@ -31,10 +31,6 @@ euskalbar.dicts.literatura = function () {
 
     homepage: 'http://www.euskaltzaindia.net/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

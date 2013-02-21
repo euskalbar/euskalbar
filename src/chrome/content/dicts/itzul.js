@@ -31,10 +31,6 @@ euskalbar.dicts.itzul = function () {
 
     homepage: 'http://postaria.com/pipermail/itzul/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

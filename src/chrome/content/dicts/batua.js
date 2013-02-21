@@ -31,10 +31,6 @@ euskalbar.dicts.batua = function () {
 
     homepage: 'http://www.euskaltzaindia.net/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'POST',
 
     getUrl: function (term, source, target) {

@@ -31,10 +31,6 @@ euskalbar.dicts.mokoroa = function () {
 
     homepage: 'http://www.hiru.com/hirupedia',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

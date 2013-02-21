@@ -31,9 +31,7 @@ euskalbar.dicts.morris = function () {
 
     homePage: 'http://www1.euskadi.net/morris/',
 
-    sourceLangs: ['eu', 'en'],
-
-    targetLangs: ['eu', 'en'],
+    pairs: ['eu-en', 'en-eu'],
 
     method: 'POST',
 

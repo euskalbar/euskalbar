@@ -31,9 +31,7 @@ euskalbar.dicts.goihata = function () {
 
     homepage: 'http://www.kotobai.com/',
 
-    sourceLangs: ['eu', 'jp'],
-
-    targetLangs: ['eu', 'jp'],
+    pairs: ['eu-jp', 'jp-eu'],
 
     method: 'POST',
 

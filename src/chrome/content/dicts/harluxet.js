@@ -31,10 +31,6 @@ euskalbar.dicts.harluxet = function () {
 
     homepage: 'http://www1.euskadi.net/harluxet/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

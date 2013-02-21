@@ -33,10 +33,6 @@ euskalbar.dicts.uzei = function () {
 
     homepage: 'http://www.uzei.com/estatico/sinonimos.asp',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

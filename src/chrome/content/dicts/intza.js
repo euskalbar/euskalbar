@@ -31,10 +31,6 @@ euskalbar.dicts.intza = function () {
 
     homepage: 'http://intza.armiarma.com/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

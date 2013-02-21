@@ -31,10 +31,6 @@ euskalbar.dicts.corpeus = function () {
 
     homepage: 'http://www.corpeus.org/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'POST',
 
     getUrl: function (term, source, target) {

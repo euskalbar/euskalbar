@@ -31,10 +31,6 @@ euskalbar.dicts.egungo = function () {
 
     homepage: 'http://www.ehu.es/eeh/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

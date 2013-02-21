@@ -33,10 +33,6 @@ euskalbar.dicts.hautalan = function () {
 
     homepage: 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {

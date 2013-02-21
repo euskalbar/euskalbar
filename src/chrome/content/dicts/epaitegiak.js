@@ -31,9 +31,7 @@ euskalbar.dicts.epaitegiak = function () {
 
     homepage: 'http://www.justizia.net/euskara-justizian',
 
-    sourceLangs: ['eu', 'es'],
-
-    targetLangs: ['eu', 'es'],
+    pairs: ['eu-es', 'es-eu'],
 
     method: 'GET',
 

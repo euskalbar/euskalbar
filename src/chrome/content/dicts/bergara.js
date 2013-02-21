@@ -31,10 +31,6 @@ euskalbar.dicts.bergara = function () {
 
     homepage: 'http://www.bergarakoeuskara.net/hiztegia/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'POST',
 
     getUrl: function (term, source, target) {

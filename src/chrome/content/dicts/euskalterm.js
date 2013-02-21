@@ -34,9 +34,8 @@ euskalbar.dicts.euskalterm = function () {
 
     homePage: "http://www.euskara.euskadi.net/euskalterm/",
 
-    sourceLangs: ['eu', 'es', 'fr', 'en', 'de', 'la'],
-
-    targetLangs: ['eu', 'es', 'fr', 'en', 'de', 'la'],
+    pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-de', 'eu-la',
+            'es-eu', 'fr-eu', 'en-eu', 'de-eu', 'la-eu'],
 
     method: 'POST',
 

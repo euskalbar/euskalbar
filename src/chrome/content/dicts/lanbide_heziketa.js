@@ -33,9 +33,7 @@ euskalbar.dicts.lanbide_heziketa = function () {
 
     homepage: 'http://kantauri.eleka.net/laneki',
 
-    sourceLangs: ['eu', 'es'],
-
-    targetLangs: ['eu', 'es'],
+    pairs: ['eu-es', 'es-eu'],
 
     method: 'GET',
 

@@ -31,9 +31,8 @@ euskalbar.dicts.ehuskaratuak = function () {
 
     homePage: 'http://ehuskaratuak.ehu.es/',
 
-    sourceLangs: ['eu', 'es', 'en', 'fr'],
-
-    targetLangs: ['eu', 'es', 'en', 'fr'],
+    pairs: ['eu-es', 'eu-en', 'eu-fr',
+            'es-eu', 'fr-eu', 'en-eu'],
 
     method: 'GET',
 

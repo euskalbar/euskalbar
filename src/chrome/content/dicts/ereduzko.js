@@ -31,10 +31,6 @@ euskalbar.dicts.ereduzko = function () {
 
     homepage: 'http://www.ehu.es/cgi-bin/ereduzkoa/',
 
-    sourceLangs: ['eu'],
-
-    targetLangs: ['eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {
