@@ -188,10 +188,10 @@ euskalbar = function () {
       dict.pairs.forEach(function (pair) {
         [source, target] = pair.split('-');
 
-        if (!ns[source]) {
+        if (!ns.hasOwnProperty(source)) {
           ns[source] = {};
         }
-        if (!ns[source][target]) {
+        if (!ns[source].hasOwnProperty(target)) {
           ns[source][target] = [];
         }
         ns[source][target].push(dictName);
