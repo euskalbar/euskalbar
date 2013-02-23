@@ -106,14 +106,6 @@ euskalbar = function () {
         }, 1000);
       }
 
-      //Initialize language selection button
-      var lang = this.prefs.getCharPref("language.startup");
-      this.source = lang[0] + lang[1];
-      this.target = lang[3] + lang[4];
-
-      this.setLang(this.source, this.target);
-      this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
-
       // Load available dictionaries
       euskalbar.dicts.available.forEach(function (dictName) {
         var dictURI = 'chrome://euskalbar/content/dicts/' + dictName + '.js';
@@ -121,6 +113,14 @@ euskalbar = function () {
 
         euskalbar.loadPairs(dictName);
       });
+
+      //Initialize language selection button
+      var lang = this.prefs.getCharPref("language.startup");
+      this.source = lang[0] + lang[1];
+      this.target = lang[3] + lang[4];
+
+      this.setLang(this.source, this.target);
+      this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
 
       euskalbar.ui.init();
     },
