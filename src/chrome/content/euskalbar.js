@@ -120,7 +120,7 @@ euskalbar = function () {
       this.target = lang[3] + lang[4];
 
       this.setLang(this.source, this.target);
-      this.setDictionaries(this.source !== 'eu' ? this.source : this.target);
+      this.setDictionaries(this.source, this.target);
 
       euskalbar.ui.init();
     },
@@ -645,100 +645,19 @@ euskalbar = function () {
     },
 
 
-    // Adapts dictionary visibility according to the given language
-    // XXX: This should to the job by giving a language pair
-    setDictionaries: function (hizk) {
-      var euskalterm = $('euskalbar-euskalterm');
-      var morris = $('euskalbar-morris');
-      var opentran = $('euskalbar-opentran');
-      var labayru = $('euskalbar-labayru');
-      var zehazki = $('euskalbar-zehazki');
-      var elhuyar = $('euskalbar-elhuyar');
-      var goihata = $('euskalbar-goihata');
-      var zthiztegia = $('euskalbar-zthiztegia');
-      var telekom = $('euskalbar-telekomunikazioak');
-      var danobat = $('euskalbar-danobat');
-      var ehuskaratuak = $('euskalbar-ehuskaratuak');
-      var lanbide = $('euskalbar-lanbide_heziketa');
-      var epaitegiak = $('euskalbar-epaitegiak');
+    // Adapts dictionary visibility according to the given language pair
+    setDictionaries: function (source, target) {
+      var showDicts = this.pairs[source][target],
+          euDicts = this.pairs.eu.eu,
+          hideDicts = this.dicts.available.difference(showDicts)
+                                          .difference(euDicts);
 
-      switch (hizk) {
-      case 'es':
-        euskalterm.setAttribute("hidden", false);
-        elhuyar.setAttribute("hidden", false);
-        goihata.setAttribute("hidden", true);
-        zthiztegia.setAttribute("hidden", false);
-        morris.setAttribute("hidden", true);
-        opentran.setAttribute("hidden", true);
-        labayru.setAttribute("hidden", false);
-        zehazki.setAttribute("hidden", false);
-        telekom.setAttribute("hidden", false);
-        danobat.setAttribute("hidden", false);
-        ehuskaratuak.setAttribute("hidden", false);
-        lanbide.setAttribute("hidden", false);
-        epaitegiak.setAttribute("hidden", false);
-        break;
-      case 'fr':
-        euskalterm.setAttribute("hidden", false);
-        elhuyar.setAttribute("hidden", false);
-        goihata.setAttribute("hidden", true);
-        zthiztegia.setAttribute("hidden", false);
-        morris.setAttribute("hidden", true);
-        opentran.setAttribute("hidden", true);
-        labayru.setAttribute("hidden", true);
-        zehazki.setAttribute("hidden", true);
-        telekom.setAttribute("hidden", false);
-        danobat.setAttribute("hidden", true);
-        ehuskaratuak.setAttribute("hidden", false);
-        lanbide.setAttribute("hidden", true);
-        epaitegiak.setAttribute("hidden", true);
-        break;
-      case 'en':
-        euskalterm.setAttribute("hidden", false);
-        elhuyar.setAttribute("hidden", false);
-        goihata.setAttribute("hidden", true);
-        zthiztegia.setAttribute("hidden", false);
-        morris.setAttribute("hidden", false);
-        opentran.setAttribute("hidden", false);
-        labayru.setAttribute("hidden", true);
-        zehazki.setAttribute("hidden", true);
-        telekom.setAttribute("hidden", false);
-        danobat.setAttribute("hidden", true);
-        ehuskaratuak.setAttribute("hidden", false);
-        lanbide.setAttribute("hidden", true);
-        epaitegiak.setAttribute("hidden", true);
-        break;
-      case 'la':
-        euskalterm.setAttribute("hidden", false);
-        elhuyar.setAttribute("hidden", true);
-        goihata.setAttribute("hidden", true);
-        zthiztegia.setAttribute("hidden", false);
-        morris.setAttribute("hidden", true);
-        opentran.setAttribute("hidden", true);
-        labayru.setAttribute("hidden", true);
-        zehazki.setAttribute("hidden", true);
-        telekom.setAttribute("hidden", true);
-        danobat.setAttribute("hidden", true);
-        ehuskaratuak.setAttribute("hidden", true);
-        lanbide.setAttribute("hidden", true);
-        epaitegiak.setAttribute("hidden", true);
-        break;
-      case 'jp':
-        euskalterm.setAttribute("hidden", true);
-        elhuyar.setAttribute("hidden", true);
-        goihata.setAttribute("hidden", false);
-        zthiztegia.setAttribute("hidden", true);
-        morris.setAttribute("hidden", true);
-        opentran.setAttribute("hidden", true);
-        labayru.setAttribute("hidden", true);
-        zehazki.setAttribute("hidden", true);
-        telekom.setAttribute("hidden", true);
-        danobat.setAttribute("hidden", true);
-        ehuskaratuak.setAttribute("hidden", true);
-        lanbide.setAttribute("hidden", true);
-        epaitegiak.setAttribute("hidden", true);
-        break;
-      }
+      hideDicts.each(function (dictName) {
+        $('euskalbar-' + dictName).setAttribute('hidden', true);
+      });
+      showDicts.each(function (dictName) {
+        $('euskalbar-' + dictName).setAttribute('hidden', false);
+      });
     },
 
   };
