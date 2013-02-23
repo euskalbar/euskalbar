@@ -107,7 +107,7 @@ euskalbar = function () {
       }
 
       // Load available dictionaries
-      euskalbar.dicts.available.forEach(function (dictName) {
+      euskalbar.dicts.available.each(function (dictName) {
         var dictURI = 'chrome://euskalbar/content/dicts/' + dictName + '.js';
         Services.scriptloader.loadSubScript(dictURI, this, 'UTF-8');
 
@@ -151,7 +151,7 @@ euskalbar = function () {
       }
 
       // Buttons' visibility
-      euskalbar.dicts.available.forEach(function (dictName) {
+      euskalbar.dicts.available.each(function (dictName) {
         if (data === 'extensions.euskalbar.' + dictName + '.visible') {
           euskalbar.ui.toggleButtons('euskalbar-' + dictName,
                                      dictName + '.visible');
@@ -192,9 +192,9 @@ euskalbar = function () {
           ns[source] = {};
         }
         if (!ns[source].hasOwnProperty(target)) {
-          ns[source][target] = [];
+          ns[source][target] = $L.Set();
         }
-        ns[source][target].push(dictName);
+        ns[source][target].add(dictName);
       });
     },
 
@@ -273,7 +273,7 @@ euskalbar = function () {
         euskalbar.initHTML(doc, key, lang);
 
         // Go through each dictionary
-        euskalbar.dicts.available.forEach(function (dictName) {
+        euskalbar.dicts.available.each(function (dictName) {
           try {
             var prefName = dictName + '.' + key + '.' + lang;
             if (euskalbar.prefs.getBoolPref(prefName)) {
@@ -601,7 +601,7 @@ euskalbar = function () {
                 this.pairs[source].hasOwnProperty(this.target)) {
               var targetDicts = this.pairs[source][this.target];
 
-              targetDicts.forEach(function (dictName) {
+              targetDicts.each(function (dictName) {
                 if (euskalbar.prefs.getBoolPref(dictName + '.onkey')) {
                   euskalbar.dicts.query(dictName, term,
                                         euskalbar.source, euskalbar.target);
@@ -611,7 +611,7 @@ euskalbar = function () {
           }
 
           // Language-independent dictionaries
-          this.pairs.eu.eu.forEach(function (dictName) {
+          this.pairs.eu.eu.each(function (dictName) {
             if (euskalbar.prefs.getBoolPref(dictName + '.onkey')) {
               euskalbar.dicts.query(dictName, term,
                                     euskalbar.source, euskalbar.target);

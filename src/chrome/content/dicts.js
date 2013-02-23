@@ -29,8 +29,8 @@ euskalbar.dicts = function () {
 
   return {
 
-    // Fixed list of available dictionaries
-    available: [
+    // Set of available dictionaries
+    available: $L.Set([
       'batua',
       'bergara',
       'consumer',
@@ -67,7 +67,7 @@ euskalbar.dicts = function () {
       'zehazki',
       'ztcorpusa',
       'zthiztegia',
-    ],
+    ]),
 
     /*
      * Queries the given `dictName` dictionary.

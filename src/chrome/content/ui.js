@@ -32,7 +32,7 @@ euskalbar.ui = function () {
     /* Euskalbar UI initialization */
     init: function () {
       // Toggle toolbar buttons' visibility
-      euskalbar.dicts.available.forEach(function (dictName) {
+      euskalbar.dicts.available.each(function (dictName) {
         euskalbar.ui.toggleButtons('euskalbar-' + dictName,
                                    dictName + '.visible');
       });
