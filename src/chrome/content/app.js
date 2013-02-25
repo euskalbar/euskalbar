@@ -324,17 +324,6 @@ euskalbar.app = function () {
     },
 
 
-    // Shows help
-    openHelp: function () {
-      var locale = $U.langCode(euskalbar.ui.locale);
-
-      if (euskalbar.ui.acceptedLocales.indexOf(locale) == -1) {
-        var locale = 'en';
-      }
-
-      this.reuseOldTab(this.helpBaseURL + locale, "euskalbarhelp");
-    },
-
     // Shows/hides dictionaries menu
     showhideDicts: function () {
       var menuEntry = $('euskalbar-menu');
@@ -365,21 +354,6 @@ euskalbar.app = function () {
         button.removeAttribute('hidden');
       }
     },
-
-
-    // Shows prefs window
-    euskalbarOptions: function () {
-      var dialogURL = "chrome://euskalbar/content/prefs.xul";
-      var prefwindow = window.openDialog(dialogURL, "", "chrome,modal,close");
-    },
-
-
-    // Estatistika lokalak erakusten ditu
-    showLocalstats: function () {
-      var t = gBrowser.addTab("chrome://euskalbar/content/stats.xul");
-      gBrowser.selectedTab = t;
-    },
-
 
     /* Toggles Euskalbar status */
     toggleBar: function (event) {

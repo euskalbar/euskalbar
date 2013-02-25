@@ -176,6 +176,34 @@ euskalbar.ui = function () {
       return winWrapper.getSelection().toString();
     },
 
+
+    /* Displays the preferences window */
+    options: function () {
+      var dialogURL = "chrome://euskalbar/content/prefs.xul";
+      var prefwindow = window.openDialog(dialogURL, "", "chrome,modal,close");
+    },
+
+
+    /* Displays the dictionary usage statistics */
+    stats: function () {
+      var t = gBrowser.addTab("chrome://euskalbar/content/stats.xul");
+      gBrowser.selectedTab = t;
+    },
+
+
+    /* Displays the online help */
+    help: function () {
+      var locale = $U.langCode(euskalbar.ui.locale);
+
+      if (euskalbar.ui.acceptedLocales.indexOf(locale) == -1) {
+        var locale = 'en';
+      }
+
+      euskalbar.app.reuseOldTab(euskalbar.app.helpBaseURL + locale,
+                                'euskalbarhelp');
+    },
+
+
   };
 
 }();

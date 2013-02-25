@@ -106,7 +106,8 @@
 
   <window id="main-window">
     <menupopup id="euskalbar-hsButtons">
-      <menuitem id="euskalbar-buttonvisibility" label="&euskalbar.prefs.options.label;" oncommand="euskalbar.euskalbarOptions()" />
+      <menuitem id="euskalbar-buttonvisibility" label="&euskalbar.prefs.options.label;"
+        oncommand="euskalbar.ui.options()" />
     </menupopup>
   </window>
 
