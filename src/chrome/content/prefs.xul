@@ -8,9 +8,6 @@
 
   <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
 
-    <script type="application/x-javascript" src="chrome://euskalbar/content/lib.js"/>
-    <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
-
     <preferences>
       <preference id="prefEuskaltermVisible" name="extensions.euskalbar.euskalterm.visible" type="bool"/>
       <preference id="prefElhuyarVisible" name="extensions.euskalbar.elhuyar.visible" type="bool"/>
