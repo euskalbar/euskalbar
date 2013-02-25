@@ -85,16 +85,16 @@ euskalbar.dicts = function () {
     query: function (dictName, term, source, target) {
       var dict = euskalbar.dicts[dictName];
 
-      euskalbar.openURL(dict.getUrl(term, source, target),
-                        dictName,
-                        dict.method,
-                        dict.getParams(term, source, target));
+      euskalbar.app.openURL(dict.getUrl(term, source, target),
+                            dictName,
+                            dict.method,
+                            dict.getParams(term, source, target));
 
       // If the dictionary provides it, execute the post-query hook once the
       // page has been loaded
       if (dict.hasOwnProperty('postQuery') && $L.isFunction(dict.postQuery)) {
         var tab = gBrowser
-          .getBrowserAtIndex(euskalbar.getTabIndexBySlug(dictName)),
+          .getBrowserAtIndex(euskalbar.app.getTabIndexBySlug(dictName)),
             hook = function (event) {
               tab.removeEventListener("load", hook, true);
               dict.postQuery(term, source, target, event.originalTarget);

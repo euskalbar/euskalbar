@@ -93,7 +93,7 @@ euskalbar.ui = function () {
             var item = document.createElement("menuitem");
             item.setAttribute("label", $L._(dict.name));
             item.setAttribute("oncommand",
-                              "euskalbar.openURL('" + dict.url + "', '" +
+                              "euskalbar.app.openURL('" + dict.url + "', '" +
                                                  $L.slugify(dict.name) + "')");
           }
 
@@ -155,7 +155,7 @@ euskalbar.ui = function () {
     toggleButtons: function (name, apref) {
       try {
         var btn = $(name),
-            state = euskalbar.prefs.getBoolPref(apref);
+            state = euskalbar.app.prefs.getBoolPref(apref);
 
         btn.collapsed = !state;
       } catch (e) {

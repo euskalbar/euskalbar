@@ -39,7 +39,7 @@ euskalbar.stats = function () {
     /* Initializes the stats file and copies it to the user profile directory */
     init: function () {
       // First copy euskalbar.sqlite
-      var profileDir = euskalbar.profileURI;
+      var profileDir = euskalbar.app.profileURI;
       try {
         var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
         var statsFile = $L.FileIO.getLocalSystemURI(statsFileURL)

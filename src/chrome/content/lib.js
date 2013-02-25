@@ -75,7 +75,7 @@ var euskalbarLib = {};
 
       // How long to wait before considering the request to be a timeout
       timeout: options.timeout ||
-        euskalbar.prefs.getIntPref("query.timeout") * 1000,
+        euskalbar.app.prefs.getIntPref("query.timeout") * 1000,
 
       // Functions to call when the request fails, succeeds,
       // or completes (either fail or succeed)
