@@ -26,8 +26,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.opentran = function () {
 
-  var $L = euskalbarLib,
-      $ = $L.$;
+  var $U = euskalbar.lib.utils,
+      $ = $U.$;
 
   return {
     displayName: 'OpenTran',

@@ -10,9 +10,11 @@
 
 "use strict";
 
-if (!euskalbarLib) euskalbarLib = {};
+if (!euskalbar) var euskalbar = {};
 
-euskalbarLib.Set = function (items) {
+if (!euskalbar.lib) euskalbar.lib = {};
+
+euskalbar.lib.Set = function (items) {
 
   var Set = function (items) {
     // All items are stored in an object.

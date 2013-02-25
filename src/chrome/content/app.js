@@ -26,11 +26,9 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.app = function () {
 
-  // Private vars
-  var $L = euskalbarLib,
-      $ = $L.$;
-
-  // Public interface
+  var $L = euskalbar.lib,
+      $U = $L.utils,
+      $ = $U.$;
 
   return {
 
@@ -283,7 +281,7 @@ euskalbar.app = function () {
                                             doc);
             }
           } catch (e) {
-            $L.log("Error while running combined query for " + dictName);
+            $U.log("Error while running combined query for " + dictName);
           }
         });
       }
@@ -322,13 +320,13 @@ euskalbar.app = function () {
         doc.getElementById('oinak').appendChild(ato);
       });
 
-      doc.getElementById('oharra').innerHTML = $L._("oharra");
+      doc.getElementById('oharra').innerHTML = $U._("oharra");
     },
 
 
     // Shows help
     openHelp: function () {
-      var locale = $L.langCode(euskalbar.ui.locale);
+      var locale = $U.langCode(euskalbar.ui.locale);
 
       if (euskalbar.ui.acceptedLocales.indexOf(locale) == -1) {
         var locale = 'en';
@@ -443,7 +441,7 @@ euskalbar.app = function () {
      */
     openURL: function (url, slug, method, params) {
       var postData = null,
-          dataString = $L.serialize(params);
+          dataString = $U.serialize(params);
 
       if (method == 'GET') {
         if (url.indexOf("?") == -1 && dataString) {
@@ -552,7 +550,7 @@ euskalbar.app = function () {
       katea = katea.replace(/^\s+|\s+$/g, "");
       if (katea === "") {
         var euskalbarNotify = gBrowser.getNotificationBox();
-        euskalbarNotify.appendNotification($L._f("kutxahutsa", ""));
+        euskalbarNotify.appendNotification($U._f("kutxahutsa", ""));
 
         var t = setTimeout(function(){
           euskalbarNotify.removeCurrentNotification();

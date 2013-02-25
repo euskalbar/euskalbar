@@ -26,8 +26,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.euskalterm = function () {
 
-  var $L = euskalbarLib,
-      $ = $L.$;
+  var $U = euskalbar.lib.utils,
+      $ = $U.$;
 
   return {
     displayName: "Euskalterm",
@@ -46,7 +46,7 @@ euskalbar.dicts.euskalterm = function () {
     getParams: function (term, source, target) {
       term = term.trim();
 
-      var uiLang = $L.langCode(euskalbar.ui.locale),
+      var uiLang = $U.langCode(euskalbar.ui.locale),
           dictLang = ['en', 'fr', 'es'].indexOf(uiLang) !== -1 ? uiLang : 'eu';
 
       var langMap = {

@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.labayru = function () {
 
-  var $L = euskalbarLib;
+  var $U = euskalbar.lib.utils;
 
   return {
     displayName: "Labayru Hiztegia",
@@ -53,7 +53,7 @@ euskalbar.dicts.labayru = function () {
     },
 
     scrap: function (term, source, target, data) {
-      var uiLang = $L.langCode(euskalbar.ui.locale),
+      var uiLang = $U.langCode(euskalbar.ui.locale),
           output = '';
 
       if (data.match("No hay resultados") ||

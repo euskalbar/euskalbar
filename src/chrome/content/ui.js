@@ -24,8 +24,8 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.ui = function () {
 
-  var $L = euskalbarLib,
-      $ = $L.$;
+  var $U = euskalbar.lib.utils,
+      $ = $U.$;
 
   return {
 
@@ -76,12 +76,12 @@ euskalbar.ui = function () {
 
       for (var i=0; i<items.length; i++) {
         var menu = document.createElement("menu");
-        menu.setAttribute("label", $L._(items[i].cat));
-        menu.setAttribute("id", "euskalbar-menu-" + $L.slugify(items[i].cat));
+        menu.setAttribute("label", $U._(items[i].cat));
+        menu.setAttribute("id", "euskalbar-menu-" + $U.slugify(items[i].cat));
 
         var submenu = document.createElement("menupopup");
         submenu.setAttribute("id",
-                             "euskalbar-menuPopup-" + $L.slugify(items[i].cat));
+                             "euskalbar-menuPopup-" + $U.slugify(items[i].cat));
 
         var dicts = items[i].dicts;
         for (var j=0; j<dicts.length; j++) {
@@ -91,10 +91,10 @@ euskalbar.ui = function () {
             var item = document.createElement("menuseparator");
           } else {
             var item = document.createElement("menuitem");
-            item.setAttribute("label", $L._(dict.name));
+            item.setAttribute("label", $U._(dict.name));
             item.setAttribute("oncommand",
                               "euskalbar.app.openURL('" + dict.url + "', '" +
-                                                 $L.slugify(dict.name) + "')");
+                                                 $U.slugify(dict.name) + "')");
           }
 
           submenu.appendChild(item);
@@ -159,7 +159,7 @@ euskalbar.ui = function () {
 
         btn.collapsed = !state;
       } catch (e) {
-        $L.log("Error while toggling button visibility: " + name);
+        $U.log("Error while toggling button visibility: " + name);
       }
     },
 

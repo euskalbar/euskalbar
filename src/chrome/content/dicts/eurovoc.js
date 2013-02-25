@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.eurovoc = function () {
 
-  var $L = euskalbarLib;
+  var $U = euskalbar.lib.utils;
 
   return {
     displayName: 'Eurovoc Thesaurusa',
@@ -43,7 +43,7 @@ euskalbar.dicts.eurovoc = function () {
       return {
         'txtBuscar': 'S',
         'query': term,
-        'idioma': $L.langCode(euskalbar.ui.locale) === 'es' ? 'CA' : 'EU',
+        'idioma': $U.langCode(euskalbar.ui.locale) === 'es' ? 'CA' : 'EU',
       };
     },
 

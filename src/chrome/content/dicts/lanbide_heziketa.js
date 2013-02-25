@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.lanbide_heziketa = function () {
 
-  var $ = euskalbarLib.$;
+  var $ = euskalbar.lib.utils.$;
 
   return {
     displayName: 'Lanbide Heziketa',

@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.uzei = function () {
 
-  var $L = euskalbarLib;
+  var $U = euskalbar.lib.utils;
 
   return {
     displayName: 'UZEI Sinonimoen Hiztegia',
@@ -40,7 +40,7 @@ euskalbar.dicts.uzei = function () {
     },
 
     getParams: function (term, source, target) {
-      var uiLang = $L.langCode(euskalbar.ui.locale),
+      var uiLang = $U.langCode(euskalbar.ui.locale),
           langMap = {
             'en': '1347',
             'fr': '1348',

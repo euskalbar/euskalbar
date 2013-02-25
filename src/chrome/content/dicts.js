@@ -24,8 +24,9 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.dicts = function () {
 
-  var $L = euskalbarLib,
-      $ = $L.$;
+  var $L = euskalbar.lib,
+      $U = euskalbar.lib.utils,
+      $ = $U.$;
 
   return {
 
@@ -92,7 +93,7 @@ euskalbar.dicts = function () {
 
       // If the dictionary provides it, execute the post-query hook once the
       // page has been loaded
-      if (dict.hasOwnProperty('postQuery') && $L.isFunction(dict.postQuery)) {
+      if (dict.hasOwnProperty('postQuery') && $U.isFunction(dict.postQuery)) {
         var tab = gBrowser
           .getBrowserAtIndex(euskalbar.app.getTabIndexBySlug(dictName)),
             hook = function (event) {
@@ -125,7 +126,7 @@ euskalbar.dicts = function () {
 
       // XXX: should we normalize term for all queries?
       // term = euskalbar.comb.normalize(term);
-      $L.ajax({
+      $U.ajax({
         url: dict.getUrl(term, source, target),
 
         type: dict.method,
@@ -135,18 +136,18 @@ euskalbar.dicts = function () {
         onSuccess: function (data) {
           var notice = '<div id="oharra"><a href="' + dict.homePage + '">' +
                        dict.displayName + '&nbsp;<sup>&curren;</sup></a></div>';
-          $L.cleanLoadHTML(notice, $('o' + dictName, doc));
+          $U.cleanLoadHTML(notice, $('o' + dictName, doc));
 
           output = dict.scrap(term, source, target, data);
         },
 
         onError: function (status) {
           // TODO: `status` can be used to determine if the request timed out
-          output = $L._f("euskalbar.comb.error", [dict.displayName]);
+          output = $U._f("euskalbar.comb.error", [dict.displayName]);
         },
 
         onComplete: function () {
-          $L.cleanLoadHTML(output, $('a' + dictName, doc));
+          $U.cleanLoadHTML(output, $('a' + dictName, doc));
         }
       });
 

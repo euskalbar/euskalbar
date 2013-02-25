@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.hautalan = function () {
 
-  var $ = euskalbarLib.$;
+  var $ = euskalbar.lib.utils.$;
 
   return {
     displayName: 'Hauta Lanerako Euskal Hiztegia',

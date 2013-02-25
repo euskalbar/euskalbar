@@ -20,7 +20,11 @@
 
 "use strict";
 
-var euskalbarLib = {};
+if (!euskalbar) var euskalbar = {};
+
+if (!euskalbar.lib) euskalbar.lib = {};
+
+euskalbar.lib.utils = {};
 
 (function() {
 
@@ -223,7 +227,7 @@ var euskalbarLib = {};
 
     function add(key, value) {
       // If value is a function, invoke it and return its value
-      value = euskalbarLib.isFunction(value) ? value() : value;
+      value = euskalbar.lib.utils.isFunction(value) ? value() : value;
       s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value);
     }
 
@@ -482,5 +486,4 @@ var euskalbarLib = {};
       },
 
     };
-
-}).apply(euskalbarLib);
+}).apply(euskalbar.lib.utils);

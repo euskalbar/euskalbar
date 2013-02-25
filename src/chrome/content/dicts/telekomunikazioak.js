@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.telekomunikazioak = function () {
 
-  var $L = euskalbarLib;
+  var $U = euskalbar.lib.utils;
 
   return {
     displayName: 'Telekomunikazio Hiztegia',
@@ -44,7 +44,7 @@ euskalbar.dicts.telekomunikazioak = function () {
 
     getParams: function (term, source, target) {
       var dictLang,
-          uiLang = $L.langCode(euskalbar.ui.locale);
+          uiLang = $U.langCode(euskalbar.ui.locale);
 
       if (uiLang === 'es') {
         dictLang = 'gazt';

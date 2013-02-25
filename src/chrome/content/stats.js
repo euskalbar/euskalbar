@@ -27,11 +27,8 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.stats = function () {
 
-  // Private vars
-  var $L = euskalbarLib,
-      $ = $L.$;
+  var $U = euskalbar.lib.utils;
 
-  // Public interface
   return {
 
     filename: 'euskalbar.sqlite',
@@ -42,7 +39,7 @@ euskalbar.stats = function () {
       var profileDir = euskalbar.app.profileURI;
       try {
         var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
-        var statsFile = $L.FileIO.getLocalSystemURI(statsFileURL)
+        var statsFile = $U.FileIO.getLocalSystemURI(statsFileURL)
                                  .QueryInterface(Ci.nsIFileURL).file;
         statsFile.copyTo(profileDir, this.filename);
       } catch (e) {

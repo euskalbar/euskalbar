@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.zthiztegia = function () {
 
-  var $L = euskalbarLib;
+  var $U = euskalbar.lib.utils;
 
   return {
     displayName: "ZT Hiztegia",

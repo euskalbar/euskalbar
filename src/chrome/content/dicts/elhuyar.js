@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.elhuyar = function () {
 
-  var $L = euskalbarLib;
+  var $U = euskalbar.lib.utils;
 
   return {
     displayName: "Elhuyar Hiztegia",
@@ -39,7 +39,7 @@ euskalbar.dicts.elhuyar = function () {
     method: 'POST',
 
     getUrl: function (term, source, target) {
-      var uiLang = $L.langCode(euskalbar.ui.locale);
+      var uiLang = $U.langCode(euskalbar.ui.locale);
 
       if (uiLang === 'en') {
         return 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EN/Dictionary-search';
@@ -95,7 +95,7 @@ euskalbar.dicts.elhuyar = function () {
     },
 
     scrap: function (term, source, target, data) {
-      var uiLang = $L.langCode(euskalbar.ui.locale),
+      var uiLang = $U.langCode(euskalbar.ui.locale),
           output = '';
 
       var errorMsgMap = {
@@ -117,8 +117,8 @@ euskalbar.dicts.elhuyar = function () {
 
         resultsArray.forEach(function (result) {
           var linkWord = result.split(">")[1].split("<")[0],
-              linkWordNorm = $L.normalize(linkWord),
-              originalNorm = $L.normalize(term),
+              linkWordNorm = $U.normalize(linkWord),
+              originalNorm = $U.normalize(term),
               params = result.split('"')[0].replace(/amp\;/g, "");
 
           if (linkWordNorm === originalNorm ||
@@ -156,7 +156,7 @@ euskalbar.dicts.elhuyar = function () {
     },
 
     getSubQueries: function (params, isSubQuery) {
-      var uiLang = $L.langCode(euskalbar.ui.locale),
+      var uiLang = $U.langCode(euskalbar.ui.locale),
           output = [];
 
       var subEntryMap = {
@@ -166,7 +166,7 @@ euskalbar.dicts.elhuyar = function () {
       },
           subEntryText = subEntryMap[uiLang] || 'Azpisarrerak';
 
-      $L.ajax({
+      $U.ajax({
         url: this.url,
         data: params,
         async: false,
@@ -204,7 +204,7 @@ euskalbar.dicts.elhuyar = function () {
     },
 
     manipulate: function (txt) {
-      var uiLang = $L.langCode(euskalbar.ui.locale),
+      var uiLang = $U.langCode(euskalbar.ui.locale),
           txtSplitMap = {
         'es': 'Resultado:',
         'en': 'Result:',
