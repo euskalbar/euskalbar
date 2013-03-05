@@ -119,8 +119,7 @@ euskalbar.app = function () {
       this.source = lang[0] + lang[1];
       this.target = lang[3] + lang[4];
 
-      this.setLang(this.source, this.target);
-      this.setDictionaries(this.source, this.target);
+      this.switchTo(this.source, this.target);
 
       euskalbar.ui.init();
     },
