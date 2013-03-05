@@ -17,10 +17,8 @@ if (!euskalbar.lib) euskalbar.lib = {};
 euskalbar.lib.Set = function (items) {
 
   var Set = function (items) {
-    // All items are stored in an object.
-    this._items = {};
-    // We maintain a size variable for the cardinality of the set.
-    this._size = 0;
+    // All items are stored in this list, in no particular order.
+    this._items = [];
 
     // If initial items were given, add them to the set.
     if (typeof items !== "undefined") {
@@ -38,27 +36,24 @@ euskalbar.lib.Set = function (items) {
 
     // Does this set contain an element x? Returns true or false.
     has: function (x) {
-      return this._items.hasOwnProperty(x);
+      return this._items.indexOf(x) >= 0;
     },
 
     // Add an element x to this set, and return this set.
     add: function (x) {
       if (!this.has(x)) {
-        this._items[x] = x;
-        this._size++;
+        this._items.push(x);
       }
-
       return this;
     },
 
     // Remove an element x from this set, if it is part of the set. If
     // it is not part of the set, do nothing. Returns this set.
     remove: function (x) {
-      if (this.has(x)) {
-        delete this._items[x];
-        this._size--;
+      var pos = this._items.indexOf(x);
+      if (pos >= 0) {
+        this._items.splice(pos, 1);
       }
-
       return this;
     },
 
@@ -66,14 +61,10 @@ euskalbar.lib.Set = function (items) {
     // the other set, or both.
     union: function (other) {
       var result = new Set();
-
-      for (var x in this._items) {
-        result.add(this._items[x]);
+      result._items = this._items.concat(); // Make a copy
+      for (var i = 0; i < other._items.length; i++) {
+        result.add(other._items[i]);
       }
-      for (x in other._items) {
-        result.add(other._items[x]);
-      }
-
       return result;
     },
 
@@ -81,13 +72,11 @@ euskalbar.lib.Set = function (items) {
     // and the other set.
     intersection: function (other) {
       var result = new Set();
-
-      for (var x in other._items) {
-        if (this._items.hasOwnProperty(x)) {
-          result.add(this._items[x]);
+      for (var i = 0; i < other._items.length; i++) {
+        if (this.has(other._items[i])) {
+          result._items.push(other._items[i]);
         }
       }
-
       return result;
     },
 
@@ -95,12 +84,11 @@ euskalbar.lib.Set = function (items) {
     // in the other set.
     difference: function (other) {
       var result = new Set();
-      for (var x in this._items) {
-        if (!other._items.hasOwnProperty(x)) {
-          result.add(this._items[x]);
+      for (var i = 0; i < this._items.length; i++) {
+        if (!other.has(this._items[i])) {
+          result._items.push(this._items[i]);
         }
       }
-
       return result;
     },
 
@@ -113,12 +101,11 @@ euskalbar.lib.Set = function (items) {
 
     // Return true if every element of this set is in the other set.
     issubset: function (other) {
-      for (var x in this._items) {
-        if (!other._items.hasOwnProperty(x)) {
+      for (var i = 0; i < this._items.length; i++) {
+        if (!other.has(this._items[i])) {
           return false;
         }
       }
-
       return true;
     },
 
@@ -129,63 +116,41 @@ euskalbar.lib.Set = function (items) {
 
     // Return a copy of the items in the set, as an array.
     array: function () {
-      var arr = [];
-      for (var x in this._items) {
-        arr.push(this._items[x]);
-      }
-      return arr;
+      return this._items.concat();
     },
 
     // Return the size of the set.
     size: function () {
-      return this._size;
+      return this._items.length;
     },
 
     // Return a shallow copy of the set.
     copy: function () {
       var result = new Set();
-      for (var x in this._items) {
-        result.add(this._items[x]);
-      }
+      result._items = this._items.concat();
       return result;
     },
 
     // Return a random element of the set, or null if the set is
     // empty. Unlike pop, does not remove the element from the set.
     pick: function () {
-      if (this._size === 0) {
+      if (this._items.length === 0) {
         return null;
       }
 
-      var i = Math.floor(Math.random() * this._size);
-      for (var x in this._items) {
-        if (i === 0) {
-          return this._items[x];
-        }
-        i--;
-      }
-      // This should never happen
-      return null;
+      var i = Math.floor(Math.random() * this._items.length);
+      return this._items[i];
     },
 
     // Remove and return a random element of the set, or null if the
     // set is empty.
     pop: function () {
-      if (this._size === 0) {
-        return null;
-      }
+      if (this._items.length === 0) {
+        return null
+      };
 
-      var i = Math.floor(Math.random() * this._size);
-      for (var x in this._items) {
-        if (i === 0) {
-          var ret = this._items[x];
-          this.remove(this._items[x]);
-          return ret;
-        }
-        i--;
-      }
-      // This should never happen
-      return null;
+      var i = Math.floor(Math.random() * this._items.length);
+      return this._items.splice(i, 1)[0];
     },
 
     // Return true if this set equals another set, i.e. if every
@@ -199,12 +164,11 @@ euskalbar.lib.Set = function (items) {
       // If sets are the same size, we can just check to see that
       // every element in this set corresponds to an element in the
       // other set.
-      for (var x in this._items) {
-        if (!other.has(this._items[x])) {
+      for (var i = 0; i < this._items.length; i++) {
+        if (!other.has(this._items[i])) {
           return false;
         }
       }
-
       return true;
     },
 
@@ -223,10 +187,11 @@ euskalbar.lib.Set = function (items) {
         callback = callback.bind(thisArg);
       }
 
-      for (var x in this._items) {
-        callback(this._items[x], x, this);
+      for (var i = 0; i < this._items.length; i++) {
+        callback(this._items[i], i, this);
       }
     }
+
   };
 
   return new Set(items);
