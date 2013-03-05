@@ -114,14 +114,14 @@ euskalbar.app = function () {
         euskalbar.app.loadPairs(dictName);
       });
 
+      euskalbar.ui.init();
+
       //Initialize language selection button
       var lang = this.prefs.getCharPref("language.startup");
       this.source = lang[0] + lang[1];
       this.target = lang[3] + lang[4];
 
       this.switchTo(this.source, this.target);
-
-      euskalbar.ui.init();
     },
 
 
