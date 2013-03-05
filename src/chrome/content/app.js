@@ -636,6 +636,12 @@ euskalbar.app = function () {
       });
     },
 
+    /* Switches the app to the given language pair */
+    switchTo: function (source, target) {
+      this.setLang(source, target);
+      this.setDictionaries(source, target);
+    },
+
   };
 
 }();
