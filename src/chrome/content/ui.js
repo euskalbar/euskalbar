@@ -37,7 +37,7 @@ euskalbar.ui = function () {
                                    dictName + '.visible');
       });
 
-      // Create and populate the Dictionaries menu
+      this.initLanguages();
       this.initDictsMenu();
     },
 
@@ -53,6 +53,59 @@ euskalbar.ui = function () {
       }
 
       return locale;
+    },
+
+
+    /*
+     * Generates the selectable drop-down with all the available language pairs
+     */
+    initLanguages: function () {
+      var i,
+          source, target, targets,
+          pair, reversePair,
+          menuItem, menuSeparator,
+          addedPairs = [],
+          menuPopup = $('euskalbar-language-popup'),
+          sources = Object.keys(euskalbar.app.pairs).sort();
+
+      var appendToMenu = function (source, target) {
+        menuItem = document.createElement('menuitem');
+        menuItem.setAttribute('id', 'euskalbar-language-' +
+                                    source + '_' + target);
+        menuItem.setAttribute('label', source.toUpperCase() + ' ‣ ' +
+                                       target.toUpperCase());
+        menuItem.setAttribute('oncommand',
+                              'euskalbar.app.switchTo("' +
+                                source + '", "' + target + '");' +
+                                'event.stopPropagation();');
+        menuPopup.appendChild(menuItem);
+
+        // Keep track of already-added pairs
+        addedPairs.push(source + '-' + target);
+      };
+
+      sources.forEach(function (source, i) {
+        targets = Object.keys(euskalbar.app.pairs[source]).sort();
+        targets.forEach(function (target) {
+          pair = source + '-' + target;
+          reversePair = target + '-' + source;
+          if (addedPairs.indexOf(pair) === -1 && pair !== 'eu-eu') {
+            if (i !== 0) {
+              menuSeparator = document.createElement('menuseparator'),
+              menuPopup.appendChild(menuSeparator);
+            }
+
+            appendToMenu(source, target);
+
+            // Check the reverse pair
+            if (euskalbar.app.pairs.hasOwnProperty(target) &&
+                euskalbar.app.pairs[target].hasOwnProperty(source) &&
+                addedPairs.indexOf(reversePair) === -1) {
+              appendToMenu(target, source);
+            }
+          }
+        });
+      });
     },
 
 

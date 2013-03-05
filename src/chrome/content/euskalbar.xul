@@ -42,18 +42,7 @@
     <toolbaritem id="euskalbar-leftbuttons" flex="0">
       <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.app.toggleLang();">
         <menupopup id="euskalbar-language-popup">
-          <menuitem id="euskalbar-language-eu_es" label="EU ‣ ES" tooltiptext="&euskalbar.language.eu_es;" oncommand="euskalbar.app.setLang('eu', 'es'); euskalbar.app.setDictionaries('eu', 'es'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-es_eu" label="ES ‣ EU" tooltiptext="&euskalbar.language.es_eu;" oncommand="euskalbar.app.setLang('es', 'eu'); euskalbar.app.setDictionaries('es', 'eu'); event.stopPropagation();"/>
-          <menuseparator/>
-          <menuitem id="euskalbar-language-eu_fr" label="EU ‣ FR" tooltiptext="&euskalbar.language.eu_fr;" oncommand="euskalbar.app.setLang('eu', 'fr'); euskalbar.app.setDictionaries('eu', 'fr'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-fr_eu" label="FR ‣ EU" tooltiptext="&euskalbar.language.fr_eu;" oncommand="euskalbar.app.setLang('fr', 'eu'); euskalbar.app.setDictionaries('fr', 'eu'); event.stopPropagation();"/>
-          <menuseparator/>
-          <menuitem id="euskalbar-language-eu_en" label="EU ‣ EN" tooltiptext="&euskalbar.language.eu_en;" oncommand="euskalbar.app.setLang('eu', 'en'); euskalbar.app.setDictionaries('eu', 'en'); event.stopPropagation();"/>
-          <menuitem id="euskalbar-language-en_eu" label="EN ‣ EU" tooltiptext="&euskalbar.language.en_eu;" oncommand="euskalbar.app.setLang('en', 'eu'); euskalbar.app.setDictionaries('en', 'eu'); event.stopPropagation();"/>
-          <menuseparator/>
-          <menuitem id="euskalbar-language-la_eu" label="LA ‣ EU" tooltiptext="&euskalbar.language.la_eu;" oncommand="euskalbar.app.setLang('la', 'eu'); euskalbar.app.setDictionaries('la', 'eu'); event.stopPropagation();"/>
-          <menuseparator/>
-          <menuitem id="euskalbar-language-eu_jp" label="EU ‣ JP" tooltiptext="&euskalbar.language.eu_jp;" oncommand="euskalbar.app.setLang('eu', 'jp'); euskalbar.app.setDictionaries('eu', 'jp'); event.stopPropagation();"/>
+          <!-- Content generated in euskalbar.ui -->
         </menupopup>
       </toolbarbutton>
     </toolbaritem>
