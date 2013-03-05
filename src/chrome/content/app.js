@@ -606,8 +606,8 @@ euskalbar.app = function () {
     // Sets the new active language pair
     setLang: function (source, target) {
       // Don't set unsupported language pairs
-      if (!(this.pairs.hasOwnProperty(source) ||
-            this.pairs[source].hasOwnProperty(target))) {
+      if (!this.pairs.hasOwnProperty(source) ||
+          !this.pairs[source].hasOwnProperty(target)) {
         return;
       }
 
