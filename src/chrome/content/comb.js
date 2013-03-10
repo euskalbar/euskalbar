@@ -202,8 +202,7 @@ euskalbar.comb = function () {
         },
 
         onComplete: function () {
-          var node = $('Elhuyar', gBrowser.contentDocument);
-          $L.cleanLoadHTML(output, node);
+
         }
       });
     },
@@ -257,8 +256,7 @@ euskalbar.comb = function () {
         },
 
         onComplete: function () {
-          var node = $('Elhuyar', gBrowser.contentDocument);
-          $L.cleanLoadHTML(output, node);
+
         }
 
       });
