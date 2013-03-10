@@ -624,27 +624,19 @@ euskalbar.comb = function () {
 
     getShiftUZEI: function (source, term) {
       var output = "",
-          reqURL = 'http://www.uzei.com/estatico/sinonimos.asp',
-          reqData = {sarrera: term, eragiketa: 'bilatu'};
+          reqURL = 'http://sh.uzei.com/listado',
+          reqData = {'q': term};
 
       $L.ajax({
         url: reqURL,
+        type: 'POST',
         data: reqData,
         mimeType: 'text/html; charset=ISO-8859-1',
 
         onSuccess: function (data) {
-          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://www.uzei.com/estatico/sinonimos.asp\">UZEI&nbsp;<sup>&curren;</sup></a></div>", $('oUzei', gBrowser.contentDocument));
+          $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://sh.uzei.com/\">UZEI&nbsp;<sup>&curren;</sup></a></div>", $('oUzei', gBrowser.contentDocument));
           output = data;
-          var table = output.split("<TABLE");
-          output = table[2].substring(-1);
-          output = '<table' + output;
-          var table2 = output.split("</table");
-          output = table2[0].substring(-1);
-          output = output + '</table>';
-          output = output.replace(/sinonimos.asp/g, reqURL);
-          output = '<font face="bitstream vera sans, verdana, arial" size="3"><B>'
-            + term + '</B></font><font face="bitstream vera sans, verdana, arial">'
-            + output + '</font>';
+          output = output.substring(output.indexOf('<div class=\'row-fluid\'>'), output.indexOf('</pre>'));
         },
 
         onError: function () {

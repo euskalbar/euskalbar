@@ -498,15 +498,13 @@ euskalbar.dicts = function () {
         dictLang = '14';
       }
 
-      var url = 'http://www.uzei.com/estatico/sinonimos.asp',
+      var url = 'http://sh.uzei.com/listado',
           id = 'uzei',
           params = {
-            'sesion': dictLang,
-            'sarrera': term,
-            'eragiketa': 'bilatu'
+            'q': term
           };
 
-      euskalbar.openURL(url, id, 'GET', params);
+      euskalbar.openURL(url, id, 'POST', params);
 
       euskalbar.stats.write(id);
     },
