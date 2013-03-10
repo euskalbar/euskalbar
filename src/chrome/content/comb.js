@@ -636,7 +636,14 @@ euskalbar.comb = function () {
         onSuccess: function (data) {
           $L.cleanLoadHTML("<div id=\"oharra\"><a href=\"http://sh.uzei.com/\">UZEI&nbsp;<sup>&curren;</sup></a></div>", $('oUzei', gBrowser.contentDocument));
           output = data;
-          output = output.substring(output.indexOf('<div class=\'row-fluid\'>'), output.indexOf('</pre>'));
+          if (output.indexOf('<div class=\'row-fluid\'>') == -1) {
+            output = $L._f("euskalbar.comb.noword", [term]);
+          } else {
+            output = output.substring(output.indexOf('<div class=\'row-fluid\'>'), output.indexOf('</pre>'));
+            output = output.replace(/ : /g, " : <br/>");
+            output = output.replace(/, /g, ", <br/>");
+          }
+          
         },
 
         onError: function () {
