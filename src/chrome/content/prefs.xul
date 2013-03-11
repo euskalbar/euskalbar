@@ -14,6 +14,7 @@
     <preferences>
       <preference id="prefEuskaltermVisible" name="extensions.euskalbar.euskalterm.visible" type="bool"/>
       <preference id="prefElhuyarVisible" name="extensions.euskalbar.elhuyar.visible" type="bool"/>
+      <preference id="prefAdorezVisible" name="extensions.euskalbar.adorez.visible" type="bool"/>
       <preference id="prefZTHiztegiaVisible" name="extensions.euskalbar.zthiztegia.visible" type="bool"/>
       <preference id="prefTelekomVisible" name="extensions.euskalbar.telekom.visible" type="bool"/>
       <preference id="prefLabayruVisible" name="extensions.euskalbar.labayru.visible" type="bool"/>
@@ -31,6 +32,7 @@
       <preference id="prefHarluxetVisible" name="extensions.euskalbar.harluxet.visible" type="bool"/>
       <preference id="prefWikipediaVisible" name="extensions.euskalbar.wikipedia.visible" type="bool"/>
       <preference id="prefUZEIVisible" name="extensions.euskalbar.uzei.visible" type="bool"/>
+      <preference id="prefAdorezsinVisible" name="extensions.euskalbar.adorezsin.visible" type="bool"/>
       <preference id="prefItzuLVisible" name="extensions.euskalbar.itzul.visible" type="bool"/>
       <preference id="prefMokoroaVisible" name="extensions.euskalbar.mokoroa.visible" type="bool"/>
       <preference id="prefIntzaVisible" name="extensions.euskalbar.intza.visible" type="bool"/>
@@ -51,6 +53,7 @@
 
       <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="prefElhuyar" name="extensions.euskalbar.elhuyar.onkey" type="bool"/>
+      <preference id="prefAdorez" name="extensions.euskalbar.adorez.onkey" type="bool"/>
       <preference id="prefZTHiztegia" name="extensions.euskalbar.zthiztegia.onkey" type="bool"/>
       <preference id="prefTelekom" name="extensions.euskalbar.telekom.onkey" type="bool"/>
       <preference id="prefLabayru" name="extensions.euskalbar.labayru.onkey" type="bool"/>
@@ -68,6 +71,7 @@
       <preference id="prefHarluxet" name="extensions.euskalbar.harluxet.onkey" type="bool"/>
       <preference id="prefWikipedia" name="extensions.euskalbar.wikipedia.onkey" type="bool"/>
       <preference id="prefUZEI" name="extensions.euskalbar.uzei.onkey" type="bool"/>
+      <preference id="prefAdorezsin" name="extensions.euskalbar.adorezsin.onkey" type="bool"/>
       <preference id="prefItzuL" name="extensions.euskalbar.itzul.onkey" type="bool"/>
       <preference id="prefMokoroa" name="extensions.euskalbar.mokoroa.onkey" type="bool"/>
       <preference id="prefIntza" name="extensions.euskalbar.intza.onkey" type="bool"/>
@@ -219,6 +223,7 @@
           <listbox flex="1" width="400" id="list-dictsview">
             <listitem preference="prefEuskaltermVisible" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
             <listitem preference="prefElhuyarVisible" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+            <listitem preference="prefAdorezVisible" type="checkbox" label="&euskalbar.adorez.tooltip;"/>
             <listitem preference="prefLabayruVisible" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
             <listitem preference="prefZehazkiVisible" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
             <listitem preference="prefZTHiztegiaVisible" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
@@ -238,6 +243,7 @@
             <listitem preference="prefHarluxetVisible" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
             <listitem preference="prefWikipediaVisible" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
             <listitem preference="prefUZEIVisible" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+            <listitem preference="prefAdorezsinVisible" type="checkbox" label="&euskalbar.adorezsin.tooltip;"/>
             <listitem preference="prefItzuLVisible" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
             <listitem preference="prefMokoroaVisible" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
             <listitem preference="prefIntzaVisible" type="checkbox" label="&euskalbar.intza.tooltip;"/>
@@ -270,6 +276,7 @@
                   <listbox flex="1" id="list-enter">
                     <listitem preference="prefEuskalterm" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
                     <listitem preference="prefElhuyar" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                    <listitem preference="prefAdorez" type="checkbox" label="&euskalbar.adorez.tooltip;"/>
                     <listitem preference="prefLabayru" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
                     <listitem preference="prefZehazki" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
                     <listitem preference="prefZTHiztegia" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
@@ -290,6 +297,7 @@
                     <listitem preference="prefWikipedia" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
                     <listitem preference="prefItzuL" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
                     <listitem preference="prefUZEI" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
+                    <listitem preference="prefAdorezsin" type="checkbox" label="&euskalbar.adorezsin.tooltip;"/>
                     <listitem preference="prefMokoroa" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
                     <listitem preference="prefIntza" type="checkbox" label="&euskalbar.intza.tooltip;"/>
                     <listitem preference="prefEurovoc" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>

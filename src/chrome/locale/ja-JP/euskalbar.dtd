@@ -6,13 +6,14 @@
 <!ENTITY euskalbar.help.label "ヘルプ">
 <!ENTITY euskalbar.options.tooltip "オプション">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm データベース">
+<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar 辞書">
+<!ENTITY euskalbar.adorez.tooltip "5000 辞書">
 <!ENTITY euskalbar.goihata.tooltip "Goihata 辞書">
 <!ENTITY euskalbar.labayru.tooltip "Labayru 辞書">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki 辞書">
 <!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologia 辞書">
 <!ENTITY euskalbar.energia.tooltip "Energia 辞書">
 <!ENTITY euskalbar.telekom.tooltip "Telekomunikazio 辞書">
-<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar 辞書">
 <!ENTITY euskalbar.morris.tooltip "Morris 辞典">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, computer related translation memories">
 <!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
@@ -26,6 +27,7 @@
 <!ENTITY euskalbar.harluxet.tooltip "Harluxet 百科事典">
 <!ENTITY euskalbar.wikipedia.tooltip "バスクwikipedia">
 <!ENTITY euskalbar.uzei.tooltip "UZEI 類語">
+<!ENTITY euskalbar.adorezsin.tooltip "Adorez 類語">
 <!ENTITY euskalbar.itzul.tooltip "ItzuL メールリストファイル">
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroa データベース">
 <!ENTITY euskalbar.intza.tooltip "Intza慣用句">

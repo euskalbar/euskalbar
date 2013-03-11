@@ -4,6 +4,8 @@
 
 3.12 bertsioa
 ================
+- Bostak Bat taldearen Adorez hiztegiak (eu-es eta sinonimoak) barran sartu dira. (#150)
+- UZEIren sinonimoen hiztegia helbide berrian kontsultatzen da. (#149)
 - Egungo euskararen hiztegia barran sartu da. (#66)
 - Literatura terminoen hiztegia barran sartu da. (#94)
 - Lanbide heziketarako hiztegia barran sartu da. (#118)

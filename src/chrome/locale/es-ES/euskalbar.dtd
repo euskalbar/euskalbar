@@ -6,13 +6,14 @@
 <!ENTITY euskalbar.help.label "Ayuda">
 <!ENTITY euskalbar.options.tooltip "Abrir la ventana de preferencias">
 <!ENTITY euskalbar.euskalterm.tooltip "Base de datos Euskalterm">
+<!ENTITY euskalbar.elhuyar.tooltip "Diccionario Elhuyar">
+<!ENTITY euskalbar.adorez.tooltip "Diccionario 5000">
 <!ENTITY euskalbar.goihata.tooltip "Diccionario Goihata">
 <!ENTITY euskalbar.labayru.tooltip "Diccionario Labayru">
 <!ENTITY euskalbar.zehazki.tooltip "Diccionario Zehazki">
 <!ENTITY euskalbar.zthiztegia.tooltip "Diccionario enciclopédico de Ciencia y Tecnología">
 <!ENTITY euskalbar.energia.tooltip "Diccionario de Energía">
 <!ENTITY euskalbar.telekom.tooltip "Diccionario de Telecomunicaciones">
-<!ENTITY euskalbar.elhuyar.tooltip "Diccionario Elhuyar">
 <!ENTITY euskalbar.morris.tooltip "Diccionario Morris">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, memorias de traducción de términos informáticos">
 <!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, memorias de traducción de la UPV">
@@ -26,6 +27,7 @@
 <!ENTITY euskalbar.harluxet.tooltip "Diccionario enciclopédico Harluxet">
 <!ENTITY euskalbar.wikipedia.tooltip "Wikipedia en euskera">
 <!ENTITY euskalbar.uzei.tooltip "Sinónimos de UZEI">
+<!ENTITY euskalbar.adorezsin.tooltip "Sinónimos Adorez">
 <!ENTITY euskalbar.itzul.tooltip "Archivo de la lista de correo ItzuL">
 <!ENTITY euskalbar.mokoroa.tooltip "Base de datos Mokoroa">
 <!ENTITY euskalbar.intza.tooltip "Locuciones del proyecto Intza">

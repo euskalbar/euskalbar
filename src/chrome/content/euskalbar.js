@@ -115,6 +115,7 @@ euskalbar = function () {
       // Init bar's buttons
       this.toggleButtons("EuskalBar-Search", "euskalterm.visible");
       this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
+      this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
       this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
       this.toggleButtons("EuskalBar-Telekom", "telekom.visible");
       this.toggleButtons("EuskalBar-Labayru", "labayru.visible");
@@ -131,6 +132,7 @@ euskalbar = function () {
       this.toggleButtons("EuskalBar-Wikipedia", "wikipedia.visible");
       this.toggleButtons("EuskalBar-ItzuL", "itzul.visible");
       this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+      this.toggleButtons("EuskalBar-Adorezsin", "adorezsin.visible");
       this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
       this.toggleButtons("EuskalBar-Intza", "intza.visible");
       this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
@@ -183,6 +185,9 @@ euskalbar = function () {
       case "extensions.euskalbar.elhuyar.visible":
         this.toggleButtons("EuskalBar-Elhuyar", "elhuyar.visible");
         break;
+      case "extensions.euskalbar.adorez.visible":
+        this.toggleButtons("EuskalBar-Adorez", "adorez.visible");
+        break;
       case "extensions.euskalbar.zthiztegia.visible":
         this.toggleButtons("EuskalBar-ZTHiztegia", "zthiztegia.visible");
         break;
@@ -230,6 +235,9 @@ euskalbar = function () {
         break;
       case "extensions.euskalbar.uzei.visible":
         this.toggleButtons("EuskalBar-UZEI", "uzei.visible");
+        break;
+      case "extensions.euskalbar.adorezsin.visible":
+        this.toggleButtons("EuskalBar-Adorezsin", "adorezsin.visible");
         break;
       case "extensions.euskalbar.mokoroa.visible":
         this.toggleButtons("EuskalBar-Mokoroa", "mokoroa.visible");
@@ -719,6 +727,9 @@ euskalbar = function () {
             if (this.prefs.getBoolPref("elhuyar.onkey")) {
               euskalbar.dicts.goEuskalBarElhuyar(this.source, this.target, searchStr);
             }
+            if (this.prefs.getBoolPref("adorez.onkey")) {
+              euskalbar.dicts.goEuskalBarAdorez(this.source, this.target, searchStr);
+            }
             if (this.prefs.getBoolPref("zthiztegia.onkey")) {
               euskalbar.dicts.goEuskalBarZTHiztegia(this.source, searchStr);
             }
@@ -823,6 +834,9 @@ euskalbar = function () {
           }
           if (this.prefs.getBoolPref("uzei.onkey")) {
             euskalbar.dicts.goEuskalBarUZEI(searchStr);
+          }
+          if (this.prefs.getBoolPref("adorezsin.onkey")) {
+            euskalbar.dicts.goEuskalBarAdorezsin(searchStr);
           }
           if (this.prefs.getBoolPref("itzul.onkey")) {
             euskalbar.dicts.goEuskalBarItzuL(searchStr);
