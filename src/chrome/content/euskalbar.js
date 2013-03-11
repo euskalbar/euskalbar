@@ -156,7 +156,7 @@ euskalbar = function () {
     },
 
 
-    // Euskalbar deskargatu
+    // Unload Euskalbar
     shutdown: function () {
       window.removeEventListener("unload", euskalbar.shutdown, false);
 
@@ -165,7 +165,7 @@ euskalbar = function () {
     },
 
 
-    // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da
+    // Observer for changes in preferences
     observe: function (subject, topic, data) {
       if (topic != "nsPref:changed") {
         return;
@@ -915,6 +915,7 @@ euskalbar = function () {
       var labayru = $('EuskalBar-Labayru');
       var zehazki = $('EuskalBar-Zehazki');
       var elhuyar = $('EuskalBar-Elhuyar');
+      var adorez = $('EuskalBar-Adorez');
       var goihata = $('EuskalBar-Goihata');
       var zthiztegia = $('EuskalBar-ZTHiztegia');
       var telekom = $('EuskalBar-Telekom');
@@ -927,6 +928,7 @@ euskalbar = function () {
       case 'es':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", false);
+        adorez.setAttribute("hidden", false);
         goihata.setAttribute("hidden", true);
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
@@ -942,6 +944,7 @@ euskalbar = function () {
       case 'fr':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", false);
+        adorez.setAttribute("hidden", true);
         goihata.setAttribute("hidden", true);
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
@@ -957,6 +960,7 @@ euskalbar = function () {
       case 'en':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", false);
+        adorez.setAttribute("hidden", true);
         goihata.setAttribute("hidden", true);
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", false);
@@ -972,6 +976,7 @@ euskalbar = function () {
       case 'la':
         euskalterm.setAttribute("hidden", false);
         elhuyar.setAttribute("hidden", true);
+        adorez.setAttribute("hidden", true);
         goihata.setAttribute("hidden", true);
         zthiztegia.setAttribute("hidden", false);
         morris.setAttribute("hidden", true);
@@ -987,6 +992,7 @@ euskalbar = function () {
       case 'jp':
         euskalterm.setAttribute("hidden", true);
         elhuyar.setAttribute("hidden", true);
+        adorez.setAttribute("hidden", true);
         goihata.setAttribute("hidden", false);
         zthiztegia.setAttribute("hidden", true);
         morris.setAttribute("hidden", true);
