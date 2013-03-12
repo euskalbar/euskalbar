@@ -33,6 +33,7 @@
 <!ENTITY euskalbar.intza.tooltip "Locutions du projet Intza">
 <!ENTITY euskalbar.klasikoak.tooltip "Trésors du Basque">
 <!ENTITY euskalbar.ereduzko.tooltip "Prose de référence aujourd'hui">
+<!ENTITY euskalbar.etc.tooltip "Egungo Testuen Corpusa">
 <!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Science et de Technologie">
 <!ENTITY euskalbar.lb.tooltip "Corpus de Lexikoaren Behatokia">

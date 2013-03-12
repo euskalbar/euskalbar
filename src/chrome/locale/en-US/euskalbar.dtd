@@ -33,6 +33,7 @@
 <!ENTITY euskalbar.intza.tooltip "Intza idioms project">
 <!ENTITY euskalbar.eurovoc.tooltip "Eurovoc thesaurus">
 <!ENTITY euskalbar.bergara.tooltip "Dictionary from Bergara">
+<!ENTITY euskalbar.etc.tooltip "Egungo Testuen Corpusa">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa gaur">
 <!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
 <!ENTITY euskalbar.klasikoak.tooltip "Basque classic writers">
