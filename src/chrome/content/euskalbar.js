@@ -89,6 +89,9 @@ euskalbar = function () {
             euskalbar.ui.appendButtonToToolbar();
             euskalbar.ui.displayToolbar();
 
+            //Manage stats files (just this time)
+            euskalbar.stats.init();
+
             openInfo = true;
             infoURL = euskalbar.versionBaseURL +
               this.curVersion.replace(/\./g, '');
