@@ -350,8 +350,11 @@ euskalbar = function () {
           if (euskalbar.prefs.getBoolPref(sprefs[x])) {
             var burua = sprefs[x].split(".")[0];
             burua = burua.charAt(0).toUpperCase() + burua.slice(1);
-            doc.getElementById('buruak').innerHTML =
-            doc.getElementById('buruak').innerHTML + '<th id="burua' + burua + '">' + burua + '<\/th>';
+            var ath = doc.createElement('th');
+            ath.setAttribute("id", "burua" + burua);
+            var athtext = doc.createTextNode(burua);
+            ath.appendChild(athtext);
+            doc.getElementById('buruak').appendChild(ath);
             var atd = doc.createElement('td');
             atd.setAttribute("id", "a" + burua);
             atd.setAttribute("class", "gorputza");
