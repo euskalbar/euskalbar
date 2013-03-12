@@ -753,6 +753,25 @@ euskalbar.dicts = function () {
     },
 
 
+    // Egungo Testuen Corpusa
+    goEuskalBarEtc: function (term) {
+      // Check if box is empty
+      if (euskalbar.alertEmptyBox(term)) {
+        return;
+      }
+
+      var url = 'http://www.ehu.es/etc/',
+          id = 'etc',
+          params = {
+            'bila': term
+          };
+
+      euskalbar.openURL(url, id, 'GET', params);
+
+      euskalbar.stats.write(id);
+    },
+
+
     // Ereduzko Prosa
     goEuskalBarEreduzko: function (term) {
       // Check if box is empty

@@ -32,6 +32,7 @@
 <!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu-basea">
 <!ENTITY euskalbar.intza.tooltip "Intza proiektuaren lokuzioak">
 <!ENTITY euskalbar.klasikoak.tooltip "Klasikoen Gordailua">
+<!ENTITY euskalbar.etc.tooltip "Egungo Testuen Corpusa">
 <!ENTITY euskalbar.ereduzko.tooltip "Ereduzko Prosa Gaur">
 <!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
 <!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren corpusa">

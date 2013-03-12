@@ -137,6 +137,7 @@ euskalbar = function () {
       this.toggleButtons("EuskalBar-Intza", "intza.visible");
       this.toggleButtons("EuskalBar-Eurovoc", "eurovoc.visible");
       this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
+      this.toggleButtons("EuskalBar-Etc", "etc.visible");
       this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
       this.toggleButtons("EuskalBar-Egungo", "egungo.visible");
       this.toggleButtons("EuskalBar-Klasikoak", "klasikoak.visible");
@@ -250,6 +251,9 @@ euskalbar = function () {
         break;
       case "extensions.euskalbar.bergara.visible":
         this.toggleButtons("EuskalBar-Bergara", "bergara.visible");
+        break;
+      case "extensions.euskalbar.etc.visible":
+        this.toggleButtons("EuskalBar-Etc", "etc.visible");
         break;
       case "extensions.euskalbar.ereduzko.visible":
         this.toggleButtons("EuskalBar-Ereduzko", "ereduzko.visible");
@@ -852,6 +856,9 @@ euskalbar = function () {
           }
           if (this.prefs.getBoolPref("bergara.onkey")) {
             euskalbar.dicts.goEuskalBarBergara(searchStr);
+          }
+          if (this.prefs.getBoolPref("etc.onkey")) {
+            euskalbar.dicts.goEuskalBarEtc(searchStr);
           }
           if (this.prefs.getBoolPref("ereduzko.onkey")) {
             euskalbar.dicts.goEuskalBarEreduzko(searchStr);

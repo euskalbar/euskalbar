@@ -92,6 +92,7 @@
         <toolbarbutton id="EuskalBar-Intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarIntza(euskalbar.source, document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEurovoc(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarBergara(document.getElementById('EuskalBar-search-string').value);" />
+        <toolbarbutton id="EuskalBar-Etc" tooltiptext="&euskalbar.etc.tooltip;" label="ETC" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEtc(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzkoa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEreduzko(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Egungo" tooltiptext="&euskalbar.egungo.tooltip;" label="Egungoa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarEgungo(document.getElementById('EuskalBar-search-string').value);" />
         <toolbarbutton id="EuskalBar-Klasikoak" tooltiptext="&euskalbar.klasikoak.tooltip;" label="Klasikoak" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.goEuskalBarKlasikoak(document.getElementById('EuskalBar-search-string').value);" />
@@ -130,6 +131,7 @@
               <menuitem id="Euskalbar-ItzuL-context" label="ItzuL" oncommand="euskalbar.dicts.goEuskalBarItzuL(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Eurovoc-context" label="Eurovoc" oncommand="euskalbar.dicts.goEuskalBarEurovoc(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Bergara-context" label="Bergara" oncommand="euskalbar.dicts.goEuskalBarBergara(escape(euskalbar.dicts.selectionText()));" />
+              <menuitem id="EuskalBar-Etc-context" label="Egungo Testuen Corpusa" oncommand="euskalbar.dicts.goEuskalBarEtc(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="EuskalBar-Ereduzko-context" label="Ereduzko Prosa Gaur" oncommand="euskalbar.dicts.goEuskalBarEreduzko(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="EuskalBar-Egungo-context" label="Egungo Euskararen Hiztegia" oncommand="euskalbar.dicts.goEuskalBarEgungo(escape(euskalbar.dicts.selectionText()));" />
               <menuitem id="Euskalbar-Klasikoak-context" label="Klasikoak" oncommand="euskalbar.dicts.goEuskalBarKlasikoak(escape(euskalbar.dicts.selectionText()));"/>
