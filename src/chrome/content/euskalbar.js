@@ -365,7 +365,9 @@ euskalbar = function () {
             doc.getElementById('oinak').appendChild(ato);
           }
         }
-        doc.getElementById('oharra').innerHTML = $L._("oharra");
+        var ohar = doc.getElementById('oharra');
+        var ohartext = doc.createTextNode($L._("oharra"));
+        ohar.appendChild(ohartext);
       }
     },
 
