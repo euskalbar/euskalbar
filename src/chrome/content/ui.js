@@ -66,7 +66,8 @@ euskalbar.ui = function () {
           menuItem, menuSeparator,
           addedPairs = [],
           menuPopup = $('euskalbar-language-popup'),
-          sources = Object.keys(euskalbar.app.pairs).sort();
+          allSources = Object.keys(euskalbar.app.pairs).sort(),
+          sources = allSources.splice(allSources.indexOf('eu'), 1);
 
       var appendToMenu = function (source, target) {
         menuItem = document.createElement('menuitem');
@@ -90,10 +91,8 @@ euskalbar.ui = function () {
           pair = source + '-' + target;
           reversePair = target + '-' + source;
           if (addedPairs.indexOf(pair) === -1 && pair !== 'eu-eu') {
-            if (i !== 0) {
-              menuSeparator = document.createElement('menuseparator'),
-              menuPopup.appendChild(menuSeparator);
-            }
+            menuSeparator = document.createElement('menuseparator'),
+            menuPopup.appendChild(menuSeparator);
 
             appendToMenu(source, target);
 
