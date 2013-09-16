@@ -178,7 +178,7 @@ euskalbar.app = function () {
           dict = euskalbar.dicts[dictName],
           ns = this.pairs;
 
-      // If not language-pair has been specified, we'll treat it like a
+      // If no language-pair has been specified, we'll treat it like a
       // monolingual dictionary
       if (!dict.hasOwnProperty('pairs')) {
         dict.pairs = ['eu-eu'];
