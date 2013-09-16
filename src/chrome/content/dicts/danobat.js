@@ -28,6 +28,7 @@ euskalbar.dicts.danobat = function () {
 
   return {
     displayName: 'Danobat',
+    description: 'Danobat hiztegia',
 
     homePage: 'http://hiztegia.danobatgroup.com/',
 

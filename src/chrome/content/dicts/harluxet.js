@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.harluxet = function () {
 
   return {
-    displayName: 'Harluxet Hiztegi Entziklopedikoa',
+    displayName: 'Harluxet',
+    description: 'Harluxet Hiztegi Entziklopedikoa',
 
     homePage: 'http://www1.euskadi.net/harluxet/',
 

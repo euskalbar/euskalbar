@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.ztcorpusa = function () {
 
   return {
-    displayName: 'ZT Corpusa',
+    displayName: 'ZT corpusa',
+    description: 'Zientzia eta Teknologiaren corpusa',
 
     homePage: 'http://www.ztcorpusa.net/',
 

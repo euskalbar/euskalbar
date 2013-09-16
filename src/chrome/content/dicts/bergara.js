@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.bergara = function () {
 
   return {
-    displayName: 'Bergaraldeko Hiztegia',
+    displayName: 'Bergara',
+    description: 'Bergaraldeko Hiztegia',
 
     homePage: 'http://www.bergarakoeuskara.net/hiztegia/',
 

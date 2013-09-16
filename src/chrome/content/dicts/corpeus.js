@@ -28,6 +28,7 @@ euskalbar.dicts.corpeus = function () {
 
   return {
     displayName: 'CorpEus',
+    description: 'CorpEus - Internet euskarazko corpus gisa',
 
     homePage: 'http://www.corpeus.org/',
 

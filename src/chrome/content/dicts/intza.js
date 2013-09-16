@@ -28,6 +28,7 @@ euskalbar.dicts.intza = function () {
 
   return {
     displayName: 'Intza',
+    description: 'Intza proiektuaren lokuzioak',
 
     homePage: 'http://intza.armiarma.com/',
 

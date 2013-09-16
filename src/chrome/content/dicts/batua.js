@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.batua = function () {
 
   return {
-    displayName: 'Hiztegi Batua',
+    displayName: 'Batua',
+    description: 'Hiztegi Batua',
 
     homePage: 'http://www.euskaltzaindia.net/',
 

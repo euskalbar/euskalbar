@@ -29,7 +29,8 @@ euskalbar.dicts.uzei = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: 'UZEI Sinonimoen Hiztegia',
+    displayName: 'UZEI sin.',
+    description: 'UZEI Sinonimoen Hiztegia',
 
     homePage: 'http://www.uzei.com/estatico/sinonimos.asp',
 

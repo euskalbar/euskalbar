@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.oeh = function () {
 
   return {
-    displayName: 'Orotariko Euskal Hiztegia',
+    displayName: 'Orotarikoa',
+    description: 'Orotariko Euskal Hiztegia',
 
     homePage: 'http://www.euskaltzaindia.net/',
 

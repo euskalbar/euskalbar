@@ -28,6 +28,7 @@ euskalbar.dicts.mokoroa = function () {
 
   return {
     displayName: 'Mokoroa',
+    description: 'Mokoroaren datu-basea',
 
     homePage: 'http://www.hiru.com/hirupedia',
 

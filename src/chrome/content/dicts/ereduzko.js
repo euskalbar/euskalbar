@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.ereduzko = function () {
 
   return {
-    displayName: 'Ereduzko Prosa Gaur',
+    displayName: 'EPG',
+    description: 'Ereduzko Prosa Gaur',
 
     homePage: 'http://www.ehu.es/cgi-bin/ereduzkoa/',
 

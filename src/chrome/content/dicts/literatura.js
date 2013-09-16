@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.literatura = function () {
 
   return {
-    displayName: 'Literatura Terminoen Hiztegia',
+    displayName: 'Literatura',
+    description: 'Literatura Terminoen Hiztegia',
 
     homePage: 'http://www.euskaltzaindia.net/',
 

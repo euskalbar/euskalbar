@@ -29,7 +29,8 @@ euskalbar.dicts.lanbide_heziketa = function () {
   var $ = euskalbar.lib.utils.$;
 
   return {
-    displayName: 'Lanbide Heziketa',
+    displayName: 'Lanbideak',
+    description: 'Lanbide heziketarako hiztegia',
 
     homePage: 'http://kantauri.eleka.net/laneki',
 

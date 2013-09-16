@@ -29,7 +29,8 @@ euskalbar.dicts.telekomunikazioak = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: 'Telekomunikazio Hiztegia',
+    displayName: 'Telekom.',
+    description: 'Telekomunikazio Hiztegia',
 
     homePage: 'http://www.telekomunikaziohiztegia.org/',
 

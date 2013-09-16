@@ -29,7 +29,8 @@ euskalbar.dicts.zthiztegia = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: "ZT Hiztegia",
+    displayName: 'ZT Hiztegia',
+    description: 'Zientzia eta Teknologiaren hiztegi entziklopedikoa',
 
     homePage: 'http://zthiztegia.elhuyar.org',
 

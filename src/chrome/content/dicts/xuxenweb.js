@@ -28,6 +28,7 @@ euskalbar.dicts.xuxenweb = function () {
 
   return {
     displayName: 'XUXENweb',
+    description: 'XUXENweb zuzentzaile ortografikoa',
 
     homePage: 'http://www.xuxen.com/',
 

@@ -28,6 +28,7 @@ euskalbar.dicts.goihata = function () {
 
   return {
     displayName: 'Goihata',
+    description: 'Goihata hiztegia',
 
     homePage: 'http://www.kotobai.com/',
 

@@ -29,7 +29,8 @@ euskalbar.dicts.eurovoc = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: 'Eurovoc Thesaurusa',
+    displayName: 'Eurovoc',
+    description: 'Eurovoc Thesaurusa',
 
     homePage: 'http://www.bizkaia.net/kultura/eurovoc/',
 

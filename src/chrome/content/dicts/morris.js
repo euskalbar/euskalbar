@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.morris = function () {
 
   return {
-    displayName: 'Morris Hiztegia',
+    displayName: 'Morris',
+    description: 'Morris Hiztegia',
 
     homePage: 'http://www1.euskadi.net/morris/',
 

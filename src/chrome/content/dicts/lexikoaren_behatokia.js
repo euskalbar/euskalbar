@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.lexikoaren_behatokia = function () {
 
   return {
-    displayName: 'Lexikoaren Behatokia',
+    displayName: 'Lexikoaren B.',
+    description: 'Lexikoaren Behatokiaren corpusa',
 
     homePage: 'http://lexikoarenbehatokia.euskaltzaindia.net/',
 
