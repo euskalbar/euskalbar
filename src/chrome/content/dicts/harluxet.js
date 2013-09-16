@@ -29,7 +29,7 @@ euskalbar.dicts.harluxet = function () {
   return {
     displayName: 'Harluxet Hiztegi Entziklopedikoa',
 
-    homepage: 'http://www1.euskadi.net/harluxet/',
+    homePage: 'http://www1.euskadi.net/harluxet/',
 
     method: 'GET',
 

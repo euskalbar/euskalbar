@@ -29,7 +29,7 @@ euskalbar.dicts.xuxenweb = function () {
   return {
     displayName: 'XUXENweb',
 
-    homepage: 'http://www.xuxen.com/',
+    homePage: 'http://www.xuxen.com/',
 
     method: 'GET',
 

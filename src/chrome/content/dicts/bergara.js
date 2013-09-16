@@ -29,7 +29,7 @@ euskalbar.dicts.bergara = function () {
   return {
     displayName: 'Bergaraldeko Hiztegia',
 
-    homepage: 'http://www.bergarakoeuskara.net/hiztegia/',
+    homePage: 'http://www.bergarakoeuskara.net/hiztegia/',
 
     method: 'POST',
 

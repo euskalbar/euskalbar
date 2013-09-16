@@ -29,7 +29,7 @@ euskalbar.dicts.literatura = function () {
   return {
     displayName: 'Literatura Terminoen Hiztegia',
 
-    homepage: 'http://www.euskaltzaindia.net/',
+    homePage: 'http://www.euskaltzaindia.net/',
 
     method: 'GET',
 

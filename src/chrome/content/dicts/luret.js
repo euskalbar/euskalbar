@@ -29,7 +29,7 @@ euskalbar.dicts.luret = function () {
   return {
     displayName: 'Lur Hiztegi Entziklopedia Tematikoa',
 
-    homepage: 'http://www.euskara.euskadi.net/r59-lursubhe/eu/contenidos/informacion/lursubhe/eu_lursubhe/lursubhe.html',
+    homePage: 'http://www.euskara.euskadi.net/r59-lursubhe/eu/contenidos/informacion/lursubhe/eu_lursubhe/lursubhe.html',
 
     method: 'GET',
 

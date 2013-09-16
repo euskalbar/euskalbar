@@ -31,7 +31,7 @@ euskalbar.dicts.uzei = function () {
   return {
     displayName: 'UZEI Sinonimoen Hiztegia',
 
-    homepage: 'http://www.uzei.com/estatico/sinonimos.asp',
+    homePage: 'http://www.uzei.com/estatico/sinonimos.asp',
 
     method: 'GET',
 

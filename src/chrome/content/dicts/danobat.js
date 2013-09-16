@@ -29,7 +29,7 @@ euskalbar.dicts.danobat = function () {
   return {
     displayName: 'Danobat',
 
-    homepage: 'http://hiztegia.danobatgroup.com/',
+    homePage: 'http://hiztegia.danobatgroup.com/',
 
     pairs: ['eu-es', 'es-eu'],
 

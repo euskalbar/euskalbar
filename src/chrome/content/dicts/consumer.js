@@ -29,7 +29,7 @@ euskalbar.dicts.consumer = function () {
   return {
     displayName: 'Consumer Corpusa',
 
-    homepage: 'http://corpus.consumer.es/',
+    homePage: 'http://corpus.consumer.es/',
 
     method: 'POST',
 

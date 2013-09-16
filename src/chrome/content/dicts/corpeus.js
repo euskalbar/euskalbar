@@ -29,7 +29,7 @@ euskalbar.dicts.corpeus = function () {
   return {
     displayName: 'CorpEus',
 
-    homepage: 'http://www.corpeus.org/',
+    homePage: 'http://www.corpeus.org/',
 
     method: 'POST',
 

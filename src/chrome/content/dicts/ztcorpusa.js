@@ -29,7 +29,7 @@ euskalbar.dicts.ztcorpusa = function () {
   return {
     displayName: 'ZT Corpusa',
 
-    homepage: 'http://www.ztcorpusa.net/',
+    homePage: 'http://www.ztcorpusa.net/',
 
     method: 'GET',
 

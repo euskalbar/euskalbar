@@ -29,7 +29,7 @@ euskalbar.dicts.mokoroa = function () {
   return {
     displayName: 'Mokoroa',
 
-    homepage: 'http://www.hiru.com/hirupedia',
+    homePage: 'http://www.hiru.com/hirupedia',
 
     method: 'GET',
 

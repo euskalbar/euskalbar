@@ -29,7 +29,7 @@ euskalbar.dicts.klasikoak = function () {
   return {
     displayName: 'Klasikoen Gordailua',
 
-    homepage: 'http://klasikoak.armiarma.com/',
+    homePage: 'http://klasikoak.armiarma.com/',
 
     method: 'GET',
 

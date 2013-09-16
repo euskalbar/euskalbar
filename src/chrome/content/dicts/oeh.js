@@ -29,7 +29,7 @@ euskalbar.dicts.oeh = function () {
   return {
     displayName: 'Orotariko Euskal Hiztegia',
 
-    homepage: 'http://www.euskaltzaindia.net/',
+    homePage: 'http://www.euskaltzaindia.net/',
 
     method: 'POST',
 

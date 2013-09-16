@@ -29,7 +29,7 @@ euskalbar.dicts.egungo = function () {
   return {
     displayName: 'Egungo Euskararen Hiztegia',
 
-    homepage: 'http://www.ehu.es/eeh/',
+    homePage: 'http://www.ehu.es/eeh/',
 
     method: 'GET',
 

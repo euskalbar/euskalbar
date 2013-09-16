@@ -29,7 +29,7 @@ euskalbar.dicts.ereduzko = function () {
   return {
     displayName: 'Ereduzko Prosa Gaur',
 
-    homepage: 'http://www.ehu.es/cgi-bin/ereduzkoa/',
+    homePage: 'http://www.ehu.es/cgi-bin/ereduzkoa/',
 
     method: 'GET',
 

@@ -31,7 +31,7 @@ euskalbar.dicts.lanbide_heziketa = function () {
   return {
     displayName: 'Lanbide Heziketa',
 
-    homepage: 'http://kantauri.eleka.net/laneki',
+    homePage: 'http://kantauri.eleka.net/laneki',
 
     pairs: ['eu-es', 'es-eu'],
 

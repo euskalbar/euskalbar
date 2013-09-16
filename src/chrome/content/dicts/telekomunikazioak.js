@@ -31,7 +31,7 @@ euskalbar.dicts.telekomunikazioak = function () {
   return {
     displayName: 'Telekomunikazio Hiztegia',
 
-    homepage: 'http://www.telekomunikaziohiztegia.org/',
+    homePage: 'http://www.telekomunikaziohiztegia.org/',
 
     pairs: ['eu-es', 'eu-en', 'eu-fr',
             'es-eu', 'en-eu', 'fr-eu'],

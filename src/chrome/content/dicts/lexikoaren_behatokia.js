@@ -29,7 +29,7 @@ euskalbar.dicts.lexikoaren_behatokia = function () {
   return {
     displayName: 'Lexikoaren Behatokia',
 
-    homepage: 'http://lexikoarenbehatokia.euskaltzaindia.net/',
+    homePage: 'http://lexikoarenbehatokia.euskaltzaindia.net/',
 
     method: 'GET',
 

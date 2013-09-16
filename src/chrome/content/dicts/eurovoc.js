@@ -31,7 +31,7 @@ euskalbar.dicts.eurovoc = function () {
   return {
     displayName: 'Eurovoc Thesaurusa',
 
-    homepage: 'http://www.bizkaia.net/kultura/eurovoc/',
+    homePage: 'http://www.bizkaia.net/kultura/eurovoc/',
 
     method: 'POST',
 

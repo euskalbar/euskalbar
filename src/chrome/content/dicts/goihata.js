@@ -29,7 +29,7 @@ euskalbar.dicts.goihata = function () {
   return {
     displayName: 'Goihata',
 
-    homepage: 'http://www.kotobai.com/',
+    homePage: 'http://www.kotobai.com/',
 
     pairs: ['eu-jp', 'jp-eu'],
 

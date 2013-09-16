@@ -31,7 +31,7 @@ euskalbar.dicts.hautalan = function () {
   return {
     displayName: 'Hauta Lanerako Euskal Hiztegia',
 
-    homepage: 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl',
+    homePage: 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl',
 
     method: 'GET',
 

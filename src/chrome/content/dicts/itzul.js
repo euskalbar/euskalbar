@@ -29,7 +29,7 @@ euskalbar.dicts.itzul = function () {
   return {
     displayName: 'ItzuL',
 
-    homepage: 'http://postaria.com/pipermail/itzul/',
+    homePage: 'http://postaria.com/pipermail/itzul/',
 
     method: 'GET',
 
