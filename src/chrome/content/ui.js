@@ -38,6 +38,7 @@ euskalbar.ui = function () {
       });
 
       this.initLanguages();
+      this.initToolbarDicts();
       this.initDictsMenu();
     },
 
@@ -104,6 +105,44 @@ euskalbar.ui = function () {
             }
           }
         });
+      });
+    },
+
+
+    /*
+     * Generates toolbar buttons for the available dictionaries
+     */
+    initToolbarDicts: function () {
+      var toolbar = $('euskalbar-dicts-general'),
+          euPairs = euskalbar.app.pairs.eu.eu,
+          nonEuDicts,
+          toolbarButton, toolbarSeparator,
+          dict;
+
+      var appendToToolbar = function (dictName) {
+        dict = euskalbar.dicts[dictName];
+        toolbarButton = document.createElement('toolbarbutton');
+        toolbarButton.setAttribute('id', 'euskalbar-' + dictName);
+        toolbarButton.setAttribute('label', dict.displayName);
+        toolbarButton.setAttribute('tooltiptext', dict.description ||
+                                                  dict.displayName);
+        toolbarButton.setAttribute('collapsed', false);
+        toolbarButton.setAttribute('persist', 'collapsed');
+        toolbarButton.setAttribute('oncommand',
+                                   'euskalbar.app.runQuery(event);');
+        toolbar.appendChild(toolbarButton);
+      };
+
+      nonEuDicts = euskalbar.dicts.available.difference(euPairs);
+      nonEuDicts.each(function (dictName) {
+        appendToToolbar(dictName);
+      });
+
+      toolbarSeparator = document.createElement('toolbarseparator'),
+      toolbar.appendChild(toolbarSeparator);
+
+      euskalbar.app.pairs.eu.eu.each(function (dictName) {
+        appendToToolbar(dictName);
       });
     },
 

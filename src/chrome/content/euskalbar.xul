@@ -51,44 +51,9 @@
           <splitter id="euskalbar-search-splitter" resizeafter="grow" resizebefore="closest">
           </splitter>
       </hbox>
+
       <hbox id="euskalbar-dicts-general">
-        <toolbarbutton id="euskalbar-euskalterm" tooltiptext="&euskalbar.euskalterm.tooltip;" label="Euskalterm" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-zehazki" tooltiptext="&euskalbar.zehazki.tooltip;" label="Zehazki" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-zthiztegia" tooltiptext="&euskalbar.zthiztegia.tooltip;" label="ZT hiztegia" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-telekomunikazioak" tooltiptext="&euskalbar.telekom.tooltip;" label="Telekomunikazioak" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-morris" tooltiptext="&euskalbar.morris.tooltip;" label="Morris" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-opentran" tooltiptext="&euskalbar.opentran.tooltip;" label="Open-tran" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-goihata" tooltiptext="&euskalbar.goihata.tooltip;" label="Goihata" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-danobat" tooltiptext="&euskalbar.danobat.tooltip;" label="Danobat" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-ehuskaratuak" tooltiptext="&euskalbar.ehuskaratuak.tooltip;" label="EHUskaratuak" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-lanbide_heziketa" tooltiptext="&euskalbar.lanbide.tooltip;" label="Lanbideak" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-epaitegiak" tooltiptext="&euskalbar.epaitegiak.tooltip;" label="Epaitegiak" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarseparator/>
-        <toolbarbutton id="euskalbar-batua" tooltiptext="&euskalbar.batua.tooltip;" label="Batua" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-oeh" tooltiptext="&euskalbar.oeh.tooltip;" label="Orotarikoa" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-hautalan" tooltiptext="Hauta Lanerako Euskal Hiztegia" label="Hauta Lana" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-lurhe" tooltiptext="&euskalbar.lurhe.tooltip;" label="Lur HE" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-luret" tooltiptext="&euskalbar.luret.tooltip;" label="Lur ET" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-harluxet" tooltiptext="&euskalbar.harluxet.tooltip;" label="Harluxet" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-wikipedia" tooltiptext="&euskalbar.wikipedia.tooltip;" label="Wikipedia" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-itzul" tooltiptext="&euskalbar.itzul.tooltip;" label="ItzuL" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-uzei" tooltiptext="&euskalbar.uzei.tooltip;" label="UZEI sin." collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-mokoroa" tooltiptext="&euskalbar.mokoroa.tooltip;" label="Mokoroa" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-intza" tooltiptext="&euskalbar.intza.tooltip;" label="Intza" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-eurovoc" tooltiptext="&euskalbar.eurovoc.tooltip;" label="Eurovoc" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-bergara" tooltiptext="&euskalbar.bergara.tooltip;" label="Bergara" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.query(event);" />
-        <toolbarbutton id="euskalbar-ereduzko" tooltiptext="&euskalbar.ereduzko.tooltip;" label="Ereduzkoa" collapsed="false" persist="collapsed" oncommand="euskalbar.dicts.query(event);" />
-        <toolbarbutton id="euskalbar-egungo" tooltiptext="&euskalbar.egungo.tooltip;" label="Egungoa" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-klasikoak" tooltiptext="&euskalbar.klasikoak.tooltip;" label="Klasikoak" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-ztcorpusa" tooltiptext="&euskalbar.ztcorpusa.tooltip;" label="ZT corpusa" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-lexikoaren_behatokia" tooltiptext="&euskalbar.lb.tooltip;" label="Lexikoaren B." collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-consumer" tooltiptext="&euskalbar.consumer.tooltip;" label="Consumer" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-literatura" tooltiptext="&euskalbar.lth.tooltip;" label="Literatura" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-corpeus" tooltiptext="&euskalbar.corpeus.tooltip;" label="CorpEus" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-xuxenweb" tooltiptext="&euskalbar.xuxenweb.tooltip;" label="XUXENweb" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
-        <toolbarbutton id="euskalbar-elebila" tooltiptext="&euskalbar.elebila.tooltip;" label="Elebila" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
+        <!-- Content generated in euskalbar.ui -->
       </hbox>
      </toolbar>
   </toolbox>
