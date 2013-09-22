@@ -11,6 +11,7 @@
     <preferences>
       <preference id="prefEuskaltermVisible" name="extensions.euskalbar.euskalterm.visible" type="bool"/>
       <preference id="prefElhuyarVisible" name="extensions.euskalbar.elhuyar.visible" type="bool"/>
+      <preference id="prefBostmilaVisible" name="extensions.euskalbar.bostmila.visible" type="bool"/>
       <preference id="prefZTHiztegiaVisible" name="extensions.euskalbar.zthiztegia.visible" type="bool"/>
       <preference id="prefTelekomVisible" name="extensions.euskalbar.telekomunikazioak.visible" type="bool"/>
       <preference id="prefLabayruVisible" name="extensions.euskalbar.labayru.visible" type="bool"/>
@@ -48,6 +49,7 @@
 
       <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="prefElhuyar" name="extensions.euskalbar.elhuyar.onkey" type="bool"/>
+      <preference id="prefBostmila" name="extensions.bostmila.elhuyar.onkey" type="bool"/>
       <preference id="prefZTHiztegia" name="extensions.euskalbar.zthiztegia.onkey" type="bool"/>
       <preference id="prefTelekom" name="extensions.euskalbar.telekomunikazioak.onkey" type="bool"/>
       <preference id="prefLabayru" name="extensions.euskalbar.labayru.onkey" type="bool"/>
@@ -214,6 +216,7 @@
           <listbox flex="1" width="400" id="list-dictsview">
             <listitem preference="prefEuskaltermVisible" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
             <listitem preference="prefElhuyarVisible" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+            <listitem preference="prefBostmilaVisible" type="checkbox" label="&euskalbar.bostmila.tooltip;"/>
             <listitem preference="prefLabayruVisible" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
             <listitem preference="prefZehazkiVisible" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
             <listitem preference="prefZTHiztegiaVisible" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
@@ -265,6 +268,7 @@
                   <listbox flex="1" id="list-enter">
                     <listitem preference="prefEuskalterm" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
                     <listitem preference="prefElhuyar" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
+                    <listitem preference="prefBostmila" type="checkbox" label="&euskalbar.bostmila.tooltip;"/>
                     <listitem preference="prefLabayru" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
                     <listitem preference="prefZehazki" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
                     <listitem preference="prefZTHiztegia" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>

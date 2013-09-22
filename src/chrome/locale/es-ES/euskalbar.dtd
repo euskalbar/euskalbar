@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.help.label "Ayuda">
 <!ENTITY euskalbar.options.tooltip "Abrir la ventana de preferencias">
 <!ENTITY euskalbar.euskalterm.tooltip "Base de datos Euskalterm">
+<!ENTITY euskalbar.bostmila.tooltip "Diccionario 5000">
 <!ENTITY euskalbar.goihata.tooltip "Diccionario Goihata">
 <!ENTITY euskalbar.labayru.tooltip "Diccionario Labayru">
 <!ENTITY euskalbar.zehazki.tooltip "Diccionario Zehazki">

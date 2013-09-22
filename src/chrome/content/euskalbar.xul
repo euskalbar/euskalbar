@@ -54,6 +54,7 @@
       <hbox id="euskalbar-dicts-general">
         <toolbarbutton id="euskalbar-euskalterm" tooltiptext="&euskalbar.euskalterm.tooltip;" label="Euskalterm" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
         <toolbarbutton id="euskalbar-elhuyar" tooltiptext="&euskalbar.elhuyar.tooltip;" label="Elhuyar" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
+        <toolbarbutton id="euskalbar-bostmila" tooltiptext="&euskalbar.bostmila.tooltip;" label="5000" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
         <toolbarbutton id="euskalbar-labayru" tooltiptext="&euskalbar.labayru.tooltip;" label="Labayru" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
         <toolbarbutton id="euskalbar-zehazki" tooltiptext="&euskalbar.zehazki.tooltip;" label="Zehazki" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
         <toolbarbutton id="euskalbar-zthiztegia" tooltiptext="&euskalbar.zthiztegia.tooltip;" label="ZT hiztegia" collapsed="false" persist="collapsed" oncommand="euskalbar.app.runQuery(event);" />
@@ -132,6 +133,7 @@
     	    <menupopup>
               <menuitem id="euskalbar-euskalterm-eu_es-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-bostmila-eu_es-context" label="5000" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-labayru-eu-context" label="Labayru" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-zthiztegia-eu-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-telekomunikazioak-eu-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
@@ -146,6 +148,7 @@
     	    <menupopup>
               <menuitem id="euskalbar-euskalterm-es_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-bostmila-es_eu-context" label="5000" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-labayru-es-context" label="Labayru" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-zehazki-es-context" label="Zehazki" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-zthiztegia-es-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />

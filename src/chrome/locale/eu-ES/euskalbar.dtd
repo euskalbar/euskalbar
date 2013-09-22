@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.help.label "Laguntza">
 <!ENTITY euskalbar.options.tooltip "Ireki hobespenen leihoa">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu-basea">
+<!ENTITY euskalbar.bostmila.tooltip "5000 hiztegia">
 <!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
 <!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki hiztegia">

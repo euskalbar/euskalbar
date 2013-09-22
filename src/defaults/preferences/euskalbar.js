@@ -18,6 +18,7 @@ pref("extensions.euskalbar.firstrun", true);
 // Dictionaries visibility
 pref("extensions.euskalbar.euskalterm.visible", true);
 pref("extensions.euskalbar.elhuyar.visible", true);
+pref("extensions.euskalbar.bostmila.visible", true);
 pref("extensions.euskalbar.zthiztegia.visible", true);
 pref("extensions.euskalbar.telekomunikazioak.visible", true);
 pref("extensions.euskalbar.labayru.visible", true);
@@ -56,6 +57,7 @@ pref("extensions.euskalbar.danobat.visible", true);
 // Dictionaries searched on pressing "Enter" key
 pref("extensions.euskalbar.euskalterm.onkey", false);
 pref("extensions.euskalbar.elhuyar.onkey", true);
+pref("extensions.euskalbar.bostmila.onkey", true);
 pref("extensions.euskalbar.zthiztegia.onkey", false);
 pref("extensions.euskalbar.telekomunikazioak.onkey", false);
 pref("extensions.euskalbar.labayru.onkey", false);

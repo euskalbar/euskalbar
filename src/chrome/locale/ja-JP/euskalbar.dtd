@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.help.label "ヘルプ">
 <!ENTITY euskalbar.options.tooltip "オプション">
 <!ENTITY euskalbar.euskalterm.tooltip "Euskalterm データベース">
+<!ENTITY euskalbar.bostmila.tooltip "5000 辞書">
 <!ENTITY euskalbar.goihata.tooltip "Goihata 辞書">
 <!ENTITY euskalbar.labayru.tooltip "Labayru 辞書">
 <!ENTITY euskalbar.zehazki.tooltip "Zehazki 辞書">
