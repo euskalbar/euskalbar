@@ -645,10 +645,11 @@ euskalbar.app = function () {
 
 }();
 
-window.addEventListener("load", function(e) {
+window.addEventListener("load", function (e) {
     window.removeEventListener('load', euskalbar.app.init, false);
     euskalbar.app.init();
 }, false);
+
 window.addEventListener("unload", function(e) {
   euskalbar.app.shutdown();
 }, false);
