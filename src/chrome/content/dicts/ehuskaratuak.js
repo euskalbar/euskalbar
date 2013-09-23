@@ -28,6 +28,7 @@ euskalbar.dicts.ehuskaratuak = function () {
 
   return {
     displayName: 'EHUskaratuak',
+    description: 'EHUskaratuak, EHUren itzulpen-memoriak',
 
     homePage: 'http://ehuskaratuak.ehu.es/',
 

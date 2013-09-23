@@ -27,9 +27,10 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.luret = function () {
 
   return {
-    displayName: 'Lur Hiztegi Entziklopedia Tematikoa',
+    displayName: 'Lur ET',
+    description: 'Lur Entziklopedia Tematikoa',
 
-    homepage: 'http://www.euskara.euskadi.net/r59-lursubhe/eu/contenidos/informacion/lursubhe/eu_lursubhe/lursubhe.html',
+    homePage: 'http://www.euskara.euskadi.net/r59-lursubhe/eu/contenidos/informacion/lursubhe/eu_lursubhe/lursubhe.html',
 
     method: 'GET',
 

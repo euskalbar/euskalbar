@@ -28,8 +28,9 @@ euskalbar.dicts.wikipedia = function () {
 
   return {
     displayName: 'Wikipedia',
+    description: 'Euskarazko Wikipedia',
 
-    homepage: 'https://eu.wikipedia.org/',
+    homePage: 'https://eu.wikipedia.org/',
 
     method: 'GET',
 

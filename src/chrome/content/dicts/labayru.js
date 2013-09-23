@@ -29,7 +29,8 @@ euskalbar.dicts.labayru = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: "Labayru Hiztegia",
+    displayName: 'Labayru',
+    description: 'Labayru Hiztegia',
 
     homePage: "http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp",
 

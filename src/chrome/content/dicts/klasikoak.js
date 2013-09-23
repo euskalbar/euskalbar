@@ -27,9 +27,10 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.klasikoak = function () {
 
   return {
-    displayName: 'Klasikoen Gordailua',
+    displayName: 'Klasikoak',
+    description: 'Klasikoen Gordailua',
 
-    homepage: 'http://klasikoak.armiarma.com/',
+    homePage: 'http://klasikoak.armiarma.com/',
 
     method: 'GET',
 

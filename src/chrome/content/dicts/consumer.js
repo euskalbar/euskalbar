@@ -27,9 +27,10 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.consumer = function () {
 
   return {
-    displayName: 'Consumer Corpusa',
+    displayName: 'Consumer',
+    description: 'Consumer Corpusa',
 
-    homepage: 'http://corpus.consumer.es/',
+    homePage: 'http://corpus.consumer.es/',
 
     method: 'POST',
 

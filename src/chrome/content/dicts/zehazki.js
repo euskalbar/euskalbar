@@ -27,7 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.zehazki = function () {
 
   return {
-    displayName: 'Zehazki Hiztegia',
+    displayName: 'Zehazki',
+    description: 'Zehazki Hiztegia',
 
     homePage: 'http://ehu.es/ehg/cgi/zehazki/bila',
 

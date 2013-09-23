@@ -29,9 +29,10 @@ euskalbar.dicts.telekomunikazioak = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: 'Telekomunikazio Hiztegia',
+    displayName: 'Telekom.',
+    description: 'Telekomunikazio Hiztegia',
 
-    homepage: 'http://www.telekomunikaziohiztegia.org/',
+    homePage: 'http://www.telekomunikaziohiztegia.org/',
 
     pairs: ['eu-es', 'eu-en', 'eu-fr',
             'es-eu', 'en-eu', 'fr-eu'],

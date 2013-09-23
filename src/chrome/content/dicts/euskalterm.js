@@ -30,7 +30,8 @@ euskalbar.dicts.euskalterm = function () {
       $ = $U.$;
 
   return {
-    displayName: "Euskalterm",
+    displayName: 'Euskalterm',
+    description: 'Euskalterm datu-basea',
 
     homePage: "http://www.euskara.euskadi.net/euskalterm/",
 

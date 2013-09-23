@@ -29,7 +29,8 @@ euskalbar.dicts.elhuyar = function () {
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: "Elhuyar Hiztegia",
+    displayName: 'Elhuyar',
+    description: 'Elhuyar Hiztegia',
 
     homePage: "http://www.elhuyar.org/hiztegia/",
 

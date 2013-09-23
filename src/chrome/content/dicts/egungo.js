@@ -27,9 +27,10 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.egungo = function () {
 
   return {
-    displayName: 'Egungo Euskararen Hiztegia',
+    displayName: 'EEH',
+    description: 'Egungo Euskararen Hiztegia',
 
-    homepage: 'http://www.ehu.es/eeh/',
+    homePage: 'http://www.ehu.es/eeh/',
 
     method: 'GET',
 

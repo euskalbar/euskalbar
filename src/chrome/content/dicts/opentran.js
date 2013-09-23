@@ -31,6 +31,7 @@ euskalbar.dicts.opentran = function () {
 
   return {
     displayName: 'OpenTran',
+    description: 'OpenTran.eu informatikako itzulpen-memoriak',
 
     homePage: 'http://open-tran.eu/',
 

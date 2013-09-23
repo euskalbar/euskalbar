@@ -28,8 +28,9 @@ euskalbar.dicts.itzul = function () {
 
   return {
     displayName: 'ItzuL',
+    description: 'ItzuL posta-zerrendako artxiboa',
 
-    homepage: 'http://postaria.com/pipermail/itzul/',
+    homePage: 'http://postaria.com/pipermail/itzul/',
 
     method: 'GET',
 

@@ -27,9 +27,10 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.epaitegiak = function () {
 
   return {
-    displayName: 'Epaitegietako Lexikoa',
+    displayName: 'Epaitegiak',
+    description: 'Epaitegietako Lexikoa',
 
-    homepage: 'http://www.justizia.net/euskara-justizian',
+    homePage: 'http://www.justizia.net/euskara-justizian',
 
     pairs: ['eu-es', 'es-eu'],
 

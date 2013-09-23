@@ -28,8 +28,9 @@ euskalbar.dicts.lurhe = function () {
 
   return {
     displayName: 'Lur Hiztegi Entziklopedikoa',
+    shortName: 'Lur HE',
 
-    homepage: 'http://www.euskara.euskadi.net/r59-lursubhd/eu/contenidos/informacion/lursubhd/eu_lursubhd/lursubhd.html',
+    homePage: 'http://www.euskara.euskadi.net/r59-lursubhd/eu/contenidos/informacion/lursubhd/eu_lursubhd/lursubhd.html',
 
     method: 'GET',
 
