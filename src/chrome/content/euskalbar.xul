@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+
+<?xul-overlay href="chrome://euskalbar/content/toolbarbutton/euskalbarButtonOverlay.xul"?>
+
+<?xml-stylesheet href="chrome://euskalbar/skin/euskalbar.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="lib/set.js"/>
+  <script type="application/x-javascript" src="lib/utils.js"/>
+  <script type="application/x-javascript" src="app.js"/>
+  <script type="application/x-javascript" src="dicts.js"/>
+  <script type="application/x-javascript" src="dicts/menu.js"/>
+  <script type="application/x-javascript" src="stats.js"/>
+  <script type="application/x-javascript" src="ui.js"/>
+  <script type="application/x-javascript">
+    window.addEventListener("load", function load(e) {
+        window.removeEventListener('load', load, false);
+        euskalbar.app.init();
+    }, false);
+
+    window.addEventListener("unload", function (e) {
+      euskalbar.app.shutdown();
+    }, false);
+  </script>
+
+  <!-- Create reference to locales for Javascript files -->
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="euskalbar-leuskal" src="chrome://euskalbar/locale/euskalbar.properties"/>
+  </stringbundleset>
+
+  <commandset>
+    <command id="cmd_toggleEuskalbar" oncommand="euskalbar.app.toggleBar(event)"/>
+  </commandset>
+
+  <!-- Laster-teklak sortzen ditu -->
+  <keyset>
+    <key id="euskalbar-toggle"
+      modifiers="control alt" key="a" command="cmd_toggleEuskalbar"/>
+    <key id="euskalbar-focustextbox" modifiers="control alt" key="s" oncommand="euskalbar.app.teklakEuskalbar('focustextbox');"/>
+    <key id="euskalbar-toggledicts" modifiers="control alt" key="z" oncommand="euskalbar.app.teklakEuskalbar('toggledicts');"/>
+    <key id="euskalbar-showdictskey" modifiers="control alt" key="h" oncommand="euskalbar.app.teklakEuskalbar('showdicts');"/>
+    <key id="euskalbar-showcontextmenu" modifiers="control alt" key="t" oncommand="euskalbar.app.teklakEuskalbar('showcontextmenu');"/>
+  </keyset>
+
+
+  <!-- Firefox Euskalbar toolbar -->
+  <toolbox id="navigator-toolbox">
+    <toolbar id="euskalbar-toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="euskalbar-hsButtons" collapsed="false" persist="collapsed">
+    <toolbaritem id="euskalbar-leftbuttons" flex="0">
+      <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.app.toggleLang();">
+        <menupopup id="euskalbar-language-popup">
+          <!-- Content generated in euskalbar.ui -->
+        </menupopup>
+      </toolbarbutton>
+    </toolbaritem>
+      <hbox>
+          <textbox id="euskalbar-search-string" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.app.goEuskalBarOnKey(event)" />
+          <splitter id="euskalbar-search-splitter" resizeafter="grow" resizebefore="closest">
+          </splitter>
+      </hbox>
+
+      <hbox id="euskalbar-dicts-general">
+        <!-- Content generated in euskalbar.ui -->
+      </hbox>
+     </toolbar>
+  </toolbox>
+
+  <window id="main-window">
+    <menupopup id="euskalbar-hsButtons">
+      <menuitem id="euskalbar-buttonvisibility" label="&euskalbar.prefs.options.label;"
+        oncommand="euskalbar.ui.options()" />
+    </menupopup>
+  </window>
+
+  <!-- Firefox context menupopup right-click -->
+  <popup id="contentAreaContextMenu">
+    <menuseparator id="euskalbar-context-menuseparator"/>
+      <menu id="euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
+      <observes element="cmd_copy" attribute="disabled" />
+      <menupopup>
+          <menu id="euskalbar-eu-context" label="&euskalbar.language.eu;">
+          <menupopup>
+              <menuitem id="euskalbar-batua-context" label="Batua" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-oeh-context" label="Orotariko Euskal Hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-hautalan-context" label="Hauta Lanerako Euskal Hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-lurhe-context" label="Lur hiztegi entziklopedikoa" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-luret-context" label="Lur entziklopedia tematikoa" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-harluxet-context" label="Harluxet" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-wikipedia-context" label="Wikipedia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-itzul-context" label="ItzuL" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-eurovoc-context" label="Eurovoc" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-bergara-context" label="Bergara" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ereduzko-context" label="Ereduzko Prosa Gaur" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-egungo-context" label="Egungo Euskararen Hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-klasikoak-context" label="Klasikoak" oncommand="euskalbar.app.runQuery(event);"/>
+              <menuitem id="euskalbar-literatura-context" label="Literatura" oncommand="euskalbar.app.runQuery(event);"/>
+              <menuitem id="euskalbar-ztcorpusa-context" label="ZT corpusa" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-lexikoaren_behatokia-context" label="Lexikoaren Behatokiaren corpusa" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-corpeus-context" label="CorpEus" oncommand="euskalbar.app.runQuery(event);" />
+          </menupopup>
+        </menu>
+          <menuseparator/>
+          <menu id="euskalbar-eu_es-context" label="&euskalbar.language.eu_es;">
+          <menupopup>
+              <menuitem id="euskalbar-euskalterm-eu_es-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-labayru-eu-context" label="Labayru" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zthiztegia-eu-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-telekomunikazioak-eu-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-mokoroa-eu-context" label="Mokoroa" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-intza-eu-context" label="Intza" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ehuskaratuak-eu_es-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-lanbide_heziketa-eu_es-context" label="Lanbideak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-epaitegiak-eu_es-context" label="Epaitegiak" oncommand="euskalbar.app.runQuery(event);" />
+          </menupopup>
+        </menu>
+          <menu id="euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
+          <menupopup>
+              <menuitem id="euskalbar-euskalterm-es_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-labayru-es-context" label="Labayru" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zehazki-es-context" label="Zehazki" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zthiztegia-es-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-telekomunikazioak-es-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-mokoroa-es-context" label="Mokoroa" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-intza-es-context" label="Intza" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ehuskaratuak-es_eu-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-lanbide_heziketa-es_eu-context" label="Lanbideak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-epaitegiak-es_eu-context" label="Epaitegiak" oncommand="euskalbar.app.runQuery(event);" />
+          </menupopup>
+          </menu>
+          <menu id="euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
+            <menupopup>
+              <menuitem id="euskalbar-euskalterm-eu_fr-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zthiztegia-eu_fr-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-telekom-eu_fr-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ehuskaratuak-eu_fr-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
+            </menupopup>
+          </menu>
+          <menu id="euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
+            <menupopup>
+              <menuitem id="euskalbar-euskalterm-fr_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zthiztegia-fr_eu-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-telekom-fr_eu-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ehuskaratuak-fr_eu-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
+
+            </menupopup>
+          </menu>
+          <menu id="euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
+            <menupopup>
+              <menuitem id="euskalbar-euskalterm-eu_en-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-elhuyar-eu_en-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-morris-eu_en-context" label="Morris" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-opentran-eu_en-context" label="Open-tran" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zthiztegia-eu_en-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-telekomunikazioak-eu_en-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ehuskaratuak-eu_en-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
+            </menupopup>
+          </menu>
+          <menu id="euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
+            <menupopup>
+              <menuitem id="euskalbar-euskalterm-en_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-elhuyar-en_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-morris-en_eu-context" label="Morris" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-opentran-en_eu-context" label="Open-tran" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-zthiztegia-en_eu-context" label="ZT hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-telekomunikaziok-en_eu-context" label="Telekomunikazioak" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-ehuskaratuak-en_eu-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
+            </menupopup>
+          </menu>
+          <menu id="euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
+            <menupopup>
+              <menuitem id="euskalbar-goihata-eu_jp-context" label="Goihata" oncommand="euskalbar.app.runQuery(event);" />
+            </menupopup>
+          </menu>
+          <menuseparator/>
+          <menu id="euskalbar-sinonimoak-context" label="&euskalbar.context.sinonimoak.label;">
+            <menupopup>
+              <menuitem id="euskalbar-uzei-sinonimoak-context" label="UZEI sinonimoak" oncommand="euskalbar.app.runQuery(event);" />
+            </menupopup>
+          </menu>
+          <menuseparator/>
+          <menuitem id="euskalbar-xuxenweb-context" label="&euskalbar.context.xuxenweb.label;" oncommand="euskalbar.app.runQuery(event);" />
+          <menuseparator/>
+          <menuitem id="euskalbar-elebila-context" label="Elebila" oncommand="euskalbar.app.runQuery(event);" />
+        </menupopup>
+      </menu>
+    </popup>
+
+
+  <!-- Firefox menubar -->
+  <menubar id="main-menubar">
+      <menu id="euskalbar-menu" label="&euskalbar.menu.main;"
+            insertafter="tools-menu" persist="hidden">
+          <!-- Content comes from euskalbar-menuPopup -->
+      </menu>
+  </menubar>
+
+  <!-- Firefox menu -->
+  <vbox id="appmenuSecondaryPane">
+      <menu id="appmenu_euskalbar" label="&euskalbar.menu.main;"
+            insertbefore="appmenu_addons" persist="hidden">
+          <!-- Content comes from euskalbar-menuPopup -->
+      </menu>
+      <spacer id="euskalbar-appmenu-spacer"
+              insertafter="appmenu_euskalbar" persist="hidden"/>
+  </vbox>
+
+</overlay>
