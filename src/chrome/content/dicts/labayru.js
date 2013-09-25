@@ -32,7 +32,7 @@ euskalbar.dicts.labayru = function () {
     displayName: 'Labayru',
     description: 'Labayru Hiztegia',
 
-    homePage: "http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp",
+    homePage: "http://hiztegia.labayru.net/",
 
     pairs: ['eu-es', 'es-eu'],
 
@@ -40,9 +40,9 @@ euskalbar.dicts.labayru = function () {
 
     getUrl: function (term, source, target) {
       if (source === 'es') {
-        return 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabras.asp';
+        return 'http://hiztegia.labayru.net/CargaListaPalabras.asp';
       } else {
-        return 'http://zerbitzuak.labayru.org/diccionario/CargaListaPalabrasEU.asp';
+        return 'http://hiztegia.labayru.net/CargaListaPalabrasEU.asp';
       }
     },
 
