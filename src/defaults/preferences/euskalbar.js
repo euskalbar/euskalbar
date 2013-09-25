@@ -23,6 +23,7 @@ pref("extensions.euskalbar.zthiztegia.visible", true);
 pref("extensions.euskalbar.telekomunikazioak.visible", true);
 pref("extensions.euskalbar.labayru.visible", true);
 pref("extensions.euskalbar.zehazki.visible", true);
+pref("extensions.euskalbar.ikea.visible", true);
 pref("extensions.euskalbar.morris.visible", true);
 pref("extensions.euskalbar.opentran.visible", true);
 pref("extensions.euskalbar.ehuskaratuak.visible", true);

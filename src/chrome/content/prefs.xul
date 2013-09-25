@@ -46,6 +46,7 @@
       <preference id="prefElebilaVisible" name="extensions.euskalbar.elebila.visible" type="bool"/>
       <preference id="prefGoihataVisible" name="extensions.euskalbar.goihata.visible" type="bool"/>
       <preference id="prefDanobatVisible" name="extensions.euskalbar.danobat.visible" type="bool"/>
+      <preference id="prefHikeaVisible" name="extensions.euskalbar.hikea.visible" type="bool"/>
 
       <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
       <preference id="prefElhuyar" name="extensions.euskalbar.elhuyar.onkey" type="bool"/>
@@ -84,6 +85,7 @@
       <preference id="prefElebila" name="extensions.euskalbar.elebila.onkey" type="bool"/>
       <preference id="prefGoihata" name="extensions.euskalbar.goihata.onkey" type="bool"/>
       <preference id="prefDanobat" name="extensions.euskalbar.danobat.onkey" type="bool"/>
+      <preference id="prefHikea" name="extensions.euskalbar.hikea.onkey" type="bool"/>
 
       <preference id="prefEuskaltermShiftES" name="extensions.euskalbar.euskalterm.onkey1.es" type="bool"/>
       <preference id="prefElhuyarShiftES" name="extensions.euskalbar.elhuyar.onkey1.es" type="bool"/>
@@ -222,6 +224,7 @@
             <listitem preference="prefZTHiztegiaVisible" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
             <listitem preference="prefTelekomVisible" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
             <listitem preference="prefDanobatVisible" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
+            <listitem preference="prefHikeaVisible" type="checkbox" label="&euskalbar.hikea.tooltip;"/>
             <listitem preference="prefMorrisVisible" type="checkbox" label="&euskalbar.morris.tooltip;"/>
             <listitem preference="prefOpentranVisible" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
             <listitem preference="prefGoihataVisible" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
@@ -274,6 +277,7 @@
                     <listitem preference="prefZTHiztegia" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
                     <listitem preference="prefTelekom" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
                     <listitem preference="prefDanobat" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
+                    <listitem preference="prefHikea" type="checkbox" label="&euskalbar.hikea.tooltip;"/>
                     <listitem preference="prefMorris" type="checkbox" label="&euskalbar.morris.tooltip;"/>
                     <listitem preference="prefOpentran" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
                     <listitem preference="prefGoihata" type="checkbox" label="&euskalbar.goihata.tooltip;"/>

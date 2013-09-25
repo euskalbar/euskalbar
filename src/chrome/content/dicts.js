@@ -32,9 +32,9 @@ euskalbar.dicts = function () {
 
     // Set of available dictionaries
     available: $L.Set([
-      'bostmila',
       'batua',
       'bergara',
+      'bostmila',
       'consumer',
       'corpeus',
       'danobat',
@@ -49,6 +49,7 @@ euskalbar.dicts = function () {
       'goihata',
       'harluxet',
       'hautalan',
+      'hikea',
       'intza',
       'itzul',
       'klasikoak',

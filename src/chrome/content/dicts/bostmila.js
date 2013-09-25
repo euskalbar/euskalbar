@@ -28,13 +28,14 @@ euskalbar.dicts.bostmila = function () {
 
   return {
     displayName: '5000',
+    description: '5000 hiztegia',
 
     homepage: 'http://www.bostakbat.org/azkue/',
 
-    method: 'GET',
-
     pairs: ['eu-es',
             'es-eu'],
+
+    method: 'GET',
 
     getUrl: function (term, source, target) {
       return 'http://www.bostakbat.org/azkue//index.php';

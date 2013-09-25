@@ -14,6 +14,7 @@
 <!ENTITY euskalbar.energia.tooltip "Energia hiztegia">
 <!ENTITY euskalbar.telekom.tooltip "Telekomunikazio hiztegia">
 <!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
+<!ENTITY euskalbar.hikea.tooltip "HIKEA hiztegia">
 <!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
 <!ENTITY euskalbar.opentran.tooltip "Open-tran.eu informatikako itzulpen-memoriak">
 <!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, EHUren itzulpen-memoriak">
