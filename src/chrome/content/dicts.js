@@ -34,6 +34,7 @@ euskalbar.dicts = function () {
     available: $L.Set([
       'batua',
       'bergara',
+      'berria',
       'bostmila',
       'consumer',
       'corpeus',

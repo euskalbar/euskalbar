@@ -85,6 +85,7 @@
           <menupopup>
               <menuitem id="euskalbar-batua-context" label="Batua" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-oeh-context" label="Orotariko Euskal Hiztegia" oncommand="euskalbar.app.runQuery(event);" />
+              <menuitem id="euskalbar-berria-context" label="Berria" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-hautalan-context" label="Hauta Lanerako Euskal Hiztegia" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-lurhe-context" label="Lur hiztegi entziklopedikoa" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-luret-context" label="Lur entziklopedia tematikoa" oncommand="euskalbar.app.runQuery(event);" />

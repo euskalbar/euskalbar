@@ -22,6 +22,7 @@
 <!ENTITY euskalbar.epaitegiak.tooltip "Epaitegietako lexikoa">
 <!ENTITY euskalbar.batua.tooltip "Hiztegi Batua">
 <!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
+<!ENTITY euskalbar.berria.tooltip "Berriaren estilo liburua">
 <!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
 <!ENTITY euskalbar.lurhe.tooltip "Lur hiztegi entziklopedikoa">
 <!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">

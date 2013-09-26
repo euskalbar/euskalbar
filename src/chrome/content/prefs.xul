@@ -22,6 +22,7 @@
       <preference id="prefLanbideVisible" name="extensions.euskalbar.lanbide_heziketa.visible" type="bool"/>
       <preference id="prefEpaitegiakVisible" name="extensions.euskalbar.epaitegiak.visible" type="bool"/>
       <preference id="prefBatuaVisible" name="extensions.euskalbar.batua.visible" type="bool"/>
+      <preference id="prefBerriaVisible" name="extensions.euskalbar.berria.visible" type="bool"/>
       <preference id="prefOEHVisible" name="extensions.euskalbar.oeh.visible" type="bool"/>
       <preference id="prefHautaVisible" name="extensions.euskalbar.hautalan.visible" type="bool"/>
       <preference id="prefLurheVisible" name="extensions.euskalbar.lurhe.visible" type="bool"/>
@@ -61,6 +62,7 @@
       <preference id="prefLanbide" name="extensions.euskalbar.lanbide_heziketa.onkey" type="bool"/>
       <preference id="prefEpaitegiak" name="extensions.euskalbar.epaitegiak.onkey" type="bool"/>
       <preference id="prefBatua" name="extensions.euskalbar.batua.onkey" type="bool"/>
+      <preference id="prefBerria" name="extensions.euskalbar.berria.onkey" type="bool"/>
       <preference id="prefOEH" name="extensions.euskalbar.oeh.onkey" type="bool"/>
       <preference id="prefHauta" name="extensions.euskalbar.hautalan.onkey" type="bool"/>
       <preference id="prefLurhe" name="extensions.euskalbar.lurhe.onkey" type="bool"/>
@@ -232,6 +234,7 @@
             <listitem preference="prefLanbideVisible" type="checkbox" label="&euskalbar.lanbide.tooltip;"/>
             <listitem preference="prefEpaitegiakVisible" type="checkbox" label="&euskalbar.epaitegiak.tooltip;"/>
             <listitem preference="prefBatuaVisible" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+            <listitem preference="prefBerriaVisible" type="checkbox" label="&euskalbar.berria.tooltip;"/>
             <listitem preference="prefOEHVisible" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
             <listitem preference="prefHautaVisible" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
             <listitem preference="prefLurheVisible" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
@@ -285,6 +288,7 @@
                     <listitem preference="prefLanbide" type="checkbox" label="&euskalbar.lanbide.tooltip;"/>
                     <listitem preference="prefEpaitegiak" type="checkbox" label="&euskalbar.epaitegiak.tooltip;"/>
                     <listitem preference="prefBatua" type="checkbox" label="&euskalbar.batua.tooltip;"/>
+                    <listitem preference="prefBerria" type="checkbox" label="&euskalbar.berria.tooltip;"/>
                     <listitem preference="prefOEH" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
                     <listitem preference="prefHauta" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
                     <listitem preference="prefLurhe" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
