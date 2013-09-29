@@ -31,15 +31,23 @@ euskalbar.ui = function () {
 
     /* Euskalbar UI initialization */
     init: function () {
-      // Toggle toolbar buttons' visibility
-      euskalbar.dicts.available.each(function (dictName) {
-        euskalbar.ui.toggleButtons('euskalbar-' + dictName,
-                                   dictName + '.visible');
-      });
-
       this.initLanguages();
       this.initToolbarDicts();
       this.initDictsMenu();
+
+      euskalbar.prefs.addListener(function (name) {
+        if (name === 'showDictsMenu') {
+          euskalbar.ui.toggleDictsMenu();
+        }
+        if (name === 'showContextMenu') {
+          euskalbar.ui.showContextMenu();
+        }
+        if (name === 'visibleDicts') {
+          euskalbar.dicts.available.each(function (dictName) {
+            euskalbar.ui.setButtonVisibility(dictName);
+          });
+        }
+      });
     },
 
     acceptedLocales: ['eu', 'en', 'es', 'fr', 'ja'],
@@ -131,6 +139,8 @@ euskalbar.ui = function () {
         toolbarButton.setAttribute('oncommand',
                                    'euskalbar.app.runQuery(event);');
         toolbar.appendChild(toolbarButton);
+
+        euskalbar.ui.setButtonVisibility(dictName);
       };
 
       nonEuDicts = euskalbar.dicts.available.difference(euPairs);
@@ -199,6 +209,24 @@ euskalbar.ui = function () {
     },
 
 
+    // Shows/hides dictionaries menu
+    toggleDictsMenu: function () {
+      var menuEntry = $('euskalbar-menu'),
+          appmenuEntry = $("appmenu_euskalbar"),
+          appmenuSpacer = $("euskalbar-appmenu-spacer");
+
+      if (!euskalbar.prefs.showDictsMenu) {
+        menuEntry.setAttribute('hidden', true);
+        appmenuEntry.setAttribute('hidden', true);
+        appmenuSpacer.setAttribute('hidden', true);
+      } else {
+        menuEntry.removeAttribute('hidden');
+        appmenuEntry.removeAttribute('hidden');
+        appmenuSpacer.removeAttribute('hidden');
+      }
+    },
+
+
     /* Initializes a menu with id 'parentMenuId' by recursively cloning
      * the 'popupMenu' DOM node */
     initMenu: function (parentMenuId, popupMenu) {
@@ -242,13 +270,13 @@ euskalbar.ui = function () {
       document.persist(navBarId, "collapsed");
     },
 
-    /* Toggles buttons visibility */
-    toggleButtons: function (name, apref) {
+    /* Toggles toolbar button visibility */
+    setButtonVisibility: function (dictName) {
       try {
-        var btn = $(name),
-            state = euskalbar.app.prefs.getBoolPref(apref);
+        var btn = $('euskalbar-' + dictName),
+            isVisible = euskalbar.prefs.visibleDicts.indexOf(dictName) !== -1;
 
-        btn.collapsed = !state;
+        btn.collapsed = !isVisible;
       } catch (e) {
         $U.log("Error while toggling button visibility: " + name);
       }
@@ -257,6 +285,20 @@ euskalbar.ui = function () {
 
     displayToolbar: function () {
       $("euskalbar-toolbar").collapsed = false;
+    },
+
+
+    // Shows/hides context menu
+    showContextMenu: function () {
+      var sep = $('euskalbar-context-menuseparator'),
+          button = $('euskalbar-context-menu');
+      if (!euskalbar.prefs.showContextMenu) {
+        sep.setAttribute('hidden', true);
+        button.setAttribute('hidden', true);
+      } else {
+        sep.removeAttribute('hidden');
+        button.removeAttribute('hidden');
+      }
     },
 
 
@@ -270,8 +312,15 @@ euskalbar.ui = function () {
 
     /* Displays the preferences window */
     options: function () {
-      var dialogURL = "chrome://euskalbar/content/prefs.xul";
-      var prefwindow = window.openDialog(dialogURL, "", "chrome,modal,close");
+      var dialogURL = "chrome://euskalbar/content/prefs.xul",
+          sharedObj = {
+            dicts: euskalbar.dicts,
+            prefs: euskalbar.prefs,
+            langsMenu: $('euskalbar-language-popup')
+          };
+      Services.ww.openWindow(null, dialogURL, "_blank",
+                             "chrome,toolbar,centerscreen,resizable,dialog=no",
+                             {wrappedJSObject: sharedObj});
     },
 
 

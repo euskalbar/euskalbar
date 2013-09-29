@@ -178,7 +178,7 @@ euskalbar.dicts.elhuyar = function () {
 
           // Only make subqueries if the function isn't being called
           // recursively and subqueries are enabled
-          if (isSubQuery && euskalbar.app.prefs.getBoolPref("query.subqueries")) {
+          if (isSubQuery && euskalbar.prefs.performSubQueries) {
             var arrayElhuyar = [],
                 txtElhuyar2 = data.split(subEntryText)[1];
 

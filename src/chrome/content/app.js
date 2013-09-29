@@ -43,8 +43,6 @@ euskalbar.app = function () {
     // URI of the current user's profile directory
     profileURI: Services.dirsvc.get("ProfD", Components.interfaces.nsIFile),
 
-    prefs: Services.prefs.getBranch("extensions.euskalbar."),
-
     pairs: {},
 
     source: null,
@@ -56,16 +54,13 @@ euskalbar.app = function () {
     /* XXX: Try to minimize the actions executed here, as it affects to the
        overall browser startup time */
     init: function () {
+      euskalbar.prefs.init();
 
-      // Register to receive notifications of preference changes
-      Services.prefs.addObserver("extensions.euskalbar.", this, false);
-
-      var firstrun = euskalbar.app.prefs.getBoolPref("firstrun");
       var infoURL, openInfo = false;
 
-      if (firstrun) {
-        euskalbar.app.prefs.setBoolPref("firstrun", false);
-        euskalbar.app.prefs.setCharPref("installedVersion", this.curVersion);
+      if (euskalbar.prefs.firstrun) {
+        euskalbar.prefs.firstrun = false;
+        euskalbar.prefs.installedVersion = this.curVersion;
 
         /* Add Euskalbar button to the navigation bar and force
          * the toolbar to be displayed */
@@ -78,13 +73,13 @@ euskalbar.app = function () {
         infoURL = euskalbar.app.firstrunURL;
       } else {
         try {
-          var installedVersion = euskalbar.app.prefs
-                                              .getCharPref("installedVersion");
+          var installedVersion = euskalbar.prefs.installedVersion;
 
           /* We are in the middle of an upgrade */
           if (this.curVersion != installedVersion) {
-            euskalbar.app.prefs.setCharPref("installedVersion",
-                                            this.curVersion);
+            euskalbar.prefs.installedVersion = this.curVersion;
+
+            /* TODO: migrate preferences? */
 
             /* Add Euskalbar button to the navigation bar and force
              * the toolbar to be displayed */
@@ -116,8 +111,8 @@ euskalbar.app = function () {
 
       euskalbar.ui.init();
 
-      //Initialize language selection button
-      var lang = this.prefs.getCharPref("language.startup");
+      // Initialize language selection button
+      var lang = euskalbar.prefs.startupLanguage;
       this.source = lang[0] + lang[1];
       this.target = lang[3] + lang[4];
 
@@ -129,33 +124,9 @@ euskalbar.app = function () {
     shutdown: function () {
       window.removeEventListener("unload", euskalbar.app.shutdown, false);
 
-      Services.prefs.removeObserver("", this);
+      euskalbar.prefs.shutdown();
+
       document.persist("euskalbar-toolbar", "currentset");
-    },
-
-
-    // Observerra erabili: hobespenetan aldaketa bat dagoenean exekutatzen da
-    observe: function (subject, topic, data) {
-      if (topic != "nsPref:changed") {
-        return;
-      }
-
-      switch (data) {
-        case "extensions.euskalbar.showdicts.enabled":
-          this.showhideDicts();
-          break;
-        case "extensions.euskalbar.showcontextmenu.enabled":
-          this.showContextmenu();
-          break;
-      }
-
-      // Buttons' visibility
-      euskalbar.dicts.available.each(function (dictName) {
-        if (data === 'extensions.euskalbar.' + dictName + '.visible') {
-          euskalbar.ui.toggleButtons('euskalbar-' + dictName,
-                                     dictName + '.visible');
-        }
-      });
     },
 
     /*
@@ -251,17 +222,6 @@ euskalbar.app = function () {
                               euskalbar.app.runCombinedQueries, true);
 
       if (url.indexOf("chrome://euskalbar/content/html/") != -1) {
-        // FIXME: This code is repeated, find a way to pass it along while
-        // being able to remove the event listener.
-        var lang = "";
-        if ((source == 'es') || (target == 'es')) {
-          lang = "es";
-        } else if ((source == 'fr') || (target == 'fr')) {
-          lang = "fr";
-        } else {
-          lang = "en";
-        }
-
         var key = "";
         if (url.indexOf("euskalbarshift") != -1) {
           key = "onkey1";
@@ -269,13 +229,14 @@ euskalbar.app = function () {
           key = "onkey2";
         }
 
-        euskalbar.app.initHTML(doc, key, lang);
+        euskalbar.app.initHTML(doc, key);
+
+        var queryDicts = euskalbar.prefs[key];
 
         // Go through each dictionary
         euskalbar.dicts.available.each(function (dictName) {
           try {
-            var prefName = dictName + '.' + key + '.' + lang;
-            if (euskalbar.app.prefs.getBoolPref(prefName)) {
+            if (queryDicts.indexOf(dictName) !== -1) {
               euskalbar.dicts.combinedQuery(dictName, term, source, target,
                                             doc);
             }
@@ -287,22 +248,15 @@ euskalbar.app = function () {
     },
 
     // Initializes the HTML files in preparation of the combined queries
-    initHTML: function (doc, key, lang) {
+    initHTML: function (doc, key) {
       // Sets the theme for the HTML files
-      var prefStyle = euskalbar.app.prefs.getCharPref("style.combinedquery"),
-          link = doc.getElementsByTagName("link")[0];
-      link.setAttribute("href", prefStyle);
+      var link = doc.getElementsByTagName("link")[0];
+      link.setAttribute("href", euskalbar.prefs.skin);
 
-      var childPrefs = euskalbar.app.prefs.getChildList("", {}),
-          isEnabledPref = function (value, index, array) {
-            return (value.indexOf(key + '.' + lang) !== -1 &&
-                    euskalbar.app.prefs.getBoolPref(value));
-          },
-          enabledPrefs = childPrefs.filter(isEnabledPref);
+      var dictNames = euskalbar.prefs[key];
 
-      enabledPrefs.forEach(function (prefName) {
-        var dictName = prefName.split(".")[0],
-            dictDisplayName = euskalbar.dicts[dictName].displayName;
+      dictNames.forEach(function (dictName) {
+        var dictDisplayName = euskalbar.dicts[dictName].displayName;
 
         $('buruak', doc).innerHTML = $('buruak', doc).innerHTML
                                      + '<th id="dictName' + dictName + '">'
@@ -323,37 +277,6 @@ euskalbar.app = function () {
     },
 
 
-    // Shows/hides dictionaries menu
-    showhideDicts: function () {
-      var menuEntry = $('euskalbar-menu');
-      var appmenuEntry = $("appmenu_euskalbar");
-      var appmenuSpacer = $("euskalbar-appmenu-spacer");
-
-      if (!this.prefs.getBoolPref("showdicts.enabled")) {
-        menuEntry.setAttribute('hidden', true);
-        appmenuEntry.setAttribute('hidden', true);
-        appmenuSpacer.setAttribute('hidden', true);
-      } else {
-        menuEntry.removeAttribute('hidden');
-        appmenuEntry.removeAttribute('hidden');
-        appmenuSpacer.removeAttribute('hidden');
-      }
-    },
-
-
-    // Shows/hides context menu
-    showContextmenu: function () {
-      var sep = $('euskalbar-context-menuseparator');
-      var button = $('euskalbar-context-menu');
-      if (!this.prefs.getBoolPref("showcontextmenu.enabled")) {
-        sep.setAttribute('hidden', true);
-        button.setAttribute('hidden', true);
-      } else {
-        sep.removeAttribute('hidden');
-        button.removeAttribute('hidden');
-      }
-    },
-
     /* Toggles Euskalbar status */
     toggleBar: function (event) {
       if (event.target.id != "cmd_toggleEuskalbar") {
@@ -366,15 +289,11 @@ euskalbar.app = function () {
     },
 
     // Laster-teklen aginduak exekutatzen ditu
-    teklakEuskalbar: function (prefer) {
-      switch (prefer) {
-      case "showdicts":
-        this.prefs.setBoolPref(prefer + ".enabled",
-                               !this.prefs.getBoolPref(prefer + ".enabled"));
-        break;
-      case "showcontextmenu":
-        this.prefs.setBoolPref(prefer + ".enabled",
-                               !this.prefs.getBoolPref(prefer + ".enabled"));
+    teklakEuskalbar: function (prefName) {
+      switch (prefName) {
+      case "showDictsMenu":
+      case "showContextMenu":
+        euskalbar.prefs[prefName] = !euskalbar.prefs[prefName];
         break;
       case "focustextbox":
         var tb = $("euskalbar-search-string");
@@ -435,13 +354,13 @@ euskalbar.app = function () {
         postData.setData(stringStream);
       }
 
-      if (this.prefs.getBoolPref("reusetabs.enabled")) {
+      if (euskalbar.prefs.reuseTabs) {
         this.reuseOldTab(url, slug, postData);
       } else {
         this.openNewTab(url, slug, postData);
       }
 
-      if (!this.prefs.getBoolPref("focuswindow.enabled")) {
+      if (!euskalbar.prefs.focusWindow) {
         var tb = $("euskalbar-search-string");
         tb.focus();
         tb.select();
@@ -456,7 +375,7 @@ euskalbar.app = function () {
       // Store slug as an attribute for reusing purposes
       newTab.setAttribute('slug', slug);
 
-      if (!this.prefs.getBoolPref("bgtabs.enabled")) {
+      if (!euskalbar.prefs.bgTabs) {
         gBrowser.selectedTab = newTab;
       }
     },
@@ -478,7 +397,7 @@ euskalbar.app = function () {
           currentBrowser.webNavigation.loadURI(tabUrl, null, null,
                                                aPostData, null);
 
-          if (!this.prefs.getBoolPref("bgtabs.enabled")) {
+          if (!euskalbar.prefs.bgTabs) {
             gBrowser.tabContainer.selectedIndex = index;
           }
           currentBrowser.focus();
@@ -546,15 +465,17 @@ euskalbar.app = function () {
           return;
         }
 
+        var key = 'onkey';
+
         if ((event.shiftKey) || (event.ctrlKey)) {
-          var k, url, slug;
+          var url, slug;
 
           if (event.shiftKey) {
-            k = "onkey1";
+            key = "onkey1";
             url = 'chrome://euskalbar/content/html/euskalbarshift.html';
             slug = 'euskalbarshift';
           } else if (event.ctrlKey) {
-            k = "onkey2";
+            key = "onkey2";
             url = 'chrome://euskalbar/content/html/euskalbarktrl.html';
             slug = 'euskalbarktrl';
           }
@@ -567,6 +488,7 @@ euskalbar.app = function () {
                                true);
         } else {
           // User pressed the ENTER Key
+          var queryDicts = euskalbar.prefs[key];
 
           // Language-dependant dictionaries
           for (var source in this.pairs) {
@@ -575,7 +497,7 @@ euskalbar.app = function () {
               var targetDicts = this.pairs[source][this.target];
 
               targetDicts.each(function (dictName) {
-                if (euskalbar.app.prefs.getBoolPref(dictName + '.onkey')) {
+                if (queryDicts.indexOf(dictName) !== -1) {
                   euskalbar.dicts.query(dictName, term,
                                         euskalbar.app.source,
                                         euskalbar.app.target);
@@ -586,7 +508,7 @@ euskalbar.app = function () {
 
           // Language-independent dictionaries
           this.pairs.eu.eu.each(function (dictName) {
-            if (euskalbar.app.prefs.getBoolPref(dictName + '.onkey')) {
+            if (queryDicts.indexOf(dictName) !== -1) {
               euskalbar.dicts.query(dictName, term,
                                     euskalbar.app.source,
                                     euskalbar.app.target);
