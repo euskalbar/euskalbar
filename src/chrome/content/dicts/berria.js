@@ -43,11 +43,7 @@ euskalbar.dicts.berria = function () {
         'd': 'all',
         's': term
       };
-    },
-
-    scrap: function (term, source, target, data) {
-      // TODO: implementation
-    },
+    }
 
   };
 
