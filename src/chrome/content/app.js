@@ -102,12 +102,24 @@ euskalbar.app = function () {
       }
 
       // Load available dictionaries
+      var unavailableDicts = [];
       euskalbar.dicts.available.each(function (dictName) {
         var dictURI = 'chrome://euskalbar/content/dicts/' + dictName + '.js';
-        Services.scriptloader.loadSubScript(dictURI, this, 'UTF-8');
-
-        euskalbar.app.loadPairs(dictName);
+        try {
+          Services.scriptloader.loadSubScript(dictURI, this, 'UTF-8');
+          euskalbar.app.loadPairs(dictName);
+        } catch (e) {
+          unavailableDicts.push(dictName);
+          Components.utils.reportError(e);
+        }
       });
+
+      // Remove dictionaries that failed to load
+      // FIXME: We should instead try to populate the list of available
+      // dictionaries based on successful `loadSubScript` calls
+      for (var i=0; i<unavailableDicts.length; i++) {
+        euskalbar.dicts.available.remove(unavailableDicts[i]);
+      }
 
       euskalbar.ui.init();
 
