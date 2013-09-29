@@ -273,7 +273,7 @@ euskalbar.app = function () {
         doc.getElementById('oinak').appendChild(ato);
       });
 
-      doc.getElementById('oharra').innerHTML = $U._("oharra");
+      doc.getElementById('oharra').innerHTML = $U._('combined.notice.label');
     },
 
 
@@ -442,7 +442,7 @@ euskalbar.app = function () {
       katea = katea.replace(/^\s+|\s+$/g, "");
       if (katea === "") {
         var euskalbarNotify = gBrowser.getNotificationBox();
-        euskalbarNotify.appendNotification($U._f("kutxahutsa", ""));
+        euskalbarNotify.appendNotification($U._f('emptybox.label', ""));
 
         var t = setTimeout(function(){
           euskalbarNotify.removeCurrentNotification();

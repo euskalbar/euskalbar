@@ -146,7 +146,7 @@ euskalbar.dicts = function () {
 
         onError: function (status) {
           // TODO: `status` can be used to determine if the request timed out
-          output = $U._f("euskalbar.comb.error", [dict.displayName]);
+          output = $U._f("combined.error.label", [dict.displayName]);
         },
 
         onComplete: function () {

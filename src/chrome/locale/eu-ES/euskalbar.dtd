@@ -1,100 +1,53 @@
 <!-- Common -->
-<!ENTITY euskalbar.browse "Arakatu...">
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
 <!ENTITY euskalbar.help.label "Laguntza">
+<!ENTITY euskalbar.options.label "Hobespenak...">
 <!ENTITY euskalbar.options.tooltip "Ireki hobespenen leihoa">
-<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm datu-basea">
-<!ENTITY euskalbar.bostmila.tooltip "5000 hiztegia">
-<!ENTITY euskalbar.goihata.tooltip "Goihata hiztegia">
-<!ENTITY euskalbar.labayru.tooltip "Labayru hiztegia">
-<!ENTITY euskalbar.zehazki.tooltip "Zehazki hiztegia">
-<!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologiaren hiztegi entziklopedikoa">
-<!ENTITY euskalbar.energia.tooltip "Energia hiztegia">
-<!ENTITY euskalbar.telekom.tooltip "Telekomunikazio hiztegia">
-<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar hiztegia">
-<!ENTITY euskalbar.hikea.tooltip "HIKEA hiztegia">
-<!ENTITY euskalbar.morris.tooltip "Morris hiztegia">
-<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu informatikako itzulpen-memoriak">
-<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, EHUren itzulpen-memoriak">
-<!ENTITY euskalbar.lanbide.tooltip "Lanbide heziketarako hiztegia">
-<!ENTITY euskalbar.epaitegiak.tooltip "Epaitegietako lexikoa">
-<!ENTITY euskalbar.batua.tooltip "Hiztegi Batua">
-<!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.berria.tooltip "Berriaren estilo liburua">
-<!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
-<!ENTITY euskalbar.lurhe.tooltip "Lur hiztegi entziklopedikoa">
-<!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
-<!ENTITY euskalbar.harluxet.tooltip "Harluxet hiztegi entziklopedikoa">
-<!ENTITY euskalbar.wikipedia.tooltip "Euskal wikipedia">
-<!ENTITY euskalbar.uzei.tooltip "UZEI sinonimoak">
-<!ENTITY euskalbar.itzul.tooltip "ItzuL posta zerrendako artxiboa">
-<!ENTITY euskalbar.mokoroa.tooltip "Mokoroaren datu-basea">
-<!ENTITY euskalbar.intza.tooltip "Intza proiektuaren lokuzioak">
-<!ENTITY euskalbar.klasikoak.tooltip "Klasikoen Gordailua">
-<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko Prosa Gaur">
-<!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
-<!ENTITY euskalbar.ztcorpusa.tooltip "Zientzia eta Teknologiaren corpusa">
-<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren corpusa">
-<!ENTITY euskalbar.consumer.tooltip "Consumer corpusa">
-<!ENTITY euskalbar.lth.tooltip "Literatura terminoen hiztegia">
-<!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet euskarazko corpus gisa">
-<!ENTITY euskalbar.eurovoc.tooltip "Eurovoc thesaurusa">
-<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb zuzentzaile ortografikoa">
-<!ENTITY euskalbar.bergara.tooltip "Bergaraldeko hiztegia">
-<!ENTITY euskalbar.elebila.tooltip "Elebila euskarazko bilatzailea">
-<!ENTITY euskalbar.danobat.tooltip "Danobat hiztegia">
+<!ENTITY euskalbar.menu.label "Hiztegiak">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Euskalbarren hobespenak">
-<!ENTITY euskalbar.prefs.options.label "Hobespenak...">
-<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Kontsulta aurreratua">
-<!ENTITY euskalbar.prefs.dictionaries.label "Aldibereko kontsulta (Enter)">
-<!ENTITY euskalbar.prefs.reusetabs.label "Berrerabili fitxak">
-<!ENTITY euskalbar.prefs.bgtabs.label "Fitxak atzeko planoan ireki">
-<!ENTITY euskalbar.prefs.general.tabtitle "Orokorra">
-<!ENTITY euskalbar.prefs.uppermenu.tabtitle "Hiztegien menua">
-<!ENTITY euskalbar.prefs.interface.tabtitle "Itxura">
-<!ENTITY euskalbar.prefs.view.tabtitle "Bistan dauden hiztegiak">
-<!ENTITY euskalbar.prefs.uppermenu.label "Erakutsi hiztegien menua">
-<!ENTITY euskalbar.prefs.uppermenu.tooltip "Erakutsi/ezkutatu hiztegien menua">
-<!ENTITY euskalbar.prefs.lang.caption "Hizkuntza">
-<!ENTITY euskalbar.prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
-<!ENTITY euskalbar.prefs.tabs.caption "Fitxen hobespenak">
-<!ENTITY euskalbar.prefs.combined.caption "Kontsulta konbinatuen aukerak">
-<!ENTITY euskalbar.prefs.timeout.caption "Denbora-muga (seg)">
-<!ENTITY euskalbar.prefs.skin.caption "Azalak">
-<!ENTITY euskalbar.prefs.skin.label "Aukeratu azal bat Euskalbarrentzako:">
-<!ENTITY euskalbar.prefs.skin.custom "Erabili azal pertsonalizatua">
-<!ENTITY euskalbar.prefs.gui.caption "Interfazea">
-<!ENTITY euskalbar.prefs.dicts.label "Erakutsi hiztegien menua">
-<!ENTITY euskalbar.prefs.context.label "Erakutsi testuinguru-menua">
-<!ENTITY euskalbar.prefs.focuswindow.label "Bilaketaren ondoren, fokua leihoan jarri">
+<!ENTITY prefs.title "Euskalbarren hobespenak">
 
-<!--Language-->
-<!ENTITY euskalbar.language.eu "Euskara">
-<!ENTITY euskalbar.language.eu_es "Euskara ‣ Gaztelania">
-<!ENTITY euskalbar.language.es_eu "Gaztelania ‣ Euskara">
-<!ENTITY euskalbar.language.eu_en "Euskara ‣ Ingelesa">
-<!ENTITY euskalbar.language.en_eu "Ingelesa ‣ Euskara">
-<!ENTITY euskalbar.language.eu_fr "Euskara ‣ Frantsesa">
-<!ENTITY euskalbar.language.fr_eu "Frantsesa ‣ Euskara">
-<!ENTITY euskalbar.language.la_eu "Latina ‣ Euskara">
-<!ENTITY euskalbar.language.eu_jp "Euskara ‣ Japanese">
+<!ENTITY prefs.pane.general.label "Orokorra">
+<!ENTITY prefs.pane.visibleDicts.label "Hiztegiak">
+<!ENTITY prefs.pane.advanced.label "Aurreratua">
+
+<!ENTITY prefs.lang.caption "Hizkuntza lehenetsia">
+<!ENTITY prefs.lang.label "Euskalbar abiaraztean ondorengo hizkuntza aukeratu:">
+
+<!ENTITY prefs.tabs.caption "Fitxen hobespenak">
+<!ENTITY prefs.tabs.reuse.label "Berrerabili fitxak">
+<!ENTITY prefs.tabs.bg.label "Fitxak atzeko planoan ireki">
+
+<!ENTITY prefs.combined.caption "Kontsulta konbinatuen aukerak">
+<!ENTITY prefs.combined.timeout.label "Denbora-muga (seg)">
+
+<!ENTITY prefs.skin.caption "Azalak">
+<!ENTITY prefs.skin.label "Aukeratu azal bat Euskalbarrentzako:">
+
+<!ENTITY prefs.gui.caption "Interfazea">
+<!ENTITY prefs.gui.showDictsMenu.label "Erakutsi hiztegien menua">
+<!ENTITY prefs.gui.showContextMenu.label "Erakutsi testuinguru-menua">
+<!ENTITY prefs.gui.focusWindow.label "Bilaketaren ondoren, fokua leihoan jarri">
 
 <!-- Context Menu -->
-<!ENTITY euskalbar.context.xuxenweb.label "Zuzendu XUXENweb erabiliz">
-<!ENTITY euskalbar.context.sinonimoak.label "Sinonimoak">
-<!ENTITY euskalbar.context.mokoroa.es.label "Gaztelaniazko testuan">
-<!ENTITY euskalbar.context.mokoroa.eu.label "Euskarazko testuan">
+<!ENTITY context.language.eu.label "Euskara">
+<!ENTITY context.language.eu_es.label "Euskara ‣ Gaztelania">
+<!ENTITY context.language.es_eu.label "Gaztelania ‣ Euskara">
+<!ENTITY context.language.eu_en.label "Euskara ‣ Ingelesa">
+<!ENTITY context.language.en_eu.label "Ingelesa ‣ Euskara">
+<!ENTITY context.language.eu_fr.label "Euskara ‣ Frantsesa">
+<!ENTITY context.language.fr_eu.label "Frantsesa ‣ Euskara">
+<!ENTITY context.language.la_eu.label "Latina ‣ Euskara">
+<!ENTITY context.language.eu_jp.label "Euskara ‣ Japanese">
 
-<!-- Menu -->
-<!ENTITY euskalbar.menu.main "Hiztegiak">
+<!ENTITY context.xuxenweb.label "Zuzendu XUXENweb erabiliz">
+<!ENTITY context.synonyms.label "Sinonimoak">
 
 <!-- Statistics -->
-<!ENTITY euskalbar.stats.menu "Estatistikak">
-<!ENTITY euskalbar.stats.main "Euskalbarren estatistikak">
-<!ENTITY euskalbar.stats.count "Kontsulta-kopurua">
-<!ENTITY euskalbar.stats.clearbutton "Garbitu estatistikak">
-
+<!ENTITY stats.title "Estatistikak">
+<!ENTITY stats.dict.label "Hiztegia">
+<!ENTITY stats.count.label "Kontsulta-kopurua">
+<!ENTITY stats.clear.label "Garbitu estatistikak">

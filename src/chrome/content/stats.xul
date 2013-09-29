@@ -4,11 +4,11 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
-<dialog id="euskalbar-stats-dialog" title="&euskalbar.stats.main;"
+<dialog id="euskalbar-stats-dialog" title="&stats.title;"
         xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         buttons="accept, extra1"
-        buttonlabelextra1="&euskalbar.stats.clearbutton;"
+        buttonlabelextra1="&stats.clear.label;"
         ondialogextra1="euskalbar.stats.clear();">
 
 <script type="application/x-javascript" src="lib/utils.js"/>
@@ -19,8 +19,8 @@
       querytype="storage" flags="dont-build-content"
       flex="4" hidecolumnpicker="true" width="400px" height="480px">
   <treecols>
-    <treecol id="name" label="&euskalbar.menu.main;" sort="?name" flex="3"/>
-    <treecol id="count" label="&euskalbar.stats.count;" sort="?count" flex="1"/>
+    <treecol id="name" label="&stats.dict.label;" sort="?name" flex="3"/>
+    <treecol id="count" label="&stats.count.label;" sort="?count" flex="1"/>
   </treecols>
   <template>
     <query>

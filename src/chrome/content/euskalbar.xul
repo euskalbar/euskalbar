@@ -72,7 +72,7 @@
 
   <window id="main-window">
     <menupopup id="euskalbar-hsButtons">
-      <menuitem id="euskalbar-buttonvisibility" label="&euskalbar.prefs.options.label;"
+      <menuitem id="euskalbar-buttonvisibility" label="&euskalbar.options.label;"
         oncommand="euskalbar.ui.options()" />
     </menupopup>
   </window>
@@ -83,7 +83,7 @@
       <menu id="euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
       <observes element="cmd_copy" attribute="disabled" />
       <menupopup>
-          <menu id="euskalbar-eu-context" label="&euskalbar.language.eu;">
+          <menu id="euskalbar-eu-context" label="&context.language.eu.label;">
           <menupopup>
               <menuitem id="euskalbar-batua-context" label="Batua" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-oeh-context" label="Orotariko Euskal Hiztegia" oncommand="euskalbar.app.runQuery(event);" />
@@ -106,7 +106,7 @@
           </menupopup>
         </menu>
           <menuseparator/>
-          <menu id="euskalbar-eu_es-context" label="&euskalbar.language.eu_es;">
+          <menu id="euskalbar-eu_es-context" label="&context.language.eu_es.label;">
           <menupopup>
               <menuitem id="euskalbar-euskalterm-eu_es-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-eu_es-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
@@ -120,7 +120,7 @@
               <menuitem id="euskalbar-epaitegiak-eu_es-context" label="Epaitegiak" oncommand="euskalbar.app.runQuery(event);" />
           </menupopup>
         </menu>
-          <menu id="euskalbar-es_eu-context" label="&euskalbar.language.es_eu;">
+          <menu id="euskalbar-es_eu-context" label="&context.language.es_eu.label;">
           <menupopup>
               <menuitem id="euskalbar-euskalterm-es_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-es_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
@@ -135,7 +135,7 @@
               <menuitem id="euskalbar-epaitegiak-es_eu-context" label="Epaitegiak" oncommand="euskalbar.app.runQuery(event);" />
           </menupopup>
           </menu>
-          <menu id="euskalbar-eu_fr-context" label="&euskalbar.language.eu_fr;">
+          <menu id="euskalbar-eu_fr-context" label="&context.language.eu_fr.label;">
             <menupopup>
               <menuitem id="euskalbar-euskalterm-eu_fr-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-eu_fr-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
@@ -144,7 +144,7 @@
               <menuitem id="euskalbar-ehuskaratuak-eu_fr-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
             </menupopup>
           </menu>
-          <menu id="euskalbar-fr_eu-context" label="&euskalbar.language.fr_eu;">
+          <menu id="euskalbar-fr_eu-context" label="&context.language.fr_eu.label;">
             <menupopup>
               <menuitem id="euskalbar-euskalterm-fr_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-fr_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
@@ -154,7 +154,7 @@
 
             </menupopup>
           </menu>
-          <menu id="euskalbar-eu_en-context" label="&euskalbar.language.eu_en;">
+          <menu id="euskalbar-eu_en-context" label="&context.language.eu_en.label;">
             <menupopup>
               <menuitem id="euskalbar-euskalterm-eu_en-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-eu_en-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
@@ -165,7 +165,7 @@
               <menuitem id="euskalbar-ehuskaratuak-eu_en-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
             </menupopup>
           </menu>
-          <menu id="euskalbar-en_eu-context" label="&euskalbar.language.en_eu;">
+          <menu id="euskalbar-en_eu-context" label="&context.language.en_eu.label;">
             <menupopup>
               <menuitem id="euskalbar-euskalterm-en_eu-context" label="Euskalterm" oncommand="euskalbar.app.runQuery(event);" />
               <menuitem id="euskalbar-elhuyar-en_eu-context" label="Elhuyar" oncommand="euskalbar.app.runQuery(event);" />
@@ -176,19 +176,19 @@
               <menuitem id="euskalbar-ehuskaratuak-en_eu-context" label="EHUskaratuak" oncommand="euskalbar.app.runQuery(event);" />
             </menupopup>
           </menu>
-          <menu id="euskalbar-eu_jp-context" label="&euskalbar.language.eu_jp;">
+          <menu id="euskalbar-eu_jp-context" label="&context.language.eu_jp.label;">
             <menupopup>
               <menuitem id="euskalbar-goihata-eu_jp-context" label="Goihata" oncommand="euskalbar.app.runQuery(event);" />
             </menupopup>
           </menu>
           <menuseparator/>
-          <menu id="euskalbar-sinonimoak-context" label="&euskalbar.context.sinonimoak.label;">
+          <menu id="euskalbar-sinonimoak-context" label="&context.synonyms.label;">
             <menupopup>
               <menuitem id="euskalbar-uzei-sinonimoak-context" label="UZEI sinonimoak" oncommand="euskalbar.app.runQuery(event);" />
             </menupopup>
           </menu>
           <menuseparator/>
-          <menuitem id="euskalbar-xuxenweb-context" label="&euskalbar.context.xuxenweb.label;" oncommand="euskalbar.app.runQuery(event);" />
+          <menuitem id="euskalbar-xuxenweb-context" label="&context.xuxenweb.label;" oncommand="euskalbar.app.runQuery(event);" />
           <menuseparator/>
           <menuitem id="euskalbar-elebila-context" label="Elebila" oncommand="euskalbar.app.runQuery(event);" />
         </menupopup>
@@ -198,7 +198,7 @@
 
   <!-- Firefox menubar -->
   <menubar id="main-menubar">
-      <menu id="euskalbar-menu" label="&euskalbar.menu.main;"
+      <menu id="euskalbar-menu" label="&euskalbar.menu.label;"
             insertafter="tools-menu" persist="hidden">
           <!-- Content comes from euskalbar-menuPopup -->
       </menu>
@@ -206,7 +206,7 @@
 
   <!-- Firefox menu -->
   <vbox id="appmenuSecondaryPane">
-      <menu id="appmenu_euskalbar" label="&euskalbar.menu.main;"
+      <menu id="appmenu_euskalbar" label="&euskalbar.menu.label;"
             insertbefore="appmenu_addons" persist="hidden">
           <!-- Content comes from euskalbar-menuPopup -->
       </menu>

@@ -1,98 +1,53 @@
 <!-- Common -->
-<!ENTITY euskalbar.browse "検索...">
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
 <!ENTITY euskalbar.help.label "ヘルプ">
+<!ENTITY euskalbar.options.label "表示設定...">
 <!ENTITY euskalbar.options.tooltip "オプション">
-<!ENTITY euskalbar.euskalterm.tooltip "Euskalterm データベース">
-<!ENTITY euskalbar.bostmila.tooltip "5000 辞書">
-<!ENTITY euskalbar.goihata.tooltip "Goihata 辞書">
-<!ENTITY euskalbar.labayru.tooltip "Labayru 辞書">
-<!ENTITY euskalbar.zehazki.tooltip "Zehazki 辞書">
-<!ENTITY euskalbar.zthiztegia.tooltip "Zientzia eta Teknologia 辞書">
-<!ENTITY euskalbar.energia.tooltip "Energia 辞書">
-<!ENTITY euskalbar.telekom.tooltip "Telekomunikazio 辞書">
-<!ENTITY euskalbar.elhuyar.tooltip "Elhuyar 辞書">
-<!ENTITY euskalbar.morris.tooltip "Morris 辞典">
-<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, computer related translation memories">
-<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
-<!ENTITY euskalbar.lanbide.tooltip "Lanbide heziketarako hiztegia">
-<!ENTITY euskalbar.epaitegiak.tooltip "Epaitegietako lexikoa">
-<!ENTITY euskalbar.batua.tooltip "バスク語アカデミーバスク語辞典">
-<!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
-<!ENTITY euskalbar.lurhe.tooltip "Lur encyclopedic dictionary">
-<!ENTITY euskalbar.luret.tooltip "Lur thematic encyclopedia">
-<!ENTITY euskalbar.harluxet.tooltip "Harluxet 百科事典">
-<!ENTITY euskalbar.wikipedia.tooltip "バスクwikipedia">
-<!ENTITY euskalbar.uzei.tooltip "UZEI 類語">
-<!ENTITY euskalbar.itzul.tooltip "ItzuL メールリストファイル">
-<!ENTITY euskalbar.mokoroa.tooltip "Mokoroa データベース">
-<!ENTITY euskalbar.intza.tooltip "Intza慣用句">
-<!ENTITY euskalbar.klasikoak.tooltip "Klasikoen gordailua（古典の保管所）">
-<!ENTITY euskalbar.ereduzko.tooltip "Ereduzko prosa（典型散文）">
-<!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
-<!ENTITY euskalbar.ztcorpusa.tooltip "ZT Corpusa（科学技術集成）">
-<!ENTITY euskalbar.lb.tooltip "Lexikoaren Behatokiaren Corpusa">
-<!ENTITY euskalbar.consumer.tooltip "Consumer Corpusa">
-<!ENTITY euskalbar.lth.tooltip "Literatura terminoen hiztegia">
-<!ENTITY euskalbar.corpeus.tooltip "CorpEus - インターネットはバスク語のコーパス">
-<!ENTITY euskalbar.eurovoc.tooltip "欧州共同体シソーラス">
-<!ENTITY euskalbar.xuxenweb.tooltip "XUXENweb スペルチェッカー">
-<!ENTITY euskalbar.bergara.tooltip "Bergara市周辺辞書">
-<!ENTITY euskalbar.elebila.tooltip "Elebila バスク語検索エンジン">
-<!ENTITY euskalbar.danobat.tooltip "Danobat 辞書">
+<!ENTITY euskalbar.menu.label "辞書">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Euskalbarの表示設定">
-<!ENTITY euskalbar.prefs.options.label "表示設定...">
-<!ENTITY euskalbar.prefs.dictionaries.tabtitle "上級検索">
-<!ENTITY euskalbar.prefs.dictionaries.label "同時サーチ(エンター)">
-<!ENTITY euskalbar.prefs.reusetabs.label "タブの再利用">
-<!ENTITY euskalbar.prefs.bgtabs.label "タブを背後に開く">
-<!ENTITY euskalbar.prefs.general.tabtitle "一般">
-<!ENTITY euskalbar.prefs.uppermenu.tabtitle "辞書のメニュー">
-<!ENTITY euskalbar.prefs.interface.tabtitle "外観">
-<!ENTITY euskalbar.prefs.view.tabtitle "目に見える辞書">
-<!ENTITY euskalbar.prefs.uppermenu.label "辞書のメニュー表示">
-<!ENTITY euskalbar.prefs.uppermenu.tooltip "辞書のメニュー表示/非表示">
-<!ENTITY euskalbar.prefs.lang.caption "言語">
-<!ENTITY euskalbar.prefs.lang.label "Euskalbarのスタート時の言語選択:">
-<!ENTITY euskalbar.prefs.tabs.caption "タブ選択">
-<!ENTITY euskalbar.prefs.combined.caption "組み合わせ検索">
-<!ENTITY euskalbar.prefs.timeout.caption "検索のタイムアウト(seg)">
-<!ENTITY euskalbar.prefs.skin.caption "スキン">
-<!ENTITY euskalbar.prefs.skin.label "Euskalbarのスキンを選択する:">
-<!ENTITY euskalbar.prefs.skin.custom "カスタマイズのスキンを使う">
-<!ENTITY euskalbar.prefs.gui.caption "インターフェース">
-<!ENTITY euskalbar.prefs.dicts.label "辞書のメニュー表示">
-<!ENTITY euskalbar.prefs.context.label "文脈メニューを表示">
-<!ENTITY euskalbar.prefs.focuswindow.label "Focus window after query">
+<!ENTITY prefs.title "Euskalbarの表示設定">
 
-<!--Language-->
-<!ENTITY euskalbar.language.eu "バスク語">
-<!ENTITY euskalbar.language.eu_es "バスク語　‣ スペイン語">
-<!ENTITY euskalbar.language.es_eu "スペイン語 ‣ バスク語">
-<!ENTITY euskalbar.language.eu_en "バスク語 ‣ 英語">
-<!ENTITY euskalbar.language.en_eu "英語 ‣ バスク語">
-<!ENTITY euskalbar.language.eu_fr "バスク語 ‣ フランス語">
-<!ENTITY euskalbar.language.fr_eu "フランス語 ‣ バスク語">
-<!ENTITY euskalbar.language.la_eu "ラテン語 ‣ バスク語">
-<!ENTITY euskalbar.language.eu_jp "バスク語 ‣ 日本語">
+<!ENTITY prefs.pane.general.label "一般">
+<!ENTITY prefs.pane.visibleDicts.label "上級検索">
+<!ENTITY prefs.pane.advanced.label "Advanced">
+
+<!ENTITY prefs.lang.caption "言語">
+<!ENTITY prefs.lang.label "Euskalbarのスタート時の言語選択:">
+
+<!ENTITY prefs.tabs.caption "外観">
+<!ENTITY prefs.tabs.reuse.label "タブの再利用">
+<!ENTITY prefs.tabs.bg.label "タブを背後に開く">
+
+<!ENTITY prefs.combined.caption "組み合わせ検索">
+<!ENTITY prefs.combined.timeout.caption "検索のタイムアウト(seg)">
+
+<!ENTITY prefs.skin.caption "スキン">
+<!ENTITY prefs.skin.label "Euskalbarのスキンを選択する:">
+
+<!ENTITY prefs.gui.caption "インターフェース">
+<!ENTITY prefs.gui.showDictsMenu.label "辞書のメニュー表示">
+<!ENTITY prefs.gui.showContextMenu.label "文脈メニューを表示">
+<!ENTITY prefs.gui.focusWindow.label "Focus window after query">
 
 <!-- Context Menu -->
-<!ENTITY euskalbar.context.xuxenweb.label "XUXENweb使って訂正する">
-<!ENTITY euskalbar.context.sinonimoak.label "類語">
-<!ENTITY euskalbar.context.mokoroa.es.label "スペイン語の文書の中">
-<!ENTITY euskalbar.context.mokoroa.eu.label "バスク語の文書の中">
+<!ENTITY context.language.eu.label "バスク語">
+<!ENTITY context.language.eu_es.label "バスク語　‣ スペイン語">
+<!ENTITY context.language.es_eu.label "スペイン語 ‣ バスク語">
+<!ENTITY context.language.eu_en.label "バスク語 ‣ 英語">
+<!ENTITY context.language.en_eu.label "英語 ‣ バスク語">
+<!ENTITY context.language.eu_fr.label "バスク語 ‣ フランス語">
+<!ENTITY context.language.fr_eu.label "フランス語 ‣ バスク語">
+<!ENTITY context.language.la_eu.label "ラテン語 ‣ バスク語">
+<!ENTITY context.language.eu_jp.label "バスク語 ‣ 日本語">
 
-<!-- Menu -->
-<!ENTITY euskalbar.menu.main "辞書">
+<!ENTITY context.xuxenweb.label "XUXENweb使って訂正する">
+<!ENTITY context.sinonimoak.label "類語">
 
 <!-- Statistics -->
-<!ENTITY euskalbar.stats.menu "統計">
-<!ENTITY euskalbar.stats.main "Euskalbarの統計">
-<!ENTITY euskalbar.stats.count "検索回数">
-<!ENTITY euskalbar.stats.clearbutton "統計削除">
-
+<!ENTITY stats.menu "統計">
+<!ENTITY stats.dict.label "上級検索">
+<!ENTITY stats.count.label "検索回数">
+<!ENTITY stats.clear.label "統計削除">

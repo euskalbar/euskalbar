@@ -1,99 +1,53 @@
 ﻿<!-- Common -->
-<!ENTITY euskalbar.browse "Parcourir...">
 <!ENTITY euskalbar.key "E">
 <!ENTITY euskalbar.label "Euskalbar">
 <!ENTITY euskalbar.name "Euskalbar">
 <!ENTITY euskalbar.help.label "Aide">
+<!ENTITY euskalbar.options.label "Configuration...">
 <!ENTITY euskalbar.options.tooltip "Options">
-<!ENTITY euskalbar.euskalterm.tooltip "Base de données Euskalterm">
-<!ENTITY euskalbar.bostmila.tooltip "Dictionnaire 5000">
-<!ENTITY euskalbar.goihata.tooltip "Dictionnaire Goihata">
-<!ENTITY euskalbar.labayru.tooltip "Dictionnaire Labayru">
-<!ENTITY euskalbar.zehazki.tooltip "Dictionnaire Zehazki">
-<!ENTITY euskalbar.zthiztegia.tooltip "Dictionnaire encyclopédique de la Science et la Technologie">
-<!ENTITY euskalbar.energia.tooltip "Dictionnaire de la Énergie">
-<!ENTITY euskalbar.telekom.tooltip "Dictionnaire des Télécommunications">
-<!ENTITY euskalbar.elhuyar.tooltip "Dictionnaire Elhuyar">
-<!ENTITY euskalbar.morris.tooltip "Dictionnaire Morris">
-<!ENTITY euskalbar.opentran.tooltip "Open-tran.eu, computer related translation memories">
-<!ENTITY euskalbar.ehuskaratuak.tooltip "EHUskaratuak, translation memories of the UPV/EHU">
-<!ENTITY euskalbar.lanbide.tooltip "Lanbide heziketarako hiztegia">
-<!ENTITY euskalbar.epaitegiak.tooltip "Epaitegietako lexikoa">
-<!ENTITY euskalbar.batua.tooltip "Dictionnaire Unifié d'Euskaltzaindia">
-<!ENTITY euskalbar.oeh.tooltip "Orotariko Euskal Hiztegia">
-<!ENTITY euskalbar.hauta.tooltip "Hauta Lanerako Euskal Hiztegia">
-<!ENTITY euskalbar.lurhe.tooltip "Dictionnaire encyclopédique Lur">
-<!ENTITY euskalbar.luret.tooltip "Lur entziklopedia tematikoa">
-<!ENTITY euskalbar.harluxet.tooltip "Dictionnaire encyclopédique Harluxet">
-<!ENTITY euskalbar.wikipedia.tooltip "Wikipedia en Basque">
-<!ENTITY euskalbar.uzei.tooltip "Dictionnaire des synonymes UZEI">
-<!ENTITY euskalbar.itzul.tooltip "Archive de la liste de diffusion ItzuL">
-<!ENTITY euskalbar.mokoroa.tooltip "Base de données de Mokoroa">
-<!ENTITY euskalbar.intza.tooltip "Locutions du projet Intza">
-<!ENTITY euskalbar.klasikoak.tooltip "Trésors du Basque">
-<!ENTITY euskalbar.ereduzko.tooltip "Prose de référence aujourd'hui">
-<!ENTITY euskalbar.egungo.tooltip "Egungo euskararen hiztegia">
-<!ENTITY euskalbar.ztcorpusa.tooltip "Corpus de Science et de Technologie">
-<!ENTITY euskalbar.lb.tooltip "Corpus de Lexikoaren Behatokia">
-<!ENTITY euskalbar.consumer.tooltip "Corpus Consumer">
-<!ENTITY euskalbar.lth.tooltip "Literatura terminoen hiztegia">
-<!ENTITY euskalbar.corpeus.tooltip "CorpEus - Internet comme corpus du Basque">
-<!ENTITY euskalbar.eurovoc.tooltip "Thesaurus Eurovoc">
-<!ENTITY euskalbar.xuxenweb.tooltip "Vérification ortographique XUXENweb">
-<!ENTITY euskalbar.bergara.tooltip "Dictionnaire de Bergara">
-<!ENTITY euskalbar.elebila.tooltip "Chercheur en Basque Elebila">
-<!ENTITY euskalbar.danobat.tooltip "Dictionnaire Danobat">
+<!ENTITY euskalbar.menu.label "Dictionnaires">
 
 <!-- Prefs -->
-<!ENTITY euskalbar.prefs.title "Configuration d'Euskalbar">
-<!ENTITY euskalbar.prefs.options.label "Configuration...">
-<!ENTITY euskalbar.prefs.dictionaries.tabtitle "Requête avancée">
-<!ENTITY euskalbar.prefs.dictionaries.label "Requête simultanée (Enter)">
-<!ENTITY euskalbar.prefs.reusetabs.label "Réutiliser onglets">
-<!ENTITY euskalbar.prefs.bgtabs.label "Ouvrir onglets en arrière-plan">
-<!ENTITY euskalbar.prefs.general.tabtitle "Général">
-<!ENTITY euskalbar.prefs.uppermenu.tabtitle "Menu des dictionnaires">
-<!ENTITY euskalbar.prefs.interface.tabtitle "Apparence">
-<!ENTITY euskalbar.prefs.view.tabtitle "Dictionnaires visibles">
-<!ENTITY euskalbar.prefs.uppermenu.label "Montrer menu des dictionnaires">
-<!ENTITY euskalbar.prefs.uppermenu.tooltip "Montrer/cacher menu des dictionnaires">
-<!ENTITY euskalbar.prefs.lang.caption "Langue par défaut">
-<!ENTITY euskalbar.prefs.lang.label "Langue par défaut au lancement d'Euskalbar:">
-<!ENTITY euskalbar.prefs.tabs.caption "Configuration d'onglets">
-<!ENTITY euskalbar.prefs.combined.caption "Options de requêtes combinées">
-<!ENTITY euskalbar.prefs.timeout.caption "Limite de temps (sec)">
-<!ENTITY euskalbar.prefs.skin.caption "Thèmes">
-<!ENTITY euskalbar.prefs.skin.label "Choisir un thème pour Euskalbar:">
-<!ENTITY euskalbar.prefs.skin.custom "Utiliser un thème personnalisé">
-<!ENTITY euskalbar.prefs.gui.caption "Interface">
-<!ENTITY euskalbar.prefs.dicts.label "Montrer menu des dictionnaires">
-<!ENTITY euskalbar.prefs.context.label "Montrer menu contextuel">
-<!ENTITY euskalbar.prefs.focuswindow.label "Focus window after query">
+<!ENTITY prefs.title "Configuration d'Euskalbar">
 
+<!ENTITY prefs.pane.general.label "Général">
+<!ENTITY prefs.pane.visibleDicts.label "Dictionnaires">
+<!ENTITY prefs.pane.advanced.label "Avancée">
 
-<!--Language-->
-<!ENTITY euskalbar.language.eu "Basque">
-<!ENTITY euskalbar.language.eu_es "Basque ‣ Espagnol">
-<!ENTITY euskalbar.language.es_eu "Espagnol ‣ Basque">
-<!ENTITY euskalbar.language.eu_en "Basque ‣ Anglais">
-<!ENTITY euskalbar.language.en_eu "Anglais ‣ Basque">
-<!ENTITY euskalbar.language.eu_fr "Basque ‣ Français">
-<!ENTITY euskalbar.language.fr_eu "Français ‣ Basque">
-<!ENTITY euskalbar.language.la_eu "Latin ‣ Basque">
-<!ENTITY euskalbar.language.eu_jp "Basque ‣ Japanese">
+<!ENTITY prefs.lang.caption "Langue par défaut">
+<!ENTITY prefs.lang.label "Langue par défaut au lancement d'Euskalbar:">
+
+<!ENTITY prefs.tabs.caption "Configuration d'onglets">
+<!ENTITY prefs.tabs.reuse.label "Réutiliser onglets">
+<!ENTITY prefs.tabs.bg.label "Ouvrir onglets en arrière-plan">
+
+<!ENTITY prefs.combined.caption "Options de requêtes combinées">
+<!ENTITY prefs.combined.timeout.label "Limite de temps (sec)">
+
+<!ENTITY prefs.skin.caption "Thèmes">
+<!ENTITY prefs.skin.label "Choisir un thème pour Euskalbar:">
+
+<!ENTITY prefs.gui.caption "Interface">
+<!ENTITY prefs.gui.showDictsMenu.label "Montrer menu des dictionnaires">
+<!ENTITY prefs.gui.showContextMenu.label "Montrer menu contextuel">
+<!ENTITY prefs.gui.focusWindow.label "Focus window after query">
 
 <!-- Context Menu -->
+<!ENTITY context.language.eu.label "Basque">
+<!ENTITY context.language.eu_es.label "Basque ‣ Espagnol">
+<!ENTITY context.language.es_eu.label "Espagnol ‣ Basque">
+<!ENTITY context.language.eu_en.label "Basque ‣ Anglais">
+<!ENTITY context.language.en_eu.label "Anglais ‣ Basque">
+<!ENTITY context.language.eu_fr.label "Basque ‣ Français">
+<!ENTITY context.language.fr_eu.label "Français ‣ Basque">
+<!ENTITY context.language.la_eu.label "Latin ‣ Basque">
+<!ENTITY context.language.eu_jp.label "Basque ‣ Japanese">
+
 <!ENTITY euskalbar.context.xuxenweb.label "Corriger avec XUXENweb">
 <!ENTITY euskalbar.context.sinonimoak.label "Synonymes">
-<!ENTITY euskalbar.context.mokoroa.es.label "Dans le texte en espagnol">
-<!ENTITY euskalbar.context.mokoroa.eu.label "Dans le texte en basque">
-
-<!-- Menu -->
-<!ENTITY euskalbar.menu.main "Dictionnaires">
 
 <!-- Statistics -->
-<!ENTITY euskalbar.stats.menu "Statistiques">
-<!ENTITY euskalbar.stats.main "Statistiques d'Euskalbar">
-<!ENTITY euskalbar.stats.count "Nombre de requêtes">
-<!ENTITY euskalbar.stats.clearbutton "Effacer statistiques">
-
+<!ENTITY stats.title "Statistiques">
+<!ENTITY stats.dict.label "Dicctionaire">
+<!ENTITY stats.count.label "Nombre de requêtes">
+<!ENTITY stats.clear.label "Effacer statistiques">
