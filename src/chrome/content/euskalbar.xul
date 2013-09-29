@@ -51,7 +51,8 @@
   <toolbox id="navigator-toolbox">
     <toolbar id="euskalbar-toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="euskalbar-hsButtons" collapsed="false" persist="collapsed">
     <toolbaritem id="euskalbar-leftbuttons" flex="0">
-      <toolbarbutton id="euskalbar-language" label="ES ‣ EU" type="menu-button" oncommand="euskalbar.app.toggleLang();">
+      <toolbarbutton id="euskalbar-language" type="menu-button"
+        oncommand="euskalbar.app.toggleLang();">
         <menupopup id="euskalbar-language-popup">
           <!-- Content generated in euskalbar.ui -->
         </menupopup>
