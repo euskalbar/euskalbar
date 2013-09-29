@@ -35,17 +35,19 @@ euskalbar.ui = function () {
       this.initToolbarDicts();
       this.initDictsMenu();
 
-      euskalbar.prefs.addListener(function (name) {
-        if (name === 'showDictsMenu') {
-          euskalbar.ui.toggleDictsMenu();
-        }
-        if (name === 'showContextMenu') {
-          euskalbar.ui.showContextMenu();
-        }
-        if (name === 'visibleDicts') {
-          euskalbar.dicts.available.each(function (dictName) {
-            euskalbar.ui.setButtonVisibility(dictName);
-          });
+      euskalbar.prefs.addListener(function (prefName) {
+        switch (prefName) {
+          case 'showDictsMenu':
+            euskalbar.ui.toggleDictsMenu();
+            break;
+          case 'showContextMenu':
+            euskalbar.ui.showContextMenu();
+            break;
+          case 'visibleDicts':
+            euskalbar.dicts.available.each(function (dictName) {
+              euskalbar.ui.setButtonVisibility(dictName);
+            });
+            break;
         }
       });
     },
