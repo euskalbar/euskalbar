@@ -40,9 +40,6 @@ pref('extensions.euskalbar.onkey2', ['batua', 'uzei', 'bostmila']);
 // Query timeout
 pref("extensions.euskalbar.queryTimeout", 5);
 
-// Subqueries
-pref("extensions.euskalbar.performSubQueries", true);
-
 // Tabs prefs
 pref("extensions.euskalbar.reuseTabs", true);
 pref("extensions.euskalbar.bgTabs", false);

@@ -81,7 +81,6 @@
 
     <preferences>
       <preference id="prefQuerytimeout" name="extensions.euskalbar.queryTimeout" type="int"/>
-      <preference id="prefQuerysubqueries" name="extensions.euskalbar.performSubQueries" type="bool"/>
     </preferences>
 
     <vbox flex="1">
@@ -122,10 +121,6 @@
             <label value="&euskalbar.prefs.timeout.caption;"/>
             <textbox type="number" width="50px"
                      preference="prefQuerytimeout" />
-          </hbox>
-          <hbox>
-            <checkbox preference="prefQuerysubqueries"
-                      label="&euskalbar.prefs.subqueries.caption;" />
           </hbox>
         </vbox>
       </groupbox>

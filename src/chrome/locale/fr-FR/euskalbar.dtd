@@ -62,7 +62,6 @@
 <!ENTITY euskalbar.prefs.tabs.caption "Configuration d'onglets">
 <!ENTITY euskalbar.prefs.combined.caption "Options de requêtes combinées">
 <!ENTITY euskalbar.prefs.timeout.caption "Limite de temps (sec)">
-<!ENTITY euskalbar.prefs.subqueries.caption "Voir sous-requêtes">
 <!ENTITY euskalbar.prefs.skin.caption "Thèmes">
 <!ENTITY euskalbar.prefs.skin.label "Choisir un thème pour Euskalbar:">
 <!ENTITY euskalbar.prefs.skin.custom "Utiliser un thème personnalisé">

@@ -62,7 +62,6 @@
 <!ENTITY euskalbar.prefs.tabs.caption "タブ選択">
 <!ENTITY euskalbar.prefs.combined.caption "組み合わせ検索">
 <!ENTITY euskalbar.prefs.timeout.caption "検索のタイムアウト(seg)">
-<!ENTITY euskalbar.prefs.subqueries.caption "サブクエリー の検索">
 <!ENTITY euskalbar.prefs.skin.caption "スキン">
 <!ENTITY euskalbar.prefs.skin.label "Euskalbarのスキンを選択する:">
 <!ENTITY euskalbar.prefs.skin.custom "カスタマイズのスキンを使う">

@@ -62,7 +62,6 @@
 <!ENTITY euskalbar.prefs.tabs.caption "Preferencias de las pestañas">
 <!ENTITY euskalbar.prefs.combined.caption "Opciones de las consultas combinadas">
 <!ENTITY euskalbar.prefs.timeout.caption "Tiempo límite (seg)">
-<!ENTITY euskalbar.prefs.subqueries.caption "Consultar subentradas">
 <!ENTITY euskalbar.prefs.skin.caption "Skins">
 <!ENTITY euskalbar.prefs.skin.label "Elegir skin para Euskalbar:">
 <!ENTITY euskalbar.prefs.skin.custom "Usar skin personalizado">
