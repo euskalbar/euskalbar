@@ -291,18 +291,18 @@ euskalbar.app = function () {
     // Laster-teklen aginduak exekutatzen ditu
     teklakEuskalbar: function (prefName) {
       switch (prefName) {
-      case "showDictsMenu":
-      case "showContextMenu":
-        euskalbar.prefs[prefName] = !euskalbar.prefs[prefName];
-        break;
-      case "focustextbox":
-        var tb = $("euskalbar-search-string");
-        tb.focus();
-        tb.select();
-        break;
-      case "toggledicts":
-        this.toggleLang();
-        break;
+        case "showDictsMenu":
+        case "showContextMenu":
+          euskalbar.prefs[prefName] = !euskalbar.prefs[prefName];
+          break;
+        case "focustextbox":
+          var tb = $("euskalbar-search-string");
+          tb.focus();
+          tb.select();
+          break;
+        case "toggledicts":
+          this.toggleLang();
+          break;
       }
     },
 
