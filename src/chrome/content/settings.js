@@ -97,8 +97,12 @@ euskalbar.settings = function () {
       euskalbar.dicts.available.each(function (dictName) {
         insertDictTo(visibleDicts, dictName, 'visibleDicts');
         insertDictTo(enterDicts, dictName, 'onkey');
-        insertDictTo(ctrlEnterDicts, dictName, 'onkey1');
-        insertDictTo(shiftEnterDicts, dictName, 'onkey2');
+
+        // Don't add dictionaries that don't support scrapping
+        if (euskalbar.dicts[dictName].hasOwnProperty('scrap')) {
+          insertDictTo(ctrlEnterDicts, dictName, 'onkey1');
+          insertDictTo(shiftEnterDicts, dictName, 'onkey2');
+        }
       });
     },
 
