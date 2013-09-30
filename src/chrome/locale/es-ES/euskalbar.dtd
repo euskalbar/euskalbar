@@ -44,7 +44,7 @@
 <!ENTITY context.language.eu_jp.label "Euskera ‣ Japanese">
 
 <!ENTITY context.xuxenweb.label "Corregir con XUXENweb">
-<!ENTITY context.sinonimoak.label "Sinonimos">
+<!ENTITY context.synonyms.label "Sinonimos">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Estadísticas">

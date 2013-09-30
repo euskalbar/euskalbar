@@ -43,8 +43,8 @@
 <!ENTITY context.language.la_eu.label "Latin ‣ Basque">
 <!ENTITY context.language.eu_jp.label "Basque ‣ Japanese">
 
-<!ENTITY euskalbar.context.xuxenweb.label "Corriger avec XUXENweb">
-<!ENTITY euskalbar.context.sinonimoak.label "Synonymes">
+<!ENTITY context.xuxenweb.label "Corriger avec XUXENweb">
+<!ENTITY context.synonyms.label "Synonymes">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Statistiques">
