@@ -87,7 +87,7 @@ euskalbar.ui = function () {
         menuItem.setAttribute('label', source.toUpperCase() + ' ‣ ' +
                                        target.toUpperCase());
         menuItem.setAttribute('oncommand',
-                              'euskalbar.app.switchTo("' +
+                              'euskalbar.app.setLang("' +
                                 source + '", "' + target + '");' +
                                 'event.stopPropagation();');
         menuPopup.appendChild(menuItem);

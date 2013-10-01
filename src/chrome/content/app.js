@@ -128,7 +128,7 @@ euskalbar.app = function () {
       this.source = lang[0] + lang[1];
       this.target = lang[3] + lang[4];
 
-      this.switchTo(this.source, this.target);
+      this.setLang(this.source, this.target);
     },
 
 
@@ -551,6 +551,8 @@ euskalbar.app = function () {
                                            target.toUpperCase());
       this.source = source;
       this.target = target;
+
+      this.setDictionaries(source, target);
     },
 
 
@@ -567,13 +569,7 @@ euskalbar.app = function () {
       showDicts.each(function (dictName) {
         $('euskalbar-' + dictName).setAttribute('hidden', false);
       });
-    },
-
-    /* Switches the app to the given language pair */
-    switchTo: function (source, target) {
-      this.setLang(source, target);
-      this.setDictionaries(source, target);
-    },
+    }
 
   };
 
