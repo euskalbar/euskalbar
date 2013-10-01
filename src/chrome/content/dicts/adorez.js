@@ -32,9 +32,6 @@ euskalbar.dicts.adorez = function () {
 
     homepage: 'http://www.bostakbat.org/azkue/',
 
-    pairs: ['eu-es',
-            'es-eu'],
-
     method: 'GET',
 
     getUrl: function (term, source, target) {
