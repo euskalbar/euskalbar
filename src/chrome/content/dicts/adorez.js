@@ -35,21 +35,15 @@ euskalbar.dicts.adorez = function () {
     method: 'GET',
 
     getUrl: function (term, source, target) {
-      return 'http://www.bostakbat.org/azkue//index.php';
+      return 'http://www.bostakbat.org/azkue/index.php';
     },
 
     getParams: function (term, source, target) {
-      var params = {
+      return {
         't': term,
         'q': '1'
       };
-
-      return params;
-    },
-
-    scrap: function (term, source, target, data) {
-      // TODO: implementation
-    },
+    }
 
   };
 
