@@ -32,6 +32,7 @@ euskalbar.dicts = function () {
 
     // Set of available dictionaries
     available: $L.Set([
+      'adorez',
       'batua',
       'bergara',
       'berria',

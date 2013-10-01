@@ -24,51 +24,35 @@ if (!euskalbar) var euskalbar = {};
 
 if (!euskalbar.dicts) euskalbar.dicts = {};
 
-euskalbar.dicts.hikea = function () {
+euskalbar.dicts.adorez = function () {
 
   return {
-    displayName: 'HIKEA',
-    description: 'HIKEA EITBren hiztegia',
+    displayName: 'Adorez sin.',
+    description: 'Adorez sinonimoen hiztegia',
 
-    homepage: 'http://www.eitb.com',
+    homepage: 'http://www.bostakbat.org/azkue/',
 
-    pairs: ['eu-es', 'eu-en',
-            'es-eu', 'en-eu'],
+    pairs: ['eu-es',
+            'es-eu'],
 
-    method: 'POST',
+    method: 'GET',
 
     getUrl: function (term, source, target) {
-      switch (source) {
-        case 'eu':
-          return 'http://www.eitb.com/eu/get/euskera/hiztegia/'+term+'/vacio/vacio/vacio/vacio/0/0/vacio/vacio/vacio';
-          break;
-        case 'en':
-          return 'http://www.eitb.com/eu/get/euskera/hiztegia/vacio/vacio/'+term+'/vacio/vacio/0/0/vacio/vacio/vacio';
-          break;
-        case 'es':
-          return 'http://www.eitb.com/eu/get/euskera/hiztegia/vacio/'+term+'/vacio/vacio/vacio/0/0/vacio/vacio/vacio';
-          break;
-      }
-
+      return 'http://www.bostakbat.org/azkue//index.php';
     },
 
-   getParams: function (term, source, target) {
-       /*var params = {
-
+    getParams: function (term, source, target) {
+      var params = {
+        't': term,
+        'q': '1'
       };
 
-      if (source === 'es') {
-        params['gaztelania'] = term;
-      } else {
-        params['euskera'] = term;
-      }
-
-      return params;*/
+      return params;
     },
 
-    /*scrap: function (term, source, target, data) {
+    scrap: function (term, source, target, data) {
       // TODO: implementation
-    },*/
+    },
 
   };
 
