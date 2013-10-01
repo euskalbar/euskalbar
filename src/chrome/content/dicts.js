@@ -63,6 +63,7 @@ euskalbar.dicts = function () {
       'luret',
       'mokoroa',
       'morris',
+      'nolaerran',
       'oeh',
       'opentran',
       'telekomunikazioak',
