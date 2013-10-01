@@ -23,7 +23,6 @@
 
 "use strict";
 
-Components.utils.import("resource://gre/modules/AddonManager.jsm");
 Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 
@@ -39,11 +38,7 @@ euskalbar.prefs = function () {
   var branchName = 'extensions.euskalbar.',
       branch = Services.prefs.getBranch(branchName),
       addonId = 'euskalbar@interneteuskadi.org',
-      addonRoot = undefined;
-
-  AddonManager.getAddonByID(addonId, function (addon) {
-    addonRoot = addon.getResourceURI().spec;
-  });
+      addonRoot = 'chrome://euskalbar/content/';
 
   /* Type getters/setters */
   var typeMap = {
