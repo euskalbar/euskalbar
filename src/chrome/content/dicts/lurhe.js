@@ -27,8 +27,8 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.lurhe = function () {
 
   return {
-    displayName: 'Lur Hiztegi Entziklopedikoa',
-    shortName: 'Lur HE',
+    displayName: 'Lur HE',
+    description: 'Lur Hiztegi Entziklopedikoa',
 
     homePage: 'http://www.euskara.euskadi.net/r59-lursubhd/eu/contenidos/informacion/lursubhd/eu_lursubhd/lursubhd.html',
 
