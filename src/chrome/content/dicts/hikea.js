@@ -66,10 +66,6 @@ euskalbar.dicts.hikea = function () {
       return params;*/
     },
 
-    /*scrap: function (term, source, target, data) {
-      // TODO: implementation
-    },*/
-
   };
 
 }();
