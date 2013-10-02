@@ -32,31 +32,21 @@ euskalbar.dicts.uzei = function () {
     displayName: 'UZEI sin.',
     description: 'UZEI Sinonimoen Hiztegia',
 
-    homePage: 'http://www.uzei.com/estatico/sinonimos.asp',
+    homePage: 'http://sh.uzei.com',
 
-    method: 'GET',
+    method: 'POST',
 
     getUrl: function (term, source, target) {
-      return 'http://www.uzei.com/estatico/sinonimos.asp';
+      return 'http://sh.uzei.com/listado';
     },
 
     getParams: function (term, source, target) {
-      var uiLang = $U.langCode(euskalbar.ui.locale),
-          langMap = {
-            'en': '1347',
-            'fr': '1348',
-            'es': '1',
-            'eu': '14',
-          };
-
       return {
-        'sesion': langMap[uiLang] || '14',
-        'sarrera': term,
-        'eragiketa': 'bilatu'
+        'q': term
       };
     },
 
-    scrap: function (term, source, target, data) {
+/*    scrap: function (term, source, target, data) {
       var output = data;
 
       var table = output.split("<TABLE");
@@ -72,7 +62,7 @@ euskalbar.dicts.uzei = function () {
         + output + '</font>';
 
       return output;
-    },
+    },*/
 
   };
 
