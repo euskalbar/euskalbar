@@ -32,14 +32,15 @@ euskalbar.dicts.harluxet = function () {
 
     homePage: 'http://www1.euskadi.net/harluxet/',
 
-    method: 'GET',
+    method: 'POST',
 
     getUrl: function (term, source, target) {
-      'http://www1.euskadi.net/harluxet/emaitza.asp';
+      return 'http://www1.euskadi.net/harluxet/emaitza.asp';
     },
 
     getParams: function (term, source, target) {
       return {
+        'bilaketamota': 'testua',
         'sarrera': term
       };
     },
