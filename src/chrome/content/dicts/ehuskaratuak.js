@@ -35,7 +35,7 @@ euskalbar.dicts.ehuskaratuak = function () {
     pairs: ['eu-es', 'eu-en', 'eu-fr',
             'es-eu', 'fr-eu', 'en-eu'],
 
-    method: 'GET',
+    method: 'POST',
 
     getUrl: function (term, source, target) {
       return 'http://ehuskaratuak.ehu.es/bilaketa/';
@@ -56,7 +56,7 @@ euskalbar.dicts.ehuskaratuak = function () {
         'testuhitza2': '',
         'kategoria2': '',
         'distantzia': '0',
-        'osagaietan': target,
+        'emaitza': target,
         'grafauk': '1forma',
         'grafiko_aukerak': '1forma'
       };
