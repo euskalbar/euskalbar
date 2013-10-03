@@ -102,8 +102,8 @@ euskalbar.dicts = function () {
         var tab = gBrowser
           .getBrowserAtIndex(euskalbar.app.getTabIndexBySlug(dictName)),
             hook = function (event) {
-              tab.removeEventListener("load", hook, true);
               dict.postQuery(term, source, target, event.originalTarget);
+              tab.removeEventListener("load", hook, true);
             };
 
         tab.addEventListener("load", hook, true);

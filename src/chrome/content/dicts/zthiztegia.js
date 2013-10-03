@@ -26,7 +26,7 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 
 euskalbar.dicts.zthiztegia = function () {
 
-  var $U = euskalbar.lib.utils;
+  var $ = euskalbar.lib.utils.$;
 
   return {
     displayName: 'ZT Hiztegia',
@@ -70,11 +70,12 @@ euskalbar.dicts.zthiztegia = function () {
         $('txtBilagaila', doc).value = term;
         $('selectHizkuntza', doc).selectedIndex = i;
         $('bot_bilatu', doc).click();
+
     },
 
-    scrap: function (term, source, target, data) {
+    /*scrap: function (term, source, target, data) {
       // TODO: implementation
-    },
+    },*/
 
   };
 
