@@ -48,6 +48,11 @@ euskalbar.dicts.oeh = function () {
       };
     },
 
+    scrap: function (term, source, target, data) {
+      return data.substring(data.indexOf('<div class="grid7 oehResultContent">'),
+                            data.indexOf('<div id="footer">'));
+    },
+
   };
 
 }();
