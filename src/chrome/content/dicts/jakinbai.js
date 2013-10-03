@@ -24,22 +24,22 @@ if (!euskalbar) var euskalbar = {};
 
 if (!euskalbar.dicts) euskalbar.dicts = {};
 
-euskalbar.dicts.lanbide_heziketa = function () {
+euskalbar.dicts.jakinbai = function () {
 
   var $ = euskalbar.lib.utils.$;
 
   return {
-    displayName: 'Lanbideak',
-    description: 'Lanbide heziketarako hiztegia',
+    displayName: 'Jakinbai',
+    description: 'Jakinbai lanbide heziketarako hiztegia',
 
-    homePage: 'http://kantauri.eleka.net/laneki',
+    homePage: 'http://jakinbai.eu/hiztegia',
 
     pairs: ['eu-es', 'es-eu'],
 
     method: 'GET',
 
     getUrl: function (term, source, target) {
-      return 'http://kantauri.eleka.net/laneki';
+      return 'http://jakinbai.eu/hiztegia';
     },
 
     getParams: function (term, source, target) {
