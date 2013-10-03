@@ -32,6 +32,9 @@ euskalbar.dicts.mokoroa = function () {
 
     homePage: 'http://www.hiru.com/hirupedia',
 
+    pairs: ['eu-es',
+            'es-eu'],
+
     method: 'GET',
 
     getUrl: function (term, source, target) {
@@ -61,7 +64,8 @@ euskalbar.dicts.mokoroa = function () {
     },
 
     scrap: function (term, source, target, data) {
-      // TODO: implement scrapping function
+      return data.substring(data.indexOf('<font color'),
+                            data.indexOf('<div id="justo_mokoroa">'));
     },
 
   };

@@ -49,7 +49,7 @@ euskalbar.dicts.batua = function () {
     },
 
     scrap: function (term, source, target, data) {
-      return data.substring(data.indexOf('<span class="pag">'),
+      return data.substring(data.indexOf('</div><p class="note">'),
                             data.indexOf('<div class="modResources">'));
     },
 
