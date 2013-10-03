@@ -46,23 +46,15 @@ euskalbar.dicts.uzei = function () {
       };
     },
 
-/*    scrap: function (term, source, target, data) {
-      var output = data;
-
-      var table = output.split("<TABLE");
-      output = table[2].substring(-1);
-      output = '<table' + output;
-
-      var table2 = output.split("</table");
-      output = table2[0].substring(-1);
-      output = output + '</table>';
-      output = output.replace(/sinonimos.asp/g, this.url);
-      output = '<font face="bitstream vera sans, verdana, arial" size="3"><B>'
-        + term + '</B></font><font face="bitstream vera sans, verdana, arial">'
-        + output + '</font>';
-
-      return output;
-    },*/
+    scrap: function (term, source, target, data) {
+      data = data.substring(data.indexOf('<div class=\'row-fluid\'>'),
+                            data.indexOf('<table class="table table-striped">'));
+      data = data.replace(/<pre>/g, "");
+      if (data.indexOf('Ez dugu aurkitu') != -1) {
+        data = 'Ez dugu aurkitu zure bilaketa-irizpideak betetzen dituen formarik.'
+      }
+      return data;
+    },
 
   };
 
