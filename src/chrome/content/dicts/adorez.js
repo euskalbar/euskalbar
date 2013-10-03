@@ -43,7 +43,12 @@ euskalbar.dicts.adorez = function () {
         't': term,
         'q': '1'
       };
-    }
+    },
+
+    scrap: function (term, source, target, data) {
+      return data.substring(data.indexOf('<div id="emaitza">'),
+                            data.indexOf('<div id="oina">'));
+    },
 
   };
 

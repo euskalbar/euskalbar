@@ -56,7 +56,8 @@ euskalbar.dicts.bostmila = function () {
     },
 
     scrap: function (term, source, target, data) {
-      // TODO: implementation
+      return data.substring(data.indexOf('<div id="emaitza">'),
+                            data.indexOf('<div id="oina">'));
     },
 
   };
