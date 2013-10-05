@@ -83,9 +83,9 @@ euskalbar.dicts.telekomunikazioak = function () {
       button.click();
     },
 
-    scrap: function (term, source, target, data) {
+    /*scrap: function (term, source, target, data) {
       // TODO: implementation
-    },
+    },*/
 
   };
 
