@@ -40,7 +40,9 @@ euskalbar.dicts.elhuyar = function () {
     method: 'GET',
 
     getUrl: function (term, source, target) {
-      return 'http://hiztegiak.elhuyar.org/'+source+'_'+target+'/'+term
+      return [
+        'http://hiztegiak.elhuyar.org/', source, '_', target, '/', term
+      ].join('');
     },
 
     getParams: function (term, source, target) {
