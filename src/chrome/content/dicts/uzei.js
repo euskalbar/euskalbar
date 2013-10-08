@@ -50,7 +50,7 @@ euskalbar.dicts.uzei = function () {
       data = data.substring(data.indexOf('<div class=\'row-fluid\'>'),
                             data.indexOf('<table class="table table-striped">'));
       data = data.replace(/<pre>/g, "");
-      if (data.indexOf('Ez dugu aurkitu') != -1) {
+      if (data.indexOf('Ez dugu aurkitu') !== -1) {
         data = 'Ez dugu aurkitu zure bilaketa-irizpideak betetzen dituen formarik.'
       }
       return data;
