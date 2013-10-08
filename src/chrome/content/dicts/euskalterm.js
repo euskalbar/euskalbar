@@ -48,7 +48,8 @@ euskalbar.dicts.euskalterm = function () {
       term = term.trim();
 
       var uiLang = $U.langCode(euskalbar.ui.locale),
-          dictLang = ['en', 'fr', 'es', 'la', 'de'].indexOf(uiLang) !== -1 ? uiLang : 'eu';
+          availableLangs = ['en', 'fr', 'es', 'la', 'de'],
+          dictLang = availableLangs.indexOf(uiLang) !== -1 ? uiLang : 'eu';
 
       var langMap = {
             'es': 'ES',
