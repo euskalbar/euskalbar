@@ -30,7 +30,7 @@
     }
 
   td {  padding: 5px;
-    }    
+    }
 
   th { border-style: none;
     border-width: 1px;
@@ -56,16 +56,16 @@
     padding-top: 2px;
     padding-bottom: 2px;
     }
-	
+
   h2 { font-family: bitstream vera sans, verdana, arial;
-	font-size: 10pt;
-	font-weight: bold;
-	background-color: rgb(220, 170, 120);
+    font-size: 10pt;
+    font-weight: bold;
+    background-color: rgb(220, 170, 120);
     }
-	
+
   h3 { font-family: bitstream vera sans, verdana, arial;
-	font-size: 10pt;
-	font-style: italic;
+    font-size: 10pt;
+    font-style: italic;
     }
 
   #oharra { margin: 0px;
@@ -73,4 +73,3 @@
     text-align: center;
     font-size: 7pt;
     }
-
