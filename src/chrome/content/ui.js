@@ -34,6 +34,7 @@ euskalbar.ui = function () {
       this.initLanguages();
       this.initToolbarDicts();
       this.initDictsMenu();
+      this.initContextMenu();
 
       euskalbar.prefs.addListener(function (prefName) {
         switch (prefName) {
@@ -159,6 +160,119 @@ euskalbar.ui = function () {
     },
 
 
+    /*
+     * Generates the context drop-down menu
+     */
+    initContextMenu: function () {
+      var contextMenu = $('euskalbar-context-menupopup'),
+          addedPairs = {},
+          contextCategories = {},
+          dict, menuItem, source, target, pair, categoryList;
+
+      var appendToMenu = function (menu, dictName, source, target) {
+        dict = euskalbar.dicts[dictName];
+        menuItem = document.createElement('menuitem');
+        menuItem.setAttribute('id', 'euskalbar-' + dictName + '-' +
+                                    source + '_' + target + '-context');
+        menuItem.setAttribute('label', dict.displayName);
+        if (dict.description !== undefined) {
+          menuItem.setAttribute('tooltiptext', dict.description);
+        }
+        menuItem.setAttribute('oncommand',
+                              'euskalbar.app.runQuery(event)');
+        menu.appendChild(menuItem);
+      };
+
+      var newPairMenu = function (source, target) {
+        var menu = document.createElement('menu'),
+            menuPopup = document.createElement('menupopup');
+
+        euskalbar.app.pairs[source][target].each(function (dictName) {
+          dict = euskalbar.dicts[dictName];
+
+          if (dict.hasOwnProperty('contextCategory')) {
+            categoryList = contextCategories[dict.contextCategory] || [];
+            categoryList.push(dictName);
+            contextCategories[dict.contextCategory] = categoryList;
+
+            return false;
+          }
+
+          appendToMenu(menuPopup, dictName, source, target);
+        });
+
+        var label = source.toUpperCase();
+        if (source !== 'eu' || target !== 'eu') {
+          label = label  + ' ‣ ' + target.toUpperCase();
+        }
+        menu.setAttribute('label', label);
+        menu.appendChild(menuPopup);
+
+        contextMenu.appendChild(menu);
+
+        addedPairs[[source, '_', target].join('')] = true;
+      };
+
+      var newCategoryMenu = function (category) {
+        var menu = document.createElement('menu'),
+            menuPopup = document.createElement('menupopup');
+
+        contextCategories[category].forEach(function (dictName) {
+          // HACKISH: using 'fake' as source and target languages
+          appendToMenu(menuPopup, dictName, 'fake', 'fake');
+        });
+
+        var label = $U._(category);
+        menu.setAttribute('label', label);
+        menu.appendChild(menuPopup);
+
+        contextMenu.appendChild(menu);
+      };
+
+      var newRootCategoryMenu = function (category) {
+        contextCategories.root.forEach(function (dictName) {
+          // HACKISH: using 'fake' as source and target languages
+          appendToMenu(contextMenu, dictName, 'fake', 'fake');
+        });
+      };
+
+      // Add Basque-only dictionaries first
+      newPairMenu('eu', 'eu');
+
+      // Add any remaining language pairs as submenus, and extract those
+      // that need to be categorized to treat them separately
+      for (source in euskalbar.app.pairs) {
+        for (target in euskalbar.app.pairs[source]) {
+          pair = [source, '_', target].join('');
+          if (!(pair in addedPairs)) {
+            var menuSeparator = document.createElement('menuseparator');
+            contextMenu.appendChild(menuSeparator);
+
+            newPairMenu(source, target);
+
+            if (target in euskalbar.app.pairs &&
+                source in euskalbar.app.pairs[target]) {
+              newPairMenu(target, source);
+            }
+          }
+        }
+      }
+
+      // Add all categorized dictionaries
+      for (var category in contextCategories) {
+        var menuSeparator = document.createElement('menuseparator');
+        contextMenu.appendChild(menuSeparator);
+
+        if (category === 'root') {
+          newRootCategoryMenu(category);
+        } else {
+          newCategoryMenu(category);
+        }
+      }
+
+    },
+
+
     initDictsMenu: function () {
       var dictsMenu = this.createDictsMenu();
 
@@ -271,6 +385,7 @@ euskalbar.ui = function () {
       navBar.setAttribute("collapsed", false);
       document.persist(navBarId, "collapsed");
     },
+
 
     /* Toggles toolbar button visibility */
     setButtonVisibility: function (dictName) {

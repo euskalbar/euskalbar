@@ -32,20 +32,6 @@
 <!ENTITY prefs.gui.showContextMenu.label "Montrer menu contextuel">
 <!ENTITY prefs.gui.focusWindow.label "Focus window after query">
 
-<!-- Context Menu -->
-<!ENTITY context.language.eu.label "Basque">
-<!ENTITY context.language.eu_es.label "Basque ‣ Espagnol">
-<!ENTITY context.language.es_eu.label "Espagnol ‣ Basque">
-<!ENTITY context.language.eu_en.label "Basque ‣ Anglais">
-<!ENTITY context.language.en_eu.label "Anglais ‣ Basque">
-<!ENTITY context.language.eu_fr.label "Basque ‣ Français">
-<!ENTITY context.language.fr_eu.label "Français ‣ Basque">
-<!ENTITY context.language.la_eu.label "Latin ‣ Basque">
-<!ENTITY context.language.eu_jp.label "Basque ‣ Japanese">
-
-<!ENTITY context.xuxenweb.label "Corriger avec XUXENweb">
-<!ENTITY context.synonyms.label "Synonymes">
-
 <!-- Statistics -->
 <!ENTITY stats.title "Statistiques">
 <!ENTITY stats.dict.label "Dicctionaire">

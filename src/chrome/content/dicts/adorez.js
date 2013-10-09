@@ -29,6 +29,7 @@ euskalbar.dicts.adorez = function () {
   return {
     displayName: 'Adorez sin.',
     description: 'Adorez sinonimoen hiztegia',
+    contextCategory: 'context.Synonyms',
 
     homepage: 'http://www.bostakbat.org/azkue/',
 

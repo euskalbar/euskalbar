@@ -31,6 +31,7 @@ euskalbar.dicts.uzei = function () {
   return {
     displayName: 'UZEI sin.',
     description: 'UZEI Sinonimoen Hiztegia',
+    contextCategory: 'context.Synonyms',
 
     homePage: 'http://sh.uzei.com',
 

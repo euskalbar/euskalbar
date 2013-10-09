@@ -32,20 +32,6 @@
 <!ENTITY prefs.gui.showContextMenu.label "Mostrar el menú contextual">
 <!ENTITY prefs.gui.focusWindow.label "Enfocar la ventana tras la búsqueda">
 
-<!-- Context Menu -->
-<!ENTITY context.language.eu.label "Euskera">
-<!ENTITY context.language.eu_es.label "Euskera ‣ Castellano">
-<!ENTITY context.language.es_eu.label "Castellano ‣ Euskera">
-<!ENTITY context.language.eu_en.label "Euskera ‣ Inglés">
-<!ENTITY context.language.en_eu.label "Inglés ‣ Euskera">
-<!ENTITY context.language.eu_fr.label "Euskera ‣ Francés">
-<!ENTITY context.language.fr_eu.label "Francés ‣ Euskera">
-<!ENTITY context.language.la_eu.label "Latín ‣ Euskera">
-<!ENTITY context.language.eu_jp.label "Euskera ‣ Japanese">
-
-<!ENTITY context.xuxenweb.label "Corregir con XUXENweb">
-<!ENTITY context.synonyms.label "Sinonimos">
-
 <!-- Statistics -->
 <!ENTITY stats.title "Estadísticas">
 <!ENTITY stats.dict.label "Diccionario">

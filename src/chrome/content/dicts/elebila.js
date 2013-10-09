@@ -29,6 +29,7 @@ euskalbar.dicts.elebila = function () {
   return {
     displayName: 'Elebila',
     description: 'Elebila euskarazko bilatzailea',
+    contextCategory: 'root',
 
     homePage: 'http://www.elebila.eu/search/',
 

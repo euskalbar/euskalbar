@@ -32,20 +32,6 @@
 <!ENTITY prefs.gui.showContextMenu.label "Erakutsi testuinguru-menua">
 <!ENTITY prefs.gui.focusWindow.label "Bilaketaren ondoren, fokua leihoan jarri">
 
-<!-- Context Menu -->
-<!ENTITY context.language.eu.label "Euskara">
-<!ENTITY context.language.eu_es.label "Euskara ‣ Gaztelania">
-<!ENTITY context.language.es_eu.label "Gaztelania ‣ Euskara">
-<!ENTITY context.language.eu_en.label "Euskara ‣ Ingelesa">
-<!ENTITY context.language.en_eu.label "Ingelesa ‣ Euskara">
-<!ENTITY context.language.eu_fr.label "Euskara ‣ Frantsesa">
-<!ENTITY context.language.fr_eu.label "Frantsesa ‣ Euskara">
-<!ENTITY context.language.la_eu.label "Latina ‣ Euskara">
-<!ENTITY context.language.eu_jp.label "Euskara ‣ Japanese">
-
-<!ENTITY context.xuxenweb.label "Zuzendu XUXENweb erabiliz">
-<!ENTITY context.synonyms.label "Sinonimoak">
-
 <!-- Statistics -->
 <!ENTITY stats.title "Estatistikak">
 <!ENTITY stats.dict.label "Hiztegia">

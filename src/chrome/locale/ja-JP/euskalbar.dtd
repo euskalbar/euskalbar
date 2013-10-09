@@ -32,20 +32,6 @@
 <!ENTITY prefs.gui.showContextMenu.label "文脈メニューを表示">
 <!ENTITY prefs.gui.focusWindow.label "Focus window after query">
 
-<!-- Context Menu -->
-<!ENTITY context.language.eu.label "バスク語">
-<!ENTITY context.language.eu_es.label "バスク語　‣ スペイン語">
-<!ENTITY context.language.es_eu.label "スペイン語 ‣ バスク語">
-<!ENTITY context.language.eu_en.label "バスク語 ‣ 英語">
-<!ENTITY context.language.en_eu.label "英語 ‣ バスク語">
-<!ENTITY context.language.eu_fr.label "バスク語 ‣ フランス語">
-<!ENTITY context.language.fr_eu.label "フランス語 ‣ バスク語">
-<!ENTITY context.language.la_eu.label "ラテン語 ‣ バスク語">
-<!ENTITY context.language.eu_jp.label "バスク語 ‣ 日本語">
-
-<!ENTITY context.xuxenweb.label "XUXENweb使って訂正する">
-<!ENTITY context.sinonimoak.label "類語">
-
 <!-- Statistics -->
 <!ENTITY stats.menu "統計">
 <!ENTITY stats.dict.label "上級検索">
