@@ -37,22 +37,17 @@ euskalbar.stats = function () {
     init: function () {
       // First copy euskalbar.sqlite
       var profileDir = euskalbar.app.profileURI;
-      try {
-        var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
-        var statsFile = $U.FileIO.getLocalSystemURI(statsFileURL)
-                                 .QueryInterface(Ci.nsIFileURL).file;
-        statsFile.copyTo(profileDir, this.filename);
-      } catch (e) {
-        console.log(e);
+      let file = FileUtils.getFile("ProfD", [this.filename]);
+      if (!file.exists()) {
+        try {
+          var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
+          var statsFile = $U.FileIO.getLocalSystemURI(statsFileURL)
+                                   .QueryInterface(Ci.nsIFileURL).file;
+            statsFile.copyTo(profileDir, this.filename);
+        } catch (e) {
+          console.log(e);
+        }
       }
-
-      // Then remove the deprecated statistics folder (just this time)
-      profileDir.append("euskalbar");
-
-      if (profileDir.exists()) {
-        profileDir.remove(true);
-      }
-
     },
 
 
