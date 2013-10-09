@@ -11,19 +11,18 @@
       label="&euskalbar.label;"
       tooltiptext="&euskalbar.label;"
       command="cmd_toggleEuskalbar" type="menu-button">
-      <menupopup id="EuskalBar-aukerak-popup">
+      <menupopup id="euskalbar-aukerak-popup">
         <menuitem id="euskalbar-optionsdialog"
-          label="&euskalbar.prefs.options.label;"
+          label="&euskalbar.options.label;"
           tooltiptext="&euskalbar.options.tooltip;"
-          oncommand="euskalbar.euskalbarOptions();" />
+          oncommand="euskalbar.ui.options();" />
         <menuitem id="euskalbar-showstatistics"
-          label="&euskalbar.stats.menu;"
-          tooltiptext="&euskalbar.stats.main;"
-          oncommand="euskalbar.showLocalstats();" />
+          label="&stats.title;"
+          oncommand="euskalbar.ui.stats();" />
         <menuseparator />
         <menuitem id="euskalbar-help"
           label="&euskalbar.help.label;"
-          oncommand="euskalbar.openHelp();" />
+          oncommand="euskalbar.ui.help();" />
       </menupopup>
     </toolbarbutton>
 

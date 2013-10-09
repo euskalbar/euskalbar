@@ -27,11 +27,8 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.stats = function () {
 
-  // Private vars
-  var $L = euskalbarLib,
-      $ = $L.$;
+  var $U = euskalbar.lib.utils;
 
-  // Public interface
   return {
 
     filename: 'euskalbar.sqlite',
@@ -39,23 +36,18 @@ euskalbar.stats = function () {
     /* Initializes the stats file and copies it to the user profile directory */
     init: function () {
       // First copy euskalbar.sqlite
-      var profileDir = euskalbar.profileURI;
-      try {
-        var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
-        var statsFile = $L.FileIO.getLocalSystemURI(statsFileURL)
-                                 .QueryInterface(Ci.nsIFileURL).file;
-        statsFile.copyTo(profileDir, this.filename);
-      } catch (e) {
-        console.log(e);
+      var profileDir = euskalbar.app.profileURI;
+      let file = FileUtils.getFile("ProfD", [this.filename]);
+      if (!file.exists()) {
+        try {
+          var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
+          var statsFile = $U.FileIO.getLocalSystemURI(statsFileURL)
+                                   .QueryInterface(Ci.nsIFileURL).file;
+            statsFile.copyTo(profileDir, this.filename);
+        } catch (e) {
+          console.log(e);
+        }
       }
-
-      // Then remove the deprecated statistics folder (just this time)
-      profileDir.append("euskalbar");
-
-      if (profileDir.exists()) {
-        profileDir.remove(true);
-      }
-
     },
 
 

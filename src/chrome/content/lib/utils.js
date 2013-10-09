@@ -20,7 +20,11 @@
 
 "use strict";
 
-var euskalbarLib = {};
+if (!euskalbar) var euskalbar = {};
+
+if (!euskalbar.lib) euskalbar.lib = {};
+
+euskalbar.lib.utils = {};
 
 (function() {
 
@@ -67,12 +71,15 @@ var euskalbarLib = {};
       // Custom MIME Type
       mimeType: options.mimeType || "",
 
+      // Whether to use async requests or not
+      async: options.async || true,
+
       // Data passed to the request
       data: options.data || "",
 
       // How long to wait before considering the request to be a timeout
       timeout: options.timeout ||
-        euskalbar.prefs.getIntPref("query.timeout") * 1000,
+        euskalbar.prefs.queryTimeout * 1000,
 
       // Functions to call when the request fails, succeeds,
       // or completes (either fail or succeed)
@@ -99,7 +106,7 @@ var euskalbarLib = {};
     var xhr = new XMLHttpRequest();
 
     // Open the asynchronous POST request
-    xhr.open(s.type, s.url, true);
+    xhr.open(s.type, s.url, s.async);
 
     // Set the Content-Type header if data is being sent or it's
     // explicitely overriden
@@ -152,17 +159,21 @@ var euskalbarLib = {};
         }
 
         // Clean up after ourselves, to avoid memory leaks
-        xhr = null;
+        if (s.async) {
+          xhr = null;
+        }
       }
     };
 
     // Initalize a callback which will fire `timeoutLength` seconds from now,
     // cancelling the request (if it has not already occurred).
-    setTimeout(function () {
-      if (xhr && !requestDone) {
-        onreadystatechange('timeout');
-      }
-    }, timeoutLength);
+    if (s.async && s.timeout > 0) {
+      setTimeout(function () {
+        if (xhr && !requestDone) {
+          onreadystatechange('timeout');
+        }
+      }, timeoutLength);
+    }
 
     // Establish the connection to the server
     xhr.send(s.type === 'POST' ? s.data : null);
@@ -216,7 +227,7 @@ var euskalbarLib = {};
 
     function add(key, value) {
       // If value is a function, invoke it and return its value
-      value = euskalbarLib.isFunction(value) ? value() : value;
+      value = euskalbar.lib.utils.isFunction(value) ? value() : value;
       s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value);
     }
 
@@ -242,11 +253,15 @@ var euskalbarLib = {};
    * Utils
    */
   this.isFunction = function (obj) {
-    return toString.call(obj) === "[object Function]";
+    return Object.prototype.toString.call(obj) === "[object Function]";
   };
 
   this.isArray = function (obj) {
-    return toString.call(obj) === "[object Array]";
+    return Object.prototype.toString.call(obj) === "[object Array]";
+  };
+
+  this.log = function (msg) {
+    Application.console.log(msg);
   };
 
 
@@ -473,5 +488,4 @@ var euskalbarLib = {};
       },
 
     };
-
-}).apply(euskalbarLib);
+}).apply(euskalbar.lib.utils);

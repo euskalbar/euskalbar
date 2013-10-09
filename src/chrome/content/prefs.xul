@@ -2,444 +2,133 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <!DOCTYPE window SYSTEM "chrome://euskalbar/locale/euskalbar.dtd">
 
-<prefwindow id="euskalbar-prefs-dialog"
-        title="&euskalbar.prefs.title;"
-        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<prefwindow
+  id="prefs-dialog"
+  onload="euskalbar.settings.init();"
+  title="&prefs.title;"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <prefpane id="dictionaries-tab" label="&euskalbar.prefs.title;">
-
-    <script type="application/x-javascript" src="chrome://euskalbar/content/lib.js"/>
-    <script type="application/x-javascript" src="chrome://euskalbar/content/euskalbar.js"/>
+  <prefpane id="prefs-general" label="&prefs.pane.general.label;">
 
     <preferences>
-      <preference id="prefEuskaltermVisible" name="extensions.euskalbar.euskalterm.visible" type="bool"/>
-      <preference id="prefElhuyarVisible" name="extensions.euskalbar.elhuyar.visible" type="bool"/>
-      <preference id="prefAdorezVisible" name="extensions.euskalbar.adorez.visible" type="bool"/>
-      <preference id="prefZTHiztegiaVisible" name="extensions.euskalbar.zthiztegia.visible" type="bool"/>
-      <preference id="prefTelekomVisible" name="extensions.euskalbar.telekom.visible" type="bool"/>
-      <preference id="prefLabayruVisible" name="extensions.euskalbar.labayru.visible" type="bool"/>
-      <preference id="prefZehazkiVisible" name="extensions.euskalbar.zehazki.visible" type="bool"/>
-      <preference id="prefMorrisVisible" name="extensions.euskalbar.morris.visible" type="bool"/>
-      <preference id="prefOpentranVisible" name="extensions.euskalbar.opentran.visible" type="bool"/>
-      <preference id="prefEHUskaratuakVisible" name="extensions.euskalbar.ehuskaratuak.visible" type="bool"/>
-      <preference id="prefLanbideVisible" name="extensions.euskalbar.lanbide.visible" type="bool"/>
-      <preference id="prefEpaitegiakVisible" name="extensions.euskalbar.epaitegiak.visible" type="bool"/>
-      <preference id="prefBatuaVisible" name="extensions.euskalbar.batua.visible" type="bool"/>
-      <preference id="prefOEHVisible" name="extensions.euskalbar.oeh.visible" type="bool"/>
-      <preference id="prefHautaVisible" name="extensions.euskalbar.hauta.visible" type="bool"/>
-      <preference id="prefLurheVisible" name="extensions.euskalbar.lurhe.visible" type="bool"/>
-      <preference id="prefLuretVisible" name="extensions.euskalbar.luret.visible" type="bool"/>
-      <preference id="prefHarluxetVisible" name="extensions.euskalbar.harluxet.visible" type="bool"/>
-      <preference id="prefWikipediaVisible" name="extensions.euskalbar.wikipedia.visible" type="bool"/>
-      <preference id="prefUZEIVisible" name="extensions.euskalbar.uzei.visible" type="bool"/>
-      <preference id="prefAdorezsinVisible" name="extensions.euskalbar.adorezsin.visible" type="bool"/>
-      <preference id="prefItzuLVisible" name="extensions.euskalbar.itzul.visible" type="bool"/>
-      <preference id="prefMokoroaVisible" name="extensions.euskalbar.mokoroa.visible" type="bool"/>
-      <preference id="prefIntzaVisible" name="extensions.euskalbar.intza.visible" type="bool"/>
-      <preference id="prefEurovocVisible" name="extensions.euskalbar.eurovoc.visible" type="bool"/>
-      <preference id="prefBergaraVisible" name="extensions.euskalbar.bergara.visible" type="bool"/>
-      <preference id="prefEtcVisible" name="extensions.euskalbar.etc.visible" type="bool"/>
-      <preference id="prefEreduzkoVisible" name="extensions.euskalbar.ereduzko.visible" type="bool"/>
-      <preference id="prefEgungoVisible" name="extensions.euskalbar.egungo.visible" type="bool"/>
-      <preference id="prefKlasikoakVisible" name="extensions.euskalbar.klasikoak.visible" type="bool"/>
-      <preference id="prefZTCorpusaVisible" name="extensions.euskalbar.ztcorpusa.visible" type="bool"/>
-      <preference id="prefLBVisible" name="extensions.euskalbar.lb.visible" type="bool"/>
-      <preference id="prefConsumerVisible" name="extensions.euskalbar.consumer.visible" type="bool"/>
-      <preference id="prefLiteraturaVisible" name="extensions.euskalbar.lth.visible" type="bool"/>
-      <preference id="prefCorpEusVisible" name="extensions.euskalbar.corpeus.visible" type="bool"/>
-      <preference id="prefXUXENwebVisible" name="extensions.euskalbar.xuxenweb.visible" type="bool"/>
-      <preference id="prefElebilaVisible" name="extensions.euskalbar.elebila.visible" type="bool"/>
-      <preference id="prefGoihataVisible" name="extensions.euskalbar.goihata.visible" type="bool"/>
-      <preference id="prefDanobatVisible" name="extensions.euskalbar.danobat.visible" type="bool"/>
+      <preference id="prefReusetabs" name="extensions.euskalbar.reuseTabs" type="bool"/>
+      <preference id="prefBGtabs" name="extensions.euskalbar.bgTabs" type="bool"/>
 
-      <preference id="prefEuskalterm" name="extensions.euskalbar.euskalterm.onkey" type="bool"/>
-      <preference id="prefElhuyar" name="extensions.euskalbar.elhuyar.onkey" type="bool"/>
-      <preference id="prefAdorez" name="extensions.euskalbar.adorez.onkey" type="bool"/>
-      <preference id="prefZTHiztegia" name="extensions.euskalbar.zthiztegia.onkey" type="bool"/>
-      <preference id="prefTelekom" name="extensions.euskalbar.telekom.onkey" type="bool"/>
-      <preference id="prefLabayru" name="extensions.euskalbar.labayru.onkey" type="bool"/>
-      <preference id="prefZehazki" name="extensions.euskalbar.zehazki.onkey" type="bool"/>
-      <preference id="prefMorris" name="extensions.euskalbar.morris.onkey" type="bool"/>
-      <preference id="prefOpentran" name="extensions.euskalbar.opentran.onkey" type="bool"/>
-      <preference id="prefEHUskaratuak" name="extensions.euskalbar.ehuskaratuak.onkey" type="bool"/>
-      <preference id="prefLanbide" name="extensions.euskalbar.lanbide.onkey" type="bool"/>
-      <preference id="prefEpaitegiak" name="extensions.euskalbar.epaitegiak.onkey" type="bool"/>
-      <preference id="prefBatua" name="extensions.euskalbar.batua.onkey" type="bool"/>
-      <preference id="prefOEH" name="extensions.euskalbar.oeh.onkey" type="bool"/>
-      <preference id="prefHauta" name="extensions.euskalbar.hauta.onkey" type="bool"/>
-      <preference id="prefLurhe" name="extensions.euskalbar.lurhe.onkey" type="bool"/>
-      <preference id="prefLuret" name="extensions.euskalbar.luret.onkey" type="bool"/>
-      <preference id="prefHarluxet" name="extensions.euskalbar.harluxet.onkey" type="bool"/>
-      <preference id="prefWikipedia" name="extensions.euskalbar.wikipedia.onkey" type="bool"/>
-      <preference id="prefUZEI" name="extensions.euskalbar.uzei.onkey" type="bool"/>
-      <preference id="prefAdorezsin" name="extensions.euskalbar.adorezsin.onkey" type="bool"/>
-      <preference id="prefItzuL" name="extensions.euskalbar.itzul.onkey" type="bool"/>
-      <preference id="prefMokoroa" name="extensions.euskalbar.mokoroa.onkey" type="bool"/>
-      <preference id="prefIntza" name="extensions.euskalbar.intza.onkey" type="bool"/>
-      <preference id="prefEurovoc" name="extensions.euskalbar.eurovoc.onkey" type="bool"/>
-      <preference id="prefBergara" name="extensions.euskalbar.bergara.onkey" type="bool"/>
-      <preference id="prefEtc" name="extensions.euskalbar.etc.onkey" type="bool"/>
-      <preference id="prefEreduzko" name="extensions.euskalbar.ereduzko.onkey" type="bool"/>
-      <preference id="prefEgungo" name="extensions.euskalbar.egungo.onkey" type="bool"/>
-      <preference id="prefKlasikoak" name="extensions.euskalbar.klasikoak.onkey" type="bool"/>
-      <preference id="prefZTCorpusa" name="extensions.euskalbar.ztcorpusa.onkey" type="bool"/>
-      <preference id="prefLB" name="extensions.euskalbar.lb.onkey" type="bool"/>
-      <preference id="prefConsumer" name="extensions.euskalbar.consumer.onkey" type="bool"/>
-      <preference id="prefLiteratura" name="extensions.euskalbar.lth.onkey" type="bool"/>
-      <preference id="prefCorpEus" name="extensions.euskalbar.corpeus.onkey" type="bool"/>
-      <preference id="prefXUXENweb" name="extensions.euskalbar.xuxenweb.onkey" type="bool"/>
-      <preference id="prefElebila" name="extensions.euskalbar.elebila.onkey" type="bool"/>
-      <preference id="prefGoihata" name="extensions.euskalbar.goihata.onkey" type="bool"/>
-      <preference id="prefDanobat" name="extensions.euskalbar.danobat.onkey" type="bool"/>
+      <preference id="prefShowhidedicts" name="extensions.euskalbar.showDictsMenu" type="bool"/>
+      <preference id="prefShowcontextmenu" name="extensions.euskalbar.showContextMenu" type="bool"/>
+      <preference id="prefFocuswindow" name="extensions.euskalbar.focusWindow" type="bool"/>
 
-      <preference id="prefEuskaltermShiftES" name="extensions.euskalbar.euskalterm.onkey1.es" type="bool"/>
-      <preference id="prefElhuyarShiftES" name="extensions.euskalbar.elhuyar.onkey1.es" type="bool"/>
-      <preference id="prefZTHiztegiaShiftES" name="extensions.euskalbar.zthiztegia.onkey1.es" type="bool"/>
-      <preference id="prefTelekomShiftES" name="extensions.euskalbar.telekom.onkey1.es" type="bool"/>
-      <preference id="prefLabayruShiftES" name="extensions.euskalbar.labayru.onkey1.es" type="bool"/>
-      <preference id="prefZehazkiShiftES" name="extensions.euskalbar.zehazki.onkey1.es" type="bool"/>
-      <preference id="prefGoihataShiftES" name="extensions.euskalbar.goihata.onkey1.es" type="bool"/>
-      <preference id="prefBatuaShiftES" name="extensions.euskalbar.batua.onkey1.es" type="bool"/>
-      <preference id="prefUZEIShiftES" name="extensions.euskalbar.uzei.onkey1.es" type="bool"/>
-      <preference id="prefMokoroaShiftES" name="extensions.euskalbar.mokoroa.onkey1.es" type="bool"/>
-      <preference id="prefIntzaShiftES" name="extensions.euskalbar.intza.onkey1.es" type="bool"/>
-      <preference id="prefDanobatShiftES" name="extensions.euskalbar.danobat.onkey1.es" type="bool"/>
+      <preference id="prefStartupLang" name="extensions.euskalbar.startupLanguage" type="string"/>
 
-      <preference id="prefEuskaltermShiftFR" name="extensions.euskalbar.euskalterm.onkey1.fr" type="bool"/>
-      <preference id="prefElhuyarShiftFR" name="extensions.euskalbar.elhuyar.onkey1.fr" type="bool"/>
-      <preference id="prefZTHiztegiaShiftFR" name="extensions.euskalbar.zthiztegia.onkey1.fr" type="bool"/>
-      <preference id="prefTelekomShiftFR" name="extensions.euskalbar.telekom.onkey1.fr" type="bool"/>
-      <preference id="prefBatuaShiftFR" name="extensions.euskalbar.batua.onkey1.fr" type="bool"/>
-      <preference id="prefUZEIShiftFR" name="extensions.euskalbar.uzei.onkey1.fr" type="bool"/>
-
-      <preference id="prefEuskaltermShiftEN" name="extensions.euskalbar.euskalterm.onkey1.en" type="bool"/>
-      <preference id="prefElhuyarShiftEN" name="extensions.euskalbar.elhuyar.onkey1.en" type="bool"/>
-      <preference id="prefZTHiztegiaShiftEN" name="extensions.euskalbar.zthiztegia.onkey1.en" type="bool"/>
-      <preference id="prefTelekomShiftEN" name="extensions.euskalbar.telekom.onkey1.en" type="bool"/>
-      <preference id="prefMorrisShiftEN" name="extensions.euskalbar.morris.onkey1.en" type="bool"/>
-      <preference id="prefOpentranShiftEN" name="extensions.euskalbar.opentran.onkey1.en" type="bool"/>
-      <preference id="prefBatuaShiftEN" name="extensions.euskalbar.batua.onkey1.en" type="bool"/>
-      <preference id="prefUZEIShiftEN" name="extensions.euskalbar.uzei.onkey1.en" type="bool"/>
-
-      <preference id="prefEuskaltermCtrlES" name="extensions.euskalbar.euskalterm.onkey2.es" type="bool"/>
-      <preference id="prefElhuyarCtrlES" name="extensions.euskalbar.elhuyar.onkey2.es" type="bool"/>
-      <preference id="prefZTHiztegiaCtrlES" name="extensions.euskalbar.zthiztegia.onkey2.es" type="bool"/>
-      <preference id="prefTelekomCtrlES" name="extensions.euskalbar.telekom.onkey2.es" type="bool"/>
-      <preference id="prefLabayruCtrlES" name="extensions.euskalbar.labayru.onkey2.es" type="bool"/>
-      <preference id="prefZehazkiCtrlES" name="extensions.euskalbar.zehazki.onkey2.es" type="bool"/>
-      <preference id="prefBatuaCtrlES" name="extensions.euskalbar.batua.onkey2.es" type="bool"/>
-      <preference id="prefUZEICtrlES" name="extensions.euskalbar.uzei.onkey2.es" type="bool"/>
-      <preference id="prefMokoroaCtrlES" name="extensions.euskalbar.mokoroa.onkey2.es" type="bool"/>
-      <preference id="prefIntzaCtrlES" name="extensions.euskalbar.intza.onkey2.es" type="bool"/>
-      <preference id="prefGoihataCtrlES" name="extensions.euskalbar.goihata.onkey2.es" type="bool"/>
-      <preference id="prefDanobatCtrlES" name="extensions.euskalbar.danobat.onkey2.es" type="bool"/>
-
-      <preference id="prefEuskaltermCtrlFR" name="extensions.euskalbar.euskalterm.onkey2.fr" type="bool"/>
-      <preference id="prefElhuyarCtrlFR" name="extensions.euskalbar.elhuyar.onkey2.fr" type="bool"/>
-      <preference id="prefZTHiztegiaCtrlFR" name="extensions.euskalbar.zthiztegia.onkey2.fr" type="bool"/>
-      <preference id="prefTelekomCtrlFR" name="extensions.euskalbar.telekom.onkey2.fr" type="bool"/>
-      <preference id="prefBatuaCtrlFR" name="extensions.euskalbar.batua.onkey2.fr" type="bool"/>
-      <preference id="prefUZEICtrlFR" name="extensions.euskalbar.uzei.onkey2.fr" type="bool"/>
-
-      <preference id="prefEuskaltermCtrlEN" name="extensions.euskalbar.euskalterm.onkey2.en" type="bool"/>
-      <preference id="prefElhuyarCtrlEN" name="extensions.euskalbar.elhuyar.onkey2.en" type="bool"/>
-      <preference id="prefZTHiztegiaCtrlEN" name="extensions.euskalbar.zthiztegia.onkey2.en" type="bool"/>
-      <preference id="prefTelekomCtrlEN" name="extensions.euskalbar.telekom.onkey2.en" type="bool"/>
-      <preference id="prefMorrisCtrlEN" name="extensions.euskalbar.morris.onkey2.en" type="bool"/>
-      <preference id="prefOpentranCtrlEN" name="extensions.euskalbar.opentran.onkey2.en" type="bool"/>
-      <preference id="prefBatuaCtrlEN" name="extensions.euskalbar.batua.onkey2.en" type="bool"/>
-      <preference id="prefUZEICtrlEN" name="extensions.euskalbar.uzei.onkey2.en" type="bool"/>
-
-      <preference id="prefReusetabs" name="extensions.euskalbar.reusetabs.enabled" type="bool"/>
-      <preference id="prefBGtabs" name="extensions.euskalbar.bgtabs.enabled" type="bool"/>
-      <preference id="prefShowhidedicts" name="extensions.euskalbar.showdicts.enabled" type="bool"/>
-      <preference id="prefShowcontextmenu" name="extensions.euskalbar.showcontextmenu.enabled" type="bool"/>
-      <preference id="prefFocuswindow" name="extensions.euskalbar.focuswindow.enabled" type="bool"/>
-      <preference id="prefStartupLang" name="extensions.euskalbar.language.startup" type="string"/>
-      <preference id="prefQuerytimeout" name="extensions.euskalbar.query.timeout" type="int"/>
-      <preference id="prefQuerysubqueries" name="extensions.euskalbar.query.subqueries" type="bool"/>
-      <preference id="prefSkin" name="extensions.euskalbar.style.combinedquery" type="string"/>
+      <preference id="prefSkin" name="extensions.euskalbar.skin" type="string"/>
     </preferences>
 
-    <tabbox id="main-tabbox" flex="1">
-      <tabs>
-        <tab id="tab-orokorra" label="&euskalbar.prefs.general.tabtitle;"/>
-        <tab id="tab-bistan" label="&euskalbar.prefs.view.tabtitle;"/>
-        <tab id="tab-aurreratua" label="&euskalbar.prefs.dictionaries.tabtitle;"/>
-      </tabs>
+    <vbox flex="1">
+      <groupbox>
+        <caption label="&prefs.lang.caption;"/>
+        <vbox align="left">
+          <label value="&prefs.lang.label;" />
+          <menulist id="prefs-startup-language" preference="prefStartupLang">
+            <!-- Content generated in euskalbar.settings -->
+          </menulist>
+        </vbox>
+      </groupbox>
 
-      <tabpanels flex="1">
-        <tabpanel id="tabpanel-orokorra">
-          <vbox flex="1">
-            <groupbox>
-              <caption label="&euskalbar.prefs.lang.caption;"/>
-              <vbox align="left">
-                <label value="&euskalbar.prefs.lang.label;" />
-                <menulist id="menuStartupLang" preference="prefStartupLang">
-                  <menupopup>
-                    <menuitem label="&euskalbar.language.eu_es;" value="eu_es"/>
-                    <menuitem label="&euskalbar.language.es_eu;" value="es_eu"/>
-                    <menuitem label="&euskalbar.language.eu_fr;" value="eu_fr"/>
-                    <menuitem label="&euskalbar.language.fr_eu;" value="fr_eu"/>
-                    <menuitem label="&euskalbar.language.eu_en;" value="eu_en"/>
-                    <menuitem label="&euskalbar.language.en_eu;" value="en_eu"/>
-                    <menuitem label="&euskalbar.language.la_eu;" value="la_eu"/>
-                    <menuitem label="&euskalbar.language.eu_jp;" value="eu_jp"/>
-                  </menupopup>
-                </menulist>
-              </vbox>
-            </groupbox>
+      <groupbox>
+        <caption label="&prefs.tabs.caption;" />
+        <checkbox preference="prefReusetabs" label="&prefs.tabs.reuse.label;" />
+        <checkbox preference="prefBGtabs" label="&prefs.tabs.bg.label;" />
+      </groupbox>
 
-            <groupbox>
-              <caption label="&euskalbar.prefs.tabs.caption;" />
-              <checkbox preference="prefReusetabs" label="&euskalbar.prefs.reusetabs.label;" />
-              <checkbox preference="prefBGtabs" label="&euskalbar.prefs.bgtabs.label;" />
-            </groupbox>
+      <groupbox>
+        <caption label="&prefs.skin.caption;"/>
+        <vbox align="left">
+          <label value="&prefs.skin.label;" />
+          <menulist id="menuStartupSkin" preference="prefSkin">
+            <menupopup>
+              <menuitem id="euskalbar-skin" label="Euskalbar" value="skins/euskalbar.css"/>
+              <menuitem id="human-skin" label="Human" value="skins/human.css"/>
+              <menuitem id="oliba-skin" label="Oliba" value="skins/oliba.css"/>
+              <menuitem id="urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>
+              <menuitem id="grisleun-skin" label="Grisleun" value="skins/grisleun.css"/>
+            </menupopup>
+          </menulist>
+        </vbox>
+      </groupbox>
 
-            <groupbox>
-              <caption label="&euskalbar.prefs.skin.caption;"/>
-              <vbox align="left">
-                <label value="&euskalbar.prefs.skin.label;" />
-                <menulist id="menuStartupSkin" preference="prefSkin">
-                  <menupopup>
-                    <menuitem id="euskalbar-skin" label="Euskalbar" value="skins/euskalbar.css"/>
-                    <menuitem id="human-skin" label="Human" value="skins/human.css"/>
-                    <menuitem id="oliba-skin" label="Oliba" value="skins/oliba.css"/>
-                    <menuitem id="urgarden-skin" label="Urgarden" value="skins/urgarden.css"/>
-                    <menuitem id="grisleun-skin" label="Grisleun" value="skins/grisleun.css"/>
-                  </menupopup>
-                </menulist>
-              </vbox>
-            </groupbox>
+      <groupbox>
+        <caption label="&prefs.gui.caption;" />
+        <checkbox preference="prefShowhidedicts" label="&prefs.gui.showDictsMenu.label;" />
+        <checkbox preference="prefShowcontextmenu" label="&prefs.gui.showContextMenu.label;" />
+        <checkbox preference="prefFocuswindow" label="&prefs.gui.focusWindow.label;" />
+      </groupbox>
+    </vbox>
 
-            <groupbox>
-              <caption label="&euskalbar.prefs.gui.caption;" />
-              <checkbox preference="prefShowhidedicts" label="&euskalbar.prefs.dicts.label;" />
-              <checkbox preference="prefShowcontextmenu" label="&euskalbar.prefs.context.label;" />
-              <checkbox preference="prefFocuswindow" label="&euskalbar.prefs.focuswindow.label;" />
-            </groupbox>
-          </vbox>
-        </tabpanel>
-
-        <tabpanel id="tabpanel-bistan">
-          <listbox flex="1" width="400" id="list-dictsview">
-            <listitem preference="prefEuskaltermVisible" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-            <listitem preference="prefElhuyarVisible" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-            <listitem preference="prefAdorezVisible" type="checkbox" label="&euskalbar.adorez.tooltip;"/>
-            <listitem preference="prefLabayruVisible" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
-            <listitem preference="prefZehazkiVisible" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
-            <listitem preference="prefZTHiztegiaVisible" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-            <listitem preference="prefTelekomVisible" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-            <listitem preference="prefDanobatVisible" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
-            <listitem preference="prefMorrisVisible" type="checkbox" label="&euskalbar.morris.tooltip;"/>
-            <listitem preference="prefOpentranVisible" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
-            <listitem preference="prefGoihataVisible" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
-            <listitem preference="prefEHUskaratuakVisible" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
-            <listitem preference="prefLanbideVisible" type="checkbox" label="&euskalbar.lanbide.tooltip;"/>
-            <listitem preference="prefEpaitegiakVisible" type="checkbox" label="&euskalbar.epaitegiak.tooltip;"/>
-            <listitem preference="prefBatuaVisible" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-            <listitem preference="prefOEHVisible" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-            <listitem preference="prefHautaVisible" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
-            <listitem preference="prefLurheVisible" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
-            <listitem preference="prefLuretVisible" type="checkbox" label="&euskalbar.luret.tooltip;"/>
-            <listitem preference="prefHarluxetVisible" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
-            <listitem preference="prefWikipediaVisible" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
-            <listitem preference="prefUZEIVisible" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-            <listitem preference="prefAdorezsinVisible" type="checkbox" label="&euskalbar.adorezsin.tooltip;"/>
-            <listitem preference="prefItzuLVisible" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
-            <listitem preference="prefMokoroaVisible" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
-            <listitem preference="prefIntzaVisible" type="checkbox" label="&euskalbar.intza.tooltip;"/>
-            <listitem preference="prefEurovocVisible" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>
-            <listitem preference="prefBergaraVisible" type="checkbox" label="&euskalbar.bergara.tooltip;"/>
-            <listitem preference="prefEtcVisible" type="checkbox" label="&euskalbar.etc.tooltip;"/>
-            <listitem preference="prefEreduzkoVisible" type="checkbox" label="&euskalbar.ereduzko.tooltip;"/>
-            <listitem preference="prefEgungoVisible" type="checkbox" label="&euskalbar.egungo.tooltip;"/>
-            <listitem preference="prefKlasikoakVisible" type="checkbox" label="&euskalbar.klasikoak.tooltip;"/>
-            <listitem preference="prefZTCorpusaVisible" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
-            <listitem preference="prefLBVisible" type="checkbox" label="&euskalbar.lb.tooltip;"/>
-            <listitem preference="prefConsumerVisible" type="checkbox" label="&euskalbar.consumer.tooltip;"/>
-            <listitem preference="prefLiteraturaVisible" type="checkbox" label="&euskalbar.lth.tooltip;"/>
-            <listitem preference="prefCorpEusVisible" type="checkbox" label="&euskalbar.corpeus.tooltip;"/>
-            <listitem preference="prefXUXENwebVisible" type="checkbox" label="&euskalbar.xuxenweb.tooltip;"/>
-            <listitem preference="prefElebilaVisible" type="checkbox" label="&euskalbar.elebila.tooltip;"/>
-          </listbox>
-        </tabpanel>
-
-        <tabpanel id="tabpanel-aurreratua">
-          <vbox flex="1">
-            <tabbox id="sec-tabbox" flex="1">
-              <tabs>
-                <tab style="height:2em" label="Enter"/>
-                <tab style="height:2em" label="Shift+Enter"/>
-                <tab style="height:2em" label="Ctrl+Enter"/>
-              </tabs>
-
-              <tabpanels flex="1" >
-                <tabpanel id="tab-enter">
-                  <listbox flex="1" id="list-enter">
-                    <listitem preference="prefEuskalterm" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                    <listitem preference="prefElhuyar" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                    <listitem preference="prefAdorez" type="checkbox" label="&euskalbar.adorez.tooltip;"/>
-                    <listitem preference="prefLabayru" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
-                    <listitem preference="prefZehazki" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
-                    <listitem preference="prefZTHiztegia" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                    <listitem preference="prefTelekom" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                    <listitem preference="prefDanobat" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
-                    <listitem preference="prefMorris" type="checkbox" label="&euskalbar.morris.tooltip;"/>
-                    <listitem preference="prefOpentran" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
-                    <listitem preference="prefGoihata" type="checkbox" label="&euskalbar.goihata.tooltip;"/>
-                    <listitem preference="prefEHUskaratuak" type="checkbox" label="&euskalbar.ehuskaratuak.tooltip;"/>
-                    <listitem preference="prefLanbide" type="checkbox" label="&euskalbar.lanbide.tooltip;"/>
-                    <listitem preference="prefEpaitegiak" type="checkbox" label="&euskalbar.epaitegiak.tooltip;"/>
-                    <listitem preference="prefBatua" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                    <listitem preference="prefOEH" type="checkbox" label="&euskalbar.oeh.tooltip;"/>
-                    <listitem preference="prefHauta" type="checkbox" label="&euskalbar.hauta.tooltip;"/>
-                    <listitem preference="prefLurhe" type="checkbox" label="&euskalbar.lurhe.tooltip;"/>
-                    <listitem preference="prefLuret" type="checkbox" label="&euskalbar.luret.tooltip;"/>
-                    <listitem preference="prefHarluxet" type="checkbox" label="&euskalbar.harluxet.tooltip;"/>
-                    <listitem preference="prefWikipedia" type="checkbox" label="&euskalbar.wikipedia.tooltip;"/>
-                    <listitem preference="prefItzuL" type="checkbox" label="&euskalbar.itzul.tooltip;"/>
-                    <listitem preference="prefUZEI" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                    <listitem preference="prefAdorezsin" type="checkbox" label="&euskalbar.adorezsin.tooltip;"/>
-                    <listitem preference="prefMokoroa" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
-                    <listitem preference="prefIntza" type="checkbox" label="&euskalbar.intza.tooltip;"/>
-                    <listitem preference="prefEurovoc" type="checkbox" label="&euskalbar.eurovoc.tooltip;"/>
-                    <listitem preference="prefBergara" type="checkbox" label="&euskalbar.bergara.tooltip;"/>
-                    <listitem preference="prefEtc" type="checkbox" label="&euskalbar.etc.tooltip;"/>
-                    <listitem preference="prefEreduzko" type="checkbox" label="&euskalbar.ereduzko.tooltip;"/>
-                    <listitem preference="prefEgungo" type="checkbox" label="&euskalbar.egungo.tooltip;"/>
-                    <listitem preference="prefKlasikoak" type="checkbox" label="&euskalbar.klasikoak.tooltip;"/>
-                    <listitem preference="prefZTCorpusa" type="checkbox" label="&euskalbar.ztcorpusa.tooltip;"/>
-                    <listitem preference="prefLB" type="checkbox" label="&euskalbar.lb.tooltip;"/>
-                    <listitem preference="prefConsumer" type="checkbox" label="&euskalbar.consumer.tooltip;"/>
-                    <listitem preference="prefLiteratura" type="checkbox" label="&euskalbar.lth.tooltip;"/>
-                    <listitem preference="prefCorpEus" type="checkbox" label="&euskalbar.corpeus.tooltip;"/>
-                    <listitem preference="prefXUXENweb" type="checkbox" label="&euskalbar.xuxenweb.tooltip;"/>
-                    <listitem preference="prefElebila" type="checkbox" label="&euskalbar.elebila.tooltip;"/>
-                  </listbox>
-                </tabpanel>
-
-                <tabpanel id="tab-shiftenter">
-                  <grid flex="1">
-                    <columns>
-                      <column flex="1" />
-                      <column flex="1" />
-                      <column flex="1" />
-                    </columns>
-                    <rows>
-                      <row>
-                        <label value="EU‣ES / ES‣EU" />
-                        <label value="EU‣FR / FR‣EU" />
-                        <label value="EU‣EN / EN‣EU" />
-                      </row>
-                      <row flex="1">
-                        <listbox id="list-shiftenter-eues">
-                          <listitem preference="prefEuskaltermShiftES" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                          <listitem preference="prefElhuyarShiftES" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                          <listitem preference="prefZTHiztegiaShiftES" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                          <listitem preference="prefTelekomShiftES" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                          <listitem preference="prefLabayruShiftES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
-                          <listitem preference="prefZehazkiShiftES" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
-                          <listitem preference="prefBatuaShiftES" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                          <listitem preference="prefUZEIShiftES" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                          <listitem preference="prefMokoroaShiftES" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
-                          <listitem preference="prefIntzaShiftES" type="checkbox" label="&euskalbar.intza.tooltip;"/>
-                          <listitem preference="prefDanobatShiftES" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
-                        </listbox>
-                        <listbox id="list-shiftenter-eufr">
-                          <listitem preference="prefEuskaltermShiftFR" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                          <listitem preference="prefElhuyarShiftFR" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                          <listitem preference="prefZTHiztegiaShiftFR" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                          <listitem preference="prefTelekomShiftFR" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                          <listitem preference="prefBatuaShiftFR" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                          <listitem preference="prefUZEIShiftFR" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                        </listbox>
-                        <listbox id="list-shiftenter-euen">
-                          <listitem preference="prefEuskaltermShiftEN" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                          <listitem preference="prefElhuyarShiftEN" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                          <listitem preference="prefZTHiztegiaShiftEN" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                          <listitem preference="prefTelekomShiftEN" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                          <listitem preference="prefBatuaShiftEN" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                          <listitem preference="prefUZEIShiftEN" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                          <listitem preference="prefMorrisShiftEN" type="checkbox" label="&euskalbar.morris.tooltip;"/>
-                          <listitem preference="prefOpentranShiftEN" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
-                        </listbox>
-                      </row>
-                    </rows>
-                  </grid>
-                </tabpanel>
-
-                <tabpanel id="tab-ctrlenter">
-                  <grid flex="1">
-                    <columns>
-                      <column flex="1" />
-                      <column flex="1" />
-                      <column flex="1" />
-                    </columns>
-                    <rows>
-                      <row>
-                        <label value="EU‣ES / ES‣EU" />
-                        <label value="EU‣FR / FR‣EU" />
-                        <label value="EU‣EN / EN‣EU" />
-                      </row>
-                      <row flex="1">
-                        <listbox id="list-shiftenter-eues" rows="10">
-                          <listitem preference="prefEuskaltermCtrlES" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                          <listitem preference="prefElhuyarCtrlES" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                          <listitem preference="prefZTHiztegiaCtrlES" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                          <listitem preference="prefTelekomCtrlES" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                          <listitem preference="prefLabayruCtrlES" type="checkbox" label="&euskalbar.labayru.tooltip;"/>
-                          <listitem preference="prefZehazkiCtrlES" type="checkbox" label="&euskalbar.zehazki.tooltip;"/>
-                          <listitem preference="prefBatuaCtrlES" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                          <listitem preference="prefUZEICtrlES" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                          <listitem preference="prefMokoroaCtrlES" type="checkbox" label="&euskalbar.mokoroa.tooltip;"/>
-                          <listitem preference="prefIntzaCtrlES" type="checkbox" label="&euskalbar.intza.tooltip;"/>
-                          <listitem preference="prefDanobatCtrlES" type="checkbox" label="&euskalbar.danobat.tooltip;"/>
-                        </listbox>
-                        <listbox id="list-shiftenter-eufr">
-                          <listitem preference="prefEuskaltermCtrlFR" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                          <listitem preference="prefElhuyarCtrlFR" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                          <listitem preference="prefZTHiztegiaCtrlFR" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                          <listitem preference="prefTelekomCtrlFR" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                          <listitem preference="prefBatuaCtrlFR" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                          <listitem preference="prefUZEICtrlFR" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                        </listbox>
-                        <listbox id="list-shiftenter-euen">
-                          <listitem preference="prefEuskaltermCtrlEN" type="checkbox" label="&euskalbar.euskalterm.tooltip;"/>
-                          <listitem preference="prefElhuyarCtrlEN" type="checkbox" label="&euskalbar.elhuyar.tooltip;"/>
-                          <listitem preference="prefZTHiztegiaCtrlEN" type="checkbox" label="&euskalbar.zthiztegia.tooltip;"/>
-                          <listitem preference="prefTelekomCtrlEN" type="checkbox" label="&euskalbar.telekom.tooltip;"/>
-                          <listitem preference="prefBatuaCtrlEN" type="checkbox" label="&euskalbar.batua.tooltip;"/>
-                          <listitem preference="prefUZEICtrlEN" type="checkbox" label="&euskalbar.uzei.tooltip;"/>
-                          <listitem preference="prefMorrisCtrlEN" type="checkbox" label="&euskalbar.morris.tooltip;"/>
-                          <listitem preference="prefOpentranCtrlEN" type="checkbox" label="&euskalbar.opentran.tooltip;"/>
-                        </listbox>
-                      </row>
-                    </rows>
-                  </grid>
-                </tabpanel>
-
-              </tabpanels>
-            </tabbox>
-
-            <groupbox>
-              <caption label="&euskalbar.prefs.combined.caption;" />
-              <vbox flex="1">
-                <hbox align="center">
-                  <label value="&euskalbar.prefs.timeout.caption;"/>
-                  <textbox type="number" width="50px"
-                           preference="prefQuerytimeout" />
-                </hbox>
-                <hbox>
-                  <checkbox preference="prefQuerysubqueries"
-                            label="&euskalbar.prefs.subqueries.caption;" />
-                </hbox>
-              </vbox>
-            </groupbox>
-
-          </vbox>
-        </tabpanel>
-      </tabpanels>
-    </tabbox>
   </prefpane>
+
+
+  <prefpane id="prefs-dictionaries" label="&prefs.pane.visibleDicts.label;">
+
+    <listbox flex="1" id="prefs-dictionaries-visible">
+      <!-- Content generated in euskalbar.settings -->
+    </listbox>
+
+  </prefpane>
+
+
+  <prefpane id="prefs-advanced" label="&prefs.pane.advanced.label;">
+
+    <preferences>
+      <preference id="prefQuerytimeout" name="extensions.euskalbar.queryTimeout" type="int"/>
+    </preferences>
+
+    <vbox flex="1">
+      <tabbox id="prefs-keys" flex="1">
+        <tabs>
+          <!-- TODO: l10n -->
+          <tab style="height:2em" label="Enter"/>
+          <tab style="height:2em" label="Shift+Enter"/>
+          <tab style="height:2em" label="Ctrl+Enter"/>
+        </tabs>
+
+        <tabpanels flex="1" >
+          <tabpanel>
+            <listbox flex="1" id="prefs-keys-onkey">
+              <!-- Content generated in euskalbar.settings -->
+            </listbox>
+          </tabpanel>
+
+          <tabpanel>
+            <listbox flex="1" id="prefs-keys-onkey1">
+              <!-- Content generated in euskalbar.settings -->
+            </listbox>
+          </tabpanel>
+
+          <tabpanel>
+            <listbox flex="1" id="prefs-keys-onkey2">
+              <!-- Content generated in euskalbar.settings -->
+            </listbox>
+          </tabpanel>
+
+        </tabpanels>
+      </tabbox>
+
+      <groupbox>
+        <caption label="&prefs.combined.caption;" />
+        <vbox flex="1">
+          <hbox align="center">
+            <label value="&prefs.combined.timeout.label;"/>
+            <textbox type="number" width="50px"
+                     preference="prefQuerytimeout" />
+          </hbox>
+        </vbox>
+      </groupbox>
+
+    </vbox>
+
+  </prefpane>
+
+  <script type="application/x-javascript" src="lib/utils.js"/>
+  <script type="application/x-javascript" src="settings.js"/>
+
 </prefwindow>
