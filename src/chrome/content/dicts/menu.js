@@ -35,9 +35,11 @@ euskalbar.dicts.menu = [
       { name: 'menu.general.Euskalterm Terminological Bank',
         url: 'http://www.euskara.euskadi.net/euskalterm' },
       { name: 'menu.general.Elhuyar Hiztegia',
-        url: 'http://www.elhuyar.org/hizkuntza-zerbitzuak/EU/Hiztegi-kontsulta' },
+        url: 'http://hiztegiak.elhuyar.org/' },
+      { name: 'menu.general.Bostmila Hiztegia',
+        url: 'http://www.bostakbat.org/azkue/index.php?q=3' },
       { name: 'menu.general.Labayru Hiztegia',
-        url: 'http://zerbitzuak.labayru.org/diccionario/hiztegiasarrera.asp' },
+        url: 'http://hiztegia.labayru.net' },
       { name: 'menu.general.Zehazki Hiztegia',
         url: 'http://ehu.es/ehg/zehazki/' },
       { name: 'menu.general.Egungo Euskararen Hiztegia',
@@ -63,7 +65,9 @@ euskalbar.dicts.menu = [
   { cat: 'menu.Synonyms',
     dicts: [
       { name: 'menu.synonyms.UZEI synonyms dictionary',
-        url: 'http://www.uzei.com/estatico/sinonimos.asp' },
+        url: 'http://sh.uzei.com' },
+      { name: 'menu.synonyms.Adorez synonyms dictionary',
+        url: 'http://www.bostakbat.org/azkue/index.php?q=1' },
       { name: 'menu.synonyms.Eurovoc Thesaurus',
         url: 'http://www.bizkaia.net/kultura/eurovoc/index.asp' }
     ]
