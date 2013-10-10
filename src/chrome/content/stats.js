@@ -43,7 +43,7 @@ euskalbar.stats = function () {
           var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
           var statsFile = $U.FileIO.getLocalSystemURI(statsFileURL)
                                    .QueryInterface(Ci.nsIFileURL).file;
-            statsFile.copyTo(profileDir, this.filename);
+          statsFile.copyTo(profileDir, this.filename);
         } catch (e) {
           console.log(e);
         }
