@@ -58,7 +58,7 @@ euskalbar.dicts.elhuyar = function () {
       } else {
         data = data.substring(data.indexOf('<div class="innerDef">'),
                               data.indexOf('<div id="corpusa_edukia">'));
-        data = data.replace(/href="#"/g, 'href=\"http://hiztegiak.elhuyar.org/');
+        //data = data.replace(/href="#"/g, 'href=\"http://hiztegiak.elhuyar.org/');
         return data;
       }
     }
