@@ -47,6 +47,7 @@ euskalbar.dicts = function () {
       'elhuyar_web_corpusa_eu_es',
       'elhuyar_web_corpusa_konbinazioak',
       'egungo',
+      'egungo_corpusa',
       'epaitegiak',
       'ereduzko',
       'eurovoc',
