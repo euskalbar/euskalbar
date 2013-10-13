@@ -260,6 +260,28 @@ euskalbar.lib.utils = {};
     return Object.prototype.toString.call(obj) === "[object Array]";
   };
 
+  this.extend = function () {
+    var target = arguments[0] || {},
+        length = arguments.length,
+        i, obj, val, name;
+
+    for (i=1; i<length; i++) {
+      obj = arguments[i];
+      for (name in obj) {
+        if (obj.hasOwnProperty(name)) {
+          val = obj[name];
+          if (typeof(val) === "object" && val !== null) {
+            target[name] = this.extend({}, val);
+          } else {
+            target[name] = val;
+          }
+        }
+      }
+    }
+
+    return target;
+  };
+
   this.log = function (msg) {
     Application.console.log(msg);
   };
