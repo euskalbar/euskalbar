@@ -22,7 +22,7 @@
 <!ENTITY prefs.tabs.bg.label "タブを背後に開く">
 
 <!ENTITY prefs.combined.caption "組み合わせ検索">
-<!ENTITY prefs.combined.timeout.caption "検索のタイムアウト(seg)">
+<!ENTITY prefs.combined.timeout.label "検索のタイムアウト(seg)">
 
 <!ENTITY prefs.skin.caption "スキン">
 <!ENTITY prefs.skin.label "Euskalbarのスキンを選択する:">
@@ -33,7 +33,7 @@
 <!ENTITY prefs.gui.focusWindow.label "Focus window after query">
 
 <!-- Statistics -->
-<!ENTITY stats.menu "統計">
+<!ENTITY stats.tile "統計">
 <!ENTITY stats.dict.label "上級検索">
 <!ENTITY stats.count.label "検索回数">
 <!ENTITY stats.clear.label "統計削除">
