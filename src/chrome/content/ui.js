@@ -101,7 +101,7 @@ euskalbar.ui = function () {
               reversePair = target + '-' + source;
 
           if (addedPairs.indexOf(pair) === -1 && pair !== 'eu-eu') {
-            var menuSeparator = document.createElement('menuseparator'),
+            var menuSeparator = document.createElement('menuseparator');
             menuPopup.appendChild(menuSeparator);
 
             appendToMenu(source, target);
@@ -187,7 +187,7 @@ euskalbar.ui = function () {
             menuPopup = document.createElement('menupopup');
 
         euskalbar.app.pairs[source][target].each(function (dictName) {
-          dict = euskalbar.dicts[dictName];
+          var dict = euskalbar.dicts[dictName];
 
           if (dict.hasOwnProperty('contextCategory')) {
             var categoryList = contextCategories[dict.contextCategory] || [];
