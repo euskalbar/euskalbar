@@ -53,7 +53,8 @@ euskalbar.dicts.elhuyar = function () {
       if (data.indexOf('Ez da emaitzarik aurkitu') != -1) {
         data = data.substring(data.indexOf('<div class="wrapDef">'),
                               data.indexOf('<div class="column bat">'));
-        data = data.replace('/proposamenak/', 'http://hiztegiak.elhuyar.org/proposamenak/');
+        data = data.replace('/proposamenak/',
+                            this.homePage + '/proposamenak/');
         return data;
       } else {
         var domSerializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"]
@@ -66,9 +67,11 @@ euskalbar.dicts.elhuyar = function () {
         var oneNodes = dataOneDOM.getElementsByTagName('a');
         for (var i in oneNodes) {
           try {
-            oneNodes[i].href = 'http://hiztegiak.elhuyar.org/'+target+'_'+source+'/'+oneNodes[i].childNodes[0].innerHTML;
-          }
-          catch (e) {
+            oneNodes[i].href = [
+              this.homePage, '/', target, '_', source, '/',
+              oneNodes[i].childNodes[0].innerHTML
+            ].join('');
+          } catch (e) {
           }
         }
         dataOne = domSerializer.serializeToString(dataOneDOM);
@@ -84,14 +87,16 @@ euskalbar.dicts.elhuyar = function () {
         var threeNodes = dataThreeDOM.getElementsByTagName('a');
         for (var i in threeNodes) {
           try {
-            threeNodes[i].href = 'http://hiztegiak.elhuyar.org/'+source+'_'+target+'/'+threeNodes[i].innerHTML;
-          }
-          catch (e) {
+            threeNodes[i].href = [
+              this.homePage, '/', source, '_', target, '/',
+              threeNodes[i].innerHTML
+            ].join('');
+          } catch (e) {
           }
         }
         dataThree = domSerializer.serializeToString(dataThreeDOM);
 
-        return dataOne+dataTwo+dataThree;
+        return dataOne + dataTwo + dataThree;
       }
     }
 
