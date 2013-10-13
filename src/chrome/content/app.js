@@ -141,6 +141,7 @@ euskalbar.app = function () {
       document.persist("euskalbar-toolbar", "currentset");
     },
 
+
     /*
      * Loads `dictName` into the mapping structure for language pairs.
      *
