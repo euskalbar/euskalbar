@@ -72,17 +72,14 @@ euskalbar.ui = function () {
      * Generates the selectable drop-down with all the available language pairs
      */
     initLanguages: function () {
-      var i,
-          source, target, targets,
-          pair, reversePair,
-          menuItem, menuSeparator,
-          addedPairs = [],
+      var addedPairs = [],
           menuPopup = $('euskalbar-language-popup'),
           allSources = Object.keys(euskalbar.app.pairs).sort(),
-          sources = allSources.splice(allSources.indexOf('eu'), 1);
+          sources = allSources.splice(allSources.indexOf('eu'), 1),
+          i, source, target;
 
       var appendToMenu = function (source, target) {
-        menuItem = document.createElement('menuitem');
+        var menuItem = document.createElement('menuitem');
         menuItem.setAttribute('id', 'euskalbar-language-' +
                                     source + '_' + target);
         menuItem.setAttribute('label', source.toUpperCase() + ' ‣ ' +
@@ -98,12 +95,13 @@ euskalbar.ui = function () {
       };
 
       sources.forEach(function (source, i) {
-        targets = Object.keys(euskalbar.app.pairs[source]).sort();
+        var targets = Object.keys(euskalbar.app.pairs[source]).sort();
         targets.forEach(function (target) {
-          pair = source + '-' + target;
-          reversePair = target + '-' + source;
+          var pair = source + '-' + target,
+              reversePair = target + '-' + source;
+
           if (addedPairs.indexOf(pair) === -1 && pair !== 'eu-eu') {
-            menuSeparator = document.createElement('menuseparator'),
+            var menuSeparator = document.createElement('menuseparator'),
             menuPopup.appendChild(menuSeparator);
 
             appendToMenu(source, target);
@@ -127,12 +125,11 @@ euskalbar.ui = function () {
       var toolbar = $('euskalbar-dicts-general'),
           euPairs = euskalbar.app.pairs.eu.eu,
           nonEuDicts,
-          toolbarButton, toolbarSeparator,
-          dict;
+          toolbarSeparator;
 
       var appendToToolbar = function (dictName) {
-        dict = euskalbar.dicts[dictName];
-        toolbarButton = document.createElement('toolbarbutton');
+        var dict = euskalbar.dicts[dictName];
+        var toolbarButton = document.createElement('toolbarbutton');
         toolbarButton.setAttribute('id', 'euskalbar-' + dictName);
         toolbarButton.setAttribute('label', dict.displayName);
         toolbarButton.setAttribute('tooltiptext', dict.description ||
@@ -167,11 +164,12 @@ euskalbar.ui = function () {
       var contextMenu = $('euskalbar-context-menupopup'),
           addedPairs = {},
           contextCategories = {},
-          dict, menuItem, source, target, pair, categoryList;
+          source, target;
 
       var appendToMenu = function (menu, dictName, source, target) {
-        dict = euskalbar.dicts[dictName];
-        menuItem = document.createElement('menuitem');
+        var dict = euskalbar.dicts[dictName],
+            menuItem = document.createElement('menuitem');
+
         menuItem.setAttribute('id', 'euskalbar-' + dictName + '-' +
                                     source + '_' + target + '-context');
         menuItem.setAttribute('label', dict.displayName);
@@ -180,6 +178,7 @@ euskalbar.ui = function () {
         }
         menuItem.setAttribute('oncommand',
                               'euskalbar.app.runQuery(event)');
+
         menu.appendChild(menuItem);
       };
 
@@ -191,7 +190,7 @@ euskalbar.ui = function () {
           dict = euskalbar.dicts[dictName];
 
           if (dict.hasOwnProperty('contextCategory')) {
-            categoryList = contextCategories[dict.contextCategory] || [];
+            var categoryList = contextCategories[dict.contextCategory] || [];
             categoryList.push(dictName);
             contextCategories[dict.contextCategory] = categoryList;
 
@@ -243,7 +242,7 @@ euskalbar.ui = function () {
       // that need to be categorized to treat them separately
       for (source in euskalbar.app.pairs) {
         for (target in euskalbar.app.pairs[source]) {
-          pair = [source, '_', target].join('');
+          var pair = [source, '_', target].join('');
           if (!(pair in addedPairs)) {
             var menuSeparator = document.createElement('menuseparator');
             contextMenu.appendChild(menuSeparator);

@@ -54,8 +54,6 @@ euskalbar.lib.utils = {};
    * Thanks for this, John Resig.
    */
   this.ajax = function (options) {
-    var status;
-
     // Load the options object with defaults, if no
     // values were provided by the user
     var s = {
@@ -135,11 +133,11 @@ euskalbar.lib.utils = {};
         requestDone = true;
 
         // Check the resulting status
-        status = isTimeout === 'timeout' ?
-                 'timeout' :
-                 httpSuccess(xhr) ?
-                 'success' :
-                 'error';
+        var status = isTimeout === 'timeout' ?
+                     'timeout' :
+                     httpSuccess(xhr) ?
+                     'success' :
+                     'error';
 
         if (status === 'success') {
 
