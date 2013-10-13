@@ -116,7 +116,7 @@ euskalbar.prefs = function () {
       return value;
     });
     euskalbar.prefs.__defineSetter__(name, function (newValue) {
-      if (value == newValue) {
+      if (value === newValue) {
         return value;
       }
 
