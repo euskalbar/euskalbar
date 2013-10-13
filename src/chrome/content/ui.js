@@ -441,10 +441,59 @@ euskalbar.ui = function () {
     },
 
 
+    displayStats: function () {
+      if (window.arguments && window.arguments.length) {
+        var sharedObj = window.arguments[0].wrappedJSObject;
+        euskalbar.dicts = sharedObj.dicts;
+        euskalbar.prefs = sharedObj.prefs;
+      }
+
+      var treechildren = $('stats-tree-children'),
+          item, row, nameCell, countCell, dict, dictName;
+
+      // Remove old data
+      while (treechildren.firstChild) {
+        treechildren.removeChild(treechildren.firstChild);
+      }
+
+      // Populate tree with stats data
+      for (dictName in euskalbar.prefs.stats) {
+        dict = euskalbar.dicts[dictName];
+        if (dict === undefined) {
+          continue;
+        }
+
+        item = document.createElement("treeitem");
+        treechildren.appendChild(item);
+
+        row = document.createElement("treerow");
+        item.appendChild(row);
+
+        nameCell = document.createElement("treecell");
+        nameCell.setAttribute('label', dict.description || dict.displayName);
+        row.appendChild(nameCell);
+
+        countCell = document.createElement("treecell");
+        countCell.setAttribute('label', euskalbar.prefs.stats[dictName]);
+        row.appendChild(countCell);
+      }
+    },
+
+
     /* Displays the dictionary usage statistics */
     stats: function () {
-      var t = gBrowser.addTab("chrome://euskalbar/content/stats.xul");
-      gBrowser.selectedTab = t;
+      var dialogURL = "chrome://euskalbar/content/stats.xul",
+          sharedObj = {
+            dicts: euskalbar.dicts,
+            prefs: euskalbar.prefs
+          },
+          statsWindow;
+      statsWindow = Services.ww.openWindow(
+        null, dialogURL, "euskalbar-stats",
+        "chrome,toolbar,centerscreen,resizable,dialog=no",
+        {wrappedJSObject: sharedObj}
+      );
+      statsWindow.focus();
     },
 
 

@@ -67,8 +67,6 @@ euskalbar.app = function () {
         euskalbar.ui.appendButtonToToolbar();
         euskalbar.ui.displayToolbar();
 
-        euskalbar.stats.init();
-
         openInfo = true;
         infoURL = euskalbar.app.firstrunURL;
       } else {
@@ -76,10 +74,13 @@ euskalbar.app = function () {
           var installedVersion = euskalbar.prefs.installedVersion;
 
           /* We are in the middle of an upgrade */
-          if (this.curVersion != installedVersion) {
+          if (this.curVersion !== installedVersion) {
             euskalbar.prefs.installedVersion = this.curVersion;
 
-            /* TODO: migrate preferences? */
+            if (installedVersion < '4.0') {
+              /* TODO: migrate preferences? */
+              euskalbar.stats.migrate();
+            }
 
             /* Add Euskalbar button to the navigation bar and force
              * the toolbar to be displayed */
@@ -121,6 +122,7 @@ euskalbar.app = function () {
         euskalbar.dicts.available.remove(unavailableDicts[i]);
       }
 
+      euskalbar.stats.init();
       euskalbar.ui.init();
 
       // Initialize language selection button

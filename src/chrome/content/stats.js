@@ -27,57 +27,84 @@ if (!euskalbar) var euskalbar = {};
 
 euskalbar.stats = function () {
 
-  var $U = euskalbar.lib.utils;
+  var $U = euskalbar.lib.utils,
+      $ = $U.$;
 
   return {
 
-    filename: 'euskalbar.sqlite',
-
     /* Initializes the stats file and copies it to the user profile directory */
-    init: function () {
-      // First copy euskalbar.sqlite
-      var profileDir = euskalbar.app.profileURI;
-      let file = FileUtils.getFile("ProfD", [this.filename]);
-      if (!file.exists()) {
-        try {
-          var statsFileURL = "chrome://euskalbar/content/euskalbar.sqlite";
-          var statsFile = $U.FileIO.getLocalSystemURI(statsFileURL)
-                                   .QueryInterface(Ci.nsIFileURL).file;
-          statsFile.copyTo(profileDir, this.filename);
-        } catch (e) {
-          console.log(e);
+    init: function (options) {
+      options = options || {clear: false};
+      var statsObj = $U.extend({}, euskalbar.prefs.stats);
+
+      euskalbar.dicts.available.each(function (dictName) {
+        if (options.clear || !statsObj.hasOwnProperty(dictName)) {
+          statsObj[dictName] = 0;
         }
+      });
+
+      euskalbar.prefs.stats = statsObj;
+    },
+
+
+    /* Migrates stats from the old SQLite-based backend to
+     * preference-based counters*/
+    migrate: function () {
+      let statsFilename = 'euskalbar.sqlite',
+          file = FileUtils.getFile("ProfD", [statsFilename]),
+          conn = Services.storage.openDatabase(file);
+
+      var statsObj = {},
+          namesMap = {
+            'bostakbat': 'adorez',
+            'hauta': 'hautalan',
+            'lanbide': 'jakinbai',
+            'lb': 'lexikoaren_behatokia',
+            'lth': 'literatura',
+            'telekom': 'telekomunikazioak'
+          };
+
+      var query = 'SELECT id, count FROM stats',
+          statement = conn.createStatement(query);
+
+      // Using synchronous query since we need to have the data before
+      // continuing forward
+      while (statement.executeStep()) {
+        let id = statement.row.id,
+            count = statement.row.count;
+
+        if (id !== null) {
+          // Update with mapping name if available
+          id = namesMap[id] || id;
+          statsObj[id] = count;
+        }
+      }
+
+      conn.close();
+
+      euskalbar.prefs.stats = statsObj;
+
+      // Remove the obsolete DB file from the user's profile directory
+      try {
+        file.remove(false);
+      } catch (e) {
+        $U.log("Failed to remove DB file: " + e.message);
       }
     },
 
 
-    // Write statistics in euskalbar.sqlite
-    write: function (dict) {
-      let file = FileUtils.getFile("ProfD", [this.filename]);
-      let euskalbarConn = Services.storage.openDatabase(file);
-
-      var query = "UPDATE stats SET count=count + 1 WHERE id=:dict",
-          statement = euskalbarConn.createStatement(query);
-
-      statement.params.dict = dict;
-      statement.executeAsync();
-      euskalbarConn.asyncClose();
+    // Increments the number of performed queries for `dictName`
+    incr: function (dictName) {
+      var statsObj = $U.extend({}, euskalbar.prefs.stats);
+      statsObj[dictName] += 1;
+      euskalbar.prefs.stats = statsObj;
     },
 
 
     // Clears statistics
     clear: function () {
-      let file = FileUtils.getFile("ProfD", [this.filename]);
-      let euskalbarConn = Services.storage.openDatabase(file);
-
-      var query = "UPDATE stats SET count=0",
-          statement = euskalbarConn.createStatement(query);
-
-      statement.executeAsync();
-      euskalbarConn.asyncClose();
-
-      // Refresh stats view
-      $('stats-tree').builder.rebuild();
+      this.init({clear: true});
+      euskalbar.ui.displayStats();
     },
 
   };

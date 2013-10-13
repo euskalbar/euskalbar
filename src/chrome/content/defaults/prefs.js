@@ -37,6 +37,9 @@ pref('extensions.euskalbar.onkey1', ['euskalterm', 'elhuyar', 'morris']);
 // Dictionaries searched on pressing "Enter" + Ctrl key
 pref('extensions.euskalbar.onkey2', ['batua', 'uzei', 'bostmila']);
 
+// Stats
+pref("extensions.euskalbar.stats", {});
+
 // Query timeout
 pref("extensions.euskalbar.queryTimeout", 5);
 

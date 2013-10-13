@@ -113,7 +113,7 @@ euskalbar.dicts = function () {
         tab.addEventListener("load", hook, true);
       }
 
-      euskalbar.stats.write(dictName);
+      euskalbar.stats.incr(dictName);
     },
 
 
@@ -160,7 +160,7 @@ euskalbar.dicts = function () {
         }
       });
 
-      euskalbar.stats.write(dictName);
+      euskalbar.stats.incr(dictName);
     },
 
   };
