@@ -33,7 +33,7 @@
 <!ENTITY prefs.gui.focusWindow.label "Focus window after query">
 
 <!-- Statistics -->
-<!ENTITY stats.tile "統計">
+<!ENTITY stats.title "統計">
 <!ENTITY stats.dict.label "上級検索">
 <!ENTITY stats.count.label "検索回数">
 <!ENTITY stats.clear.label "統計削除">
