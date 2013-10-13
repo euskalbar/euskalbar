@@ -56,10 +56,42 @@ euskalbar.dicts.elhuyar = function () {
         data = data.replace('/proposamenak/', 'http://hiztegiak.elhuyar.org/proposamenak/');
         return data;
       } else {
-        data = data.substring(data.indexOf('<div class="innerDef">'),
-                              data.indexOf('<div id="corpusa_edukia">'));
-        //data = data.replace(/href="#"/g, 'href=\"http://hiztegiak.elhuyar.org/');
-        return data;
+        var domSerializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"]
+                           .createInstance(Components.interfaces.nsIDOMSerializer);
+        var parser = new DOMParser();
+
+        var dataOne = data.substring(data.indexOf('<div class="innerDef">'),
+                                     data.indexOf('<div class="innerRelac">'));
+        var dataOneDOM = parser.parseFromString(dataOne, "text/html");
+        var aNodes = dataOneDOM.getElementsByTagName('a');
+        for (var i in aNodes) {
+          try {
+            var url = 'http://hiztegiak.elhuyar.org/'+target+'_'+source+'/'+aNodes[i].childNodes[0].innerHTML;
+            aNodes[i].href = url;
+          }
+          catch (e) {
+          }
+        }
+        dataOne = domSerializer.serializeToString(dataOneDOM);
+
+        var dataTwo = data.substring(data.indexOf('<div class="innerRelac">'),
+                                 data.indexOf('<div class="column bat">'));
+
+        var dataThree = data.substring(data.indexOf('<div class="column bat">'),
+                                       data.indexOf('<div id="corpusa_edukia">'));
+        var dataThreeDOM = parser.parseFromString(dataThree, "text/html");
+        var aNodes = dataThreeDOM.getElementsByTagName('a');
+        for (var i in aNodes) {
+          try {
+            var url = 'http://hiztegiak.elhuyar.org/'+source+'_'+target+'/'+aNodes[i].innerHTML;
+            aNodes[i].href = url;
+          }
+          catch (e) {
+          }
+        }
+        dataThree = domSerializer.serializeToString(dataThreeDOM);
+
+        return dataOne+dataTwo+dataThree;
       }
     }
 
