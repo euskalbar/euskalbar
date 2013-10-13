@@ -65,6 +65,7 @@ euskalbar.dicts = function () {
       'literatura',
       'lurhe',
       'luret',
+      'microsoft',
       'mokoroa',
       'morris',
       'nolaerran',

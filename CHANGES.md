@@ -15,6 +15,8 @@
 - UZEIren sinonimoen hiztegiaren helbidea aldatu da.
 - Elhuyar helbide berrian kontsultatzen da.
 - Elhuyarren web corpusak barran sartu dira.
+- Microsoft Language Portal kontsultatzeko moduan dago (momentuz en-eu
+  norabidean soilik)
 
 
 ## 3.12 bertsioa
