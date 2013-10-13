@@ -50,14 +50,14 @@
   <!-- Firefox Euskalbar toolbar -->
   <toolbox id="navigator-toolbox">
     <toolbar id="euskalbar-toolbar" flex="1" accesskey="K" class="chromeclass-toolbar" toolbarname="Euskalbar" context="euskalbar-hsButtons" collapsed="false" persist="collapsed">
-    <toolbaritem id="euskalbar-leftbuttons" flex="0">
-      <toolbarbutton id="euskalbar-language" type="menu-button"
-        oncommand="euskalbar.app.toggleLang();">
-        <menupopup id="euskalbar-language-popup">
-          <!-- Content generated in euskalbar.ui -->
-        </menupopup>
-      </toolbarbutton>
-    </toolbaritem>
+      <toolbaritem id="euskalbar-leftbuttons" flex="0">
+        <toolbarbutton id="euskalbar-language" type="menu-button"
+          oncommand="euskalbar.app.toggleLang();">
+          <menupopup id="euskalbar-language-popup">
+            <!-- Content generated in euskalbar.ui -->
+          </menupopup>
+        </toolbarbutton>
+      </toolbaritem>
       <hbox>
           <textbox id="euskalbar-search-string" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.app.goEuskalBarOnKey(event)" />
           <splitter id="euskalbar-search-splitter" resizeafter="grow" resizebefore="closest">
@@ -80,31 +80,31 @@
   <!-- Firefox context menupopup right-click -->
   <popup id="contentAreaContextMenu">
     <menuseparator id="euskalbar-context-menuseparator"/>
-      <menu id="euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
-        <observes element="cmd_copy" attribute="disabled" />
-        <menupopup id="euskalbar-context-menupopup">
-          <!-- Content generated in euskalbar.ui -->
-        </menupopup>
-      </menu>
-    </popup>
+    <menu id="euskalbar-context-menu" accesskey="&euskalbar.key;" label="&euskalbar.name;">
+      <observes element="cmd_copy" attribute="disabled" />
+      <menupopup id="euskalbar-context-menupopup">
+        <!-- Content generated in euskalbar.ui -->
+      </menupopup>
+    </menu>
+  </popup>
 
 
   <!-- Firefox menubar -->
   <menubar id="main-menubar">
-      <menu id="euskalbar-menu" label="&euskalbar.menu.label;"
-            insertafter="tools-menu" persist="hidden">
-          <!-- Content comes from euskalbar-menuPopup -->
-      </menu>
+    <menu id="euskalbar-menu" label="&euskalbar.menu.label;"
+          insertafter="tools-menu" persist="hidden">
+        <!-- Content comes from euskalbar-menuPopup -->
+    </menu>
   </menubar>
 
   <!-- Firefox menu -->
   <vbox id="appmenuSecondaryPane">
-      <menu id="appmenu_euskalbar" label="&euskalbar.menu.label;"
-            insertbefore="appmenu_addons" persist="hidden">
-          <!-- Content comes from euskalbar-menuPopup -->
-      </menu>
-      <spacer id="euskalbar-appmenu-spacer"
-              insertafter="appmenu_euskalbar" persist="hidden"/>
+    <menu id="appmenu_euskalbar" label="&euskalbar.menu.label;"
+          insertbefore="appmenu_addons" persist="hidden">
+        <!-- Content comes from euskalbar-menuPopup -->
+    </menu>
+    <spacer id="euskalbar-appmenu-spacer"
+            insertafter="appmenu_euskalbar" persist="hidden"/>
   </vbox>
 
 </overlay>
