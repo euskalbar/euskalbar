@@ -63,11 +63,10 @@ euskalbar.dicts.elhuyar = function () {
         var dataOne = data.substring(data.indexOf('<div class="innerDef">'),
                                      data.indexOf('<div class="innerRelac">'));
         var dataOneDOM = parser.parseFromString(dataOne, "text/html");
-        var aNodes = dataOneDOM.getElementsByTagName('a');
-        for (var i in aNodes) {
+        var oneNodes = dataOneDOM.getElementsByTagName('a');
+        for (var i in oneNodes) {
           try {
-            var url = 'http://hiztegiak.elhuyar.org/'+target+'_'+source+'/'+aNodes[i].childNodes[0].innerHTML;
-            aNodes[i].href = url;
+            oneNodes[i].href = 'http://hiztegiak.elhuyar.org/'+target+'_'+source+'/'+oneNodes[i].childNodes[0].innerHTML;
           }
           catch (e) {
           }
@@ -76,15 +75,16 @@ euskalbar.dicts.elhuyar = function () {
 
         var dataTwo = data.substring(data.indexOf('<div class="innerRelac">'),
                                  data.indexOf('<div class="column bat">'));
+        dataTwo = dataTwo.replace(/<a/g, '<strong');
+        dataTwo = dataTwo.replace(/<\/a/g, '</strong');
 
         var dataThree = data.substring(data.indexOf('<div class="column bat">'),
                                        data.indexOf('<div id="corpusa_edukia">'));
         var dataThreeDOM = parser.parseFromString(dataThree, "text/html");
-        var aNodes = dataThreeDOM.getElementsByTagName('a');
-        for (var i in aNodes) {
+        var threeNodes = dataThreeDOM.getElementsByTagName('a');
+        for (var i in threeNodes) {
           try {
-            var url = 'http://hiztegiak.elhuyar.org/'+source+'_'+target+'/'+aNodes[i].innerHTML;
-            aNodes[i].href = url;
+            threeNodes[i].href = 'http://hiztegiak.elhuyar.org/'+source+'_'+target+'/'+threeNodes[i].innerHTML;
           }
           catch (e) {
           }
