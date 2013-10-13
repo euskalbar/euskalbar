@@ -40,9 +40,6 @@ euskalbar.app = function () {
 
     helpBaseURL: "http://euskalbar.eu/help/",
 
-    // URI of the current user's profile directory
-    profileURI: Services.dirsvc.get("ProfD", Components.interfaces.nsIFile),
-
     pairs: {},
 
     source: null,
