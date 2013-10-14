@@ -32,38 +32,21 @@ euskalbar.dicts.hikea = function () {
 
     homepage: 'http://www.eitb.com',
 
-    pairs: ['eu-es', 'eu-en',
-            'es-eu', 'en-eu'],
+    pairs: ['eu-es', 'eu-en', 'eu-fr', 'eu-la',
+            'es-eu', 'en-eu', 'fr-eu', 'la-eu'],
 
-    method: 'POST',
+    method: 'GET',
 
     getUrl: function (term, source, target) {
-      switch (source) {
-        case 'eu':
-          return 'http://www.eitb.com/eu/get/euskera/hiztegia/'+term+'/vacio/vacio/vacio/vacio/0/0/vacio/vacio/vacio';
-          break;
-        case 'en':
-          return 'http://www.eitb.com/eu/get/euskera/hiztegia/vacio/vacio/'+term+'/vacio/vacio/0/0/vacio/vacio/vacio';
-          break;
-        case 'es':
-          return 'http://www.eitb.com/eu/get/euskera/hiztegia/vacio/'+term+'/vacio/vacio/vacio/0/0/vacio/vacio/vacio';
-          break;
-      }
-
+      return 'http://www.eitb.com/eu/kultura/euskara/kontsultak';
     },
 
-   getParams: function (term, source, target) {
-       /*var params = {
-
+    getParams: function (term, source, target) {
+      return {
+        'busqueda_hikea': term,
+        'hizkuntza': source
       };
 
-      if (source === 'es') {
-        params['gaztelania'] = term;
-      } else {
-        params['euskera'] = term;
-      }
-
-      return params;*/
     },
 
   };
