@@ -39,7 +39,7 @@ euskalbar.dicts.ereduzko = function () {
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.normalize(term);
+      term = euskalbar.lib.utils.percentencode(term);
       return {
         'o': '1',
         'h': '1',

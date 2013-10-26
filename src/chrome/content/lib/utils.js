@@ -322,7 +322,7 @@ euskalbar.lib.utils = {};
    * Replaces diacritics with URI encoding
    * (Javascript encodeURIComponent and encodeURI don't work as expected in some dictionaries)
    */
-  this.normalize = function (str) {
+  this.percentencode = function (str) {
     str = str.replace(/á/g, "%E1");
     str = str.replace(/à/g, "%E0");
     str = str.replace(/ä/g, "%E4");

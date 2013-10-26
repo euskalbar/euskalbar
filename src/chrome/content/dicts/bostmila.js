@@ -44,7 +44,7 @@ euskalbar.dicts.bostmila = function () {
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.normalize(term);
+      term = euskalbar.lib.utils.percentencode(term);
       var params = {
         't': term
       };

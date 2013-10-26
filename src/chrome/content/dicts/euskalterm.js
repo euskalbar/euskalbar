@@ -46,7 +46,7 @@ euskalbar.dicts.euskalterm = function () {
 
     getParams: function (term, source, target) {
       term = term.trim();
-      term = euskalbar.lib.utils.normalize(term);
+      term = euskalbar.lib.utils.percentencode(term);
 
       var uiLang = $U.langCode(euskalbar.ui.locale),
           availableLangs = ['en', 'fr', 'es', 'la', 'de'],

@@ -39,7 +39,7 @@ euskalbar.dicts.klasikoak = function () {
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.normalize(term);
+      term = euskalbar.lib.utils.percentencode(term);
       return {
         'check1': '1',
         'hitza1': term,
