@@ -60,7 +60,7 @@ euskalbar.dicts.bostmila = function () {
 
     scrap: function (term, source, target, data) {
       var data = data.substring(data.indexOf('<div id="emaitza">'),
-                            data.indexOf('<div id="oina">'));
+                                data.indexOf('<div id="oina">'));
       data = data.replace(/<img/g, "<img height='16' width='16'");
       //data = data.replace(/class="eues_sarrera"/g, "style='font-weight:bold'");
 
