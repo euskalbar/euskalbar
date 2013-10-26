@@ -134,8 +134,6 @@ euskalbar.dicts = function () {
       var dict = euskalbar.dicts[dictName],
           output = '';
 
-      // XXX: should we normalize term for all queries?
-      //term = euskalbar.lib.utils.normalize(term);
       $U.ajax({
         url: dict.getUrl(term, source, target),
 

@@ -226,7 +226,7 @@ euskalbar.lib.utils = {};
     function add(key, value) {
       // If value is a function, invoke it and return its value
       value = euskalbar.lib.utils.isFunction(value) ? value() : value;
-      s[s.length] = encodeURIComponent(key) + "=" + encodeURIComponent(value);
+      s[s.length] = key + "=" + euskalbar.lib.utils.normalize(value);
     }
 
     // If an array was passed in, assume that it is an array of form elements.
@@ -319,55 +319,54 @@ euskalbar.lib.utils = {};
   };
 
   /*
-   * Removes diacritics from strings
+   * Replaces diacritics with URI encoding
+   * (Javascript encodeURIComponent and encodeURI don't work as expected in this case)
    */
   this.normalize = function (str) {
-    var newStr = str.toLowerCase();
+    str = str.replace(/á/, "%E1");
+    str = str.replace(/à/, "%E0");
+    str = str.replace(/ä/, "%E4");
+    str = str.replace(/â/, "%E2");
+    str = str.replace(/é/, "%E9");
+    str = str.replace(/è/, "%E8");
+    str = str.replace(/ë/, "%EB");
+    str = str.replace(/ê/, "%EA");
+    str = str.replace(/í/, "%ED");
+    str = str.replace(/ì/, "%EC");
+    str = str.replace(/ï/, "%EF");
+    str = str.replace(/î/, "%EE");
+    str = str.replace(/ó/, "%F3");
+    str = str.replace(/ò/, "%F2");
+    str = str.replace(/ö/, "%F6");
+    str = str.replace(/ô/, "%F4");
+    str = str.replace(/ú/, "%FA");
+    str = str.replace(/ù/, "%F9");
+    str = str.replace(/ü/, "%FC");
+    str = str.replace(/û/, "%FB");
+    str = str.replace(/Á/, "%C1");
+    str = str.replace(/À/, "%C0");
+    str = str.replace(/Ä/, "%C4");
+    str = str.replace(/Â/, "%C2");
+    str = str.replace(/É/, "%C9");
+    str = str.replace(/È/, "%C8");
+    str = str.replace(/Ë/, "%CB");
+    str = str.replace(/Ê/, "%CA");
+    str = str.replace(/Í/, "%CD");
+    str = str.replace(/Ì/, "%CC");
+    str = str.replace(/Ï/, "%CF");
+    str = str.replace(/Î/, "%CE");
+    str = str.replace(/Ó/, "%D3");
+    str = str.replace(/Ò/, "%D2");
+    str = str.replace(/Ö/, "%D6");
+    str = str.replace(/Ô/, "%D4");
+    str = str.replace(/Ú/, "%DA");
+    str = str.replace(/Ù/, "%D9");
+    str = str.replace(/Ü/, "%DC");
+    str = str.replace(/Û/, "%DB");
+    str = str.replace(/Ñ/, "%D1");
+    str = str.replace(/ñ/, "%F1");
 
-    newStr = newStr.replace(/á/, "a");
-    newStr = newStr.replace(/à/, "a");
-    newStr = newStr.replace(/ä/, "a");
-    newStr = newStr.replace(/â/, "a");
-    newStr = newStr.replace(/é/, "e");
-    newStr = newStr.replace(/è/, "e");
-    newStr = newStr.replace(/ë/, "e");
-    newStr = newStr.replace(/ê/, "e");
-    newStr = newStr.replace(/í/, "i");
-    newStr = newStr.replace(/ì/, "i");
-    newStr = newStr.replace(/ï/, "i");
-    newStr = newStr.replace(/î/, "i");
-    newStr = newStr.replace(/ó/, "o");
-    newStr = newStr.replace(/ò/, "o");
-    newStr = newStr.replace(/ö/, "o");
-    newStr = newStr.replace(/ô/, "o");
-    newStr = newStr.replace(/ú/, "u");
-    newStr = newStr.replace(/ù/, "u");
-    newStr = newStr.replace(/ü/, "u");
-    newStr = newStr.replace(/û/, "u");
-    newStr = newStr.replace(/Á/, "A");
-    newStr = newStr.replace(/À/, "A");
-    newStr = newStr.replace(/Ä/, "A");
-    newStr = newStr.replace(/Â/, "A");
-    newStr = newStr.replace(/É/, "E");
-    newStr = newStr.replace(/È/, "E");
-    newStr = newStr.replace(/Ë/, "E");
-    newStr = newStr.replace(/Ê/, "E");
-    newStr = newStr.replace(/Í/, "I");
-    newStr = newStr.replace(/Ì/, "I");
-    newStr = newStr.replace(/Ï/, "I");
-    newStr = newStr.replace(/Î/, "I");
-    newStr = newStr.replace(/Ó/, "O");
-    newStr = newStr.replace(/Ò/, "O");
-    newStr = newStr.replace(/Ö/, "O");
-    newStr = newStr.replace(/Ô/, "O");
-    newStr = newStr.replace(/Ú/, "U");
-    newStr = newStr.replace(/Ù/, "U");
-    newStr = newStr.replace(/Ü/, "U");
-    newStr = newStr.replace(/Û/, "U");
-    newStr = newStr.replace(/Ñ/, "N");
-    newStr = newStr.replace(/ñ/, "n");
-
-    return newStr;
+    return str;
   };
 
 
