@@ -37,6 +37,8 @@ euskalbar.dicts.bostmila = function () {
 
     method: 'GET',
 
+    mimetype: "application/xml; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       return 'http://www.bostakbat.org/azkue//index.php';
     },
@@ -56,8 +58,10 @@ euskalbar.dicts.bostmila = function () {
     },
 
     scrap: function (term, source, target, data) {
-      return data.substring(data.indexOf('<div id="emaitza">'),
+      var data = data.substring(data.indexOf('<div id="emaitza">'),
                             data.indexOf('<div id="oina">'));
+      data = data.replace(/<img/g, "<img height='16' width='16'");
+      return data;
     },
 
   };

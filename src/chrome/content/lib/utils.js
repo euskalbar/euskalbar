@@ -370,6 +370,7 @@ euskalbar.lib.utils = {};
     return newStr;
   };
 
+
   /*
    * Parse HTML fragments
    */

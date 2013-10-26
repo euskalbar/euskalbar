@@ -135,11 +135,13 @@ euskalbar.dicts = function () {
           output = '';
 
       // XXX: should we normalize term for all queries?
-      // term = euskalbar.comb.normalize(term);
+      //term = euskalbar.lib.utils.normalize(term);
       $U.ajax({
         url: dict.getUrl(term, source, target),
 
         type: dict.method,
+
+        mimeType: dict.mimetype,
 
         data: dict.getParams(term, source, target),
 
