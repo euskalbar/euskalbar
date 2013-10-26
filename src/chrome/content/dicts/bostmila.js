@@ -37,7 +37,7 @@ euskalbar.dicts.bostmila = function () {
 
     method: 'GET',
 
-    mimetype: "application/xml; charset=ISO-8859-1",
+    mimetype: "text/xml; charset=ISO-8859-1",
 
     getUrl: function (term, source, target) {
       return 'http://www.bostakbat.org/azkue//index.php';
