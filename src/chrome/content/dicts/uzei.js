@@ -42,6 +42,7 @@ euskalbar.dicts.uzei = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'q': term
       };

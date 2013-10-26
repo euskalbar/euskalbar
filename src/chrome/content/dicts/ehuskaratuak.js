@@ -42,6 +42,7 @@ euskalbar.dicts.ehuskaratuak = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'mota': 'arrunta',
         'hizkuntza': source,

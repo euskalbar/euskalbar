@@ -39,6 +39,7 @@ euskalbar.dicts.egungo_corpusa = function () {
     },
 
     getParams: function (term, source, target) {
+      term = euskalbar.lib.utils.normalize(term);
       return {
         'bila': term,
       };

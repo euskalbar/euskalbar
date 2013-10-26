@@ -39,6 +39,7 @@ euskalbar.dicts.literatura = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'option': 'com_xslt',
         'lang': 'eu',

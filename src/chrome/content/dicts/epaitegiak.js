@@ -41,6 +41,7 @@ euskalbar.dicts.epaitegiak = function () {
     },
 
     getParams: function (term, source, target) {
+      term = euskalbar.lib.utils.normalize(term);
       return {
         '_charset_': 'ISO-8859-1',
         'cjterm': term,

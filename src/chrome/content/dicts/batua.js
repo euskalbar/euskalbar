@@ -39,6 +39,7 @@ euskalbar.dicts.batua = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'option': 'com_hiztegianbilatu',
         'lang': 'eu',

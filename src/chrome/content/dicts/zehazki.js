@@ -41,6 +41,7 @@ euskalbar.dicts.zehazki = function () {
     },
 
     getParams: function (term, source, target) {
+      term = euskalbar.lib.utils.normalize(term);
       return {
         'm': 'has',
         'z': term

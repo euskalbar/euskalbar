@@ -39,6 +39,7 @@ euskalbar.dicts.bergara = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'berbaki': term,
         'form_id': 'berba_bilatu'

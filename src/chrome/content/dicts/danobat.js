@@ -41,6 +41,7 @@ euskalbar.dicts.danobat = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'direction_filter': source === 'es' ? 'es-eu' : 'eu-es',
         'term_filter': term,

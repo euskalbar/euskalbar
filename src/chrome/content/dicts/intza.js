@@ -39,6 +39,7 @@ euskalbar.dicts.intza = function () {
     },
 
     getParams: function (term, source, target) {
+      term = euskalbar.lib.utils.normalize(term);
       var params = {
         'hitza1': term,
         'eremu3': '1'

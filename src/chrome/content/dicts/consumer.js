@@ -32,6 +32,8 @@ euskalbar.dicts.consumer = function () {
 
     homePage: 'http://corpus.consumer.es/',
 
+    pairs: ['eu-es', 'es-eu'],
+
     method: 'POST',
 
     getUrl: function (term, source, target) {
@@ -39,6 +41,7 @@ euskalbar.dicts.consumer = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'mota': 'arrunta',
         'hizkuntza': source === 'es' ? 'es' : 'eu',

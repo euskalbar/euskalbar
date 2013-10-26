@@ -40,6 +40,7 @@ euskalbar.dicts.xuxenweb = function () {
     },
 
     getParams: function (term, source, target) {
+      term = euskalbar.lib.utils.normalize(term);
       return {
         'idatzArea': term
       };

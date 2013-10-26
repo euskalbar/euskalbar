@@ -39,6 +39,7 @@ euskalbar.dicts.oeh = function () {
     },
 
     getParams: function (term, source, target) {
+      term = encodeURIComponent(term);
       return {
         'option': 'com_oeh',
         'lang': 'eu',
