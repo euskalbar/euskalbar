@@ -40,7 +40,7 @@ euskalbar.dicts.bostmila = function () {
     mimetype: "text/xml; charset=ISO-8859-1",
 
     getUrl: function (term, source, target) {
-      return 'http://www.bostakbat.org/azkue//index.php';
+      return 'http://www.bostakbat.org/azkue/index.php';
     },
 
     getParams: function (term, source, target) {
