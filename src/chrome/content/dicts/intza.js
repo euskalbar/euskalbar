@@ -32,6 +32,9 @@ euskalbar.dicts.intza = function () {
 
     homePage: 'http://intza.armiarma.com/',
 
+    pairs: ['eu-es', 'eu-fr',
+            'es-eu', 'fr-eu'],
+
     method: 'GET',
 
     mimetype: "text/html; charset=ISO-8859-1",
@@ -48,6 +51,8 @@ euskalbar.dicts.intza = function () {
 
       if (source === 'es') {
         params['eremu1'] = 'eeki';
+      } else if (source === 'fr') {
+        params['eremu1'] = 'feki';
       } else {
         params['eremu1'] = 'giltzarriak';
       }
