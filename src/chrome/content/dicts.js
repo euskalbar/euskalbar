@@ -95,11 +95,11 @@ euskalbar.dicts = function () {
      */
     query: function (dictName, term, source, target) {
       var dict = euskalbar.dicts[dictName];
-
       euskalbar.app.openURL(dict.getUrl(term, source, target),
                             dictName,
                             dict.method,
-                            dict.getParams(term, source, target));
+                            dict.getParams(term, source, target),
+                            dict.mimetype);
 
       // If the dictionary provides it, execute the post-query hook once the
       // page has been loaded

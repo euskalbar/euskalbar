@@ -34,12 +34,13 @@ euskalbar.dicts.klasikoak = function () {
 
     method: 'GET',
 
+    mimetype: "text/html; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       return 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl';
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.percentencode(term);
       return {
         'check1': '1',
         'hitza1': term,

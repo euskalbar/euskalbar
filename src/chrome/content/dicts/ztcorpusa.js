@@ -34,6 +34,8 @@ euskalbar.dicts.ztcorpusa = function () {
 
     method: 'GET',
 
+    mimetype: "text/html; charset=UTF-8",
+
     getUrl: function (term, source, target) {
       return 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
     },

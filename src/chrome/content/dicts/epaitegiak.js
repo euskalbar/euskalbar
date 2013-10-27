@@ -36,12 +36,13 @@ euskalbar.dicts.epaitegiak = function () {
 
     method: 'GET',
 
+    mimetype: "text/html; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       return 'http://www.justizia.net/euskara-justizian';
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.percentencode(term);
       return {
         '_charset_': 'ISO-8859-1',
         'cjterm': term,

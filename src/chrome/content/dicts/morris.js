@@ -36,6 +36,8 @@ euskalbar.dicts.morris = function () {
 
     method: 'POST',
 
+    mimetype: "text/html; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       return 'http://www1.euskadi.net/morris/resultado.asp';
     },

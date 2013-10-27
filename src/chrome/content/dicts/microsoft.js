@@ -36,6 +36,8 @@ euskalbar.dicts.microsoft = function () {
 
     method: 'GET',
 
+    mimetype: "text/html; charset=UTF-8",
+
     getUrl: function (term, source, target) {
       return 'https://www.microsoft.com/Language/en-US/Search.aspx';
     },

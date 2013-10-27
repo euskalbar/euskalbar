@@ -36,12 +36,13 @@ euskalbar.dicts.danobat = function () {
 
     method: 'POST',
 
+    mimetype: "text/html; charset=UTF-8",
+
     getUrl: function (term, source, target) {
       return 'http://hiztegia.danobatgroup.com/eu/dictionary/search';
     },
 
     getParams: function (term, source, target) {
-      term = encodeURIComponent(term);
       return {
         'direction_filter': source === 'es' ? 'es-eu' : 'eu-es',
         'term_filter': term,

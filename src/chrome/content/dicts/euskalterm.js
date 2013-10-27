@@ -40,13 +40,14 @@ euskalbar.dicts.euskalterm = function () {
 
     method: 'POST',
 
+    mimetype: "text/html; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       return 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do';
     },
 
     getParams: function (term, source, target) {
       term = term.trim();
-      term = euskalbar.lib.utils.percentencode(term);
 
       var uiLang = $U.langCode(euskalbar.ui.locale),
           availableLangs = ['en', 'fr', 'es', 'la', 'de'],

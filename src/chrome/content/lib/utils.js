@@ -92,7 +92,7 @@ euskalbar.lib.utils = {};
     };
 
     if (s.data && typeof s.data !== 'string') {
-      s.data = this.serialize(s.data);
+      s.data = this.serialize(s.data, s.mimeType);
     }
 
     // If data is available, append data to url for GET requests
@@ -220,13 +220,17 @@ euskalbar.lib.utils = {};
 
   // Serialize an array of form elements or a set of
   // key/values into a query string
-  this.serialize = function (a) {
+  this.serialize = function (a, m) {
     var s = [];
 
     function add(key, value) {
       // If value is a function, invoke it and return its value
       value = euskalbar.lib.utils.isFunction(value) ? value() : value;
-      s[s.length] = key + "=" + value;
+      if (m.indexOf('ISO-8859-1') != -1) {
+        s[s.length] = key + "=" + escape(value);  //deprecated in JavaScript 1.5
+      } else {
+        s[s.length] = key + "=" + encodeURIComponent(value);
+      }
     }
 
     // If an array was passed in, assume that it is an array of form elements.
@@ -319,8 +323,7 @@ euskalbar.lib.utils = {};
   };
 
   /*
-   * Replaces diacritics with URI encoding
-   * (Javascript encodeURIComponent and encodeURI don't work as expected in some dictionaries)
+   * Replaces diacritics with URI encoding, substitute of escape()
    */
   this.percentencode = function (str) {
     str = str.replace(/á/g, "%E1");

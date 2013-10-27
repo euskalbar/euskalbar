@@ -34,12 +34,13 @@ euskalbar.dicts.intza = function () {
 
     method: 'GET',
 
+    mimetype: "text/html; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       return 'http://intza.armiarma.com/cgi-bin/bilatu2.pl';
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.percentencode(term);
       var params = {
         'hitza1': term,
         'eremu3': '1'

@@ -34,12 +34,13 @@ euskalbar.dicts.bergara = function () {
 
     method: 'POST',
 
+    mimetype: "text/html; charset=utf-8",
+
     getUrl: function (term, source, target) {
       return 'http://www.bergarakoeuskara.net/hiztegia/bilatu';
     },
 
     getParams: function (term, source, target) {
-      term = encodeURIComponent(term);
       return {
         'berbaki': term,
         'form_id': 'berba_bilatu'

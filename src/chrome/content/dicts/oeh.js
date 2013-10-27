@@ -34,12 +34,13 @@ euskalbar.dicts.oeh = function () {
 
     method: 'POST',
 
+    mimetype: "text/html; charset=UTF-8",
+
     getUrl: function (term, source, target) {
       return 'http://www.euskaltzaindia.net/index.php';
     },
 
     getParams: function (term, source, target) {
-      term = encodeURIComponent(term);
       return {
         'option': 'com_oeh',
         'lang': 'eu',

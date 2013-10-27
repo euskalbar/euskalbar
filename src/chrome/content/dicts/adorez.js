@@ -42,7 +42,6 @@ euskalbar.dicts.adorez = function () {
     },
 
     getParams: function (term, source, target) {
-      term = euskalbar.lib.utils.percentencode(term);
       return {
         't': term,
         'q': '1'

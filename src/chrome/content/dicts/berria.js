@@ -34,6 +34,8 @@ euskalbar.dicts.berria = function () {
 
     method: 'GET',
 
+    mimetype: "text/html; charset=utf-8",
+
     getUrl: function (term, source, target) {
       return 'http://www.berria.info/estiloliburua/bilatu';
     },

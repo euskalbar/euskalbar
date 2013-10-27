@@ -34,6 +34,8 @@ euskalbar.dicts.itzul = function () {
 
     method: 'GET',
 
+    mimetype: "text/javascript; charset=UTF-8",
+
     getUrl: function (term, source, target) {
       return 'https://www.google.com/search';
     },

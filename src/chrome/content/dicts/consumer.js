@@ -36,12 +36,13 @@ euskalbar.dicts.consumer = function () {
 
     method: 'POST',
 
+    mimetype: "application/xhtml+xml; charset=utf-8",
+
     getUrl: function (term, source, target) {
       return 'http://corpus.consumer.es/corpus/kontsulta';
     },
 
     getParams: function (term, source, target) {
-      term = encodeURIComponent(term);
       return {
         'mota': 'arrunta',
         'hizkuntza': source === 'es' ? 'es' : 'eu',

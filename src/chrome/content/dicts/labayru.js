@@ -38,6 +38,8 @@ euskalbar.dicts.labayru = function () {
 
     method: 'POST',
 
+    mimetype: "text/html; charset=ISO-8859-1",
+
     getUrl: function (term, source, target) {
       if (source === 'es') {
         return 'http://hiztegia.labayru.net/CargaListaPalabras.asp';
