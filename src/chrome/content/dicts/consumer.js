@@ -36,7 +36,7 @@ euskalbar.dicts.consumer = function () {
 
     method: 'POST',
 
-    mimetype: "application/xhtml+xml; charset=utf-8",
+    mimetype: "application/xhtml+xml; charset=UTF-8",
 
     getUrl: function (term, source, target) {
       return 'http://corpus.consumer.es/corpus/kontsulta';
