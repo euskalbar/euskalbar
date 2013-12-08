@@ -221,16 +221,15 @@ euskalbar.lib.utils = {};
   // Serialize an array of form elements or a set of
   // key/values into a query string
   this.serialize = function (a, m) {
-    var s = [];
+    var s = [],
+        escapeFunc = m && m.indexOf('ISO-8859-1') !== -1 ?
+                       escape :
+                       encodeURIComponent;
 
     function add(key, value) {
       // If value is a function, invoke it and return its value
       value = euskalbar.lib.utils.isFunction(value) ? value() : value;
-      if (m.indexOf('ISO-8859-1') != -1) {
-        s[s.length] = key + "=" + escape(value);  //deprecated in JavaScript 1.5
-      } else {
-        s[s.length] = key + "=" + encodeURIComponent(value);
-      }
+      s[s.length] = [key, "=", escapeFunc(value)].join('');
     }
 
     // If an array was passed in, assume that it is an array of form elements.
