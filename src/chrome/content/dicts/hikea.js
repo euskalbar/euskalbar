@@ -37,8 +37,6 @@ euskalbar.dicts.hikea = function () {
 
     method: 'GET',
 
-    mimetype: "text/html; charset=UTF-8",
-
     getUrl: function (term, source, target) {
       return 'http://www.eitb.com/eu/kultura/euskara/kontsultak';
     },

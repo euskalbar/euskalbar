@@ -34,8 +34,6 @@ euskalbar.dicts.wikipedia = function () {
 
     method: 'GET',
 
-    mimetype: "text/html; charset=UTF-8",
-
     getUrl: function (term, source, target) {
       return 'https://eu.wikipedia.org/wiki/Aparteko:Search';
     },

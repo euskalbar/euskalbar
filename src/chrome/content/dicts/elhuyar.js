@@ -39,8 +39,6 @@ euskalbar.dicts.elhuyar = function () {
 
     method: 'GET',
 
-    mimetype: "text/html; charset=UTF-8",
-
     getUrl: function (term, source, target) {
       return [
         'http://hiztegiak.elhuyar.org/', source, '_', target, '/', term

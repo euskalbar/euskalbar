@@ -34,8 +34,6 @@ euskalbar.dicts.corpeus = function () {
 
     method: 'POST',
 
-    mimetype: "text/html; charset=UTF-8",
-
     getUrl: function (term, source, target) {
       return 'http://www.corpeus.org/cgi-bin/kontsulta.py';
     },

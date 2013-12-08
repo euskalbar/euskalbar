@@ -36,8 +36,6 @@ euskalbar.dicts.elhuyar_web_corpusa_eu_es = function () {
 
     method: 'GET',
 
-    mimetype: "application/xhtml+xml; charset=UTF-8",
-
     getUrl: function (term, source, target) {
       return 'http://webcorpusak.elhuyar.org/cgi-bin/kontsulta2.py';
     },
