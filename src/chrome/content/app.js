@@ -343,9 +343,9 @@ euskalbar.app = function () {
      *        Values will be properly escaped when invoking this function, so
      *        no prior escaping is needed.
      */
-    openURL: function (url, slug, method, params, mimetype) {
+    openURL: function (url, slug, method, params, mimeType) {
       var postData = null,
-          dataString = $U.serialize(params, mimetype);
+          dataString = $U.serialize(params, mimeType);
 
       if (method == 'GET') {
         if (url.indexOf("?") == -1 && dataString) {

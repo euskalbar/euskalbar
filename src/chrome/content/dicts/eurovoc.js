@@ -36,7 +36,7 @@ euskalbar.dicts.eurovoc = function () {
 
     method: 'POST',
 
-    mimetype: "text/html; charset=ISO-8859-1",
+    mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (term, source, target) {
       return 'http://web.bizkaia.net/kultura/eurovoc/busqueda.asp';

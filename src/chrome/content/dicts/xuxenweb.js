@@ -35,7 +35,7 @@ euskalbar.dicts.xuxenweb = function () {
 
     method: 'GET',
 
-    mimetype: "text/html; charset=ISO-8859-1",
+    mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (term, source, target) {
       return 'http://www.xuxen.com/socketBezero.php';

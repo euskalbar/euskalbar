@@ -99,7 +99,7 @@ euskalbar.dicts = function () {
                             dictName,
                             dict.method,
                             dict.getParams(term, source, target),
-                            dict.mimetype || '');
+                            dict.mimeType || '');
 
       // If the dictionary provides it, execute the post-query hook once the
       // page has been loaded
@@ -139,7 +139,7 @@ euskalbar.dicts = function () {
 
         type: dict.method,
 
-        mimeType: dict.mimetype || '',
+        mimeType: dict.mimeType || '',
 
         data: dict.getParams(term, source, target),
 
