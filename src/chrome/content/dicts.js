@@ -46,6 +46,7 @@ euskalbar.dicts = function () {
       'elhuyar_web_corpusa_eu',
       'elhuyar_web_corpusa_eu_es',
       'elhuyar_web_corpusa_konbinazioak',
+      'energia',
       'egungo',
       'egungo_corpusa',
       'epaitegiak',
