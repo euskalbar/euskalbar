@@ -1,7 +1,7 @@
 # ChangeLog
 
 ## 4.1 bertsioa
-- EEEren Energia Hiztegia berria SARTU DA. (#181)
+- EEEren Energia Hiztegia berria sartu da. (#181)
 - Hiztegi batzuk ez zuten beheko oharra behar zen moduan erakusten bilaketa konbinatuetan. (#166)
 - Hiztegi batzuk zituzten kodeketa arazoak konpondu dira. (#164)
 - Elebakarrak ez diren hiztegiak barraren ezkerrean paratu dira: Consumer, Mokoroa, Intza.... 
