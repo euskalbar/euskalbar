@@ -38,12 +38,12 @@ euskalbar.dicts.uzei = function () {
     method: 'POST',
 
     getUrl: function (term, source, target) {
-      return 'http://sh.uzei.com/listado';
+      return 'http://www.uzei.com/online/sinonimoen-hiztegia-iruzkinak';
     },
 
     getParams: function (term, source, target) {
       return {
-        'q': term
+        'w': term
       };
     },
 
