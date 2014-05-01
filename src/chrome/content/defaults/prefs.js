@@ -24,7 +24,7 @@ pref("extensions.euskalbar.firstrun", true);
 
 // Dictionaries visibility
 pref("extensions.euskalbar.visibleDicts", [
-  'euskalterm', 'elhuyar', 'zthiztegia', 'morris', 'opentran', 'goihata',
+  'euskalterm', 'elhuyar', 'zthiztegia', 'morris', 'goihata',
   'itzul', 'uzei', 'batua', 'oeh'
 ]);
 

@@ -71,7 +71,6 @@ euskalbar.dicts = function () {
       'morris',
       'nolaerran',
       'oeh',
-      'opentran',
       'ostadar',
       'telekomunikazioak',
       'uzei',
