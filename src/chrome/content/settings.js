@@ -33,7 +33,7 @@ euskalbar.settings = function () {
         var sharedObj = window.arguments[0].wrappedJSObject;
         euskalbar.dicts = sharedObj.dicts;
         euskalbar.prefs = sharedObj.prefs;
-        var langsMenu = sharedObj.langsMenu.cloneNode();
+        var langsMenu = sharedObj.langsMenu.cloneNode(true);
 
         this.initLangs(langsMenu);
         this.initDicts();
