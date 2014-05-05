@@ -2,6 +2,8 @@
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)
+- UZEIren sinonimoen hiztegiaren URLa eguneratu da. (#182)
+- Open-Tran.eu kendu da, zerbitzua eten baita. (#180)
 - Hiztegi batzuk ez zuten beheko oharra behar zen moduan erakusten bilaketa konbinatuetan. (#166)
 - Hiztegi batzuk zituzten kodeketa arazoak konpondu dira. (#164)
 - Elebakarrak ez diren hiztegiak barraren ezkerrean paratu dira: Consumer, Mokoroa, Intza.... 
