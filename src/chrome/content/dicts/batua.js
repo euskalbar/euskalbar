@@ -49,8 +49,9 @@ euskalbar.dicts.batua = function () {
     },
 
     scrap: function (term, source, target, data) {
-      return data.substring(data.indexOf('</div><p class="note">'),
-                            data.indexOf('<div class="modResources">'));
+      return data.substring(data.indexOf('<p class="note">'),
+                            data.indexOf('<div class="contentSearchBlock hiztegiBatuaSearchBlock">'));
+
     },
 
   };
