@@ -48,12 +48,9 @@ euskalbar.dicts.uzei = function () {
     },
 
     scrap: function (term, source, target, data) {
-      data = data.substring(data.indexOf('<div class=\'row-fluid\'>'),
-                            data.indexOf('<table class="table table-striped">'));
-      data = data.replace(/<pre>/g, "");
-      if (data.indexOf('Ez dugu aurkitu') !== -1) {
-        data = 'Ez dugu aurkitu zure bilaketa-irizpideak betetzen dituen formarik.'
-      }
+      data = data.substring(data.indexOf('<div class=\"column_inner uzei_sinonimoak_body\">'),
+                            data.indexOf('<div class=\"comment_holder\"'));
+
       return data;
     },
 
