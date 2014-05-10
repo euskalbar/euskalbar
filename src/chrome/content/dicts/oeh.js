@@ -49,8 +49,22 @@ euskalbar.dicts.oeh = function () {
     },
 
     scrap: function (term, source, target, data) {
-      return data.substring(data.indexOf('<div class="grid7 oehResultContent">'),
-                            data.indexOf('<div id="footer">'));
+      data = data.substring(data.indexOf('<div class="grid7 oehResultContent">'),
+                            data.indexOf('<div class="contentSearchBlock oehSearchBlock">'));
+      if (data.indexOf('oehResultContent') == -1) {
+        data = "Ez da aurkitu";
+      }
+      data = data.replace(
+            /index.php/g,
+            "http://www.euskaltzaindia.net/index.php"
+
+      );
+      data = data.replace(
+            /images/g,
+            "http://www.euskaltzaindia.net/images"
+
+      );
+      return data;
     },
 
   };
