@@ -50,8 +50,15 @@ euskalbar.dicts.zehazki = function () {
     },
 
     scrap: function (term, source, target, data) {
-      return data.substring(data.indexOf('adibideak</label')+16,
+      data = data.substring(data.indexOf('adibideak</label')+16,
                             data.indexOf('</td></tr></table>'));
+      data = data.replace(
+            /<img/g,
+            "<span"
+
+        );
+
+      return data;
     },
 
   };

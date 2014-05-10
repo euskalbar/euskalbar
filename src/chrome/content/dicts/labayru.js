@@ -87,6 +87,10 @@ euskalbar.dicts.labayru = function () {
             /CargaPalabra/g,
             "http://zerbitzuak.labayru.org/diccionario/CargaPalabra"
         );
+        output = output.replace(
+            /<img/g,
+            "<span"
+        );
       }
 
       return output;
