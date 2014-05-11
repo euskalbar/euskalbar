@@ -32,7 +32,7 @@ euskalbar.app = function () {
 
   return {
 
-    curVersion: "4.0",
+    curVersion: "4.1",
 
     firstrunURL: "http://euskalbar.eu/firstrun",
 
@@ -53,7 +53,8 @@ euskalbar.app = function () {
     init: function () {
       euskalbar.prefs.init();
 
-      var infoURL, openInfo = false;
+      var infoURL = "";
+      var openInfo = false;
 
       if (euskalbar.prefs.firstrun) {
         euskalbar.prefs.firstrun = false;
