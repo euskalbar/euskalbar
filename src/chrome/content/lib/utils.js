@@ -181,11 +181,11 @@ euskalbar.lib.utils = {};
       try {
         // If no server status is provided, and we're actually
         // requesting a local file, then it was successful
-        return !r.status && location.protocol == "file:" ||
+        return !r.status && location.protocol === "file:" ||
           // Any status in the 200 range is good
           (r.status >= 200 && r.status < 300) ||
           // Successful if the document has not been modified
-          r.status == 304;
+          r.status === 304;
       } catch (e) {
       }
 
@@ -204,11 +204,11 @@ euskalbar.lib.utils = {};
 
       // Get the XML Document object if XML was returned from
       // the server, otherwise return the text contents returned by the server
-      data = type == "xml" || data ? r.responseXML : r.responseText;
+      data = type === "xml" || data ? r.responseXML : r.responseText;
 
       // If the specified type is "script", execute the returned text
       // response as if it was JavaScript
-      if (type == "script") {
+      if (type === "script") {
         JSON.parse(data);
       }
 
@@ -347,7 +347,7 @@ euskalbar.lib.utils = {};
     try {
       var bundle = this.$("euskalbar-leuskal");
 
-      if (type == L10N_FORMATTED) {
+      if (type === L10N_FORMATTED) {
         return bundle.getFormattedString(strKey, args);
       } else {
         return bundle.getString(strKey);
@@ -360,7 +360,7 @@ euskalbar.lib.utils = {};
     try {
       var bundle = this.getDefaultStrBundle();
 
-      if (type == L10N_FORMATTED) {
+      if (type === L10N_FORMATTED) {
         return bundle.formatStringFromName(strKey, args, args.length);
       } else {
         return bundle.GetStringFromName(strKey);

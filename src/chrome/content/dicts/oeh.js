@@ -51,7 +51,7 @@ euskalbar.dicts.oeh = function () {
     scrap: function (term, source, target, data) {
       data = data.substring(data.indexOf('<div class="grid7 oehResultContent">'),
                             data.indexOf('<div class="contentSearchBlock oehSearchBlock">'));
-      if (data.indexOf('oehResultContent') == -1) {
+      if (data.indexOf('oehResultContent') === -1) {
         data = "Ez da aurkitu";
       }
       data = data.replace(

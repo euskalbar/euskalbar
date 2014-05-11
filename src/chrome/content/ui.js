@@ -367,7 +367,7 @@ euskalbar.ui = function () {
 
       // Append only if the button is not already there
       var curSet = currentSet.split(",");
-      if (curSet.indexOf(euskalbarButtonId) == -1) {
+      if (curSet.indexOf(euskalbarButtonId) === -1) {
         var set = curSet.concat(euskalbarButtonId).join(",");
 
         navBar.currentSet = set;
@@ -500,7 +500,7 @@ euskalbar.ui = function () {
     help: function () {
       var locale = $U.langCode(euskalbar.ui.locale);
 
-      if (euskalbar.ui.acceptedLocales.indexOf(locale) == -1) {
+      if (euskalbar.ui.acceptedLocales.indexOf(locale) === -1) {
         var locale = 'en';
       }
 

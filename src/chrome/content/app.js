@@ -348,13 +348,13 @@ euskalbar.app = function () {
       var postData = null,
           dataString = $U.serialize(params, mimeType);
 
-      if (method == 'GET') {
-        if (url.indexOf("?") == -1 && dataString) {
+      if (method === 'GET') {
+        if (url.indexOf("?") === -1 && dataString) {
           url += "?";
         }
 
         url += dataString;
-      } else if (method == "POST") {
+      } else if (method === "POST") {
         var stringStream = Cc["@mozilla.org/io/string-input-stream;1"]
                            .createInstance(Components.interfaces.nsIStringInputStream);
 
@@ -404,7 +404,7 @@ euskalbar.app = function () {
         var currentTab = gBrowser.tabs[index];
 
         if (currentTab.hasAttribute('slug')
-            && currentTab.getAttribute('slug') == slug) {
+            && currentTab.getAttribute('slug') === slug) {
 
           var currentBrowser = gBrowser.getBrowserAtIndex(index);
           currentBrowser.webNavigation.loadURI(tabUrl, null, null,
@@ -435,7 +435,7 @@ euskalbar.app = function () {
         var currentTab = gBrowser.tabs[index];
 
         if (currentTab.hasAttribute('slug')
-            && currentTab.getAttribute('slug') == slug) {
+            && currentTab.getAttribute('slug') === slug) {
           found = true;
         }
         index++;
@@ -473,7 +473,7 @@ euskalbar.app = function () {
       var term = $('euskalbar-search-string').value;
 
       // If user pressed Enter key
-      if (event.keyCode == 13) {
+      if (event.keyCode === 13) {
         if (this.alertEmptyBox(term)) {
           return;
         }
