@@ -97,7 +97,7 @@ euskalbar.app = function () {
       if (openInfo) {
         setTimeout(function () {
           gBrowser.selectedTab = gBrowser.addTab(infoURL);
-        }, 1000);
+        }, 5000);
       }
 
       // Load available dictionaries
