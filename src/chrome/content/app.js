@@ -344,7 +344,7 @@ euskalbar.app = function () {
      *        Values will be properly escaped when invoking this function, so
      *        no prior escaping is needed.
      */
-    openURL: function (url, slug, method, params, mimeType) {
+    openURL: function (url, slug, method, params, mimeType, referer) {
       var postData = null,
           dataString = $U.serialize(params, mimeType);
 
@@ -363,6 +363,9 @@ euskalbar.app = function () {
         var postData = Cc["@mozilla.org/network/mime-input-stream;1"]
                        .createInstance(Components.interfaces.nsIMIMEInputStream);
         postData.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        if (referer !== undefined) {
+          postData.addHeader('Referer', referer);
+        }
         postData.addContentLength = true;
         postData.setData(stringStream);
       }

@@ -100,7 +100,8 @@ euskalbar.dicts = function () {
                             dictName,
                             dict.method,
                             dict.getParams(term, source, target),
-                            dict.mimeType || '');
+                            dict.mimeType || '',
+                            dict.referer);
 
       // If the dictionary provides it, execute the post-query hook once the
       // page has been loaded
