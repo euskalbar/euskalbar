@@ -1,5 +1,8 @@
 # ChangeLog
 
+## 4.2 bertsioa
+- Hobelex sartu da. (#186)
+
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)
 - UZEIren sinonimoen hiztegiaren URLa eguneratu da. (#182)
