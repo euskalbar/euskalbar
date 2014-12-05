@@ -27,24 +27,24 @@ if (!euskalbar.dicts) euskalbar.dicts = {};
 euskalbar.dicts.xuxenweb = function () {
 
   return {
-    displayName: 'XUXENweb',
-    description: 'XUXENweb zuzentzaile ortografikoa',
+    displayName: 'Xuxen.eus',
+    description: 'Xuxen zuzentzaile ortografikoa',
     contextCategory: 'root',
 
-    homePage: 'http://www.xuxen.com/',
+    homePage: 'http://xuxen.eus',
 
     method: 'GET',
 
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (term, source, target) {
-      return 'http://www.xuxen.com/socketBezero.php';
+      return [
+        'http://xuxen.eus/xuxen/', term
+      ].join('');
     },
 
     getParams: function (term, source, target) {
-      return {
-        'idatzArea': term
-      };
+      return {};
     },
 
   };

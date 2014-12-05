@@ -1,6 +1,7 @@
 # ChangeLog
 
 ## 4.2 bertsioa
+- Xuxen-i orain helbide berrira (http://xuxen.eus) deitzen zaio. (#188)
 - Hobelex sartu da. (#186)
 
 ## 4.1 bertsioa
