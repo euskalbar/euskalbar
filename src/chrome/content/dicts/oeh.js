@@ -32,7 +32,7 @@ euskalbar.dicts.oeh = function () {
 
     homePage: 'http://www.euskaltzaindia.net/',
 
-    method: 'POST',
+    method: 'GET',
 
     getUrl: function (term, source, target) {
       return 'http://www.euskaltzaindia.net/index.php';
