@@ -30,12 +30,12 @@ euskalbar.dicts.oeh = function () {
     displayName: 'Orotarikoa',
     description: 'Orotariko Euskal Hiztegia',
 
-    homePage: 'http://www.euskaltzaindia.net/',
+    homePage: 'http://www.euskaltzaindia.eus/',
 
-    method: 'GET',
+    method: 'POST',
 
     getUrl: function (term, source, target) {
-      return 'http://www.euskaltzaindia.net/index.php';
+      return 'http://www.euskaltzaindia.eus/index.php';
     },
 
     getParams: function (term, source, target) {

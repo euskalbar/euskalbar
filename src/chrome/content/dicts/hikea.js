@@ -30,7 +30,7 @@ euskalbar.dicts.hikea = function () {
     displayName: 'HIKEA',
     description: 'HIKEA EITBren hiztegia',
 
-    homepage: 'http://www.eitb.com',
+    homepage: 'http://www.eitb.eus',
 
     pairs: ['eu-es', 'eu-en', 'eu-fr', 'eu-la',
             'es-eu', 'en-eu', 'fr-eu', 'la-eu'],
@@ -38,7 +38,7 @@ euskalbar.dicts.hikea = function () {
     method: 'GET',
 
     getUrl: function (term, source, target) {
-      return 'http://www.eitb.com/eu/kultura/euskara/kontsultak';
+      return 'http://www.eitb.eus/eu/kultura/euskara/kontsultak';
     },
 
     getParams: function (term, source, target) {
