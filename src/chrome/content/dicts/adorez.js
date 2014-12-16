@@ -35,7 +35,7 @@ euskalbar.dicts.adorez = function () {
 
     method: 'GET',
 
-    mimeType: "text/html; charset=ISO-8859-1",
+    mimeType: "text/html; charset=UTF8",
 
     getUrl: function (term, source, target) {
       return 'http://www.bostakbat.org/azkue/index.php';
