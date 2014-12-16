@@ -92,6 +92,12 @@ euskalbar.dicts.euskalterm = function () {
           /<table  class=\"erantzuna\"/g,
           "<hr><table  class=\"erantzuna\""
       );
+      output = output.replace(
+          /img/g,
+          "span"
+      );
+
+
 
       return output;
     }
