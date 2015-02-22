@@ -30,12 +30,12 @@ euskalbar.dicts.hobelex = function () {
     displayName: 'Hobelex',
     description: 'Hobelex zuzentzaile ortografikoa eta lexikoa',
 
-    homePage: 'http://www.uzei.com/online/hobelex/',
+    homePage: 'http://www.uzei.eus/online/hobelex/',
 
     method: 'POST',
 
     getUrl: function (term, source, target) {
-      return 'http://www.uzei.com/online/hobelex/';
+      return 'http://www.uzei.eus/online/hobelex/';
     },
 
     getParams: function (term, source, target) {

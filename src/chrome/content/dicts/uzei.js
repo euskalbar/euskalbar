@@ -33,12 +33,12 @@ euskalbar.dicts.uzei = function () {
     description: 'UZEI Sinonimoen Hiztegia',
     contextCategory: 'context.Synonyms',
 
-    homePage: 'http://sh.uzei.com',
+    homePage: 'http://www.uzei.eus/online/sinonimoen-hiztegia-iruzkinak',
 
     method: 'POST',
 
     getUrl: function (term, source, target) {
-      return 'http://www.uzei.com/online/sinonimoen-hiztegia-iruzkinak';
+      return 'http://www.uzei.eus/online/sinonimoen-hiztegia-iruzkinak';
     },
 
     getParams: function (term, source, target) {
