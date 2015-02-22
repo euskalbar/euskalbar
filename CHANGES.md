@@ -4,6 +4,7 @@
 - Xuxen-i orain helbide berrira (http://xuxen.eus) deitzen zaio. (#188)
 - Hobelex sartu da. (#186)
 - UZEIren hiztegiak .eus helbide berrian kontsultatzen dira. (#191)
+- Berriaren estilo liburua .eus helbide berrian kontsultatzen da. (#192)
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)

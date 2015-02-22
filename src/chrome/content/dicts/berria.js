@@ -30,12 +30,12 @@ euskalbar.dicts.berria = function () {
     displayName: 'Berria',
     description: 'Berriaren estilo liburua',
 
-    homePage: 'http://www.berria.info/estiloliburua',
+    homePage: 'http://www.berria.eus/estiloliburua',
 
     method: 'GET',
 
     getUrl: function (term, source, target) {
-      return 'http://www.berria.info/estiloliburua/bilatu';
+      return 'http://www.berria.eus/estiloliburua/bilatu';
     },
 
     getParams: function (term, source, target) {
