@@ -64,6 +64,7 @@ euskalbar.dicts = function () {
       'klasikoak',
       'labayru',
       'lexikoaren_behatokia',
+      'librezale',
       'literatura',
       'lurhe',
       'luret',
