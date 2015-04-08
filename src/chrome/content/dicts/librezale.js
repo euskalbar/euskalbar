@@ -24,7 +24,7 @@ if (!euskalbar) var euskalbar = {};
 
 if (!euskalbar.dicts) euskalbar.dicts = {};
 
-euskalbar.dicts.itzul = function () {
+euskalbar.dicts.librezale = function () {
 
   return {
     displayName: 'Librezale',
