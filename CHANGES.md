@@ -7,6 +7,8 @@
 - Berriaren estilo liburua .eus helbide berrian kontsultatzen da. (#192)
 - Librezale posta-zerrendan bilaketak egiteko aukera gehitu da. (#193)
 - Bizkaiera idatziaren corpusa integratu da. (#195)
+- Ereduzko Prosa Dinamikoa integratu da. (#196)
+- Euskal Klasikoen Corpusa integratu da. (#197)
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)

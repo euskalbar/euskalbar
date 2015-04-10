@@ -54,6 +54,7 @@ euskalbar.dicts = function () {
       'ereduzko',
       'ereduzko_dinamikoa',
       'eurovoc',
+      'euskal_klasikoak',
       'euskalterm',
       'goihata',
       'harluxet',
