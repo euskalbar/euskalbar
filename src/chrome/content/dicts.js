@@ -77,6 +77,7 @@ euskalbar.dicts = function () {
       'nolaerran',
       'oeh',
       'ostadar',
+      'pentsamenduaren_klasikoak',
       'telekomunikazioak',
       'uzei',
       'wikipedia',
