@@ -85,6 +85,7 @@ euskalbar.dicts = function () {
       'zehazki',
       'ztcorpusa',
       'zthiztegia',
+      'zuzenbide_corpusa',
     ]),
 
     /*

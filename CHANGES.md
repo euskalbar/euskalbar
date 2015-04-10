@@ -10,6 +10,7 @@
 - Ereduzko Prosa Dinamikoa integratu da. (#196)
 - Euskal Klasikoen Corpusa integratu da. (#197)
 - Pentsamenduaren Klasikoak Corpusa integratu da. (#198)
+- Zuzenbide Corpusa integratu da. (#199)
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)
