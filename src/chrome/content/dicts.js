@@ -52,6 +52,7 @@ euskalbar.dicts = function () {
       'egungo_corpusa',
       'epaitegiak',
       'ereduzko',
+      'ereduzko_dinamikoa',
       'eurovoc',
       'euskalterm',
       'goihata',
