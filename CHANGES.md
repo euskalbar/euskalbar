@@ -11,6 +11,7 @@
 - Euskal Klasikoen Corpusa integratu da. (#197)
 - Pentsamenduaren Klasikoak Corpusa integratu da. (#198)
 - Zuzenbide Corpusa integratu da. (#199)
+- Zientzia Corpusa integratu da. (#200)
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)

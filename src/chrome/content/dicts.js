@@ -83,6 +83,7 @@ euskalbar.dicts = function () {
       'wikipedia',
       'xuxenweb',
       'zehazki',
+      'zientzia_corpusa',
       'ztcorpusa',
       'zthiztegia',
       'zuzenbide_corpusa',
