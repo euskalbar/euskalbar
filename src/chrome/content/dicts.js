@@ -36,6 +36,7 @@ euskalbar.dicts = function () {
       'batua',
       'bergara',
       'berria',
+      'bizkaiera',
       'bostmila',
       'consumer',
       'corpeus',

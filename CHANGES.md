@@ -6,6 +6,7 @@
 - UZEIren hiztegiak .eus helbide berrian kontsultatzen dira. (#191)
 - Berriaren estilo liburua .eus helbide berrian kontsultatzen da. (#192)
 - Librezale posta-zerrendan bilaketak egiteko aukera gehitu da. (#193)
+- Bizkaiera idatziaren corpusa integratu da. (#195)
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)
