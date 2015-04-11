@@ -61,6 +61,7 @@ euskalbar.dicts = function () {
       'hautalan',
       'hikea',
       'hobelex',
+      'imemoriak',
       'intza',
       'itzul',
       'jakinbai',
