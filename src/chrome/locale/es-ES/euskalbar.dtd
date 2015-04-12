@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.options.label "Preferencias...">
 <!ENTITY euskalbar.options.tooltip "Abrir la ventana de preferencias">
 <!ENTITY euskalbar.menu.label "Diccionarios">
+<!ENTITY euskalbar.textbox.placeholder "Buscar">
 
 <!-- Prefs -->
 <!ENTITY prefs.title "Preferencias de Euskalbar">

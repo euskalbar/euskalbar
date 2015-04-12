@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.options.label "Preferences...">
 <!ENTITY euskalbar.options.tooltip "Open preferences window">
 <!ENTITY euskalbar.menu.label "Dictionaries">
+<!ENTITY euskalbar.textbox.placeholder "Search">
 
 <!-- Prefs -->
 <!ENTITY prefs.title "Euskalbar preferences">

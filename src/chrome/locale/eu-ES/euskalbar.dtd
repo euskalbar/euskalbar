@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.options.label "Hobespenak...">
 <!ENTITY euskalbar.options.tooltip "Ireki hobespenen leihoa">
 <!ENTITY euskalbar.menu.label "Hiztegiak">
+<!ENTITY euskalbar.textbox.placeholder "Bilatu">
 
 <!-- Prefs -->
 <!ENTITY prefs.title "Euskalbarren hobespenak">

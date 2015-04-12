@@ -59,7 +59,7 @@
         </toolbarbutton>
       </toolbaritem>
       <hbox>
-          <textbox id="euskalbar-search-string" type="autocomplete" autocompletesearch="search-autocomplete" maxrows="10" placeholder="Euskalbar" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.app.goEuskalBarOnKey(event)" />
+          <textbox id="euskalbar-search-string" type="autocomplete" autocompletesearch="search-autocomplete" maxrows="10" placeholder="&euskalbar.textbox.placeholder;" hidden="false" persist="width" style="margin-left: 10px;" onkeypress="euskalbar.app.goEuskalBarOnKey(event)" />
           <splitter id="euskalbar-search-splitter" resizeafter="grow" resizebefore="closest">
           </splitter>
       </hbox>

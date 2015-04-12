@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.options.label "Configuration...">
 <!ENTITY euskalbar.options.tooltip "Options">
 <!ENTITY euskalbar.menu.label "Dictionnaires">
+<!ENTITY euskalbar.textbox.placeholder "Rechercher">
 
 <!-- Prefs -->
 <!ENTITY prefs.title "Configuration d'Euskalbar">

@@ -6,6 +6,7 @@
 <!ENTITY euskalbar.options.label "表示設定...">
 <!ENTITY euskalbar.options.tooltip "オプション">
 <!ENTITY euskalbar.menu.label "辞書">
+<!ENTITY euskalbar.textbox.placeholder "検索">
 
 <!-- Prefs -->
 <!ENTITY prefs.title "Euskalbarの表示設定">
