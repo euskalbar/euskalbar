@@ -14,7 +14,7 @@
 - Zientzia Corpusa integratu da. (#200)
 - GFAren itzulpen-memorien bilaketa integratu da. (#119)
 - Bilaketa-kutxak iradokizunak erakusten ditu (Firefoxen bilaketa-kutxa nagusian erakusten diren berak). (#179)
-- Bilaketa-kutxa hutsik dagoenean "Euskalbar" hitza ikusten da leku-marka gisa.
+- Bilaketa-kutxa hutsik dagoenean "Bilatu" hitza ikusten da leku-marka gisa.
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)
