@@ -48,7 +48,7 @@ euskalbar.ui = function () {
             euskalbar.dicts.available.each(function (dictName) {
               euskalbar.ui.setButtonVisibility(dictName);
             });
-            break;
+
         }
       });
     },
@@ -496,7 +496,7 @@ euskalbar.ui = function () {
     },
 
 
-    /* Displays the online help */
+    /* Display the online help */
     help: function () {
       var locale = $U.langCode(euskalbar.ui.locale);
 
@@ -508,6 +508,11 @@ euskalbar.ui = function () {
                                 'euskalbarhelp');
     },
 
+
+    /* Search suggestions */
+    searchSuggestions: function () {
+
+    },
 
   };
 

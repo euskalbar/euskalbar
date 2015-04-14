@@ -557,6 +557,29 @@ euskalbar.app = function () {
       this.target = target;
 
       this.setDictionaries(source, target);
+
+      var dictLang = "";
+      switch (source) {
+        case "eu":
+          dictLang = "eu-ES";
+          break;
+        case "en":
+          dictLang = "en-US";
+          break;
+        case "es":
+          dictLang = "es-ES";
+          break;
+        case "fr":
+          dictLang = "fr-FR";
+          break;
+        case "de":
+          dictLang = "de-DE";
+          break;
+        case "jp":
+          dictLang = "jp-JP";
+          break;
+      }
+      $("euskalbar-search-string").setAttribute("autocompletesearchparam", dictLang);
     },
 
 

@@ -61,6 +61,7 @@
         <checkbox preference="prefShowhidedicts" label="&prefs.gui.showDictsMenu.label;" />
         <checkbox preference="prefShowcontextmenu" label="&prefs.gui.showContextMenu.label;" />
         <checkbox preference="prefFocuswindow" label="&prefs.gui.focusWindow.label;" />
+        <checkbox preference="prefSearchsuggestions" label="&prefs.gui.searchSuggestions.label;" />
       </groupbox>
     </vbox>
 
