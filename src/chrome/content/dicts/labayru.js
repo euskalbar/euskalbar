@@ -32,7 +32,7 @@ euskalbar.dicts.labayru = function () {
     displayName: 'Labayru',
     description: 'Labayru Hiztegia',
 
-    homePage: "http://test220.irontec.com/labayru-dev/hiztegia/",
+    homePage: "http://hiztegia.labayru.eus",
 
     pairs: ['eu-es', 'es-eu'],
 
@@ -42,9 +42,9 @@ euskalbar.dicts.labayru = function () {
 
     getUrl: function (term, source, target) {
       if (source === 'es') {
-        return 'http://test220.irontec.com/labayru-dev/hiztegia/bilatu/LH/es/'+term;
+        return 'http://hiztegia.labayru.eus/bilatu/LH/es/'+term;
       } else {
-        return 'http://test220.irontec.com/labayru-dev/hiztegia/bilatu/LH/eu/'+term;
+        return 'http://hiztegia.labayru.eus/bilatu/LH/eu/'+term;
       }
     },
 
@@ -62,27 +62,38 @@ euskalbar.dicts.labayru = function () {
 
     scrap: function (term, source, target, data) {
       var output = '';
-  	  var startDiv = '<div id="results-block" class="right-frame m-top-8 m-bottom-8">';
-          output = data.split(startDiv);
-          output = output[1];
-        var endDiv = '<button id="load-more"';
-          output = output.split(endDiv);
-          output = output[0];
-        var endDiv2 = '<footer class="visible-xs m-top-4">';
-        output = output.split(endDiv2);
-        output = output[0];
-        
-	output = output.replace(
-	    /\<span class="explicacionNotaSemantica">([^\<]*)\<\/span>/g,
-	    '<em>$1</em>'
-	);
-	output = output.replace(
-		/<span class="nota-equivalencia">([^\<]*)\<\/span\>/gi,
-	    '<em>$1</em>'
-	);
-        return output;
+  	  var startSpan = '<span class="euskalbar-start"></span>';
+      output = data.split(startSpan);
+      output = output[1];
+      var endSpan = '<span class="euskalbar-end"></span>';
+      output = output.split(endSpan);
+      output = output[0];
+      output = output.replace(
+              /<span class=["']significado["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      output = output.replace(
+              /<span class=["']equivalencia-word["']>([^\<]*)\<\/span\>/gi,
+              '<strong>$1</strong>'
+      );
+      output = output.replace(
+              /<span class=["']explicacionNotaSemantica["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      output = output.replace(
+              /<span class=["']nota-equivalencia["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      output = output.replace(
+              /(<div class=["']blockEjemplos["']>)/gi,
+              '<br>$1'
+      );
+      output = output.replace(
+              /<span class=["']ejemploFirst["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      return output;
     },
-
   };
 
 }();
