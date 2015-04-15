@@ -508,12 +508,6 @@ euskalbar.ui = function () {
                                 'euskalbarhelp');
     },
 
-
-    /* Search suggestions */
-    searchSuggestions: function () {
-
-    },
-
   };
 
 }();
