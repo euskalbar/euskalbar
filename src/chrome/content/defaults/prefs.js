@@ -51,7 +51,6 @@ pref("extensions.euskalbar.bgTabs", false);
 pref("extensions.euskalbar.showDictsMenu", true);
 pref("extensions.euskalbar.showContextMenu", true);
 pref("extensions.euskalbar.focusWindow", false);
-pref("extensions.euskalbar.searchSuggestions", false);
 
 // Language selected at startup
 pref("extensions.euskalbar.startupLanguage", "es_eu");
