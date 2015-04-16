@@ -48,7 +48,7 @@ euskalbar.ui = function () {
             euskalbar.dicts.available.each(function (dictName) {
               euskalbar.ui.setButtonVisibility(dictName);
             });
-
+            break;
         }
       });
     },

@@ -13,7 +13,7 @@
 - Zuzenbide Corpusa integratu da. (#199)
 - Zientzia Corpusa integratu da. (#200)
 - GFAren itzulpen-memorien bilaketa integratu da. (#119)
-- Bilaketa-kutxak iradokizunak erakusten ditu (Firefoxen bilaketa-kutxa nagusian erakusten diren berak). (#179)
+- Bilaketa-kutxak iradokizunak erakusten ditu, instalatuta dauden ortografia-egiaztatzaileetatik iradokizunak hartuz. (#179)
 - Bilaketa-kutxa hutsik dagoenean "Bilatu" hitza ikusten da leku-marka gisa.
 
 ## 4.1 bertsioa
