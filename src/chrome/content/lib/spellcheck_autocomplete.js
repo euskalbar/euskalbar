@@ -28,8 +28,8 @@ const Cu = Components.utils;
 Cu.import('resource://gre/modules/XPCOMUtils.jsm');
 
 const CLASS_ID = Components.ID('dbfeced0-e2a8-11e4-b571-0800200c9a66');
-const CLASS_NAME = "Spell Check AutoComplete";
-const CONTRACT_ID = '@mozilla.org/autocomplete/search;1?name=spellcheck-autocomplete';
+const CLASS_NAME = "Euskalbar AutoComplete";
+const CONTRACT_ID = '@mozilla.org/autocomplete/search;1?name=euskalbar-autocomplete';
 
 /**
  * @constructor

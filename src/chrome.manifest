@@ -14,4 +14,4 @@ overlay chrome://browser/content/browser.xul    chrome://euskalbar/content/euska
 overlay chrome://global/content/customizeToolbar.xul    chrome://euskalbar/content/toolbarbutton/customizeToolbarOverlay.xul
 
 component {dbfeced0-e2a8-11e4-b571-0800200c9a66} chrome/content/lib/spellcheck_autocomplete.js
-contract @mozilla.org/autocomplete/search;1?name=spellcheck-autocomplete {dbfeced0-e2a8-11e4-b571-0800200c9a66}
+contract @mozilla.org/autocomplete/search;1?name=euskalbar-autocomplete {dbfeced0-e2a8-11e4-b571-0800200c9a66}
