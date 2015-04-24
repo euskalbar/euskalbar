@@ -31,7 +31,7 @@
 <!ENTITY prefs.gui.caption "Interfazea">
 <!ENTITY prefs.gui.showDictsMenu.label "Erakutsi hiztegien menua">
 <!ENTITY prefs.gui.showContextMenu.label "Erakutsi testuinguru-menua">
-<!ENTITY prefs.gui.focusWindow.label "Bilaketaren ondoren, fokua leihoan jarri">
+<!ENTITY prefs.gui.focusWindow.label "Bilaketaren ondoren, fokua bilaketa-kutxan jarri">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Estatistikak">

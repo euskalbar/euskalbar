@@ -31,7 +31,7 @@
 <!ENTITY prefs.gui.caption "GUI">
 <!ENTITY prefs.gui.showDictsMenu.label "Show dictionaries menu">
 <!ENTITY prefs.gui.showContextMenu.label "Show context menu">
-<!ENTITY prefs.gui.focusWindow.label "Focus window after query">
+<!ENTITY prefs.gui.focusWindow.label "Focus search box after query">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Statistics">

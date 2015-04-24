@@ -15,6 +15,7 @@
 - GFAren itzulpen-memorien bilaketa integratu da. (#119)
 - Bilaketa-kutxak iradokizunak erakusten ditu, instalatuta dauden ortografia-egiaztatzaileetatik iradokizunak hartuz. (#179)
 - Bilaketa-kutxa hutsik dagoenean "Bilatu" hitza ikusten da leku-marka gisa.
+- Labayruren hiztegia helbide berrian kontsultatzen da. (#190)
 
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)

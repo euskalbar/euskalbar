@@ -31,7 +31,7 @@
 <!ENTITY prefs.gui.caption "Interfaz">
 <!ENTITY prefs.gui.showDictsMenu.label "Mostrar el menú de diccionarios">
 <!ENTITY prefs.gui.showContextMenu.label "Mostrar el menú contextual">
-<!ENTITY prefs.gui.focusWindow.label "Enfocar la ventana tras la búsqueda">
+<!ENTITY prefs.gui.focusWindow.label "Tras la búsqueda, enfocar la caja de búsqueda">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Estadísticas">
