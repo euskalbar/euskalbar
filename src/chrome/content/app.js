@@ -376,7 +376,7 @@ euskalbar.app = function () {
         this.openNewTab(url, slug, postData);
       }
 
-      if (!euskalbar.prefs.focusWindow) {
+      if (euskalbar.prefs.focusWindow) {
         var tb = $("euskalbar-search-string");
         tb.focus();
         tb.select();
