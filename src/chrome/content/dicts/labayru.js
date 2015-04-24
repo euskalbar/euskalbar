@@ -32,70 +32,68 @@ euskalbar.dicts.labayru = function () {
     displayName: 'Labayru',
     description: 'Labayru Hiztegia',
 
-    homePage: "http://hiztegia.labayru.net/",
+    homePage: "http://hiztegia.labayru.eus",
 
     pairs: ['eu-es', 'es-eu'],
 
-    method: 'POST',
+    method: 'GET',
 
-    mimeType: "text/html; charset=ISO-8859-1",
+    mimeType: "text/html; charset=UTF8",
 
     getUrl: function (term, source, target) {
       if (source === 'es') {
-        return 'http://hiztegia.labayru.net/CargaListaPalabras.asp';
+        return 'http://hiztegia.labayru.eus/bilatu/LH/es/'+term;
       } else {
-        return 'http://hiztegia.labayru.net/CargaListaPalabrasEU.asp';
+        return 'http://hiztegia.labayru.eus/bilatu/LH/eu/'+term;
       }
     },
 
-    getParams: function (term, source, target) {
-      return {
-        'opc': '1',
-        'txtPalabra': term
-      };
+    getParams: function (term, source, target, combinedQuery) {
+    	if (combinedQuery) {
+    	      return {
+    	          'allInfo': true,
+    	          'limit': 0
+    	      };	
+    	} else {
+    		return {
+    		}
+    	}
     },
 
     scrap: function (term, source, target, data) {
-      var uiLang = $U.langCode(euskalbar.ui.locale),
-          output = '';
-
-      if (data.match("No hay resultados") ||
-          data.match("Ez dago holakorik")) {
-        // TODO: i18n
-        output = "Ez da aurkitu " + term + " hitza.";
-      } else {
-        output = data.split("HiztegiaPalabra");
-        output = output[1].slice(2 + term.length, output[1].indexOf("<form"));
-        output = "<p><b>" + term + "</b></p><br/>" + output;
-        output = output.replace(
-            /<td/g,
-            "<p"
-        );
-        output = output.replace(
-            /<\/td/g,
-            "<\/p"
-        );
-        output = output.replace(
-            /<tr/g,
-            "<p"
-        );
-        output = output.replace(
-            /<\/tr/g,
-            "<\/p"
-        );
-        output = output.replace(
-            /CargaPalabra/g,
-            "http://zerbitzuak.labayru.org/diccionario/CargaPalabra"
-        );
-        output = output.replace(
-            /<img/g,
-            "<span"
-        );
-      }
-
+      var output = '';
+  	  var startSpan = '<span class="euskalbar-start"></span>';
+      output = data.split(startSpan);
+      output = output[1];
+      var endSpan = '<span class="euskalbar-end"></span>';
+      output = output.split(endSpan);
+      output = output[0];
+      output = output.replace(
+              /<span class=["']significado["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      output = output.replace(
+              /<span class=["']equivalencia-word["']>([^\<]*)\<\/span\>/gi,
+              '<strong>$1</strong>'
+      );
+      output = output.replace(
+              /<span class=["']explicacionNotaSemantica["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      output = output.replace(
+              /<span class=["']nota-equivalencia["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
+      output = output.replace(
+              /(<div class=["']blockEjemplos["']>)/gi,
+              '<br>$1'
+      );
+      output = output.replace(
+              /<span class=["']ejemploFirst["']>([^\<]*)\<\/span\>/gi,
+              '<em>$1</em>'
+      );
       return output;
     },
-
   };
 
 }();

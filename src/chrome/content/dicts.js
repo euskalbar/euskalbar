@@ -152,7 +152,7 @@ euskalbar.dicts = function () {
 
         mimeType: dict.mimeType || '',
 
-        data: dict.getParams(term, source, target),
+        data: dict.getParams(term, source, target, true),
 
         onSuccess: function (data) {
           var notice = '<div id="oharra"><a href="' + dict.homePage + '">' +
