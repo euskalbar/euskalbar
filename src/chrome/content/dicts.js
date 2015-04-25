@@ -104,11 +104,12 @@ euskalbar.dicts = function () {
      * `postQuery` function.
      */
     query: function (dictName, term, source, target) {
+      var query = {type: "simple"};
       var dict = euskalbar.dicts[dictName];
       euskalbar.app.openURL(dict.getUrl(term, source, target),
                             dictName,
                             dict.method,
-                            dict.getParams(term, source, target),
+                            dict.getParams(term, source, target, query),
                             dict.mimeType || '',
                             dict.referer);
 
@@ -142,6 +143,7 @@ euskalbar.dicts = function () {
      *     returns HTML ready to be injected into the resulting table.
      */
     combinedQuery: function (dictName, term, source, target, doc) {
+      var query = {type: "combined"};
       var dict = euskalbar.dicts[dictName],
           output = '';
 
@@ -152,7 +154,7 @@ euskalbar.dicts = function () {
 
         mimeType: dict.mimeType || '',
 
-        data: dict.getParams(term, source, target, true),
+        data: dict.getParams(term, source, target, query),
 
         onSuccess: function (data) {
           var notice = '<div id="oharra"><a href="' + dict.homePage + '">' +
