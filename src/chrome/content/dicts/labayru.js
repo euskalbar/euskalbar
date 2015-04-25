@@ -48,21 +48,21 @@ euskalbar.dicts.labayru = function () {
       }
     },
 
-    getParams: function (term, source, target, combinedQuery) {
-    	if (combinedQuery) {
-    	      return {
-    	          'allInfo': true,
-    	          'limit': 0
-    	      };	
-    	} else {
-    		return {
-    		}
-    	}
+    getParams: function (term, source, target, query) {
+      if (query.type == "combined") {
+        return {
+          'allInfo': true,
+          'limit': 0
+        };
+      } else {
+        return {
+        };
+      }
     },
 
     scrap: function (term, source, target, data) {
       var output = '';
-  	  var startSpan = '<span class="euskalbar-start"></span>';
+      var startSpan = '<span class="euskalbar-start"></span>';
       output = data.split(startSpan);
       output = output[1];
       var endSpan = '<span class="euskalbar-end"></span>';
