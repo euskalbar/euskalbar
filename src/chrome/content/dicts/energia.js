@@ -60,10 +60,6 @@ euskalbar.dicts.energia = function () {
       };
     },
 
-    /*scrap: function (term, source, target, data) {
-      // TODO: implementation
-    },*/
-
   };
 
 }();

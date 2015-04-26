@@ -73,10 +73,6 @@ euskalbar.dicts.zthiztegia = function () {
 
     },
 
-    /*scrap: function (term, source, target, data) {
-      // TODO: implementation
-    },*/
-
   };
 
 }();

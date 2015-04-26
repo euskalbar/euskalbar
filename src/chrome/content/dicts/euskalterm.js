@@ -97,8 +97,6 @@ euskalbar.dicts.euskalterm = function () {
           "span"
       );
 
-
-
       return output;
     }
 
