@@ -41,11 +41,9 @@ euskalbar.dicts.labayru = function () {
     mimeType: "text/html; charset=UTF8",
 
     getUrl: function (term, source, target) {
-      if (opts.source === 'es') {
-        return 'http://hiztegia.labayru.eus/bilatu/LH/es/' + opts.term;
-      }
+      var lang = opts.source === 'es' ? 'es' : 'eu';
 
-      return 'http://hiztegia.labayru.eus/bilatu/LH/eu/' + opts.term;
+      return 'http://hiztegia.labayru.eus/bilatu/LH/' + lang + '/' + opts.term;
     },
 
     getParams: function (opts) {
