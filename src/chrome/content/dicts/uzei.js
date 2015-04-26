@@ -37,17 +37,17 @@ euskalbar.dicts.uzei = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.uzei.eus/online/sinonimoen-hiztegia-iruzkinak';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'w': term
+        'w': opts.term,
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       data = data.substring(data.indexOf('<div class=\"column_inner uzei_sinonimoak_body\">'),
                             data.indexOf('<div class=\"comment_holder\"'));
 

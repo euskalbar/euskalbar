@@ -34,13 +34,13 @@ euskalbar.dicts.librezale = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'https://www.google.com/search';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'q': term + ' site:http://librezale.eus/pipermail/librezale/'
+        'q': opts.term + ' site:http://librezale.eus/pipermail/librezale/'
       };
     },
 

@@ -39,17 +39,17 @@ euskalbar.dicts.elhuyar = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts.) {
       return [
-        'http://hiztegiak.elhuyar.org/', source, '_', target, '/', term
+        'http://hiztegiak.elhuyar.org/', opts.source, '_', opts.target, '/', opts.term
       ].join('');
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {};
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       if (data.indexOf('Ez da emaitzarik aurkitu') != -1) {
         data = data.substring(data.indexOf('<div class="wrapDef">'),
                               data.indexOf('<div class="column bat">'));
@@ -68,7 +68,7 @@ euskalbar.dicts.elhuyar = function () {
         for (var i in oneNodes) {
           try {
             oneNodes[i].href = [
-              this.homePage, '/', target, '_', source, '/',
+              this.homePage, '/', opts.target, '_', opts.source, '/',
               oneNodes[i].childNodes[0].innerHTML
             ].join('');
           } catch (e) {
@@ -88,7 +88,7 @@ euskalbar.dicts.elhuyar = function () {
         for (var i in threeNodes) {
           try {
             threeNodes[i].href = [
-              this.homePage, '/', source, '_', target, '/',
+              this.homePage, '/', opts.source, '_', opts.target, '/',
               threeNodes[i].innerHTML
             ].join('');
           } catch (e) {

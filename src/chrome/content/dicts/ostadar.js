@@ -38,16 +38,16 @@ euskalbar.dicts.ostadar = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return [
         'http://www.ostadar.org/hiztegia/display_',
-        source.toUpperCase() , '_', target.toUpperCase(), '_bilaketa'
+        opts.source.toUpperCase() , '_', opts.target.toUpperCase(), '_bilaketa'
       ].join('');
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        katea: term,
+        katea: opts.term,
         eTag: '',
         eTag_sg: 'sarrera_gorputza'
       };

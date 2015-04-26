@@ -39,19 +39,19 @@ euskalbar.dicts.intza = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://intza.armiarma.com/cgi-bin/bilatu2.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       var params = {
-        'hitza1': term,
+        'hitza1': opts.term,
         'eremu3': '1'
       };
 
-      if (source === 'es') {
+      if (opts.source === 'es') {
         params['eremu1'] = 'eeki';
-      } else if (source === 'fr') {
+      } else if (opts.source === 'fr') {
         params['eremu1'] = 'feki';
       } else {
         params['eremu1'] = 'giltzarriak';
@@ -60,7 +60,7 @@ euskalbar.dicts.intza = function () {
       return params;
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       var output = data;
 
       var output2 = output.split("Bilaketaren emaitza")[2];

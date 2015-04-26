@@ -34,20 +34,20 @@ euskalbar.dicts.corpeus = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.corpeus.org/cgi-bin/kontsulta.py';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       var params = {
         'bilagaiid': ' ',
         'formalema': 'lema',
         'motorea': 'googleajax',
-        'testu-hitza': term
+        'testu-hitza': opts.term,
       };
 
       if (term.indexOf(' ') != -1) {
-        params['testu-hitza'] = '"' + term + '"';
+        params['testu-hitza'] = '"' + opts.term + '"';
       }
 
       return params;

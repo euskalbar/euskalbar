@@ -37,18 +37,18 @@ euskalbar.dicts.adorez = function () {
 
     mimeType: "text/html; charset=UTF8",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.bostakbat.org/azkue/index.php';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        't': term,
+        't': opts.term,
         'q': '1'
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       var data = data.substring(data.indexOf('<div id="emaitza">'),
                             data.indexOf('<div id="oina">'));
       data = data.replace(/<img/g, "<img height='16' width='16'");

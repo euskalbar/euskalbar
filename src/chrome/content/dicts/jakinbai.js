@@ -38,17 +38,17 @@ euskalbar.dicts.jakinbai = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://jakinbai.eu/hiztegia';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return null;
     },
 
-    postQuery: function (term, source, target, doc) {
+    postQuery: function (opts) {
       var i = 0;
-      switch (source) {
+      switch (opts.source) {
         case 'eu':
           i = 0;
           break;
@@ -57,7 +57,7 @@ euskalbar.dicts.jakinbai = function () {
           break;
       }
 
-      $('field-bilatu', doc).value = term;
+      $('field-bilatu', doc).value = opts.term;
       $('selectHizkuntza', doc).selectedIndex = i;
       $('bot_bilatu', doc).click();
     },

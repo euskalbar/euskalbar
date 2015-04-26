@@ -34,13 +34,13 @@ euskalbar.dicts.bizkaiera = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.bizkaiera.biz/index.php?id=95';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'registro[testoa]': term
+        'registro[testoa]': opts.term,
       };
     }
 

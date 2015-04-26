@@ -34,13 +34,13 @@ euskalbar.dicts.lexikoaren_behatokia = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://lexikoarenbehatokia.euskaltzaindia.net/cgi-bin/kontsulta.py';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'testu-hitza1': term
+        'testu-hitza1': opts.term,
       };
     },
 

@@ -34,14 +34,14 @@ euskalbar.dicts.berria = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.berria.eus/estiloliburua/bilatu';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'd': 'all',
-        's': term
+        's': opts.term,
       };
     }
 

@@ -36,30 +36,30 @@ euskalbar.dicts.morris = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www1.euskadi.net/morris/resultado.asp';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       var lang,
           params = {};
 
-      if (source === 'en') {
+      if (opts.source === 'en') {
         var lang = 'txtIngles';
       } else {
         var lang = 'txtEuskera';
       }
 
-      params[lang] = term;
+      params[lang] = opts.term;
 
       return params;
 
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       if (data.match("Barkatu, baina sarrera hau ez dago hiztegian")) {
         // FIXME: L10n
-        return "Ez da aurkitu " + term + " hitza.";
+        return "Ez da aurkitu " + opts.term + " hitza.";
       }
 
       var output = data;

@@ -36,14 +36,14 @@ euskalbar.dicts.goihata = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.kotobai.com/eu/euskara-japoniera-hiztegia/';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'tx_ghdictionary_pi1[cmd]': '2',
-        'tx_ghdictionary_pi1[q]': term,
+        'tx_ghdictionary_pi1[q]': opts.term,
         'tx_ghdictionary_pi1[l]': 'basque',
         'tx_ghdictionary_pi1[t]': '1',
       };

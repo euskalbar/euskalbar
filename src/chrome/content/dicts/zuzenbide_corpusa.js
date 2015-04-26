@@ -36,17 +36,17 @@ euskalbar.dicts.zuzenbide_corpusa = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.ehu.es/ehg/cgi/zuzenbidea/bilatu.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'o': '1',
         'k1': '1',
         'm1': 'lema',
         'd2': '1',
-        'h1': term
+        'h1': opts.term,
       };
     },
 

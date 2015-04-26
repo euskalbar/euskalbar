@@ -34,13 +34,13 @@ euskalbar.dicts.wikipedia = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'https://eu.wikipedia.org/wiki/Aparteko:Search';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'search': term
+        'search': opts.term,
       };
     },
 

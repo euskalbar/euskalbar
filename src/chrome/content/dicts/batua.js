@@ -34,21 +34,21 @@ euskalbar.dicts.batua = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.euskaltzaindia.eus/index.php';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'option': 'com_hiztegianbilatu',
         'lang': 'eu',
         'view': 'frontpage',
         'Itemid': '410',
-        'sarrera': term
+        'sarrera': opts.term,
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       return data.substring(data.indexOf('<p class="note">'),
                             data.indexOf('<div class="contentSearchBlock hiztegiBatuaSearchBlock">'));
 

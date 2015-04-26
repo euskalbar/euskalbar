@@ -34,21 +34,21 @@ euskalbar.dicts.oeh = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.euskaltzaindia.eus/index.php';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'option': 'com_oeh',
         'lang': 'eu',
         'view': 'frontpage',
         'Itemid': '340',
-        'sarrera': term
+        'sarrera': opts.term,
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       data = data.substring(data.indexOf('<div class="grid7 oehResultContent">'),
                             data.indexOf('<div class="contentSearchBlock oehSearchBlock">'));
       if (data.indexOf('oehResultContent') === -1) {

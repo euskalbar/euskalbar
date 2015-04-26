@@ -42,12 +42,12 @@ euskalbar.dicts.euskalterm = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aAction.do';
     },
 
-    getParams: function (term, source, target) {
-      term = term.trim();
+    getParams: function (opts) {
+      var term = opts.term.trim();
 
       var uiLang = $U.langCode(euskalbar.ui.locale),
           availableLangs = ['en', 'fr', 'es', 'la', 'de'],
@@ -60,7 +60,7 @@ euskalbar.dicts.euskalterm = function () {
             'la': 'LA',
             'de': 'DE',
           },
-          lang = langMap[source] || 'EU';
+          lang = langMap[opts.source] || 'EU';
 
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
       // egin ditzala bilaketak
@@ -78,7 +78,7 @@ euskalbar.dicts.euskalterm = function () {
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       var output = data;
       output = output.substring(
           output.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'),

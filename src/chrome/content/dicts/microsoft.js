@@ -36,13 +36,13 @@ euskalbar.dicts.microsoft = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'https://www.microsoft.com/Language/en-US/Search.aspx';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        sString: term,
+        sString: opts.term,
         langID: 'eu-es'
       };
     }

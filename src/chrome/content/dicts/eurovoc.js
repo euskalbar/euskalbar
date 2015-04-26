@@ -38,14 +38,14 @@ euskalbar.dicts.eurovoc = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://web.bizkaia.net/kultura/eurovoc/busqueda.asp';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'txtBuscar': 'S',
-        'query': term,
+        'query': opts.term,
         'idioma': $U.langCode(euskalbar.ui.locale) === 'es' ? 'CA' : 'EU',
       };
     },

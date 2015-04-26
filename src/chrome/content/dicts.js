@@ -119,7 +119,12 @@ euskalbar.dicts = function () {
         var tab = gBrowser
           .getBrowserAtIndex(euskalbar.app.getTabIndexBySlug(dictName)),
             hook = function (event) {
-              dict.postQuery(term, source, target, event.originalTarget);
+              dict.postQuery({
+                term: term,
+                source: source,
+                target: target,
+                doc: event.originalTarget,
+              });
               tab.removeEventListener("load", hook, true);
             };
 
@@ -143,25 +148,37 @@ euskalbar.dicts = function () {
      *     returns HTML ready to be injected into the resulting table.
      */
     combinedQuery: function (dictName, term, source, target, doc) {
-      var query = {type: "combined"};
       var dict = euskalbar.dicts[dictName],
           output = '';
 
       $U.ajax({
-        url: dict.getUrl(term, source, target),
+        url: dict.getUrl({
+            term: term,
+            source: source,
+            target: target,
+          }),
 
         type: dict.method,
 
         mimeType: dict.mimeType || '',
 
-        data: dict.getParams(term, source, target, query),
+        data: dict.getParams({
+            term: term,
+            source: source,
+            target: target,
+            queryType: 'combined'
+          }),
 
         onSuccess: function (data) {
           var notice = '<div id="oharra"><a href="' + dict.homePage + '">' +
                        dict.displayName + '&nbsp;<sup>&curren;</sup></a></div>';
           $U.cleanLoadHTML(notice, $('o' + dictName, doc));
 
-          output = dict.scrap(term, source, target, data);
+          output = dict.scrap(data, {
+              term: term,
+              source: source,
+              target: target,
+            });
         },
 
         onError: function (status) {

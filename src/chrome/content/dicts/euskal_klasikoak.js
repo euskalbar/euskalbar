@@ -36,11 +36,11 @@ euskalbar.dicts.euskal_klasikoak = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.ehu.es/ehg/cgi/kc/bilatu.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'o': '1',
         'm1': 'lema',
@@ -49,7 +49,7 @@ euskalbar.dicts.euskal_klasikoak = function () {
         'garaia': '0',
         'euskalkia': '0',
         'generoa': '0',
-        'h1': term
+        'h1': opts.term,
       };
     },
 

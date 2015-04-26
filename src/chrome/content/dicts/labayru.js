@@ -41,15 +41,15 @@ euskalbar.dicts.labayru = function () {
     mimeType: "text/html; charset=UTF8",
 
     getUrl: function (term, source, target) {
-      if (source === 'es') {
-        return 'http://hiztegia.labayru.eus/bilatu/LH/es/'+term;
-      } else {
-        return 'http://hiztegia.labayru.eus/bilatu/LH/eu/'+term;
+      if (opts.source === 'es') {
+        return 'http://hiztegia.labayru.eus/bilatu/LH/es/' + opts.term;
       }
+
+      return 'http://hiztegia.labayru.eus/bilatu/LH/eu/' + opts.term;
     },
 
-    getParams: function (term, source, target, query) {
-      if (query.type == 'combined') {
+    getParams: function (opts) {
+      if (opts.queryType == 'combined') {
         return {
           'allInfo': true,
           'limit': 0
@@ -59,7 +59,7 @@ euskalbar.dicts.labayru = function () {
       return {};
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       var output = '';
       var startSpan = '<span class="euskalbar-start"></span>';
       output = data.split(startSpan);

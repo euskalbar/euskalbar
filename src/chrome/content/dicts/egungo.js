@@ -36,13 +36,13 @@ euskalbar.dicts.egungo = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.ehu.es/eeh/cgi/bila';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'z': term,
+        'z': opts.term,
       };
     },
 

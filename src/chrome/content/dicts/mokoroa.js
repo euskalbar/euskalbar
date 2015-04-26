@@ -37,11 +37,11 @@ euskalbar.dicts.mokoroa = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.hiru.com/hirupedia';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       var params = {
         'p_p_id': 'indice_WAR_w25cIndexWAR_INSTANCE_zPs2',
         'p_p_lifecycle': '1',
@@ -54,16 +54,16 @@ euskalbar.dicts.mokoroa = function () {
         '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaDialecto': 'Edozein Euskalki'
       };
 
-      if (source === 'es') {
-        params['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano'] = term;
+      if (opts.source === 'es') {
+        params['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano'] = opts.term;
       } else {
-        params['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera'] = term;
+        params['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera'] = opts.term;
       }
 
       return params;
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       return data.substring(data.indexOf('<font color'),
                             data.indexOf('<div id="justo_mokoroa">'));
     },

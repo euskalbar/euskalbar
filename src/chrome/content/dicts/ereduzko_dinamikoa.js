@@ -36,11 +36,11 @@ euskalbar.dicts.ereduzko_dinamikoa = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.ehu.es/ehg/cgi/epd/bilatu10.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'o': '1',
         'c-04-08': '04-08',
@@ -49,7 +49,7 @@ euskalbar.dicts.ereduzko_dinamikoa = function () {
         'n': 'bietan',
         'k1': '1',
         'd2': '1',
-        'h1': term
+        'h1': opts.term,
       };
     },
 

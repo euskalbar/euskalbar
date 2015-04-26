@@ -41,15 +41,15 @@ euskalbar.dicts.imemoriak = function () {
 
     referer: 'http://82.116.160.151/egfab/egfakontsulta_kanpServlet',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://82.116.160.151/egfab/egfakontsulta_kanpServlet';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         ERAGIKETA: 'Bilatu',
-        hizkuntza: source.toUpperCase(),
-        galdera: term,
+        hizkuntza: opts.source.toUpperCase(),
+        galdera: opts.term,
       };
     },
 

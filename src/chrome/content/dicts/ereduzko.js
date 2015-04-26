@@ -36,18 +36,18 @@ euskalbar.dicts.ereduzko = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.ehu.es/cgi-bin/ereduzkoa/bilatu09.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'o': '1',
         'h': '1',
         'n': 'bietan',
         'k1': '1',
         'm1': 'hitza',
-        'h1': term
+        'h1': opts.term,
       };
     },
 

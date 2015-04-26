@@ -34,18 +34,18 @@ euskalbar.dicts.literatura = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.euskaltzaindia.net/index.php';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'option': 'com_xslt',
         'lang': 'eu',
         'layout': 'lth_detail',
         'view': 'frontpage',
         'Itemid': '474',
-        'search': term,
+        'search': opts.term,
       };
     },
 

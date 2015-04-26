@@ -36,18 +36,18 @@ euskalbar.dicts.danobat = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://hiztegia.danobatgroup.com/eu/dictionary/search';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'direction_filter': source === 'es' ? 'es-eu' : 'eu-es',
-        'term_filter': term,
+        'direction_filter': opts.source === 'es' ? 'es-eu' : 'eu-es',
+        'term_filter': opts.term,
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       return data.substring(data.indexOf('<div id="searchresult">'),
                             data.indexOf('</article>'));
     },

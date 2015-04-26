@@ -36,14 +36,14 @@ euskalbar.dicts.nolaerran = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.nolaerran.org/';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'z': 'lit',
-        'h': term
+        'h': opts.term,
       };
     },
 

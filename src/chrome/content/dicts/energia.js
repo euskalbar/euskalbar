@@ -39,16 +39,21 @@ euskalbar.dicts.energia = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
-      return 'http://www.eve.es/Aula-didactica/Hiztegia.aspx?terminoEstado='+term+'&idiomaEstado='+source+'&arloaEstado=edozein&fuzzyEstado=True&busquedaTerminoEstado=True&tipoBusqueda=terminoak&term='+term+'#tabs-1';
+    getUrl: function (opts) {
+      return (
+        'http://www.eve.es/Aula-didactica/Hiztegia.aspx?terminoEstado=' + opts.term +
+        '&idiomaEstado=' + opts.source +
+        '&arloaEstado=edozein&fuzzyEstado=True&busquedaTerminoEstado=True' +
+        '&tipoBusqueda=terminoak&term=' + opts.term + '#tabs-1'
+      );
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {};
     },
 
-    postQuery: function (term, source, target, doc) {
-      var link = doc.getElementById("p_lt_Contenido_ContenidoPlaceHolder_ContenidoPlaceHolder_lt_zoneMain_EveElhuyarHiztegia_rpTerminos_ctl00_hlTermino");
+    postQuery: function (opts) {
+      var link = opts.doc.getElementById("p_lt_Contenido_ContenidoPlaceHolder_ContenidoPlaceHolder_lt_zoneMain_EveElhuyarHiztegia_rpTerminos_ctl00_hlTermino");
       if (link)
       {
         link.click();

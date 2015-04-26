@@ -34,13 +34,13 @@ euskalbar.dicts.hobelex = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.uzei.eus/online/hobelex/';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'idite_text': term
+        'idite_text': opts.term,
       };
     }
 

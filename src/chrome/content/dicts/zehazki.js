@@ -38,18 +38,18 @@ euskalbar.dicts.zehazki = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://ehu.es/ehg/cgi/zehazki/bila';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'm': 'has',
-        'z': term
+        'z': opts.term,
       };
     },
 
-    scrap: function (term, source, target, data) {
+    scrap: function (data, opts) {
       data = data.substring(data.indexOf('adibideak</label')+16,
                             data.indexOf('</td></tr></table>'));
       data = data.replace(

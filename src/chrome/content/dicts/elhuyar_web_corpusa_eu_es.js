@@ -36,14 +36,14 @@ euskalbar.dicts.elhuyar_web_corpusa_eu_es = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://webcorpusak.elhuyar.org/cgi-bin/kontsulta2.py';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'testuhitza': term,
-        'hizkuntza': source,
+        'testuhitza': opts.term,
+        'hizkuntza': opts.source,
         'formalema': 'lema',
         'konparazioa': 'da',
       };

@@ -36,18 +36,18 @@ euskalbar.dicts.pentsamenduaren_klasikoak = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.ehu.es/ehg/cgi/pkc/bilatuPkc.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'o': '1',
         'n': 'liburuak',
         'k1': '1',
         'm1': 'lema',
         'd1': '1',
-        'h1': term
+        'h1': opts.term,
       };
     },
 

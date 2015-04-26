@@ -37,14 +37,14 @@ euskalbar.dicts.hikea = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.eitb.eus/eu/kultura/euskara/kontsultak';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'busqueda_hikea': term,
-        'hizkuntza': source
+        'busqueda_hikea': opts.term,
+        'hizkuntza': opts.source,
       };
 
     },

@@ -37,13 +37,13 @@ euskalbar.dicts.xuxenweb = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return [
-        'http://xuxen.eus/xuxen/', term
+        'http://xuxen.eus/xuxen/', opts.term
       ].join('');
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {};
     },
 

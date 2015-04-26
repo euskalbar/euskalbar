@@ -37,26 +37,26 @@ euskalbar.dicts.ehuskaratuak = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://ehuskaratuak.ehu.es/bilaketa/';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'mota': 'arrunta',
-        'hizkuntza': source,
+        'hizkuntza': opts.source,
         'formalema': 'lema',
-        'testuhitza': term,
+        'testuhitza': opts.term,
         'kategoria': '',
         'alor': 'guz',
         'azpialor': 'guz',
         'aurreratua': 'arrunta',
-        'hizkuntza2': target,
+        'hizkuntza2': opts.target,
         'formalema2': 'forma',
         'testuhitza2': '',
         'kategoria2': '',
         'distantzia': '0',
-        'emaitza': target,
+        'emaitza': opts.target,
         'grafauk': '1forma',
         'grafiko_aukerak': '1forma'
       };

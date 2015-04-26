@@ -39,17 +39,17 @@ euskalbar.dicts.zthiztegia = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://zthiztegia.elhuyar.org';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return null;
     },
 
-    postQuery: function (term, source, target, doc) {
+    postQuery: function (opts) {
         var i = 0;
-        switch (source) {
+        switch (opts.source) {
           case 'eu':
             i = 0;
             break;
@@ -67,7 +67,7 @@ euskalbar.dicts.zthiztegia = function () {
             break;
         }
 
-        $('txtBilagaila', doc).value = term;
+        $('txtBilagaila', doc).value = opts.term;
         $('selectHizkuntza', doc).selectedIndex = i;
         $('bot_bilatu', doc).click();
 

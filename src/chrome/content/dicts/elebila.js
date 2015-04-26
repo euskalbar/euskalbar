@@ -35,18 +35,18 @@ euskalbar.dicts.elebila = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.elebila.eu/search/';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       var params = {
-        'bilatu': term,
+        'bilatu': opts.term,
         'optNon': '1'
       };
 
       if (term.indexOf(' ') != -1) {
-        params['bilatu'] = '"' + term + '"';
+        params['bilatu'] = '"' + opts.term + '"';
       }
 
       return params;

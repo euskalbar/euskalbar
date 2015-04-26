@@ -38,16 +38,16 @@ euskalbar.dicts.hautalan = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.euskara.euskadi.net/r59-15172x/eu/sarasola/sarasola.apl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return null;
     },
 
-    postQuery: function (term, source, target, doc) {
-      $('hitza', doc).value = term;
+    postQuery: function (opts) {
+      $('hitza', doc).value = opts.term;
       $('bilatu', doc).click();
     },
 

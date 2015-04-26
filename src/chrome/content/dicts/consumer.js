@@ -36,19 +36,19 @@ euskalbar.dicts.consumer = function () {
 
     method: 'POST',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://corpus.consumer.es/corpus/kontsulta';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'mota': 'arrunta',
-        'hizkuntza': source === 'es' ? 'es' : 'eu',
+        'hizkuntza': opts.source === 'es' ? 'es' : 'eu',
         'formalema': 'lema',
         'konparazioa': 'da',
-        'testuhitza': term,
+        'testuhitza': opts.term,
         'kategoria': '',
-        'hizkuntza2': source === 'es' ? 'es' : 'eu',
+        'hizkuntza2': opts.source === 'es' ? 'es' : 'eu',
         'formalema2': '',
         'konparazioa2': '',
         'testuhitza2': '',

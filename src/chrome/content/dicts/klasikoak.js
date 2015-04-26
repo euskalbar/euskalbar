@@ -36,14 +36,14 @@ euskalbar.dicts.klasikoak = function () {
 
     mimetype: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         'check1': '1',
-        'hitza1': term,
+        'hitza1': opts.term,
         'mota1': 'hasi',
         'alda': '1',
         'idazlea': '',

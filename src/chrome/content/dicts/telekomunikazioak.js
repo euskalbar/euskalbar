@@ -41,11 +41,11 @@ euskalbar.dicts.telekomunikazioak = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.telekomunikaziohiztegia.org/';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       var dictLang,
           uiLang = $U.langCode(euskalbar.ui.locale);
 
@@ -60,9 +60,9 @@ euskalbar.dicts.telekomunikazioak = function () {
       };
     },
 
-    postQuery: function (term, source, target, doc) {
+    postQuery: function (opts) {
       var i = 0;
-      switch (source) {
+      switch (opts.source) {
         case 'eu':
           i = 0;
           break;
@@ -78,7 +78,7 @@ euskalbar.dicts.telekomunikazioak = function () {
       }
 
       var textbox = doc.getElementsByName("txtHitza")[0];
-      textbox.value = term;
+      textbox.value = opts.term;
       var langcombo = doc.getElementsByName("selectHizkuntza")[0];
       langcombo.selectedIndex = i;
       var button = doc.getElementsByName("submit")[0];

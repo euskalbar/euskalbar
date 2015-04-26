@@ -38,16 +38,16 @@ euskalbar.dicts.epaitegiak = function () {
 
     mimeType: "text/html; charset=ISO-8859-1",
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://www.justizia.net/euskara-justizian';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
         '_charset_': 'ISO-8859-1',
-        'cjterm': term,
+        'cjterm': opts.term,
         'bjterm': 'Bilatu',
-        'idiomaBusq': source.toUpperCase(),
+        'idiomaBusq': opts.source.toUpperCase(),
       };
     },
 

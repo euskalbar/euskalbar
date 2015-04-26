@@ -34,13 +34,13 @@ euskalbar.dicts.elhuyar_web_corpusa_eu = function () {
 
     method: 'GET',
 
-    getUrl: function (term, source, target) {
+    getUrl: function (opts) {
       return 'http://webcorpusak.elhuyar.org/cgi-bin/kontsulta.py';
     },
 
-    getParams: function (term, source, target) {
+    getParams: function (opts) {
       return {
-        'testu-hitza1': term,
+        'testu-hitza1': opts.term,
         'formalema1': 'lema',
         'ordenatu': 'ordenadok',
       };
