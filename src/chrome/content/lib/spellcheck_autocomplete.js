@@ -143,7 +143,7 @@ ProviderAutoCompleteResult.prototype = {
   /**
    * Get the final value that should be completed when the user confirms
    * the match at the given index.
-   * @return {string} the final value of the result at the given index 
+   * @return {string} the final value of the result at the given index
    */
   getFinalCompleteValueAt: function(index) {
     return this.getValueAt(index);
@@ -203,7 +203,7 @@ ProviderAutoCompleteSearch.prototype = {
     var gSpellCheckEngine = Components.classes[spellclass].getService(Components.interfaces.mozISpellCheckingEngine);
     var dicts = {}, dictCount = {};
     gSpellCheckEngine.getDictionaryList(dicts, dictCount);
-    
+
     for (var i = 0; i < dictCount.value; i++) {
       if (dicts.value[i].indexOf(searchParam) == 0) {
         dictLang = dicts.value[i];
@@ -211,7 +211,7 @@ ProviderAutoCompleteSearch.prototype = {
     };
 
     gSpellCheckEngine.dictionary = dictLang;
-    gSpellCheckEngine.suggest(searchString, suggestions, {}); 
+    gSpellCheckEngine.suggest(searchString, suggestions, {});
 
     var results = [suggestions.value[0], suggestions.value[1], suggestions.value[2],
                   suggestions.value[3], suggestions.value[4], suggestions.value[5]];
@@ -233,5 +233,3 @@ ProviderAutoCompleteSearch.prototype = {
 // The following line is what XPCOM uses to create components
 const NSGetFactory =
   XPCOMUtils.generateNSGetFactory([ ProviderAutoCompleteSearch ]);
-
-
