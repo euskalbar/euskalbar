@@ -50,7 +50,7 @@ euskalbar.dicts.adorez = function () {
 
     scrap: function (data, opts) {
       var data = data.substring(data.indexOf('<div id="emaitza">'),
-                            data.indexOf('<div id="oina">'));
+                                data.indexOf('<div id="oina">'));
       data = data.replace(/<img/g, "<img height='16' width='16'");
       return data;
     },

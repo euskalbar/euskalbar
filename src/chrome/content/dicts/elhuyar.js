@@ -77,7 +77,7 @@ euskalbar.dicts.elhuyar = function () {
         dataOne = domSerializer.serializeToString(dataOneDOM);
 
         var dataTwo = data.substring(data.indexOf('<div class="innerRelac">'),
-                                 data.indexOf('<div class="column bat">'));
+                                     data.indexOf('<div class="column bat">'));
         dataTwo = dataTwo.replace(/<a/g, '<strong');
         dataTwo = dataTwo.replace(/<\/a/g, '</strong');
 
