@@ -32,7 +32,7 @@ euskalbar.dicts.labayru = function () {
     displayName: 'Labayru',
     description: 'Labayru Hiztegia',
 
-    homePage: "http://hiztegia.labayru.eus",
+    homePage: 'http://hiztegia.labayru.eus',
 
     pairs: ['eu-es', 'es-eu'],
 
@@ -49,7 +49,7 @@ euskalbar.dicts.labayru = function () {
     },
 
     getParams: function (term, source, target, query) {
-      if (query.type == "combined") {
+      if (query.type == 'combined') {
         return {
           'allInfo': true,
           'limit': 0
