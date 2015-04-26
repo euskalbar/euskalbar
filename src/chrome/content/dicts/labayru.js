@@ -54,10 +54,9 @@ euskalbar.dicts.labayru = function () {
           'allInfo': true,
           'limit': 0
         };
-      } else {
-        return {
-        };
       }
+
+      return {};
     },
 
     scrap: function (term, source, target, data) {
