@@ -106,10 +106,17 @@ euskalbar.dicts = function () {
     query: function (dictName, term, source, target) {
       var query = {type: "simple"};
       var dict = euskalbar.dicts[dictName];
+      var params = dict.getParams({
+        term: term,
+        source: source,
+        target: target,
+        queryType: 'standard',
+      });
+
       euskalbar.app.openURL(dict.getUrl(term, source, target),
                             dictName,
                             dict.method,
-                            dict.getParams(term, source, target, query),
+                            params,
                             dict.mimeType || '',
                             dict.referer);
 
