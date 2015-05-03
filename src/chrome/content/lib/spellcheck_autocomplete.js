@@ -193,20 +193,19 @@ ProviderAutoCompleteSearch.prototype = {
    */
   startSearch: function(searchString, searchParam, previousResult, listener) {
 
-    var suggestions = {};
-    var dictLang = "";
+    var suggestions = {}, dicts = {}, dictCount = {}, dictLang = "";
     var spellclass = "@mozilla.org/spellchecker/myspell;1";
     if ("@mozilla.org/spellchecker/hunspell;1" in Components.classes)
       spellclass = "@mozilla.org/spellchecker/hunspell;1";
     if ("@mozilla.org/spellchecker/engine;1" in Components.classes)
       spellclass = "@mozilla.org/spellchecker/engine;1";
     var gSpellCheckEngine = Components.classes[spellclass].getService(Components.interfaces.mozISpellCheckingEngine);
-    var dicts = {}, dictCount = {};
     gSpellCheckEngine.getDictionaryList(dicts, dictCount);
 
     for (var i = 0; i < dictCount.value; i++) {
       if (dicts.value[i].indexOf(searchParam) == 0) {
         dictLang = dicts.value[i];
+        break;
       }
     };
 
