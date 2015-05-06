@@ -39,7 +39,7 @@ euskalbar.dicts.elhuyar = function () {
 
     method: 'GET',
 
-    getUrl: function (opts.) {
+    getUrl: function (opts) {
       return [
         'http://hiztegiak.elhuyar.org/', opts.source, '_', opts.target, '/', opts.term
       ].join('');
