@@ -65,7 +65,7 @@ euskalbar.dicts.intza = function () {
 
       var output2 = output.split("Bilaketaren emaitza")[2];
       output = '<strong><font face="bitstream vera sans, verdana, arial" size="3">'
-        + term + '</font></strong>' + output2;
+        + opts.term + '</font></strong>' + output2;
 
       var output3 = output.split("<form")[0];
       output = output3.replace(
