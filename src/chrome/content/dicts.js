@@ -113,7 +113,7 @@ euskalbar.dicts = function () {
         queryType: 'standard',
       });
 
-      euskalbar.app.openURL(dict.getUrl({term:term, source:source, target:target}),
+      euskalbar.app.openURL(dict.getUrl({term: term, source: source, target: target}),
                             dictName,
                             dict.method,
                             params,
