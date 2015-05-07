@@ -32,7 +32,7 @@ euskalbar.app = function () {
 
   return {
 
-    curVersion: "4.2",
+    curVersion: "4.2.1",
 
     firstrunURL: "http://euskalbar.eu/firstrun",
 

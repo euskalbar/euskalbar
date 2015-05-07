@@ -1,5 +1,10 @@
 # ChangeLog
 
+
+## 4.2.1 bertsioa
+- Akatsen konponketa
+
+
 ## 4.2 bertsioa
 - Xuxen-i orain helbide berrira (http://xuxen.eus) deitzen zaio. (#188)
 - Hobelex sartu da. (#186)
@@ -17,6 +22,7 @@
 - Bilaketa-kutxa hutsik dagoenean "Bilatu" hitza ikusten da leku-marka gisa.
 - Labayruren hiztegia helbide berrian kontsultatzen da. (#190)
 
+
 ## 4.1 bertsioa
 - EEEren Energia Hiztegia berria sartu da. (#181)
 - UZEIren sinonimoen hiztegiaren URLa eguneratu da. (#182)
@@ -25,6 +31,7 @@
 - Hiztegi batzuk zituzten kodeketa arazoak konpondu dira. (#164)
 - Elebakarrak ez diren hiztegiak barraren ezkerrean paratu dira: Consumer, Mokoroa, Intza.... 
 - Intza lokuzioetan EU<->FR bilaketak gaitu dira.
+
 
 ## 4.0 bertsioa
 - Oinarrizko kodearen aldaketa sakona.
