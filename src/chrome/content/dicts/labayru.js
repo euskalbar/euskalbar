@@ -40,8 +40,8 @@ euskalbar.dicts.labayru = function () {
 
     mimeType: "text/html; charset=UTF8",
 
-    getUrl: function (term, source, target) {
-      return 'http://hiztegia.labayru.eus/bilatu/LH/'+ source +'/' + term;
+    getUrl: function (opts) {
+      return 'http://hiztegia.labayru.eus/bilatu/LH/'+ opts.source +'/' + opts.term;
     },
 
     getParams: function (opts) {
