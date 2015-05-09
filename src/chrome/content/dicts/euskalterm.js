@@ -43,7 +43,7 @@ euskalbar.dicts.euskalterm = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction.do';
+      return 'http://www.euskara.euskadi.net/q91EusTermWar/kontsultaJSP/q91aAction.do';
     },
 
     getParams: function (opts) {
