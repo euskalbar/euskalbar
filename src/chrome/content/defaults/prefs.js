@@ -51,6 +51,7 @@ pref("extensions.euskalbar.bgTabs", false);
 pref("extensions.euskalbar.showDictsMenu", true);
 pref("extensions.euskalbar.showContextMenu", true);
 pref("extensions.euskalbar.focusWindow", false);
+pref("extensions.euskalbar.autocomplete", true);
 
 // Language selected at startup
 pref("extensions.euskalbar.startupLanguage", "es_eu");

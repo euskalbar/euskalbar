@@ -35,6 +35,7 @@ euskalbar.ui = function () {
       this.initToolbarDicts();
       this.initDictsMenu();
       this.initContextMenu();
+      this.autocomplete();
 
       euskalbar.prefs.addListener(function (prefName) {
         switch (prefName) {
@@ -48,6 +49,9 @@ euskalbar.ui = function () {
             euskalbar.dicts.available.each(function (dictName) {
               euskalbar.ui.setButtonVisibility(dictName);
             });
+            break;
+          case 'autocomplete':
+            euskalbar.ui.autocomplete();
             break;
         }
       });
@@ -423,6 +427,17 @@ euskalbar.ui = function () {
       var focusedWindow = document.commandDispatcher.focusedWindow;
       var winWrapper = new XPCNativeWrapper(focusedWindow, 'getSelection()');
       return winWrapper.getSelection().toString();
+    },
+
+
+    // Enables/disables autocompletion
+    autocomplete: function () {
+      var textbox = $('euskalbar-search-string');
+      if (!euskalbar.prefs.autocomplete) {
+        textbox.removeAttribute('type');
+      } else {
+        textbox.setAttribute('type', 'autocomplete');
+      }
     },
 
 

@@ -17,7 +17,7 @@
       <preference id="prefShowhidedicts" name="extensions.euskalbar.showDictsMenu" type="bool"/>
       <preference id="prefShowcontextmenu" name="extensions.euskalbar.showContextMenu" type="bool"/>
       <preference id="prefFocuswindow" name="extensions.euskalbar.focusWindow" type="bool"/>
-
+      <preference id="prefAutocomplete" name="extensions.euskalbar.autocomplete" type="bool"/>
       <preference id="prefStartupLang" name="extensions.euskalbar.startupLanguage" type="string"/>
 
       <preference id="prefSkin" name="extensions.euskalbar.skin" type="string"/>
@@ -61,6 +61,7 @@
         <checkbox preference="prefShowhidedicts" label="&prefs.gui.showDictsMenu.label;" />
         <checkbox preference="prefShowcontextmenu" label="&prefs.gui.showContextMenu.label;" />
         <checkbox preference="prefFocuswindow" label="&prefs.gui.focusWindow.label;" />
+        <checkbox preference="prefAutocomplete" label="&prefs.gui.autocomplete.label;" />
       </groupbox>
     </vbox>
 

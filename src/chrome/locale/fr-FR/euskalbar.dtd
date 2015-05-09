@@ -32,6 +32,7 @@
 <!ENTITY prefs.gui.showDictsMenu.label "Montrer menu des dictionnaires">
 <!ENTITY prefs.gui.showContextMenu.label "Montrer menu contextuel">
 <!ENTITY prefs.gui.focusWindow.label "Focus search box after query">
+<!ENTITY prefs.gui.autocomplete.label "Enable autocompletion">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Statistiques">

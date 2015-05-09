@@ -32,6 +32,7 @@
 <!ENTITY prefs.gui.showDictsMenu.label "Erakutsi hiztegien menua">
 <!ENTITY prefs.gui.showContextMenu.label "Erakutsi testuinguru-menua">
 <!ENTITY prefs.gui.focusWindow.label "Bilaketaren ondoren, fokua bilaketa-kutxan jarri">
+<!ENTITY prefs.gui.autocomplete.label "Gaitu hitzen osatze automatikoa">
 
 <!-- Statistics -->
 <!ENTITY stats.title "Estatistikak">
