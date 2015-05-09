@@ -30,6 +30,8 @@ euskalbar.app = function () {
       $U = $L.utils,
       $ = $U.$;
 
+  var timer = Components.classes["@mozilla.org/timer;1"]
+              .createInstance(Components.interfaces.nsITimer);
   return {
 
     curVersion: "4.2.1",
@@ -95,9 +97,12 @@ euskalbar.app = function () {
       }
 
       if (openInfo) {
-        setTimeout(function () {
-          gBrowser.selectedTab = gBrowser.addTab(infoURL);
-        }, 5000);
+        var event = {
+          notify: function(timer) {
+            gBrowser.selectedTab = gBrowser.addTab(infoURL);
+          }
+        }
+        timer.initWithCallback(event, 5000, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
       }
 
       // Load available dictionaries
@@ -453,16 +458,20 @@ euskalbar.app = function () {
 
 
     // Kutxa hutsik badago, mezu bat bidali
-    alertEmptyBox: function (katea) {
+    alertEmptyBox: function (string) {
       // Remove pre and post whitespaces
-      katea = katea.replace(/^\s+|\s+$/g, "");
-      if (katea === "") {
+      string = string.replace(/^\s+|\s+$/g, "");
+      if (string === "") {
         var euskalbarNotify = gBrowser.getNotificationBox();
         euskalbarNotify.appendNotification($U._f('emptybox.label', ""));
 
-        var t = setTimeout(function(){
-          euskalbarNotify.removeCurrentNotification();
-        }, 4000);
+        var event = {
+          notify: function(timer) {
+            euskalbarNotify.removeCurrentNotification();
+          }
+        }
+
+        timer.initWithCallback(event, 4000, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 
         return true;
       }

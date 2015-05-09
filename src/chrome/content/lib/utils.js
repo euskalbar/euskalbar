@@ -166,11 +166,23 @@ euskalbar.lib.utils = {};
     // Initalize a callback which will fire `timeoutLength` seconds from now,
     // cancelling the request (if it has not already occurred).
     if (s.async && s.timeout > 0) {
-      setTimeout(function () {
+      var timer = Components.classes["@mozilla.org/timer;1"]
+                  .createInstance(Components.interfaces.nsITimer);
+
+      var event = {
+        notify: function(timer) {
+          if (xhr && !requestDone) {
+            onreadystatechange('timeout');
+          }
+        }
+      }
+      timer.initWithCallback(event, timeoutLength, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
+
+     /* setTimeout(function () {
         if (xhr && !requestDone) {
           onreadystatechange('timeout');
         }
-      }, timeoutLength);
+      }, timeoutLength);*/
     }
 
     // Establish the connection to the server
