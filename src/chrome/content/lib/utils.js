@@ -177,12 +177,6 @@ euskalbar.lib.utils = {};
         }
       }
       timer.initWithCallback(event, timeoutLength, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
-
-     /* setTimeout(function () {
-        if (xhr && !requestDone) {
-          onreadystatechange('timeout');
-        }
-      }, timeoutLength);*/
     }
 
     // Establish the connection to the server
