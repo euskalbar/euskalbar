@@ -434,9 +434,9 @@ euskalbar.ui = function () {
     autocomplete: function () {
       var textbox = $('euskalbar-search-string');
       if (!euskalbar.prefs.autocomplete) {
-        textbox.removeAttribute('type');
+        textbox.setAttribute('disableautocomplete', 'true');
       } else {
-        textbox.setAttribute('type', 'autocomplete');
+        textbox.setAttribute('disableautocomplete', 'false');
       }
     },
 
