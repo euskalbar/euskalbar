@@ -421,15 +421,6 @@ euskalbar.ui = function () {
     },
 
 
-    //Shows a button to choose what dictionary buttons will be visible
-    addDictsButton: function () {
-      var btn = document.createElement("toolbarbutton");
-      btn.setAttribute("label", "Gehitu hiztegiak");
-      btn.setAttribute("insertafter", "euskalbar-search-splitter");
-
-    },
-
-
     // Shows/hides context menu
     showContextMenu: function () {
       var sep = $('euskalbar-context-menuseparator'),
