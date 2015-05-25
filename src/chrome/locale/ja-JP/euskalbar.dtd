@@ -13,6 +13,7 @@
 
 <!ENTITY prefs.pane.general.label "一般">
 <!ENTITY prefs.pane.visibleDicts.label "上級検索">
+<!ENTITY prefs.pane.visibleDicts.caption "Dictionaries visible in the toolbar">
 <!ENTITY prefs.pane.advanced.label "Advanced">
 
 <!ENTITY prefs.lang.caption "言語">

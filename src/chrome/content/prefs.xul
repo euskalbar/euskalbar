@@ -69,7 +69,7 @@
 
 
   <prefpane id="prefs-dictionaries" label="&prefs.pane.visibleDicts.label;">
-
+    <caption label="&prefs.pane.visibleDicts.caption;" />
     <listbox flex="1" id="prefs-dictionaries-visible">
       <!-- Content generated in euskalbar.settings -->
     </listbox>

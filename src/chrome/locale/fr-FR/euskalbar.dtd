@@ -13,6 +13,7 @@
 
 <!ENTITY prefs.pane.general.label "Général">
 <!ENTITY prefs.pane.visibleDicts.label "Dictionnaires">
+<!ENTITY prefs.pane.visibleDicts.caption "Dictionaries visible in the toolbar">
 <!ENTITY prefs.pane.advanced.label "Avancée">
 
 <!ENTITY prefs.lang.caption "Langue par défaut">

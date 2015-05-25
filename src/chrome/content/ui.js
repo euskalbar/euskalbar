@@ -162,6 +162,20 @@ euskalbar.ui = function () {
 
 
     /*
+     * Shows an additional button to initialize visible dict buttons in the first run
+     */
+    initVisibleDicts: function () {
+      var toolbar = $('euskalbar-dicts-general');
+      var chooseBtn = document.createElement('toolbarbutton');
+      chooseBtn.setAttribute('id', 'euskalbar-initdicts-button');
+      chooseBtn.setAttribute("label", $U._f('visibledicts.caption', ""));
+      chooseBtn.setAttribute('style', 'color:red');
+      chooseBtn.setAttribute('oncommand', 'euskalbar.ui.options("1");');
+      toolbar.appendChild(chooseBtn);
+    },
+
+
+    /*
      * Generates the context drop-down menu
      */
     initContextMenu: function () {
@@ -278,7 +292,6 @@ euskalbar.ui = function () {
 
     initDictsMenu: function () {
       var dictsMenu = this.createDictsMenu();
-
       this.initMenu("euskalbar-menu", dictsMenu);
       this.initMenu("appmenu_euskalbar", dictsMenu);
     },
@@ -408,6 +421,15 @@ euskalbar.ui = function () {
     },
 
 
+    //Shows a button to choose what dictionary buttons will be visible
+    addDictsButton: function () {
+      var btn = document.createElement("toolbarbutton");
+      btn.setAttribute("label", "Gehitu hiztegiak");
+      btn.setAttribute("insertafter", "euskalbar-search-splitter");
+
+    },
+
+
     // Shows/hides context menu
     showContextMenu: function () {
       var sep = $('euskalbar-context-menuseparator'),
@@ -442,12 +464,13 @@ euskalbar.ui = function () {
 
 
     /* Displays the preferences window */
-    options: function () {
+    options: function (paneId) {
       var dialogURL = "chrome://euskalbar/content/prefs.xul",
           sharedObj = {
             dicts: euskalbar.dicts,
             prefs: euskalbar.prefs,
-            langsMenu: $('euskalbar-language-popup')
+            langsMenu: $('euskalbar-language-popup'),
+            paneId: paneId
           };
       Services.ww.openWindow(null, dialogURL, "_blank",
                              "chrome,toolbar,centerscreen,resizable,dialog=no",

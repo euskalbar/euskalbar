@@ -13,6 +13,7 @@
 
 <!ENTITY prefs.pane.general.label "Orokorra">
 <!ENTITY prefs.pane.visibleDicts.label "Hiztegiak">
+<!ENTITY prefs.pane.visibleDicts.caption "Barran ikusgai dauden hiztegiak">
 <!ENTITY prefs.pane.advanced.label "Aurreratua">
 
 <!ENTITY prefs.lang.caption "Hizkuntza lehenetsia">

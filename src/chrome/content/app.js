@@ -62,6 +62,8 @@ euskalbar.app = function () {
         euskalbar.prefs.firstrun = false;
         euskalbar.prefs.installedVersion = this.curVersion;
 
+        /* Shows an additional button to init visible dict buttons in the first run */
+        euskalbar.ui.initVisibleDicts();
         /* Add Euskalbar button to the navigation bar and force
          * the toolbar to be displayed */
         euskalbar.ui.appendButtonToToolbar();

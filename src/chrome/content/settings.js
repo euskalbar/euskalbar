@@ -34,10 +34,24 @@ euskalbar.settings = function () {
         euskalbar.dicts = sharedObj.dicts;
         euskalbar.prefs = sharedObj.prefs;
         var langsMenu = sharedObj.langsMenu.cloneNode(true);
+        var paneId = sharedObj.paneId;
 
         this.initLangs(langsMenu);
         this.initDicts();
+        if (paneId) {
+          this.setPane(paneId);
+        }
       }
+    },
+
+
+    /*
+     * Sets the default pane
+     */
+    setPane: function (paneId) {
+      var dialog = $('prefs-dialog');
+      var pane = dialog.preferencePanes[paneId];
+      dialog.showPane(pane);
     },
 
 
