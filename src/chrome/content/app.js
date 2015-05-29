@@ -62,8 +62,6 @@ euskalbar.app = function () {
         euskalbar.prefs.firstrun = false;
         euskalbar.prefs.installedVersion = this.curVersion;
 
-        /* Shows an additional button to init visible dict buttons in the first run */
-        euskalbar.ui.initVisibleDicts();
         /* Add Euskalbar button to the navigation bar and force
          * the toolbar to be displayed */
         euskalbar.ui.appendButtonToToolbar();
@@ -101,7 +99,9 @@ euskalbar.app = function () {
       if (openInfo) {
         var event = {
           notify: function(timer) {
-            gBrowser.selectedTab = gBrowser.addTab(infoURL);
+            var newTab = gBrowser.addTab(infoURL);
+            gBrowser.selectedTab = newTab;
+            euskalbar.ui.initVisibleDicts();
           }
         }
         timer.initWithCallback(event, 5000, Components.interfaces.nsITimer.TYPE_ONE_SHOT);

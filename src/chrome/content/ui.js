@@ -165,13 +165,18 @@ euskalbar.ui = function () {
      * Shows an additional button to initialize visible dict buttons in the first run
      */
     initVisibleDicts: function () {
-      var toolbar = $('euskalbar-dicts-general');
-      var chooseBtn = document.createElement('toolbarbutton');
-      chooseBtn.setAttribute('id', 'euskalbar-initdicts-button');
-      chooseBtn.setAttribute("label", $U._f('visibledicts.caption', ""));
-      chooseBtn.setAttribute('style', 'color:red');
-      chooseBtn.setAttribute('oncommand', 'euskalbar.ui.options("1");');
-      toolbar.appendChild(chooseBtn);
+      var toolbar = $('euskalbar-notification-vbox');
+      var notifBox = document.createElement('notificationbox');
+      notifBox.setAttribute('id', 'euskalbar-notificationbox');
+      var notif = document.createElement('notification');
+      notif.setAttribute("label", $U._f('visibledicts.caption', ""));
+      notif.setAttribute("style", "color:red");
+      var btn = document.createElement('button');
+      btn.setAttribute("label", $U._f('visibledicts.set', ""));
+      btn.setAttribute('oncommand', 'euskalbar.ui.options("1");');
+      notif.appendChild(btn);
+      notifBox.appendChild(notif);
+      toolbar.appendChild(notifBox);
     },
 
 

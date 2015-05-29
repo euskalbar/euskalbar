@@ -69,6 +69,8 @@
         <!-- Content generated in euskalbar.ui -->
       </hbox>
      </toolbar>
+     <vbox id="euskalbar-notification-vbox">
+     </vbox>
   </toolbox>
 
   <window id="main-window">
