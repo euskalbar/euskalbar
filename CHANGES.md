@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 5.0 bertsioa
+- Hitzen osatze automatikoa aukerakoa bihurtu da. (#213)
+- Euskalbar lehen aldiz instalatzean, erabiltzaileak bistan dauden hiztegiak zeintzuk diren erabaki dezake. (#205)
+
 
 ## 4.2.1 bertsioa
 - Akatsen konponketa
