@@ -170,7 +170,7 @@ euskalbar.ui = function () {
       notifBox.setAttribute('id', 'euskalbar-notificationbox');
       var notif = document.createElement('notification');
       notif.setAttribute("label", $U._f('visibledicts.caption', ""));
-      notif.setAttribute("style", "color:red");
+      notif.setAttribute("image", "chrome://euskalbar/skin/euskalbar16.png");
       var btn = document.createElement('button');
       btn.setAttribute("label", $U._f('visibledicts.set', ""));
       btn.setAttribute('oncommand', 'euskalbar.ui.options("1");');
