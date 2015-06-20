@@ -56,6 +56,7 @@ euskalbar.dicts = function () {
       'eurovoc',
       'euskal_klasikoak',
       'euskalterm',
+      'farmazia',
       'goihata',
       'harluxet',
       'hautalan',
