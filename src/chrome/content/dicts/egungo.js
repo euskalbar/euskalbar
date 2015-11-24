@@ -30,14 +30,14 @@ euskalbar.dicts.egungo = function () {
     displayName: 'EEH',
     description: 'Egungo Euskararen Hiztegia',
 
-    homePage: 'http://www.ehu.es/eeh/',
+    homePage: 'http://www.ehu.eus/eeh/',
 
     method: 'GET',
 
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.ehu.es/eeh/cgi/bila';
+      return 'http://www.ehu.eus/eeh/cgi/bila';
     },
 
     getParams: function (opts) {

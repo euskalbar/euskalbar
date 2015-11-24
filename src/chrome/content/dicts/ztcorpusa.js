@@ -30,12 +30,12 @@ euskalbar.dicts.ztcorpusa = function () {
     displayName: 'ZT corpusa',
     description: 'Zientzia eta Teknologiaren corpusa',
 
-    homePage: 'http://www.ztcorpusa.net/',
+    homePage: 'http://www.ztcorpusa.eus/',
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://www.ztcorpusa.net/cgi-bin/kontsulta.py';
+      return 'http://www.ztcorpusa.eus/cgi-bin/kontsulta.py';
     },
 
     getParams: function (opts) {

@@ -32,7 +32,7 @@ euskalbar.dicts.elhuyar = function () {
     displayName: 'Elhuyar',
     description: 'Elhuyar Hiztegia',
 
-    homePage: "http://hiztegiak.elhuyar.org",
+    homePage: "http://hiztegiak.elhuyar.eus",
 
     pairs: ['eu-es', 'eu-fr', 'eu-en',
             'es-eu', 'fr-eu', 'en-eu'],
@@ -41,7 +41,7 @@ euskalbar.dicts.elhuyar = function () {
 
     getUrl: function (opts) {
       return [
-        'http://hiztegiak.elhuyar.org/', opts.source, '_', opts.target, '/', opts.term
+        'http://hiztegiak.elhuyar.eus/', opts.source, '_', opts.target, '/', opts.term
       ].join('');
     },
 

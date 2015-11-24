@@ -30,7 +30,7 @@ euskalbar.dicts.ehuskaratuak = function () {
     displayName: 'EHUskaratuak',
     description: 'EHUskaratuak, EHUren itzulpen-memoriak',
 
-    homePage: 'http://ehuskaratuak.ehu.es/',
+    homePage: 'http://ehuskaratuak.ehu.eus/',
 
     pairs: ['eu-es', 'eu-en', 'eu-fr',
             'es-eu', 'fr-eu', 'en-eu'],
@@ -38,7 +38,7 @@ euskalbar.dicts.ehuskaratuak = function () {
     method: 'POST',
 
     getUrl: function (opts) {
-      return 'http://ehuskaratuak.ehu.es/bilaketa/';
+      return 'http://ehuskaratuak.ehu.eus/bilaketa/';
     },
 
     getParams: function (opts) {

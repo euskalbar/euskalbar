@@ -32,7 +32,7 @@ euskalbar.dicts.zthiztegia = function () {
     displayName: 'ZT Hiztegia',
     description: 'Zientzia eta Teknologiaren hiztegi entziklopedikoa',
 
-    homePage: 'http://zthiztegia.elhuyar.org',
+    homePage: 'http://zthiztegia.elhuyar.eus',
 
     pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-la',
             'es-eu', 'fr-eu', 'en-eu', 'la-eu'],
@@ -40,7 +40,7 @@ euskalbar.dicts.zthiztegia = function () {
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://zthiztegia.elhuyar.org';
+      return 'http://zthiztegia.elhuyar.eus';
     },
 
     getParams: function (opts) {

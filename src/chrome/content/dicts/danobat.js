@@ -30,14 +30,14 @@ euskalbar.dicts.danobat = function () {
     displayName: 'Danobat',
     description: 'Danobat hiztegia',
 
-    homePage: 'http://hiztegia.danobatgroup.com/',
+    homePage: 'http://hiztegia.danobatgroup.eus/',
 
     pairs: ['eu-es', 'es-eu'],
 
     method: 'POST',
 
     getUrl: function (opts) {
-      return 'http://hiztegia.danobatgroup.com/eu/dictionary/search';
+      return 'http://hiztegia.danobatgroup.eus/eu/dictionary/search';
     },
 
     getParams: function (opts) {

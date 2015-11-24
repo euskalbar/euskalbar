@@ -37,7 +37,7 @@ euskalbar.dicts.zientzia_corpusa = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.ehu.es/ehg/cgi/zio/bilatuZio.pl';
+      return 'http://www.ehu.eus/ehg/cgi/zio/bilatuZio.pl';
     },
 
     getParams: function (opts) {

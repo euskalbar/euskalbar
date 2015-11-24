@@ -30,12 +30,12 @@ euskalbar.dicts.corpeus = function () {
     displayName: 'CorpEus',
     description: 'CorpEus - Internet euskarazko corpus gisa',
 
-    homePage: 'http://www.corpeus.org/',
+    homePage: 'http://corpeus.elhuyar.eus/',
 
     method: 'POST',
 
     getUrl: function (opts) {
-      return 'http://www.corpeus.org/cgi-bin/kontsulta.py';
+      return 'http://corpeus.elhuyar.eus/cgi-bin/kontsulta.py';
     },
 
     getParams: function (opts) {
@@ -46,7 +46,7 @@ euskalbar.dicts.corpeus = function () {
         'testu-hitza': opts.term,
       };
 
-      if (term.indexOf(' ') != -1) {
+      if (opts.term.indexOf(' ') != -1) {
         params['testu-hitza'] = '"' + opts.term + '"';
       }
 

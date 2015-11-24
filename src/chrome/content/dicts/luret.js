@@ -30,14 +30,14 @@ euskalbar.dicts.luret = function () {
     displayName: 'Lur ET',
     description: 'Lur Entziklopedia Tematikoa',
 
-    homePage: 'http://www.euskara.euskadi.net/r59-lursubhe/eu/contenidos/informacion/lursubhe/eu_lursubhe/lursubhe.html',
+    homePage: 'http://www.euskara.euskadi.eus/r59-lursubhe/eu/contenidos/informacion/lursubhe/eu_lursubhe/lursubhe.html',
 
     method: 'GET',
 
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.euskara.euskadi.net/r59-lursresd/eu/';
+      return 'http://www.euskara.euskadi.eus/r59-lursresd/eu';
     },
 
     getParams: function (opts) {

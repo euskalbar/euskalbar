@@ -37,7 +37,7 @@ euskalbar.dicts.pentsamenduaren_klasikoak = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.ehu.es/ehg/cgi/pkc/bilatuPkc.pl';
+      return 'http://www.ehu.eus/ehg/cgi/pkc/bilatuPkc.pl';
     },
 
     getParams: function (opts) {

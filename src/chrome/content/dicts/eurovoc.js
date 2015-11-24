@@ -32,14 +32,14 @@ euskalbar.dicts.eurovoc = function () {
     displayName: 'Eurovoc',
     description: 'Eurovoc Thesaurusa',
 
-    homePage: 'http://www.bizkaia.net/kultura/eurovoc/',
+    homePage: 'http://www.bizkaia.eus/kultura/eurovoc/index.asp?Tem_Codigo=2861&idioma=EU&dpto_biz=4&codpath_biz=4|292|2861',
 
     method: 'POST',
 
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://web.bizkaia.net/kultura/eurovoc/busqueda.asp';
+      return 'http://www.bizkaia.eus/kultura/eurovoc/busqueda.asp';
     },
 
     getParams: function (opts) {

@@ -30,7 +30,7 @@ euskalbar.dicts.epaitegiak = function () {
     displayName: 'Epaitegiak',
     description: 'Epaitegietako Lexikoa',
 
-    homePage: 'http://www.justizia.net/euskara-justizian',
+    homePage: 'http://www.justizia.eus/euskara-justizian',
 
     pairs: ['eu-es', 'es-eu'],
 
@@ -39,7 +39,7 @@ euskalbar.dicts.epaitegiak = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.justizia.net/euskara-justizian';
+      return 'http://www.justizia.eus/euskara-justizian';
     },
 
     getParams: function (opts) {

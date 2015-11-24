@@ -30,12 +30,12 @@ euskalbar.dicts.elhuyar_web_corpusa_konbinazioak = function () {
     displayName: 'ElhWebCorp konb.',
     description: 'Elhuyar Web Corpusa - Konbinazioak',
 
-    homePage: 'http://webcorpusak.elhuyar.org',
+    homePage: 'http://webcorpusak.elhuyar.eus',
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://webcorpusak.elhuyar.org/cgi-bin/kolokatuak.py';
+      return 'http://webcorpusak.elhuyar.eus/cgi-bin/kolokatuak.py';
     },
 
     getParams: function (opts) {

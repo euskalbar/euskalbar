@@ -33,7 +33,7 @@ euskalbar.dicts.euskalterm = function () {
     displayName: 'Euskalterm',
     description: 'Euskalterm datu-basea',
 
-    homePage: "http://www.euskara.euskadi.net/euskalterm/",
+    homePage: "http://www.euskara.euskadi.eus/euskalterm/",
 
     pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-de', 'eu-la',
             'es-eu', 'fr-eu', 'en-eu', 'de-eu', 'la-eu'],

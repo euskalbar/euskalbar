@@ -30,12 +30,12 @@ euskalbar.dicts.lexikoaren_behatokia = function () {
     displayName: 'Lexikoaren B.',
     description: 'Lexikoaren Behatokiaren corpusa',
 
-    homePage: 'http://lexikoarenbehatokia.euskaltzaindia.net/',
+    homePage: 'http://lexikoarenbehatokia.euskaltzaindia.eus',
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://lexikoarenbehatokia.euskaltzaindia.net/cgi-bin/kontsulta.py';
+      return 'http://lexikoarenbehatokia.euskaltzaindia.eus/cgi-bin/kontsulta.py';
     },
 
     getParams: function (opts) {

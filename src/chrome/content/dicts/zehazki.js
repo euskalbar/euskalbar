@@ -30,7 +30,7 @@ euskalbar.dicts.zehazki = function () {
     displayName: 'Zehazki',
     description: 'Zehazki Hiztegia',
 
-    homePage: 'http://ehu.es/ehg/cgi/zehazki/bila',
+    homePage: 'http://ehu.eus/ehg/cgi/zehazki/bila',
 
     pairs: ['es-eu'],
 
@@ -39,7 +39,7 @@ euskalbar.dicts.zehazki = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://ehu.es/ehg/cgi/zehazki/bila';
+      return 'http://ehu.eus/ehg/cgi/zehazki/bila';
     },
 
     getParams: function (opts) {

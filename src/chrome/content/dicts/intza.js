@@ -30,7 +30,7 @@ euskalbar.dicts.intza = function () {
     displayName: 'Intza',
     description: 'Intza proiektuaren lokuzioak',
 
-    homePage: 'http://intza.armiarma.com/',
+    homePage: 'http://intza.armiarma.eus/',
 
     pairs: ['eu-es', 'eu-fr',
             'es-eu', 'fr-eu'],
@@ -40,7 +40,7 @@ euskalbar.dicts.intza = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://intza.armiarma.com/cgi-bin/bilatu2.pl';
+      return 'http://intza.armiarma.eus/cgi-bin/bilatu2.pl';
     },
 
     getParams: function (opts) {

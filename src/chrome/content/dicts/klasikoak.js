@@ -30,26 +30,19 @@ euskalbar.dicts.klasikoak = function () {
     displayName: 'Klasikoak',
     description: 'Klasikoen Gordailua',
 
-    homePage: 'http://klasikoak.armiarma.com/',
+    homePage: 'http://klasikoak.armiarma.eus/',
 
     method: 'GET',
 
     mimetype: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://klasikoak.armiarma.com/cgi-bin/corpusBila.pl';
+      return 'http://klasikoak.armiarma.eus/cgi-bin/bila.pl';
     },
 
     getParams: function (opts) {
       return {
-        'check1': '1',
-        'hitza1': opts.term,
-        'mota1': 'hasi',
-        'alda': '1',
-        'idazlea': '',
-        'generoa': '0',
-        'garaia': '0',
-        'euskalkia': '0'
+        'testua': opts.term
       };
     },
 

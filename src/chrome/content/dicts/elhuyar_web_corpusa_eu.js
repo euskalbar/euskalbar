@@ -30,12 +30,12 @@ euskalbar.dicts.elhuyar_web_corpusa_eu = function () {
     displayName: 'ElhWebCorp eu',
     description: 'Elhuyar Web Corpusa - Euskarazkoa',
 
-    homePage: 'http://webcorpusak.elhuyar.org',
+    homePage: 'http://webcorpusak.elhuyar.eus',
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://webcorpusak.elhuyar.org/cgi-bin/kontsulta.py';
+      return 'http://webcorpusak.elhuyar.eus/cgi-bin/kontsulta.py';
     },
 
     getParams: function (opts) {

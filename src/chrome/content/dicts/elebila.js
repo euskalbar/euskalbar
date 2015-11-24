@@ -31,12 +31,12 @@ euskalbar.dicts.elebila = function () {
     description: 'Elebila euskarazko bilatzailea',
     contextCategory: 'root',
 
-    homePage: 'http://www.elebila.eu/search/',
+    homePage: 'http://elebila.elhuyar.eus',
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://www.elebila.eu/search/';
+      return 'http://elebila.elhuyar.eus/search/';
     },
 
     getParams: function (opts) {
@@ -45,7 +45,7 @@ euskalbar.dicts.elebila = function () {
         'optNon': '1'
       };
 
-      if (term.indexOf(' ') != -1) {
+      if (opts.term.indexOf(' ') != -1) {
         params['bilatu'] = '"' + opts.term + '"';
       }
 

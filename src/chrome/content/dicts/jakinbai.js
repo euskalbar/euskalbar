@@ -32,14 +32,14 @@ euskalbar.dicts.jakinbai = function () {
     displayName: 'Jakinbai',
     description: 'Jakinbai lanbide heziketarako hiztegia',
 
-    homePage: 'http://jakinbai.eu/hiztegia',
+    homePage: 'http://jakinbai.eus/hiztegia',
 
     pairs: ['eu-es', 'es-eu'],
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://jakinbai.eu/hiztegia';
+      return 'http://jakinbai.eus/hiztegia';
     },
 
     getParams: function (opts) {

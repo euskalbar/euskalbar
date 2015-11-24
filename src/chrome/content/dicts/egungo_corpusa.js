@@ -30,14 +30,14 @@ euskalbar.dicts.egungo_corpusa = function () {
     displayName: 'ETC',
     description: 'Egungo Testuen Corpusa',
 
-    homePage: 'http://www.ehu.es/etc/',
+    homePage: 'http://www.ehu.eus/etc/',
 
     method: 'GET',
 
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.ehu.es/etc';
+      return 'http://www.ehu.eus/etc';
     },
 
     getParams: function (opts) {

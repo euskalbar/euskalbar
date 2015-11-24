@@ -30,12 +30,12 @@ euskalbar.dicts.bergara = function () {
     displayName: 'Bergara',
     description: 'Bergaraldeko Hiztegia',
 
-    homePage: 'http://www.bergarakoeuskara.net/hiztegia/',
+    homePage: 'http://www.bergarakoeuskara.eus/hiztegia/',
 
     method: 'POST',
 
     getUrl: function (opts) {
-      return 'http://www.bergarakoeuskara.net/hiztegia/bilatu';
+      return 'http://www.bergarakoeuskara.eus/hiztegia/bilatu';
     },
 
     getParams: function (opts) {

@@ -37,7 +37,7 @@ euskalbar.dicts.euskal_klasikoak = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.ehu.es/ehg/cgi/kc/bilatu.pl';
+      return 'http://www.ehu.eus/ehg/cgi/kc/bilatu.pl';
     },
 
     getParams: function (opts) {

@@ -30,14 +30,14 @@ euskalbar.dicts.lurhe = function () {
     displayName: 'Lur HE',
     description: 'Lur Hiztegi Entziklopedikoa',
 
-    homePage: 'http://www.euskara.euskadi.net/r59-lursubhd/eu/contenidos/informacion/lursubhd/eu_lursubhd/lursubhd.html',
+    homePage: 'http://www.euskara.euskadi.eus/r59-lursubhd/eu/contenidos/informacion/lursubhd/eu_lursubhd/lursubhd.html',
 
     method: 'GET',
 
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.euskara.euskadi.net/r59-lursresd/eu';
+      return 'http://www.euskara.euskadi.eus/r59-lursresd/eu';
     },
 
     getParams: function (opts) {

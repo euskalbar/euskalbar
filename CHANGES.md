@@ -1,9 +1,10 @@
 # ChangeLog
 
 ## 5.0 bertsioa
-- Bilaketa konbinatuetan, hizkuntza pare bat erabiltzean beste hizkuntza bateko hiztegiak ez agertzea (#172).
+- .eus-era aldatu diren hiztegiak konponduta. (#220)
+- Bilaketa konbinatuetan, hizkuntza pare bat erabiltzean beste hizkuntza bateko hiztegiak ez agertzea. (#172)
 - Euskalterm orain euskadi-.eus domeinuan kontsultatzen da, ez euskadi.net-en.
-- Euskalterm hiztegiaren goiko izenburuan jada ez da "Elhuyar hiztegia" azaltzen (#219).
+- Euskalterm hiztegiaren goiko izenburuan jada ez da "Elhuyar hiztegia" azaltzen. (#219)
 - Hitzen osatze automatikoa aukerakoa bihurtu da. (#213)
 - Euskalbar lehen aldiz instalatzean, erabiltzaileak bistan dauden hiztegiak zeintzuk diren erabaki dezake. (#205)
 

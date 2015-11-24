@@ -30,14 +30,14 @@ euskalbar.dicts.elhuyar_web_corpusa_eu_es = function () {
     displayName: 'ElhWebCorp eu-es',
     description: 'Elhuyar Web Corpusa - Paraleloa (eu-es)',
 
-    homePage: 'http://webcorpusak.elhuyar.org',
+    homePage: 'http://webcorpusak.elhuyar.eus',
 
     pairs: ['eu-es', 'es-eu'],
 
     method: 'GET',
 
     getUrl: function (opts) {
-      return 'http://webcorpusak.elhuyar.org/cgi-bin/kontsulta2.py';
+      return 'http://webcorpusak.elhuyar.eus/cgi-bin/kontsulta2.py';
     },
 
     getParams: function (opts) {

@@ -32,7 +32,7 @@ euskalbar.dicts.energia = function () {
     displayName: 'Energia',
     description: 'EEEren Energia Hiztegia',
 
-    homePage: 'http://www.eve.es/diccionario.aspx',
+    homePage: 'http://www.eve.eus/diccionario.aspx',
 
     pairs: ['eu-es', 'eu-en', 'eu-fr',
             'es-eu', 'en-eu', 'fr-eu'],
@@ -41,7 +41,7 @@ euskalbar.dicts.energia = function () {
 
     getUrl: function (opts) {
       return (
-        'http://www.eve.es/Aula-didactica/Hiztegia.aspx?terminoEstado=' + opts.term +
+        'http://www.eve.eus/Aula-didactica/Hiztegia.aspx?terminoEstado=' + opts.term +
         '&idiomaEstado=' + opts.source +
         '&arloaEstado=edozein&fuzzyEstado=True&busquedaTerminoEstado=True' +
         '&tipoBusqueda=terminoak&term=' + opts.term + '#tabs-1'
