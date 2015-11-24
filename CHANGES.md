@@ -1,6 +1,8 @@
 # ChangeLog
 
 ## 5.0 bertsioa
+- Euskalterm orain euskadi-.eus domeinuan kontsultatzen da, ez euskadi.net-en.
+- Euskalterm hiztegiaren goiko izenburuan jada ez da "Elhuyar hiztegia" azaltzen (#219).
 - Hitzen osatze automatikoa aukerakoa bihurtu da. (#213)
 - Euskalbar lehen aldiz instalatzean, erabiltzaileak bistan dauden hiztegiak zeintzuk diren erabaki dezake. (#205)
 

@@ -43,7 +43,7 @@ euskalbar.dicts.euskalterm = function () {
     mimeType: "text/html; charset=ISO-8859-1",
 
     getUrl: function (opts) {
-      return 'http://www.euskara.euskadi.net/q91EusTermWar/kontsultaJSP/q91aAction.do';
+      return 'http://www.euskara.euskadi.eus/q91EusTermWar/kontsultaJSP/q91aBilaketaAction.do';
     },
 
     getParams: function (opts) {
@@ -86,7 +86,7 @@ euskalbar.dicts.euskalterm = function () {
       );
       output = output.replace(
           /q91aBilaketaAction/g,
-          "http://www.euskara.euskadi.net/r59-15172x/eu/q91EusTermWar/kontsultaJSP/q91aBilaketaAction"
+          "http://www.euskara.euskadi.eus/q91EusTermWar/kontsultaJSP/q91aBilaketaAction"
       );
       output = output.replace(
           /<table  class=\"erantzuna\"/g,

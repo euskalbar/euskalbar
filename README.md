@@ -2,7 +2,7 @@
 
 Basque translator's friend.
 
-Dictionaries, glossaries, corpus and more at one click.
+Dictionaries, glossaries, corpora and more at one click.
 
 **Download**: https://addons.mozilla.org/firefox/addon/euskalbar/
 
