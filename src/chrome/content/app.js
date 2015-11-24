@@ -103,7 +103,7 @@ euskalbar.app = function () {
             gBrowser.selectedTab = newTab;
             euskalbar.ui.initVisibleDicts();
           }
-        }
+        };
         timer.initWithCallback(event, 5000, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
       }
 
@@ -249,9 +249,10 @@ euskalbar.app = function () {
           key = "onkey2";
         }
 
-        euskalbar.app.initHTML(doc, key);
-
         var queryDicts = euskalbar.prefs[key];
+		queryDicts = queryDicts.filter(function (dictName){if ('pairs' in euskalbar.dicts[dictName]) return true; else return euskalbar.dicts[dictName].pairs.indexOf(source+'-'+target)!==-1;});
+
+        euskalbar.app.initHTML(doc, queryDicts);
 
         // Go through each dictionary
         euskalbar.dicts.available.each(function (dictName) {
@@ -268,12 +269,10 @@ euskalbar.app = function () {
     },
 
     // Initializes the HTML files in preparation of the combined queries
-    initHTML: function (doc, key) {
+    initHTML: function (doc, dictNames) {
       // Sets the theme for the HTML files
       var link = doc.getElementsByTagName("link")[0];
       link.setAttribute("href", euskalbar.prefs.skin);
-
-      var dictNames = euskalbar.prefs[key];
 
       dictNames.forEach(function (dictName) {
         var dictDisplayName = euskalbar.dicts[dictName].displayName;
@@ -471,7 +470,7 @@ euskalbar.app = function () {
           notify: function(timer) {
             euskalbarNotify.removeCurrentNotification();
           }
-        }
+        };
 
         timer.initWithCallback(event, 4000, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
 
