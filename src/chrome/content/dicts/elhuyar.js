@@ -61,6 +61,8 @@ euskalbar.dicts.elhuyar = function () {
                            .createInstance(Components.interfaces.nsIDOMSerializer);
         var parser = new DOMParser();
 
+        var dataWord = data.substring(data.indexOf('<div class="boxHitza fLeft">'),
+                                     data.indexOf('<div class="boxiconsHitza">'));
         var dataOne = data.substring(data.indexOf('<div class="innerDef">'),
                                      data.indexOf('<div class="innerRelac">'));
         var dataOneDOM = parser.parseFromString(dataOne, "text/html");
@@ -81,7 +83,7 @@ euskalbar.dicts.elhuyar = function () {
         dataTwo = dataTwo.replace(/<a/g, '<strong');
         dataTwo = dataTwo.replace(/<\/a/g, '</strong');
 
-        var dataThree = data.substring(data.indexOf('<div class="column bat">'),
+        var dataThree = data.substring(data.indexOf('<div class="boxEzker">'),
                                        data.indexOf('<div id="corpusa_edukia">'));
         var dataThreeDOM = parser.parseFromString(dataThree, "text/html");
         var threeNodes = dataThreeDOM.getElementsByTagName('a');
@@ -96,7 +98,7 @@ euskalbar.dicts.elhuyar = function () {
         }
         dataThree = domSerializer.serializeToString(dataThreeDOM);
 
-        return dataOne + dataTwo + dataThree;
+        return dataWord + dataOne + dataTwo + dataThree;
       }
     }
 
