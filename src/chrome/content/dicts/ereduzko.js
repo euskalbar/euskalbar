@@ -30,7 +30,7 @@ euskalbar.dicts.ereduzko = function () {
     displayName: 'EPG',
     description: 'Ereduzko Prosa Gaur',
 
-    homePage: 'http://www.ehu.eus/cgi-bin/ereduzkoa/',
+    homePage: 'http://www.ehu.eus/cgi-bin/ereduzkoa/bilatu09.pl',
 
     method: 'GET',
 

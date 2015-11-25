@@ -30,7 +30,7 @@ euskalbar.dicts.literatura = function () {
     displayName: 'Literatura',
     description: 'Literatura Terminoen Hiztegia',
 
-    homePage: 'http://www.euskaltzaindia.eus/',
+    homePage: 'http://www.euskaltzaindia.eus/index.php?option=com_xslt&lang=eu&layout=lth_list&search=1&view=frontpage%20&Itemid=414',
 
     method: 'GET',
 

@@ -30,7 +30,7 @@ euskalbar.dicts.batua = function () {
     displayName: 'Batua',
     description: 'Hiztegi Batua',
 
-    homePage: 'http://www.euskaltzaindia.eus/',
+    homePage: 'http://www.euskaltzaindia.eus/hiztegibatua',
 
     method: 'POST',
 

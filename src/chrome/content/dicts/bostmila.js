@@ -30,7 +30,7 @@ euskalbar.dicts.bostmila = function () {
     displayName: '5000',
     description: '5000 hiztegia',
 
-    homePage: 'http://www.bostakbat.org/azkue/',
+    homePage: 'http://www.bostakbat.org/azkue/index.php?q=3',
 
     pairs: ['eu-es',
             'es-eu'],
