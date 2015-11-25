@@ -49,7 +49,7 @@ euskalbar.dicts.menu = [
       { name: 'menu.general.Hauta Lanerako Euskal Hiztegia',
         url: 'http://www.euskara.euskadi.net/r59-sarasola/eu/sarasola/sarasola.apl' },
       { name: 'menu.general.BFA Terminological Dictionary',
-        url: 'http://aplijava.bizkaia.net/TK00/servlet/webAgentTK00' },
+        url: 'http://apps.bizkaia.net/TK00/servlet/webAgentTK00' },
       { sep: true },
       { name: 'menu.general.Morris dictionary',
         url: 'http://www1.euskadi.net/morris' },

@@ -77,11 +77,11 @@ euskalbar.dicts.telekomunikazioak = function () {
           break;
       }
 
-      var textbox = doc.getElementsByName("txtHitza")[0];
+      var textbox = opts.doc.getElementsByName("txtHitza")[0];
       textbox.value = opts.term;
-      var langcombo = doc.getElementsByName("selectHizkuntza")[0];
+      var langcombo = opts.doc.getElementsByName("selectHizkuntza")[0];
       langcombo.selectedIndex = i;
-      var button = doc.getElementsByName("submit")[0];
+      var button = opts.doc.getElementsByName("submit")[0];
       button.click();
     },
 

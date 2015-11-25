@@ -1,6 +1,7 @@
 # ChangeLog
 
 ## 5.0 bertsioa
+- Hauta lanerako hiztegia, ZT Hiztegia, Telekomunikazio hiztegia eta Lanbide ekimeneko hiztegia konpondu dira. (#218)
 - Hiztegien menuan .eus-erako aldaketak eginda eta ez dabiltzanak ezabatuta (Open_tran, poloniera-euskara, Kondia, Sukaldaritza).
 - .eus-era aldatu diren hiztegiak konponduta. (#220)
 - Bilaketa konbinatuetan, hizkuntza pare bat erabiltzean beste hizkuntza bateko hiztegiak ez agertzea. (#172)

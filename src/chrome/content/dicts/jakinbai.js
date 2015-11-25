@@ -57,9 +57,9 @@ euskalbar.dicts.jakinbai = function () {
           break;
       }
 
-      $('field-bilatu', doc).value = opts.term;
-      $('selectHizkuntza', doc).selectedIndex = i;
-      $('bot_bilatu', doc).click();
+      $('field-bilatu', opts.doc).value = opts.term;
+      $('selectHizkuntza', opts.doc).selectedIndex = i;
+      $('bot_bilatu', opts.doc).click();
     },
 
   };

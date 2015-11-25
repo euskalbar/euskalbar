@@ -47,8 +47,8 @@ euskalbar.dicts.hautalan = function () {
     },
 
     postQuery: function (opts) {
-      $('hitza', doc).value = opts.term;
-      $('bilatu', doc).click();
+      $('hitza', opts.doc).value = opts.term;
+      $('bilatu', opts.doc).click();
     },
 
   };

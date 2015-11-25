@@ -67,9 +67,9 @@ euskalbar.dicts.zthiztegia = function () {
             break;
         }
 
-        $('txtBilagaila', doc).value = opts.term;
-        $('selectHizkuntza', doc).selectedIndex = i;
-        $('bot_bilatu', doc).click();
+        $('txtBilagaila', opts.doc).value = opts.term;
+        $('selectHizkuntza', opts.doc).selectedIndex = i;
+        $('bot_bilatu', opts.doc).click();
 
     },
 
