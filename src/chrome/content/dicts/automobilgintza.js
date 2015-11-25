@@ -24,82 +24,29 @@ if (!euskalbar) var euskalbar = {};
 
 if (!euskalbar.dicts) euskalbar.dicts = {};
 
-euskalbar.dicts.elhuyar = function () {
+euskalbar.dicts.automobilgintza = function () {
 
   var $U = euskalbar.lib.utils;
 
   return {
-    displayName: 'Elhuyar',
-    description: 'Elhuyar Hiztegia',
+    displayName: 'Automobilgintza',
+    description: 'Automobilgintza Hiztegia',
 
-    homePage: "http://hiztegiak.elhuyar.eus",
+    homePage: "http://www.automotivedictionary.net",
 
-    pairs: ['eu-es', 'eu-fr', 'eu-en',
-            'es-eu', 'fr-eu', 'en-eu'],
+    pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-de', 'eu-zh',
+            'es-eu', 'fr-eu', 'en-eu', 'de-eu', 'zh-eu'],
 
     method: 'GET',
 
     getUrl: function (opts) {
       return [
-        'http://hiztegiak.elhuyar.eus/', opts.source, '_', opts.target, '/', opts.term
+        'http://www.automotivedictionary.net/', opts.source, '/', opts.term
       ].join('');
     },
 
     getParams: function (opts) {
       return {};
-    },
-
-    scrap: function (data, opts) {
-      if (data.indexOf('Ez da emaitzarik aurkitu') != -1) {
-        data = data.substring(data.indexOf('<div class="wrapDef">'),
-                              data.indexOf('<div class="column bat">'));
-        data = data.replace('/proposamenak/',
-                            this.homePage + '/proposamenak/');
-        return data;
-      } else {
-        var domSerializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"]
-                           .createInstance(Components.interfaces.nsIDOMSerializer);
-        var parser = new DOMParser();
-
-        var dataWord = data.substring(data.indexOf('<div class="boxHitza fLeft">'),
-                                     data.indexOf('<div class="boxiconsHitza">'));
-        var dataOne = data.substring(data.indexOf('<div class="innerDef">'),
-                                     data.indexOf('<div class="innerRelac">'));
-        var dataOneDOM = parser.parseFromString(dataOne, "text/html");
-        var oneNodes = dataOneDOM.getElementsByTagName('a');
-        for (var i in oneNodes) {
-          try {
-            oneNodes[i].href = [
-              this.homePage, '/', opts.target, '_', opts.source, '/',
-              oneNodes[i].childNodes[0].innerHTML
-            ].join('');
-          } catch (e) {
-          }
-        }
-        dataOne = domSerializer.serializeToString(dataOneDOM);
-
-        var dataTwo = data.substring(data.indexOf('<div class="innerRelac">'),
-                                     data.indexOf('<div class="column bat">'));
-        dataTwo = dataTwo.replace(/<a/g, '<strong');
-        dataTwo = dataTwo.replace(/<\/a/g, '</strong');
-
-        var dataThree = data.substring(data.indexOf('<div class="boxEzker">'),
-                                       data.indexOf('<div id="corpusa_edukia">'));
-        var dataThreeDOM = parser.parseFromString(dataThree, "text/html");
-        var threeNodes = dataThreeDOM.getElementsByTagName('a');
-        for (var i in threeNodes) {
-          try {
-            threeNodes[i].href = [
-              this.homePage, '/', opts.source, '_', opts.target, '/',
-              threeNodes[i].innerHTML
-            ].join('');
-          } catch (e) {
-          }
-        }
-        dataThree = domSerializer.serializeToString(dataThreeDOM);
-
-        return dataWord + dataOne + dataTwo + dataThree;
-      }
     }
 
   };
