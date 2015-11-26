@@ -1,7 +1,8 @@
 # ChangeLog
 
 ## 5.0 bertsioa
-- Autmobilgintza hiztegia gehitu da. (#223)
+- Elhuyarren hiztegi automatikoak gehitu dira. (#224)
+- Automobilgintza hiztegia gehitu da. (#223)
 - Hauta lanerako hiztegia, ZT Hiztegia, Telekomunikazio hiztegia eta Lanbide ekimeneko hiztegia konpondu dira. (#218)
 - Hiztegien menuan .eus-erako aldaketak eginda eta ez dabiltzanak ezabatuta (Open_tran, poloniera-euskara, Kondia, Sukaldaritza).
 - .eus-era aldatu diren hiztegiak konponduta. (#220)
