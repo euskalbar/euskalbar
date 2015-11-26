@@ -1,6 +1,7 @@
 # ChangeLog
 
 ## 5.0 bertsioa
+- Botoi gisa ez dauden hiztegien menuko hiztegiak botoi gisa ere jarri dira (HBEP, BFA Terminologikoa, Auñamendi, Justizia, Joana Albret, Parlamentua, Eibar, XX. mendekoa). (#221) 
 - Elhuyarren hiztegi automatikoak gehitu dira. (#224)
 - Automobilgintza hiztegia gehitu da. (#223)
 - Hauta lanerako hiztegia, ZT Hiztegia, Telekomunikazio hiztegia eta Lanbide ekimeneko hiztegia konpondu dira. (#218)
