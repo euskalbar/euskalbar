@@ -30,7 +30,7 @@ euskalbar.dicts.elhuyar_web_corpusa_konbinazioak = function () {
     displayName: 'ElhWebCorp konb.',
     description: 'Elhuyar Web Corpusa - Konbinazioak',
 
-    homePage: 'http://webcorpusak.elhuyar.eus',
+    homePage: 'http://webcorpusak.elhuyar.eus/sarrera_konbinazioak.html',
 
     method: 'GET',
 

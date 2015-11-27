@@ -30,7 +30,7 @@ euskalbar.dicts.elhuyar_web_corpusa_eu = function () {
     displayName: 'ElhWebCorp eu',
     description: 'Elhuyar Web Corpusa - Euskarazkoa',
 
-    homePage: 'http://webcorpusak.elhuyar.eus',
+    homePage: 'http://webcorpusak.elhuyar.eus/sarrera_elebakarra.html',
 
     method: 'GET',
 
@@ -42,6 +42,7 @@ euskalbar.dicts.elhuyar_web_corpusa_eu = function () {
       return {
         'testu-hitza1': opts.term,
         'formalema1': 'lema',
+        'konparazioa1': 'da',
         'ordenatu': 'ordenadok',
       };
     },
