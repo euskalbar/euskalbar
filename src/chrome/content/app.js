@@ -250,7 +250,7 @@ euskalbar.app = function () {
         }
 
         var queryDicts = euskalbar.prefs[key];
-		queryDicts = queryDicts.filter(function (dictName){if ('pairs' in euskalbar.dicts[dictName]) return true; else return euskalbar.dicts[dictName].pairs.indexOf(source+'-'+target)!==-1;});
+		queryDicts = queryDicts.filter(function (dictName){if (euskalbar.dicts[dictName].pairs=='eu-eu') return true; else return euskalbar.dicts[dictName].pairs.indexOf(source+'-'+target)!==-1;});
 
         euskalbar.app.initHTML(doc, queryDicts);
 
