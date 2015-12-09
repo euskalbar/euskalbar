@@ -50,7 +50,7 @@ euskalbar.stats = function () {
     /* Migrates stats from the old SQLite-based backend to
      * preference-based counters*/
     migrate: function () {
-      let statsFilename = 'euskalbar.sqlite',
+      var statsFilename = 'euskalbar.sqlite',
           file = FileUtils.getFile("ProfD", [statsFilename]),
           conn = Services.storage.openDatabase(file);
 
@@ -70,7 +70,7 @@ euskalbar.stats = function () {
       // Using synchronous query since we need to have the data before
       // continuing forward
       while (statement.executeStep()) {
-        let id = statement.row.id,
+        var id = statement.row.id,
             count = statement.row.count;
 
         if (id !== null) {

@@ -66,7 +66,7 @@ euskalbar.prefs = function () {
     return branch.getComplexValue(pref, Ci.nsISupportsString).data;
   }
   function setCharPref(branch, pref, newValue) {
-    let str = Cc["@mozilla.org/supports-string;1"]
+    var str = Cc["@mozilla.org/supports-string;1"]
                 .createInstance(Ci.nsISupportsString);
     str.data = newValue;
     branch.setComplexValue(pref, Ci.nsISupportsString, str);
@@ -87,7 +87,7 @@ euskalbar.prefs = function () {
   var listeners = [];
 
   function triggerListeners(name) {
-    for (let i=0; i<listeners.length; i++) {
+    for (var i=0; i<listeners.length; i++) {
       try {
         listeners[i](name);
       } catch (e) {
@@ -142,7 +142,7 @@ euskalbar.prefs = function () {
     init: function () {
       var defaultBranch = Services.prefs.getDefaultBranch(branchName);
 
-      let scope = {
+      var scope = {
         pref: function (pref, value) {
           if (pref.substr(0, branchName.length) != branchName) {
             Cu.reportError(new Error("Ignoring default preference " + pref +
@@ -151,7 +151,7 @@ euskalbar.prefs = function () {
           }
           pref = pref.substr(branchName.length);
 
-          let [getter, setter] = typeMap[typeof value];
+          var [getter, setter] = typeMap[typeof value];
           setter(defaultBranch, pref, value);
           defineProperty(pref, false, getter, setter);
         }
@@ -180,7 +180,7 @@ euskalbar.prefs = function () {
     },
 
     removeListener: function (listener) {
-      let index = listeners.indexOf(listener);
+      var index = listeners.indexOf(listener);
       if (index >= 0) {
         listeners.splice(index, 1);
       }
