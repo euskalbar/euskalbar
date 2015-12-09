@@ -7,13 +7,13 @@
     <!-- Derrigorrezko elementuak -->
     <em:id>euskalbar@interneteuskadi.org</em:id>
     <em:name>Euskalbar</em:name>
-    <em:version>4.2.1</em:version>
+    <em:version>4.3</em:version>
 
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
       	<em:minVersion>17.*</em:minVersion>
-      	<em:maxVersion>38.*</em:maxVersion>
+      	<em:maxVersion>43.*</em:maxVersion>
       </Description>
     </em:targetApplication>
 
@@ -32,8 +32,8 @@
     <em:contributor>Ion Errasti</em:contributor>
     <em:contributor>Asier Iturralde Sarasola</em:contributor>
 
-    <em:description>Euskara hiztegiak</em:description>
-    <em:homepageURL>http://www.euskalbar.eu</em:homepageURL>
+    <em:description>Euskara hiztegiak eta bestelako tresnak (corpusak, zuzentzaileak, bilatzaileak...)</em:description>
+    <em:homepageURL>http://euskalbar.eu</em:homepageURL>
     <em:iconURL>chrome://euskalbar/skin/euskalbar32.png</em:iconURL>
     <em:icon64URL>chrome://euskalbar/skin/euskalbar64.png</em:icon64URL>
     <em:optionsURL>chrome://euskalbar/content/prefs.xul</em:optionsURL>

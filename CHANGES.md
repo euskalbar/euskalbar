@@ -1,6 +1,6 @@
 # ChangeLog
 
-## 5.0 bertsioa
+## 4.3 bertsioa
 - Hiztegien menuan gehitu botoia duten baina hiztegien menuan ez dauden hiztegiak menuan gehitu. (#222) 
 - Botoi gisa ez dauden hiztegien menuko hiztegiak botoi gisa ere jarri dira (HBEP, BFA Terminologikoa, Auñamendi, Justizia, Joana Albret, Parlamentua, Eibar, XX. mendekoa). (#221) 
 - Elhuyarren hiztegi automatikoak gehitu dira. (#224)
