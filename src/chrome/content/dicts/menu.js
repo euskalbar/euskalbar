@@ -82,6 +82,8 @@ euskalbar.dicts.menu = [
         url: 'http://www.drogomedia.com/eu/diccionarios/0-todos/' },
       { name: 'menu.terminological.Energy',
         url: 'http://www.eve.eus/diccionario.aspx' },
+      { name: 'menu.terminological.Pharmacy',
+        url: 'http://www.feuse.info/hiztegia/index.php' },
       { name: 'menu.terminological.Justice',
         url: 'http://www.justizia.eus/euskara-justizian' },
       { name: 'menu.terminological.Eurovoc Thesaurus',
