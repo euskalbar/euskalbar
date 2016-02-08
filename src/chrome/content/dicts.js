@@ -91,6 +91,7 @@ euskalbar.dicts = function () {
       'ostadar',
       'pentsamenduaren_klasikoak',
       'telekomunikazioak',
+      'transvision',
       'uzei',
       'wikipedia',
       'xuxenweb',
