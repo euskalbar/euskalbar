@@ -2,6 +2,7 @@
 
 ## 4.4 bertsioa
 - Farmazia hiztegia gehitu da. 
+- FUEL liburutegia ezin dela 47tik aurrera erabili dioen errorea konpondu da. (#226) 
 
 ## 4.3 bertsioa
 - Hiztegien menuan gehitu botoia duten baina hiztegien menuan ez dauden hiztegiak menuan gehitu. (#222) 

@@ -290,7 +290,7 @@ euskalbar.lib.utils = {};
   };
 
   this.log = function (msg) {
-    Application.console.log(msg);
+    console.log(msg);
   };
 
 
