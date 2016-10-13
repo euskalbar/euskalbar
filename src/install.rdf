@@ -41,6 +41,8 @@
     <!-- Hedapena despaketatuta instalatzen du -->
     <em:unpack>true</em:unpack>
 
+	<em:multiprocessCompatible>true</em:multiprocessCompatible>
+	
   </Description>
 
 </RDF:RDF>
