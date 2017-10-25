@@ -1,0 +1,45 @@
+body
+{  
+    color: rgb(34, 34, 34);
+    font-family: bitstream vera sans, verdana, arial;
+    font-size: 10pt;
+    background-color: #FFF;
+    width: 100%;
+}
+
+.irudia
+{
+    width: 20px;
+    height: 20px;
+}
+
+.izenburua
+{
+    font-weight: bold;
+}
+
+#HizkuntzaBikoteaSelect, #BilatzekoaText
+{
+    -moz-appearance: none;
+}
+
+#BilatzekoaText
+{
+    width: 100px;
+}
+
+#HizkuntzaBikoteaSelect, #LaguntzaEsteka, #HobespenakEsteka, #ZerrendaEsteka, #EstatistikakEsteka
+{
+    cursor: pointer;
+}
+
+.btn
+{
+    margin-bottom: 0;
+    vertical-align: middle;
+    padding: 0px 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 10pt;
+    cursor: pointer;
+}

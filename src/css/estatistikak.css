@@ -1,0 +1,56 @@
+body
+{
+    margin: 0px;
+    color: rgb(34, 34, 34);
+    font-family: bitstream vera sans, verdana, arial;
+    font-size: 10pt;
+}
+
+h1
+{
+    border-style: none;
+    border-width: 1px;
+    font-size: 12pt;
+    text-align: center;
+    width: 96%;
+    margin-left: 2%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+p
+{
+    margin: 0px;
+    font-family: bitstream vera sans, verdana, arial;
+}
+
+a
+{
+    color: rgb(194, 37, 47);
+}
+
+a:hover
+{
+    color: rgb(0, 0, 0);
+}
+
+table, th, td
+{
+    text-align: left;
+}
+
+th, .kopurua
+{
+    text-align: center;
+}
+
+table, th, td
+{
+    border: 1px solid black;
+}
+
+table
+{
+    margin-left:auto; 
+    margin-right:auto;
+}

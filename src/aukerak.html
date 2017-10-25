@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Euskalbar - Hobespenak</title>
+        <link rel="stylesheet" href="css/aukerak.css" type="text/css">
+    </head>
+    <body id="AukerakBody">
+
+        <form name="HizkuntzaHobespenakForm" id="HizkuntzaHobespenakForm">
+            <h3><label id="HizkuntzaHobespenakLabel" class="izenburua">Hizkuntza</label></h3>
+            <p>
+                <label id="HizkuntzaBikoteaHobespenaLabel" for="HizkuntzaBikoteaHobespenaSelect">Abiarazteko hizkuntza-bikotea</label>
+                <select id="HizkuntzaBikoteaHobespenaSelect" name="HizkuntzaBikoteaHobespena">
+                    <option>EU &rarr; AR</option>
+                    <option>AR &rarr; EU</option>
+                    <option>EU &rarr; DE</option>
+                    <option>DE &rarr; EU</option>
+                    <option>EU &rarr; EN</option>
+                    <option>EN &rarr; EU</option>
+                    <option>EU &rarr; ES</option>
+                    <option>ES &rarr; EU</option>
+                    <option>EU &rarr; FR</option>
+                    <option>FR &rarr; EU</option>
+                    <option>EU &rarr; HI</option>
+                    <option>HI &rarr; EU</option>
+                    <option>EU &rarr; JP</option>
+                    <option>JP &rarr; EU</option>
+                    <option>EU &rarr; LA</option>
+                    <option>LA &rarr; EU</option>
+                    <option>EU &rarr; OC</option>
+                    <option>OC &rarr; EU</option>
+                    <option>EU &rarr; PT</option>
+                    <option>PT &rarr; EU</option>
+                    <option>EU &rarr; SW</option>
+                    <option>SW &rarr; EU</option>
+                    <option>EU &rarr; ZH</option>
+                    <option>ZH &rarr; EU</option>
+               </select>
+            </p>
+        </form>
+
+        <hr />
+
+        <form name="FitxaHobespenakForm" id="FitxaHobespenakForm">
+            <h3><label id="FitxaHobespenakLabel" class="izenburua" >Fitxen hobespenak</label></h3>
+            <p>
+                <input type="checkbox" id="FitxakBerrerabiliHobespenaCheckbox" name="FitxakBerrerabiliHobespena" />
+                <label id="FitxakBerrerabiliHobespenaLabel" for="FitxakBerrerabiliHobespenaCheckbox">Berrerabili fitxak</label>
+            </p>
+            <p>
+                <input type="checkbox" id="FitxakAtzeanHobespenaCheckbox" name="FitxakAtzeanHobespena"  />
+                <label id="FitxakAtzeanHobespenaLabel" for="FitxakAtzeanHobespenaCheckbox">Fitxak atzeko planoan ireki</label>
+            </p>
+        </form>
+
+        <hr />
+
+        <form name="BaliabideenAukerakHobespenakForm" id="BaliabideenAukerakHobespenakForm">
+            <div id="BaliabideenAukerakTaula" align="center" class="taula">  
+                <h3 id="BaliabideenAukerakLabel">Bistaratzeko baliabideak</h3>
+                <div id="BaliabideenAukerakBaliabideak" class="taulaed">
+                </div>
+            </div>
+        </form>
+
+        <hr />
+
+        <form name="AurreratuaEnterHobespenakForm" id="AurreratuaEnterHobespenakForm">
+            <div id="AurreratuaEnterTaula" align="center" class="taula">   
+                <h3 id="AurreratuaEnterLabel">"Enter" sakatzean irekitzeko baliabideak</h3>
+                <div id="AurreratuaEnterBaliabideak" class="taulaed">
+                </div>
+            </div>
+        </form>     
+        <p><sup>*</sup>: Baliabide hauek mezu modal bat erakusten dutenez, Enter bidezko fitxa askoren irekitzea oztopatu dezakete</p>
+
+        <hr />
+
+        <form name="AurreratuaShiftEnterHobespenakForm" id="AurreratuaShiftEnterHobespenakForm">
+            <div id="AurreratuaShiftEnterTaula" align="center" class="taula">   
+                <h3 id="AurreratuaShiftEnterLabel">"Shift + Enter" sakatzean modu konbinatuan irekitzeko baliabideak</h3>
+                <div id="AurreratuaShiftEnterBaliabideak" class="taulaed">
+                </div>
+            </div>
+        </form>     
+
+        <hr />
+
+        <form name="AurreratuaCtrlEnterHobespenakForm" id="AurreratuaCtrlEnterHobespenakForm">
+            <div id="AurreratuaCtrlEnterTaula" align="center" class="taula">   
+                <h3 id="AurreratuaCtrlEnterLabel">"Ktrl + Enter" sakatzean modu konbinatuan irekitzeko baliabideak</h3>
+                <div id="AurreratuaCtrlEnterBaliabideak" class="taulaed">
+                </div>
+            </div>
+        </form>     
+
+        <hr />
+
+        <script src="js/baliabideak.js"></script>
+        <script src="js/hobespenak.js"></script>
+        <script src="js/aukerak.js"></script>
+    </body>
+</html>

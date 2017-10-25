@@ -1,5 +1,26 @@
 # ChangeLog
 
+## 5.0 bertsioa
+- Berregite osoa Webextensions APIra moldatzeko. (#234, # 214, #201)
+- Drogomedia hiztegia gehitu da zerrendan (botoia ez, ezin baita kontsultatu). (#236)
+- EGAMaster hiztegia gehitu da. (#231)
+- Farmazia hiztegia konpondu da. (#232)
+- Freelang hiztegia gehitu da. (#194)
+- GEMET ingurumen thesaurus-a gehitu da. (#237)
+- Gizarte Zerbitzuen hiztegia gehitu da. (#227)
+- Gotzon Garateren atsotitzak gehitu dira. (#235)
+- Laneki hiztegia konpondu da. (#230)
+- Nafarroako euskalkien hiztegia gehitu da. (#233)
+- Trengintza hiztegia gehitu da. (#228)
+- Zientzia eta Teknologiaren hiztegi entziklopedikoa konpondu da.
+- Zurgintza hiztegia gehitu da. (#229)
+- BFA Hiztegi Terminologikoa kendu da (ezin da egin Firefox-en API berrian).
+- CorpEus kendu da (webgunea ez dabil).
+- Elebila kendu da (webgunea ez dabil).
+- GFA-ren itzulpen memoriak kendu dira (ezin da egin Firefox-en API berrian).
+- Labayru hiztegia kendu da bilaketa konbinatutik (webguneak ez du XHR eskaerarik onartzen kanpotik).
+- Microsoft hiztegia kendu da (ezin da egin Firefox-en API berrian).
+
 ## 4.4 bertsioa
 - Farmazia hiztegia gehitu da. 
 - FUEL liburutegia ezin dela 47tik aurrera erabili dioen errorea konpondu da. (#226) 
