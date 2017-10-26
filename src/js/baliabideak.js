@@ -1092,6 +1092,52 @@ baliabideendatuak.freelang = function ()
   };
 }();
 
+baliabideendatuak.garate = function ()
+{
+  return {
+    name: 'garate',
+    displayName: 'Garate',
+    description: 'Gotzon Garate - Atsotitzak',
+    category: 'Fraseologia hiztegiak',
+    berrerabiltzekoitxi: true,
+    title: ['Gotzon Garate - Atsotitzak'],
+    homePage: 'http://www.ametza.com/bbk/htdocs/garate.htm',
+    pairs: ['eu'],
+    method: 'POST',
+    getUrl: function (opts)
+    {
+      return 'http://www.ametza.com/cgi-bin-bb/HTMODFOR?ActionField=getmodel&$SetAplicacion=BBK&$ModelBila=/bbk/htdocs/bilaketl.htm&$ModelBurua=/bbk/htdocs/emaiburu.htm&$ModelEmaitza=/bbk/htdocs/emaitza.htm&$ModelBalioki=/bbk/htdocs/balioki.htm&$ModelFrame=/bbk/htdocs/emaifram.htm&$Hizkuntza=E&CmdGetModel=/bbk/htdocs/bilaketl.htm';
+    },
+    getParams: function (opts)
+    {
+      return {
+        'form_name_or_index':0,
+        'ActionField':'exemodel',
+        '$Hizkuntza':'E',
+        '$ModelFSarrera':'',  
+        '$ModelSarrera':'',  
+        '$ModelFBila':'',  
+        '$ModelFBila':'/bbk/htdocs/bilaketl.htm',
+        '$ModelBurua':'/bbk/htdocs/emaiburu.htm',
+        '$ModelEmaitza':'/bbk/htdocs/emaitza.htm',
+        '$ModelBalioki':'/bbk/htdocs/balioki.htm',
+        '$ModelFrame':'/bbk/htdocs/emaifram.htm',
+        '$SetAplicacion':'BBK',
+        '$CmdGetModel':'',
+        '@20':'',
+        '@1':'',
+        '@01xmt^,11':opts.term,
+        '@01,12':'&',
+        '@01xmt^,12':'',  
+        '@01,13':'&',
+        '@01xmt^,13':'',
+        '@01,14':'&',
+        '@01xmt^,14':'',  
+      };
+    },
+  };
+}();
+
 baliabideendatuak.gemet = function ()
 {
   return {
@@ -1148,49 +1194,41 @@ baliabideendatuak.gizarte = function ()
   };
 }();
 
-baliabideendatuak.garate = function ()
+baliabideendatuak.glosbe=function()
 {
   return {
-    name: 'garate',
-    displayName: 'Garate',
-    description: 'Gotzon Garate - Atsotitzak',
-    category: 'Fraseologia hiztegiak',
-    berrerabiltzekoitxi: true,
-    title: ['Gotzon Garate - Atsotitzak'],
-    homePage: 'http://www.ametza.com/bbk/htdocs/garate.htm',
-    pairs: ['eu'],
-    method: 'POST',
+    name: 'glosbe',
+    displayName: 'Glosbe',
+    description: 'Glosbe hiztegia',
+    category: 'Hiztegi orokor eleaniztunak',
+    homePage: "https://glosbe.com/",
+    pairs: ['eu-hi', 'eu-ar', 'eu-en', 'eu-es', 'eu-zh', 'eu-pt', 'eu-de', 'eu-fr', 'eu-jp', 'eu-la', 'eu-pt', 'eu-sw', 'eu-oc',
+            'hi-eu', 'ar-eu', 'en-eu', 'es-eu', 'zh-eu', 'pt-eu', 'de-eu', 'fr-eu', 'jp-eu', 'la-eu', 'pt-eu', 'sw-eu', 'oc-eu'],
+    method: 'GET',
     getUrl: function (opts)
     {
-      return 'http://www.ametza.com/cgi-bin-bb/HTMODFOR?ActionField=getmodel&$SetAplicacion=BBK&$ModelBila=/bbk/htdocs/bilaketl.htm&$ModelBurua=/bbk/htdocs/emaiburu.htm&$ModelEmaitza=/bbk/htdocs/emaitza.htm&$ModelBalioki=/bbk/htdocs/balioki.htm&$ModelFrame=/bbk/htdocs/emaifram.htm&$Hizkuntza=E&CmdGetModel=/bbk/htdocs/bilaketl.htm';
+      var hizkuntzak={
+          'eu': 'eu',
+          'ar': 'ar',
+          'en': 'en',
+          'hi': 'hi',
+          'es': 'es',
+          'zh': 'zh',
+          'pt': 'pt',
+          'de': 'de',
+          'fr': 'fr',
+          'jp': 'ja',
+          'la': 'la',
+          'sw': 'sw',
+          'oc': 'oc',
+      }
+      return 'https://glosbe.com/'+hizkuntzak[opts.source]+'/'+hizkuntzak[opts.target]+'/'+opts.term;
     },
     getParams: function (opts)
     {
-      return {
-        'form_name_or_index':0,
-        'ActionField':'exemodel',
-        '$Hizkuntza':'E',
-        '$ModelFSarrera':'',  
-        '$ModelSarrera':'',  
-        '$ModelFBila':'',  
-        '$ModelFBila':'/bbk/htdocs/bilaketl.htm',
-        '$ModelBurua':'/bbk/htdocs/emaiburu.htm',
-        '$ModelEmaitza':'/bbk/htdocs/emaitza.htm',
-        '$ModelBalioki':'/bbk/htdocs/balioki.htm',
-        '$ModelFrame':'/bbk/htdocs/emaifram.htm',
-        '$SetAplicacion':'BBK',
-        '$CmdGetModel':'',
-        '@20':'',
-        '@1':'',
-        '@01xmt^,11':opts.term,
-        '@01,12':'&',
-        '@01xmt^,12':'',  
-        '@01,13':'&',
-        '@01xmt^,13':'',
-        '@01,14':'&',
-        '@01xmt^,14':'',  
-      };
+      return {};
     },
+    title: ['Glosbe']
   };
 }();
 

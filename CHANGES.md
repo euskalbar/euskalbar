@@ -8,6 +8,7 @@
 - Freelang hiztegia gehitu da. (#194)
 - GEMET ingurumen thesaurus-a gehitu da. (#237)
 - Gizarte Zerbitzuen hiztegia gehitu da. (#227)
+- Glosbe hiztegia gehitu da. (#246)
 - Gotzon Garateren atsotitzak gehitu dira. (#235)
 - Kamusi project hiztegia gehitu da. (#244)
 - Laneki hiztegia konpondu da. (#230)
