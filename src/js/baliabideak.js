@@ -1511,6 +1511,38 @@ baliabideendatuak.justizia = function ()
   };
 }();
 
+baliabideendatuak.kamusi=function()
+{
+  return {
+    name: 'kamusi',
+    displayName: 'Kamusi',
+    description: 'Kamusi project hiztegia',
+    category: 'Hiztegi orokor eleaniztunak',
+    homePage: "https://kamusi.org",
+    pairs: ['eu-hi', 'eu-ar', 'eu-en', 'eu-es', 'eu-zh', 'eu-pt',
+            'hi-eu', 'ar-eu', 'en-eu', 'es-eu', 'zh-eu', 'pt-eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      var hizkuntzak={
+          'eu': 'eus',
+          'ar': 'ara',
+          'en': 'eng_3_0',
+          'hi': 'hin',
+          'es': 'spa',
+          'zh': 'cmn',
+          'pt': 'por_pt',
+      }
+      return 'https://kamusi.org/search?from='+hizkuntzak[opts.source]+'&to='+hizkuntzak[opts.target]+'&term='+opts.term;
+    },
+    getParams: function (opts)
+    {
+      return {};
+    },
+    title: ['Kamusi GOLD']
+  };
+}();
+
 baliabideendatuak.katalogazioa = function ()
 {
   return {
