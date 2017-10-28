@@ -68,9 +68,13 @@ function BistaratuBotoiak()
 
     // Storage objektua kargatu eta aldaketak gordetzeko prestatu
 
-    var storagealortu=browser.storage.local.get();
-    storagealortu.then(function(itemak)
-    {
+    chrome.storage.local.get(null, function(itemak){
+
+	    if( chrome.runtime.lastError ){
+        	console.log('Errorea storage kargatzean');
+		return;
+	     } 
+
         var itemberriak={};
 
         // Hizkuntza bikotea kargatu (azkena aukeratu zena, edo hobespenetakoa, edo hasierako hobespenetakoa)
@@ -221,20 +225,17 @@ function BistaratuBotoiak()
 
         // Balioak gorde storage objektuan
 
-        var storageagorde=browser.storage.local.set(itemberriak);
+        chrome.storage.local.set(itemberriak, function() {
+		if (chrome.runtime.lastError){
+	        // Gordetzean errorea ematen badu, kontsolan idatzi
+         	 console.log('Errorea storage gordetzean');
+		}
 
-        // Gordetzean errorea ematen badu, kontsolan idatzi
 
-        storageagorde.then(null,function(errorea)
-        {
-            console.log('Errorea storage gordetzean');
-        });
+	});
 
     // Kargatzean errorea ematen badu, mezua idatzi
 
-    },function(errorea)
-    {
-        console.log('Errorea storage kargatzean');
     });
 }
 
@@ -252,8 +253,7 @@ function baliabideaireki(baliabidearenizena)
 
     // Storage objektua kargatu eta aldaketak gordetzeko prestatu
 
-    var storagealortu=browser.storage.local.get();
-    storagealortu.then(function(itemak)
+    chrome.storage.local.get(null,function(itemak)
     {
         var itemberriak={};
 
@@ -332,10 +332,10 @@ function baliabideaireki(baliabidearenizena)
         {
             itemberriak['Estatistikak'+baliabidea.name]=1;
         }
-        var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(errorea)
+        chrome.storage.local.set(itemberriak, function()
         {
-            console.log('Errorea estatistikak gordetzean');
+		if (chrome.runtime.lastError)
+	            console.log('Errorea estatistikak gordetzean');
         });
 
         // Baliabidearen parametroak kargatu
@@ -386,8 +386,7 @@ function baliabideaireki(baliabidearenizena)
     
         // Irekita dauden fitxak kargatu
     
-        var tabaklortu=browser.tabs.query({currentWindow:true});
-        tabaklortu.then(function(tabak)
+        var tabaklortu=chrome.tabs.query({currentWindow:true}, function(tabak)
         {
     
             // Fitxa kopurua kontatu
@@ -464,16 +463,16 @@ function baliabideaireki(baliabidearenizena)
         
                 if (baliabidea.berrerabiltzekoitxi)
                 {
-                    browser.tabs.remove(tabaurkitua);
+                    chrome.tabs.remove(tabaurkitua);
                     args.index=tabaurkituaindizea;
-                    tabasortu=browser.tabs.create(args);
+                    tabasortu=chrome.tabs.create(args);
                 }
         
                 // Bestela, fitxa eguneratu
         
                 else
                 {
-                    tabasortu=browser.tabs.update(tabaurkitua,args);
+                    tabasortu=chrome.tabs.update(tabaurkitua,args);
                 }
             }
     
@@ -484,7 +483,7 @@ function baliabideaireki(baliabidearenizena)
         
                 // Fitxa berria ireki
         
-                tabasortu=browser.tabs.create(args);
+                tabasortu=chrome.tabs.create(args);
             }
             
             // Fitxa ireki ondoren
@@ -508,7 +507,7 @@ function baliabideaireki(baliabidearenizena)
             
                     // Parametroak kargatu eta POST egingo duen script-a kargatu
             
-                    var scriptasartu=browser.tabs.executeScript(fitxa.id,{file:"js/postdeiak.js"});
+                    var scriptasartu=chrome.tabs.executeScript(fitxa.id,{file:"js/postdeiak.js"});
         
                     // Kargatu duenean
             
@@ -521,7 +520,7 @@ function baliabideaireki(baliabidearenizena)
                             source:iturburuhizkuntza,
                             target:helburuhizkuntza,
                         });
-                        browser.tabs.sendMessage(azkenarenidentifikadorea,params);
+                        chrome.tabs.sendMessage(azkenarenidentifikadorea,params);
         
                         // Hurrengo fitxa sortu
         
@@ -621,9 +620,14 @@ function BaliabideakIrekiEnter(eve)
     
             // Storage objektua kargatu eta aldaketak gordetzeko prestatu
     
-            var storagealortu=browser.storage.local.get();
-            storagealortu.then(function(itemak)
+            chrome.storage.local.get(null, function(itemak)
             {
+
+		if (chrome.runtime.lastError){
+	            	console.log('Errorea storage kargatzean');
+			return;
+		}
+
                 var itemberriak={};
     
                 // Kargatu fitxen hobespenak
@@ -691,8 +695,7 @@ function BaliabideakIrekiEnter(eve)
     
                 // Irekita dauden fitxak kargatu
     
-                var tabaklortu=browser.tabs.query({currentWindow:true});
-                tabaklortu.then(function(tabak)
+                var tabaklortu=chrome.tabs.query({currentWindow:true},function(tabak)
                 {
                     var tabasortu;
                     var tabaurkitua;
@@ -745,7 +748,7 @@ function BaliabideakIrekiEnter(eve)
     
                                 // Fitxa eguneratu
     
-                                tabasortu=browser.tabs.update(tabaurkitua,args);
+                                tabasortu=chrome.tabs.update(tabaurkitua,args);
                             }
     
                             // Ez bazegoen irekita
@@ -755,7 +758,7 @@ function BaliabideakIrekiEnter(eve)
     
                             // Fitxa berria ireki
     
-                                tabasortu=browser.tabs.create(args);
+                                tabasortu=chrome.tabs.create(args);
                             }
                         }
     
@@ -766,7 +769,7 @@ function BaliabideakIrekiEnter(eve)
     
                             // Fitxa berria ireki
     
-                            tabasortu=browser.tabs.create(args);
+                            tabasortu=chrome.tabs.create(args);
                         }
     
                         // Fitxa ireki ondoren
@@ -833,10 +836,10 @@ function BaliabideakIrekiEnter(eve)
                                     }
                                 }
                             }
-                            var storageagorde=browser.storage.local.set(itemberriak);
-                            storageagorde.then(null,function(errorea)
+                            chrome.storage.local.set(itemberriak, function(errorea)
                             {
-                                console.log('Errorea estatistikak gordetzean');
+				    if (chrome.runtime.lastError)
+	                                console.log('Errorea estatistikak gordetzean');
                             });
     
                             // Baliabideak XHR bidez irekiko dituen script-a kargatu
@@ -848,7 +851,7 @@ function BaliabideakIrekiEnter(eve)
                                 'source':iturburuhizkuntza,
                                 'target':helburuhizkuntza,
                             };
-                            var scriptasartu=browser.tabs.executeScript(tab.id,{file:"js/konbinatua.js"});
+                            var scriptasartu=chrome.tabs.executeScript(tab.id,{file:"js/konbinatua.js"});
     
                             // Kargatu duenean
     
@@ -856,7 +859,7 @@ function BaliabideakIrekiEnter(eve)
     
                                 // Mezua bidali hasi dadin, parametroekin
     
-                                browser.tabs.sendMessage(tab.id,params);
+                                chrome.tabs.sendMessage(tab.id,params);
                             },null);
                         },null);
                     }
@@ -907,14 +910,12 @@ function BaliabideakIrekiEnter(eve)
                             baliabideaireki(fitxenbaliabideak[0]);
                         }
                     }
-                },null);
+                });
     
             // Kargatzean errorea ematen badu, mezua idatzi
     
-            },function(errorea)
-            {
-                console.log('Errorea storage kargatzean');
-            });
+	    });
+
     
             // Enter bazen, ez segi defektuzko portaerarekin
     
@@ -944,10 +945,10 @@ document.addEventListener('DOMContentLoaded',function()
     {
         var itemberriak={};
         itemberriak['HizkuntzaBikotea']=document.getElementById('HizkuntzaBikoteaSelect').selectedIndex;
-        var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(errorea)
+        chrome.storage.local.set(itemberriak, function(errorea)
         {
-            console.log('Errorea storage gordetzean');
+		if (chrome.runtime.lastError)
+	            console.log('Errorea storage gordetzean');
         });
         BistaratuBotoiak();
     }, false);
@@ -958,10 +959,9 @@ document.addEventListener('DOMContentLoaded',function()
     {
         var itemberriak={};
         itemberriak['Bilatzekoa']=document.getElementById('BilatzekoaText').value;
-        var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(errorea)
-        {
-            console.log('Errorea storage gordetzean');
+        chrome.storage.local.set(itemberriak, function(){
+		if (chrome.runtime.lastError)
+	            console.log('Errorea storage gordetzean');
         });
     }, false);
 
@@ -972,7 +972,7 @@ document.addEventListener('DOMContentLoaded',function()
         var args={
             'url':'laguntza.html',
         };
-        var tabasortu=browser.tabs.create(args);
+        var tabasortu=chrome.tabs.create(args);
         tabasortu.then(null,null);
     }, false);
 
@@ -991,7 +991,7 @@ document.addEventListener('DOMContentLoaded',function()
         var args={
             'url':'zerrenda.html',
         };
-        var tabasortu=browser.tabs.create(args);
+        var tabasortu=chrome.tabs.create(args);
         tabasortu.then(null,null);
     }, false);
 
@@ -1002,7 +1002,7 @@ document.addEventListener('DOMContentLoaded',function()
         var args={
             'url':'estatistikak.html',
         };
-        var tabasortu=browser.tabs.create(args);
+        var tabasortu=chrome.tabs.create(args);
         tabasortu.then(null,null);
     }, false);
 
