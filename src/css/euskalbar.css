@@ -7,6 +7,11 @@ body
     width: 100%;
 }
 
+.estekak 
+{
+ float: left; white-space: nowrap; 
+}
+
 .irudia
 {
     width: 20px;
