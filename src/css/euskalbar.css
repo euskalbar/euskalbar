@@ -1,18 +1,11 @@
 body
 {  
-/*    color: rgb(34, 34, 34);
+    color: rgb(34, 34, 34);
     font-family: bitstream vera sans, verdana, arial;
     font-size: 10pt;
     background-color: #FFF;
-    width: 100%;
-*/
-
-  margin: 0px 0px;
-  width: 675px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  max-height: 600px;
-
+    width: 675px;
+    max-height: 600px;
 }
 
 .irudia
