@@ -7,13 +7,6 @@
         "64": "irudiak/euskalbar64.png"
     },
 
-    "applications": {
-        "gecko": {
-            "id": "euskalbar@interneteuskadi.org",
-            "strict_min_version": "42.0"
-        }
-    },
-
     "browser_action": {
         "default_icon": "irudiak/euskalbar64.png",
         "default_popup": "euskalbar.html"
