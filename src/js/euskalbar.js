@@ -1,3 +1,5 @@
+(function() {
+
 /* Parametrodun objektu bat URL moduan idazten du */
 
 function serialize(obj)
@@ -10,7 +12,7 @@ function serialize(obj)
 function hizkuntzekinbat(baliabidea,hizkuntzabikotea)
 {
     var pareak=baliabidea.pairs;
-    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0) // || pareak.indexOf(hizkuntzabikotea.substring(3))>=0)
+    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0) 
     {
         return true;
     }
@@ -1010,3 +1012,4 @@ document.addEventListener('DOMContentLoaded',function()
 
     document.getElementById('BilatzekoaText').focus();
 });
+})();
