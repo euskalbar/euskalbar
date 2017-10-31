@@ -1,6 +1,6 @@
 /* Euskalbar-eko baliabideen datu guztiak gordetzen ditu:
    izena, URLa, metodoa, parametroak, kategoria...
-   Baliabide bakooitzak parametro hauek izango ditu:
+   Baliabide bakoitzak parametro hauek izango ditu:
        - disabled: adierazten du ea badabilen eta botoia erakutsi behar den; bestela,
                    baliabideen zerrendan soilik erakusten du
        - name: kode-izena
