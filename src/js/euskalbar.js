@@ -937,10 +937,9 @@ document.addEventListener('DOMContentLoaded',function()
     BistaratuBotoiak();
 
     // Kutxan tekla sakatzen denean, Enter den begiratu
-
     document.getElementById('BilatzekoaText').addEventListener('keypress',BaliabideakIrekiEnter);
-
-    // Hizkuntza bikotea aldatzen denean, gorde hurrengorako
+    
+	// Hizkuntza bikotea aldatzen denean, gorde hurrengorako
 
     document.getElementById("HizkuntzaBikoteaSelect").addEventListener('change',function()
     {
