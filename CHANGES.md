@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 5.0.1 bertsioa
+
+- Autofocus-a konponduta
+
 ## 5.0 bertsioa
 - Berregite osoa Webextensions APIra moldatzeko. (#234, # 214, #201)
 - Drogomedia hiztegia gehitu da zerrendan (botoia ez, ezin baita kontsultatu). (#236)
