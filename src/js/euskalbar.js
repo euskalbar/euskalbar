@@ -1010,5 +1010,14 @@ document.addEventListener('DOMContentLoaded',function()
     // Kutxari eman fokua
 
     document.getElementById('BilatzekoaText').focus();
+    var denborak=[50,100,200,500,1000];
+    for (var denbora in denborak)
+    {
+        console.log(denborak[denbora]);
+        setTimeout(() => {
+            document.getElementById('BilatzekoaText').focus();
+        },denborak[denbora]);
+    }
+
 });
 })();
