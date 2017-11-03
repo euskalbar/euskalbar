@@ -1,6 +1,6 @@
 {
     "name": "Euskalbar",
-    "version": "5.0",
+    "version": "5.0.1",
     "manifest_version": 2,
     "description": "Euskara hiztegiak eta bestelako baliabide eta tresnak (corpusak, zuzentzaileak, bilatzaileak...)",
     "icons": {
