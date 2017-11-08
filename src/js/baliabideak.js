@@ -72,7 +72,8 @@ baliabideendatuak.adorezsin=function()
     method: 'GET',
     getUrl: function (opts)
     {
-      return 'http://www.bostakbat.org/azkue/index.php?q=1&t='+opts.term;
+      var hitza=opts.term.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+      return 'http://www.bostakbat.org/azkue/index.php?q=1&t='+hitza;
     },
     getParams: function (opts)
     {
@@ -99,6 +100,7 @@ baliabideendatuak.aunamendi=function()
     homePage: 'http://www.euskomedia.org/aunamendi?idi=eu&op=1',
     pairs: ['eu-es', 'es-eu', 'eu-en', 'en-eu', 'eu-fr', 'fr-eu'],
     method: 'GET',
+    encoding: 'latin-1',
     getUrl: function (opts)
     {
       return 'http://www.euskomedia.org/bilatu';
@@ -371,7 +373,8 @@ baliabideendatuak.bostmila = function ()
       } else {
         qa = '2';
       }
-      return 'http://www.bostakbat.org/azkue/index.php?q='+qa+'&t='+opts.term;
+      var hitza=opts.term.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
+      return 'http://www.bostakbat.org/azkue/index.php?q='+qa+'&t='+hitza;
     },
     getParams: function (opts)
     {
@@ -972,6 +975,7 @@ baliabideendatuak.euskalterm = function ()
     pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-de', 'eu-la',
             'es-eu', 'fr-eu', 'en-eu', 'de-eu', 'la-eu'],
     method: 'POST',
+    encoding: 'latin-1',
     getUrl: function (opts)
     {
       return 'http://www.euskara.euskadi.eus/q91EusTermWar/kontsultaJSP/q91aBilaketaAction.do';
@@ -1046,7 +1050,7 @@ baliabideendatuak.farmazia = function ()
         'form_name_or_index':0,
         'form_url':'./index.php',
         'form_method':'POST',
-        'data': opts.term,
+        'data': opts.term.normalize('NFD').replace(/[\u0300-\u036f]/g,""),
         'sailkapena': ''
       };
     }
@@ -1425,6 +1429,7 @@ baliabideendatuak.intza = function ()
     pairs: ['eu-es', 'eu-fr',
             'es-eu', 'fr-eu'],
     method: 'GET',
+    encoding: 'ascii',
     getUrl: function (opts)
     {
       return 'http://intza.armiarma.eus/cgi-bin/bilatu2.pl';
@@ -1541,7 +1546,7 @@ baliabideendatuak.justizia = function ()
       	hizkuntza='ES';
       };
       return {
-        'cjterm': opts.term,
+        'cjterm': opts.term.normalize('NFD').replace(/[\u0300-\u036f]/g,""),
         'bjterm': 'Bilatu',
         'idiomaBusq': hizkuntza
       };
@@ -1704,7 +1709,7 @@ baliabideendatuak.legebiltzarra = function ()
       {
           bilahizk='C';
       }
-      return 'http://www.legebiltzarra.eus/cm_hiztegie/SDW?W=HIZ_TERM'+bilahizk+'+PH+IS+"'+opts.term+'"&M=1';
+      return 'http://www.legebiltzarra.eus/cm_hiztegie/SDW?W=HIZ_TERM'+bilahizk+'+PH+IS+"'+opts.term.normalize('NFD').replace(/[\u0300-\u036f]/g,"")+'"&M=1';
     },
     
     getParams: function (opts)
@@ -1916,6 +1921,7 @@ baliabideendatuak.morris = function ()
     homePage: 'http://www1.euskadi.net/morris/',
     pairs: ['eu-en', 'en-eu'],
     method: 'POST',
+    encoding: 'ascii',
     getUrl: function (opts)
     {
       return 'http://www1.euskadi.net/morris/resultado.asp';
@@ -1935,7 +1941,7 @@ baliabideendatuak.morris = function ()
         lang = 'txtEuskera';
         forma='frmEuskera';
       }
-      params[lang] = opts.term;
+      params[lang] = opts.term.normalize('NFD').replace(/[\u0300-\u036f]/g,"");
       params['form_name_or_index']=forma;
       return params;
     },
@@ -2086,6 +2092,7 @@ baliabideendatuak.ostadar = function ()
     homePage: "http://www.ostadar.org/hiztegia/",
     pairs: ['eu-es', 'es-eu'],
     method: 'GET',
+    encoding: 'ascii',
     title: ['Ostadar Mendi Taldea'],
     getUrl: function (opts)
     {
@@ -2367,6 +2374,7 @@ baliabideendatuak.zehazki = function ()
     homePage: 'http://ehu.eus/ehg/cgi/zehazki/bila',
     pairs: ['es-eu'],
     method: 'GET',
+    encoding: 'latin-1',
     getUrl: function (opts)
     {
       return 'http://ehu.eus/ehg/cgi/zehazki/bila';

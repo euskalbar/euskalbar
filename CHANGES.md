@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 5.0.2 bertsioa
+
+- Bilaketa konbinatuetan eta hiztegi batzuetan ñ eta tildeen arazoa konpondu. (#257)
+
 ## 5.0.1 bertsioa
 
 - Autofocus-a konponduta
