@@ -1,8 +1,21 @@
 /* Parametrodun objektu bat URL moduan idazten du */
 
-function serialize(obj)
+function serialize(obj,encoding)
 {
-    return ''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
+    var serializatua;
+    if (encoding=='latin-1')
+    {
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+escape(obj[k]));return a},[]).join('&')
+    }
+    else if (encoding=='ascii')
+    {
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+obj[k].normalize('NFD').replace(/[\u0300-\u036f]/g,""));return a},[]).join('&')
+    }
+    else
+    {
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
+    }
+    return serializatua;
 }
 
 /* Baliabide baten XHR eskaera egiten du */
@@ -33,9 +46,9 @@ function makexhr(baliabidea,urlosoa,params,opts,baliabideak)
                     var urlosoa='';
                     if (baliabidea.method=='GET')
                     {
-                        if (serialize(params)!=='')
+                        if (serialize(params,baliabidea.encoding)!=='')
                         {
-                            urlosoa=url+'?'+serialize(params);
+                            urlosoa=url+'?'+serialize(params,baliabidea.encoding);
                         }
                         else
                         {
@@ -46,7 +59,7 @@ function makexhr(baliabidea,urlosoa,params,opts,baliabideak)
                     {
                         urlosoa=url;
                     }
-                    if (urlosoa==xhr.responseURL)
+                    if (encodeURI(urlosoa).replace(/%25/g,'%')==encodeURI(xhr.responseURL).replace(/%25/g,'%'))
                     {
 
                         // Dagokion zutabean idatzi emaitza
@@ -83,7 +96,7 @@ function makexhr(baliabidea,urlosoa,params,opts,baliabideak)
 
         // XHR eskaera bidali
 
-        xhr.send(serialize(params));
+        xhr.send(serialize(params,baliabidea.encoding));
     }
     
 }
@@ -138,9 +151,9 @@ function KargatuBaliabideak(request,sender,sendResponse)
         var urlosoa='';
         if (baliabidea.method=='GET')
         {
-            if (serialize(params)!=='')
+            if (serialize(params,baliabidea.encoding)!=='')
             {
-                urlosoa=url+'?'+serialize(params);
+                urlosoa=url+'?'+serialize(params,baliabidea.encoding);
             }
             else
             {

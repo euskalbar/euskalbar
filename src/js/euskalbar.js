@@ -2,9 +2,22 @@
 
 /* Parametrodun objektu bat URL moduan idazten du */
 
-function serialize(obj)
+function serialize(obj,encoding)
 {
-    return ''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
+    var serializatua;
+    if (encoding=='latin-1')
+    {
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+escape(obj[k]));return a},[]).join('&')
+    }
+    else if (encoding=='ascii')
+    {
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+obj[k].normalize('NFD').replace(/[\u0300-\u036f]/g,""));return a},[]).join('&')
+    }
+    else
+    {
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
+    }
+    return serializatua;
 }
 
 /* Baliabide bat aukeratuta dagoen hizkuntza bikotean sartzen den esaten du */
@@ -368,9 +381,9 @@ function baliabideaireki(baliabidearenizena)
         var urlosoa='';
         if (metodoa=='GET')
         {
-            if (serialize(params)!=='')
+            if (serialize(params,baliabidea.encoding)!=='')
             {
-                urlosoa=url+'?'+serialize(params);
+                urlosoa=url+'?'+serialize(params,baliabidea.encoding);
             }
             else
             {
@@ -467,7 +480,7 @@ function baliabideaireki(baliabidearenizena)
                 if (baliabidea.berrerabiltzekoitxi)
                 {
                     browser.tabs.remove(tabaurkitua);
-                    args.index=tabaurkituaindizea;
+                      args.index=tabaurkituaindizea;
                     tabasortu=browser.tabs.create(args);
                 }
         
