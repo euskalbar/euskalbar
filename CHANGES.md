@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 5.0.3 bertsioa
+
+- Enter sakatzean eta bilaketa konbinatuetan, aukeratutako hiztegi elebakarrak beti kontsultatzen dira, aukeratutako hizkuntza-norabidea edozein izanik ere. (#258)
+
 ## 5.0.2 bertsioa
 
 - Bilaketa konbinatuetan eta hiztegi batzuetan ñ eta tildeen arazoa konpondu. (#257)
