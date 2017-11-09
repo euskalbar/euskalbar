@@ -25,7 +25,7 @@ function serialize(obj,encoding)
 function hizkuntzekinbat(baliabidea,hizkuntzabikotea)
 {
     var pareak=baliabidea.pairs;
-    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0) 
+    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0 || pareak.indexOf(hizkuntzabikotea.substring(3))>=0)
     {
         return true;
     }
