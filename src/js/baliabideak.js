@@ -968,64 +968,36 @@ baliabideendatuak.euskalterm = function ()
   return {
     name: 'euskalterm',
     displayName: 'Euskalterm',
-    description: 'Euskalterm datu-basea',
+    description: 'Terminologia Banku Publikoa',
     category: 'Hiztegi terminologiko/tekniko orokorrak',
     berrerabiltzekoitxi: true,
-    homePage: "http://www.euskara.euskadi.eus/euskalterm/",
+    homePage: "https://www.euskadi.eus/euskalterm/",
     pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-de', 'eu-la',
             'es-eu', 'fr-eu', 'en-eu', 'de-eu', 'la-eu'],
-    method: 'POST',
-    encoding: 'latin-1',
+    method: 'GET',
     getUrl: function (opts)
     {
-      return 'http://www.euskara.euskadi.eus/q91EusTermWar/kontsultaJSP/q91aBilaketaAction.do';
-    },
-    getParams: function (opts)
-    {
       var term = opts.term.trim();
-      var langMap = {
-            'es': 'ES',
-            'en': 'EN',
-            'fr': 'FR',
-            'la': 'LA',
-            'de': 'DE',
-          },
-          lang = langMap[opts.source] || 'EU';
+      
       // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
       // egin ditzala bilaketak
       if (term.charAt(term.length - 1) != "%") {
-        term = term + "%";
+        term = term + "%25";
       }
-      return {
-        'form_name_or_index':1,
-        'elements_to_delete':[9,8,7,6,5,4],
-        'ekintza': 'HASI',
-        'ekin': 'HASI',
-        'datuakaBilaketarako(galderakoHizkuntza)': lang,
-        'datuakaBilaketarako(galdera)': term,
-        'zerrenda':'',
-      };
+      var langMap = {
+        'es': 'es',
+        'en': 'en',
+        'fr': 'fr',
+        'la': 'la',
+        'de': 'de',
+      },
+      lang = langMap[opts.source] || 'eu';
+      return 'https://www.euskadi.eus/app/euskal-terminologia-banku-publikoa/'+term+'/kontsultatermino/'+term+'/non-du/hizk-'+lang;
     },
-    scrap: function (data, opts)
+    getParams: function (opts)
     {
-      var output = data;
-      output = output.substring(
-          output.indexOf('<input type="hidden" name="datuakaFormBil(unekoSailZenbakia)" value="" id="unekoSailZenbakia" />'),
-          output.indexOf('<div class="clr"/>')
-      );
-      output = output.replace(
-          /q91aBilaketaAction/g,
-          "http://www.euskara.euskadi.eus/q91EusTermWar/kontsultaJSP/q91aBilaketaAction"
-      );
-      output = output.replace(
-          /<table  class=\"erantzuna\"/g,
-          "<hr><table  class=\"erantzuna\""
-      );
-      output = output.replace(
-          /img/g,
-          "span"
-      );
-      return output;
+      
+      return {};
     }
   };
 }();
