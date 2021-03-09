@@ -2227,7 +2227,7 @@ baliabideendatuak.uzei = function ()
     method: 'POST',
     getUrl: function (opts)
     {
-      return 'http://www.uzei.eus/online/sinonimoen-hiztegia-iruzkinak';
+      return 'https://www.uzei.eus/online/sinonimoen-hiztegia-iruzkinak';
     },
     getParams: function (opts)
     {
@@ -2238,9 +2238,11 @@ baliabideendatuak.uzei = function ()
     },
     scrap: function (data, opts)
     {
-      data = data.substring(data.indexOf('<div class=\"column_inner uzei_sinonimoak_body\">'),
-                            data.indexOf('<div class=\"comment_holder\" id="comments">'));
-      return data;
+      var output = data
+      data = output.substring(output.indexOf('<div class="column_inner uzei_sinonimoak_body">'), output.indexOf('<h3>kontsumo&nbsp;&nbsp;'))
+      data += '<br/>'
+      data += output.substring(output.indexOf('<div class="uzei_sinonimoak">'), output.indexOf('<div class="comment_holder" id="comments">'))
+      return data
     },
   };
 }();
