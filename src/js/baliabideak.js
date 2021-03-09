@@ -992,7 +992,7 @@ baliabideendatuak.euskalterm = function ()
         'de': 'de',
       },
       lang = langMap[opts.source] || 'eu';
-      return 'https://www.euskadi.eus/app/euskal-terminologia-banku-publikoa/'+term+'/kontsultatermino/'+term+'/non-du/hizk-'+lang;
+      return 'https://www.euskadi.eus/app/euskal-terminologia-banku-publikoa/'+term+'/kontsultatermino/'+term+'/non-du/hizk-'+lang+'/ter-on';
     },
     getParams: function (opts)
     {
