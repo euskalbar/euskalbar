@@ -822,7 +822,7 @@ baliabideendatuak.energia = function ()
     displayName: 'Energia',
     description: 'EEEren Energia Hiztegia',
     category: 'Hiztegi terminologiko/tekniko espezializatuak',
-    homePage: 'http://www.eve.eus/diccionario.aspx',
+    homePage: 'https://www.eve.eus/Hiztegia.aspx',
     pairs: ['eu-es', 'eu-en', 'eu-fr',
             'es-eu', 'en-eu', 'fr-eu'],
     method: 'POST',
@@ -831,19 +831,27 @@ baliabideendatuak.energia = function ()
     getUrl: function (opts)
     {
       return (
-        'http://www.eve.eus/Aula-didactica/Hiztegia.aspx?terminoEstado=' + opts.term +
-        '&idiomaEstado=' + opts.source +
-        '&arloaEstado=edozein&fuzzyEstado=True&busquedaTerminoEstado=True' +
-        '&tipoBusqueda=terminoak&term=' + opts.term + '#tabs-1'
+        'https://www.eve.eus/Hiztegia.aspx'
       );
     },
     getParams: function (opts)
     {
       return {
         'form_name_or_index':0,
-        'hidden_elements':{'p$lt$Contenido$ContenidoPlaceHolder$ContenidoPlaceHolder$lt$zoneMain$EveElhuyarHiztegia$btnBilatu':''}
+        'form_method':'POST',
+        'hidden_elements': {'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$btnBilatu': 'Bilatu'},
+        'lng': 'eu-ES',
+        'p$lt$ctl03$MenuSuperior$buscador': '',
+        'p$lt$ctl03$MenuSuperior$buscador_responsive': '',
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$txtTerminoa': opts.term,
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$cbAmaiera': 'on',
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlHizkuntza': opts.source,
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlArloa': 'edozein',
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$gnRadios': 'rbTerminoetan',
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlArloaIrudientzako': 'edozein',
+        'p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlArtikuluenArloa': 'edozein'
       };
-    },
+    }
   };
 }();
 
@@ -968,7 +976,7 @@ baliabideendatuak.euskalterm = function ()
   return {
     name: 'euskalterm',
     displayName: 'Euskalterm',
-    description: 'Terminologia Banku Publikoa',
+    description: 'Euskalterm Terminologia Banku Publikoa',
     category: 'Hiztegi terminologiko/tekniko orokorrak',
     berrerabiltzekoitxi: true,
     homePage: "https://www.euskadi.eus/euskalterm/",
@@ -2242,7 +2250,7 @@ baliabideendatuak.uzei = function ()
                                 data.indexOf('<div class="comment_holder" id="comments">'));
       data = data.replace(/<img/g, "<img height='16' width='16'");
       return data;
-    },
+    }
   };
 }();
 
