@@ -90,11 +90,13 @@ baliabideendatuak.adorezsin=function()
   };
 }();
 
-baliabideendatuak.aunamendi=function()
+
+//https://aunamendi.eusko-ikaskuntza.eus/eu/bilatu/bernardino/0/
+baliabideendatuak.aunamendi = function ()
 {
-  return {
-    name: 'aunamendi',
-    displayName: 'Auñamendi',
+  /*return {
+    name: 'aunamendiZAHARRA',
+    displayName: 'AuñamendiZAHARRA',
     description: 'Auñamendi Entziklopedia',
     category: 'Hiztegi entziklopedikoak',
     homePage: 'http://www.euskomedia.org/aunamendi?idi=eu&op=1',
@@ -112,8 +114,32 @@ baliabideendatuak.aunamendi=function()
         'partialfields': 'fondo:auñamendi'
       };
     },
+  };*/
+  return {
+    name: 'aunamendi',
+    displayName: 'Auñamendi',
+    description: 'Auñamendi Entziklopedia',
+    category: 'Hiztegi entziklopedikoak',
+    berrerabiltzekoitxi: true,
+    homePage: "https://aunamendi.eusko-ikaskuntza.eus/?idi=eu&op=1",
+    pairs: ['eu-es', 'es-eu', 'eu-en', 'en-eu', 'eu-fr', 'fr-eu'],
+    method: 'GET',
+    //encoding: 'latin-1',
+    getUrl: function (opts)
+    {
+      //alert(hitza);
+      //alert('https://aunamendi.eusko-ikaskuntza.eus/eu/bilatu/'+hitza+'/0/')
+      return 'https://aunamendi.eusko-ikaskuntza.eus/eu/bilatu/'+opts.term+'/0/';
+    },
+    getParams: function (opts)
+    {
+      
+      return {};
+    }
   };
 }();
+
+
 
 baliabideendatuak.automatikoak=function()
 {
@@ -224,7 +250,7 @@ baliabideendatuak.batua = function ()
     description: 'Euskaltzaindiaren Hiztegia',
     category: 'Hiztegi orokorrak',
     title: ['Euskaltzaindia'],
-    homePage: 'http://www.euskaltzaindia.eus/hiztegibatua',
+    homePage: 'https://www.euskaltzaindia.eus/index.php?option=com_hiztegianbilatu&view=frontpage&Itemid=410&lang=eu',
     pairs: ['eu'],
     method: 'GET',
     getUrl: function (opts)
@@ -855,6 +881,32 @@ baliabideendatuak.energia = function ()
   };
 }();
 
+//https://www.euskaltzaindia.eus/index.php?option=com_ecoeoda&task=bilaketa&Itemid=472&lang=eu&query=zegama&mota=bateratua
+baliabideendatuak.eoda = function ()
+{
+  return {
+    name: 'eoda',
+    displayName: 'EODA',
+    description: 'EODA - Euskal Onomastikaren Datutegia',
+    category: 'Hiztegi terminologiko/tekniko espezializatuak',
+    title: ['Euskaltzaindia'],
+    berrerabiltzekoitxi: true,
+    homePage: "https://www.euskaltzaindia.eus/index.php?option=com_ecoeoda&task=bilaketaPortada&Itemid=472&lang=eu",
+    pairs: ['eu-es', 'es-eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      var term = opts.term.trim();
+      return 'https://www.euskaltzaindia.eus/index.php?option=com_ecoeoda&task=bilaketa&view=bilaketa&Itemid=472&lang=eu&query='+term+'&mota=bateratua';
+    },
+    getParams: function (opts)
+    {
+      return {};
+    },
+  };
+}();
+
+
 baliabideendatuak.ereduzkodinamikoa = function ()
 {
   return {
@@ -941,6 +993,10 @@ baliabideendatuak.eurovoc = function ()
   };
 }();
 
+
+
+
+
 baliabideendatuak.euskalklasikoak = function ()
 {
   return {
@@ -1007,6 +1063,30 @@ baliabideendatuak.euskalterm = function ()
       
       return {};
     }
+  };
+}();
+
+baliabideendatuak.ebe = function ()
+{
+  return {
+    name: 'ebe',
+    displayName: 'EBE',
+    description: 'EBE - RRRRRRRRRRRRRRRRRRR',
+    category: 'Hiztegi orokorrak',
+    title: ['Euskaltzaindia'],
+    berrerabiltzekoitxi: true,
+    homePage: "https://www.euskaltzaindia.eus/index.php?option=com_ebe&view=bilaketa&task=sarrera&Itemid=1161",
+    pairs: ['eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      var term = opts.term.trim();
+      return 'https://www.euskaltzaindia.eus/index.php?option=com_ebe&task=bilaketa&view=bilaketa&Itemid=1161&lang=eu-ES&query='+term+'&mota=';
+    },
+    getParams: function (opts)
+    {
+      return {};
+    },
   };
 }();
 
@@ -1272,6 +1352,9 @@ baliabideendatuak.harluxet = function ()
   };
 }();
 
+/*
+//onlinekoa ez dabil, zerrendatik kendu egin dut.
+
 baliabideendatuak.hautalan = function ()
 {
   return {
@@ -1298,6 +1381,7 @@ baliabideendatuak.hautalan = function ()
     },
   };
 }();
+*/
 
 baliabideendatuak.hbep = function ()
 {
@@ -1671,6 +1755,7 @@ baliabideendatuak.labayru = function ()
   };
 }();
 
+//https://www.legebiltzarra.eus/portal/eu/web/eusko-legebiltzarra/servicios-administrativos/buscador-hiztegi#_48_INSTANCE_VgApmF7SsNEE_%253Dhttps%25253A%25252F%25252Fwww.legebiltzarra.eus%25252Fords%25252Ff%25253Fp%25253DCTP%25253AHIZTEGI_FILTRO%25253A%25253A%25253A%25253A%25253ARESETBRCRMB%25253AY%252526%252526p_lang%25253Deu%3D%26_48_INSTANCE_VgApmF7SsNEE_%3Dhttps%253A%252F%252Fwww.legebiltzarra.eus%252Fords%252Ff%253Fp%253D120%253A44%253A104506754150759%253A%253ANO%253ARP%252CRIR%253AP43_BALIOKIDEA%252CP43_TERMINO%253A%25255Czaintza%25255C%252C%25255C%25255C
 baliabideendatuak.legebiltzarra = function ()
 {
   return {
@@ -2223,6 +2308,30 @@ baliabideendatuak.trengintza = function ()
   };
 }();
 
+//https://tzos.ehu.eus/search/?q=zatiki&lang=eu&submit=Bilatu
+baliabideendatuak.tzos = function ()
+{
+  return {
+    name: 'tzos',
+    displayName: 'TZOS',
+    description: 'TZOS - Terminologia Zerbitzurako Online Sistema (EHU)',
+    category: 'Hiztegi terminologiko/tekniko espezializatuak',
+    title: ['TZOS - Terminologia Zerbitzurako Online Sistema'],
+    homePage: 'https://tzos.ehu.eus',
+    pairs: ['eu-es', 'eu-en', 'eu-fr', 'eu-la',
+            'es-eu', 'en-eu', 'fr-eu', 'la-eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      return 'http://tzos.ehu.eus/search/?q='+opts.term+'&lang=eu&submit=Bilatu';
+    },
+    getParams: function (opts)
+    {
+      return {};
+    },
+  };
+}();
+
 baliabideendatuak.uzei = function ()
 {
   return {
@@ -2503,3 +2612,4 @@ baliabideendatuak.zuzenbidecorpusa = function ()
     },
   };
 }();
+
