@@ -1,5 +1,16 @@
 # ChangeLog
 
+## 5.0.4 bertsioa
+- EBE, Euskara Batuaren Eskuliburuaren kontsulta gehitu da.
+- Hauta Lanerako Euskal Hiztegia kendu da: onlineko bertsioa ez dabilelako.
+- Auñamendi Hiztegi Entziklopedikoaren kontsulta konpondu da.
+- Petrolio Hiztegi terminologiaren kontsulta gehitu da. (#265)
+- EODA, Euskal Onomastikaren Datutegiaren kontsulta gehitu da. (#268)
+- TZOS eta Garaterm kontsultak gehitu dira. (#263)
+- TextReference hiztegia gehitzea (#266)
+- Consumer corpusaren bilaketa konponduta (#272)
+- Lexikoaren behatokia konponduta (#264)
+
 ## 5.0.3 bertsioa
 
 - Enter sakatzean eta bilaketa konbinatuetan, aukeratutako hiztegi elebakarrak beti kontsultatzen dira, aukeratutako hizkuntza-norabidea edozein izanik ere. (#258)

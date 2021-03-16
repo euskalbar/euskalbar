@@ -432,9 +432,10 @@ baliabideendatuak.consumer = function ()
       return 'http://corpus.consumer.es/corpus/kontsulta';
     },
     getParams: function (opts)
-    {
+    {//lehen index 2 zekan
       return {
-        'form_name_or_index':2,
+        'form_name_or_index':0,
+        //'form_id':'formularioabera',
         'mota': 'arrunta',
         'hizkuntza': opts.source === 'es' ? 'es' : 'eu',
         'formalema': 'lema',
@@ -1071,7 +1072,7 @@ baliabideendatuak.ebe = function ()
   return {
     name: 'ebe',
     displayName: 'EBE',
-    description: 'EBE - RRRRRRRRRRRRRRRRRRR',
+    description: 'EBE - Euskara Batuaren Eskuliburua',
     category: 'Hiztegi orokorrak',
     title: ['Euskaltzaindia'],
     berrerabiltzekoitxi: true,
@@ -1198,6 +1199,30 @@ baliabideendatuak.garate = function ()
         '@01,14':'&',
         '@01xmt^,14':'',  
       };
+    },
+  };
+}();
+
+//garaterm TODO
+//http://garaterm-corpusa.ixa.eus/search_API?query=indar&type=lemma&comparation=is&search_box_type=combined&result=kwicCount&order=sortDoc&chart=form
+baliabideendatuak.garaterm = function ()
+{
+  return {
+    name: 'garaterm',
+    displayName: 'Garaterm',
+    description: 'Garaterm corpusa',
+    category: 'Corpus orokorrak',
+    title: ['Garaterm corpusa'],
+    homePage: 'http://garaterm-corpusa.ixa.eus/search',
+    pairs: ['eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      return 'http://garaterm-corpusa.ixa.eus/search_API?query='+opts.term+'&type=lemma&comparation=is&search_box_type=combined&result=kwicCount&order=sortDoc&chart=form'
+    },
+    getParams: function (opts)
+    {
+      return {};
     },
   };
 }();
@@ -2205,6 +2230,31 @@ baliabideendatuak.pentsamenduarenklasikoak = function ()
   };
 }();
 
+//https://hiztegia.petronor.eus/eu/gas
+baliabideendatuak.petrolio = function ()
+{
+  return {
+    name: 'petrolio',
+    displayName: 'Petrolio',
+    description: 'Petrolio Hiztegia',
+    category: 'Hiztegi terminologiko/tekniko espezializatuak',
+    berrerabiltzekoitxi: true,
+    homePage: "https://hiztegia.petronor.eus",
+    pairs: ['eu-es', 'eu-en', 'eu-fr',
+            'es-eu', 'en-eu', 'fr-eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      var term = opts.term.trim();
+      return 'https://hiztegia.petronor.eus/'+opts.source+'/'+term;
+    },
+    getParams: function (opts)
+    {
+      return {};
+    },
+  };
+}();
+
 baliabideendatuak.telekomunikazioak = function ()
 {
   return {
@@ -2235,6 +2285,29 @@ baliabideendatuak.telekomunikazioak = function ()
         'txtHitza':opts.term,
         'selectHizkuntza':hizkuntzak[opts.source]
       };
+    },
+  };
+}();
+
+//http://www.textreference.com/en/eu-es/?q=etxe
+baliabideendatuak.textreference = function ()
+{
+  return {
+    name: 'textreference',
+    displayName: 'TextReference',
+    description: 'Text Reference Corpusa',
+    category: 'Corpus orokorrak',
+    title: ['Text Reference Corpusa'],
+    homePage: 'http://www.textreference.com',
+    pairs: ['eu-es', 'es-eu'],
+    method: 'GET',
+    getUrl: function (opts)
+    {
+      return 'http://www.textreference.com/'+opts.source+'/'+opts.source+'-'+opts.target+'/?q='+opts.term;
+    },
+    getParams: function (opts)
+    {
+      return {};
     },
   };
 }();
