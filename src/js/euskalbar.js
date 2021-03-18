@@ -938,6 +938,29 @@ function BaliabideakIrekiEnter(eve)
     }
 }
 
+function KeyPress(e) {
+      var evtobj = window.event? event : e
+      if (evtobj.keyCode == 190 && evtobj.ctrlKey) HizkuntzakAldatu();
+}
+
+/* Hizkuntza bikotea trukatzeko */
+
+function HizkuntzakAldatu()
+{
+    var hizkuntzabikotea= document.getElementById('HizkuntzaBikoteaSelect');
+    var iturburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+    var helburuhizkuntza;
+    if (document.getElementById('HizkuntzaBikoteaSelect').value.length>2)
+        {
+            helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
+        }
+    else
+        {
+            helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+        }
+    hizkuntzabikotea.value=helburuhizkuntza+'-'+iturburuhizkuntza;
+}
+
 
 /* Barra kargatzen denean, aukerak irakurri eta botoiak jartzen dira */ 
 
@@ -948,7 +971,7 @@ document.addEventListener('DOMContentLoaded',function()
 
     KargatuBotoiak();
     BistaratuBotoiak();
-
+    
     // Kutxan tekla sakatzen denean, Enter den begiratu
     document.getElementById('BilatzekoaText').addEventListener('keypress',BaliabideakIrekiEnter);
     
@@ -1030,6 +1053,9 @@ document.addEventListener('DOMContentLoaded',function()
             document.getElementById('BilatzekoaText').focus();
         },denborak[denbora]);
     }
+
+    //document.addEventListener('keypress', logKey);
+    document.onkeydown = KeyPress; //beste teklaren bat sakatu den begiratzen du, hzkuntzak aldatzeko adibidez
 
 });
 })();

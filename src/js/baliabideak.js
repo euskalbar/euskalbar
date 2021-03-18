@@ -508,11 +508,16 @@ baliabideendatuak.danobat = function ()
         'term_filter': opts.term,
       };
     },
+    /* bilaketa konbinatua kendu egin dut, bilaketa bi pausutan egiten duelako 
     scrap: function (data, opts)
-    {
-      return data.substring(data.indexOf('<div id="searchresult">'),
-                            data.indexOf('</article>'));
-    },
+    { console.log(data);
+      console.log(data.indexOf('<div id="searchresult">'));
+      console.log(data.indexOf('<div class="gallery modal'));
+      data = data.substring(data.indexOf('<div id="searchresult">'),
+                            data.indexOf('<div class="gallery modal'));
+      console.log(data);
+      return data;
+    },*/
   };
 }();
 
@@ -1938,7 +1943,7 @@ baliabideendatuak.lurhe = function ()
 baliabideendatuak.microsoft = function ()
 {
   return {
-    disabled: true, /* ez du uzten bigarren hizkuntza aukeratzen */
+    disabled: true,  //ez du uzten bigarren hizkuntza aukeratzen 
     name: 'microsoft',
     displayName: 'Microsoft',
     description: 'Microsoft Language Portal',
