@@ -59,9 +59,8 @@ function makexhr(baliabidea,urlosoa,params,opts,baliabideak)
                     {
                         urlosoa=url;
                     }
-                    if (encodeURI(urlosoa).replace(/%25/g,'%')==encodeURI(xhr.responseURL).replace(/%25/g,'%'))
+                    if (encodeURI(urlosoa).replace(/%25/g,'%').replace('https','http')==encodeURI(xhr.responseURL).replace(/%25/g,'%').replace('https','http'))
                     {
-
                         // Dagokion zutabean idatzi emaitza
 
                         document.getElementById('Gorputza'+baliabidea.name).innerHTML=baliabidea.scrap(xhr.responseText,opts);
@@ -148,11 +147,12 @@ function KargatuBaliabideak(request,sender,sendResponse)
         };
         var url=baliabidea.getUrl(opts);
         var params=baliabidea.getParams(opts);
+
         var urlosoa='';
         if (baliabidea.method=='GET')
         {
             if (serialize(params,baliabidea.encoding)!=='')
-            {
+            {   
                 urlosoa=url+'?'+serialize(params,baliabidea.encoding);
             }
             else

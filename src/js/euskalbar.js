@@ -25,7 +25,7 @@ function serialize(obj,encoding)
 function hizkuntzekinbat(baliabidea,hizkuntzabikotea)
 {
     var pareak=baliabidea.pairs;
-    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0 || pareak.indexOf(hizkuntzabikotea.substring(3))>=0)
+    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0)// || pareak.indexOf(hizkuntzabikotea.substring(3))>=0)
     {
         return true;
     }
@@ -870,6 +870,9 @@ function BaliabideakIrekiEnter(eve)
                             scriptasartu.then(function(result){
     
                                 // Mezua bidali hasi dadin, parametroekin
+                                console.log('MARI');
+                                console.log(tab.id);
+                                console.log(params);
     
                                 browser.tabs.sendMessage(tab.id,params);
                             },null);
