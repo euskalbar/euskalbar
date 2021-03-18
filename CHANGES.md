@@ -13,6 +13,7 @@
 - Bilaketa konbinatua: Euskaltzaindiaren hiztegia (#261)
 - Bilaketa konbinatua: Orotariko hiztegia (#261)
 - Mokoroa Fraseologia hiztegiaren kontsulta konpondu
+- Elhuyar Hiztegia bilaketa konbinatua, hitza aurkitzen ez duenean (#262)
 
 ## 5.0.3 bertsioa
 

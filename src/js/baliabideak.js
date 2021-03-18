@@ -716,14 +716,17 @@ baliabideendatuak.elhuyar = function ()
       return {};
     },
     scrap: function (data, opts)
-    {
-      if (data.indexOf('Ez da emaitzarik aurkitu') != -1) {
-        data = data.substring(data.indexOf('<div class="wrapDef">'),
+    {  
+      if (data.indexOf('Ez da emaitzarik aurkitu') != -1 || data.indexOf('hitza ez dago hiztegian') != -1) 
+      {
+        data = data.substring(data.indexOf('<div class="didyoumean">'),
                               data.indexOf('<div class="column bat">'));
         data = data.replace('/proposamenak/',
                             this.homePage + '/proposamenak/');
         return data;
-      } else {
+      } 
+      else 
+      {
         var domSerializer = new XMLSerializer();
         var parser = new DOMParser();
         var dataWord = data.substring(data.indexOf('<div class="boxHitza fLeft">'),

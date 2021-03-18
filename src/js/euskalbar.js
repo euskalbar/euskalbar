@@ -870,10 +870,7 @@ function BaliabideakIrekiEnter(eve)
                             scriptasartu.then(function(result){
     
                                 // Mezua bidali hasi dadin, parametroekin
-                                console.log('MARI');
-                                console.log(tab.id);
-                                console.log(params);
-    
+   
                                 browser.tabs.sendMessage(tab.id,params);
                             },null);
                         },null);
