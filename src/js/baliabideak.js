@@ -255,16 +255,16 @@ baliabideendatuak.batua = function ()
     method: 'GET',
     getUrl: function (opts)
     {
-      return 'http://www.euskaltzaindia.eus/index.php?sarrera='+opts.term+'&option=com_hiztegianbilatu&view=frontpage&lang=eu';
+      return 'https://www.euskaltzaindia.eus/index.php?sarrera='+opts.term+'&option=com_hiztegianbilatu&view=frontpage&lang=eu';
     },
     getParams: function (opts)
     {
       return {};
     },
     scrap: function (data, opts)
-    {
-      return data.substring(data.indexOf('<p class="note">'),
-                            data.indexOf('<div class="contentSearchBlock hiztegiBatuaSearchBlock">'));
+    { 
+      return data.substring(data.indexOf('<div class="col-md-9 bil-edukia">'), 
+                            data.indexOf('<script>'));
     },
   };
 }();
@@ -1063,7 +1063,14 @@ baliabideendatuak.euskalterm = function ()
     {
       
       return {};
-    }
+    },
+    scrap: function (data, opts)
+    { //responsearen gainean eval bat bota
+      //https://stackoverflow.com/questions/8260355/jquery-get-doesnt-execute-javascript/8279719
+      data= eval(data);
+      return data.substring(data.indexOf('<div id="taulaEmaitzak" class="mt-4 ml-1 mr-1">'), 
+                            data.indexOf('<ul id="zenbakitzea" class="pagination list-unstyled mt-5">'));
+    },
   };
 }();
 
@@ -1957,6 +1964,8 @@ baliabideendatuak.microsoft = function ()
   };
 }();
 
+//https://www.hiru.eus/es/hirupedia?p_auth=B5jRhOgC&p_p_id=w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_actionBuscar=buscarMokoroa
+//https://www.hiru.eus/eu/hirupedia?p_auth=B5jRhOgC&p_p_id=w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_actionBuscar=buscarMokoroa
 baliabideendatuak.mokoroa = function ()
 {
   return {
@@ -1966,39 +1975,36 @@ baliabideendatuak.mokoroa = function ()
     category: 'Fraseologia hiztegiak',
     title: ['hiru.eus'],
     homePage: 'http://www.hiru.eus/hirupedia',
-    pairs: ['eu-es',
-            'es-eu'],
-    method: 'GET',
+    pairs: ['eu-es', 'es-eu'],
+    method: 'POST',
+    encoding: 'ascii',
     getUrl: function (opts)
     {
-      return 'http://www.hiru.eus/hirupedia';
+      return 'https://www.hiru.eus/eu/hirupedia?p_p_id=indice_WAR_w25cIndexWAR_INSTANCE_zPs2&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_pos=1&p_p_col_count=2&_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action=entrarMokoroa'
     },
     getParams: function (opts)
     {
       var params = {
-        'p_p_id': 'indice_WAR_w25cIndexWAR_INSTANCE_zPs2',
-        'p_p_lifecycle': '1',
-        'p_p_state': 'normal',
-        'p_p_mode': 'view',
-        'p_p_col_id': 'column-1',
-        'p_p_col_pos': '1',
-        'p_p_col_count': '2',
-        '_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_action': 'buscarMokoroa'
-      };
-      if (opts.source === 'es') {
-        params['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoCastellano'] = opts.term;
-      } else {
-        params['_indice_WAR_w25cIndexWAR_INSTANCE_zPs2_mokoroaTextoEuskera'] = opts.term;
+          'form_name_or_index':'_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_ff',
+        }
+      if (opts.source === 'eu')
+      { 
+        params['_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_mokoroaTextoEuskera'] = opts.term;
       }
-
+      else
+      {
+        params['_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_mokoroaTextoCastellano'] = opts.term;
+      }
       return params;
     },
+    /*
+    //Mokoroa kendu egin dut bilaketa konbinatutik, POST deia ez duelako uzten hiru.eus-etik kanpo egiten.
     scrap: function (data, opts)
-    {
+    {  console.log(data);
       return data.substring(data.indexOf('<font color'),
                             data.indexOf('<div id="justo_mokoroa">'));
-    },
-  };
+    },*/
+  }
 }();
 
 baliabideendatuak.morris = function ()
@@ -2137,35 +2143,26 @@ baliabideendatuak.oeh = function ()
     displayName: 'Orotarikoa',
     description: 'Orotariko Euskal Hiztegia',
     category: 'Hiztegi orokorrak',
-    homePage: 'http://www.euskaltzaindia.eus/oeh',
+    homePage: 'https://www.euskaltzaindia.eus/index.php?option=com_oehberria&task=bilaketa&Itemid=413&lang=eu',
     pairs: ['eu'],
     berrerabiltzekoitxi:true,
-    method: 'POST',
+    //method: 'POST',
+    method: 'GET',
     getUrl: function (opts)
     {
-      return 'http://www.euskaltzaindia.eus/index.php?option=com_oeh&view=frontpage&Itemid=413&lang=eu';
+      return 'https://www.euskaltzaindia.eus/index.php?option=com_oehberria&task=bilaketa&Itemid=413&lang=eu&query=&sarrera='+opts.term
     },
     getParams: function (opts)
     {
-      return {
-        'form_name_or_index':2,
-        'sarrera': opts.term,
-      };
+      return {};
     },
     scrap: function (data, opts)
-    {
-      data = data.substring(data.indexOf('<div class="grid7 oehResultContent">'),
-                            data.indexOf('<div class="contentSearchBlock oehSearchBlock">'));
-      if (data.indexOf('oehResultContent') === -1) {
-        data = "Ez da aurkitu";
-      }
+    {  
+      data = data.substring(data.indexOf('<div class="col-md-9 oeh-sarrera-blokea">'),
+                            data.indexOf('<section id="sp-nabarmenduak">'));
       data = data.replace(
-            /index.php/g,
-            "http://www.euskaltzaindia.net/index.php"
-      );
-      data = data.replace(
-            /images/g,
-            "http://www.euskaltzaindia.net/images"
+            '/css/uzeiEstiloa.css',
+            "https://www.euskaltzaindia.eus/components/com_oehberria/css/uzeiEstiloa.css"
       );
       return data;
     },

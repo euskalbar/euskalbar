@@ -10,6 +10,9 @@
 - TextReference hiztegia gehitzea (#266)
 - Consumer corpusaren bilaketa konponduta (#272)
 - Lexikoaren behatokia konponduta (#264)
+- Bilaketa konbinatua: Euskaltzaindiaren hiztegia (#261)
+- Bilaketa konbinatua: Orotariko hiztegia (#261)
+- Mokoroa Fraseologia hiztegiaren kontsulta konpondu
 
 ## 5.0.3 bertsioa
 
