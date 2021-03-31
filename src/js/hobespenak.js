@@ -14,7 +14,7 @@ var HasierakoHobespenak={
 'AurreratuaShiftEnterelhuyar':"1",
 'AurreratuaShiftEntermorris':"1",
 'AurreratuaShiftEnterzehazki':"1",
-'AurreratuaShiftEntereuskalterm':"1",
+//'AurreratuaShiftEntereuskalterm':"1",
 'AurreratuaCtrlEnteradorezsin':"1",
 'AurreratuaCtrlEnterbatua':"1",
 'AurreratuaCtrlEnteruzei':"1",
