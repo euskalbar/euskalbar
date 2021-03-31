@@ -1,6 +1,6 @@
 # ChangeLog
 
-## 5.0.4 bertsioa
+## 5.0.5 bertsioa
 - EBE, Euskara Batuaren Eskuliburuaren kontsulta gehitu da.
 - Hauta Lanerako Euskal Hiztegia kendu da: onlineko bertsioa ez dabilelako.
 - Auñamendi Hiztegi Entziklopedikoaren kontsulta konpondu da.
