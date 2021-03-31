@@ -1065,22 +1065,26 @@ baliabideendatuak.euskalterm = function ()
         'de': 'de',
       },
       lang = langMap[opts.source] || 'eu';
-      return 'https://www.euskadi.eus/app/euskal-terminologia-banku-publikoa/'+term+'/kontsultatermino/'+term+'/non-du/hizk-'+lang+'/ter-on';
+
+      return 'https://www.euskadi.eus/web01-apeuster/es/ac36aEuskaltermWar/publiko/bilatu?param='+term+'/non-du/hizk-'+lang+'/ter-on';
     },
     getParams: function (opts)
     {
       
       return {};
     },
+    /* Bilaketa konbinatutik kendu egin dut, Euskalterm-en bilaketa bi pausutan egiten delako eta scrap egitea webguneak debekatu egiten duelako
     scrap: function (data, opts)
     { //responsearen gainean eval bat bota
       //https://stackoverflow.com/questions/8260355/jquery-get-doesnt-execute-javascript/8279719
-      data= eval(data);
+      //data= eval(data);
       return data.substring(data.indexOf('<div id="taulaEmaitzak" class="mt-4 ml-1 mr-1">'), 
                             data.indexOf('<ul id="zenbakitzea" class="pagination list-unstyled mt-5">'));
     },
+    */
   };
 }();
+
 
 baliabideendatuak.ebe = function ()
 {
@@ -1102,6 +1106,11 @@ baliabideendatuak.ebe = function ()
     getParams: function (opts)
     {
       return {};
+    },
+    scrap: function (data, opts)
+    { 
+      return data.substring(data.indexOf('<div class="col-md-9 bil-edukia">'), 
+                            data.indexOf('<section id="sp-nabarmenduak">'));
     },
   };
 }();
