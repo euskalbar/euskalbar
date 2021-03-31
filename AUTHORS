@@ -10,7 +10,7 @@ Euskalbar is an effort of several people. This file includes an alphabetically
 sorted list of people who have contributed to Euskalbar.
 For more detailed credits, see the ChangeLog file or the git log.
 
-Asier Iturralde Sarasola
+Asier Iturralde Sarasola <asier.iturralde at gmail dot com>
     Various dictionaries integration.
 
 Asier Sarasua Garmendia <asier.sarasua at gmail dot com>
@@ -19,20 +19,22 @@ Asier Sarasua Garmendia <asier.sarasua at gmail dot com>
 Chetan Thapliyal <chetan.thapliyal at discreteguidepost dot in>
     Goihata integration.
 
+Gontzal Pujana <gontzalpujana at protonmail dot com>
+
 Ibon Aizpurua Ugarte <ibon at eleka dot net>
     Xuxen integration.
 
 Igor Leturia Azkarate <ileturia at gmail dot com>
     Development.
 
+Ion Errasti <ion.errasti at gmail dot com>
+    Danobat integration.
+    
 Juanan Pereira Varela <juanan at diariolinux dot com>
     Author of the original code. Chrome compatibility.
 
 Julen Ruiz Aizpuru <julenx at gmail dot com>
     Development.
-
-Ion Errasti <ion.errasti at gmail dot com>
-    Danobat integration.
 
 Mari Susperregi <msusperregi at gmail dot com>
     Various dictionaries integration.

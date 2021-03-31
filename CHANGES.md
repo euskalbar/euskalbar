@@ -1,6 +1,9 @@
 # ChangeLog
 
 ## 5.0.5 bertsioa
+- Energi hiztegiaren kontsulta konpondu (#267)
+- UZEI sinonimoen hiztegia bilaketa konbinatuan konpondu da (#270)
+- Euskalterm-en kontsulta konpondu da (#271)
 - EBE, Euskara Batuaren Eskuliburuaren kontsulta gehitu da.
 - Hauta Lanerako Euskal Hiztegia kendu da: onlineko bertsioa ez dabilelako.
 - Auñamendi Hiztegi Entziklopedikoaren kontsulta konpondu da.
@@ -17,6 +20,7 @@
 - "Bertsioaren aldaketak" URLa aldatu dut, apostuetako orri batera joaten zen.
 - Hizkuntzen norabidea aldatzeko tekla konbinazioa: "Ctrl+ ." (#259)
 - EBE, Euskara Batuaren Eskuliburuaren kontsulta gehitu da bilaketa konbinatuan.
+- webextension-polyfill liburutegia eguneratu da
 
 ## 5.0.3 bertsioa
 
