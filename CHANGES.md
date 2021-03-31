@@ -14,6 +14,9 @@
 - Bilaketa konbinatua: Orotariko hiztegia (#261)
 - Mokoroa Fraseologia hiztegiaren kontsulta konpondu
 - Elhuyar Hiztegia bilaketa konbinatua, hitza aurkitzen ez duenean (#262)
+- "Bertsioaren aldaketak" URLa aldatu dut, apostuetako orri batera joaten zen.
+- Hizkuntzen norabidea aldatzeko tekla konbinazioa: "Ctrl+ ." (#259)
+- EBE, Euskara Batuaren Eskuliburuaren kontsulta gehitu da bilaketa konbinatuan.
 
 ## 5.0.3 bertsioa
 

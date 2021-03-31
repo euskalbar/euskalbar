@@ -19,6 +19,9 @@
         "default_popup": "euskalbar.html"
     },
 
+    //"content_security_policy": "script-src 'self'; object-src 'self'",
+    //"content-security-policy": "default-src 'self' http: https: data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-eval'; object-src 'self'",
+
     "content_security_policy": "script-src 'self'; object-src 'self'",
 
     "options_ui": {
