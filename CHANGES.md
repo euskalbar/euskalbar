@@ -1,5 +1,8 @@
 # ChangeLog
 
+## 5.0.6 bertsioa
+- hiztegi eta corpus elebakarrak direnean edozein hizkuntza bikotetik bilaketa egiten uztea (#274)
+
 ## 5.0.5 bertsioa
 - Energi hiztegiaren kontsulta konpondu (#267)
 - UZEI sinonimoen hiztegia bilaketa konbinatuan konpondu da (#270)
