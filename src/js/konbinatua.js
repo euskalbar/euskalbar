@@ -3,17 +3,29 @@
 function serialize(obj,encoding)
 {
     var serializatua;
+    // Latin-1, ASCII eta UTF-8 kodeketentzako serializazioa
     if (encoding=='latin-1')
     {
-        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+escape(obj[k]));return a},[]).join('&')
+        serializatua=encodeURIComponent(obj).replace(/%([0-9A-F]{2})/g,function(_match,p1)
+        {
+            return String.fromCharCode(parseInt(p1,16));
+        });
     }
-    else if (encoding=='ascii')
+    else if (encoding=='ascii' || encoding=='utf-8')
     {
-        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+obj[k].normalize('NFD').replace(/[\u0300-\u036f]/g,""));return a},[]).join('&')
+        serializatua=encodeURIComponent(obj).replace(/%([0-9A-F]{2})/g,function(_match,p1)
+        {
+            return String.fromCharCode(parseInt(p1,16));
+        }
+        ).replace(/[^\x20-\x7E]/g,function(match)
+        {
+            return '%'+match.charCodeAt(0).toString(16).toUpperCase();
+        }
+        );
     }
     else
     {
-        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
+        serializatua=encodeURIComponent(obj);
     }
     return serializatua;
 }
@@ -38,12 +50,12 @@ function makexhr(baliabidea,urlosoa,params,opts,baliabideak)
 
                 // Ikusi zein baliabidetakoa zen, URLa begiratuta
 
-                for (var i=0;i<baliabideak.length;i++)
-                {
-                    var baliabidea=baliabideendatuak[baliabideak[i]];
+                for (const baliabide of baliabideak)
+                {   
+                    baliabidea=baliabideendatuak[baliabide];
                     var url=baliabidea.getUrl(opts);
-                    var params=baliabidea.getParams(opts);
-                    var urlosoa='';
+                    params=baliabidea.getParams(opts);
+                    urlosoa='';
                     if (baliabidea.method=='GET')
                     {
                         if (serialize(params,baliabidea.encoding)!=='')
@@ -102,7 +114,7 @@ function makexhr(baliabidea,urlosoa,params,opts,baliabideak)
 
 /* Baliabideen zutabeak sortzen ditu */
 
-function KargatuBaliabideak(request,sender,sendResponse)
+function KargatuBaliabideak(request,_sender,_sendResponse)
 {
 
     // Orriari izenburua jarri
@@ -112,9 +124,9 @@ function KargatuBaliabideak(request,sender,sendResponse)
     // Baliabide bakoitzeko
 
     var baliabideak=request['baliabideak'];
-    for (var i=0;i<baliabideak.length;i++)
+    for (const baliabide of baliabideak)
     {
-        var baliabidea=baliabideendatuak[baliabideak[i]];
+        var baliabidea=baliabideendatuak[baliabide];
 
         // Zutabea sortu
 

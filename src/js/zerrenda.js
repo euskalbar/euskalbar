@@ -6,9 +6,8 @@ function KargatuBaliabideak()
 
     // baliabideak.js-n dagoen kategoria bakoitzeko
 
-    for (var i=0;i<baliabideenkategoriak.length;i++)
+    for (const kategoria of baliabideenkategoriak)
     {
-        var kategoria=baliabideenkategoriak[i];
 
         // Bere izenburua sortu
 

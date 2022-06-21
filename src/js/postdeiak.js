@@ -1,6 +1,6 @@
 /* Parametroak kargatu eta POST eskaera egiten du */
 
-function KargatuEtaBidali(request,sender,sendResponse)
+function KargatuEtaBidali(request,_sender,_sendResponse)
 {
 
     // Formularioa lortzen du, indize edo izen bidez, eta frame batean egon edo ez
@@ -33,10 +33,9 @@ function KargatuEtaBidali(request,sender,sendResponse)
 
     if (request['elements_to_delete']!=undefined)
     {
-        for (var i=0;i<request['elements_to_delete'].length;i++)
+        for (const element of request['elements_to_delete'])
         {
-            var ezabatzekoa=forma.elements[request['elements_to_delete'][i]];
-            ezabatzekoa.remove();
+            forma.elements[element].remove();
         }
     }
 
