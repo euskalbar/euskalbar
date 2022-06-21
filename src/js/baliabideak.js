@@ -1235,7 +1235,7 @@ baliabideendatuak.garaterm = function ()
     name: 'garaterm',
     displayName: 'Garaterm',
     description: 'Garaterm corpusa',
-    category: 'Corpus orokorrak',
+    category: 'Corpus espezializatuak',
     title: ['Garaterm corpusa'],
     homePage: 'http://garaterm-corpusa.ixa.eus/search',
     pairs: ['eu'],
