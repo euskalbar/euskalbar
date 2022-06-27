@@ -525,7 +525,6 @@ function BaliabideakIrekiEnter(eve)
                 {
                     var tabasortu;
                     var tabaurkitua;
-                    var tabaurkituaindizea;
     
                     // Ktrl edo Shift sakatuta bazeuden
     
@@ -565,11 +564,9 @@ function BaliabideakIrekiEnter(eve)
                             // Irekita bazegoen
     
                             if (tabaurkitua!==undefined)
-                            {
-    
+                            {   
                                 // Fitxa eguneratu
-    
-                                tabasortu=browser.tabs.update(tabaurkitua,args);
+                                OrriaKargatu(tabaurkitua, itemak, itemberriak, tekla, izenburua);
                             }
     
                             // Ez bazegoen irekita
@@ -598,90 +595,8 @@ function BaliabideakIrekiEnter(eve)
                         tabasortu.then(function(tab)
                         {
     
-                            // Baliabideen parametroak kargatu
-    
-                            hitza=document.getElementById('BilatzekoaText').value;
-                            var iturburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
-                            var helburuhizkuntza;
-                            if (document.getElementById('HizkuntzaBikoteaSelect').value.length>2)
-                            {
-                                helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
-                            }
-                            else
-                            {
-                                helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
-                            }
-    
-                            // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren, eta horien estatistika handitu 
-    
-                            var baliabideak=[];
-                            for (var baliabideizena in baliabideendatuak)
-                            {
-                                baliabidea=baliabideendatuak[baliabideizena];
-                                izena=baliabidea.name;
-                                hizkuntzabikotea=document.getElementById('HizkuntzaBikoteaSelect').value;
-                                if (itemak['Aurreratua'+tekla+'Enter'+izena]!==undefined)
-                                {
-                                    if (itemak['Aurreratua'+tekla+'Enter'+izena]=="1")
-                                    {
-                                        if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
-                                        {
-                                            baliabideak.push(izena);
-                                            if (itemak['Estatistikak'+baliabidea.name]!==undefined)
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
-                                            }
-                                            else
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=1;
-                                            }
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    if (HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]!==undefined && HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]=="1")
-                                    {
-                                        if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
-                                        {
-                                            baliabideak.push(izena);
-                                            if (itemak['Estatistikak'+baliabidea.name]!==undefined)
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
-                                            }
-                                            else
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=1;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            var storageagorde=browser.storage.local.set(itemberriak);
-                            storageagorde.then(null,function(_errorea)
-                            {
-                                console.log('Errorea estatistikak gordetzean');
-                            });
-    
-                            // Baliabideak XHR bidez irekiko dituen script-a kargatu
-    
-                            var params={
-                                'izenburua':izenburua,
-                                'baliabideak':baliabideak,
-                                'term':hitza,
-                                'source':iturburuhizkuntza,
-                                'target':helburuhizkuntza,
-                            };
-                            var scriptasartu=browser.tabs.executeScript(tab.id,{file:"js/konbinatua.js"});
-    
-                            // Kargatu duenean
-    
-                            scriptasartu.then(function(_result){
-    
-                                // Mezua bidali hasi dadin, parametroekin
-   
-                                browser.tabs.sendMessage(tab.id,params);
-                            },null);
+                            // Fitxa berria sortu
+                            OrriaKargatu(tab.id, itemak, itemberriak, tekla, izenburua);
                         },null);
                     }
     
@@ -697,14 +612,14 @@ function BaliabideakIrekiEnter(eve)
                         {
                             for (var baliabidearenizena in baliabideendatuak)
                             {
-                                baliabidea=baliabideendatuak[baliabidearenizena];
+                                var baliabidea =baliabideendatuak[baliabidearenizena];
                                 if (baliabidea.category==kategoria && (baliabidea.disabled === undefined || baliabidea.disabled === false))
                                 {
-                                    izena=baliabidea.name;
-                                    hizkuntzabikotea=document.getElementById('HizkuntzaBikoteaSelect').value;
-                                    if (itemak['AurreratuaEnter'+izena]!==undefined)
+                                    var izena = baliabidea.name;
+                                    var hizkuntzabikotea = document.getElementById('HizkuntzaBikoteaSelect').value;
+                                    if (itemak['AurreratuaEnter'+izena] !== undefined)
                                     {
-                                        if (itemak['AurreratuaEnter'+izena]=="1")
+                                        if (itemak['AurreratuaEnter'+izena] == "1")
                                         {
                                             if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
                                             {
@@ -744,6 +659,94 @@ function BaliabideakIrekiEnter(eve)
             eve.preventDefault();
         }
     }
+}
+
+function OrriaKargatu(tab, itemak, itemberriak, tekla, izenburua ){
+    // Baliabideen parametroak kargatu
+    
+    const hitza = document.getElementById('BilatzekoaText').value;
+    var iturburuhizkuntza = document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+    var helburuhizkuntza;
+    if (document.getElementById('HizkuntzaBikoteaSelect').value.length>2)
+    {
+        helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
+    }
+    else
+    {
+        helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+    }
+
+    // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren, eta horien estatistika handitu 
+    
+    var baliabideak=[];
+    for (var baliabideizena in baliabideendatuak)
+    {
+        const baliabidea = baliabideendatuak[baliabideizena];
+        const izena = baliabidea.name;
+        const hizkuntzabikotea = document.getElementById('HizkuntzaBikoteaSelect').value;
+        if (itemak['Aurreratua'+tekla+'Enter'+izena]!==undefined)
+        {
+            if (itemak['Aurreratua'+tekla+'Enter'+izena]=="1")
+            {
+                if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
+                {
+                    baliabideak.push(izena);
+                    if (itemak['Estatistikak'+baliabidea.name]!==undefined)
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
+                    }
+                    else
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=1;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]!==undefined && HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]=="1")
+            {
+                if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
+                {
+                    baliabideak.push(izena);
+                    if (itemak['Estatistikak'+baliabidea.name]!==undefined)
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
+                    }
+                    else
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=1;
+                    }
+                }
+            }
+        }
+    }
+    var storageagorde=browser.storage.local.set(itemberriak);
+    storageagorde.then(null,function(_errorea)
+    {
+        console.log('Errorea estatistikak gordetzean');
+    });
+
+    // Baliabideak XHR bidez irekiko dituen script-a kargatu
+
+    var params={
+        'izenburua':izenburua,
+        'baliabideak':baliabideak,
+        'term':hitza,
+        'source':iturburuhizkuntza,
+        'target':helburuhizkuntza,
+    };
+    
+    var scriptasartu=browser.tabs.executeScript(tab,{file:"js/konbinatua.js"});
+
+    // Kargatu duenean
+
+    scriptasartu.then(function(_result){
+
+        // Mezua bidali hasi dadin, parametroekin
+
+        browser.tabs.sendMessage(tab,params);
+    },null);
 }
 
 function KeyPress(e) {
