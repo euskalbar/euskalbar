@@ -5,29 +5,16 @@ function KargatuEtaBidali(request,_sender,_sendResponse)
 
     // Formularioa lortzen du, indize edo izen bidez, eta frame batean egon edo ez
 
-    var forma;
-    if (request['frame_index']!=undefined)
-    {
-        forma=window.frames[request['frame_index']].document.forms[request['form_name_or_index']];
-    }
-    else
-    {
-        forma=document.forms[request['form_name_or_index']];
-    }
+    var forma = (request['frame_index'] != undefined) ? window.frames[request['frame_index']].document.forms[request['form_name_or_index']] : document.forms[request['form_name_or_index']];
 
     // Formularioaren action-a aldatu behar bada, egin
 
-    if (request['form_url']!=undefined)
-    {
-        forma.action=request['form_url'];
-    }
-
+    forma.action ??= request['form_url'];
+    
     // Formularioaren method-a aldatu behar bada, egin
 
-    if (request['form_method']!=undefined)
-    {
-        forma.method=request['form_method'];
-    }
+    forma.method ??= request['form_method'];
+    
 
     // Formularioko elementu batzuk ezabatu behar badira, egin
 
@@ -39,17 +26,24 @@ function KargatuEtaBidali(request,_sender,_sendResponse)
         }
     }
 
-    // Aldatu behar den elementu bakoitzeko
+    // Ezikusiko diren elementuak zerrendatzen dira
+    var ezikusitakoElementuak = [
+        'form_name_or_index',
+        'form_url',
+        'form_method',
+        'hidden_elements',
+        'elements_to_delete'
+    ]
 
+    // Aldatu behar den elementu bakoitzeko
     for (var elementuarenizena in request)
     {
-        var elementuarenbalioa=request[elementuarenizena];
-        if (elementuarenizena!='form_name_or_index' && elementuarenizena!='form_url' && elementuarenizena!='form_method' && elementuarenizena!='hidden_elements' && elementuarenizena!='elements_to_delete')
+        if (!elementuarenizena.includes(ezikusitakoElementuak))
         {
-
+            var elementuarenbalioa=request[elementuarenizena];
             // Elementua egoten bada, bere balioa aldatu
 
-            if (forma[elementuarenizena]!=undefined)
+            if (forma[elementuarenizena] != undefined)
             {
                 forma[elementuarenizena].value=elementuarenbalioa;
             }

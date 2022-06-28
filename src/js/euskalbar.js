@@ -5,29 +5,17 @@
 function serialize(obj,encoding)
 {
     var serializatua;
-    // Latin-1, ASCII eta UTF-8 kodeketentzako serializazioa
     if (encoding=='latin-1')
     {
-        serializatua=encodeURIComponent(obj).replace(/%([0-9A-F]{2})/g,function(_match,p1)
-        {
-            return String.fromCharCode(parseInt(p1,16));
-        });
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+escape(obj[k]));return a},[]).join('&')
     }
-    else if (encoding=='ascii' || encoding=='utf-8')
+    else if (encoding=='ascii')
     {
-        serializatua=encodeURIComponent(obj).replace(/%([0-9A-F]{2})/g,function(_match,p1)
-        {
-            return String.fromCharCode(parseInt(p1,16));
-        }
-        ).replace(/[^\x20-\x7E]/g,function(match)
-        {
-            return '%'+match.charCodeAt(0).toString(16).toUpperCase();
-        }
-        );
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+obj[k].normalize('NFD').replace(/[\u0300-\u036f]/g,""));return a},[]).join('&')
     }
     else
     {
-        serializatua=encodeURIComponent(obj);
+        serializatua=''+Object.keys(obj).reduce(function(a,k){a.push(k+'='+encodeURIComponent(obj[k]));return a},[]).join('&')
     }
     return serializatua;
 }
@@ -800,6 +788,19 @@ document.addEventListener('DOMContentLoaded',function()
         BistaratuBotoiak();
     }, false);
 
+    // Bilatzekoa idazten ari garen bitartean, sarrera kontrolatu
+    document.getElementById("BilatzekoaText").addEventListener('keydown', (event) => 
+    {
+        // Idazten ari garen bitartean sarrerak alfanumerikoak badira egiaztatzen da XSS saihesteko
+        if (event.key.match(/[a-zA-Z\ç\ñ]+/g)) 
+        {
+            return event;
+        }
+        else
+        {
+            event.preventDefault();
+        }
+    })
     // Bilatzekoa aldatzen denean, gorde hurrengorako
 
     document.getElementById("BilatzekoaText").addEventListener('change',function()
