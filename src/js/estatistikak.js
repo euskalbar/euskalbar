@@ -13,10 +13,8 @@ function KargatuEstatistikak()
 
         // baliabideak.js-n dagoen kategoria bakoitzeko
 
-        for (var i=0;i<baliabideenkategoriak.length;i++)
+        for (const kategoria of baliabideenkategoriak)
         {
-            var kategoria=baliabideenkategoriak[i];
-
             // Bere izenburua sortu
 
             var trakat=document.createElement('tr');
@@ -24,7 +22,8 @@ function KargatuEstatistikak()
             var tda1=document.createElement('td');
             tda1.setAttribute('colspan','2');
             trakat.appendChild(tda1);
-            var testua1=document.createTextNode(kategoria);
+            var testua1=document.createElement('strong');
+            testua1.innerHTML = kategoria
             tda1.appendChild(testua1);
 
             // Kategoria horretakoa den baliabide bakoitzeko
@@ -40,9 +39,9 @@ function KargatuEstatistikak()
 
                     var tra=document.createElement('tr');
                     document.getElementById('EstatistikakTaulaBody').appendChild(tra);
-                    var tda1=document.createElement('td');
+                    tda1=document.createElement('td');
                     tra.appendChild(tda1);
-                    var testua1=document.createTextNode('\u00a0\u00a0\u00a0\u00a0'+baliabidea.description);
+                    testua1=document.createTextNode('\u00a0\u00a0\u00a0\u00a0'+baliabidea.description);
                     tda1.appendChild(testua1);
                     var tda2=document.createElement('td');
                     tda2.setAttribute('class','kopurua');
@@ -71,7 +70,7 @@ function KargatuEstatistikak()
 
     // Kargatzean errorea ematen badu, mezua idatzi
 
-    },function(errorea)
+    },function(_errorea)
     {
         console.log('Errorea storage kargatzean');
     });
