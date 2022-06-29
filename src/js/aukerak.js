@@ -6,10 +6,8 @@ function KargatuBaliabideakFormularioa(formularioa,aurrizkia)
 
     // baliabideak.js-n dagoen kategoria bakoitzeko
 
-    for (var i=0;i<baliabideenkategoriak.length;i++)
+    for (const kategoria of baliabideenkategoriak)
     {
-        var kategoria=baliabideenkategoriak[i];
-
         // Bere izenburua sortu
 
         var ha=document.createElement('h4');
@@ -92,51 +90,31 @@ function KargatuHobespenakFormularioa(formularioa,aurrizkia)
 
             // Checkbox-a bada
 
-            if (ctrl.type=="checkbox")
+            if (ctrl.type=='checkbox')
             {
+                ctrl.checked=false;
 
-                // Storage objektuan egoten bada, han jartzen duen balioa jarri
+                // Izena storage objektuan definituta badago eta 1 bada, checkboxa markatu
 
-                if (itemak[izena]!==undefined)
+                if (itemak[izena] !== undefined && itemak[izena] == "1")
                 {
-                    if (itemak[izena]=="0")
-                    {
-                        ctrl.checked=false;
-                    }
-                    else
-                    {
-                        ctrl.checked=true;
-                    }
+                    ctrl.checked=true;
                 }
 
-                // Ez badago
+                // hobespenak.js fitxategian definituta badago eta 1 bada, checkboxa markatu
 
-                else
+                else if (izena in HasierakoHobespenak && HasierakoHobespenak[izena] == "1")
                 {
+                    ctrl.checked=true;
+                    itemberriak[izena]="1";
+                    
+                }
 
-                    // hobespenak.js fitxategian duen balioa jarri, han badago, eta storage objektuan gorde gero
-
-                    if (izena in HasierakoHobespenak)
-                    {
-                        if (HasierakoHobespenak[izena]=="0")
-                        {
-                            ctrl.checked=false;
-                            itemberriak[izena]="0";
-                        }
-                        else
-                        {
-                            ctrl.checked=true;
-                            itemberriak[izena]="1";
-                        }
-                    }
-
-                    // Bestela markatu gabe utzi eta storage objektuan gorde gero
-
-                    else
-                    {
-                        ctrl.checked=false;
-                        itemberriak[izena]="0";
-                    }
+                // hobespenak.js fitxategian definituta ez badago edo izena 0 bada, storage objektuan markatu gabe gorde
+                
+                else 
+                {
+                    itemberriak[izena]="0";
                 }
             }
 
@@ -149,8 +127,7 @@ function KargatuHobespenakFormularioa(formularioa,aurrizkia)
 
                 if (itemak[izena]!==undefined)
                 {
-                    var indexa=itemak[izena];
-                    ctrl.selectedIndex=indexa;
+                    ctrl.selectedIndex=itemak[izena];
                 }
 
                 // Ez badago
@@ -161,8 +138,7 @@ function KargatuHobespenakFormularioa(formularioa,aurrizkia)
 
                     if (izena in HasierakoHobespenak)
                     {
-                        var indexa=HasierakoHobespenak[izena];
-                        ctrl.selectedIndex=indexa;
+                        ctrl.selectedIndex=HasierakoHobespenak[izena];
                     }
                     itemberriak[izena]=ctrl.selectedIndex;
                 }
@@ -175,14 +151,14 @@ function KargatuHobespenakFormularioa(formularioa,aurrizkia)
 
         // Gordetzean errorea ematen badu, kontsolan idatzi
 
-        storageagorde.then(null,function(errorea)
+        storageagorde.then(null,function(_errorea)
         {
             console.log('Errorea storage gordetzean');
         });
 
     // Kargatzean errorea ematen badu, mezua idatzi
 
-    },function(errorea)
+    },function(_errorea)
     {
         console.log('Errorea storage kargatzean');
     });
@@ -220,8 +196,7 @@ function GordeHobespenakFormularioa(formularioa,aurrizkia)
         }
         else if(ctrl.type=="select-one")
         {
-            var indexa=ctrl.selectedIndex;
-            itemberriak[izena]=indexa;
+            itemberriak[izena]=ctrl.selectedIndex;
         }
     }
 
@@ -231,7 +206,7 @@ function GordeHobespenakFormularioa(formularioa,aurrizkia)
 
     // Gordetzean errorea ematen badu, kontsolan idatzi
 
-    storageagorde.then(null,function(errorea)
+    storageagorde.then(null,function(_errorea)
     {
         console.log('Errorea storage gordetzean');
     });
@@ -272,26 +247,31 @@ document.addEventListener('DOMContentLoaded', function ()
     {
         GordeHobespenakFormularioa('FitxaHobespenakForm','');
     }, false);
+
+    // Aurreratua enter, Aurreratua Shift Enter eta Aurreratua Ctrl Enterrren aukerak aldatzean gordetzeko ebentoa jarri elementu guztiei
     var ae_aldaketak=document.getElementsByClassName("AurreratuaEnterCheckbox");
-    for(var i=0,j=ae_aldaketak.length;i<j;i++)
+    var ase_aldaketak=document.getElementsByClassName("AurreratuaShiftEnterCheckbox");
+    var ake_aldaketak=document.getElementsByClassName("AurreratuaCtrlEnterCheckbox");
+
+    for (const ae of ae_aldaketak)
     {
-        ae_aldaketak[i].addEventListener('change',function()
+        ae.addEventListener('change',function()
         {
             GordeHobespenakFormularioa('AurreratuaEnterHobespenakForm','AurreratuaEnter');
-        },false);
+        }, false);
     }
-    var ase_aldaketak=document.getElementsByClassName("AurreratuaShiftEnterCheckbox");
-    for(var i=0,j=ase_aldaketak.length;i<j;i++)
+    
+    for(const ase of ase_aldaketak)
     {
-        ase_aldaketak[i].addEventListener('change',function()
+        ase.addEventListener('change',function()
         {
             GordeHobespenakFormularioa('AurreratuaShiftEnterHobespenakForm','AurreratuaShiftEnter');
         },false);
     }
-    var ake_aldaketak=document.getElementsByClassName("AurreratuaCtrlEnterCheckbox");
-    for(var i=0,j=ake_aldaketak.length;i<j;i++)
+    
+    for(const ake of ake_aldaketak)
     {
-        ake_aldaketak[i].addEventListener('change',function()
+        ake.addEventListener('change',function()
         {
             GordeHobespenakFormularioa('AurreratuaCtrlEnterHobespenakForm','AurreratuaCtrlEnter');
         },false);

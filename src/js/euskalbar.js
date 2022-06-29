@@ -26,14 +26,7 @@ function hizkuntzekinbat(baliabidea,hizkuntzabikotea)
 {
     var pareak=baliabidea.pairs;
 
-    if (pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0 || pareak.indexOf(hizkuntzabikotea.substring(3))>=0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return !!(pareak.indexOf(hizkuntzabikotea)>=0 || pareak.indexOf(hizkuntzabikotea.substring(0,2))>=0 || pareak.indexOf(hizkuntzabikotea.substring(3))>=0);
 }
 
 /* Botoiak sortzen ditu baliabideak.js fitxategian dagoenaren arabera */
@@ -43,9 +36,8 @@ function KargatuBotoiak()
 
     // baliabideak.js-n dagoen kategoria bakoitzeko
 
-    for (var i=0;i<baliabideenkategoriak.length;i++)
+    for (const kategoria of baliabideenkategoriak)
     {
-        var kategoria=baliabideenkategoriak[i];
 
         // Kategoria horretakoa den eta ezgaituta ez dagoen baliabide bakoitzeko
 
@@ -125,113 +117,30 @@ function BistaratuBotoiak()
             // Botoia bada
 
             if (ctrl.type=="button")
-            {               
+            {
                 var izena=ctrl.name.replace('btn','');
+                ctrl.style='display:none;';
 
-                // Hobespenak gordeta baditu
+                // Hobespenetan aukeratuta badago edo hizkuntza bikotearekin bat badator, botoia bistaratu
 
-                if (itemak['Baliabideak'+izena]!==undefined)
+                if (itemak['Baliabideak'+izena]!==undefined && itemak['Baliabideak'+izena] == "1" && hizkuntzekinbat(baliabideendatuak[izena],hizkuntzabikotea))
                 {
-
-                    // Hobespenetan ez badago aukeratuta
-
-                    if (itemak['Baliabideak'+izena]=="0")
-                    {
-
-                        // Ezkutatu
-
-                        ctrl.style='display:none;';
-                    }
-
-                    // Hobespenetan aukeratuta badago
-
-                    else
-                    {
-
-                        // Hizkuntza bikotearekin bat badator
-
-                        if (hizkuntzekinbat(baliabideendatuak[izena],hizkuntzabikotea))
-                        {
-
-                            // Bistaratu
-
-                            ctrl.style='display:visible;';
-                        }
-
-                        // Hizkuntza bikotearekin bat ez badator
-
-                        else
-                        {
-
-                            // Ezkutatu
-
-                            ctrl.style='display:none;';
-                        }
-                    }
+                    ctrl.style='display:visible;';
                 }
 
-                // Hobespenak gordeta ez baditu
+                // Hasierako hobespenetan badago, botoia bistaratu eta storage-an gorde
+
+                else if ('Baliabideak'+izena in HasierakoHobespenak && HasierakoHobespenak['Baliabideak'+izena] == "1")
+                {
+                    ctrl.style='display:visible;';
+                    itemberriak['Baliabideak'+izena]="1";
+                }
+
+                // Hobespenetan edo hasierako hobespenetan ez badago, botoia ezkutatu eta storage-an gorde
 
                 else
                 {
-
-                    // Hasierako hobespenetan badago
-
-                    if ('Baliabideak'+izena in HasierakoHobespenak)
-                    {
-
-                        // Ezkutatzeko badago
-
-                        if (HasierakoHobespenak['Baliabideak'+izena]=="0")
-                        {
-
-                            // Ezkutatu
-
-                            ctrl.style='display:none;';
-                            itemberriak['Baliabideak'+izena]="0";
-                        }
-
-                        // Ezkutatzeko ez badago
-
-                        else
-                        {
-
-                            // Hizkuntza bikotearekin bat badator
-
-                            if (hizkuntzekinbat(baliabideendatuak[izena],hizkuntzabikotea))
-                            {
-    
-                                // Bistaratu
-    
-                                ctrl.style='display:visible;';
-                            }
-
-                            // Hizkuntza bikotearekin bat ez badator
-
-                            else
-                            {
-
-                                // Ezkutatu
-
-                                ctrl.style='display:none;';
-                            }
-
-                            // Hobespenak gorde
-
-                            itemberriak['Baliabideak'+izena]="1";
-                        }
-                    }
-                    else
-                    {
-
-                        // Ezkutatu
-
-                        ctrl.style='display:none;';
-
-                        // Hobespenak gorde
-
-                        itemberriak['Baliabideak'+izena]="0";
-                    }
+                    itemberriak['Baliabideak'+izena]="0";
                 }
             }
         }
@@ -242,14 +151,14 @@ function BistaratuBotoiak()
 
         // Gordetzean errorea ematen badu, kontsolan idatzi
 
-        storageagorde.then(null,function(errorea)
+        storageagorde.then(null,function(_errorea)
         {
             console.log('Errorea storage gordetzean');
         });
 
     // Kargatzean errorea ematen badu, mezua idatzi
 
-    },function(errorea)
+    },function(_errorea)
     {
         console.log('Errorea storage kargatzean');
     });
@@ -278,63 +187,16 @@ function baliabideaireki(baliabidearenizena)
 
         var FitxakBerrerabili=false;
         var FitxakAtzean=false;
-        if (itemak['FitxakBerrerabiliHobespena']!==undefined)
+        if (itemak['FitxakBerrerabiliHobespena']!==undefined && itemak['FitxakBerrerabiliHobespena']=="1"
+            || 'FitxakBerrerabiliHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakBerrerabiliHobespena']=="1")
         {
-            if (itemak['FitxakBerrerabiliHobespena']=="0")
-            {
-                FitxakBerrerabili=false;
-            }
-            else
-            {
-                FitxakBerrerabili=true;
-            }
+            FitxakBerrerabili=true;
         }
-        else
+
+        if (itemak['FitxakAtzeanHobespena']!==undefined && itemak['FitxakAtzeanHobespena']=="1"
+            || 'FitxakAtzeanHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakAtzeanHobespena']=="1")
         {
-            if ('FitxakBerrerabiliHobespena' in HasierakoHobespenak)
-            {
-                if (HasierakoHobespenak['FitxakBerrerabiliHobespena']=="0")
-                {
-                    FitxakBerrerabili=false;
-                }
-                else
-                {
-                    FitxakBerrerabili=true;
-                }
-            }
-            else
-            {
-                FitxakBerrerabili=false;
-            }
-        }
-        if (itemak['FitxakAtzeanHobespena']!==undefined)
-        {
-            if (itemak['FitxakAtzeanHobespena']=="0")
-            {
-                FitxakAtzean=false;
-            }
-            else
-            {
-                FitxakAtzean=true;
-            }
-        }
-        else
-        {
-            if ('FitxakAtzeanHobespena' in HasierakoHobespenak)
-            {
-                if (HasierakoHobespenak['FitxakAtzeanHobespena']=="0")
-                {
-                    FitxakAtzean=false;
-                }
-                else
-                {
-                    FitxakAtzean=true;
-                }
-            }
-            else
-            {
-                FitxakAtzean=false;
-            }
+            FitxakAtzean=true;
         }
 
         // Baliabidearen estatistiketan gehitu eta gorde
@@ -350,7 +212,7 @@ function baliabideaireki(baliabidearenizena)
             itemberriak['Estatistikak'+baliabidea.name]=1;
         }
         var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(errorea)
+        storageagorde.then(null,function(_errorea)
         {
             console.log('Errorea estatistikak gordetzean');
         });
@@ -409,51 +271,44 @@ function baliabideaireki(baliabidearenizena)
     
             // Fitxa kopurua kontatu
     
-            var kopurua=0;
-            var aurkitua=false;
-            for (let tab of tabak)
-            {
-                kopurua=kopurua+1;
-            }
+            var kopurua=tabak.length;
             var tabaurkitua;
             var tabaurkituaindizea;
     
             // Begiratu ea fitxa irekita dagoen (URL edo izenburua kointzidituta)
-    
-            var aurkitua=false;
             for (let tab of tabak)
             {
-                if (!aurkitua && FitxakBerrerabili)
+                if (FitxakBerrerabili)
                 {
                     if (tab.url.indexOf(url)>=0 || tab.url.indexOf(urlosoa)>=0 || (titulua!==undefined && tab.title.indexOf(titulua)>=0))
                     {
                         tabaurkitua=tab.id;
                         tabaurkituaindizea=tab.index;
-                        aurkitua=true;
+                        break;
                     }
                     else
                     {
                         if (baliabidea.title!==undefined)
                         {
-                            for (var i=0;i<baliabidea.title.length;i++)
+                            for (const izenburua of baliabidea.title)
                             {
-                                if (tab.title.indexOf(baliabidea.title[i])>=0)
+                                if (tab.title.indexOf(izenburua)>=0)
                                 {
                                     tabaurkitua=tab.id;
                                     tabaurkituaindizea=tab.index;
-                                    aurkitua=true;
+                                    break;
                                 }
                             }
                         }                    
                         if (matchurl!==undefined)
                         {
-                            for (var i=0;i<matchurl.length;i++)
+                            for (const urla of matchurl)
                             {
-                                if (tab.url.indexOf(matchurl[i])>=0)
+                                if (tab.url.indexOf(urla)>=0)
                                 {
                                     tabaurkitua=tab.id;
                                     tabaurkituaindizea=tab.index;
-                                    aurkitua=true;
+                                    break;
                                 }
                             }
                         }                    
@@ -466,17 +321,15 @@ function baliabideaireki(baliabidearenizena)
             if (tabaurkitua===undefined)
             {
                 tabaurkituaindizea=kopurua;
-                kopurua=kopurua+1;
             }
             azkenbaliabidea=baliabidearenizena;
-            azkenarenindizea=tabaurkituaindizea;
             var tabasortu;
         
             // Irekita bazegoen
         
             if (tabaurkitua!==undefined)
             {
-        
+
                 // Berrerabiltzeko fitxa itxi behar den baliabideetakoa bada, itxi fitxa eta toki berean ireki berria
         
                 if (baliabidea.berrerabiltzekoitxi)
@@ -529,11 +382,11 @@ function baliabideaireki(baliabidearenizena)
         
                     // Kargatu duenean
             
-                    scriptasartu.then(function(result){
+                    scriptasartu.then(function(_result){
             
                         // Mezua bidali hasi dedin, parametroekin
             
-                        var params=fitxarenbaliabidea.getParams({
+                        params=fitxarenbaliabidea.getParams({
                             term:hitza,
                             source:iturburuhizkuntza,
                             target:helburuhizkuntza,
@@ -541,21 +394,13 @@ function baliabideaireki(baliabidearenizena)
                         browser.tabs.sendMessage(azkenarenidentifikadorea,params);
         
                         // Hurrengo fitxa sortu
-        
-                        fitxenbaliabideak.splice(fitxenbaliabideak.indexOf(azkenbaliabidea),1);
-                        if (fitxenbaliabideak.length>0)
-                        {
-                            baliabideaireki(fitxenbaliabideak[0]);
-                        }
+
+                        HurrengoFitxaSortu();
         
                     // Errorea ematen badu, hurrengo fitxa sortu
         
-                    },function(result){
-                        fitxenbaliabideak.splice(fitxenbaliabideak.indexOf(azkenbaliabidea),1);
-                        if (fitxenbaliabideak.length>0)
-                        {
-                            baliabideaireki(fitxenbaliabideak[0]);
-                        }
+                    },function(_result){
+                        HurrengoFitxaSortu();
                     });
                 }
             
@@ -566,25 +411,27 @@ function baliabideaireki(baliabidearenizena)
         
                     // Hurrengo fitxa sortu
         
-                    fitxenbaliabideak.splice(fitxenbaliabideak.indexOf(azkenbaliabidea),1);
-                    if (fitxenbaliabideak.length>0)
-                    {
-                        baliabideaireki(fitxenbaliabideak[0]);
-                    }
+                    HurrengoFitxaSortu();
                 }
     
             // Errorea ematen badu, hurrengo fitxa sortu
         
-            },function(fitxa)
+            },function(_fitxa)
             {
-                fitxenbaliabideak.splice(fitxenbaliabideak.indexOf(azkenbaliabidea),1);
-                if (fitxenbaliabideak.length>0)
-                {
-                    baliabideaireki(fitxenbaliabideak[0]);
-                }
+                HurrengoFitxaSortu();
             });
         });
     });
+}
+
+/* Hurrengo fitxa sortzen du */
+function HurrengoFitxaSortu()
+{
+    fitxenbaliabideak.splice(fitxenbaliabideak.indexOf(azkenbaliabidea),1);
+    if (fitxenbaliabideak.length>0)
+    {
+        baliabideaireki(fitxenbaliabideak[0]);
+    }
 }
 
 /* Pasatzen zaion baliabidea irekitzen du tab berri batean */
@@ -647,63 +494,16 @@ function BaliabideakIrekiEnter(eve)
     
                 var FitxakBerrerabili=false;
                 var FitxakAtzean=false;
-                if (itemak['FitxakBerrerabiliHobespena']!==undefined)
+                if (itemak['FitxakBerrerabiliHobespena']!==undefined && itemak['FitxakBerrerabiliHobespena']=="1"
+                    || 'FitxakBerrerabiliHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakBerrerabiliHobespena']=="1")
                 {
-                    if (itemak['FitxakBerrerabiliHobespena']=="0")
-                    {
-                        FitxakBerrerabili=false;
-                    }
-                    else
-                    {
-                        FitxakBerrerabili=true;
-                    }
+                    FitxakBerrerabili=true;
                 }
-                else
+                
+                if (itemak['FitxakAtzeanHobespena']!==undefined && itemak['FitxakAtzeanHobespena']=="1"
+                    || 'FitxakAtzeanHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakAtzeanHobespena']=="1")
                 {
-                    if ('FitxakBerrerabiliHobespena' in HasierakoHobespenak)
-                    {
-                        if (HasierakoHobespenak['FitxakBerrerabiliHobespena']=="0")
-                        {
-                            FitxakBerrerabili=false;
-                        }
-                        else
-                        {
-                            FitxakBerrerabili=true;
-                        }
-                    }
-                    else
-                    {
-                        FitxakBerrerabili=false;
-                    }
-                }
-                if (itemak['FitxakAtzeanHobespena']!==undefined)
-                {
-                    if (itemak['FitxakAtzeanHobespena']=="0")
-                    {
-                        FitxakAtzean=false;
-                    }
-                    else
-                    {
-                        FitxakAtzean=true;
-                    }
-                }
-                else
-                {
-                    if ('FitxakAtzeanHobespena' in HasierakoHobespenak)
-                    {
-                        if (HasierakoHobespenak['FitxakAtzeanHobespena']=="0")
-                        {
-                            FitxakAtzean=false;
-                        }
-                        else
-                        {
-                            FitxakAtzean=true;
-                        }
-                    }
-                    else
-                    {
-                        FitxakAtzean=false;
-                    }
+                    FitxakAtzean=true;
                 }
     
                 // Irekita dauden fitxak kargatu
@@ -713,7 +513,6 @@ function BaliabideakIrekiEnter(eve)
                 {
                     var tabasortu;
                     var tabaurkitua;
-                    var tabaurkituaindizea;
     
                     // Ktrl edo Shift sakatuta bazeuden
     
@@ -741,28 +540,21 @@ function BaliabideakIrekiEnter(eve)
     
                             // Begiratu ea fitxa irekita dagoen (izenburua kointzidituta)
     
-                            var aurkitua=false;
                             for (let tab of tabak)
                             {
-                                if (!aurkitua)
+                                if (tab.title==izenburua)
                                 {
-                                    if (tab.title==izenburua)
-                                    {
-                                        tabaurkitua=tab.id;
-                                        tabaurkituaindizea=tab.index;
-                                        aurkitua=true;
-                                    }
+                                    tabaurkitua=tab.id;
+                                    break;
                                 }
                             }
     
                             // Irekita bazegoen
     
                             if (tabaurkitua!==undefined)
-                            {
-    
+                            {   
                                 // Fitxa eguneratu
-    
-                                tabasortu=browser.tabs.update(tabaurkitua,args);
+                                OrriaKargatu(tabaurkitua, itemak, itemberriak, tekla, izenburua);
                             }
     
                             // Ez bazegoen irekita
@@ -791,90 +583,8 @@ function BaliabideakIrekiEnter(eve)
                         tabasortu.then(function(tab)
                         {
     
-                            // Baliabideen parametroak kargatu
-    
-                            var hitza=document.getElementById('BilatzekoaText').value;
-                            var iturburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
-                            var helburuhizkuntza;
-                            if (document.getElementById('HizkuntzaBikoteaSelect').value.length>2)
-                            {
-                                helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
-                            }
-                            else
-                            {
-                                helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
-                            }
-    
-                            // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren, eta horien estatistika handitu 
-    
-                            var baliabideak=[];
-                            for (var baliabidearenizena in baliabideendatuak)
-                            {
-                                var baliabidea=baliabideendatuak[baliabidearenizena];
-                                var izena=baliabidea.name;
-                                var hizkuntzabikotea=document.getElementById('HizkuntzaBikoteaSelect').value;
-                                if (itemak['Aurreratua'+tekla+'Enter'+izena]!==undefined)
-                                {
-                                    if (itemak['Aurreratua'+tekla+'Enter'+izena]=="1")
-                                    {
-                                        if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
-                                        {
-                                            baliabideak.push(izena);
-                                            if (itemak['Estatistikak'+baliabidea.name]!==undefined)
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
-                                            }
-                                            else
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=1;
-                                            }
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    if (HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]!==undefined && HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]=="1")
-                                    {
-                                        if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
-                                        {
-                                            baliabideak.push(izena);
-                                            if (itemak['Estatistikak'+baliabidea.name]!==undefined)
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
-                                            }
-                                            else
-                                            {
-                                                itemberriak['Estatistikak'+baliabidea.name]=1;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            var storageagorde=browser.storage.local.set(itemberriak);
-                            storageagorde.then(null,function(errorea)
-                            {
-                                console.log('Errorea estatistikak gordetzean');
-                            });
-    
-                            // Baliabideak XHR bidez irekiko dituen script-a kargatu
-    
-                            var params={
-                                'izenburua':izenburua,
-                                'baliabideak':baliabideak,
-                                'term':hitza,
-                                'source':iturburuhizkuntza,
-                                'target':helburuhizkuntza,
-                            };
-                            var scriptasartu=browser.tabs.executeScript(tab.id,{file:"js/konbinatua.js"});
-    
-                            // Kargatu duenean
-    
-                            scriptasartu.then(function(result){
-    
-                                // Mezua bidali hasi dadin, parametroekin
-   
-                                browser.tabs.sendMessage(tab.id,params);
-                            },null);
+                            // Fitxa berria sortu
+                            OrriaKargatu(tab.id, itemak, itemberriak, tekla, izenburua);
                         },null);
                     }
     
@@ -886,19 +596,18 @@ function BaliabideakIrekiEnter(eve)
                         // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren 
     
                         fitxenbaliabideak=[];
-                        for (var i=0;i<baliabideenkategoriak.length;i++)
+                        for (const kategoria of baliabideenkategoriak)
                         {
-                            var kategoria=baliabideenkategoriak[i];
                             for (var baliabidearenizena in baliabideendatuak)
                             {
-                                var baliabidea=baliabideendatuak[baliabidearenizena];
+                                var baliabidea =baliabideendatuak[baliabidearenizena];
                                 if (baliabidea.category==kategoria && (baliabidea.disabled === undefined || baliabidea.disabled === false))
                                 {
-                                    var izena=baliabidea.name;
-                                    var hizkuntzabikotea=document.getElementById('HizkuntzaBikoteaSelect').value;
-                                    if (itemak['AurreratuaEnter'+izena]!==undefined)
+                                    var izena = baliabidea.name;
+                                    var hizkuntzabikotea = document.getElementById('HizkuntzaBikoteaSelect').value;
+                                    if (itemak['AurreratuaEnter'+izena] !== undefined)
                                     {
-                                        if (itemak['AurreratuaEnter'+izena]=="1")
+                                        if (itemak['AurreratuaEnter'+izena] == "1")
                                         {
                                             if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
                                             {
@@ -928,7 +637,7 @@ function BaliabideakIrekiEnter(eve)
     
             // Kargatzean errorea ematen badu, mezua idatzi
     
-            },function(errorea)
+            },function(_errorea)
             {
                 console.log('Errorea storage kargatzean');
             });
@@ -938,6 +647,94 @@ function BaliabideakIrekiEnter(eve)
             eve.preventDefault();
         }
     }
+}
+
+function OrriaKargatu(tab, itemak, itemberriak, tekla, izenburua ){
+    // Baliabideen parametroak kargatu
+    
+    const hitza = document.getElementById('BilatzekoaText').value;
+    var iturburuhizkuntza = document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+    var helburuhizkuntza;
+    if (document.getElementById('HizkuntzaBikoteaSelect').value.length>2)
+    {
+        helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
+    }
+    else
+    {
+        helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+    }
+
+    // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren, eta horien estatistika handitu 
+    
+    var baliabideak=[];
+    for (var baliabideizena in baliabideendatuak)
+    {
+        const baliabidea = baliabideendatuak[baliabideizena];
+        const izena = baliabidea.name;
+        const hizkuntzabikotea = document.getElementById('HizkuntzaBikoteaSelect').value;
+        if (itemak['Aurreratua'+tekla+'Enter'+izena]!==undefined)
+        {
+            if (itemak['Aurreratua'+tekla+'Enter'+izena]=="1")
+            {
+                if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
+                {
+                    baliabideak.push(izena);
+                    if (itemak['Estatistikak'+baliabidea.name]!==undefined)
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
+                    }
+                    else
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=1;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]!==undefined && HasierakoHobespenak['Aurreratua'+tekla+'Enter'+izena]=="1")
+            {
+                if (hizkuntzekinbat(baliabidea,hizkuntzabikotea))
+                {
+                    baliabideak.push(izena);
+                    if (itemak['Estatistikak'+baliabidea.name]!==undefined)
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
+                    }
+                    else
+                    {
+                        itemberriak['Estatistikak'+baliabidea.name]=1;
+                    }
+                }
+            }
+        }
+    }
+    var storageagorde=browser.storage.local.set(itemberriak);
+    storageagorde.then(null,function(_errorea)
+    {
+        console.log('Errorea estatistikak gordetzean');
+    });
+
+    // Baliabideak XHR bidez irekiko dituen script-a kargatu
+
+    var params={
+        'izenburua':izenburua,
+        'baliabideak':baliabideak,
+        'term':hitza,
+        'source':iturburuhizkuntza,
+        'target':helburuhizkuntza,
+    };
+    
+    var scriptasartu=browser.tabs.executeScript(tab,{file:"js/konbinatua.js"});
+
+    // Kargatu duenean
+
+    scriptasartu.then(function(_result){
+
+        // Mezua bidali hasi dadin, parametroekin
+
+        browser.tabs.sendMessage(tab,params);
+    },null);
 }
 
 function KeyPress(e) {
@@ -984,13 +781,26 @@ document.addEventListener('DOMContentLoaded',function()
         var itemberriak={};
         itemberriak['HizkuntzaBikotea']=document.getElementById('HizkuntzaBikoteaSelect').selectedIndex;
         var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(errorea)
+        storageagorde.then(null,function(_errorea)
         {
             console.log('Errorea storage gordetzean');
         });
         BistaratuBotoiak();
     }, false);
 
+    // Bilatzekoa idazten ari garen bitartean, sarrera kontrolatu
+    document.getElementById("BilatzekoaText").addEventListener('keydown', (event) => 
+    {
+        // Idazten ari garen bitartean sarrerak alfanumerikoak badira egiaztatzen da XSS saihesteko
+        if (event.key.match(/[a-zA-Z\ç\ñ]+/g)) 
+        {
+            return event;
+        }
+        else
+        {
+            event.preventDefault();
+        }
+    })
     // Bilatzekoa aldatzen denean, gorde hurrengorako
 
     document.getElementById("BilatzekoaText").addEventListener('change',function()
@@ -998,7 +808,7 @@ document.addEventListener('DOMContentLoaded',function()
         var itemberriak={};
         itemberriak['Bilatzekoa']=document.getElementById('BilatzekoaText').value;
         var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(errorea)
+        storageagorde.then(null,function(_errorea)
         {
             console.log('Errorea storage gordetzean');
         });
@@ -1056,8 +866,7 @@ document.addEventListener('DOMContentLoaded',function()
         },denborak[denbora]);
     }
 
-    //document.addEventListener('keypress', logKey);
-    document.onkeydown = KeyPress; //beste teklaren bat sakatu den begiratzen du, hzkuntzak aldatzeko adibidez
+    document.onkeydown = KeyPress; //beste teklaren bat sakatu den begiratzen du, hizkuntzak aldatzeko adibidez
 
 });
 })();

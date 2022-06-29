@@ -54,3 +54,9 @@ table
     margin-left:auto; 
     margin-right:auto;
 }
+
+
+tbody{
+    margin: 0 auto; 
+    text-align: center;
+}
