@@ -2436,14 +2436,13 @@ baliabideendatuak.uzei = function ()
     getParams: function (opts)
     {
       return {
-        'form_name_or_index':0,
         'w':opts.term
       };
     },
     scrap: function (data, opts)
     {
-      data = data.substring(data.indexOf('<div class="column_inner uzei_sinonimoak_body">'),
-                                data.indexOf('<div class="comment_holder" id="comments">'));
+      data = data.substring(data.indexOf('<div class="column_inner uzei_sinonimoak_body">'), 
+                            data.indexOf('<div class="comment_holder" id="comments">'));
       data = data.replace(/<img/g, "<img height='16' width='16'");
       return data;
     }
