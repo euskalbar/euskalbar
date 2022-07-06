@@ -3,7 +3,7 @@
 function serialize(obj,encoding)
 {
     var serializatua = '';
-    if (obj.length > 0)
+    if (Object.entries(obj).length > 0)
     {
         if (encoding=='latin-1')
         {
@@ -43,7 +43,7 @@ function makexhr(baliabidea,urlosoa,params,opts)
     else
     {
         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.send(params);
+        xhr.send(serialize(params,baliabidea.encoding));
     }
 
     xhr.addEventListener('load', function() {
