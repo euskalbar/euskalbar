@@ -722,54 +722,52 @@ baliabideendatuak.elhuyar = function ()
     },
     scrap: function (data, opts)
     {  
-      if (data.indexOf('Ez da emaitzarik aurkitu') != -1 || data.indexOf('hitza ez dago hiztegian') != -1) 
-      {
-        data = data.substring(data.indexOf('<div class="didyoumean">'),
-                              data.indexOf('<div class="column bat">'));
-        data = data.replace('/proposamenak/',
-                            this.homePage + '/proposamenak/');
-        return data;
+      data = new DOMParser().parseFromString(data, "text/html");
+      
+      let datuak = '';
+
+      if (!data.getElementsByClassName('fa fa-file-alt btn-file')[0]) {
+
+        let message = data.getElementsByClassName('emaitza-lerroa')[0].innerHTML;
+        
+        let besteSarreraBatzuk = data.getElementsByClassName('goiburua-gezi-urdina')[0].outerHTML;
+        let besteSarrerak = data.getElementsByClassName('col');
+        
+        let sarrerak = '';
+        for (let sarrera of besteSarrerak){
+          sarrerak += sarrera.outerHTML;
+        }
+
+        datuak = message + besteSarreraBatzuk + sarrerak;
       } 
       else 
       {
-        var domSerializer = new XMLSerializer();
-        var parser = new DOMParser();
-        var dataWord = data.substring(data.indexOf('<div class="boxHitza fLeft">'),
-                                     data.indexOf('<div class="boxiconsHitza">'));
-        var dataOne = data.substring(data.indexOf('<div class="innerDef">'),
-                                     data.indexOf('<div class="innerRelac">'));
-        var dataOneDOM = parser.parseFromString(dataOne, "text/html");
-        var oneNodes = dataOneDOM.getElementsByTagName('a');
-        for (var i in oneNodes) {
-          try {
-            oneNodes[i].href = [
-              this.homePage, '/', opts.target, '_', opts.source, '/',
-              oneNodes[i].childNodes[0].innerHTML
-            ].join('');
-          } catch (e) {
-          }
-        }
-        dataOne = domSerializer.serializeToString(dataOneDOM);
-        var dataTwo = data.substring(data.indexOf('<div class="innerRelac">'),
-                                     data.indexOf('<div class="column bat">'));
-        dataTwo = dataTwo.replace(/<a/g, '<strong');
-        dataTwo = dataTwo.replace(/<\/a/g, '</strong');
-        var dataThree = data.substring(data.indexOf('<div class="boxEzker">'),
-                                       data.indexOf('<div id="corpusa_edukia">'));
-        var dataThreeDOM = parser.parseFromString(dataThree, "text/html");
-        var threeNodes = dataThreeDOM.getElementsByTagName('a');
-        for (var i in threeNodes) {
-          try {
-            threeNodes[i].href = [
-              this.homePage, '/', opts.source, '_', opts.target, '/',
-              threeNodes[i].innerHTML
-            ].join('');
-          } catch (e) {
-          }
-        }
-        dataThree = domSerializer.serializeToString(dataThreeDOM);
-        return dataWord + dataOne + dataTwo + dataThree;
+        // Bilatzeko class atributu orokorra
+        let klasea = 'hizkuntzaren_arabera hizkuntza-'+opts.source+'_'+opts.target;
+
+        // Eskatutako hitza
+        let dataWord = data.getElementsByClassName(klasea)[0].querySelector('h1').outerHTML;
+
+        // Azpi-hitza
+        let dataSub = data.getElementsByClassName(klasea)[1].outerHTML;
+
+        // Definizioak
+        let dataDef = data.getElementsByClassName(klasea)[2].outerHTML;
+        
+        datuak = dataWord + dataSub + dataDef;
+
       }
+
+      datuak = new DOMParser().parseFromString(datuak, "text/html");
+
+      // Estekak https://hiztegiak.elhuyar.eus orrira joan behar dute
+      let anchors = datuak.getElementsByTagName('a');
+      for (let anchor of anchors) {
+        let hitza = anchor.href.replace(/moz-extension:\/\/[a-z0-9\-]+/, this.homePage);
+        anchor.href = hitza;
+      }
+      
+      return datuak.childNodes[0].innerHTML;
     }
   };
 }();
@@ -1050,14 +1048,18 @@ baliabideendatuak.euskalterm = function ()
     method: 'GET',
     getUrl: function (opts)
     {
-      var term = opts.term.trim();
-      
-      // Hitz zatiak erabiltzen direnean, * komodina erabiliko bailitzan
+      let term = opts.term.replace(/\ /g, '-25-');
+      // Hitz zatiak erabiltzen direnean, % komodina erabiliko bailitzan
       // egin ditzala bilaketak
+      // 25 '%' sinboloaren HTML kodea da (%25)
       if (term.charAt(term.length - 1) != "%") {
-        term = term + "%25";
+        term = term + "-25";
       }
-      var langMap = {
+
+      // Bigarren zatirako, - + bihurtzen dugu
+      let term2 = term.replace(/-/g, "+");
+
+      const langMap = {
         'es': 'es',
         'en': 'en',
         'fr': 'fr',
@@ -1066,9 +1068,9 @@ baliabideendatuak.euskalterm = function ()
       },
       lang = langMap[opts.source] || 'eu';
 
-      return 'https://www.euskadi.eus/web01-apeuster/es/ac36aEuskaltermWar/publiko/bilatu?param='+term+'/non-du/hizk-'+lang+'/ter-on';
+      return 'https://www.euskadi.eus/app/euskal-terminologia-banku-publikoa-2/'+term+'/kontsultatermino/'+term2+'/non-du/hizk-'+lang+'/ter-on';
     },
-    getParams: function (opts)
+    getParams: function (_opts)
     {
       
       return {};
