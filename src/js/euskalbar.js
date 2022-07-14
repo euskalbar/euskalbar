@@ -792,7 +792,7 @@ document.addEventListener('DOMContentLoaded',function()
     document.getElementById("BilatzekoaText").addEventListener('keydown', (event) => 
     {
         // Idazten ari garen bitartean sarrerak alfanumerikoak badira egiaztatzen da XSS saihesteko
-        if (event.key.match(/[a-zA-Z\ç\ñ]+/g)) 
+        if (event.key.match(/[a-zA-Z\ç\ñ\ ]+/g)) 
         {
             return event;
         }

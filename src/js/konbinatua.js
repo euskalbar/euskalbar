@@ -121,6 +121,9 @@ function KargatuBaliabideak(request,_sender,_sendResponse)
         // XHR eskaera egin
         makexhr(baliabidea,urlosoa,params,opts);
     }
+
+    let dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleString([],  {hour: '2-digit', minute: '2-digit', second: '2-digit' });
 }
 
 // Baliabideak kargatzeko mezua jasotzen denean, egin
