@@ -1046,8 +1046,11 @@ baliabideendatuak.euskalterm = function ()
     pairs: ['eu-es', 'eu-fr', 'eu-en', 'eu-de', 'eu-la',
             'es-eu', 'fr-eu', 'en-eu', 'de-eu', 'la-eu'],
     method: 'GET',
+    methodKonbinatua: 'POST',
+    contentType: 'application/json',
     getUrl: function (opts)
     {
+
       let term = opts.term.replace(/\ /g, '-25-');
       // Hitz zatiak erabiltzen direnean, % komodina erabiliko bailitzan
       // egin ditzala bilaketak
@@ -1070,20 +1073,89 @@ baliabideendatuak.euskalterm = function ()
 
       return 'https://www.euskadi.eus/app/euskal-terminologia-banku-publikoa-2/'+term+'/kontsultatermino/'+term2+'/non-du/hizk-'+lang+'/ter-on';
     },
-    getParams: function (_opts)
+    getUrlKonbinatua: function (_opts)
     {
+      return 'https://www.euskadi.eus/banco-terminologico-publico-vasco-3/ac36aEuskaltermWar/publiko/bilaketa?R01HNoPortal=true';
+    },
+    getParams: function (opts)
+    {
+
+      let term = opts.term.replace(/\ /g, ' 25 ');
+      // Hitz zatiak erabiltzen direnean, % komodina erabiliko bailitzan
+      // egin ditzala bilaketak
+      // 25 '%' sinboloaren HTML kodea da (%25)
+      if (term.charAt(term.length - 1) != "%") {
+        term = term + " 25";
+      }
+
+      const langMap = {
+        'es': 'es',
+        'en': 'en',
+        'fr': 'fr',
+        'la': 'la',
+        'de': 'de',
+      },
+      lang = langMap[opts.source] || 'eu';
       
-      return {};
+      return {
+        'language': lang,
+        'orria': 0,
+        'parametroak': term + '/non-du/hizk-'+lang+'/ter-on'
+      };
     },
-    /* Bilaketa konbinatutik kendu egin dut, Euskalterm-en bilaketa bi pausutan egiten delako eta scrap egitea webguneak debekatu egiten duelako
+    // Bilaketa konbinatutik kendu egin dut, Euskalterm-en bilaketa bi pausutan egiten delako eta scrap egitea webguneak debekatu egiten duelako
     scrap: function (data, opts)
-    { //responsearen gainean eval bat bota
-      //https://stackoverflow.com/questions/8260355/jquery-get-doesnt-execute-javascript/8279719
-      //data= eval(data);
-      return data.substring(data.indexOf('<div id="taulaEmaitzak" class="mt-4 ml-1 mr-1">'), 
-                            data.indexOf('<ul id="zenbakitzea" class="pagination list-unstyled mt-5">'));
+    { 
+      data = JSON.parse(data);
+
+      // Hitza izenburu bezala jartzen dugu
+      let izenburua = '<h1>'+opts.term+'</h1>';
+
+      //  Zerrenda bat sortzen dugu JSON datuentzako
+      let dokumentua = '';
+
+      for (let definizioa of data.fitxaZerrenda){
+
+        let dok = document.createElement('table')
+        dok.className = 'definizioak'
+
+        let thead = document.createElement('thead');
+        dok.appendChild(thead);
+        let tr1 = document.createElement("tr");
+        thead.appendChild(tr1);
+
+        let tbody = document.createElement('tbody');
+        dok.appendChild(tbody);
+        let tr2 = document.createElement("tr");
+        tbody.appendChild(tr2);
+        
+        let sailkapena = document.createElement("th");
+        sailkapena.innerHTML = '<h2>'+definizioa.sailkapena+'</h2>';
+        tr1.appendChild(sailkapena);
+
+        let tr3 = document.createElement("tr");
+        tbody.appendChild(tr3);
+        let izenburuZerrendaItem = document.createElement("td");
+        izenburuZerrendaItem.className = "izenburuZerrendaItem";
+        izenburuZerrendaItem.innerHTML = '<strong>'+definizioa.termino.tehizkun + ' ' + definizioa.termino.tesarrera+'</strong>';
+        tr3.appendChild(izenburuZerrendaItem);
+
+        for (let hizkuntza of definizioa.besteTerminoak){
+          let tr4 = document.createElement("tr");
+          tbody.appendChild(tr4);
+          
+          let hizkuntzaZerrenda = document.createElement("td");
+          hizkuntzaZerrenda.className = "izenburuZerrendaItem";
+          hizkuntzaZerrenda.innerHTML = hizkuntza.tehizkun + ' ' + hizkuntza.tesarrera;
+          tr4.appendChild(hizkuntzaZerrenda);
+        }
+        dokumentua += dok.outerHTML;
+      }
+      console.log(dokumentua)
+      dokumentua = izenburua + dokumentua;
+
+      return dokumentua
     },
-    */
   };
 }();
 
