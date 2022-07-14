@@ -18,10 +18,30 @@ h1
     padding-bottom: 2px;
 }
 
+h2
+{
+    font-size: 10pt;
+    text-align: left;
+    padding-left: 2%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-decoration: underline;
+}
+
 p
 {
     margin: 0px;
     font-family: bitstream vera sans, verdana, arial;
+}
+
+.izenburuZerrendaItem
+{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 10pt;
+    text-align: left;
 }
 
 a
@@ -40,6 +60,16 @@ table#nagusia
     border-width: 1px;
     width: 96%;
     margin-left: 2%;
+    table-layout: fixed;
+}
+
+.definizioak
+{
+    border-style: solid;
+    border-width: 1px;
+    width: 96%;
+    margin-left: 2%;
+    margin-bottom: 2%;
     table-layout: fixed;
 }
 
