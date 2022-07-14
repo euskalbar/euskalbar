@@ -2,7 +2,7 @@
 
 function serialize(obj,encoding)
 {
-    var serializatua = '';
+    let serializatua = '';
     if (Object.entries(obj).length > 0)
     {
         if (encoding=='latin-1')
@@ -27,23 +27,37 @@ function makexhr(baliabidea,urlosoa,params,opts)
 {
 
     // XHR eskaera sortu
-    var xhr;
+    let xhr;
     if (window.XMLHttpRequest){
         xhr = new XMLHttpRequest();  
     }
 
     // XHR eskaera ireki
 
-    xhr.open(baliabidea.method, urlosoa, true);
+    let metodoa = baliabidea.methodKonbinatua || baliabidea.method;
 
-    if (baliabidea.method=='GET')
+    xhr.open(metodoa, urlosoa, true);
+
+    if (metodoa == 'GET')
     {
         xhr.send();
     }
     else
-    {
-        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.send(serialize(params,baliabidea.encoding));
+    {   
+        let header = baliabidea.contentType || 'application/x-www-form-urlencoded';
+        if (baliabidea.methodKonbinatua && baliabidea.contentType)
+        {
+            xhr.setRequestHeader("Content-type", header);
+        }
+        xhr.setRequestHeader("X-Requested-With", 'XMLHttpRequest');
+        
+        if (header == 'application/x-www-form-urlencoded') {
+            xhr.send(serialize(params,baliabidea.encoding));
+        }
+        else if (header == 'application/json') 
+        {
+            xhr.send(JSON.stringify(params));
+        }
     }
 
     xhr.addEventListener('load', function() {
@@ -64,28 +78,28 @@ function KargatuBaliabideak(request,_sender,_sendResponse)
 
     // Baliabide bakoitzeko zutabeak sortu
 
-    var baliabideak=request['baliabideak'];
+    let baliabideak=request['baliabideak'];
     for (const baliabide of baliabideak)
     {
-        var baliabidea=baliabideendatuak[baliabide];
+        let baliabidea=baliabideendatuak[baliabide];
         
         if (!document.getElementById('Name'+baliabidea.name)){
-            var tha=document.createElement('th');
+            let tha=document.createElement('th');
             tha.setAttribute('id','Name'+baliabidea.name);
             document.getElementById('buruak').appendChild(tha);
-            var texta=document.createTextNode(baliabidea.description);
+            let texta=document.createTextNode(baliabidea.description);
             tha.appendChild(texta);
-            var tdo=document.createElement('td');
+            let tdo=document.createElement('td');
             tdo.setAttribute('id','Oina'+baliabidea.name);
             tdo.setAttribute('class','gorputza oharra');
             document.getElementById('oinak').appendChild(tdo);
-            var aa=document.createElement('a');
+            let aa=document.createElement('a');
             aa.setAttribute('href',baliabidea.homePage);
             aa.setAttribute('target','_blank');
             tdo.appendChild(aa);
-            var atexta=document.createTextNode(baliabidea.description);
+            let atexta=document.createTextNode(baliabidea.description);
             aa.appendChild(atexta);
-            var tdg=document.createElement('td');
+            let tdg=document.createElement('td');
             tdg.setAttribute('id','Gorputza'+baliabidea.name);
             tdg.setAttribute('class','gorputza');
             document.getElementById('gorputzak').appendChild(tdg);
@@ -93,16 +107,27 @@ function KargatuBaliabideak(request,_sender,_sendResponse)
         
         // Baliabidearen parametroak irakurri
 
-        var opts={
+        let opts={
             'term':request['term'],
             'source':request['source'],
             'target':request['target']
         };
-        var url=baliabidea.getUrl(opts);
-        var params=baliabidea.getParams(opts);
+        
+        // Baliabidearen URLa irakurri
+        let url = '';
+        if (typeof baliabidea.getUrlKonbinatua !== 'undefined'){
+            url = baliabidea.getUrlKonbinatua(opts);
+        } else{
+            url = baliabidea.getUrl(opts);
+        }
 
-        var urlosoa='';
-        if (baliabidea.method=='GET')
+        let params=baliabidea.getParams(opts);
+        let urlosoa='';
+
+        // Baliabidearen metodoa lortu
+        let metodoa = baliabidea.methodKonbinatua || baliabidea.method;
+        
+        if (metodoa == 'GET')
         {
             if (serialize(params,baliabidea.encoding)!=='')
             {   
@@ -121,6 +146,9 @@ function KargatuBaliabideak(request,_sender,_sendResponse)
         // XHR eskaera egin
         makexhr(baliabidea,urlosoa,params,opts);
     }
+
+    let dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleString([],  {hour: '2-digit', minute: '2-digit', second: '2-digit' });
 }
 
 // Baliabideak kargatzeko mezua jasotzen denean, egin
