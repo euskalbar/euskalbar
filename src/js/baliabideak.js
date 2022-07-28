@@ -1151,7 +1151,6 @@ baliabideendatuak.euskalterm = function ()
         }
         dokumentua += dok.outerHTML;
       }
-      console.log(dokumentua)
       dokumentua = izenburua + dokumentua;
 
       return dokumentua
