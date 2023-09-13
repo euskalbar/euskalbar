@@ -1,5 +1,8 @@
 # ChangeLog
 
+## 5.0.10 bertsioa
+- WebExtension-Polyfill liburutegia 0.10.0 bertsiora eguneratua
+
 ## 5.0.9 bertsioa
 - Elhuyar hiztegia bilaketa konbinatuan konpondu da (#276)
 - Espazio-barra baimentzen da hitz-eremuan berriro
@@ -7,6 +10,7 @@
 - Euskalterm hiztegia bilaketa konbinatuan sartu da
 - Kode aldaketa batzuk bilaketa konbinatuan JSON erantzunak onartzeko
 - WebExtension-Polyfill liburutegia 0.9.0 bertsiora eguneratua
+
 ## 5.0.8 bertsioa
 - Garaterm corpusa sartu (#280)
 - Kodea sinplifikatu eta akatsak konpondu
