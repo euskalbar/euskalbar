@@ -4,7 +4,7 @@
     "manifest_version": 2,
     "description": "Euskara hiztegiak eta bestelako baliabide eta tresnak (corpusak, zuzentzaileak, bilatzaileak...)",
     "icons": {
-        "64": "irudiak/euskalbar64.png"
+        "64": "resources/images/euskalbar64.png"
     },
 
     "applications": {
@@ -15,8 +15,8 @@
     },
 
     "browser_action": {
-        "default_icon": "irudiak/euskalbar64.png",
-        "default_popup": "euskalbar.html"
+        "default_icon": "resources/images/euskalbar64.png",
+        "default_popup": "ui/pages/euskalbar.html"
     },
 
     //"content_security_policy": "script-src 'self'; object-src 'self'",
