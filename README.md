@@ -18,7 +18,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/euskalbar/euskalbar">
-    <img src="src/irudiak/euskalbar64.png" alt="Logo" width="80" height="80">
+    <img src="src/resources/images/euskalbar64.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Euskalbar</h3>
