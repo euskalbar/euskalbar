@@ -98,20 +98,6 @@ To be able to test the extension, you need Mozilla's web-ext [![NPM Version](htt
 
 ### Testing the extension
 
-1. Go inside the ``src`` folder of the downloaded code.
-2. Run ``web-ext run`` ([more info on the web-ext tool](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext))
-
-### Building the extension
-
-You can create the extension file in one of two ways:
-
-* ``zip -r ../euskalbar-0.0.zip *``. You will get a ZIP file named "euskalbar-0.0.zip" (change the 0.0 part of the name to what you need; the real version number is defined in the "src/manifest.json" file).
-* ``web-ext build -a ..``. You will get a ZIP file named "euskalbar-0.0.zip", with the real version number defined in the "src/manifest.json" file instead of the 0.0 part of the name).
-
-The built extension can be installed and run in Developer Edition, Nightly, and ESR versions of Firefox, after toggling the "xpinstall.signatures.required" preference in "about:config".
-
-For installation in any Firefox, extension has to be signed ([more info here](https://developer.mozilla.org/en-US/Add-ons/Distribution)).
-
 _Below are the instructions on how to download and test the extension in Firefox Developer Edition._
 
 1. Clone the repo and enter the root folder
@@ -132,13 +118,20 @@ _Below are the instructions on how to download and test the extension in Firefox
    ```
    ([more info on the web-ext tool](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext))
 
-### Building the Extension
+### Building the extension
 
-The extension can be zipped to a file with the web-ext NPM package.
+You can create the extension file in one of two ways:
 
 ```sh
 web-ext build -a ..
 ```
+
+The built extension can be installed and run in Developer Edition, Nightly, and ESR versions of Firefox, after toggling the "xpinstall.signatures.required" preference in "about:config".
+
+For installation in any Firefox, extension has to be signed ([more info here](https://developer.mozilla.org/en-US/Add-ons/Distribution)).
+
+The extension can be zipped to a file with the web-ext NPM package.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
