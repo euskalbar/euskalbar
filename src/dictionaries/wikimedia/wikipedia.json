@@ -1,0 +1,10 @@
+{
+    "name": "wikipedia",
+    "display_name": "Wikipedia",
+    "description": "Euskarazko Wikipedia",
+    "category": "Hiztegi entziklopedikoak",
+    "home_page": "https://eu.wikipedia.org/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://eu.wikipedia.org/wiki/{opts_term}"
+}

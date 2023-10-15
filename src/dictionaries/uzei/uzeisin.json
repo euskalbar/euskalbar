@@ -1,0 +1,10 @@
+{
+    "name": "uzeisin",
+    "display_name": "UZEI sin.",
+    "description": "UZEI sinonimoen hiztegia",
+    "category": "Sinonimoen hiztegiak",
+    "home_page": "https://uzei.eus/baliabideak/sinonimoen-hiztegia-online/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://uzei.eus/baliabideak/sinonimoen-hiztegia-online/?hiztegia_search={opts_term}"
+}

@@ -1,0 +1,21 @@
+{
+    "name": "bfaterminologikoa",
+    "display_name": "BFA Hiztegi Terminologikoa",
+    "description": "BFA Hiztegi Terminologikoa",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://apps.bizkaia.net/TK00/servlet/webAgentTK00",
+    "pairs": ["eu", "es"],
+    "method:": "POST",
+    "url": "https://apps.bizkaia.net/TK00/servlet/webAgentTK00",
+    "params": [
+        {
+            "name": "termino",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "idioma",
+            "value": "{opts_source}",
+            "is_numeric": true
+        }
+    ]
+}

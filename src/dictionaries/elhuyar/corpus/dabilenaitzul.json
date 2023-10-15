@@ -1,0 +1,24 @@
+{
+    "name": "dabilenaitzul",
+    "display_name": "Dabilena itzul.",
+    "description": "Dabilena itzulpenak",
+    "category": "Corpus eleaniztunak",
+    "home_page": "https://dabilena.elhuyar.eus/translations",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "POST",
+    "url": "https://dabilena.elhuyar.eus/translations",
+    "params": [
+        {
+            "name": "trans_lang",
+            "value": "{opts_target}"
+        },
+        {
+            "name": "trans_query",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "trans_dict",
+            "value": ""
+        }
+    ]
+}

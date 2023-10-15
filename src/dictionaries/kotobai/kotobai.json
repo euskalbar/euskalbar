@@ -1,0 +1,10 @@
+{
+    "name": "kotobai",
+    "display_name": "Kotobai",
+    "description": "Kotobai euskara-japoniera hiztegia",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "http://www.kotobai.com/",
+    "pairs": ["eu-jp", "jp-eu"],
+    "method": "GET",
+    "url": "https://dic.kotobai.com/dictionary.php?search={opts_term}&searchpart=start&searchfrom={opts_source}"
+}

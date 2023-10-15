@@ -1,0 +1,10 @@
+{
+    "name": "glosbe",
+    "display_name": "Glosbe",
+    "description": "Glosbe - The biggest online dictionary",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "https://glosbe.com/",
+    "pairs": ["eu-hi", "eu-ar", "eu-en", "eu-es", "eu-zh", "eu-pt", "eu-de", "eu-fr", "eu-jp", "eu-la", "eu-pt", "eu-sw", "eu-oc", "hi-eu", "ar-eu", "en-eu", "es-eu", "zh-eu", "pt-eu", "de-eu", "fr-eu", "jp-eu", "la-eu", "pt-eu", "sw-eu", "oc-eu"],
+    "method": "GET",
+    "url": "https://glosbe.com/{opts_source}/{opts_target}/{opts_term}"
+}

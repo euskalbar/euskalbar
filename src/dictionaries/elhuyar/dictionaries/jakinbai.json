@@ -1,0 +1,40 @@
+{
+    "name": "jakinbai",
+    "display_name": "Jakinbai",
+    "description": "Jakinbai lanbide heziketarako hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://hiztegia.jakinbai.eus",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "https://hiztegia.jakinbai.eus/term//{opts_term}",
+    "params":[
+        {
+            "name": "term",
+            "value": "{opts_term}",
+            "whitespace": "+"
+        },
+        {
+            "name": "language",
+            "value": "3"
+        },
+        {
+            "name": "context",
+            "value": ""
+        },
+        {
+            "name": "where",
+            "value": "0"
+        },
+        {
+            "name": "domain",
+            "value": [
+                {
+                    "0": ""
+                },
+                {
+                    "1": ""
+                }
+            ]
+        }
+    ]
+}

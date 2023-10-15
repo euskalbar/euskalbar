@@ -1,0 +1,10 @@
+{
+    "name": "gzh",
+    "display_name": "GZH",
+    "description": "GZH - Gizarte Zerbitzuen hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://gizartezerbitzuenhiztegia.eus/",
+    "pairs": ["eu", "es", "en", "fr"],
+    "method": "GET",
+    "url": "http://gizartezerbitzuenhiztegia.eus/{opts_source}/{opts_term}"
+}

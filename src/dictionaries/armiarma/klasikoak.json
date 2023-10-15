@@ -1,0 +1,10 @@
+{
+    "name": "klasikoak",
+    "display_name": "Klasikoak",
+    "description": "Klasikoen gordailua",
+    "category": "Corpus orokorrak",
+    "home_page": "https://klasikoak.armiarma.eus/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://klasikoak.armiarma.eus/cgi-bin/klasikoak/bila.pl?testua={opts_term}"
+}

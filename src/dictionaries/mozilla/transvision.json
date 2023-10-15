@@ -1,0 +1,10 @@
+{
+    "name": "transvision",
+    "display_name": "Transvision",
+    "description": "Transvision terminologia hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://transvision.mozfr.org/",
+    "pairs": ["eu-ar", "eu-de", "eu-en", "eu-es", "eu-fr", "eu-hi", "eu-jp", "eu-zh", "ar-eu", "de-eu", "en-eu", "es-eu", "fr-eu", "hi-eu", "jp-eu", "zh-eu"],
+    "method": "GET",
+    "url": "https://transvision.mozfr.org/?recherche={opts_term}&repo=all_projects&sourcelocale={opts_source}&locale={opts_target}&search_type=strings"
+}

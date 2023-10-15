@@ -1,0 +1,24 @@
+{
+    "name": "danobat",
+    "display_name": "Danobat",
+    "description": "Danobat hiztegi terminologikoa",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://hiztegia.danobatgroup.eus/",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "POST",
+    "url": "https://hiztegia.danobatgroup.eus/en/dictionary/search",
+    "params": [
+        {
+            "name": "term_filter",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "search",
+            "value": "search"
+        },
+        {
+            "name": "direction_filter",
+            "value": "{opts_source}-{opts_target}"
+        }
+    ]
+}

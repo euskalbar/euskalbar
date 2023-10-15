@@ -1,0 +1,10 @@
+{
+    "name": "ebe",
+    "display_name": "EBE",
+    "description": "Euskara Batuaren Eskuliburua",
+    "category": "Hiztegi orokorrak",
+    "home_page": "https://www.euskaltzaindia.eus/index.php?option=com_ebe&view=bilaketa&task=sarrera",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.euskaltzaindia.eus/index.php?option=com_ebe&task=bilaketa&view=bilaketa&lang=eu-ES&query={opts_term}&mota="
+}

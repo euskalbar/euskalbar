@@ -1,0 +1,10 @@
+{
+    "name": "librezale",
+    "display_name": "Librezale",
+    "description": "Librezale posta-zerrendako artxiboa",
+    "category": "Posta-zerrendak",
+    "home_page": "https://librezale.eus/pipermail/librezale/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.google.com/search?q={opts_term}+site:librezale.eus/pipermail/librezale/"
+}

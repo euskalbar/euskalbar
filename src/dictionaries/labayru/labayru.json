@@ -1,0 +1,10 @@
+{
+    "name": "labayru",
+    "display_name": "Labayru",
+    "description": "Labayru hiztegia",
+    "category": "iztegi orokor eleaniztunak",
+    "home_page": "http://hiztegia.labayru.eus",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "GET",
+    "url": "https://hiztegia.labayru.eus/bilatu/LH/{opts_source}/{opts_term}"
+}

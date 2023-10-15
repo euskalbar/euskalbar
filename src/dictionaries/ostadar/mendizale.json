@@ -1,0 +1,10 @@
+{
+    "name": "mendizale",
+    "display_name": "Mendizale",
+    "description": "Mendizalearen hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://www.ostadar.org/hiztegia/",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "GET",
+    "url": "https://www.euskaltzaindia.eus/index.php?option=com_oehberria&task=bilaketa&lang=eu&query={opts_term}"
+}

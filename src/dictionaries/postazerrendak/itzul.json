@@ -1,0 +1,10 @@
+{
+    "name": "itzul",
+    "display_name": "ItzuL",
+    "description": "ItzuL posta-zerrendako artxiboa",
+    "category": "Posta-zerrendak",
+    "home_page": "http://postaria.com/pipermail/itzul/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.google.com/search?q={opts_term}+site:postaria.com/pipermail/itzul/"
+}

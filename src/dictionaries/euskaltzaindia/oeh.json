@@ -1,0 +1,10 @@
+{
+    "name": "oeh",
+    "display_name": "OEH",
+    "description": "Orotariko Euskal Hiztegia - OEH",
+    "category": "Hiztegi orokorrak",
+    "home_page": "https://www.euskaltzaindia.eus/index.php?option=com_oehberria&task=bilaketa&lang=eu",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.euskaltzaindia.eus/index.php?option=com_oehberria&task=bilaketa&lang=eu&query={opts_term}"
+}

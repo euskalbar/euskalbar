@@ -1,0 +1,24 @@
+{
+    "name": "eibar",
+    "display_name": "Eibar",
+    "description": "Eibarko euskara",
+    "category": "Euskalkietako/Herrietako hiztegiak",
+    "home_page": "http://www.eibarko-euskara.eus",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "http://www.eibarko-euskara.eus/hiztegia/bilatu",
+    "params": [
+        {
+            "name": "berbaki",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "bidali",
+            "value": "Bilatu"
+        },
+        {
+            "name": "denean",
+            "value": "1"
+        }
+    ]
+}

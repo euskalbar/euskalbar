@@ -1,0 +1,32 @@
+{
+    "name": "egamaster",
+    "display_name": "EGAMaster",
+    "description": "EGAMaster hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://egamaster.elhuyar.eus/",
+    "pairs": ["eu-es", "eu-en", "eu-fr", "eu-de", "eu-pt", "eu-zh", "es-eu", "fr-eu", "en-eu", "de-eu", "pt-eu", "zh-eu"],
+    "method": "POST",
+    "url": "http://egamaster.elhuyar.eus/{opts_target}/{opts_term}",
+    "params": [
+        {
+            "name": "bilagaia",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "Bilaketa_egin",
+            "value": ""
+        },
+        {
+            "name": "bilaketa_hizkuntza",
+            "value": "{opts_target}"
+        },
+        {
+            "name": "non",
+            "value": "1"
+        },
+        {
+            "name": "bilaketa_alorra",
+            "value": ""
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "name": "bostmila",
+    "display_name": "5000 Hiztegia",
+    "description": "5000 Hiztegia",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "http://www.bostakbat.org/azkue/index.php?q=3",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "GET",
+    "url": "http://www.bostakbat.org/azkue/index.php?q={qa}&t={opts_term}"
+}

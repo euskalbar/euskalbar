@@ -1,0 +1,24 @@
+{
+    "name": "harluxet",
+    "display_name": "Harluxet",
+    "description": "Harluxet hiztegi entziklopedikoa",
+    "category": "Hiztegi entziklopedikoa",
+    "home_page": "http://www1.euskadi.net/harluxet/",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "http://www1.euskadi.net/harluxet/emaitza.asp",
+    "params": [
+        {
+            "name": "sarrera",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "B1",
+            "value": "Bilatu"
+        },
+        {
+            "name": "bilaketamota",
+            "value": "testua"
+        }
+    ]
+}

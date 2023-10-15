@@ -1,0 +1,10 @@
+{
+    "name": "lexikoa",
+    "display_name": "Lexikoaren Beh.",
+    "description": "Lexikoaren Behatokia",
+    "category": "Corpus orokorrak",
+    "home_page": "http://lexikoarenbehatokia.euskaltzaindia.eus/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://lexikoarenbehatokia.euskaltzaindia.eus/cgi-bin/kontsulta.py?testu-hitza1={opts_term}"
+}

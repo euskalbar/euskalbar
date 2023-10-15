@@ -1,0 +1,10 @@
+{
+    "name": "zurgintza",
+    "display_name": "Zurgintza",
+    "description": "Zurgintza hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://zurgintza.jakinbai.eus/",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "GET",
+    "url": "http://zurgintza.jakinbai.eus/{opts_source}/{opts_term}"
+}

@@ -1,0 +1,16 @@
+{
+    "name": "idite",
+    "display_name": "Idite",
+    "description": "Lexiko-egiaztatzaile profesionala",
+    "category": "Zuzentzailea",
+    "home_page": "https://idite.uzei.eus/",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "https://idite.uzei.eus/",
+    "params": [
+        {
+            "name": "idite_text",
+            "value": "{opts_term}"
+        }
+    ]
+}

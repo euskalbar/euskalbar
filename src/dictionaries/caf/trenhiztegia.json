@@ -1,0 +1,10 @@
+{
+    "name": "trenhiztegia",
+    "display_name": "Trengintza",
+    "description": "Trengintza ataria",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://trenhiztegia.eus",
+    "pairs": ["eu-es", "eu-en", "eu-fr", "es-eu", "en-eu", "fr-eu"],
+    "method": "GET",
+    "url": "https://trenhiztegia.eus/{opts_source}/{opts_term}"
+}

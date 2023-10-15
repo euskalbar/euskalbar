@@ -1,0 +1,11 @@
+{
+    "name": "oilgas",
+    "display_name": "Oil&Gas",
+    "description": "Petronor Oil&Gas terminologia hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://hiztegia.petronor.eus/",
+    "pairs": ["eu-es", "eu-en", "eu-fr",
+    "es-eu", "en-eu", "fr-eu"],
+    "method": "GET",
+    "url": "https://hiztegia.petronor.eus/{opts_source}/{opts_term}"
+}

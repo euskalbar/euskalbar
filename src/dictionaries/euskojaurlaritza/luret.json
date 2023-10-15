@@ -1,0 +1,10 @@
+{
+    "name": "luret",
+    "display_name": "Lur ET",
+    "description": "Lur entziklopedia tematikoa",
+    "category": "Hiztegi entziklopedikoak",
+    "home_page": "https://www.euskadi.eus/lur-entziklopedia-tematikoa/web01-a2lurent/eu/",
+    "pairs": ["eu", "es"],
+    "method": "GET",
+    "url": "https://www.euskadi.eus/web01-a2lurent/{opts_source}/?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:articulo;m:documentLanguage.EQ.{opts_source};m:documentDescription.LIKE.{opts_term}"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "aunamendi",
+    "display_name": "Auñamendi",
+    "category": "Hiztegi entziklopedikoak",
+    "description": "Auñamendi Eusko Entziklopedia",
+    "home_page": "https://aunamendi.eusko-ikaskuntza.eus/eu/",
+    "pairs": ["eu", "es", "fr", "en"],
+    "method": "GET",
+    "url": "https://aunamendi.eusko-ikaskuntza.eus/{opts_source}/bilatu/{opts_term}/0"
+}

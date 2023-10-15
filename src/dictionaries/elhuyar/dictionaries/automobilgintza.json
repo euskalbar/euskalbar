@@ -1,0 +1,10 @@
+{
+    "name": "automobilgintza",
+    "display_name": "Automobilgintza Hiztegia",
+    "description": "Automobilgintza Hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.automotivedictionary.net/",
+    "pairs": ["eu", "en", "es", "fr", "de", "zh"],
+    "method": "GET",
+    "url": "https://www.automotivedictionary.net/{opts_source}/{opts_term}"
+}

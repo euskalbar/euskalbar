@@ -1,0 +1,20 @@
+{
+    "name": "morris",
+    "display_name": "Morris",
+    "description": "Morris Student Plus hiztegia",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "http://www1.euskadi.net/morris/",
+    "pairs": ["eu-en", "en-eu"],
+    "method": "POST",
+    "url": "http://www1.euskadi.net/morris/resultado.asp",
+    "params":[
+        {
+           "name": "txtEuskera",
+           "value": "{opts_term}"
+        },
+        {
+            "name": "Submit",
+            "value": "Bilatu"
+        }
+    ]
+}

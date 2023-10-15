@@ -1,4 +1,117 @@
+import Hiztegia from '../../dictionaries/Hiztegia.js';
+
+const dictionaries = [];
+const categories = [];
+
 (function() {
+// List of dictionary JSON files
+const dictionaryFiles = [
+    '../../dictionaries/azkue/adorezsinonimoak.json',
+    '../../dictionaries/azkue/bostmila.json',
+    '../../dictionaries/berria/berria.json',
+    '../../dictionaries/bfa/bfaterminologikoa.json',
+    '../../dictionaries/bfa/eurovoc.json',
+    '../../dictionaries/caf/trenhiztegia.json',
+    '../../dictionaries/consumer/consumer.json',
+    '../../dictionaries/eaa/gemet.json',
+    '../../dictionaries/eep/nolaerran.json',
+    '../../dictionaries/ehu/eeh.json',
+    '../../dictionaries/ehu/ehuskaratuak.json',
+    '../../dictionaries/ehu/ekc.json',
+    '../../dictionaries/ehu/epd.json',
+    '../../dictionaries/ehu/epg.json',
+    '../../dictionaries/ehu/etc.json',
+    '../../dictionaries/ehu/hbep.json',
+    '../../dictionaries/ehu/pkc.json',
+    '../../dictionaries/ehu/tzos.json',
+    '../../dictionaries/ehu/zcp.json',
+    '../../dictionaries/ehu/zehazki.json',
+    '../../dictionaries/ehu/zio.json',
+    '../../dictionaries/eitb/eitb.json',
+    '../../dictionaries/elhuyar/corpus/corpeus.json',
+    '../../dictionaries/elhuyar/corpus/dabilena.json',
+    '../../dictionaries/elhuyar/corpus/dabilenaitzul.json',
+    '../../dictionaries/elhuyar/corpus/garaterm.json',
+    '../../dictionaries/elhuyar/corpus/ztc.json',
+    '../../dictionaries/elhuyar/dictionaries/automobilgintza.json',
+    '../../dictionaries/elhuyar/dictionaries/egamaster.json',
+    '../../dictionaries/elhuyar/dictionaries/elhuyar.json',
+    '../../dictionaries/elhuyar/dictionaries/jakinbai.json',
+    '../../dictionaries/elhuyar/dictionaries/xuxen.json',
+    '../../dictionaries/elhuyar/dictionaries/zth.json',
+    '../../dictionaries/euskaltzaindia/ebe.json',
+    '../../dictionaries/euskaltzaindia/eoda.json',
+    '../../dictionaries/euskaltzaindia/euskaltzaindia.json',
+    '../../dictionaries/euskaltzaindia/lexikoa.json',
+    '../../dictionaries/euskaltzaindia/literatura.json',
+    '../../dictionaries/euskaltzaindia/oeh.json',
+    '../../dictionaries/euskaltzaindia/xxmendea.json',
+    '../../dictionaries/euskarabidea/nafarhitz.json',
+    '../../dictionaries/euskoikaskuntza/aunamendi.json',
+    '../../dictionaries/euskojaurlaritza/drogomedia.json',
+    '../../dictionaries/euskojaurlaritza/euskalterm.json',
+    '../../dictionaries/euskojaurlaritza/eve.json',
+    '../../dictionaries/euskojaurlaritza/gzh.json',
+    '../../dictionaries/euskojaurlaritza/harluxet.json',
+    '../../dictionaries/euskojaurlaritza/justizia.json',
+    '../../dictionaries/euskojaurlaritza/legebiltzarra.json',
+    '../../dictionaries/euskojaurlaritza/luret.json',
+    '../../dictionaries/euskojaurlaritza/lurhe.json',
+    '../../dictionaries/euskojaurlaritza/mokoroa.json',
+    '../../dictionaries/euskojaurlaritza/morris.json',
+    '../../dictionaries/euskojaurlaritza/zurgintza.json',
+    '../../dictionaries/feuse/feuse.json',
+    '../../dictionaries/freelang/freelang.json',
+    '../../dictionaries/gfa/imemoriak.json',
+    '../../dictionaries/glosbe/glosbe.json',
+    '../../dictionaries/herrikoak/bergara.json',
+    '../../dictionaries/herrikoak/eibar.json',
+    '../../dictionaries/kotobai/kotobai.json',
+    '../../dictionaries/kutxabank/garate.json',
+    '../../dictionaries/labayru/labayru.json',
+    '../../dictionaries/microsoft/msterm.json',
+    '../../dictionaries/mondragon/danobat.json',
+    '../../dictionaries/mozilla/transvision.json',
+    '../../dictionaries/ostadar/mendizale.json',
+    '../../dictionaries/petronor/oilgas.json',
+    '../../dictionaries/postazerrendak/itzul.json',
+    '../../dictionaries/postazerrendak/librezale.json',
+    '../../dictionaries/textreference/textreference.json',
+    '../../dictionaries/uzei/hobelex.json',
+    '../../dictionaries/uzei/idite.json',
+    '../../dictionaries/uzei/uzeisin.json',
+    '../../dictionaries/wikimedia/wikipedia.json'
+];
+
+// Function to load a single dictionary
+async function loadDictionary(path) {
+    try {
+        const response = await fetch(path);
+        const config = await response.json();
+        return new Hiztegia(config);
+    } catch (error) {
+        console.error(`Failed to load dictionary from ${path}`, error);
+    }
+}
+
+// Load all dictionaries
+async function loadAllDictionaries() {
+    for (const path of dictionaryFiles) {
+        const dictionary = await loadDictionary(path);
+        if (dictionary) {
+            dictionaries.push(dictionary);
+        }
+    }
+}
+
+// Functionn to load the categories list
+async function loadCategories() {
+    for (const dictionary of dictionaries) {
+        if (!categories.includes(dictionary.category)) {
+            categories.push(dictionary.category);
+        }
+    }
+}
 
 /* Parametrodun objektu bat URL moduan idazten du */
 
@@ -35,27 +148,24 @@ function KargatuBotoiak()
 {
 
     // baliabideak.js-n dagoen kategoria bakoitzeko
-
-    for (const kategoria of baliabideenkategoriak)
+    for (const kategoria of categories)
     {
-
         // Kategoria horretakoa den eta ezgaituta ez dagoen baliabide bakoitzeko
 
-        for (var baliabidearenizena in baliabideendatuak)
+        for (var baliabidearenizena in dictionaries)
         {
-            var baliabidea=baliabideendatuak[baliabidearenizena];
+            var baliabidea=dictionaries[baliabidearenizena];
             if ((baliabidea.category==kategoria) && (baliabidea.disabled === undefined || baliabidea.disabled === false))
             {
-
+                console.log(baliabidea);
                 // Botoia sortu
-
                 var inputa=document.createElement('input');
                 inputa.id='btn'+baliabidea.name;
                 inputa.name=baliabidea.name;
                 inputa.type='button';
                 inputa.title=baliabidea.description;
                 inputa.className='btn';
-                inputa.value=baliabidea.displayName;
+                inputa.value=baliabidea.display_name;
                 document.getElementById('EuskalbarForm').appendChild(inputa);
 
                 // Sakatzen denean, baliabidea irekiko da
@@ -122,8 +232,10 @@ function BistaratuBotoiak()
                 ctrl.style='display:none;';
 
                 // Hobespenetan aukeratuta badago edo hizkuntza bikotearekin bat badator, botoia bistaratu
-
-                if (itemak['Baliabideak'+izena]!==undefined && itemak['Baliabideak'+izena] == "1" && hizkuntzekinbat(baliabideendatuak[izena],hizkuntzabikotea))
+                console.log("izena value " + izena)
+                console.log("Showing dictionaries " + dictionaries)
+                let hiztegia = dictionaries.find(function(d) { console.log(d.name); return d.name === izena; })
+                if (itemak['Baliabideak'+izena]!==undefined && itemak['Baliabideak'+izena] == "1" && hizkuntzekinbat(hiztegia,hizkuntzabikotea))
                 {
                     ctrl.style='display:visible;';
                 }
@@ -177,249 +289,86 @@ function baliabideaireki(baliabidearenizena)
 {
 
     // Storage objektua kargatu eta aldaketak gordetzeko prestatu
-
-    var storagealortu=browser.storage.local.get();
-    storagealortu.then(function(itemak)
-    {
-        var itemberriak={};
+    var storagealortu = browser.storage.local.get();
+    storagealortu.then(function(itemak) {
+        var itemberriak = {};
 
         // Kargatu fitxen hobespenak
-
-        var FitxakBerrerabili=false;
-        var FitxakAtzean=false;
-        if (itemak['FitxakBerrerabiliHobespena']!==undefined && itemak['FitxakBerrerabiliHobespena']=="1"
-            || 'FitxakBerrerabiliHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakBerrerabiliHobespena']=="1")
-        {
-            FitxakBerrerabili=true;
+        var FitxakBerrerabili = false;
+        var FitxakAtzean = false;
+        if (itemak['FitxakBerrerabiliHobespena'] !== undefined && itemak['FitxakBerrerabiliHobespena'] == "1" ||
+            'FitxakBerrerabiliHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakBerrerabiliHobespena'] == "1") {
+            FitxakBerrerabili = true;
         }
 
-        if (itemak['FitxakAtzeanHobespena']!==undefined && itemak['FitxakAtzeanHobespena']=="1"
-            || 'FitxakAtzeanHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakAtzeanHobespena']=="1")
-        {
-            FitxakAtzean=true;
+        if (itemak['FitxakAtzeanHobespena'] !== undefined && itemak['FitxakAtzeanHobespena'] == "1" ||
+            'FitxakAtzeanHobespena' in HasierakoHobespenak && HasierakoHobespenak['FitxakAtzeanHobespena'] == "1") {
+            FitxakAtzean = true;
         }
 
         // Baliabidearen estatistiketan gehitu eta gorde
+        var hitza = document.getElementById('BilatzekoaText').value;
+        var baliabidea = dictionaries.find(function(d) { return d.name === baliabidearenizena; });
 
-        var hitza=document.getElementById('BilatzekoaText').value;
-        var baliabidea=baliabideendatuak[baliabidearenizena];
-        if (itemak['Estatistikak'+baliabidea.name]!==undefined)
-        {
-            itemberriak['Estatistikak'+baliabidea.name]=itemak['Estatistikak'+baliabidea.name]+1;
+        if (itemak['Estatistikak' + baliabidea.name] !== undefined) {
+            itemberriak['Estatistikak' + baliabidea.name] = itemak['Estatistikak' + baliabidea.name] + 1;
+        } else {
+            itemberriak['Estatistikak' + baliabidea.name] = 1;
         }
-        else
-        {
-            itemberriak['Estatistikak'+baliabidea.name]=1;
-        }
-        var storageagorde=browser.storage.local.set(itemberriak);
-        storageagorde.then(null,function(_errorea)
-        {
+
+        var storageagorde = browser.storage.local.set(itemberriak);
+        storageagorde.then(null, function(_errorea) {
             console.log('Errorea estatistikak gordetzean');
         });
 
         // Baliabidearen parametroak kargatu
-    
-        var iturburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
+        var iturburuhizkuntza = document.getElementById('HizkuntzaBikoteaSelect').value.substring(0, 2);
         var helburuhizkuntza;
-        if (document.getElementById('HizkuntzaBikoteaSelect').value.length>2)
-        {
-            helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
+        if (document.getElementById('HizkuntzaBikoteaSelect').value.length > 2) {
+            helburuhizkuntza = document.getElementById('HizkuntzaBikoteaSelect').value.substring(3);
+        } else {
+            helburuhizkuntza = document.getElementById('HizkuntzaBikoteaSelect').value.substring(0, 2);
         }
-        else
-        {
-            helburuhizkuntza=document.getElementById('HizkuntzaBikoteaSelect').value.substring(0,2);
-        }
-        var url=baliabidea.getUrl({
-            term:hitza,
-            source:iturburuhizkuntza,
-            target:helburuhizkuntza,
-        });
-        var params=baliabidea.getParams({
-            term:hitza,
-            source:iturburuhizkuntza,
-            target:helburuhizkuntza,
-        });
-        var metodoa=baliabidea.method;
-        var titulua=baliabidea.izenburua;
-        var matchurl=baliabidea.url;
-        var urlosoa='';
-        if (metodoa=='GET')
-        {
-            if (serialize(params,baliabidea.encoding)!=='')
-            {
-                urlosoa=url+'?'+serialize(params,baliabidea.encoding);
-            }
-            else
-            {
-                urlosoa=url;
-            }
-        }
-        else
-        {
-            urlosoa=url;
-        }
-        var args={
-            'url':urlosoa,
-            'active':!FitxakAtzean
-        };
-    
-        // Irekita dauden fitxak kargatu
-    
-        var tabaklortu=browser.tabs.query({currentWindow:true});
-        tabaklortu.then(function(tabak)
-        {
-    
-            // Fitxa kopurua kontatu
-    
-            var kopurua=tabak.length;
-            var tabaurkitua;
-            var tabaurkituaindizea;
-    
-            // Begiratu ea fitxa irekita dagoen (URL edo izenburua kointzidituta)
-            for (let tab of tabak)
-            {
-                if (FitxakBerrerabili)
-                {
-                    if (tab.url.indexOf(url)>=0 || tab.url.indexOf(urlosoa)>=0 || (titulua!==undefined && tab.title.indexOf(titulua)>=0))
-                    {
-                        tabaurkitua=tab.id;
-                        tabaurkituaindizea=tab.index;
-                        break;
-                    }
-                    else
-                    {
-                        if (baliabidea.title!==undefined)
-                        {
-                            for (const izenburua of baliabidea.title)
-                            {
-                                if (tab.title.indexOf(izenburua)>=0)
-                                {
-                                    tabaurkitua=tab.id;
-                                    tabaurkituaindizea=tab.index;
-                                    break;
-                                }
-                            }
-                        }                    
-                        if (matchurl!==undefined)
-                        {
-                            for (const urla of matchurl)
-                            {
-                                if (tab.url.indexOf(urla)>=0)
-                                {
-                                    tabaurkitua=tab.id;
-                                    tabaurkituaindizea=tab.index;
-                                    break;
-                                }
-                            }
-                        }                    
-                    }
-                }
-            }
-    
-            // Baliabidea ireki dagokion fitxan
-    
-            if (tabaurkitua===undefined)
-            {
-                tabaurkituaindizea=kopurua;
-            }
-            azkenbaliabidea=baliabidearenizena;
-            var tabasortu;
-        
-            // Irekita bazegoen
-        
-            if (tabaurkitua!==undefined)
-            {
 
-                // Berrerabiltzeko fitxa itxi behar den baliabideetakoa bada, itxi fitxa eta toki berean ireki berria
-        
-                if (baliabidea.berrerabiltzekoitxi)
-                {
-                    browser.tabs.remove(tabaurkitua);
-                      args.index=tabaurkituaindizea;
-                    tabasortu=browser.tabs.create(args);
-                }
-        
-                // Bestela, fitxa eguneratu
-        
-                else
-                {
-                    tabasortu=browser.tabs.update(tabaurkitua,args);
+        // Construct the URL using the Hiztegia class
+        var url = baliabidea.buildUrl(hitza, iturburuhizkuntza, helburuhizkuntza);
+
+        // Check currently open tabs
+        browser.tabs.query({ currentWindow: true }).then(function(tabs) {
+            var existingTabId;
+
+            for (let tab of tabs) {
+                let tabBaseURL = new URL(tab.url).hostname;
+                let currentBaseURL = new URL(url).hostname;
+                
+                if (tabBaseURL === currentBaseURL) {
+                    existingTabId = tab.id;
+                    break;
                 }
             }
-    
-            // Ez bazegoen irekita
-        
-            else
-            {
-        
-                // Fitxa berria ireki
-        
-                tabasortu=browser.tabs.create(args);
-            }
             
-            // Fitxa ireki ondoren
-            
-            tabasortu.then(function(fitxa)
-            {     
-    
-                // Lokalizatu zein zen fitxaren baliabidea
-        
-                var fitxarenbaliabidea=baliabideendatuak[azkenbaliabidea];
-                azkenarenidentifikadorea=fitxa.id;
-    
-                // Izenburua gorde gero kointzidentzian bilatzeko
-            
-                fitxarenbaliabidea.izenburua=fitxa.title;
-            
-                // POST motako baliabidea bada
-            
-                if (metodoa=='POST')
-                {
-            
-                    // Parametroak kargatu eta POST egingo duen script-a kargatu
-            
-                    var scriptasartu=browser.tabs.executeScript(fitxa.id,{file:"js/postdeiak.js"});
-        
-                    // Kargatu duenean
-            
-                    scriptasartu.then(function(_result){
-            
-                        // Mezua bidali hasi dedin, parametroekin
-            
-                        params=fitxarenbaliabidea.getParams({
-                            term:hitza,
-                            source:iturburuhizkuntza,
-                            target:helburuhizkuntza,
+            if (baliabidea.method === 'POST') {
+                // Fetch the data first for POST requests
+                baliabidea.fetchData(hitza, iturburuhizkuntza, helburuhizkuntza).then(data => {
+                    // Handle the fetched data here. For example, display it in the tab.
+                    // This will depend on how you want to present the data.
+                    // For simplicity, let's assume you have a function `displayDataInTab` that takes a tabId and data.
+                    if (existingTabId && FitxakBerrerabili) {
+                        displayDataInTab(existingTabId, data);
+                    } else {
+                        browser.tabs.create({ 'active': !FitxakAtzean }).then(tab => {
+                            displayDataInTab(tab.id, data);
                         });
-                        browser.tabs.sendMessage(azkenarenidentifikadorea,params);
-        
-                        // Hurrengo fitxa sortu
-
-                        HurrengoFitxaSortu();
-        
-                    // Errorea ematen badu, hurrengo fitxa sortu
-        
-                    },function(_result){
-                        HurrengoFitxaSortu();
-                    });
+                    }
+                });
+            } else {
+                // For GET requests, directly open or update the tab with the URL
+                if (existingTabId && FitxakBerrerabili) {
+                    browser.tabs.update(existingTabId, { 'url': url, 'active': !FitxakAtzean });
+                } else {
+                    browser.tabs.create({ 'url': url, 'active': !FitxakAtzean });
                 }
-            
-                // GET motako baliabidea bada
-            
-                else
-                {
-        
-                    // Hurrengo fitxa sortu
-        
-                    HurrengoFitxaSortu();
-                }
-    
-            // Errorea ematen badu, hurrengo fitxa sortu
-        
-            },function(_fitxa)
-            {
-                HurrengoFitxaSortu();
-            });
+            }
         });
     });
 }
@@ -596,11 +545,11 @@ function BaliabideakIrekiEnter(eve)
                         // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren 
     
                         fitxenbaliabideak=[];
-                        for (const kategoria of baliabideenkategoriak)
+                        for (const kategoria of categories)
                         {
-                            for (var baliabidearenizena in baliabideendatuak)
+                            for (var baliabidearenizena in dictionaries)
                             {
-                                var baliabidea =baliabideendatuak[baliabidearenizena];
+                                var baliabidea =dictionaries[baliabidearenizena];
                                 if (baliabidea.category==kategoria && (baliabidea.disabled === undefined || baliabidea.disabled === false))
                                 {
                                     var izena = baliabidea.name;
@@ -667,9 +616,9 @@ function OrriaKargatu(tab, itemak, itemberriak, tekla, izenburua ){
     // Ikusi hobespenetan eta hizkuntza bikotean zein baliabide ireki behar diren, eta horien estatistika handitu 
     
     var baliabideak=[];
-    for (var baliabideizena in baliabideendatuak)
+    for (var baliabideizena in dictionaries)
     {
-        const baliabidea = baliabideendatuak[baliabideizena];
+        const baliabidea = dictionaries[baliabideizena];
         const izena = baliabidea.name;
         const hizkuntzabikotea = document.getElementById('HizkuntzaBikoteaSelect').value;
         if (itemak['Aurreratua'+tekla+'Enter'+izena]!==undefined)
@@ -767,9 +716,13 @@ document.addEventListener('DOMContentLoaded',function()
 {
 
     // Botoiak sortu eta behar direnak bistaratu
-
-    KargatuBotoiak();
-    BistaratuBotoiak();
+    loadAllDictionaries().then(() => {
+        loadCategories().then(() => {
+            KargatuBotoiak();
+            BistaratuBotoiak();
+        });
+    });    
+    
     
     // Kutxan tekla sakatzen denean, Enter den begiratu
     document.getElementById('BilatzekoaText').addEventListener('keypress',BaliabideakIrekiEnter);
@@ -869,4 +822,7 @@ document.addEventListener('DOMContentLoaded',function()
     document.onkeydown = KeyPress; //beste teklaren bat sakatu den begiratzen du, hizkuntzak aldatzeko adibidez
 
 });
+
 })();
+
+export { categories, dictionaries };

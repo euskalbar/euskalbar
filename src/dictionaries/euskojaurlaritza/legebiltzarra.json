@@ -1,0 +1,10 @@
+{
+    "name": "legebiltzarra",
+    "display_name": "Legebiltzarra",
+    "description": "Oinarrizko hiztegi juridiko-parlamentarioa",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.legebiltzarra.eus/portal/eu/web/eusko-legebiltzarra/servicios-administrativos/diccionario-parlamentario",
+    "pairs": ["eu", "es"],
+    "method": "GET",
+    "url": "https://www.legebiltzarra.eus/portal/{opts_source}/web/eusko-legebiltzarra/bilatzailea/-/index/{opts_term}"
+}

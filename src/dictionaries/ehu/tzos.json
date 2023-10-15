@@ -1,0 +1,10 @@
+{
+    "name": "tzos",
+    "display_name": "TZOS",
+    "description": "Terminologia Zerbitzurako Online Sistema (TZOS) ",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://tzos.ehu.es/?setuilang=eu",
+    "pairs": ["eu-es", "eu-en", "eu-fr", "eu-la", "es-eu", "en-eu", "fr-eu", "la-eu"],
+    "method": "GET",
+    "url": "http://tzos.ehu.es/search/?q={opts_term}&lang={opts_source}&submit=Bilatu"
+}

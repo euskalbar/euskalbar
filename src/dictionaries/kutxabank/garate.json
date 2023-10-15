@@ -1,0 +1,101 @@
+{
+    "name": "garate",
+    "display_name": "Garate",
+    "description": "Gotzon Garate - Atsotitzak",
+    "category": "Fraseologia hiztegiak",
+    "home_page": "http://www.ametza.com/bbk/htdocs/hasiera.htm",
+    "pairs": ["eu", "es", "en", "la"],
+    "method": "POST",
+    "url": "http://www.ametza.com/cgi-bin-bb/HTMODFOR",
+    "params": [
+        {
+            "name": "ActionField",
+            "value": "exemodel"
+        },
+        {
+            "name": "$Hizkuntza",
+            "value": {
+                "eu": "E",
+                "es": "G",
+                "en": "I",
+                "la": "L"
+            }  
+        },
+        {
+            "name": "$ModelFSarrera",
+            "value": ""
+        },
+        {
+            "name": "$ModelSarrera",
+            "value": ""
+        },
+        {
+            "name": "$ModelFBila",
+            "value": ""
+        },
+        {
+            "name": "$ModelBila",
+            "value": "/bbk/htdocs/bilaketl.htm"
+        },
+        {
+            "name": "$ModelBurua",
+            "value": "/bbk/htdocs/emaiburu.htm"
+        },
+        {
+            "name": "$ModelEmaitza",
+            "value": "/bbk/htdocs/emaitza.htm"
+        },
+        {
+            "name": "$ModelBalioki",
+            "value": "/bbk/htdocs/balioki.htm"
+        },
+        {
+            "name": "$ModelFrame",
+            "value": "/bbk/htdocs/emaifram.htm"
+        },
+        {
+            "name": "$SetAplicacion",
+            "value": "BBK"
+        },
+        {
+            "name": "$CmdGetModel",
+            "value": ""
+        },
+        {
+            "name": "@20",
+            "value": ""
+        },
+        {
+            "name": "@1",
+            "value": ""
+        },
+        {
+            "name": "@01xmt^,11",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "@01,12",
+            "value": "&"
+        },
+        {
+            "name": "@01xmt^,12",
+            "value": ""
+        },
+        {
+            "name": "@01,13",
+            "value": "&"
+        },
+        {
+            "name": "@01xmt^,13",
+            "value": ""
+        },
+        {
+            "name": "@01,14",
+            "value": "&"
+        },
+        {
+            "name": "@01xmt^,14",
+            "value": ""
+        }
+    ]
+}

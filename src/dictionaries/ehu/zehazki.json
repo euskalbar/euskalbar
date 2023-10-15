@@ -1,0 +1,10 @@
+{
+    "name": "zehazki",
+    "display_name": "Zehazki",
+    "description": "Zehazki gaztelania-euskara hiztegia",
+    "category": "Corpus orokorrak",
+    "home_page": "https://www.ehu.eus/ehg/zehazki/",
+    "pairs": ["es-eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/ehg/cgi/zehazki/bila?m=has&z={opts_term}"
+}

@@ -1,0 +1,32 @@
+{
+    "name": "mokoroa",
+    "display_name": "Mokoroa",
+    "description": "Justo Mokoroaren datu-basea",
+    "category": "Fraseologia hiztegiak",
+    "home_page": "https://www.euskadi.eus/lur-hiztegi-enziklopedikoa/web01-a2lurhiz/eu/",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "POST",
+    "url": "https://www.hiru.eus/eu/hirupedia?p_auth=92TbWmV6&p_p_id=w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0&p_p_lifecycle=1&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_actionBuscar=buscarMokoroa",
+    "params": [
+        {
+            "name": "_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_mokoroaTextoCastellano",
+            "value": ""
+        },
+        {
+            "name": "_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_mokoroaTextoEuskera",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_mokoroaFuente",
+            "value": ""
+        },
+        {
+            "name": "_w25cIndexWAR_WAR_w25cIndexWARportlet_INSTANCE_nso6ubZEK4v0_mokoroaDialecto",
+            "value": "Edozein+Euskalki"
+        },
+        {
+            "name": "boton",
+            "value": "Buscar"
+        }
+    ]
+}

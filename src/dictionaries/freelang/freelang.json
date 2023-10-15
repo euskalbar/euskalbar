@@ -1,0 +1,28 @@
+{
+    "name": "freelang",
+    "display_name": "Freelang",
+    "description": "FREELANG - Dictionnaire en ligne Basque-Français-Basque",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "https://www.freelang.com/enligne/basque.php",
+    "pairs": ["eu-fr", "fr-eu"],
+    "method": "POST",
+    "url": "https://www.freelang.com/enligne/basque.php?lg=fr",
+    "params": [
+        {
+            "name": "dico",
+            "value": "fr_bas_fra"
+        },
+        {
+            "name": "mot1",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "mot2",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "entier",
+            "value": "on"
+        }
+    ]
+}

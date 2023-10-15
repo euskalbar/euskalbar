@@ -1,0 +1,10 @@
+{
+    "name": "zcp",
+    "display_name": "ZCP",
+    "description": "Zuzenbide Corpusa (ZCP)",
+    "category": "Corpus espezializatuak",
+    "home_page": "https://www.ehu.eus/ehg/zio/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/ehg/cgi/zuzenbidea/bilatu.pl?s=&S=&o=1&h=1&c=&z=&k1=1&m1=lema&h1={opts_term}&f1=&d2=1&m2=lema&h2=&f2=&d3=1&m3=lema&h3=&f3=&d4=1&m4=lema&h4=&f4=&d5=1&m5=lema&h5=&f5="
+}

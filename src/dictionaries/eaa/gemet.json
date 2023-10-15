@@ -1,0 +1,10 @@
+{
+    "name": "gemet",
+    "display_name": "GEMET",
+    "description": "GEMET - General Multilingual Environmental Thesaurus",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.eionet.europa.eu/gemet/themes",
+    "pairs": ["ar", "hy", "az", "eu", "bg", "ca", "zh-CN", "hr", "cs", "da", "nl", "en", "en-US", "et", "fi", "fr", "ka", "de", "el", "hu", "is", "ga", "it", "lv", "lt", "mt", "no", "pl", "pt", "ro", "ru", "sk", "sl", "es", "sv", "tr", "uk"],
+    "method": "GET",
+    "url": "https://www.eionet.europa.eu/gemet/{opts_source}/search/?query={opts_term}"
+}

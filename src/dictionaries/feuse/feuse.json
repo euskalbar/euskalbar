@@ -1,0 +1,20 @@
+{
+    "name": "feuse",
+    "display_name": "FEUSE",
+    "description": "FEUSEren farmazia hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://www.feuse.eus/hiztegia/",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "https://www.feuse.eus/diccionario/index.php",
+    "params": [
+        {
+            "name": "data",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "sailkapena",
+            "value": ""
+        }
+    ]
+}

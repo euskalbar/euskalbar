@@ -1,0 +1,10 @@
+{
+    "name": "xxmendea",
+    "display_name": "XX mendea",
+    "description": "Orotariko Euskal Hiztegia - OEH",
+    "category": "Corpus orokorrak",
+    "home_page": "http://xxmendea.euskaltzaindia.eus/Corpus/aurkezpena.html",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://xxmendea.euskaltzaindia.eus/Corpus/index.jsp?hasiera=true&aurreratua=false&atala=&epea=0&euskalkia=0&testu_mota=0&formalema1=lema&testu_hitza1={opts_term}&non1=0&galdera_mota1=0&btn_bilatu=Bilatu"
+}

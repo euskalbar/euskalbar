@@ -1,0 +1,10 @@
+{
+    "name": "pkc",
+    "display_name": "PKC",
+    "description": "Pentsamenduaren Klasikoak Corpusa",
+    "category": "Corpus espezializatuak",
+    "home_page": "https://www.ehu.eus/ehg/pkc/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/ehg/cgi/pkc/bilatuPkc.pl?s=&S=&o=1&z=&h=1&c=&n=liburuak&k1=1&m1=lema&h1={opts_term}&f1=&d1=1&m2=lema&h2=&f2=&d2=1&m3=lema&h3=&f3=&d3=1&m4=lema&h4=&f4=&d4=1&m5=lema&h5=&f5="
+}

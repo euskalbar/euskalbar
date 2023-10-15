@@ -1,12 +1,13 @@
 /* Hobespenetako pantailan aukerak sortzen ditu formulario batentzat
    baliabideak.js fitxategian dagoenaren arabera */
+import { categories, dictionaries } from 'euskalbar.js';
 
 function KargatuBaliabideakFormularioa(formularioa,aurrizkia)
 {
 
     // baliabideak.js-n dagoen kategoria bakoitzeko
 
-    for (const kategoria of baliabideenkategoriak)
+    for (const kategoria of categories)
     {
         // Bere izenburua sortu
 
@@ -19,9 +20,9 @@ function KargatuBaliabideakFormularioa(formularioa,aurrizkia)
         // Kategoria horretakoa den eta ezgaituta ez dagoen baliabide bakoitzeko (eta, Konbinatuen kasuan, scrap badauka soilik)
 
         var gehitutakoak=0;
-        for (var baliabidearenizena in baliabideendatuak)
+        for (var baliabidearenizena in dictionaries)
         {
-            var baliabidea=baliabideendatuak[baliabidearenizena];
+            var baliabidea=dictionaries[baliabidearenizena];
             if (baliabidea.category==kategoria && (baliabidea.disabled === undefined || baliabidea.disabled === false) && ((aurrizkia!=='AurreratuaCtrlEnter' && aurrizkia!=='AurreratuaShiftEnter') || 'scrap' in baliabidea))
             {
 

@@ -1,12 +1,12 @@
-/* Baliabideen pantailan zerrendak sortzen ditu
-   baliabideak.js fitxategian dagoenaren arabera */
+import { categories, dictionaries } from 'euskalbar.js';
+/* Baliabideen pantailan zerrendak sortzen ditu */
 
 function KargatuBaliabideak()
 {
 
     // baliabideak.js-n dagoen kategoria bakoitzeko
 
-    for (const kategoria of baliabideenkategoriak)
+    for (const kategoria of categories)
     {
 
         // Bere izenburua sortu
@@ -23,9 +23,9 @@ function KargatuBaliabideak()
         // Kategoria horretakoa den baliabide bakoitzeko
 
         var gehitutakoak=0;
-        for (var baliabidearenizena in baliabideendatuak)
+        for (var baliabidearenizena in dictionaries)
         {
-            var baliabidea=baliabideendatuak[baliabidearenizena];
+            var baliabidea=dictionaries[baliabidearenizena];
             if (baliabidea.category==kategoria)
             {
 

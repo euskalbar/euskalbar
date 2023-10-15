@@ -1,0 +1,36 @@
+{
+    "name": "corpeus",
+    "display_name": "CorpEus",
+    "description": "CorpEus - Internet euskarazko corpus gisa",
+    "category": "Corpus orokorrak",
+    "home_page": "http://corpeus.elhuyar.eus/",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "http://corpeus.elhuyar.eus/cgi-bin/kontsulta.py",
+    "params": [
+        {
+            "name": "mota",
+            "value": "arrunta"
+        },
+        {
+            "name": "baliagaiid",
+            "value": ""
+        },
+        {
+            "name": "formalema",
+            "value": "lema"
+        },
+        {
+            "name": "testu-hitza",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "analisia",
+            "value": "0000000000"
+        },
+        {
+            "name": "motorea",
+            "value": "microsoft"
+        }
+    ]
+}

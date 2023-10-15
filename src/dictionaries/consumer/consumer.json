@@ -1,0 +1,68 @@
+{
+    "name": "consumer",
+    "display_name": "Consumer",
+    "description": "Consumer corpusa",
+    "category": "Corpus eleaniztunak",
+    "home_page": "https://corpus.consumer.es/corpus",
+    "pairs": ["eu", "es", "ca", "gl"],
+    "method": "POST",
+    "url": "https://corpus.consumer.es/corpus/kontsulta",
+    "params": [
+        {
+            "name": "mota",
+            "value": "arrunta"
+        },
+        {
+            "name": "hizkuntza",
+            "value": "{opts_source}"
+        },
+        {
+            "name": "formalema",
+            "value": "lema"
+        },
+        {
+            "name": "konparazioa",
+            "value": "da"
+        },
+        {
+            "name": "testuhitza",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "kategoria",
+            "value": ""
+        },
+        {
+            "name": "hizkuntza2",
+            "value": "eu"
+        },
+        {
+            "name": "formalema2",
+            "value": "lema"
+        },
+        {
+            "name": "konparazioa2",
+            "value": "da"
+        },
+        {
+            "name": "testuhitza2",
+            "value": ""
+        },
+        {
+            "name": "kategoria2",
+            "value": ""
+        },
+        {
+            "name": "osagaietan",
+            "value": "{opts_source}"
+        },
+        {
+            "name": "grafiko_aukerak",
+            "value": "1forma"
+        },
+        {
+            "name": "grafauk",
+            "value": "1forma"
+        }
+    ]
+}

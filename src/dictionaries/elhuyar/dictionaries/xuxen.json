@@ -1,0 +1,10 @@
+{
+    "name": "xuxen",
+    "display_name": "Xuxen",
+    "description": "Xuxen euskarazko zuzentzaile ortografiko eta gramatikala",
+    "category": "Zuzentzaileak",
+    "home_page": "http://xuxen.eus/eu/home",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://xuxen.eus/xuxen/{opts_term}"
+}

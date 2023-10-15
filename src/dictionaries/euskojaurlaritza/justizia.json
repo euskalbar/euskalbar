@@ -1,0 +1,10 @@
+{
+    "name": "justizia",
+    "display_name": "Justizia",
+    "description": "Justizia hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "http://www.justizia.eus/euskara-justizian",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "GET",
+    "url": "https://www.justizia.eus/webjus00-shbuscadortraduccionesjuridicas/eu/ItzulpenJuridikoak/euskaraz-lan-egiteko.do?_charset_=UTF-8&idioma=EU&campoTexto={opts_term}&bjterm=Bilatu&idiomaBusq={opts_target}"
+}
