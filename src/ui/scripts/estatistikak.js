@@ -1,6 +1,7 @@
 /* Estatistiken pantailan estatistikak kargatzen dira
    baliabideak.js fitxategian dagoenaren arabera
    eta balioak "storage" objektutik */
+import { categories, dictionaries } from 'euskalbar.js';
 
 function KargatuEstatistikak()
 {
@@ -13,7 +14,7 @@ function KargatuEstatistikak()
 
         // baliabideak.js-n dagoen kategoria bakoitzeko
 
-        for (const kategoria of baliabideenkategoriak)
+        for (const kategoria of categories)
         {
             // Bere izenburua sortu
 
@@ -29,9 +30,9 @@ function KargatuEstatistikak()
             // Kategoria horretakoa den baliabide bakoitzeko
 
             var gehitutakoak=0;
-            for (var baliabidearenizena in baliabideendatuak)
+            for (var baliabidearenizena in dictionaries)
             {
-                var baliabidea=baliabideendatuak[baliabidearenizena];
+                var baliabidea=dictionaries[baliabidearenizena];
                 if ((baliabidea.category==kategoria) && (baliabidea.disabled === undefined || baliabidea.disabled === false))
                 {
 

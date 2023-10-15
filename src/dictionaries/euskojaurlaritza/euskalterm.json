@@ -1,0 +1,28 @@
+{
+    "name": "euskalterm",
+    "display_name": "Euskalterm",
+    "description": "Terminologia banku publikoa",
+    "category": "Hiztegi terminologiko/tekniko orokorrak",
+    "home_page": "https://www.euskadi.eus/euskalterm/",
+    "pairs": ["eu-es", "eu-fr", "eu-en", "eu-de", "eu-la", "es-eu", "fr-eu", "en-eu", "de-eu", "la-eu"],
+    "method": "POST",
+    "content_type": "application/json",
+    "url": "https://www.euskadi.eus/euskal-terminologia-banku-publikoa-3/ac36aEuskaltermWar/publiko/bilaketa?R01HNoPortal=true",
+    "params": [
+        {
+            "name": "language",
+            "value": "{opts_source}"
+        },
+        {
+            "name": "orria",
+            "value": 0
+        },
+        {
+            "name": "parametroak",
+            "value": "{opts_term}%/non-du/hizk-{opts_target}/ter-on"
+        }
+    ],
+    "transformations": {
+        "{opts_target}": "uppercase"
+    }
+}

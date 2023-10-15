@@ -1,0 +1,10 @@
+{
+    "name": "berria",
+    "display_name": "Berria estilo liburua",
+    "description": "Berria estilo liburua",
+    "category": "Estilo liburuak",
+    "home_page": "https://www.berria.eus/estiloliburua/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://www.berria.eus/estiloliburua/bilatu/s={opts_term}&d=all"
+}

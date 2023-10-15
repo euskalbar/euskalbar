@@ -1,0 +1,10 @@
+{
+    "name": "lurhe",
+    "display_name": "Lur HE",
+    "description": "Lur entziklopedia tematikoa",
+    "category": "Hiztegi entziklopedikoak",
+    "home_page": "https://www.euskadi.eus/lur-hiztegi-enziklopedikoa/web01-a2lurhiz/eu/",
+    "pairs": ["eu", "es"],
+    "method": "GET",
+    "url": "https://www.euskadi.eus/web01-a2lurhiz/{opts_source}/?r01kQry=tC:euskadi;tF:diccionario_enciclopedia;tT:termino;m:documentLanguage.EQ.{opts_source};m:documentName.LIKE.{opts_term}"
+}

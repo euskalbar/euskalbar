@@ -1,0 +1,10 @@
+{
+    "name": "nolaerran",
+    "display_name": "Nola erran",
+    "description": "Frantses-euskara hiztegi elektronikoa.",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "http://www.nolaerran.org/",
+    "pairs": ["eu-fr", "fr-eu"],
+    "method": "GET",
+    "url": "http://www.nolaerran.org/?h={opts_term}&z=lit"
+}

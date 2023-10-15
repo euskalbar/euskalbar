@@ -1,0 +1,10 @@
+{
+    "name": "elhuyar",
+    "display_name": "Elhuyar",
+    "description": "Elhuyar Hiztegia",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "https://hiztegiak.elhuyar.eus",
+    "pairs": ["eu-es", "eu-fr", "eu-en", "es-eu", "fr-eu", "en-eu"],
+    "method": "GET",
+    "url": "https://hiztegiak.elhuyar.eus/{opts_source}_{opts_target}/{opts_term}"
+}

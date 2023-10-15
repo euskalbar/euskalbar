@@ -1,0 +1,10 @@
+{
+    "name": "dabilena",
+    "display_name": "Dabilena",
+    "description": "Interneten dabilen euskara",
+    "category": "Corpus orokorrak",
+    "home_page": "https://dabilena.elhuyar.eus/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://dabilena.elhuyar.eus/fast?lema={opts_term}"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "drogomedia",
+    "display_name": "Drogomedia",
+    "description": "Euskadiko Drogamendekotasunei buruzko Dokumentazio Zentroa",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.drogomedia.com/eu/diccionarios/0-todos/",
+    "pairs": ["es-eu"],
+    "method": "GET",
+    "url": "https://www.drogomedia.com/eu/diccionarios/0-todos/"
+}

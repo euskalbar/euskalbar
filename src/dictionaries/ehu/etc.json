@@ -1,0 +1,10 @@
+{
+    "name": "etc",
+    "display_name": "ETC",
+    "description": "Egungo Testuen Corpusa (ETC)",
+    "category": "Corpus orokorrak",
+    "home_page": "http://www.ehu.eus/etc/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/etc/?bila={opts_term}"
+}

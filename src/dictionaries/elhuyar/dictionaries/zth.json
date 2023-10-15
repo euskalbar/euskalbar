@@ -1,0 +1,10 @@
+{
+    "name": "zth",
+    "display_name": "ZT hiztegia",
+    "description": "Zientzia eta Teknologiaren hiztegia",
+    "category": "Hiztegi terminologiko/tekniko orokorrak",
+    "home_page": "https://zthiztegia.elhuyar.eus/",
+    "pairs": ["eu-es", "eu-fr", "eu-en", "eu-la", "es-eu", "fr-eu", "en-eu", "la-eu"],
+    "method": "GET",
+    "url": "https://zthiztegia.elhuyar.eus/terminoa/{opts_source}/{opts_term}"
+}

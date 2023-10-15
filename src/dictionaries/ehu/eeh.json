@@ -1,0 +1,10 @@
+{
+    "name": "eeh",
+    "display_name": "EEH",
+    "description": "Egungo Euskararen Hiztegia (EEH)",
+    "category": "Hiztegi orokorrak",
+    "home_page": "https://www.ehu.eus/eeh/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/eeh/cgi/bila?z={opts_term}"
+}

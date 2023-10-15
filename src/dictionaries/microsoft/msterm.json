@@ -1,0 +1,265 @@
+{
+    "name": "mstrem",
+    "display_name": "MS Term",
+    "description": "Microsoft Terminology Search",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://learn.microsoft.com/en-us/globalization/reference/microsoft-language-resources#terminology",
+    "pairs": ["en-eu"],
+    "method": "POST",
+    "url": "https://df-msit-scus-api.analysis.windows.net/public/reports/querydata?synchronous=true",
+    "params": [
+        {
+            "name": "version",
+            "value": "1.0.0"
+        },
+        {
+            "name": "queries",
+            "value": [
+                {
+                    "Query": {
+                        "Commands": [
+                            {
+                                "SemanticQueryDataShapeCommand": {
+                                    "Query": {
+                                        "Version": 2,
+                                        "From": [
+                                            {
+                                                "Name": "t",
+                                                "Entity": "Targets",
+                                                "Type": 0
+                                            },
+                                            {
+                                                "Name": "s",
+                                                "Entity": "Source",
+                                                "Type": 0
+                                            }
+                                        ],
+                                        "Select": [
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Language"
+                                                },
+                                                "Name": "Targets.Target Language",
+                                                "NativeReferenceName": "Language"
+                                            },
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Term"
+                                                },
+                                                "Name": "Targets.Target Term",
+                                                "NativeReferenceName": "Translated Term"
+                                            },
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Part of Speech"
+                                                },
+                                                "Name": "Targets.Target Part of Speech",
+                                                "NativeReferenceName": "Part of Speech"
+                                            },
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Number"
+                                                },
+                                                "Name": "Targets.Target Number",
+                                                "NativeReferenceName": "Number"
+                                            },
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Gender"
+                                                },
+                                                "Name": "Targets.Target Gender",
+                                                "NativeReferenceName": "Gender"
+                                            },
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Product/Technology"
+                                                },
+                                                "Name": "Targets.Target Product/Technology",
+                                                "NativeReferenceName": "Product/Technology"
+                                            },
+                                            {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Target Geographical Usage"
+                                                },
+                                                "Name": "Targets.Target Geographical Usage",
+                                                "NativeReferenceName": "Target Geographical Usage"
+                                            }
+                                        ],
+                                        "Where": [
+                                            {
+                                                "Condition": {
+                                                    "Contains": {
+                                                        "Left": {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "s"
+                                                                    }
+                                                                },
+                                                                "Property": "Source Term"
+                                                            }
+                                                        },
+                                                        "Right": {
+                                                            "Literal": {
+                                                                "Value": "'{opts_term}'"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "Condition": {
+                                                    "In": {
+                                                        "Expressions": [
+                                                            {
+                                                                "Column": {
+                                                                    "Expression": {
+                                                                        "SourceRef": {
+                                                                            "Source": "t"
+                                                                        }
+                                                                    },
+                                                                    "Property": "Target Language"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "Values": [
+                                                            [
+                                                                {
+                                                                    "Literal": {
+                                                                        "Value": "'Basque'"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        ]
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "Condition": {
+                                                    "Contains": {
+                                                        "Left": {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "t"
+                                                                    }
+                                                                },
+                                                                "Property": "Target Term"
+                                                            }
+                                                        },
+                                                        "Right": {
+                                                            "Literal": {
+                                                                "Value": "'{opts_term}'"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "OrderBy": [
+                                            {
+                                                "Direction": 1,
+                                                "Expression": {
+                                                    "Column": {
+                                                        "Expression": {
+                                                            "SourceRef": {
+                                                                "Source": "t"
+                                                            }
+                                                        },
+                                                        "Property": "Target Language"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "Binding": {
+                                        "Primary": {
+                                            "Groupings": [
+                                                {
+                                                    "Projections": [
+                                                        0,
+                                                        1,
+                                                        2,
+                                                        3,
+                                                        4,
+                                                        5,
+                                                        6
+                                                    ],
+                                                    "Subtotal": 1
+                                                }
+                                            ]
+                                        },
+                                        "DataReduction": {
+                                            "DataVolume": 3,
+                                            "Primary": {
+                                                "Window": {
+                                                    "Count": 500
+                                                }
+                                            }
+                                        },
+                                        "Version": 1
+                                    },
+                                    "ExecutionMetricsKind": 1
+                                }
+                            }
+                        ]
+                    },
+                    "QueryId": "",
+                    "ApplicationContext": {
+                        "DatasetId": "4c11a9ca-787c-4e95-a6ab-352aca241f17",
+                        "Sources": [
+                            {
+                                "ReportId": "4c11a9ca-787c-4e95-a6ab-352aca241f17",
+                                "VisualId": "5354d810410e1b400ea8"
+                            }
+                            
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "cancelQueries",
+            "value": []
+        },
+        {
+            "name": "modelId",
+            "value": "4407707"
+        }
+    ]
+}

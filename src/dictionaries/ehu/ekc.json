@@ -1,0 +1,10 @@
+{
+    "name": "ekc",
+    "display_name": "EKC",
+    "description": "Euskal Klasikoen Corpusa (EKC)",
+    "category": "Corpus orokorrak",
+    "home_page": "https://www.ehu.eus/ehg/kc/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/ehg/cgi/kc/bilatu.pl?s=&S=&o=1&h=&c=&z=&k1=1&m1=lema&h1={opts_term}&d2=1&m2=lema&h2=&d3=1&m3=lema&h3=&alda=1&idazlea=&garaia=0&euskalkia=0&generoa=0"
+}

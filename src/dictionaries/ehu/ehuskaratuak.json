@@ -1,0 +1,76 @@
+{
+    "name": "ehuskaratuak",
+    "display_name": "EHUskaratuak",
+    "description": "EHUskaratuak, EHUren itzulpen-memoriak",
+    "category": "Corpus eleaniztunak",
+    "home_page": "https://ehuskaratuak.ehu.eus/",
+    "pairs": ["eu-es", "eu-en", "eu-fr", "es-eu", "fr-eu", "en-eu"],
+    "method": "POST",
+    "url": "https://ehuskaratuak.ehu.eus/bilaketa/",
+    "params": [
+        {
+            "name": "mota",
+            "value": "arrunta"
+        },
+        {
+            "name": "hizkuntza",
+            "value": "{opts_source}"
+        },
+        {
+            "name": "formalema",
+            "value": "forma"
+        },
+        {
+            "name": "testuhitza",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "kategoria",
+            "value": ""
+        },
+        {
+            "name": "alor",
+            "value": "guz"
+        },
+        {
+            "name": "azpialor",
+            "value": "guz"
+        },
+        {
+            "name": "aurreratua",
+            "value": "arrunta"
+        },
+        {
+            "name": "hizkuntza2",
+            "value": "{opts_target}"
+        },
+        {
+            "name": "formalema2",
+            "value": "forma"
+        },
+        {
+            "name": "testuhitza2",
+            "value": ""
+        },
+        {
+            "name": "kategoria2",
+            "value": ""
+        },
+        {
+            "name": "distantzia",
+            "value": "0"
+        },
+        {
+            "name": "osagaietan",
+            "value": ["es", "en", "fr", "eu"]
+        },
+        {
+            "name": "grafauk",
+            "value": "1forma"
+        },
+        {
+            "name": "grafiko_aukerak",
+            "value": "1forma"
+        }
+    ]
+}

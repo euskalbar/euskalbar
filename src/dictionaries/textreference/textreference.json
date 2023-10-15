@@ -1,0 +1,10 @@
+{
+    "name": "textreference",
+    "display_name": "TextReference",
+    "description": "Text Reference corpusa",
+    "category": "Corpus orokorrak",
+    "home_page": "http://www.textreference.com/eu/",
+    "pairs": ["eu-es", "es-eu"],
+    "method": "GET",
+    "url": "http://www.textreference.com/api/rest/search?q={opts_term}&dict={opts_source}-{opts_target}"
+}

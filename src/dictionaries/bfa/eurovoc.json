@@ -1,0 +1,28 @@
+{
+    "name": "eurovoc",
+    "display_name": "Eurovoc",
+    "description": "Tesaurus eleaniztuna",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.bizkaia.eus/eu/gaia-txantiloia/-/edukia/pl/2861/kultura/eurovoc/index.asp[interrogacion]Tem_Codigo=2861",
+    "pairs": ["eu", "es"],
+    "method:": "POST",
+    "url": "https://www.bizkaia.eus/kultura/eurovoc/busqueda.asp",
+    "params": [
+        {
+            "name": "query",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "btnBuscar",
+            "value": "Bilatu"
+        },
+        {
+            "name": "txtBuscar",
+            "value": "S"
+        },
+        {
+            "name": "idioma",
+            "value": "{opts_source}"
+        }
+    ]
+}

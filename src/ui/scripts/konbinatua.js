@@ -1,3 +1,4 @@
+import { dictionaries } from 'euskalbar.js';
 /* Parametrodun objektu bat URL moduan idazten du */
 
 function serialize(obj,encoding)
@@ -81,7 +82,7 @@ function KargatuBaliabideak(request,_sender,_sendResponse)
     let baliabideak=request['baliabideak'];
     for (const baliabide of baliabideak)
     {
-        let baliabidea=baliabideendatuak[baliabide];
+        let baliabidea=dictionaries[baliabide];
         
         if (!document.getElementById('Name'+baliabidea.name)){
             let tha=document.createElement('th');

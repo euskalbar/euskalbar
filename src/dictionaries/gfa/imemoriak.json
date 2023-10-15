@@ -1,0 +1,25 @@
+{
+    "name": "imemoriak",
+    "display_name": "iMemoriak",
+    "description": "Gipuzkoako Foru Aldundiaren itzulpenen datu basea",
+    "category": "Corpus eleaniztunak",
+    "home_page": "https://www.gipuzkoa.eus/imemoriak/",
+    "pairs": ["eu", "es"],
+    "method": "POST",
+    "url": "https://gfaapp.gipuzkoa.net/egfab/egfakontsulta_kanpServlet",
+    "params": [
+        {
+            "name": "hizkuntza",
+            "value": "{opts_source}",
+            "uppercase": true
+        },
+        {
+            "name": "galdera",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "ERAGIKETA",
+            "value": "Bilatu"
+        }
+    ]
+}

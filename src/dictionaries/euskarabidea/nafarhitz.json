@@ -1,0 +1,10 @@
+{
+    "name": "nafarhitz",
+    "display_name": "Nafar. euskalki.",
+    "description": "Nafarroako euskalkien hiztegien bilatzaile lexikoa",
+    "category": "Euskalkietako/Herrietako hiztegiak",
+    "home_page": "http://www.euskarabidea.es/euskara/nafar-hitz",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.euskarabidea.es/euskara/nafar-hitz?q={opts_term}&qh[]=B&qh[]=E&qh[]=IZ&qh[]=L&qh[]=LU&qh[]=SA"
+}

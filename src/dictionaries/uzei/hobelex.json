@@ -1,0 +1,16 @@
+{
+    "name": "hobelex",
+    "display_name": "Hobelex",
+    "description": "Euskarazko lehen lexiko-zuzentzailea",
+    "category": "Zuzentzailea",
+    "home_page": "https://uzei.eus/baliabideak/hobelex/",
+    "pairs": ["eu"],
+    "method": "POST",
+    "url": "https://uzei.eus/baliabideak/hobelex/",
+    "params": [
+        {
+            "name": "hobelex_search",
+            "value": "{opts_term}"
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "name": "eve",
+    "display_name": "EEE",
+    "description": "EEEren Energia Hiztegia",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.eve.eus/Hiztegia.aspx",
+    "pairs": ["eu", "en", "fr", "es"],
+    "method": "POST",
+    "url": "https://www.eve.eus/Hiztegia.aspx",
+    "params": [
+        {
+            "name": "lng",
+            "value": "eu-ES"
+        },
+        {
+            "name": "p$lt$ctl03$MenuSuperior$buscador",
+            "value": ""
+        },
+        {
+            "name": "p$lt$ctl03$MenuSuperior$buscador_responsive",
+            "value": ""
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$txtTerminoa",
+            "value": "{opts_term}"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$cbAmaiera",
+            "value": "on"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlHizkuntza",
+            "value": "{opts_source}"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlArloa",
+            "value": "edozein"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$gnRadios",
+            "value": "rbTerminoetan"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$btnBilatu",
+            "value": "Bilatu"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlArloaIrudientzako",
+            "value": "edozein"
+        },
+        {
+            "name": "p$lt$ctl04$pageplaceholder$p$lt$ctl00$Hiztegia$ddlArtikuluenArloa",
+            "value": "edozein"
+        }
+    ]
+}

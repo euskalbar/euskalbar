@@ -1,0 +1,10 @@
+{
+    "name": "eitb",
+    "display_name": "EITB",
+    "description": "EITB hiztegia",
+    "category": "Hiztegi orokor eleaniztunak",
+    "home_page": "https://www.eitb.eus/eu/kultura/euskara/kontsultak/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.eitb.eus/eu/get/euskera/hiztegia/{opts_term}/vacio/vacio/vacio/vacio/0/0/vacio/vacio/vacio/"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "garaterm",
+    "display_name": "Garaterm",
+    "description": "Garaterm corpusa",
+    "category": "Corpus espezializatuak",
+    "home_page": "http://garaterm-corpusa.ixa.eus/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://garaterm-corpusa.ixa.eus/search_API?query={opts_term}&type=lemma&comparation=is&search_box_type=combined&result=kwicCount&order=sortDoc&chart=form"
+}

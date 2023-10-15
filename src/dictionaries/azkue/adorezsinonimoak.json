@@ -1,0 +1,10 @@
+{
+    "name": "adorezsinonimoak",
+    "display_name": "Adorez Sinonimoak",
+    "description": "Adorez sinonimoen hiztegia",
+    "category": "Sinonimoen hiztegiak",
+    "home_page": "https://www.bostakbat.org/azkue/index.php?q=1",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://www.bostakbat.org/azkue/index.php?q=1&t={opts_term}"
+}

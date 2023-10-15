@@ -1,0 +1,10 @@
+{
+    "name": "intza",
+    "display_name": "Intza",
+    "description": "Euskal lokuzioak sarean",
+    "category": "Fraseologia hiztegiak",
+    "home_page": "https://intza.armiarma.eus/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://intza.armiarma.eus/cgi-bin/intza/bilatu2.pl?eremu1=giltzarriak&hitza1={opts_term}&eremu3=1&fitxa=1"
+}

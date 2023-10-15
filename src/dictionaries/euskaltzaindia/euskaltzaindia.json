@@ -1,0 +1,10 @@
+{
+    "name": "euskaltzaindia",
+    "display_name": "Euskaltzaindiaren Hiztegia",
+    "description": "Euskaltzaindiaren Hiztegia",
+    "category": "Hiztegi orokorrak",
+    "home_page": "https://www.euskaltzaindia.eus/index.php?option=com_hiztegianbilatu&task=hasiera&lang=eu",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.euskaltzaindia.eus/index.php?option=com_hiztegianbilatu&task=bilaketa&Itemid=&lang={opts_source}&nondik=0&zenbat=100&non=osagaiakHasi&query={opts_term}"
+}

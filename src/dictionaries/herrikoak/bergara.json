@@ -1,0 +1,20 @@
+{
+    "name": "bergara",
+    "display_name": "Bergara",
+    "description": "Bergarako Euskara Hiztegia",
+    "category": "Euskalkietako/Herrietako hiztegiak",
+    "home_page": "http://www.bergarakoeuskara.eus/hiztegia/",
+    "pairs": ["eu"],
+    "method": "POST",
+    "params": [
+        {
+            "name": "op",
+            "value": "Bilatu"
+        },
+        {
+            "name": "berbaki",
+            "value": "{opts_term}"
+        }
+    ]
+
+}

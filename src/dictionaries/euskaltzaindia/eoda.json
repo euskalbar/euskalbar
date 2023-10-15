@@ -1,0 +1,10 @@
+{
+    "name": "eoda",
+    "display_name": "EODA",
+    "description": "Euskal Onomastikaren Datutegia - EODA",
+    "category": "Hiztegi terminologiko/tekniko espezializatuak",
+    "home_page": "https://www.euskaltzaindia.eus/index.php?option=com_ecoeoda&task=bilaketaPortada&lang=eu",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.euskaltzaindia.eus/index.php?option=com_ecoeoda&task=bilaketa&Itemid=&lang={opts_source}&query={opts_term}&mota=bateratua"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "ztc",
+    "display_name": "ZT corpusa",
+    "description": "Zientzia eta Teknologiaren corpusa",
+    "category": "Corpus espezializatuak",
+    "home_page": "http://www.ztcorpusa.eus/aurkezpena.htm",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "http://www.ztcorpusa.eus/cgi-bin/kontsulta.py?testu-hitza1={opts_term}"
+}

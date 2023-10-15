@@ -1,0 +1,10 @@
+{
+    "name": "epd",
+    "display_name": "EPD",
+    "description": "Ereduzko Prosa Dinamikoa (EPD)",
+    "category": "Corpus orokorrak",
+    "home_page": "https://www.ehu.eus/ehg/epd/",
+    "pairs": ["eu"],
+    "method": "GET",
+    "url": "https://www.ehu.eus/ehg/cgi/epd/bilatu10.pl?s=&S=&o=1&h=1&z=&c-04-08=04-08&c-10-14=10-14&n=bietan&q-10-14=17-21&q-04-08=04-08&k1=1&m1=lema&h1={opts_term}&f1=&d2=1&m2=lema&h2=&f2=&d3=1&m3=lema&h3=&f3=&d4=1&m4=lema&h4=&f4=&d5=1&m5=lema&h5=&f5="
+}
